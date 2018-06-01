@@ -1,3 +1,0 @@
-{
-	"Title" : "Background Transfer Sample"
-}
