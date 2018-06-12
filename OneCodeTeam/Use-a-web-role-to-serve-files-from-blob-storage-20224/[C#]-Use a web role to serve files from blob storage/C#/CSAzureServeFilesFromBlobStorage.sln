@@ -1,0 +1,38 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CSAzureServeFilesFromBlobStorage", "CSAzureServeFilesFromBlobStorage\CSAzureServeFilesFromBlobStorage.ccproj", "{2A706908-004C-4294-ABA5-7DD81EA3E75C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServeFilesFromBlobStorageWebRole", "ServeFilesFromBlobStorageWebRole\ServeFilesFromBlobStorageWebRole.csproj", "{B2A87E2C-5553-4FCA-B56D-F10C58179A11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableStorageManager", "TableStorageManager\TableStorageManager.csproj", "{6388A38E-02A3-4295-962F-8DAA8E992A56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe", "ReadMe", "{9265014F-1810-45FD-9D86-7CBC0DA83E64}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\ReadMe.htm = Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A706908-004C-4294-ABA5-7DD81EA3E75C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A706908-004C-4294-ABA5-7DD81EA3E75C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A706908-004C-4294-ABA5-7DD81EA3E75C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A706908-004C-4294-ABA5-7DD81EA3E75C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2A87E2C-5553-4FCA-B56D-F10C58179A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2A87E2C-5553-4FCA-B56D-F10C58179A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2A87E2C-5553-4FCA-B56D-F10C58179A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2A87E2C-5553-4FCA-B56D-F10C58179A11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6388A38E-02A3-4295-962F-8DAA8E992A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6388A38E-02A3-4295-962F-8DAA8E992A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6388A38E-02A3-4295-962F-8DAA8E992A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6388A38E-02A3-4295-962F-8DAA8E992A56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
