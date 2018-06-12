@@ -1,0 +1,32 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSAddEventType", "CSAddCheckOutEventType\CSAddEventType\CSAddEventType.csproj", "{6865E70E-0428-459D-B2D2-77835BCBFF54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSCheckOutNotification", "CSAddCheckOutEventType\CSCheckOutNotification\CSCheckOutNotification.csproj", "{DE8EC704-39F4-496B-82AB-F53F6460C211}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9E535B0D-8447-465D-BE47-A9F19FF6A82A}"
+	ProjectSection(SolutionItems) = preProject
+		CSAddCheckOutEventType\Documentation\ReadMe.htm = CSAddCheckOutEventType\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6865E70E-0428-459D-B2D2-77835BCBFF54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6865E70E-0428-459D-B2D2-77835BCBFF54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6865E70E-0428-459D-B2D2-77835BCBFF54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6865E70E-0428-459D-B2D2-77835BCBFF54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8EC704-39F4-496B-82AB-F53F6460C211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8EC704-39F4-496B-82AB-F53F6460C211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8EC704-39F4-496B-82AB-F53F6460C211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8EC704-39F4-496B-82AB-F53F6460C211}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
