@@ -1,0 +1,50 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documention", "Documention", "{CDD5C635-6C13-43AC-AECB-B0494DF95C65}"
+	ProjectSection(SolutionItems) = preProject
+		CSRemoting\Documention\ReadMe.htm = CSRemoting\Documention\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe_Files", "ReadMe_Files", "{3C730AEC-A5FC-4C52-8525-0975F5D60119}"
+	ProjectSection(SolutionItems) = preProject
+		CSRemoting\Documention\ReadMe_files\colorschememapping.xml = CSRemoting\Documention\ReadMe_files\colorschememapping.xml
+		CSRemoting\Documention\ReadMe_files\filelist.xml = CSRemoting\Documention\ReadMe_files\filelist.xml
+		CSRemoting\Documention\ReadMe_files\image001.png = CSRemoting\Documention\ReadMe_files\image001.png
+		CSRemoting\Documention\ReadMe_files\image002.jpg = CSRemoting\Documention\ReadMe_files\image002.jpg
+		CSRemoting\Documention\ReadMe_files\themedata.thmx = CSRemoting\Documention\ReadMe_files\themedata.thmx
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSRemotingClient", "CSRemoting\CSRemotingClient\CSRemotingClient.csproj", "{5BD4FDF1-C917-4745-8925-07D4118120DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSRemotingServer", "CSRemoting\CSRemotingServer\CSRemotingServer.csproj", "{4EA7E870-BEB5-44E9-AB9F-C556623370F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSRemotingSharedLibrary", "CSRemoting\CSRemotingSharedLibrary\CSRemotingSharedLibrary.csproj", "{11C6CA68-5BD6-455A-808F-D3C3517ACD0C}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BD4FDF1-C917-4745-8925-07D4118120DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BD4FDF1-C917-4745-8925-07D4118120DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BD4FDF1-C917-4745-8925-07D4118120DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BD4FDF1-C917-4745-8925-07D4118120DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EA7E870-BEB5-44E9-AB9F-C556623370F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EA7E870-BEB5-44E9-AB9F-C556623370F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EA7E870-BEB5-44E9-AB9F-C556623370F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EA7E870-BEB5-44E9-AB9F-C556623370F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11C6CA68-5BD6-455A-808F-D3C3517ACD0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11C6CA68-5BD6-455A-808F-D3C3517ACD0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11C6CA68-5BD6-455A-808F-D3C3517ACD0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11C6CA68-5BD6-455A-808F-D3C3517ACD0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3C730AEC-A5FC-4C52-8525-0975F5D60119} = {CDD5C635-6C13-43AC-AECB-B0494DF95C65}
+	EndGlobalSection
+EndGlobal
