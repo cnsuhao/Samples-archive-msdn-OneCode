@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Create a TFS event listener using WCF Console Application (CSTFSEventListener)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Create a TFS event listener using WCF Console Application (CSTFSEventListener)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            TFS
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Event Listener
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/26/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSTFSEventListener-6dbeb03b">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>Console APPLICATION: CSTFSEventListener </h2>
+<p style="font-family:Courier New"></p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+The sample demonstrates how to create a TFS event listener using WCF Console <br>
+Application.<br>
+<br>
+This WCF service is used to subscribe a TFS Check-in Event. If a user checked <br>
+in a changeset which meets the filters of the subscription, TFS will call the <br>
+Notify method of this WCF service with the parameters. The Notify method will <br>
+display a message if the Changeset has policy failures. <br>
+<br>
+</p>
+<h3>Prerequisite:</h3>
+<p style="font-family:Courier New"><br>
+This sample have to run on TFS2010 Application Tier. <br>
+<br>
+To set the check-in policy and check-in a changeset, you need a machine that <br>
+Team Explorer2010 and TFS2010 PowerTools are installed on it. The machine could<br>
+be the same as TFS2010 application tier. <br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+<br>
+Build and run this WCF application.<br>
+<br>
+Step1. Open this project in &nbsp;Visual Studio 2010. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Step2. Build the solution. <br>
+<br>
+Step3. Open CSTFSEventListener.exe.config in the output folder.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Set the baseAddress of the service, like <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a target="_blank" href="&lt;a http://localhost:8732/CSTFSEventListener/EventService/">http://localhost:8732/CSTFSEventListener/EventService/</a>'&gt;<a  href="http://localhost:8732/CSTFSEventListener/EventService/">http://localhost:8732/CSTFSEventListener/EventService/</a><br>
+<br>
+Step4. Run CSTFSEventListener.exe.<br>
+<br>
+<br>
+<br>
+<br>
+Subscribe Check-in Event.<br>
+<br>
+Step1. On TFS2010 application tier, open command line and navigate to &nbsp; <br>
+&nbsp; &nbsp; &nbsp; C:\Program Files\Microsoft Team Foundation Server 2010\Tools<br>
+<br>
+Step2. Run following command in command line.<br>
+<br>
+&nbsp; &nbsp; &nbsp; BisSubscribe.exe /eventtype CheckinEvent /address <a target="_blank" href="&lt;a http://localhost:8732/CSTFSEventListener/EventService/">
+http://localhost:8732/CSTFSEventListener/EventService/</a>'&gt;<a  href="http://localhost:8732/CSTFSEventListener/EventService/">http://localhost:8732/CSTFSEventListener/EventService/</a>
+<br>
+&nbsp; &nbsp; &nbsp; /collection <a  href="http://Server:8080/tfs/collectionName">
+http://Server:8080/tfs/collectionName</a> /deliveryType Soap<br>
+<br>
+&nbsp; &nbsp; &nbsp; <br>
+You can also set the alert using Alert Explorer of TFS2010 PowerTools.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br>
+<br>
+Set Check-in policy<br>
+<br>
+Step1. Open VS and connect to the specified Project Collection and Team Project <br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; using Team Explorer.<br>
+<br>
+Step2. Right click the Team Project node in Team Explorer, and in the context menu,<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; expand Team Project Settings, select Source Control.<br>
+<br>
+Step3. In the Source Control Settings dialog, choose Check-in Policy tab and click<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &quot;Add...&quot; button. <br>
+<br>
+Step4. In the Add Check-in Policy dialog, choose &quot;Changest Comments Policy&quot; and click<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; OK. You will see a new check-in policy in the Source Control Settings dialog,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; click OK to close this dialog.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+<br>
+Check in files to fire the event.<br>
+<br>
+Step1. Open VS and connect to the specified Project Collection and Team Project <br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; using Team Explorer.<br>
+<br>
+Step2. Double click the &quot;Source Control&quot; node under the Team Project in Team Explorer.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; VS will open Source Control Explorer.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; You have to create a workspace and map a work folder.<br>
+<br>
+Step3. Check out a file of the Team Project in Source Control Explorer, open the file
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; edit it and save it. Then right click the file in Source Control Explorer, select
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &quot;Check In Pending Changes&quot;. <br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+Step4. In &quot;Policy Warning&quot; tab of the &quot;Check In&quot; dialog, you will find a message that
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &quot;Please Provide some comments about your check-in&quot;. Ignore it and continue to
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; click the &quot;Check In&quot; button to check in the file.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+Step5. VS will alert a message that &quot;Checkin cannot proceed because the policy requirement<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; have not been satisfied&quot;. Check &quot;Override policy failure and continue checkin&quot;, and type
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &quot;Test checkin event&quot; in the Reason textbox. Click OK, and then VS will check-in the<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; files. &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; <br>
+<br>
+Step6. Wait for one or two minutes, and then you will see following message in the
+<br>
+&nbsp; &nbsp; &nbsp; CSTFSEventListener.exe.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; ChangeSetChangeset 10 Check In Policy Policy Failed.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Committer : &lt;Domain&gt;\&lt;user&gt;<br>
+&nbsp; &nbsp; &nbsp; Override Comment : Test checkin event<br>
+&nbsp; &nbsp; &nbsp; Check in policy failures:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Changeset Comments Policy : Please provide some comments about your check-in<br>
+<br>
+</p>
+<h3>Code Logic:</h3>
+<p style="font-family:Courier New"><br>
+A. Define the WCF Service Contract which is used to listen TFS event.<br>
+<br>
+&nbsp; [ServiceContract(Namespace = &quot;<a  href="http://schemas.microsoft.com/TeamFoundation/2005/06/Services/Notification/03&quot;)">http://schemas.microsoft.com/TeamFoundation/2005/06/Services/Notification/03&quot;)</a>]<br>
+&nbsp; &nbsp;public interface IEventService<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp;[OperationContract(Action = &quot;<a  href="http://schemas.microsoft.com/TeamFoundation/2005/06/Services/Notification/03/Notify&quot;)">http://schemas.microsoft.com/TeamFoundation/2005/06/Services/Notification/03/Notify&quot;)</a>]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;[XmlSerializerFormat(Style = OperationFormatStyle.Document)]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;void Notify(string eventXml, string tfsIdentityXml);<br>
+&nbsp; &nbsp;}<br>
+<br>
+B. Create CheckinEventService class that implement the Service Contract.<br>
+<br>
+&nbsp; The eventXml parameter of the Notify method is serialized from a CheckinEvent object,
+<br>
+&nbsp; we can use XmlSerializer to deserialize it back to a CheckinEvent object.<br>
+&nbsp; <br>
+&nbsp; The CheckinEvent contains a PolicyFailures field from which we can determine whether
+<br>
+&nbsp; the Changeset has policy failures. <br>
+<br>
+C. Create a console application to host the WCF Service. <br>
+&nbsp; In the main method of this application, use the ServiceHost class to configure and
+<br>
+&nbsp; expose a service for use<br>
+<br>
+&nbsp; &nbsp;using (ServiceHost host = new ServiceHost(typeof(CheckinEventService)))<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp;host.Open();<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Console.WriteLine(host.BaseAddresses.First());<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Console.WriteLine(&quot;Press &lt;Enter&gt; to exit...&quot;);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Console.ReadLine();<br>
+&nbsp; &nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;In the configuration file, make sure this WCF service use wsHttpBinding and security mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is None.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;system.serviceModel&gt;<br>
+&nbsp; &nbsp;&lt;bindings&gt;<br>
+&nbsp; &nbsp; &nbsp;&lt;wsHttpBinding&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;binding name=&quot;EventService&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;security mode=&quot;None&quot;&gt;&lt;/security&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;/binding&gt;<br>
+&nbsp; &nbsp; &nbsp;&lt;/wsHttpBinding&gt;<br>
+&nbsp; &nbsp;&lt;/bindings&gt;<br>
+&nbsp; &nbsp;&lt;behaviors&gt;<br>
+&nbsp; &nbsp; &nbsp;&lt;serviceBehaviors&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;behavior name=&quot;EventServiceBehavior&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;serviceMetadata httpGetEnabled=&quot;true&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;serviceDebug includeExceptionDetailInFaults=&quot;true&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;/behavior&gt;<br>
+&nbsp; &nbsp; &nbsp;&lt;/serviceBehaviors&gt;<br>
+&nbsp; &nbsp;&lt;/behaviors&gt;<br>
+&nbsp; &nbsp;&lt;services&gt;<br>
+&nbsp; &nbsp; &nbsp;&lt;service behaviorConfiguration=&quot;EventServiceBehavior&quot; name=&quot;CSTFSEventListener.CheckinEventService&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;endpoint address=&quot;&quot; binding=&quot;wsHttpBinding&quot; bindingConfiguration=&quot;EventService&quot; contract=&quot;CSTFSEventListener.IEventService&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;endpoint address=&quot;mex&quot; binding=&quot;mexHttpBinding&quot; contract=&quot;IMetadataExchange&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;host&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;baseAddresses&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;add baseAddress=&quot;<a target="_blank" href="&lt;a http://localhost:8732/CSTFSEventListener/EventService/">http://localhost:8732/CSTFSEventListener/EventService/</a>'&gt;<a  href="http://localhost:8732/CSTFSEventListener/EventService/">http://localhost:8732/CSTFSEventListener/EventService/</a>&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/baseAddresses&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;/host&gt;<br>
+&nbsp; &nbsp; &nbsp;&lt;/service&gt;<br>
+&nbsp; &nbsp;&lt;/services&gt;<br>
+&nbsp;&lt;/system.serviceModel&gt;<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+Team Foundation Server Event Service<br>
+<a  href="http://msdn.microsoft.com/en-us/magazine/cc507647.aspx">http://msdn.microsoft.com/en-us/magazine/cc507647.aspx</a><br>
+<br>
+CheckinEvent Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/microsoft.teamfoundation.versioncontrol.common.checkinevent.aspx">http://msdn.microsoft.com/en-us/library/microsoft.teamfoundation.versioncontrol.common.checkinevent.aspx</a><br>
+<br>
+ServiceHost Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.servicemodel.servicehost.aspx">http://msdn.microsoft.com/en-us/library/system.servicemodel.servicehost.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
