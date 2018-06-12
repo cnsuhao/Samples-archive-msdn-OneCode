@@ -1,0 +1,8 @@
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\InstanceController.Interface\bin\Debug\InstanceController.Interface.dll
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\InstanceController.Interface\bin\Debug\InstanceController.Interface.pdb
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\InstanceController.Interface\bin\Debug\InstanceController.Interface.xml
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\InstanceController.Interface\obj\Debug\InstanceController.Interface.Resources.resources
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\InstanceController.Interface\obj\Debug\InstanceController.Interface.vbproj.GenerateResource.Cache
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\InstanceController.Interface\obj\Debug\InstanceController.Interface.dll
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\InstanceController.Interface\obj\Debug\InstanceController.Interface.xml
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\InstanceController.Interface\obj\Debug\InstanceController.Interface.pdb

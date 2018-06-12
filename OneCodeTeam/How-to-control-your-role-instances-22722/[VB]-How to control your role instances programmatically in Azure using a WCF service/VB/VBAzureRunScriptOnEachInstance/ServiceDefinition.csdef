@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="VBAzureRunScriptOnEachInstance" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2012-10.1.8">
+  <WorkerRole name="WorkerRole1" vmsize="Small">
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="StorageConnectionString" />
+    </ConfigurationSettings>
+    <Endpoints>
+      <InputEndpoint name="InternalEndPoint" protocol="http" port="3721" />
+    </Endpoints>
+  </WorkerRole>
+</ServiceDefinition>

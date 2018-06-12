@@ -1,0 +1,12 @@
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\VBAzureRunScriptOnEachInstance\Client\bin\Debug\Client.exe.config
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\VBAzureRunScriptOnEachInstance\Client\bin\Debug\Client.exe
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\VBAzureRunScriptOnEachInstance\Client\bin\Debug\Client.pdb
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\VBAzureRunScriptOnEachInstance\Client\bin\Debug\Client.xml
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\VBAzureRunScriptOnEachInstance\Client\bin\Debug\InstanceController.Interface.dll
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\VBAzureRunScriptOnEachInstance\Client\bin\Debug\InstanceController.Interface.pdb
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\VBAzureRunScriptOnEachInstance\Client\bin\Debug\InstanceController.Interface.xml
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\VBAzureRunScriptOnEachInstance\Client\obj\Debug\Client.Resources.resources
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\VBAzureRunScriptOnEachInstance\Client\obj\Debug\Client.vbproj.GenerateResource.Cache
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\VBAzureRunScriptOnEachInstance\Client\obj\Debug\Client.exe
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\VBAzureRunScriptOnEachInstance\Client\obj\Debug\Client.xml
+F:\Project\OnecodeDeveloping\VBAzureRunScriptOnEachInstance\VBAzureRunScriptOnEachInstance\Client\obj\Debug\Client.pdb
