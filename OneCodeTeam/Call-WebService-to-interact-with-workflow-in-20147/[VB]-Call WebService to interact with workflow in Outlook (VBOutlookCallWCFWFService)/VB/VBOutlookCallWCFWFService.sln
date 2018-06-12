@@ -1,0 +1,42 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DBOperate", "VBOutlookCallWCFWFService\DBOperate\DBOperate.vbproj", "{A3B63B5E-D8E9-4063-A29A-4E5EA562F986}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBLeaveWF", "VBOutlookCallWCFWFService\VBLeaveWF\VBLeaveWF.vbproj", "{82A422F2-3375-4910-9BDC-C070730648E6}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBWCFService", "VBOutlookCallWCFWFService\VBWCFService\VBWCFService.vbproj", "{01F7D7D6-C2E7-4276-842C-8673CD974D8F}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBOutlookCallWCFInteractWithWF", "VBOutlookCallWCFWFService\VBOutlookCallWCFInteractWithWF\VBOutlookCallWCFInteractWithWF.vbproj", "{B753401B-3784-4793-832B-92C57A356637}"
+	ProjectSection(ProjectDependencies) = postProject
+		{01F7D7D6-C2E7-4276-842C-8673CD974D8F} = {01F7D7D6-C2E7-4276-842C-8673CD974D8F}
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3B63B5E-D8E9-4063-A29A-4E5EA562F986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3B63B5E-D8E9-4063-A29A-4E5EA562F986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3B63B5E-D8E9-4063-A29A-4E5EA562F986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3B63B5E-D8E9-4063-A29A-4E5EA562F986}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82A422F2-3375-4910-9BDC-C070730648E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82A422F2-3375-4910-9BDC-C070730648E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82A422F2-3375-4910-9BDC-C070730648E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82A422F2-3375-4910-9BDC-C070730648E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01F7D7D6-C2E7-4276-842C-8673CD974D8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01F7D7D6-C2E7-4276-842C-8673CD974D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01F7D7D6-C2E7-4276-842C-8673CD974D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01F7D7D6-C2E7-4276-842C-8673CD974D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B753401B-3784-4793-832B-92C57A356637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B753401B-3784-4793-832B-92C57A356637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B753401B-3784-4793-832B-92C57A356637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B753401B-3784-4793-832B-92C57A356637}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
