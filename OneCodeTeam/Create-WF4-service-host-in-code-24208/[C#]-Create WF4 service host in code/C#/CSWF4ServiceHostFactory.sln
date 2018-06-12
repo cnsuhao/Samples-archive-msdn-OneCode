@@ -1,0 +1,21 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSWF4ServiceHostFactory", "CSWF4ServiceHostFactory\CSWF4ServiceHostFactory.csproj", "{9D78D02A-64F3-4F1E-A75A-CE0460B372CC}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D78D02A-64F3-4F1E-A75A-CE0460B372CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D78D02A-64F3-4F1E-A75A-CE0460B372CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D78D02A-64F3-4F1E-A75A-CE0460B372CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D78D02A-64F3-4F1E-A75A-CE0460B372CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
