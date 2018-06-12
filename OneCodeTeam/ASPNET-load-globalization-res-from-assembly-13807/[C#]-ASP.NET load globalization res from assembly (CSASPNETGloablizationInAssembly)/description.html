@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ASP.NET load globalization res from assembly (CSASPNETGloablizationInAssembly)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>ASP.NET load globalization res from assembly (CSASPNETGloablizationInAssembly)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Globalization, Resources
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">10/30/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETGloablizationInAsse-61b88691">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>CSASPNETGloablizationInAssembly Overview</h1>
+<h2><span>Summary</span></h2>
+<div>The code sample demonstrates loading embeded resources in an assembly based on the culture information, and use it to globalize the entire ASP.NET website.&nbsp;&nbsp;You will&nbsp;learn how&nbsp;to access resource files that has compiled in class library
+ or dll file in ASP.NET. We give an effective way to get specific resources from compiled file and then apply resource value in whole application.</div>
+<h2>Demo</h2>
+<div>Step 1: Open the CSASPNETGloablizationInAssembly.sln.</div>
+<div>Step 2: Expand the CSASPNETGloablizationInAssembly web application and press&nbsp;Ctrl &#43; F5 to show the Default.aspx.</div>
+<div>Step 3: You can see a normal web page in browser, the content of page depend on the current request culture.</div>
+<div>Step 4: At the end of default page, there is a DropDownList control. You can select the specific language you want.</div>
+<h2>Implementation</h2>
+<div>Step 1. Create a C# &quot;ASP.NET Empty Web Application&quot; in Visual Studio 2010 or Visual Web Developer 2010. Name it as &quot;CSASPNETGloablizationInAssembly&quot;.</div>
+<div>Step 2. Add one web form in the root directory, name them as &quot;Default.aspx&quot;.</div>
+<div>Step 3. Create a class library project in solution, the new class library is&nbsp;used to provide resource files for web application. Name it as&nbsp;&quot;CSASPNETGloablizationInAssemblyResource&quot;.</div>
+<div>Step 4. Add some resource files in CSASPNETGloablizationInAssemblyResource. such as LanguageResource.resx, LanguageResource.fr-fr.resx. The language&nbsp;code need embed in resource name.<br>
+&nbsp;&nbsp;<br>
+Step 5&nbsp; Please add the fields and values in resource files, such as Title, Author, Content, Link, etc. Remember put different languages&nbsp; content in related&nbsp;resource file.<br>
+&nbsp; [Note]<br>
+&nbsp;&nbsp;Please refer to sample's resource files for customizing your resources.<br>
+&nbsp;&nbsp;[/Note]</div>
+<div>Step 6. In default web page, you must get the information of resource files, and display them. The code as shown below:</div>
+<div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">    /// &lt;summary&gt;
+    /// This project class is used to access resource files from class 
+    /// library, and render the correct content with current culture.
+    /// &lt;/summary&gt;
+    public partial class Default : <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Web.UI.Page.aspx"  title="Auto generated link to System.Web.UI.Page">System.Web.UI.Page</a>
+    {
+        public string strContent = string.Empty;
+        public string strUrl = string.Empty;
+        public string strLink = string.Empty;
+        const string strBaseName = &quot;CSASPNETGloablizationInAssemblyResource.LanguageResource&quot;;
+ 
+        // Get ResourceManager instance by assembly resource type.
+        ResourceManager manager = new ResourceManager(strBaseName, typeof(LanguageResource).Assembly);
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
+            {
+                CultureInfo culture = new CultureInfo(Context.Request.UserLanguages[0]);
+ 
+                string strTitle = manager.GetString(&quot;Title&quot;, culture);
+                string strAuthor = manager.GetString(&quot;Author&quot;, culture);
+                this.strContent = manager.GetString(&quot;Content&quot;, culture);
+                this.strUrl = manager.GetString(&quot;Url&quot;, culture);
+                this.strLink = manager.GetString(&quot;Link&quot;, culture);
+                lbTitle.Text = strTitle;
+                lbAuthor.Text = strAuthor;
+            }
+        }
+ 
+        /// &lt;summary&gt;
+        /// Add built-in language items of DropDownList control.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;e&quot;&gt;&lt;/param&gt;
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            ddlLanguage.Items.Add(new ListItem(&quot;United State&quot;, &quot;en-us&quot;));
+            ddlLanguage.Items.Add(new ListItem(&quot;France&quot;, &quot;fr-fr&quot;));
+            ddlLanguage.Items.Add(new ListItem(&quot;中国&quot;, &quot;zh-cn&quot;));
+        }
+ 
+        /// &lt;summary&gt;
+        /// Change page culture and content by DropDownList SelectedValue.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;sender&quot;&gt;&lt;/param&gt;
+        /// &lt;param name=&quot;e&quot;&gt;&lt;/param&gt;
+        protected void ddlLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string languageCode = ddlLanguage.SelectedValue;
+            CultureInfo currentCulture = this.GetLanguageSpecifically(languageCode);
+            lbTitle.Text = manager.GetString(&quot;Title&quot;, currentCulture);
+            lbAuthor.Text = manager.GetString(&quot;Author&quot;, currentCulture);
+            this.strContent = manager.GetString(&quot;Content&quot;, currentCulture);
+            this.strLink = manager.GetString(&quot;Link&quot;, currentCulture);
+            this.strUrl = manager.GetString(&quot;Url&quot;, currentCulture);
+        }
+ 
+        public CultureInfo GetLanguageSpecifically(string languageCode)
+        {
+            CultureInfo culture = new CultureInfo(languageCode);
+            return culture;
+        }
+ }</pre>
+<div class="preview">
+<pre class="csharp">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;This&nbsp;project&nbsp;class&nbsp;is&nbsp;used&nbsp;to&nbsp;access&nbsp;resource&nbsp;files&nbsp;from&nbsp;class&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;library,&nbsp;and&nbsp;render&nbsp;the&nbsp;correct&nbsp;content&nbsp;with&nbsp;current&nbsp;culture.</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;/summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;partial&nbsp;<span class="cs__keyword">class</span>&nbsp;Default&nbsp;:&nbsp;System.Web.UI.Page&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">string</span>&nbsp;strContent&nbsp;=&nbsp;<span class="cs__keyword">string</span>.Empty;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">string</span>&nbsp;strUrl&nbsp;=&nbsp;<span class="cs__keyword">string</span>.Empty;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">string</span>&nbsp;strLink&nbsp;=&nbsp;<span class="cs__keyword">string</span>.Empty;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">const</span>&nbsp;<span class="cs__keyword">string</span>&nbsp;strBaseName&nbsp;=&nbsp;<span class="cs__string">&quot;CSASPNETGloablizationInAssemblyResource.LanguageResource&quot;</span>;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Get&nbsp;ResourceManager&nbsp;instance&nbsp;by&nbsp;assembly&nbsp;resource&nbsp;type.</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ResourceManager&nbsp;manager&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;ResourceManager(strBaseName,&nbsp;<span class="cs__keyword">typeof</span>(LanguageResource).Assembly);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">protected</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Page_Load(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(!Page.IsPostBack)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CultureInfo&nbsp;culture&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;CultureInfo(Context.Request.UserLanguages[<span class="cs__number">0</span>]);&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;strTitle&nbsp;=&nbsp;manager.GetString(<span class="cs__string">&quot;Title&quot;</span>,&nbsp;culture);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;strAuthor&nbsp;=&nbsp;manager.GetString(<span class="cs__string">&quot;Author&quot;</span>,&nbsp;culture);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.strContent&nbsp;=&nbsp;manager.GetString(<span class="cs__string">&quot;Content&quot;</span>,&nbsp;culture);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.strUrl&nbsp;=&nbsp;manager.GetString(<span class="cs__string">&quot;Url&quot;</span>,&nbsp;culture);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.strLink&nbsp;=&nbsp;manager.GetString(<span class="cs__string">&quot;Link&quot;</span>,&nbsp;culture);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lbTitle.Text&nbsp;=&nbsp;strTitle;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lbAuthor.Text&nbsp;=&nbsp;strAuthor;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;Add&nbsp;built-in&nbsp;language&nbsp;items&nbsp;of&nbsp;DropDownList&nbsp;control.</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;/summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;param&nbsp;name=&quot;e&quot;&gt;&lt;/param&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">protected</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;OnInit(EventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">base</span>.OnInit(e);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ddlLanguage.Items.Add(<span class="cs__keyword">new</span>&nbsp;ListItem(<span class="cs__string">&quot;United&nbsp;State&quot;</span>,&nbsp;<span class="cs__string">&quot;en-us&quot;</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ddlLanguage.Items.Add(<span class="cs__keyword">new</span>&nbsp;ListItem(<span class="cs__string">&quot;France&quot;</span>,&nbsp;<span class="cs__string">&quot;fr-fr&quot;</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ddlLanguage.Items.Add(<span class="cs__keyword">new</span>&nbsp;ListItem(<span class="cs__string">&quot;中国&quot;</span>,&nbsp;<span class="cs__string">&quot;zh-cn&quot;</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;Change&nbsp;page&nbsp;culture&nbsp;and&nbsp;content&nbsp;by&nbsp;DropDownList&nbsp;SelectedValue.</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;/summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;param&nbsp;name=&quot;sender&quot;&gt;&lt;/param&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;param&nbsp;name=&quot;e&quot;&gt;&lt;/param&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">protected</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;ddlLanguage_SelectedIndexChanged(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;languageCode&nbsp;=&nbsp;ddlLanguage.SelectedValue;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CultureInfo&nbsp;currentCulture&nbsp;=&nbsp;<span class="cs__keyword">this</span>.GetLanguageSpecifically(languageCode);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lbTitle.Text&nbsp;=&nbsp;manager.GetString(<span class="cs__string">&quot;Title&quot;</span>,&nbsp;currentCulture);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lbAuthor.Text&nbsp;=&nbsp;manager.GetString(<span class="cs__string">&quot;Author&quot;</span>,&nbsp;currentCulture);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.strContent&nbsp;=&nbsp;manager.GetString(<span class="cs__string">&quot;Content&quot;</span>,&nbsp;currentCulture);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.strLink&nbsp;=&nbsp;manager.GetString(<span class="cs__string">&quot;Link&quot;</span>,&nbsp;currentCulture);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.strUrl&nbsp;=&nbsp;manager.GetString(<span class="cs__string">&quot;Url&quot;</span>,&nbsp;currentCulture);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;CultureInfo&nbsp;GetLanguageSpecifically(<span class="cs__keyword">string</span>&nbsp;languageCode)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CultureInfo&nbsp;culture&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;CultureInfo(languageCode);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;culture;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">Step 7. Build the application and you can debug it.</div>
+<div class="endscriptcode"></div>
+<h2 class="endscriptcode">References</h2>
+<div class="endscriptcode">
+<p>MSDN: ResourceManager Class<br>
+<a href="http://msdn.microsoft.com/en-us/library/system.resources.resourcemanager.aspx">http://msdn.microsoft.com/en-us/library/system.resources.resourcemanager.aspx</a></p>
+<p>MSDN: Assembly Class<br>
+<a href="http://msdn.microsoft.com/en-us/library/system.reflection.assembly.aspx">http://msdn.microsoft.com/en-us/library/system.reflection.assembly.aspx</a></p>
+<p>MSDN: CultureInfo Class<br>
+<a href="http://msdn.microsoft.com/en-us/library/system.globalization.cultureinfo.aspx">http://msdn.microsoft.com/en-us/library/system.globalization.cultureinfo.aspx</a></p>
+</div>
+<div class="endscriptcode"><br>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png" alt=""></a></div>
+</div>
+</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
