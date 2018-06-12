@@ -1,0 +1,67 @@
+﻿<!-- This page should be set as Embedded Resource-->
+    
+    <ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VBWindowsStoreAppLoadVisualStateManager">
+
+    <!-- Visual states reflect the application's view state -->
+    <VisualStateGroup x:Name="ApplicationViewStates">
+        <VisualState x:Name="FullScreenLandscape"/>
+        <VisualState x:Name="Filled"/>
+
+        <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
+        <VisualState x:Name="FullScreenPortrait">
+            <Storyboard>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="contentRoot">
+                    <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                            <Thickness>20,20,20,20</Thickness>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+
+            </Storyboard>
+        </VisualState>
+
+        <!-- The back button and title have different styles when snapped -->
+        <VisualState x:Name="Snapped">
+            <Storyboard>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FullScreenViewBox" Storyboard.TargetProperty="Visibility">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                </ObjectAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SnapViewBox" Storyboard.TargetProperty="Visibility">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                </ObjectAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="titleGrid" Storyboard.TargetProperty="Visibility">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                </ObjectAnimationUsingKeyFrames>
+
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="contentRoot">
+                    <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                            <Thickness>20,20,20,20</Thickness>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)" Storyboard.TargetName="FooterPanel">
+                    <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                            <HorizontalAlignment>Left</HorizontalAlignment>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Row)" Storyboard.TargetName="FooterPanel">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="2"/>
+                </ObjectAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Column)" Storyboard.TargetName="FooterPanel">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="0"/>
+                </ObjectAnimationUsingKeyFrames>
+
+            </Storyboard>
+        </VisualState>
+    </VisualStateGroup>
+
+</ResourceDictionary>
