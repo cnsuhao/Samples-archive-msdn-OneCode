@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>3a416b0f-0f42-4883-8039-47a12eccc863</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>79f91db1-9ca5-46d1-98aa-4956491beee6</UniqueIdentifier>
+    </Filter>
+    <Page Include="Common\StandardStyles.xaml">
+      <Filter>Common</Filter>
+    </Page>
+    <Image Include="Assets\Logo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{fda4bef0-9a54-4b45-9099-54b4c54fc601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation\ReadMe_files">
+      <UniqueIdentifier>{3098b06e-35ef-43a2-aa8b-67defc1b0cee}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Common\LayoutAwarePage.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\SuspensionManager.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="MainPage.xaml.h" />
+    <ClInclude Include="Common\LayoutAwarePage.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\SuspensionManager.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CppWindowsStoreAppDynamicFontsize_TemporaryKey.pfx" />
+    <None Include="Documentation\ReadMe_files\themedata.thmx">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </None>
+    <None Include="Documentation\ReadMe.htm">
+      <Filter>Documentation</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Common\ReadMe.txt">
+      <Filter>Common</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Microsoft.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\TileLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image001.png">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image002.jpg">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image003.png">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image004.jpg">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Documentation\ReadMe_files\colorschememapping.xml">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Xml>
+    <Xml Include="Documentation\ReadMe_files\filelist.xml">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>
