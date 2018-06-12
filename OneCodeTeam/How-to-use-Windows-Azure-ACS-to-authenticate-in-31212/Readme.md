@@ -1,0 +1,772 @@
+# How to use Windows Azure ACS to authenticate in WPF application
+## Requires
+* Visual Studio 2013
+## License
+* Apache License, Version 2.0
+## Technologies
+* Security
+* Microsoft Azure
+* Cloud
+* Access Control Service (ACS)
+## Topics
+* Azure
+## IsPublished
+* True
+## ModifiedDate
+* 2014-10-07 07:57:15
+## Description
+
+<h1>
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode"><img src="http://bit.ly/onecodesampletopbanner" alt=""></a></div>
+</h1>
+<h1><strong>Use Windows Azure Access Control Service with WPF and WCF web service (CSAzureACSAuthInWPF)</strong></h1>
+<h2><strong>Introduction</strong></h2>
+<p>Windows Azure Access Control Service integrates WIF, so ASP.NET developers can easily create Claims-Aware Application by Identity and Access extension. But for C/S application, developers can&rsquo;t&nbsp; add STS reference to their client, it&rsquo;s harder
+ to use ACS with client application and web service.</p>
+<p>This article and the attached code samples demonstrate how to use Azure ACS work with third part Identity provider such as google, yahoo. You can find the answers for all the following questions in the code sample:</p>
+<p>How to use third part IDP such as google, yahoo in WPF.</p>
+<p>How to get RP's claims information in WPF client app.</p>
+<p>How to desterilize security token provided by google or yahoo.</p>
+<p>How to secure a web service using Windows Azure ACS.</p>
+<p>How to verify SWT issued by the specific realm in Windows Azure ACS.</p>
+<h2><strong>Running the Sample</strong></h2>
+<p>You should do the steps below before running the code sample.</p>
+<p>Step 1: To configure the REST web service as a relying party</p>
+<ol>
+<li>Go to the&nbsp;<a href="http://go.microsoft.com/fwlink/p/?LinkID=275081">Windows Azure Management Portal</a>, sign in, and then click&nbsp;<strong>Active Directory</strong>.
+</li><li>To manage an Access Control namespace, select the namespace, and then click&nbsp;<strong>Manage</strong>. (Or, click&nbsp;<strong>Access Control Namespaces</strong>, select the namespace, and then click&nbsp;<strong>Manage</strong>.)
+</li><li>In the&nbsp;<strong>Trust Relationships</strong>&nbsp;section, click&nbsp;<strong>Relying Party Applications</strong>.
+</li><li>On the&nbsp;<strong>Relying Party Applications</strong>&nbsp;page, click&nbsp;<strong>Add link</strong>. The&nbsp;<strong>Add Relying Party Application
+</strong>page opens. </li><li>In the&nbsp;<strong>Relying Party Application Settings</strong>&nbsp;section, make the following selections:
+</li></ol>
+<ul>
+<li><strong>Name</strong>&mdash;Specify a display name for this relying party, for example,&nbsp;CSAzureACSAuthInWPF.
+</li><li><strong>Mode</strong>&mdash;Select the&nbsp;<strong>Enter settings manually</strong>&nbsp;option.
+</li><li><strong>o&nbsp;&nbsp;&nbsp; </strong><strong>Realm</strong>&mdash;Specify the realm of your WCF service, for example,&nbsp;<a href="http://localhost:12526/RESTUserService.svc">http://localhost:12526/RESTUserService.svc</a><strong>.
+</strong><strong>&nbsp;</strong> </li><li><strong>Return URL</strong>&mdash;Leave blank. </li><li><strong>Error URL</strong>&mdash;Leave blank. </li><li><strong>Token format</strong>&mdash;Select the&nbsp;<strong>SWT</strong>&nbsp;option.
+</li><li><strong>Token lifetime (secs)</strong>&mdash;Leave the default of 600 seconds.
+</li></ul>
+<ol>
+<li>In the&nbsp;<strong>Authentication Settings</strong>&nbsp;section, make the following selections:
+</li></ol>
+<ul>
+<li><strong>Identity providers</strong>&mdash;checke google and yahoo. </li><li><strong>Rule groups</strong>&mdash;Select the&nbsp;<strong>Create New Rule Group</strong>&nbsp;option.
+</li></ul>
+<ol>
+<li>In the&nbsp;<strong>Token Signing Settings</strong>&nbsp;section, make the following selections:
+</li></ol>
+<ul>
+<li><strong>Token signing</strong>&mdash;Select the&nbsp;<strong>Use a dedicated certificate</strong>&nbsp;option.
+</li><li><strong>Token signing key</strong>&mdash;To generate 256&ndash;bit symmetric key, click&nbsp;<strong>Generate</strong>.
+</li><li><strong>Effective date</strong>&mdash;specify the key&rsquo;s effective date.
+</li><li><strong>Expiration date</strong>&mdash;specify the key&rsquo;s expiration date.
+</li></ul>
+<ol>
+<li>Click&nbsp;<strong>Save</strong>. </li></ol>
+<p>Saving your project will also trigger the creation of a rule group. Now you need to add rules in the rule group.</p>
+<p>&nbsp;</p>
+<p>Step 2: Change parameters to your own in below files.</p>
+<ol>
+<li>CSAzureACSAuthInWPF\ App.xaml.cs file. </li><li>SecurityModule\ SWTModule.cs. </li></ol>
+<h2><strong>Using the Code</strong></h2>
+<p>The code sample provides the following functions to resolve the questions above.</p>
+<p><strong>How to use third part IDP such as google, yahoo in WPF.</strong></p>
+<p><strong></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">private void GetIdentityProviders()
+        {
+            {
+                Uri identityProviderDiscovery = new Uri(
+                    string.Format(CultureInfo.InvariantCulture,
+                        &quot;https://{0}.{1}/v2/metadata/IdentityProviders.js?protocol=javascriptnotify&amp;realm={2}&amp;version=1.0&quot;,
+                        App.serviceNamespace,
+                        App.acsHostUrl,
+                        HttpUtility.UrlEncode(App.realm)),
+                        UriKind.Absolute
+                    );
+
+                WebClient webClient = new WebClient();
+                webClient.DownloadStringCompleted &#43;= new DownloadStringCompletedEventHandler(WebClientDownloadStringCompleted);
+                webClient.DownloadStringAsync(identityProviderDiscovery);
+            }
+        }
+private void WebClientDownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            using (MemoryStream ms = new MemoryStream(Encoding.Unicode.GetBytes(e.Result)))
+            {
+                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(IdentityProviderInfo[]));
+                ipCollection = serializer.ReadObject(ms) as IEnumerable&lt;IdentityProviderInfo&gt;;
+                foreach (var item in ipCollection)
+                {
+                    switch (item.Name)
+                    {
+                        case &quot;Google&quot;:
+                            btnGoogle.Visibility = Visibility.Visible; break;
+                        case &quot;Yahoo!&quot;:
+                            btnYahoo.Visibility = Visibility.Visible; break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">private</span><span class="cs__keyword">void</span>&nbsp;GetIdentityProviders()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uri&nbsp;identityProviderDiscovery&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;Uri(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>.Format(CultureInfo.InvariantCulture,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__string">&quot;https://{0}.{1}/v2/metadata/IdentityProviders.js?protocol=javascriptnotify&amp;realm={2}&amp;version=1.0&quot;</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;App.serviceNamespace,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;App.acsHostUrl,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HttpUtility.UrlEncode(App.realm)),&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UriKind.Absolute&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WebClient&nbsp;webClient&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;WebClient();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webClient.DownloadStringCompleted&nbsp;&#43;=&nbsp;<span class="cs__keyword">new</span>&nbsp;DownloadStringCompletedEventHandler(WebClientDownloadStringCompleted);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webClient.DownloadStringAsync(identityProviderDiscovery);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+<span class="cs__keyword">private</span><span class="cs__keyword">void</span>&nbsp;WebClientDownloadStringCompleted(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;DownloadStringCompletedEventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">using</span>&nbsp;(MemoryStream&nbsp;ms&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;MemoryStream(Encoding.Unicode.GetBytes(e.Result)))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataContractJsonSerializer&nbsp;serializer&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;DataContractJsonSerializer(<span class="cs__keyword">typeof</span>(IdentityProviderInfo[]));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ipCollection&nbsp;=&nbsp;serializer.ReadObject(ms)&nbsp;<span class="cs__keyword">as</span>&nbsp;IEnumerable&lt;IdentityProviderInfo&gt;;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">foreach</span>&nbsp;(var&nbsp;item&nbsp;<span class="cs__keyword">in</span>&nbsp;ipCollection)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">switch</span>&nbsp;(item.Name)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">case</span><span class="cs__string">&quot;Google&quot;</span>:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btnGoogle.Visibility&nbsp;=&nbsp;Visibility.Visible;&nbsp;<span class="cs__keyword">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">case</span><span class="cs__string">&quot;Yahoo!&quot;</span>:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btnYahoo.Visibility&nbsp;=&nbsp;Visibility.Visible;&nbsp;<span class="cs__keyword">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">default</span>:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"><strong>How to get RP's claims information in WPF client app.</strong></div>
+<div class="endscriptcode"><strong>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">[System.Runtime.InteropServices.ComVisibleAttribute(true)]
+       public class HtmlInteropClass
+       {
+           public void Notify(string jsonToken)
+           {
+               string decodedSwt = getDeserializedToken(jsonToken);
+               var query = from claim in decodedSwt.Split('&amp;')
+                           where claim.Contains(ClaimTypes.Email)
+                           let parts = claim.Split('=')
+                           select new { ClaimType = parts[0], Value = parts[1] };
+
+
+               if (query.Count() &gt; 0)
+               {
+                   Settings.Default.CustomerEmail = query.Single().Value;
+               }
+
+               Settings.Default.Save();
+               foreach (var window in Application.Current.Windows)
+               {
+                   if (window as Login != null)
+                   {
+                       ((Login)window).Close();
+                       ((MainWindow)Application.Current.MainWindow).stateCheck();
+                   }
+               }
+           }
+</pre>
+<div class="preview">
+<pre class="csharp">[System.Runtime.InteropServices.ComVisibleAttribute(<span class="cs__keyword">true</span>)]&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span><span class="cs__keyword">class</span>&nbsp;HtmlInteropClass&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span><span class="cs__keyword">void</span>&nbsp;Notify(<span class="cs__keyword">string</span>&nbsp;jsonToken)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;decodedSwt&nbsp;=&nbsp;getDeserializedToken(jsonToken);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;query&nbsp;=&nbsp;from&nbsp;claim&nbsp;<span class="cs__keyword">in</span>&nbsp;decodedSwt.Split(<span class="cs__string">'&amp;'</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;claim.Contains(ClaimTypes.Email)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;parts&nbsp;=&nbsp;claim.Split(<span class="cs__string">'='</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select&nbsp;<span class="cs__keyword">new</span>&nbsp;{&nbsp;ClaimType&nbsp;=&nbsp;parts[<span class="cs__number">0</span>],&nbsp;Value&nbsp;=&nbsp;parts[<span class="cs__number">1</span>]&nbsp;};&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(query.Count()&nbsp;&gt;&nbsp;<span class="cs__number">0</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Settings.Default.CustomerEmail&nbsp;=&nbsp;query.Single().Value;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Settings.Default.Save();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">foreach</span>&nbsp;(var&nbsp;window&nbsp;<span class="cs__keyword">in</span>&nbsp;Application.Current.Windows)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(window&nbsp;<span class="cs__keyword">as</span>&nbsp;Login&nbsp;!=&nbsp;<span class="cs__keyword">null</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((Login)window).Close();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((MainWindow)Application.Current.MainWindow).stateCheck();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"><strong>How to desterilize security token provided by google or yahoo.</strong></div>
+<div class="endscriptcode"><strong>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">private string getDeserializedToken(string jsonToken)
+           {
+               int start = jsonToken.IndexOf(&quot;aHR0c&quot;);
+               int end = jsonToken.IndexOf(&quot;&amp;lt;/wsse&quot;);
+
+
+               string tokenBase64 = jsonToken.Substring(start, (end - start));
+               byte[] b = Convert.FromBase64String(tokenBase64);
+               //This is the SWT security module need.
+               Settings.Default.SWT = System.Text.Encoding.UTF8.GetString(b);
+
+               //Need URLDecode to get emailAddress claim value.
+               return HttpUtility.UrlDecode(System.Text.Encoding.UTF8.GetString(b));
+
+           }
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">private</span><span class="cs__keyword">string</span>&nbsp;getDeserializedToken(<span class="cs__keyword">string</span>&nbsp;jsonToken)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">int</span>&nbsp;start&nbsp;=&nbsp;jsonToken.IndexOf(<span class="cs__string">&quot;aHR0c&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">int</span>&nbsp;end&nbsp;=&nbsp;jsonToken.IndexOf(<span class="cs__string">&quot;&amp;lt;/wsse&quot;</span>);&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;tokenBase64&nbsp;=&nbsp;jsonToken.Substring(start,&nbsp;(end&nbsp;-&nbsp;start));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">byte</span>[]&nbsp;b&nbsp;=&nbsp;Convert.FromBase64String(tokenBase64);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//This&nbsp;is&nbsp;the&nbsp;SWT&nbsp;security&nbsp;module&nbsp;need.</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Settings.Default.SWT&nbsp;=&nbsp;System.Text.Encoding.UTF8.GetString(b);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//Need&nbsp;URLDecode&nbsp;to&nbsp;get&nbsp;emailAddress&nbsp;claim&nbsp;value.</span><span class="cs__keyword">return</span>&nbsp;HttpUtility.UrlDecode(System.Text.Encoding.UTF8.GetString(b));&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"><strong>How to secure a web service using Windows Azure ACS.</strong></div>
+<div class="endscriptcode"><strong>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">class SWTModule : IHttpModule
+   {
+       //USE CONFIGURATION FILE, WEB.CONFIG, TO MANAGE THIS DATA
+       string serviceNamespace = &quot;your namespace&quot;; //Access Control Namespaces
+       string acsHostName = &quot;accesscontrol.windows.net&quot;;
+       string trustedTokenPolicyKey = &quot;your signing key&quot;;//You generated this key in read me Running the Sample step 1.7.
+       string trustedAudience = &quot;your realm&quot;;//In this example it should be http://localhost:12526/RESTUserService.svc
+
+
+       void IHttpModule.Dispose()
+       {
+
+       }
+
+       void IHttpModule.Init(HttpApplication context)
+       {
+           context.BeginRequest &#43;= new EventHandler(context_BeginRequest);
+       }
+
+       void context_BeginRequest(object sender, EventArgs e)
+       {
+           // HANDLE SWT TOKEN VALIDATION
+           // get the authorization header
+           string headerValue = HttpContext.Current.Request.Headers.Get(&quot;Authorization&quot;);
+
+           // Check that a value is there
+           if (string.IsNullOrEmpty(headerValue))
+           {
+               throw new ApplicationException(&quot;unauthorized&quot;);
+           }
+
+           // Check that it starts with 'WRAP'
+           if (!headerValue.StartsWith(&quot;WRAP &quot;))
+           {
+               throw new ApplicationException(&quot;unauthorized&quot;);
+           }
+
+           string[] nameValuePair = headerValue.Substring(&quot;WRAP &quot;.Length).Split(new char[] { '=' }, 2);
+
+           if (nameValuePair.Length != 2 ||
+               nameValuePair[0] != &quot;access_token&quot; ||
+               !nameValuePair[1].StartsWith(&quot;\&quot;&quot;) ||
+               !nameValuePair[1].EndsWith(&quot;\&quot;&quot;))
+           {
+               throw new ApplicationException(&quot;unauthorized&quot;);
+           }
+
+           // Trim off the leading and trailing double-quotes
+           string token = nameValuePair[1].Substring(1, nameValuePair[1].Length - 2);
+
+           // Create a token validator
+           TokenValidator validator = new TokenValidator(
+               this.acsHostName,
+               this.serviceNamespace,
+               this.trustedAudience,
+               this.trustedTokenPolicyKey);
+
+           // Validate the token
+           if (!validator.Validate(token))
+           {
+               throw new ApplicationException(&quot;unauthorized&quot;);
+           }
+
+       }
+   }
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">class</span>&nbsp;SWTModule&nbsp;:&nbsp;IHttpModule&nbsp;
+&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//USE&nbsp;CONFIGURATION&nbsp;FILE,&nbsp;WEB.CONFIG,&nbsp;TO&nbsp;MANAGE&nbsp;THIS&nbsp;DATA</span><span class="cs__keyword">string</span>&nbsp;serviceNamespace&nbsp;=&nbsp;<span class="cs__string">&quot;your&nbsp;namespace&quot;</span>;&nbsp;<span class="cs__com">//Access&nbsp;Control&nbsp;Namespaces</span><span class="cs__keyword">string</span>&nbsp;acsHostName&nbsp;=&nbsp;<span class="cs__string">&quot;accesscontrol.windows.net&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;trustedTokenPolicyKey&nbsp;=&nbsp;<span class="cs__string">&quot;your&nbsp;signing&nbsp;key&quot;</span>;<span class="cs__com">//You&nbsp;generated&nbsp;this&nbsp;key&nbsp;in&nbsp;read&nbsp;me&nbsp;Running&nbsp;the&nbsp;Sample&nbsp;step&nbsp;1.7.</span><span class="cs__keyword">string</span>&nbsp;trustedAudience&nbsp;=&nbsp;<span class="cs__string">&quot;your&nbsp;realm&quot;</span>;<span class="cs__com">//In&nbsp;this&nbsp;example&nbsp;it&nbsp;should&nbsp;be&nbsp;http://localhost:12526/RESTUserService.svc</span><span class="cs__keyword">void</span>&nbsp;IHttpModule.Dispose()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">void</span>&nbsp;IHttpModule.Init(HttpApplication&nbsp;context)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.BeginRequest&nbsp;&#43;=&nbsp;<span class="cs__keyword">new</span>&nbsp;EventHandler(context_BeginRequest);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">void</span>&nbsp;context_BeginRequest(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;HANDLE&nbsp;SWT&nbsp;TOKEN&nbsp;VALIDATION</span><span class="cs__com">//&nbsp;get&nbsp;the&nbsp;authorization&nbsp;header</span><span class="cs__keyword">string</span>&nbsp;headerValue&nbsp;=&nbsp;HttpContext.Current.Request.Headers.Get(<span class="cs__string">&quot;Authorization&quot;</span>);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Check&nbsp;that&nbsp;a&nbsp;value&nbsp;is&nbsp;there</span><span class="cs__keyword">if</span>&nbsp;(<span class="cs__keyword">string</span>.IsNullOrEmpty(headerValue))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">throw</span><span class="cs__keyword">new</span>&nbsp;ApplicationException(<span class="cs__string">&quot;unauthorized&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Check&nbsp;that&nbsp;it&nbsp;starts&nbsp;with&nbsp;'WRAP'</span><span class="cs__keyword">if</span>&nbsp;(!headerValue.StartsWith(<span class="cs__string">&quot;WRAP&nbsp;&quot;</span>))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">throw</span><span class="cs__keyword">new</span>&nbsp;ApplicationException(<span class="cs__string">&quot;unauthorized&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>[]&nbsp;nameValuePair&nbsp;=&nbsp;headerValue.Substring(<span class="cs__string">&quot;WRAP&nbsp;&quot;</span>.Length).Split(<span class="cs__keyword">new</span><span class="cs__keyword">char</span>[]&nbsp;{&nbsp;<span class="cs__string">'='</span>&nbsp;},&nbsp;<span class="cs__number">2</span>);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(nameValuePair.Length&nbsp;!=&nbsp;<span class="cs__number">2</span>&nbsp;||&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nameValuePair[<span class="cs__number">0</span>]&nbsp;!=&nbsp;<span class="cs__string">&quot;access_token&quot;</span>&nbsp;||&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!nameValuePair[<span class="cs__number">1</span>].StartsWith(<span class="cs__string">&quot;\&quot;&quot;</span>)&nbsp;||&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!nameValuePair[<span class="cs__number">1</span>].EndsWith(<span class="cs__string">&quot;\&quot;&quot;</span>))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">throw</span><span class="cs__keyword">new</span>&nbsp;ApplicationException(<span class="cs__string">&quot;unauthorized&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Trim&nbsp;off&nbsp;the&nbsp;leading&nbsp;and&nbsp;trailing&nbsp;double-quotes</span><span class="cs__keyword">string</span>&nbsp;token&nbsp;=&nbsp;nameValuePair[<span class="cs__number">1</span>].Substring(<span class="cs__number">1</span>,&nbsp;nameValuePair[<span class="cs__number">1</span>].Length&nbsp;-&nbsp;<span class="cs__number">2</span>);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Create&nbsp;a&nbsp;token&nbsp;validator</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TokenValidator&nbsp;validator&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;TokenValidator(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.acsHostName,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.serviceNamespace,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.trustedAudience,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.trustedTokenPolicyKey);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Validate&nbsp;the&nbsp;token</span><span class="cs__keyword">if</span>&nbsp;(!validator.Validate(token))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">throw</span><span class="cs__keyword">new</span>&nbsp;ApplicationException(<span class="cs__string">&quot;unauthorized&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+</strong></div>
+<div class="endscriptcode"><strong>How to verify SWT issued by the specific realm in Windows Azure ACS.</strong></div>
+<div class="endscriptcode"><strong>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public class TokenValidator
+   {
+       private string issuerLabel = &quot;Issuer&quot;;
+       private string expiresLabel = &quot;ExpiresOn&quot;;
+       private string audienceLabel = &quot;Audience&quot;;
+       private string hmacSHA256Label = &quot;HMACSHA256&quot;;
+
+       private string trustedSigningKey;
+       private string trustedTokenIssuer;
+       private string trustedAudienceValue;
+
+       public TokenValidator(string acsHostName, string serviceNamespace, string trustedAudienceValue, string trustedSigningKey)
+       {
+           this.trustedSigningKey = trustedSigningKey;
+           this.trustedTokenIssuer = String.Format(&quot;https://{0}.{1}/&quot;,
+               serviceNamespace.ToLowerInvariant(),
+               acsHostName.ToLowerInvariant());
+
+           this.trustedAudienceValue = trustedAudienceValue;
+       }
+
+       public bool Validate(string token)
+       {
+           if (!this.IsHMACValid(token, Convert.FromBase64String(this.trustedSigningKey)))
+           {
+               return false;
+           }
+
+           if (this.IsExpired(token))
+           {
+               return false;
+           }
+
+           if (!this.IsIssuerTrusted(token))
+           {
+               return false;
+           }
+
+           if (!this.IsAudienceTrusted(token))
+           {
+               return false;
+           }
+
+           return true;
+       }
+
+       public Dictionary&lt;string, string&gt; GetNameValues(string token)
+       {
+           if (string.IsNullOrEmpty(token))
+           {
+               throw new ArgumentException();
+           }
+
+           return
+               token
+               .Split('&amp;')
+               .Aggregate(
+               new Dictionary&lt;string, string&gt;(),
+               (dict, rawNameValue) =&gt;
+               {
+                   if (rawNameValue == string.Empty)
+                   {
+                       return dict;
+                   }
+
+                   string[] nameValue = rawNameValue.Split('=');
+
+                   if (nameValue.Length != 2)
+                   {
+                       throw new ArgumentException(&quot;Invalid formEncodedstring - contains a name/value pair missing an = character&quot;);
+                   }
+
+                   if (dict.ContainsKey(nameValue[0]) == true)
+                   {
+                       throw new ArgumentException(&quot;Repeated name/value pair in form&quot;);
+                   }
+
+                   dict.Add(HttpUtility.UrlDecode(nameValue[0]), HttpUtility.UrlDecode(nameValue[1]));
+                   return dict;
+               });
+       }
+
+       private static ulong GenerateTimeStamp()
+       {
+           // Default implementation of epoch time
+           TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+           return Convert.ToUInt64(ts.TotalSeconds);
+       }
+
+       private bool IsAudienceTrusted(string token)
+       {
+           Dictionary&lt;string, string&gt; tokenValues = this.GetNameValues(token);
+
+           string audienceValue;
+
+           tokenValues.TryGetValue(this.audienceLabel, out audienceValue);
+
+           if (!string.IsNullOrEmpty(audienceValue))
+           {
+               if (audienceValue.Equals(this.trustedAudienceValue, StringComparison.Ordinal))
+               {
+                   return true;
+               }
+           }
+
+           return false;
+       }
+
+       private bool IsIssuerTrusted(string token)
+       {
+           Dictionary&lt;string, string&gt; tokenValues = this.GetNameValues(token);
+
+           string issuerName;
+
+           tokenValues.TryGetValue(this.issuerLabel, out issuerName);
+
+           if (!string.IsNullOrEmpty(issuerName))
+           {
+               if (issuerName.Equals(this.trustedTokenIssuer))
+               {
+                   return true;
+               }
+           }
+
+           return false;
+       }
+
+       private bool IsHMACValid(string swt, byte[] sha256HMACKey)
+       {
+           string[] swtWithSignature = swt.Split(new string[] { &quot;&amp;&quot; &#43; this.hmacSHA256Label &#43; &quot;=&quot; }, StringSplitOptions.None);
+
+           if ((swtWithSignature == null) || (swtWithSignature.Length != 2))
+           {
+               return false;
+           }
+
+           HMACSHA256 hmac = new HMACSHA256(sha256HMACKey);
+
+           byte[] locallyGeneratedSignatureInBytes = hmac.ComputeHash(Encoding.ASCII.GetBytes(swtWithSignature[0]));
+
+           string locallyGeneratedSignature = HttpUtility.UrlEncode(Convert.ToBase64String(locallyGeneratedSignatureInBytes));
+
+           return locallyGeneratedSignature == swtWithSignature[1];
+           
+       }
+
+       private bool IsExpired(string swt)
+       {
+           try
+           {
+               Dictionary&lt;string, string&gt; nameValues = this.GetNameValues(swt);
+               string expiresOnValue = nameValues[this.expiresLabel];
+               ulong expiresOn = Convert.ToUInt64(expiresOnValue);
+               ulong currentTime = Convert.ToUInt64(GenerateTimeStamp());
+
+               if (currentTime &gt; expiresOn)
+               {
+                   return true;
+               }
+
+               return false;
+           }
+           catch (KeyNotFoundException)
+           {
+               throw new ArgumentException();
+           }
+       }
+   }
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">public</span><span class="cs__keyword">class</span>&nbsp;TokenValidator&nbsp;
+&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">string</span>&nbsp;issuerLabel&nbsp;=&nbsp;<span class="cs__string">&quot;Issuer&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">string</span>&nbsp;expiresLabel&nbsp;=&nbsp;<span class="cs__string">&quot;ExpiresOn&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">string</span>&nbsp;audienceLabel&nbsp;=&nbsp;<span class="cs__string">&quot;Audience&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">string</span>&nbsp;hmacSHA256Label&nbsp;=&nbsp;<span class="cs__string">&quot;HMACSHA256&quot;</span>;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">string</span>&nbsp;trustedSigningKey;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">string</span>&nbsp;trustedTokenIssuer;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">string</span>&nbsp;trustedAudienceValue;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;TokenValidator(<span class="cs__keyword">string</span>&nbsp;acsHostName,&nbsp;<span class="cs__keyword">string</span>&nbsp;serviceNamespace,&nbsp;<span class="cs__keyword">string</span>&nbsp;trustedAudienceValue,&nbsp;<span class="cs__keyword">string</span>&nbsp;trustedSigningKey)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.trustedSigningKey&nbsp;=&nbsp;trustedSigningKey;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.trustedTokenIssuer&nbsp;=&nbsp;String.Format(<span class="cs__string">&quot;https://{0}.{1}/&quot;</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serviceNamespace.ToLowerInvariant(),&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acsHostName.ToLowerInvariant());&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.trustedAudienceValue&nbsp;=&nbsp;trustedAudienceValue;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span><span class="cs__keyword">bool</span>&nbsp;Validate(<span class="cs__keyword">string</span>&nbsp;token)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(!<span class="cs__keyword">this</span>.IsHMACValid(token,&nbsp;Convert.FromBase64String(<span class="cs__keyword">this</span>.trustedSigningKey)))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span><span class="cs__keyword">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(<span class="cs__keyword">this</span>.IsExpired(token))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span><span class="cs__keyword">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(!<span class="cs__keyword">this</span>.IsIssuerTrusted(token))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span><span class="cs__keyword">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(!<span class="cs__keyword">this</span>.IsAudienceTrusted(token))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span><span class="cs__keyword">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span><span class="cs__keyword">true</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;Dictionary&lt;<span class="cs__keyword">string</span>,&nbsp;<span class="cs__keyword">string</span>&gt;&nbsp;GetNameValues(<span class="cs__keyword">string</span>&nbsp;token)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(<span class="cs__keyword">string</span>.IsNullOrEmpty(token))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">throw</span><span class="cs__keyword">new</span>&nbsp;ArgumentException();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;token&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Split(<span class="cs__string">'&amp;'</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Aggregate(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">new</span>&nbsp;Dictionary&lt;<span class="cs__keyword">string</span>,&nbsp;<span class="cs__keyword">string</span>&gt;(),&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(dict,&nbsp;rawNameValue)&nbsp;=&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(rawNameValue&nbsp;==&nbsp;<span class="cs__keyword">string</span>.Empty)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;dict;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>[]&nbsp;nameValue&nbsp;=&nbsp;rawNameValue.Split(<span class="cs__string">'='</span>);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(nameValue.Length&nbsp;!=&nbsp;<span class="cs__number">2</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">throw</span><span class="cs__keyword">new</span>&nbsp;ArgumentException(<span class="cs__string">&quot;Invalid&nbsp;formEncodedstring&nbsp;-&nbsp;contains&nbsp;a&nbsp;name/value&nbsp;pair&nbsp;missing&nbsp;an&nbsp;=&nbsp;character&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(dict.ContainsKey(nameValue[<span class="cs__number">0</span>])&nbsp;==&nbsp;<span class="cs__keyword">true</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">throw</span><span class="cs__keyword">new</span>&nbsp;ArgumentException(<span class="cs__string">&quot;Repeated&nbsp;name/value&nbsp;pair&nbsp;in&nbsp;form&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dict.Add(HttpUtility.UrlDecode(nameValue[<span class="cs__number">0</span>]),&nbsp;HttpUtility.UrlDecode(nameValue[<span class="cs__number">1</span>]));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;dict;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">static</span><span class="cs__keyword">ulong</span>&nbsp;GenerateTimeStamp()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Default&nbsp;implementation&nbsp;of&nbsp;epoch&nbsp;time</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TimeSpan&nbsp;ts&nbsp;=&nbsp;DateTime.UtcNow&nbsp;-&nbsp;<span class="cs__keyword">new</span>&nbsp;DateTime(<span class="cs__number">1970</span>,&nbsp;<span class="cs__number">1</span>,&nbsp;<span class="cs__number">1</span>,&nbsp;<span class="cs__number">0</span>,&nbsp;<span class="cs__number">0</span>,&nbsp;<span class="cs__number">0</span>,&nbsp;<span class="cs__number">0</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;Convert.ToUInt64(ts.TotalSeconds);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">bool</span>&nbsp;IsAudienceTrusted(<span class="cs__keyword">string</span>&nbsp;token)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dictionary&lt;<span class="cs__keyword">string</span>,&nbsp;<span class="cs__keyword">string</span>&gt;&nbsp;tokenValues&nbsp;=&nbsp;<span class="cs__keyword">this</span>.GetNameValues(token);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;audienceValue;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tokenValues.TryGetValue(<span class="cs__keyword">this</span>.audienceLabel,&nbsp;<span class="cs__keyword">out</span>&nbsp;audienceValue);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(!<span class="cs__keyword">string</span>.IsNullOrEmpty(audienceValue))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(audienceValue.Equals(<span class="cs__keyword">this</span>.trustedAudienceValue,&nbsp;StringComparison.Ordinal))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span><span class="cs__keyword">true</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span><span class="cs__keyword">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">bool</span>&nbsp;IsIssuerTrusted(<span class="cs__keyword">string</span>&nbsp;token)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dictionary&lt;<span class="cs__keyword">string</span>,&nbsp;<span class="cs__keyword">string</span>&gt;&nbsp;tokenValues&nbsp;=&nbsp;<span class="cs__keyword">this</span>.GetNameValues(token);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;issuerName;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tokenValues.TryGetValue(<span class="cs__keyword">this</span>.issuerLabel,&nbsp;<span class="cs__keyword">out</span>&nbsp;issuerName);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(!<span class="cs__keyword">string</span>.IsNullOrEmpty(issuerName))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(issuerName.Equals(<span class="cs__keyword">this</span>.trustedTokenIssuer))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span><span class="cs__keyword">true</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span><span class="cs__keyword">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">bool</span>&nbsp;IsHMACValid(<span class="cs__keyword">string</span>&nbsp;swt,&nbsp;<span class="cs__keyword">byte</span>[]&nbsp;sha256HMACKey)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>[]&nbsp;swtWithSignature&nbsp;=&nbsp;swt.Split(<span class="cs__keyword">new</span><span class="cs__keyword">string</span>[]&nbsp;{&nbsp;<span class="cs__string">&quot;&amp;&quot;</span>&nbsp;&#43;&nbsp;<span class="cs__keyword">this</span>.hmacSHA256Label&nbsp;&#43;&nbsp;<span class="cs__string">&quot;=&quot;</span>&nbsp;},&nbsp;StringSplitOptions.None);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;((swtWithSignature&nbsp;==&nbsp;<span class="cs__keyword">null</span>)&nbsp;||&nbsp;(swtWithSignature.Length&nbsp;!=&nbsp;<span class="cs__number">2</span>))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span><span class="cs__keyword">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HMACSHA256&nbsp;hmac&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;HMACSHA256(sha256HMACKey);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">byte</span>[]&nbsp;locallyGeneratedSignatureInBytes&nbsp;=&nbsp;hmac.ComputeHash(Encoding.ASCII.GetBytes(swtWithSignature[<span class="cs__number">0</span>]));&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;locallyGeneratedSignature&nbsp;=&nbsp;HttpUtility.UrlEncode(Convert.ToBase64String(locallyGeneratedSignatureInBytes));&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;locallyGeneratedSignature&nbsp;==&nbsp;swtWithSignature[<span class="cs__number">1</span>];&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">bool</span>&nbsp;IsExpired(<span class="cs__keyword">string</span>&nbsp;swt)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">try</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dictionary&lt;<span class="cs__keyword">string</span>,&nbsp;<span class="cs__keyword">string</span>&gt;&nbsp;nameValues&nbsp;=&nbsp;<span class="cs__keyword">this</span>.GetNameValues(swt);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;expiresOnValue&nbsp;=&nbsp;nameValues[<span class="cs__keyword">this</span>.expiresLabel];&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">ulong</span>&nbsp;expiresOn&nbsp;=&nbsp;Convert.ToUInt64(expiresOnValue);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">ulong</span>&nbsp;currentTime&nbsp;=&nbsp;Convert.ToUInt64(GenerateTimeStamp());&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(currentTime&nbsp;&gt;&nbsp;expiresOn)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span><span class="cs__keyword">true</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span><span class="cs__keyword">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">catch</span>&nbsp;(KeyNotFoundException)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">throw</span><span class="cs__keyword">new</span>&nbsp;ArgumentException();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+</strong></div>
+</strong></div>
+</strong></div>
+</strong>
+<p></p>
+<h2><strong>More Information</strong></h2>
+<p><a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh289317.aspx">http://msdn.microsoft.com/en-us/library/windowsazure/hh289317.aspx</a></p>
+<p><strong></p>
+<div class="endscriptcode"><strong>
+<div class="endscriptcode"><strong>
+<div class="endscriptcode"><strong>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640"><img src="http://bit.ly/onecodelogo" alt=""></a></div>
+<br>
+</strong></div>
+<br>
+</strong></div>
+<br>
+</strong></div>
+<br>
+</strong>
+<p></p>
