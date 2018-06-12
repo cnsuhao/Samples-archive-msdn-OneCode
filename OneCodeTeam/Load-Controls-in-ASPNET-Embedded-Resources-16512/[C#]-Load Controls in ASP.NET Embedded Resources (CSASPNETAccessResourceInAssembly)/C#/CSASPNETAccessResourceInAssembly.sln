@@ -1,0 +1,27 @@
+
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSASPNETAccessResourceInAssembly", "CSASPNETAccessResourceInAssembly\CSASPNETAccessResourceInAssembly.csproj", "{CA373602-8437-4BB1-AB5D-648F795D69B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSASPNETAssembly", "CSASPNETAssembly\CSASPNETAssembly.csproj", "{8B525C71-C966-4261-ADDE-3F7F061B72D6}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA373602-8437-4BB1-AB5D-648F795D69B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA373602-8437-4BB1-AB5D-648F795D69B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA373602-8437-4BB1-AB5D-648F795D69B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA373602-8437-4BB1-AB5D-648F795D69B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B525C71-C966-4261-ADDE-3F7F061B72D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B525C71-C966-4261-ADDE-3F7F061B72D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B525C71-C966-4261-ADDE-3F7F061B72D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B525C71-C966-4261-ADDE-3F7F061B72D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,133 @@
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA373602-8437-4BB1-AB5D-648F795D69B5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSASPNETAccessResourceInAssembly</RootNamespace>
+    <AssemblyName>CSASPNETAccessResourceInAssembly</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    
+    
+    
+    
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="documentation\ReadMe.htm" />
+    <Content Include="documentation\ReadMe_files\colorschememapping.xml" />
+    <Content Include="documentation\ReadMe_files\filelist.xml" />
+    <Content Include="documentation\ReadMe_files\image001.jpg" />
+    <Content Include="documentation\ReadMe_files\image002.jpg" />
+    <Content Include="documentation\ReadMe_files\image003.jpg" />
+    <Content Include="documentation\ReadMe_files\image004.jpg" />
+    <Content Include="documentation\ReadMe_files\image005.jpg" />
+    <Content Include="documentation\ReadMe_files\image006.jpg" />
+    <Content Include="documentation\ReadMe_files\item0012.xml" />
+    <Content Include="documentation\ReadMe_files\props013.xml" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+    <Content Include="WebSite\WebPage.aspx" />
+    <Content Include="WebSite\WebUserControl.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomFile.cs" />
+    <Compile Include="CustomPathProvider.cs" />
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebSite\WebPage.aspx.cs">
+      <DependentUpon>WebPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebSite\WebPage.aspx.designer.cs">
+      <DependentUpon>WebPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebSite\WebUserControl.ascx.cs">
+      <DependentUpon>WebUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebSite\WebUserControl.ascx.designer.cs">
+      <DependentUpon>WebUserControl.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="documentation\ReadMe_files\themedata.thmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSASPNETAssembly\CSASPNETAssembly.csproj">
+      <Project>{8B525C71-C966-4261-ADDE-3F7F061B72D6}</Project>
+      <Name>CSASPNETAssembly</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>29228</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
