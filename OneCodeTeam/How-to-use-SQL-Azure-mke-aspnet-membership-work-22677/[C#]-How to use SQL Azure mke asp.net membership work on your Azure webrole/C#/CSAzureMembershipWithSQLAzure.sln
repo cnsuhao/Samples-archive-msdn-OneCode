@@ -1,0 +1,26 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CSAzureMembershipWithSQLAzure", "CSAzureMembershipWithSQLAzure\CSAzureMembershipWithSQLAzure.ccproj", "{D7167E24-0FD0-42BA-9B4A-F6920AA64C90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRole1", "CSAzureMembershipWithSQLAzure\WebRole1\WebRole1.csproj", "{4E34A300-600F-4648-89A4-4A97AF60F184}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7167E24-0FD0-42BA-9B4A-F6920AA64C90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7167E24-0FD0-42BA-9B4A-F6920AA64C90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7167E24-0FD0-42BA-9B4A-F6920AA64C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7167E24-0FD0-42BA-9B4A-F6920AA64C90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E34A300-600F-4648-89A4-4A97AF60F184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E34A300-600F-4648-89A4-4A97AF60F184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E34A300-600F-4648-89A4-4A97AF60F184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E34A300-600F-4648-89A4-4A97AF60F184}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
