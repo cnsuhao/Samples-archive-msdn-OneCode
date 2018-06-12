@@ -1,0 +1,71 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CppUnvsAppDataFilter", "CppUnvsAppDataFilter", "{CE69DD95-4F80-48A0-B394-86A308C7AB86}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppUnvsAppDataFilter.Shared", "CppUnvsAppDataFilter\CppUnvsAppDataFilter.Shared\CppUnvsAppDataFilter.Shared.vcxitems", "{4589BE70-24DF-4ACA-812C-8276734B1F7F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppUnvsAppDataFilter.Windows", "CppUnvsAppDataFilter\CppUnvsAppDataFilter.Windows\CppUnvsAppDataFilter.Windows.vcxproj", "{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppUnvsAppDataFilter.WindowsPhone", "CppUnvsAppDataFilter\CppUnvsAppDataFilter.WindowsPhone\CppUnvsAppDataFilter.WindowsPhone.vcxproj", "{B33C097C-C2D0-42CA-BE6C-F7C475E70023}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		CppUnvsAppDataFilter\CppUnvsAppDataFilter.Shared\CppUnvsAppDataFilter.Shared.vcxitems*{b33c097c-c2d0-42ca-be6c-f7c475e70023}*SharedItemsImports = 4
+		CppUnvsAppDataFilter\CppUnvsAppDataFilter.Shared\CppUnvsAppDataFilter.Shared.vcxitems*{4589be70-24df-4aca-812c-8276734b1f7f}*SharedItemsImports = 9
+		CppUnvsAppDataFilter\CppUnvsAppDataFilter.Shared\CppUnvsAppDataFilter.Shared.vcxitems*{8746abe0-73b4-4bca-b81a-fb1b41593c25}*SharedItemsImports = 4
+	EndGlobalSection
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|ARM = Release|ARM
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Debug|ARM.ActiveCfg = Debug|ARM
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Debug|ARM.Build.0 = Debug|ARM
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Debug|ARM.Deploy.0 = Debug|ARM
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Debug|Win32.Build.0 = Debug|Win32
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Debug|Win32.Deploy.0 = Debug|Win32
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Debug|x64.ActiveCfg = Debug|x64
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Debug|x64.Build.0 = Debug|x64
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Debug|x64.Deploy.0 = Debug|x64
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Release|ARM.ActiveCfg = Release|ARM
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Release|ARM.Build.0 = Release|ARM
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Release|ARM.Deploy.0 = Release|ARM
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Release|Win32.ActiveCfg = Release|Win32
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Release|Win32.Build.0 = Release|Win32
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Release|Win32.Deploy.0 = Release|Win32
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Release|x64.ActiveCfg = Release|x64
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Release|x64.Build.0 = Release|x64
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25}.Release|x64.Deploy.0 = Release|x64
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Debug|ARM.Build.0 = Debug|ARM
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Debug|ARM.Deploy.0 = Debug|ARM
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Debug|Win32.Build.0 = Debug|Win32
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Debug|Win32.Deploy.0 = Debug|Win32
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Debug|x64.ActiveCfg = Debug|Win32
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Release|ARM.ActiveCfg = Release|ARM
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Release|ARM.Build.0 = Release|ARM
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Release|ARM.Deploy.0 = Release|ARM
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Release|Win32.ActiveCfg = Release|Win32
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Release|Win32.Build.0 = Release|Win32
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Release|Win32.Deploy.0 = Release|Win32
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023}.Release|x64.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4589BE70-24DF-4ACA-812C-8276734B1F7F} = {CE69DD95-4F80-48A0-B394-86A308C7AB86}
+		{8746ABE0-73B4-4BCA-B81A-FB1B41593C25} = {CE69DD95-4F80-48A0-B394-86A308C7AB86}
+		{B33C097C-C2D0-42CA-BE6C-F7C475E70023} = {CE69DD95-4F80-48A0-B394-86A308C7AB86}
+	EndGlobalSection
+EndGlobal
