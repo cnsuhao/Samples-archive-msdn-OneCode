@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>C# app invokes COM server and ActiveX control (CSCOMClient)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>C# app invokes COM server and ActiveX control (CSCOMClient)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            COM
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Interop, COM Client
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSCOMClient-f776f7b8">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>CONSOLE APPLICATION : CSCOMClient Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+This Visual C# code example demonstrates the access of COM components from <br>
+the .NET Framework by use of a runtime callable wrapper (RCW) or late binding, <br>
+and the host of ActiveX control in Windows Form.<br>
+<br>
+A. Early binding of COM<br>
+<br>
+Early-binding means that the compiler must have prior knowledge about COM at <br>
+compile time. Early-binding is supported by use of a runtime callable wrapper <br>
+(RCW). The wrapper turns the COM interfaces exposed by the COM component into <br>
+.NET Framework-compatible interfaces, and thus facilitates communication <br>
+between COM and .NET.<br>
+<br>
+The Interop Assembly that is made from a type library is a form of RCW. It <br>
+defines managed interfaces that map to a COM-based type library and that a <br>
+managed client can interact with. To use an interop assembly in Visual Studio, <br>
+first add a reference to the corresponding COM component. Visual Studio will <br>
+automatically generate a local copy of the interop assembly. Type Library <br>
+Importer (Tlbimp.exe) is a standalone tool to convert the type definitions <br>
+found within a COM type library into equivalent definitions in a common <br>
+language runtime assembly. <br>
+<br>
+Without the use of the interop assembly, a developer may write a custom RCW <br>
+and manually map the types exposed by the COM interface to .NET Framework-<br>
+compatible types. <br>
+<br>
+B. Late binding of COM<br>
+<br>
+Late-binding means that the compiler does not have any prior knowledge about <br>
+the methods and properties in the COM component and it is delayed until <br>
+runtime. The advantage of late binding is that you do not have to use an RCW <br>
+(or build/ship a custom Interop Assembly), and it is more version agnostic. <br>
+The disadvantage is that it is more difficult to program this in Visual C# <br>
+than it is in Visual Basic, and late binding still suffers the performance &nbsp;<br>
+hit of having to find DISPIDs at runtime.<br>
+<br>
+We do late binding in Visual C# through .NET reflection. Reflection is a way <br>
+to determine the type or information about the classes or interfaces. We do <br>
+not need to create RCW for the COM component in late binding as we did in <br>
+early binding. We use <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Type.GetTypeFromProgID.aspx"  title="Auto generated link to System.Type.GetTypeFromProgID">System.Type.GetTypeFromProgID</a> to get the type object <br>
+for the COM object, then use <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Activator.CreateInstance.aspx"  title="Auto generated link to System.Activator.CreateInstance">System.Activator.CreateInstance</a> to instantiate <br>
+the COM object.<br>
+<br>
+C. Host of ActiveX control<br>
+<br>
+Hosting an ActiveX control requires a RCW of the AcitveX COM object, and a <br>
+class that inherits from <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Forms.AxHost.aspx"  title="Auto generated link to System.Windows.Forms.AxHost">System.Windows.Forms.AxHost</a> to wrap the ActiveX COM <br>
+object and expose it as fully featured Windows Forms controls. The stuff can <br>
+be automatically done using the Windows Forms ActiveX Control Importer <br>
+(Aximp.exe) or Visual Studio Windows Forms design environment.<br>
+<br>
+The ActiveX Control Importer generates a class that is derived from the AxHost<br>
+class, and compiles it into a library file (DLL) that can be added as a <br>
+reference to your application. Alternatively, you can use the /source switch <br>
+with the ActiveX Control Importer and a C# file is generated for your AxHost <br>
+derived class. You can then make changes to the code and recompile it into a <br>
+library file. <br>
+<br>
+If you are using Visual Studio as your Windows Forms design environment, you <br>
+can make an ActiveX control available to your application by adding the <br>
+ActiveX control to your Toolbox. To accomplish this, right-click the Toolbox, <br>
+select Choose Items, then browse to the ActiveX control's .OCX or .DLL file. <br>
+<br>
+</p>
+<h3>Project Relation:</h3>
+<p style="font-family:Courier New">(Relation of the current sample and other samples in
+<br>
+Microsoft All-In-One Code Framework <a  href="http://cfx.codeplex.com)">
+http://cfx.codeplex.com)</a><br>
+<br>
+CSCOMClient -&gt; ATLDllCOMServer<br>
+CSCOMClient is the client application of the COM server ATLDllCOMServer.<br>
+<br>
+CSCOMClient -&gt; MFCActiveX<br>
+CSCOMClient hosts the MFCActiveX control in a Windows Form.<br>
+<br>
+CSCOMClient - VBCOMClient<br>
+These samples demonstrate the use of COM objects and ActiveX controls in <br>
+different .NET languages.<br>
+<br>
+</p>
+<h3>Creation:</h3>
+<p style="font-family:Courier New"><br>
+A. Early-binding to the ATLDllCOMServer component using an interop assembly<br>
+<br>
+Step1. Add a reference to the ATLDllCOMServer COM component by right-clicking <br>
+the project, selecting &quot;Add Reference...&quot;, turning to the COM tab, and adding
+<br>
+ATLDllCOMServer Type Library. Visual Studio will automatically generate a &nbsp;<br>
+local copy of the interop assembly &quot;Interop.ATLDllCOMServerLib.dll&quot;. If the
+<br>
+ATLDllCOMServer Type Library is not in the list, please build and setup the <br>
+ATLDllCOMServer sample first.<br>
+<br>
+Step2. Create a thread whose thread apartement is set to STA, because we are <br>
+going to demonstrate the instantiation and use of a STA COM object: <br>
+ATLDllCOMServer.SimpleObject.<br>
+<br>
+Step3. Create an ATLDllCOMServer.SimpleObject COM object.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ATLDllCOMServerLib.SimpleObject simpleObj = <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new ATLDllCOMServerLib.SimpleObject();<br>
+<br>
+Step4. Register the events of the COM object,<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;simpleObj.FloatPropertyChanging &#43;= new ATLDllCOMServerLib.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_ISimpleObjectEvents_FloatPropertyChangingEventHandler(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;simpleObj_FloatPropertyChanging);<br>
+<br>
+and define the event handler.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;static void simpleObj_FloatPropertyChanging(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float NewValue, ref bool Cancel)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+Step5. Consume the properties and the methods of the COM object. For example, <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;string strResult = simpleObj.HelloWorld();<br>
+<br>
+Step6. Release the COM object. It is strongly recommended against using <br>
+ReleaseComObject to manually release an RCW object that represents a COM <br>
+component unless you absolutely have to. We should generally let CLR release <br>
+the COM object in the garbage collector. <br>
+Ref: <a target="_blank" href="&lt;a http://blogs.msdn.com/yvesdolc/archive/2004/04/17/115379.aspx">
+http://blogs.msdn.com/yvesdolc/archive/2004/04/17/115379.aspx</a>'&gt;<a  href="http://blogs.msdn.com/yvesdolc/archive/2004/04/17/115379.aspx">http://blogs.msdn.com/yvesdolc/archive/2004/04/17/115379.aspx</a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Marshal.FinalReleaseComObject(simpleObj);<br>
+<br>
+B. Late-binding to the ATLDllCOMServer component through .NET reflection <br>
+<br>
+Step1. Create a thread whose thread apartement is set to STA, because we are <br>
+going to demonstrate the instantiation and use of a STA COM object: <br>
+ATLDllCOMServer.SimpleObject.<br>
+<br>
+Step2. Create an ATLDllCOMServer.SimpleObject COM object. We use <br>
+<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Type.GetTypeFromProgID.aspx"  title="Auto generated link to System.Type.GetTypeFromProgID">System.Type.GetTypeFromProgID</a> to get the type object for the COM object, &nbsp;<br>
+then use <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Activator.CreateInstance.aspx"  title="Auto generated link to System.Activator.CreateInstance">System.Activator.CreateInstance</a> to instantiate the COM object. Note &nbsp;<br>
+that the COM object is declared as Object (object simpleObj) without the &nbsp;<br>
+useful type information.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Type simpleObjType = Type.GetTypeFromProgID(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ATLDllCOMServer.SimpleObject&quot;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;object simpleObj = Activator.CreateInstance(simpleObjType);<br>
+<br>
+Step3. Consume the properties and the methods of the COM object through .NET <br>
+reflection. For example, <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;string strResult = simpleObjType.InvokeMember(&quot;HelloWorld&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BindingFlags.InvokeMethod, null, simpleObj, null) as string;<br>
+<br>
+Step4. Release the COM object. It is strongly recommended against using <br>
+ReleaseComObject to manually release an RCW object that represents a COM <br>
+component unless you absolutely have to. We should generally let CLR release <br>
+the COM object in the garbage collector. <br>
+Ref: <a target="_blank" href="&lt;a http://blogs.msdn.com/yvesdolc/archive/2004/04/17/115379.aspx">
+http://blogs.msdn.com/yvesdolc/archive/2004/04/17/115379.aspx</a>'&gt;<a  href="http://blogs.msdn.com/yvesdolc/archive/2004/04/17/115379.aspx">http://blogs.msdn.com/yvesdolc/archive/2004/04/17/115379.aspx</a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Marshal.FinalReleaseComObject(simpleObj);<br>
+<br>
+C. Hosting the MFCActiveX control in a Windows Form<br>
+<br>
+Step1. Open FrmMain in Visual Studio Windows Forms design environment. Right-<br>
+click the Toolbox, select Choose Items, switch to the tab COM Components, <br>
+and browse to the MFCActiveX control's .OCX file. The MFCActiveX control <br>
+should appear in the Toolbox then. If MFCActiveX is not in the list, please <br>
+build and setup the MFCActiveX sample first.<br>
+<br>
+Step2. Drag and drop the MFCActiveX control to the WinForm designer. Name the <br>
+control variable as axMFCActiveX1.<br>
+<br>
+Step3. Access the properties and methods of the ActiveX control like this:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;float fProp = this.axMFCActiveX1.FloatProperty;<br>
+<br>
+Step4. To access the events of the control (e.g. FloatPropertyChanging in <br>
+MFCActiveX), select the ActiveX control in WinForm designer. In the Visual <br>
+Studio Properties dialog, turn to the event list of the control. Double-click<br>
+the FloatPropertyChanging event in the list, which generates the event <br>
+handler in code-behind:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private void axMFCActiveX1_FloatPropertyChanging(object sender,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AxMFCActiveXLib._DMFCActiveXEvents_FloatPropertyChangingEvent e)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+The NewValue and Cancel parameters are encapsulated in <br>
+AxMFCActiveXLib._DMFCActiveXEvents_FloatPropertyChangingEvent e.<br>
+<br>
+In the event handler, pop up a message box to allow selecting <br>
+OK or Cancel, then pass the user's selection back to the control through the<br>
+e.cancel parameter.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+COM Interop Part 1: C# Client Tutorial<br>
+<a  href="http://msdn.microsoft.com/en-us/library/aa645736.aspx">http://msdn.microsoft.com/en-us/library/aa645736.aspx</a><br>
+<br>
+Understanding Classic COM Interoperability With .NET Applications By Aravind<br>
+<a  href="http://www.codeproject.com/KB/COM/cominterop.aspx">http://www.codeproject.com/KB/COM/cominterop.aspx</a><br>
+<br>
+Calling COM Components from .NET Clients<br>
+<a  href="http://msdn.microsoft.com/en-us/library/ms973800.aspx">http://msdn.microsoft.com/en-us/library/ms973800.aspx</a><br>
+<br>
+Microsoft .NET/COM Migration and Interoperability<br>
+<a  href="http://msdn.microsoft.com/en-us/library/ms978506.aspx">http://msdn.microsoft.com/en-us/library/ms978506.aspx</a><br>
+<br>
+Type Library Importer (Tlbimp.exe)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/tt0cf3sx.aspx">http://msdn.microsoft.com/en-us/library/tt0cf3sx.aspx</a><br>
+<br>
+Using early binding and late binding in Automation<br>
+<a  href="http://support.microsoft.com/kb/245115">http://support.microsoft.com/kb/245115</a><br>
+<br>
+MSDN: AxHost Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.windows.forms.axhost.aspx">http://msdn.microsoft.com/en-us/library/system.windows.forms.axhost.aspx</a><br>
+<br>
+Windows Forms ActiveX Control Importer (Aximp.exe)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/8ccdh774.aspx">http://msdn.microsoft.com/en-us/library/8ccdh774.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
