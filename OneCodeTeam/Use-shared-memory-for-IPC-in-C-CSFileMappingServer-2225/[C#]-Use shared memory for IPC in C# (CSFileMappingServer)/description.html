@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/eee60866-3297-416f-b7aa-df1d7e50df72Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Use shared memory for IPC in C# (CSFileMappingServer)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Use shared memory for IPC in C# (CSFileMappingServer)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            IPC and RPC, Windows General
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            File mapping, Inter-process Communication
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">2/19/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSFileMappingServer-1ec32972">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;</p>
+<h2>CONSOLE APPLICATION : CSFileMappingServer Project Overview</h2>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+File mapping is a mechanism for one-way or duplex inter-process communication <br>
+among two or more processes in the local machine. To share a file or memory, <br>
+all of the processes must use the name or the handle of the same file mapping <br>
+object.<br>
+<br>
+To share a file, the first process creates or opens a file by using the <br>
+CreateFile function. Next, it creates a file mapping object by using the <br>
+CreateFileMapping function, specifying the file handle and a name for the <br>
+file mapping object. The names of event, semaphore, mutex, waitable timer, <br>
+job, and file mapping objects share the same name space. Therefore, the <br>
+CreateFileMapping and OpenFileMapping functions fail if they specify a name<br>
+that is in use by an object of another type.<br>
+<br>
+To share memory that is not associated with a file, a process must use the <br>
+CreateFileMapping function and specify INVALID_HANDLE_VALUE as the hFile <br>
+parameter instead of an existing file handle. The corresponding file mapping <br>
+object accesses memory backed by the system paging file. You must specify <br>
+a size greater than zero when you use an hFile of INVALID_HANDLE_VALUE in a <br>
+call to CreateFileMapping.<br>
+<br>
+Processes that share files or memory must create file views by using the <br>
+MapViewOfFile or MapViewOfFileEx function. They must coordinate their access <br>
+using semaphores, mutexes, events, or some other mutual exclusion technique.<br>
+<br>
+The VC# code sample demonstrates creating a file mapping object named <br>
+&quot;Local\SampleMap&quot; and writing a string to the file mapping. Because the Base <br>
+Class Library of .NET Framework 2/3/3.5 does not have any public classes to <br>
+operate on file mapping objects, you have to P/Invoke the Windows APIs as <br>
+shown in this code sample.<br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+The following steps walk through a demonstration of the file mapping sample.<br>
+<br>
+Step1. After you successfully build the CSFileMappingClient and <br>
+CSFileMappingServer sample projects in Visual Studio 2008, you will get the <br>
+applications: CSFileMappingClient.exe and CSFileMappingServer.exe. <br>
+<br>
+Step2. Run CSFileMappingServer.exe in a command prompt. The application will <br>
+create a file mapping object of a specified size that is backed by the system <br>
+paging file. Its name is &quot;Local\SampleMap&quot;.<br>
+<br>
+&nbsp;The file mapping (Local\SampleMap) is created<br>
+<br>
+Next, the application maps a view of the file mapping into the address space <br>
+of the process, and writes a string to the view.<br>
+<br>
+&nbsp;The file view is mapped<br>
+&nbsp;This message is written to the view:<br>
+&nbsp;&quot;Message from the first process.&quot;<br>
+<br>
+Step3. Run CSFileMappingClient.exe in another command prompt. <br>
+CSFileMappingClient opens the file mapping object &quot;Local\SampleMap&quot;, maps <br>
+the same view of the file mapping into its address space, and read the string <br>
+written by the first process from the view.<br>
+<br>
+&nbsp;The file mapping (Local\SampleMap) is opened<br>
+&nbsp;The file view is mapped<br>
+&nbsp;Read from the file mapping:<br>
+&nbsp;&quot;Message from the first process.&quot;<br>
+<br>
+Step4. Press ENTER in both command prompts to close CSFileMappingServer and <br>
+CSFileMappingClient.<br>
+<br>
+</p>
+<h3>Sample Relation:</h3>
+<p style="font-family:Courier New">(The relationship between the current sample and the rest samples in
+<br>
+Microsoft All-In-One Code Framework <a href="http://1code.codeplex.com)" >
+http://1code.codeplex.com)</a><br>
+<br>
+CSFileMappingClient -&gt; CSFileMappingServer<br>
+CSFileMappingServer creates the file mapping named &quot;Local\SampleMap&quot; and <br>
+writes a string to it. CSFileMappingClient reads the string from the file <br>
+mapping.<br>
+<br>
+</p>
+<h3>Code Logic:</h3>
+<p style="font-family:Courier New"><br>
+1. Create a file mapping named &quot;Local\SampleMap&quot; by P/Invoking <br>
+CreateFileMapping.<br>
+<br>
+2. Map a view of the file mapping into the address space of the current <br>
+process by P/Invoking MapViewOfFile.<br>
+<br>
+3. Write a string to the file view.<br>
+<br>
+4. Unmap the file view (UnmapViewOfFile) and close the file mapping object <br>
+(CloseHandle).<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MSDN: Creating Named Shared Memory<br>
+<a href="http://msdn.microsoft.com/en-us/library/aa366551.aspx" >http://msdn.microsoft.com/en-us/library/aa366551.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
