@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/fd0873a3-9a67-441e-9769-e22026a86740Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to save Word document from task pane app</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to save Word document from task pane app</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Office, Office Development
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Task Pane App, Save word
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/13/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-save-Word-document-2e6ed995">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>How to save Word document from task pane App (JSO15SaveWordDocument)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">This demonstration shows how to save a Word document from the task pane App by using JavaScript. The JavaScript API for Office provide
+<a href="http://msdn.microsoft.com/en-us/library/jj715284.aspx">Document.getFileAsync</a> method to receive the Word document as a byte array or retrieve the text of the Word document as a string. Then you can call WCF Service to save Word document on client
+ computer.</p>
+<h2>Building the Sample</h2>
+<p class="MsoNormal">Install Office 2013 RTM and Install Visual Studio 2012 RTM</p>
+<p class="MsoNormal"><a href="http://www.microsoft.com/web/handlers/WebPI.ashx?command=GetInstallerRedirect&amp;appid=OfficeToolsForVS2012GA">Download</a> and Install Microsoft Office Developer Tools for Visual Studio 2012-Preview 2</p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal">Step1. Open JSO15SaveWordDocument.sln to open the solution. Press &quot;F5&quot; on the keyboard to run the project. The form resembles the following:</p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="576" height="467" align="middle">
+</span></p>
+<p class="MsoNormal">Step2. Edit the Word document. After you have finished editing the document, click the &quot;Save All Content&quot; button to save the Word document on client computer. When the document is successfully saved, you will receive a &quot;Save
+<span class="GramE">All</span> content of Word document successfully! The Save Path is:&quot; message.</p>
+<p class="MsoNormal"><span style=""><img src="description/d2913d50-bc5b-4e54-a051-3df69ba6041cimage.png" alt="" width="576" height="428" align="middle">
+</span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">Step1. Create an App for Office 2013 project by using Visual Studio 2012.</p>
+<p class="MsoNormal">Step2. Design the UI of the Task Pane by using the following HTML code snippet:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>HTML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">html</span>
+<pre class="hidden">
+&lt;body&gt;
+    &lt;!-- Replace the following with your content --&gt;
+    <div id="Content">
+      
+         &lt;input type=&quot;button&quot; value=&quot;Save All Content&quot; id=&quot;saveAllBtn&quot; style=&quot;margin-right: 20px; padding: 0px; width: 150px;&quot; /&gt;
+        <br>
+        <br>
+       <span>Results: </span><div id="results"></div>
+    </div>
+&lt;/body&gt;
+
+</pre>
+<pre id="codePreview" class="html">
+&lt;body&gt;
+    &lt;!-- Replace the following with your content --&gt;
+    <div id="Content">
+      
+         &lt;input type=&quot;button&quot; value=&quot;Save All Content&quot; id=&quot;saveAllBtn&quot; style=&quot;margin-right: 20px; padding: 0px; width: 150px;&quot; /&gt;
+        <br>
+        <br>
+       <span>Results: </span><div id="results"></div>
+    </div>
+&lt;/body&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">Step2. Create a WCF Service by using the following code snippet:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+using System;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.aspx"  title="Auto generated link to System.IO">System.IO</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.ServiceModel.aspx"  title="Auto generated link to System.ServiceModel">System.ServiceModel</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.ServiceModel.Activation.aspx"  title="Auto generated link to System.ServiceModel.Activation">System.ServiceModel.Activation</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.ServiceModel.Web.aspx"  title="Auto generated link to System.ServiceModel.Web">System.ServiceModel.Web</a>;
+
+
+namespace JsSaveWordWeb
+{
+    // NOTE: You can use the &quot;Rename&quot; command on the &quot;Refactor&quot; menu to change the class name &quot;SaveWordService&quot; in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select SaveWordService.svc or SaveWordService.svc.cs at the Solution Explorer and start debugging.
+    [ServiceContract]
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
+    public class SaveWordService
+    {
+        [OperationContract]
+        [WebInvoke(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        public string SaveAllContent(string bytestring)
+        {
+            string[] bytestrings = bytestring.Split(',');
+            int length = bytestrings.Length;
+            byte[] buffer = new byte[length];
+            for (int i = 0; i &lt; length; i&#43;&#43;)
+            {
+                buffer[i] = Convert.ToByte(bytestrings[i]);
+            }
+
+
+            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) &#43; &quot;\\Copy.docx&quot;;
+            if (File.Exists(savePath))
+            {
+                File.Delete(savePath);
+            }
+
+
+            using (FileStream savestream = new FileStream(savePath, FileMode.Create))
+            {
+                savestream.Write(buffer, 0, length);
+            }
+
+
+            return savePath;
+        }
+    }
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+using System;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.aspx"  title="Auto generated link to System.IO">System.IO</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.ServiceModel.aspx"  title="Auto generated link to System.ServiceModel">System.ServiceModel</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.ServiceModel.Activation.aspx"  title="Auto generated link to System.ServiceModel.Activation">System.ServiceModel.Activation</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.ServiceModel.Web.aspx"  title="Auto generated link to System.ServiceModel.Web">System.ServiceModel.Web</a>;
+
+
+namespace JsSaveWordWeb
+{
+    // NOTE: You can use the &quot;Rename&quot; command on the &quot;Refactor&quot; menu to change the class name &quot;SaveWordService&quot; in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select SaveWordService.svc or SaveWordService.svc.cs at the Solution Explorer and start debugging.
+    [ServiceContract]
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
+    public class SaveWordService
+    {
+        [OperationContract]
+        [WebInvoke(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        public string SaveAllContent(string bytestring)
+        {
+            string[] bytestrings = bytestring.Split(',');
+            int length = bytestrings.Length;
+            byte[] buffer = new byte[length];
+            for (int i = 0; i &lt; length; i&#43;&#43;)
+            {
+                buffer[i] = Convert.ToByte(bytestrings[i]);
+            }
+
+
+            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) &#43; &quot;\\Copy.docx&quot;;
+            if (File.Exists(savePath))
+            {
+                File.Delete(savePath);
+            }
+
+
+            using (FileStream savestream = new FileStream(savePath, FileMode.Create))
+            {
+                savestream.Write(buffer, 0, length);
+            }
+
+
+            return savePath;
+        }
+    }
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">Step3. Configure the configuration file according to the following XML code snippet:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;configuration&gt;
+  &lt;system.web&gt;
+    &lt;compilation debug=&quot;true&quot; targetFramework=&quot;4.0&quot; /&gt;
+  &lt;/system.web&gt;
+
+
+  &lt;system.serviceModel&gt;
+    &lt;bindings&gt;
+      &lt;webHttpBinding&gt;
+        &lt;binding name=&quot;webBinding&quot; maxReceivedMessageSize=&quot;4194304&quot;&gt;
+        &lt;/binding&gt;
+      &lt;/webHttpBinding&gt;
+    &lt;/bindings&gt;
+    &lt;behaviors&gt;
+      &lt;serviceBehaviors&gt;
+        &lt;behavior name=&quot;svc1&quot;&gt;
+          &lt;serviceMetadata httpGetEnabled=&quot;true&quot; /&gt;
+          &lt;serviceDebug includeExceptionDetailInFaults=&quot;false&quot; /&gt;
+        &lt;/behavior&gt;
+      &lt;/serviceBehaviors&gt;
+      &lt;endpointBehaviors&gt;
+        &lt;behavior name=&quot;SaveBehavior&quot;&gt;
+          &lt;enableWebScript/&gt;
+        &lt;/behavior&gt;
+      &lt;/endpointBehaviors&gt;
+    &lt;/behaviors&gt;
+ 
+    &lt;services&gt;
+      &lt;service name=&quot;JSO15SaveWordDocumentWeb.SaveWordService&quot; behaviorConfiguration=&quot;svc1&quot; &gt;
+        &lt;endpoint address=&quot;&quot; behaviorConfiguration=&quot;SaveBehavior&quot; binding=&quot;webHttpBinding&quot; 
+bindingConfiguration=&quot;webBinding&quot; contract=&quot;JSO15SaveWordDocumentWeb.SaveWordService&quot;&gt;
+        &lt;/endpoint&gt;
+      &lt;/service&gt;
+    &lt;/services&gt;
+  &lt;/system.serviceModel&gt;
+&lt;/configuration&gt;
+
+</pre>
+<pre id="codePreview" class="xml">
+&lt;configuration&gt;
+  &lt;system.web&gt;
+    &lt;compilation debug=&quot;true&quot; targetFramework=&quot;4.0&quot; /&gt;
+  &lt;/system.web&gt;
+
+
+  &lt;system.serviceModel&gt;
+    &lt;bindings&gt;
+      &lt;webHttpBinding&gt;
+        &lt;binding name=&quot;webBinding&quot; maxReceivedMessageSize=&quot;4194304&quot;&gt;
+        &lt;/binding&gt;
+      &lt;/webHttpBinding&gt;
+    &lt;/bindings&gt;
+    &lt;behaviors&gt;
+      &lt;serviceBehaviors&gt;
+        &lt;behavior name=&quot;svc1&quot;&gt;
+          &lt;serviceMetadata httpGetEnabled=&quot;true&quot; /&gt;
+          &lt;serviceDebug includeExceptionDetailInFaults=&quot;false&quot; /&gt;
+        &lt;/behavior&gt;
+      &lt;/serviceBehaviors&gt;
+      &lt;endpointBehaviors&gt;
+        &lt;behavior name=&quot;SaveBehavior&quot;&gt;
+          &lt;enableWebScript/&gt;
+        &lt;/behavior&gt;
+      &lt;/endpointBehaviors&gt;
+    &lt;/behaviors&gt;
+ 
+    &lt;services&gt;
+      &lt;service name=&quot;JSO15SaveWordDocumentWeb.SaveWordService&quot; behaviorConfiguration=&quot;svc1&quot; &gt;
+        &lt;endpoint address=&quot;&quot; behaviorConfiguration=&quot;SaveBehavior&quot; binding=&quot;webHttpBinding&quot; 
+bindingConfiguration=&quot;webBinding&quot; contract=&quot;JSO15SaveWordDocumentWeb.SaveWordService&quot;&gt;
+        &lt;/endpoint&gt;
+      &lt;/service&gt;
+    &lt;/services&gt;
+  &lt;/system.serviceModel&gt;
+&lt;/configuration&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">Step4. Code the event handle by using the following JavaScript code snippet:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>JavaScript</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">js</span>
+<pre class="hidden">
+Office.initialize = function (reason) {
+    $(document).ready(function () {
+        // Save All Word document on client by using JS
+        $('#saveAllBtn').click(function () {
+            // Clear message
+            writeToPage(&quot;&quot;);
+            saveAllDocument();
+        });
+    });
+};
+
+
+// Get All content in word document and save as word document
+function saveAllDocument() {
+    var i = 0;
+    var slices = 0;
+    var myFile;
+
+
+    // Office.FileType.Compressed returns the entire document as a byte array(word or powerpoint)
+    Office.context.document.getFileAsync(Office.FileType.Compressed, function (result) {
+        if (result.status == &quot;succeeded&quot;) {
+            // If the getFileAsync call succeeded, then
+            // result.value will return a valid File Object.
+            myFile = result.value;
+            slices = myFile.sliceCount;
+
+
+            // Iterate over the file slices.
+            for (i = 0; i &lt; slices; i&#43;&#43;) {
+                var slice = myFile.getSliceAsync(i, function (result) {
+                    if (result.status == &quot;succeeded&quot;) {
+                        saveAllContent(result.value.data.toString());
+                    }
+                    else {
+                        writeToPage(&quot;Error: &quot; &#43; result.error.message);
+                    }
+                });
+            }
+            myFile.closeAsync();
+        }
+        else {
+            writeToPage(&quot;Error: &quot; &#43; result.error.message);
+        }
+    });
+}
+
+
+// Call WCF Service to save All Content of Word document
+function saveAllContent(content) {
+    $.ajax({  
+        type: 'post',
+        url: '/SaveWordService.svc/SaveAllContent',
+        contentType: 'text/json',
+        data: '{&quot;bytestring&quot;:&quot;' &#43; content &#43; '&quot;}',
+        success: function (result) {
+            writeToPage(&quot;Save All content of Word document successfully!The Save Path is: &quot; &#43; String(result.d));
+        },
+        error: function (XMLHttpRequest, textStatus) {
+            writeToPage(&quot;Error: &quot; &#43; XMLHttpRequest.statusText);
+        }
+    });
+}
+
+
+// Write Message
+function writeToPage(text) {
+    $('#results')[0].innerText = text;
+    $('#results').css(&quot;color&quot;, &quot;red&quot;);
+}
+
+</pre>
+<pre id="codePreview" class="js">
+Office.initialize = function (reason) {
+    $(document).ready(function () {
+        // Save All Word document on client by using JS
+        $('#saveAllBtn').click(function () {
+            // Clear message
+            writeToPage(&quot;&quot;);
+            saveAllDocument();
+        });
+    });
+};
+
+
+// Get All content in word document and save as word document
+function saveAllDocument() {
+    var i = 0;
+    var slices = 0;
+    var myFile;
+
+
+    // Office.FileType.Compressed returns the entire document as a byte array(word or powerpoint)
+    Office.context.document.getFileAsync(Office.FileType.Compressed, function (result) {
+        if (result.status == &quot;succeeded&quot;) {
+            // If the getFileAsync call succeeded, then
+            // result.value will return a valid File Object.
+            myFile = result.value;
+            slices = myFile.sliceCount;
+
+
+            // Iterate over the file slices.
+            for (i = 0; i &lt; slices; i&#43;&#43;) {
+                var slice = myFile.getSliceAsync(i, function (result) {
+                    if (result.status == &quot;succeeded&quot;) {
+                        saveAllContent(result.value.data.toString());
+                    }
+                    else {
+                        writeToPage(&quot;Error: &quot; &#43; result.error.message);
+                    }
+                });
+            }
+            myFile.closeAsync();
+        }
+        else {
+            writeToPage(&quot;Error: &quot; &#43; result.error.message);
+        }
+    });
+}
+
+
+// Call WCF Service to save All Content of Word document
+function saveAllContent(content) {
+    $.ajax({  
+        type: 'post',
+        url: '/SaveWordService.svc/SaveAllContent',
+        contentType: 'text/json',
+        data: '{&quot;bytestring&quot;:&quot;' &#43; content &#43; '&quot;}',
+        success: function (result) {
+            writeToPage(&quot;Save All content of Word document successfully!The Save Path is: &quot; &#43; String(result.d));
+        },
+        error: function (XMLHttpRequest, textStatus) {
+            writeToPage(&quot;Error: &quot; &#43; XMLHttpRequest.statusText);
+        }
+    });
+}
+
+
+// Write Message
+function writeToPage(text) {
+    $('#results')[0].innerText = text;
+    $('#results').css(&quot;color&quot;, &quot;red&quot;);
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"></p>
+<h2>More Information</h2>
+<p class="MsoNormal">Document.getFileAsync method (apps for Office)</p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/jj715284.aspx">http://msdn.microsoft.com/en-us/library/jj715284.aspx</a>
+</p>
+<p class="MsoNormal" style="line-height:12.75pt"><span style="color:black">Use the REST Endpoint with Ajax and<span class="apple-converted-space">&nbsp;</span>JScript<span class="apple-converted-space">&nbsp;</span>Web Resources
+</span></p>
+<p class="MsoNormal" style="line-height:12.75pt"><span style="color:black"><a href="http://msdn.microsoft.com/en-us/library/1bb82714-1bd6-4ea4-8faf-93bf29cabaad">http://msdn.microsoft.com/en-us/library/1bb82714-1bd6-4ea4-8faf-93bf29cabaad</a>
+</span></p>
+<p class="MsoNormal"></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/8ceaf4b9-39f1-47dc-ae5e-ffbff5b81e5fimage.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
