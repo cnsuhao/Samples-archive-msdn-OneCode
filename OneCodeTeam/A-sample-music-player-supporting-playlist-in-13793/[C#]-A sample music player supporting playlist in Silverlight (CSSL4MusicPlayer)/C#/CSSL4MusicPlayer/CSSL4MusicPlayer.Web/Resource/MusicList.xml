@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <music open="1" path="Resource/Mp3/Kalimba.mp3" name="Kalimba">Mr.Scruff</music>
+  <music open="1" path="Resource/Mp3/login.mp3" name="login">None</music>
+  <music open="1" path="Resource/Mp3/logout.mp3" name="logout">None</music>
+  <music open="1" path="Resource/Mp3/message.mp3" name="message">None</music>
+</root>

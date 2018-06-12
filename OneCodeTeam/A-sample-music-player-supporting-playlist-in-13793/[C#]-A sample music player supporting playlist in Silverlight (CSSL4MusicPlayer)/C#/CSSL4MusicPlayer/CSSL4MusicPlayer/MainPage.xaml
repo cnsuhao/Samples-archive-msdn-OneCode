@@ -1,0 +1,45 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+             x:Class="CSSL4MusicPlayer.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:yw="clr-namespace:CSSL4MusicPlayer"
+    mc:Ignorable="d"
+    d:DesignHeight="478" d:DesignWidth="604">
+    <UserControl.Resources>
+        <yw:ProgressConverter x:Key="progress"></yw:ProgressConverter>
+    </UserControl.Resources>
+        <Grid x:Name="LayoutRoot" HorizontalAlignment="Left" Width="599" Height="474"    ShowGridLines="False" VerticalAlignment="Top" Margin="5,5,5,5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="68"/>
+            <RowDefinition Height="53"/>
+            <RowDefinition Height="71"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="282*" />
+        </Grid.RowDefinitions>
+        <MediaElement x:Name="mediaElement" Width="300" Grid.Row="1" AutoPlay="True" 
+                      IsMuted="False" Stretch="Fill" Volume="0.5" 
+                      CurrentStateChanged="mediaElement_CurrentStateChanged" MediaEnded="mediaElement_MediaEnded" MediaOpened="mediaElement_MediaOpened" Margin="44,0,44,147"></MediaElement>
+        <Button x:Name="btnStop" Content="stop" Grid.Row="2" Width="70" Height="25" Click="btnStop_Click" Margin="30,25,499,21"></Button>
+        <Button x:Name="btnPlay" Content="play" Grid.Row="2" Width="70" Height="25" Click="btnPlay_Click" Margin="0,25,430,21" HorizontalAlignment="Right"></Button>
+        <Button x:Name="btnPause" Content="pause" Grid.Row="2" Width="70" Height="25" Click="btnPause_Click" Margin="168,25,361,21"></Button>
+        <Button x:Name="btnMuted" Content="muted" Grid.Row="2" Width="70" Height="25" Click="btnMuted_Click" Margin="236,25,293,21"></Button>
+        <Button x:Name="btnFullScreen" Content="full screen" Grid.Row="2" Height="25" Click="btnFullScreen_Click" Margin="305,25,210,21"></Button>
+        <TextBlock Grid.Row="4" Height="23" HorizontalAlignment="Left" Margin="255,9,0,0" Name="textBlock1" Text="Music Play List" VerticalAlignment="Top" />
+        <sdk:DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}" Grid.Row="4" Height="196" HorizontalAlignment="Left" Margin="196,36,0,50" Name="girdList" VerticalAlignment="Center" Width="206" SelectionChanged="girdList_SelectionChanged">
+            <sdk:DataGrid.Columns >
+                <sdk:DataGridTextColumn Header="name" Binding="{Binding NameItem}" Width="204" IsReadOnly="True"></sdk:DataGridTextColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+        <TextBlock Height="34" Margin="200,18,197,0" Name="tbTitle" Text="Silverlight Music" VerticalAlignment="Top" FontSize="24" Width="200" />
+        <Slider x:Name="sliderProcess" Grid.Row="1" Minimum="0" Value="{Binding ElementName=mediaElement, Path=Position, Mode=TwoWay, Converter={StaticResource progress}}" Maximum="230"  Margin="96,0,78,0" IsEnabled="False" />
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="22,17,0,0" Name="textBlock2" Text="Process:" VerticalAlignment="Top" />
+        <Slider LargeChange="0.1" Margin="466,3,39,46" Maximum="1" SmallChange="0.01" Value="{Binding Volume, ElementName=mediaElement, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="2" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="413,5,0,0" Name="tbTag1" Text="Volumn:" VerticalAlignment="Top" Grid.Row="2" />
+        <Slider LargeChange="0.1" Margin="466,43,39,6"  Minimum="-1" Maximum="1" Grid.Row="2" Value="{Binding Path=Balance, ElementName=mediaElement, Mode=TwoWay, UpdateSourceTrigger=Default}" Name="sliderBalance" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="413,45,0,0" Name="tbTag2" Text="Balance:" VerticalAlignment="Top" Grid.Row="2" />
+        <TextBlock Grid.Row="1" Height="16" HorizontalAlignment="Left" Margin="536,6,0,0" Name="tbTag" Text="Status:" VerticalAlignment="Top" />
+        <TextBlock Grid.Row="1" Height="19" HorizontalAlignment="Left" Margin="532,30,0,0" Name="tbStatus" Text="" VerticalAlignment="Top" />
+    </Grid>
+</UserControl>
