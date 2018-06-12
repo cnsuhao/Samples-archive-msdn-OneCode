@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Manipulate image using GDI+ (VBGDIPlusManipulateImage)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Manipulate image using GDI+ (VBGDIPlusManipulateImage)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            GDI+
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Image
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">9/21/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBGDIPlusManipulateImage-98887a8f">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    ================================================================================<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Windows APPLICATION: VBGDIPlusManipulateImage Overview &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+===============================================================================<br>
+/////////////////////////////////////////////////////////////////////////////<br>
+Summary:<br>
+The sample demonstrates how to to resize, scale, rotate, flip and skew the image using<br>
+GDI&#43;.<br>
+<br>
+////////////////////////////////////////////////////////////////////////////////<br>
+Demo:<br>
+<br>
+Step1. Build this project in VS2010. <br>
+<br>
+Step2. Run VBGDIPlusManipulateImage.exe. <br>
+<br>
+Step3. Press the button &quot;Micrify&quot;, you will see that the image size changes to the half of the
+<br>
+&nbsp; &nbsp; &nbsp; original value.<br>
+<br>
+Step4. Press the button &quot;Reset&quot;. <br>
+<br>
+Step5. Press the button &quot;Amplify&quot;, you will see that the image size changes to the double of the
+<br>
+&nbsp; &nbsp; &nbsp; original value.<br>
+<br>
+Step6. Press the button &quot;Reset&quot;. <br>
+<br>
+Step7. Press the button &quot;RotateLeft&quot;, you will see that the image was rotated to the left by &nbsp;<br>
+&nbsp; &nbsp; &nbsp; 90 degree. <br>
+<br>
+Step8. Press the button &quot;Reset&quot;. <br>
+<br>
+Step9. Press the button &quot;RotateRight&quot;, you will see that the image was rotated to the right by &nbsp;<br>
+&nbsp; &nbsp; &nbsp; 90 degree. <br>
+<br>
+Step10. Press the button &quot;Reset&quot;. <br>
+<br>
+Step11. Press the button &quot;FlipHorizontal&quot;, you will see that the image was flipped by
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;horizontal.<br>
+<br>
+Step12. Press the button &quot;Reset&quot;. <br>
+<br>
+Step13. Press the button &quot;FlipVertical&quot;, you will see that the image was flipped by
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;vertical.<br>
+<br>
+Step14. Press the button &quot;Reset&quot;. <br>
+<br>
+Step15. Type a value between 0 and 360 in the Rotate Angle textbox, and then Press the
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;button &quot;OK&quot;, you will see that the image was rotated by the specified degree.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can rotate the image continually without Reset.<br>
+<br>
+Step16. Press the button &quot;Reset&quot;. <br>
+<br>
+Step17. Press the button &quot;SkewLeft&quot;, you will see that the top of the image was skewed<br>
+&nbsp; &nbsp; &nbsp; &nbsp;to the left. <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press the button &quot;SkewRight&quot;, you will see that the top of the image was skewed<br>
+&nbsp; &nbsp; &nbsp; &nbsp;to the right. <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can skew the image continually without Reset.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: Since the &quot;Skew&quot; is not a linear transform, you have to reset the image
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;after other operations in this application.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<br>
+<br>
+Step16. Press the button &quot;Reset&quot;. <br>
+<br>
+Step17. Press the buttons &quot;MoveUp&quot;, &quot;MoveLeft&quot;, &quot;MoveDown&quot; and &quot;Moveright&quot;, you will<br>
+&nbsp; &nbsp; &nbsp; &nbsp;see that the image was moved up, left, down and right.<br>
+<br>
+/////////////////////////////////////////////////////////////////////////////<br>
+Code Logic:<br>
+<br>
+1. Design a class ImageManipulator which is used to manipulate an image using GDI&#43;.
+<br>
+&nbsp; It supplies methods to resize, scale, rotate and flip the image.<br>
+<br>
+&nbsp; 1.1 Resize<br>
+&nbsp; &nbsp; &nbsp; Use the following constructor of the Bitmap class to get a resized image from<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; the original image.<br>
+&nbsp;<br>
+&nbsp; &nbsp; &nbsp; public Bitmap(Image original, Size newSize);<br>
+&nbsp;<br>
+&nbsp; 1.2 Scale<br>
+&nbsp; &nbsp; &nbsp; Initializes a new instance of the Matrix class with the specified elements.
+<br>
+&nbsp; &nbsp; &nbsp; This Matrix is used in Transform. When draw the original image to the new bitmap,<br>
+&nbsp; &nbsp; &nbsp; the Transform will take effect.<br>
+<br>
+&nbsp; &nbsp; &nbsp; The Matrix is like <br>
+&nbsp; &nbsp; &nbsp; | xFactor &nbsp; &nbsp; &nbsp;0 |<br>
+&nbsp; &nbsp; &nbsp; | 0 &nbsp; &nbsp; &nbsp;yFactor |<br>
+&nbsp; &nbsp; &nbsp; | 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 |<br>
+&nbsp; &nbsp; &nbsp; which means that the image will be scaled by xFactor in Width and yFactor in
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Height.<br>
+<br>
+&nbsp; 1.3 Rotate and Flip<br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 1.3.1 The Image clsss supplies a method RotateFlip(RotateFlipType rotateFlipType)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; to rotate and flip the image. But this method could only rotate 90, 180 or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 270 degree.<br>
+<br>
+&nbsp; &nbsp; &nbsp; 1.3.2 Use Transform. The steps are<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1.3.2.1 Calcualte the necessary size based on the ContentSize and RotatedAngle.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1.3.2.2 Move the image center to the point (0,0) of the new bitmap.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1.3.2.3 Rotate the image to a specified angle.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1.3.2.4 Move the rotated image center to the center of the new bitmap.<br>
+<br>
+&nbsp; 1.4 Skew<br>
+&nbsp; &nbsp; &nbsp; You can skew an image by specifying destination points for the upper-left,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; upper-right, and lower-left corners of the original image. The three destination<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; points determine an affine transformation that maps the original rectangular
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; image to a parallelogram.<br>
+<br>
+2. Design the UI that contains many buttons to manipulate the image.<br>
+<br>
+/////////////////////////////////////////////////////////////////////////////<br>
+References:<br>
+<br>
+Image Class<br>
+http://msdn.microsoft.com/en-us/library/system.drawing.image.aspx<br>
+<br>
+Bitmap Class<br>
+http://msdn.microsoft.com/en-us/library/system.drawing.bitmap.aspx<br>
+<br>
+Graphics Class<br>
+http://msdn.microsoft.com/en-us/library/system.drawing.graphics.aspx<br>
+<br>
+InterpolationMode Enumeration<br>
+http://msdn.microsoft.com/en-us/library/system.drawing.drawing2d.interpolationmode.aspx<br>
+<br>
+Matrix Class<br>
+http://msdn.microsoft.com/en-us/library/system.drawing.drawing2d.matrix.aspx<br>
+<br>
+/////////////////////////////////////////////////////////////////////////////<br>
+
+</div>
+
+
+    </div>
+</body>
+</html>
