@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="4099308e-2e64-432f-973f-87587a7afe2e" solutionId="4099308e-2e64-432f-973f-87587a7afe2e" resetWebServer="false" name="CloseModalDialogRefreshParentPage" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="7a74b83b-a259-4630-bd63-138ff28403df" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="74ab141a-b3da-4924-add2-5c90d22f26aa" />
+  </projectItems>
+</package>
