@@ -1,0 +1,32 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBProcess", "VBDetectArgsOfAnotherProcess\VBProcess\VBProcess.vbproj", "{C326D3AA-4016-41FB-ACF9-8EFC339F57AB}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBDetectProcess", "VBDetectArgsOfAnotherProcess\VBDetectProcess\VBDetectProcess.vbproj", "{2556CD58-8DDC-4F2F-A320-DCE9F1DFAED4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3AD1AEE8-2A64-42C1-8A71-EB7CBC6C7877}"
+	ProjectSection(SolutionItems) = preProject
+		VBDetectArgsOfAnotherProcess\Documentation\ReadMe.htm = VBDetectArgsOfAnotherProcess\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C326D3AA-4016-41FB-ACF9-8EFC339F57AB}.Debug|x86.ActiveCfg = Debug|x86
+		{C326D3AA-4016-41FB-ACF9-8EFC339F57AB}.Debug|x86.Build.0 = Debug|x86
+		{C326D3AA-4016-41FB-ACF9-8EFC339F57AB}.Release|x86.ActiveCfg = Release|x86
+		{C326D3AA-4016-41FB-ACF9-8EFC339F57AB}.Release|x86.Build.0 = Release|x86
+		{2556CD58-8DDC-4F2F-A320-DCE9F1DFAED4}.Debug|x86.ActiveCfg = Debug|x86
+		{2556CD58-8DDC-4F2F-A320-DCE9F1DFAED4}.Debug|x86.Build.0 = Debug|x86
+		{2556CD58-8DDC-4F2F-A320-DCE9F1DFAED4}.Release|x86.ActiveCfg = Release|x86
+		{2556CD58-8DDC-4F2F-A320-DCE9F1DFAED4}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
