@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/404d848d-26a2-4ecd-9f41-7270acdcec98Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to log UI traces into Windows Azure table storage</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to log UI traces into Windows Azure table storage</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Azure, Cloud
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Web, Logging, Table Storage, Windows Azure
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web, Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/23/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-log-UI-traces-into-5c944dea">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img src="description/8171.onecodesampletopbanner.png" alt="">
+</a></div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:24pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:14pt"><span style="font-weight:bold; font-size:14pt">How to log UI traces into Windows Azure table storage
+</span><span style="font-weight:bold; font-size:14pt">(</span><span style="font-weight:bold; font-size:14pt">VBAzureJSLogging</span><span style="font-weight:bold; font-size:14pt">)</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Introduction</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:13pt"><span style="font-size:11pt">This sample shows how to add Web UI traces into Azure table storage.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Azure now support</span><span style="font-size:11pt">s CORS.</span><span style="font-size:11pt">
+</span><span style="font-size:11pt">It&rsquo;s</span><span style="font-size:11pt"> easy to use JavaScript</span><span style="font-size:11pt"> to</span><span style="font-size:11pt"> create a JS logging Framework based on Azure table storage.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">This sample will demonstrate how to use JavaScript
+</span><span style="font-size:11pt">to </span><span style="font-size:11pt">add log to Azure table storage.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Building the Sample</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">You need rebuild this sample first,</span><span style="font-size:11pt"> then</span><span style="font-size:11pt"> the project will download necessary libraries.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Running the Sample</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">You need to open the solution, find AzureClient.cs/vb file, and change the parameters to your Azure storage account and Azure storage account key first.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Then you can run the sample directly.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">You will see the images below:</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/image.png" alt="" width="575" height="227" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">You can add </span><span style="font-size:11pt">some message into the text box.</span><span style="font-size:11pt">
+</span><span style="font-size:11pt">T</span><span style="font-size:11pt">he text will
+</span><span style="font-size:11pt">be </span><span style="font-size:11pt">upload</span><span style="font-size:11pt">ed</span><span style="font-size:11pt"> to your Azure storage account logs table.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Using the Code</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">This code</span><span style="font-size:11pt"> snippet</span><a name="_GoBack"></a><span style="font-size:11pt"> shows how to enable table storage CORS feature.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span>&nbsp;</span></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">/// &lt;summary&gt;
+        /// Adds CORS rule to the service properties.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;serviceProperties&quot;&gt;ServiceProperties&lt;/param&gt;
+        private static void ConfigureCors(ServiceProperties serviceProperties)
+        {
+            serviceProperties.Cors = new CorsProperties();
+            serviceProperties.Cors.CorsRules.Add(new CorsRule()
+            {
+                AllowedHeaders = new List&lt;string&gt;() { &quot;*&quot; },
+                AllowedMethods = CorsHttpMethods.Put | CorsHttpMethods.Get | CorsHttpMethods.Head | CorsHttpMethods.Post,
+                AllowedOrigins = new List&lt;string&gt;() { &quot;*&quot; },
+                ExposedHeaders = new List&lt;string&gt;() { &quot;*&quot; },
+                MaxAgeInSeconds = 1800 // 30 minutes
+            });
+        }
+</pre>
+<pre class="hidden">''' &lt;summary&gt;
+   ''' Adds CORS rule to the service properties.
+   ''' &lt;/summary&gt;
+   ''' &lt;param name=&quot;serviceProperties&quot;&gt;ServiceProperties&lt;/param&gt;
+   Private Shared Sub ConfigureCors(serviceProperties As ServiceProperties)
+       serviceProperties.Cors = New CorsProperties()
+       ' 30 minutes
+       serviceProperties.Cors.CorsRules.Add(New CorsRule() With { _
+            .AllowedHeaders = New List(Of String)() From { _
+               &quot;*&quot; _
+           }, _
+            .AllowedMethods = CorsHttpMethods.Put Or CorsHttpMethods.[Get] Or CorsHttpMethods.Head Or CorsHttpMethods.Post, _
+            .AllowedOrigins = New List(Of String)() From { _
+               &quot;*&quot; _
+           }, _
+            .ExposedHeaders = New List(Of String)() From { _
+               &quot;*&quot; _
+           }, _
+            .MaxAgeInSeconds = 1800 _
+       })
+   End Sub
+</pre>
+<pre id="codePreview" class="csharp">/// &lt;summary&gt;
+        /// Adds CORS rule to the service properties.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;serviceProperties&quot;&gt;ServiceProperties&lt;/param&gt;
+        private static void ConfigureCors(ServiceProperties serviceProperties)
+        {
+            serviceProperties.Cors = new CorsProperties();
+            serviceProperties.Cors.CorsRules.Add(new CorsRule()
+            {
+                AllowedHeaders = new List&lt;string&gt;() { &quot;*&quot; },
+                AllowedMethods = CorsHttpMethods.Put | CorsHttpMethods.Get | CorsHttpMethods.Head | CorsHttpMethods.Post,
+                AllowedOrigins = new List&lt;string&gt;() { &quot;*&quot; },
+                ExposedHeaders = new List&lt;string&gt;() { &quot;*&quot; },
+                MaxAgeInSeconds = 1800 // 30 minutes
+            });
+        }
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">This code</span><span style="font-size:11pt"> snippet</span><span style="font-size:11pt"> show</span><span style="font-size:11pt">s</span><span style="font-size:11pt"> how to request a SAS URL, then
+ use this URL upload log message to Azure table storage.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span>&nbsp;</span></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>JavaScript</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">js</span>
+<pre class="hidden">&lt;script type=&quot;text/javascript&quot;&gt;
+function addTableEntity(jsonString, tableSasUrl) {
+    $.ajax({
+        type: 'POST',
+        datatype: &quot;json&quot;,
+        data: jsonString,
+        url: tableSasUrl,
+        beforeSend: setHeader,
+        success: function (data, status, xhr) {
+            alert(&quot;upload to Azure table storage success!&quot;);
+        },
+        error: function (data, status, xhr) {
+            alert(&quot;upload to Azure table storage failed!&quot;);
+        }
+    });
+}
+function setHeader(xhr) {
+    xhr.setRequestHeader('x-ms-version', '2013-08-15');
+    xhr.setRequestHeader('MaxDataServiceVersion', '3.0');
+    xhr.setRequestHeader('Accept', 'application/json;odata=nometadata');
+    xhr.setRequestHeader('Content-Type', 'application/json;odata=nometadata');
+}
+function addLogtoTableStorage() {
+    var tableSasApiUrl = '@Url.RouteUrl(&quot;DefaultApi&quot;, New With {.httproute = &quot;&quot;, .controller = &quot;tablesas&quot;})';
+    var entity = {
+        PartitionKey: 'default',
+        RowKey: (new Date()).getTime().toString(),
+        log: $(&quot;#txtLogItem&quot;).val()
+    };
+    alert(tableSasApiUrl);
+    $.ajax({
+        type: 'GET',
+        url: tableSasApiUrl,
+        dataType:'json',
+        success: function (data, states, xhr) {
+            if (xhr.responseText != &quot;&quot;) {
+                alert(data.SASTokenUrl)
+                addTableEntity(JSON.stringify(entity), data.SASTokenUrl);
+            }
+            return xhr.responseText;
+        },
+        error: function (data, status, xhr) {
+            alert(&quot;can't get SAS for table&quot;);
+        }
+    })
+}
+&lt;/script&gt;
+</pre>
+<pre id="codePreview" class="js">&lt;script type=&quot;text/javascript&quot;&gt;
+function addTableEntity(jsonString, tableSasUrl) {
+    $.ajax({
+        type: 'POST',
+        datatype: &quot;json&quot;,
+        data: jsonString,
+        url: tableSasUrl,
+        beforeSend: setHeader,
+        success: function (data, status, xhr) {
+            alert(&quot;upload to Azure table storage success!&quot;);
+        },
+        error: function (data, status, xhr) {
+            alert(&quot;upload to Azure table storage failed!&quot;);
+        }
+    });
+}
+function setHeader(xhr) {
+    xhr.setRequestHeader('x-ms-version', '2013-08-15');
+    xhr.setRequestHeader('MaxDataServiceVersion', '3.0');
+    xhr.setRequestHeader('Accept', 'application/json;odata=nometadata');
+    xhr.setRequestHeader('Content-Type', 'application/json;odata=nometadata');
+}
+function addLogtoTableStorage() {
+    var tableSasApiUrl = '@Url.RouteUrl(&quot;DefaultApi&quot;, New With {.httproute = &quot;&quot;, .controller = &quot;tablesas&quot;})';
+    var entity = {
+        PartitionKey: 'default',
+        RowKey: (new Date()).getTime().toString(),
+        log: $(&quot;#txtLogItem&quot;).val()
+    };
+    alert(tableSasApiUrl);
+    $.ajax({
+        type: 'GET',
+        url: tableSasApiUrl,
+        dataType:'json',
+        success: function (data, states, xhr) {
+            if (xhr.responseText != &quot;&quot;) {
+                alert(data.SASTokenUrl)
+                addTableEntity(JSON.stringify(entity), data.SASTokenUrl);
+            }
+            return xhr.responseText;
+        },
+        error: function (data, status, xhr) {
+            alert(&quot;can't get SAS for table&quot;);
+        }
+    })
+}
+&lt;/script&gt;
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">More Information</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx" >http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx</a></span></span></p>
+<p style="line-height:0.6pt; color:white">Microsoft All-In-One Code Framework is a free, centralized code sample library driven by developers' real-world pains and needs. The goal is to provide customer-driven code samples for all Microsoft development technologies,
+ and reduce developers' efforts in solving typical programming tasks. Our team listens to developers&rsquo; pains in the MSDN forums, social media and various DEV communities. We write code samples based on developers&rsquo; frequently asked programming tasks,
+ and allow developers to download them with a short sample publishing cycle. Additionally, we offer a free code sample request service. It is a proactive way for our developer community to obtain code samples directly from Microsoft.</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/9d586f6e-b5b4-457a-beaf-283d63a6606aimage.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
