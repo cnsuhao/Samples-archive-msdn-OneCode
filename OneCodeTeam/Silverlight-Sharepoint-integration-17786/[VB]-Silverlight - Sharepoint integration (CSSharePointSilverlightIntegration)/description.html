@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Silverlight - Sharepoint integration (CSSharePointSilverlightIntegration)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Silverlight - Sharepoint integration (CSSharePointSilverlightIntegration)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Silverlight, SharePoint
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            webpart
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">7/22/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSSharePointSilverlightInte-9dd5224e">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">How to use Silverlight along-with SharePoint </span>(<span style="">VBSharePointSilverlightIntegration</span>)</h1>
+<h2>Introduction </h2>
+<h2><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">The project shows how to use Silverlight along-with SharePoint.</span>
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">
+A Silverlight application can be hosted inside a SharePoint site and it is called as a Silverlight WebPart.<br>
+<br>
+</span>Running the Sample</h2>
+<p class="MsoNormal"><span style="">Please follow these demonstration steps below.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 1: Open the VBSharePointSilverlightIntegration.sln then right click the SharePoint project to edit the &quot;Site Url&quot; to your own.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2: Right-click the &quot;VBSharePointSilverlightIntegration&quot; project and click &quot;Deploy&quot;.<br style="">
+<br style="">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: Open the SharePoint site in the browser and select &quot;Page&quot;.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><img src="description/image.png" alt="" width="993" height="409" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><br>
+Step 4: </span>Select Edit.<br>
+<span style=""><img src="description/905d0f9a-8261-4cf4-b761-00e96019b683image.png" alt="" width="965" height="384" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 5: </span>Having done that Select &quot;Insert&quot; tab and click &quot;Web Part&quot;.<br>
+<span style=""><img src="description/b867a552-37c2-4115-9826-7d4de3afc3c4image.png" alt="" width="991" height="353" align="middle">
+</span><br style="">
+<br style="">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 6: </span>In &quot;Categories&quot;, select &quot;Media and content&quot; and correspondingly in &quot;Web Parts&quot; column, Select &quot;Silverlight Web Part&quot; Having Selected the &quot;Silverlight Web Part&quot;, click on &quot;Add&quot;
+ button that appears on the right side.</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><img src="description/56c4d83a-f2bf-49a1-abfa-9ae87f12b7c9image.png" alt="" width="825" height="429" align="middle">
+</span><span style=""><br>
+<br style="">
+<br style="">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 7: </span>After clicking add, a small pop-up will appear asking for the URL of the Silverlight content(.xap) file. Enter the URL in the following format as:<br>
+<span style="">&nbsp;</span><a href="http://YourPointSite/DemoModule/SilverlightWebpart.xap">http://YourPointSite/DemoModule/SilverlightWebpart.xap</a><br>
+<span style=""><img src="description/ff222c08-50f3-464d-8f11-1eb09699bf9aimage.png" alt="" width="1158" height="606" align="middle">
+</span><span style="">&nbsp;</span><br>
+<span style="">Step 8: </span>Then click OK and then you can see your Silverlight web part appear in the SharePoint site as:<br>
+<span style=""><img src="description/960d6bba-136a-4860-8640-b727c4e04668image.png" alt="" width="892" height="477" align="middle">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<br>
+<span style="">Step 9: </span>As you can see the blue border is the boundary of the Silverlight web part and the Silverlight application has a button in it. When you click the button, it acts like a normal Silverlight application and responds to the user interaction
+ and a Message Box is popped, for which we wrote code in &quot;MainPage.xaml.cs&quot;.<br>
+<span style=""><img src="description/8892f23c-1e04-4b87-93e1-d2d9753d8f12image.png" alt="" width="1014" height="445" align="middle">
+</span><span style=""></span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style=""><span style="">Code Logical: <br>
+<b style="">[Prerequisites]</b></span> <a href="http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;id=5970">
+Microsoft SharePoint Foundation 2010 </a><span style=""><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></p>
+<p class="MsoNormal" style=""><span style="">Step1: Create a VB </span>Empty SharePoint Project
+<span style="">in Visual Studio 2010 and name it as &quot;VBSharePointSilverlightIntegration&quot;.
+</span></p>
+<img src="description/8c897f7b-98da-4f01-8316-6d33ee45e58aimage.png" alt="" width="605" height="479" align="middle">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xaml</span>
+<pre class="hidden">
+&lt;UserControl x:Class=&quot;SilverlightWebpart.MainPage&quot;
+       xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+       xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+       xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+       xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+       mc:Ignorable=&quot;d&quot;
+       d:DesignHeight=&quot;300&quot; d:DesignWidth=&quot;400&quot;&gt;
+
+
+       &lt;Grid x:Name=&quot;LayoutRoot&quot; Background=&quot;White&quot;&gt;
+           &lt;Button Name=&quot;btnClk&quot; Height=&quot;20&quot; Width=&quot;50&quot; Content=&quot;Click !!&quot; Click=&quot;btnClk_Click&quot;&gt;&lt;/Button&gt;
+       &lt;/Grid&gt;
+   &lt;/UserControl&gt;
+
+</pre>
+<pre id="codePreview" class="xaml">
+&lt;UserControl x:Class=&quot;SilverlightWebpart.MainPage&quot;
+       xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+       xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+       xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+       xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+       mc:Ignorable=&quot;d&quot;
+       d:DesignHeight=&quot;300&quot; d:DesignWidth=&quot;400&quot;&gt;
+
+
+       &lt;Grid x:Name=&quot;LayoutRoot&quot; Background=&quot;White&quot;&gt;
+           &lt;Button Name=&quot;btnClk&quot; Height=&quot;20&quot; Width=&quot;50&quot; Content=&quot;Click !!&quot; Click=&quot;btnClk_Click&quot;&gt;&lt;/Button&gt;
+       &lt;/Grid&gt;
+   &lt;/UserControl&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+using System;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Collections.Generic.aspx"  title="Auto generated link to System.Collections.Generic">System.Collections.Generic</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Linq.aspx"  title="Auto generated link to System.Linq">System.Linq</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Net.aspx"  title="Auto generated link to System.Net">System.Net</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.aspx"  title="Auto generated link to System.Windows">System.Windows</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Controls.aspx"  title="Auto generated link to System.Windows.Controls">System.Windows.Controls</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Documents.aspx"  title="Auto generated link to System.Windows.Documents">System.Windows.Documents</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Input.aspx"  title="Auto generated link to System.Windows.Input">System.Windows.Input</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Media.aspx"  title="Auto generated link to System.Windows.Media">System.Windows.Media</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Media.Animation.aspx"  title="Auto generated link to System.Windows.Media.Animation">System.Windows.Media.Animation</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Shapes.aspx"  title="Auto generated link to System.Windows.Shapes">System.Windows.Shapes</a>;
+
+
+   namespace SilverlightWebpart
+   {
+       public partial class MainPage : UserControl
+       {
+           public MainPage()
+           {
+               InitializeComponent();
+           }
+
+
+           private void btnClk_Click(object sender, RoutedEventArgs e)
+           {
+               MessageBox.Show(&quot;Hello from Silverlight within SharePoint !!&quot;);
+           }
+
+
+       }
+   }
+
+</pre>
+<pre id="codePreview" class="vb">
+using System;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Collections.Generic.aspx"  title="Auto generated link to System.Collections.Generic">System.Collections.Generic</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Linq.aspx"  title="Auto generated link to System.Linq">System.Linq</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Net.aspx"  title="Auto generated link to System.Net">System.Net</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.aspx"  title="Auto generated link to System.Windows">System.Windows</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Controls.aspx"  title="Auto generated link to System.Windows.Controls">System.Windows.Controls</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Documents.aspx"  title="Auto generated link to System.Windows.Documents">System.Windows.Documents</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Input.aspx"  title="Auto generated link to System.Windows.Input">System.Windows.Input</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Media.aspx"  title="Auto generated link to System.Windows.Media">System.Windows.Media</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Media.Animation.aspx"  title="Auto generated link to System.Windows.Media.Animation">System.Windows.Media.Animation</a>;
+   using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Shapes.aspx"  title="Auto generated link to System.Windows.Shapes">System.Windows.Shapes</a>;
+
+
+   namespace SilverlightWebpart
+   {
+       public partial class MainPage : UserControl
+       {
+           public MainPage()
+           {
+               InitializeComponent();
+           }
+
+
+           private void btnClk_Click(object sender, RoutedEventArgs e)
+           {
+               MessageBox.Show(&quot;Hello from Silverlight within SharePoint !!&quot;);
+           }
+
+
+       }
+   }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+copy &quot;$(TargetDir)SilverlightWebpart.xap&quot; &quot;$(SolutionDir)VBSharePointSilverlightIntegration\DemoModule
+
+</pre>
+<pre id="codePreview" class="vb">
+copy &quot;$(TargetDir)SilverlightWebpart.xap&quot; &quot;$(SolutionDir)VBSharePointSilverlightIntegration\DemoModule
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"></p>
+<img src="description/615e89f4-8ee1-44d6-9b94-9074e75768afimage.png" alt="" width="1334" height="565" align="middle">
+<p class="MsoNormal" style=""><span style=""><img src="description/a011b92a-5fbc-4ea8-83d7-ebd5257fb731image.png" alt="" width="537" height="345" align="middle">
+</span></p>
+<p class="MsoNormal" style=""><span style="">Step11: Build </span>the entire solution and then try to deploy the &quot;VBSharePointSilverlightIntegration&quot; project to the SharePoint site. Then you can test it.</p>
+<p class="MsoNormal" style=""><b style="">Why brings Silverlight and SharePoint together?</b><br>
+&#8226;Users are expecting rich, compelling interfaces. <br>
+Silverlight is a perfect technology to create Web 2.0 applications in SharePoint<br>
+&#8226;Limit page post backs. <br>
+Silverlight applications do their processing on the client, eliminating page post backs.<br>
+&#8226;Silverlight applications offload processing to the client. <br>
+Processing on the client reduces the load on the SharePoint server farm.<br>
+&#8226;Silverlight isolates processing on the client<br>
+&#8226;Separation of design and code. <br>
+You can use the MVVM pattern to separate the presentation from the processing later. This makes it easy to change the look and feel of Silverlight applications.<br>
+&#8226;Common .NET development techniques. <br>
+Silverlight applications are based on the .NET framework which makes it easy for .NET developers to create them. The client object model may be used to access SharePoint resources from a Silverlight application.<br>
+&#8226;Overcome Sandbox limitations. <br>
+Silverlight applications may be used to overcome sandboxed limitations such as the ability to call an external service, or use parts of the .NET framework which are not permitted to run in a sandboxed solution.<br>
+&#8226;Ease of deployment. <br>
+Silverlight applications are very easy to deploy. Anyone with the ability to upload a document to a document library can deploy a Silverlight application to a SharePoint site. Additionally, the Silverlight Web Part makes it very easy to place Silverlight applications
+ on SharePoint web pages.</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
