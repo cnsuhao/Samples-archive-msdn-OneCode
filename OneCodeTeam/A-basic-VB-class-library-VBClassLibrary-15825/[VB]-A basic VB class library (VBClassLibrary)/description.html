@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>A basic VB class library (VBClassLibrary)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>A basic VB class library (VBClassLibrary)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            .NET Framework
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Class Library
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">8/22/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBClassLibrary-9e38d9ad">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>LIBRARY APPLICATION <span style="">(</span>VBClassLibrary)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">The code sample demonstrates a <span style="">VB.Net</span> class library that we can use in other applications. The class library exposes a simple class named VBSimpleObject.
+</p>
+<p class="MsoNormal">The class contains:<span style=""> </span></p>
+<p class="MsoNormal"><span style="">Constructor: </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+ Public Sub New()
+ End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+ Public Sub New()
+ End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">Instance field and property: </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private fField As Single = 0.0F
+
+
+       ''' &lt;summary&gt;
+       ''' This is a public Property. It allows you to get and set the value 
+       ''' of a float field.
+       ''' &lt;/summary&gt;
+       Public Property FloatProperty() As Single
+           Get
+               Return fField
+           End Get
+           Set(ByVal value As Single)
+               ' Fire the event FloatPropertyChanging
+               Dim cancel As Boolean = False
+               RaiseEvent FloatPropertyChanging(value, cancel)
+
+
+               ' If the change is not canceled, make the change.
+               If Not cancel Then
+                   fField = value
+               End If
+           End Set
+       End Property
+
+</pre>
+<pre id="codePreview" class="vb">
+Private fField As Single = 0.0F
+
+
+       ''' &lt;summary&gt;
+       ''' This is a public Property. It allows you to get and set the value 
+       ''' of a float field.
+       ''' &lt;/summary&gt;
+       Public Property FloatProperty() As Single
+           Get
+               Return fField
+           End Get
+           Set(ByVal value As Single)
+               ' Fire the event FloatPropertyChanging
+               Dim cancel As Boolean = False
+               RaiseEvent FloatPropertyChanging(value, cancel)
+
+
+               ' If the change is not canceled, make the change.
+               If Not cancel Then
+                   fField = value
+               End If
+           End Set
+       End Property
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">Instance method: </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+''' &lt;summary&gt;
+''' Returns a String that represents the current Object. Here, we 
+''' return the string form of the float field fField.
+''' &lt;/summary&gt;
+''' &lt;returns&gt;the string form of the float field fField.&lt;/returns&gt;
+Public Overrides Function ToString() As String
+    Return Me.fField.ToString(&quot;F2&quot;)
+End Function
+
+</pre>
+<pre id="codePreview" class="vb">
+''' &lt;summary&gt;
+''' Returns a String that represents the current Object. Here, we 
+''' return the string form of the float field fField.
+''' &lt;/summary&gt;
+''' &lt;returns&gt;the string form of the float field fField.&lt;/returns&gt;
+Public Overrides Function ToString() As String
+    Return Me.fField.ToString(&quot;F2&quot;)
+End Function
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">Shared (static) method: </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+''' &lt;summary&gt;
+''' This is a public static method. It returns the number of 
+''' characters in a string.
+''' &lt;/summary&gt;
+''' &lt;param name=&quot;str&quot;&gt;a string&lt;/param&gt;
+''' &lt;returns&gt;the number of characters in the string&lt;/returns&gt;
+Public Shared Function GetStringLength(ByVal str As String) As Integer
+      Return str.Length
+End Function
+
+</pre>
+<pre id="codePreview" class="vb">
+''' &lt;summary&gt;
+''' This is a public static method. It returns the number of 
+''' characters in a string.
+''' &lt;/summary&gt;
+''' &lt;param name=&quot;str&quot;&gt;a string&lt;/param&gt;
+''' &lt;returns&gt;the number of characters in the string&lt;/returns&gt;
+Public Shared Function GetStringLength(ByVal str As String) As Integer
+      Return str.Length
+End Function
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">Instance event: </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+''' &lt;summary&gt;
+''' This is an event. The event is fired when the float property is 
+''' set.
+''' &lt;/summary&gt;
+Public Event FloatPropertyChanging As PropertyChangingEventHandler
+
+</pre>
+<pre id="codePreview" class="vb">
+''' &lt;summary&gt;
+''' This is an event. The event is fired when the float property is 
+''' set.
+''' &lt;/summary&gt;
+Public Event FloatPropertyChanging As PropertyChangingEventHandler
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">The process of creating the class library is very straight-forward.
+</span></p>
+<h2>Implementation:</h2>
+<h3>A. Creating the project</h3>
+<p class="MsoNormal">Step1. Create a Visual <span style="">VB.Net</span> / Class Library project named VBClassLibrary in Visual Studio 2010.</p>
+<h3>B. Adding a class <span class="SpellE"><span style="">VB</span>impleObject</span> to the project and define its fields, properties, methods, and events.</h3>
+<p class="MsoNormal">Step1. In Solution Explorer, add a new Class item to the project and name it<span style="">
+</span>as VBSimpleObject.</p>
+<p class="MsoNormal">Step2. Edit the file VBSimpleObject.vb to add the fields, properties, methods,<span style="">
+</span>and events.</p>
+<h3>C. Signing the assembly with a strong name (Optional)</h3>
+<p class="MsoNormal">Strong names are required to store shared assemblies in Global Assembly Cache(GAC). This helps avoid DLL Hell. Strong names also protects the assembly from being hacked (replaced or injected). A strong name consists of the assembly's
+ identity—its simple text name, version number, and culture info<span style=""> </span>
+(if provided)—plus a public key and a digital signature. It is generated from an assembly file using the corresponding private key.
+</p>
+<p class="MsoNormal">Step1. Right-click the project and open its Properties page.</p>
+<p class="MsoNormal">Step2. Turn to the Signing tab, and check the Sign the assembly checkbox.
+</p>
+<p class="MsoNormal">Step3. In the Choose a strong name key file drop-down, select New. The &quot;Create Strong Name Key&quot; dialog appears. In the Key file name text box, type<span style="">
+</span>the desired key name. If necessary, we can protect the strong name key file with a password. Click the OK button.<span style="">
+</span></p>
+<h2>More Information</h2>
+<p class="MsoListParagraphCxSpFirst" style="margin-bottom:0cm; margin-bottom:.0001pt; text-indent:5.0pt; line-height:normal; text-autospace:none">
+<span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-family:新宋体"><a href="http://msdn.microsoft.com/en-us/library/b0b8dk77.aspx">MSDN: Creating Assemblies</a>
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-bottom:0cm; margin-bottom:.0001pt; text-indent:5.0pt; line-height:normal; text-autospace:none">
+<span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-family:新宋体"><a href="http://msdn.microsoft.com/en-us/library/xc31ft41.aspx">How to: Sign an Assembly with a Strong Name</a>
+</span></p>
+<p class="MsoListParagraphCxSpLast" style="margin-bottom:0cm; margin-bottom:.0001pt; text-indent:5.0pt; line-height:normal; text-autospace:none">
+<span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-family:新宋体"><a href="http://msdn.microsoft.com/en-us/library/3707x96z.aspx">How to: Create and Use C# DLLs (C# Programming Guide)</a>
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
