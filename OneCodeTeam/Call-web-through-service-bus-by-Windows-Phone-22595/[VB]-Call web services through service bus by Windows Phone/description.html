@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Call web services through service bus by Windows Phone</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Call web services through service bus by Windows Phone</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure, Windows Phone, Windows Phone Development
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Service Bus
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud, Phone
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/13/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Call-web-through-service-c9fdb1ea">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Azure Service Bus on Windows Phone (VBWP8AzureServiceBusRest)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">This sample demonstrates how to perform management operations on the Service Bus using REST on Windows Phone, specifically:<br>
+Generate Token<br>
+Create a queue<br>
+Send a message to a queue<br>
+Receive a message from a queue<br>
+List queues</p>
+<h2>Building the Sample</h2>
+<p class="MsoNormal">Prerequisite: Visual Studio 2012 with Windows Phone SDK 8.0.<br>
+You can download Visual Studio 2012 from here:<br>
+<a href="http://www.microsoft.com/visualstudio/eng/downloads">http://www.microsoft.com/visualstudio/eng/downloads</a><br>
+You can download Windows Phone SDK 8.0 from here:<br>
+<a href="http://code.msdn.microsoft.com/Call-web-through-service-c9fdb1ea/https://dev.windowsphone.com/en-us/downloadsdk">http://code.msdn.microsoft.com/Call-web-through-service-c9fdb1ea/https://dev.windowsphone.com/en-us/downloadsdk</a><br>
+<span style="">&nbsp;</span>You can get start by checking this link: <br>
+<a href="http://create.msdn.com/en-us/home/getting_started">http://create.msdn.com/en-us/home/getting_started</a></p>
+<h2>Running the Sample</h2>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style=""><span style="">Step 1:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Open <b style="">VBWP8AzureServiceBusRest</b> in Visual Studio 2012 or Visual Studio Express 2012 for Windows Phone.</p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span style=""><span style="">Step 2:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Replace the <b style="">Service Bus Namespace</b>, <b style="">
+issuer name</b> and <b style="">issuer secret</b> with your own's.</p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span style=""><span style="">Step 3:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Press Ctrl &#43; F5. The emulator looks as follows:</p>
+<p class="MsoListParagraphCxSpMiddle"><span style=""><img src="description/image.png" alt="" width="262" height="259" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle">If you debug the project, the output window looks as follows:</p>
+<p class="MsoListParagraphCxSpMiddle"><span style=""><img src="description/65b17ffa-fe97-448e-85d8-b6d5941e0c59image.png" alt="" width="754" height="154" align="middle">
+</span><span style="">&nbsp;</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">Step 4:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>The validation is complete.</p>
+<h2>Using the Code</h2>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style=""><span style="">Step 1:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Create a new <b style="">Windows Phone project</b> in Visual Studio 2012 or Visual Studio Express 2012 for Windows Phone.
+</p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">Step 2:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>The code for generating token resembles the following :</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Async Function post(url As String, postdata As String) As Task(Of String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim request As HttpWebRequest = TryCast(WebRequest.Create(New Uri(url)), HttpWebRequest)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request.ContentType = &quot;application/x-www-form-urlencoded&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request.Method = &quot;POST&quot;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim data As Byte() = Encoding.UTF8.GetBytes(postdata)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request.ContentLength = data.Length
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using requestStream = Await Task(Of Stream).Factory.FromAsync(AddressOf request.BeginGetRequestStream, AddressOf request.EndGetRequestStream, request)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Await requestStream.WriteAsync(data, 0, data.Length)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Using
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '' Start the asynchronous operation to get the response 
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim responseObject As WebResponse = Await Task(Of WebResponse).Factory.FromAsync(AddressOf request.BeginGetResponse, AddressOf request.EndGetResponse, request)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim responseStream = responseObject.GetResponseStream()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim sr = New StreamReader(responseStream)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim received As String = Await sr.ReadToEndAsync()
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return received
+&nbsp; End Function
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Async Function post(url As String, postdata As String) As Task(Of String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim request As HttpWebRequest = TryCast(WebRequest.Create(New Uri(url)), HttpWebRequest)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request.ContentType = &quot;application/x-www-form-urlencoded&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request.Method = &quot;POST&quot;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim data As Byte() = Encoding.UTF8.GetBytes(postdata)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request.ContentLength = data.Length
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using requestStream = Await Task(Of Stream).Factory.FromAsync(AddressOf request.BeginGetRequestStream, AddressOf request.EndGetRequestStream, request)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Await requestStream.WriteAsync(data, 0, data.Length)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Using
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '' Start the asynchronous operation to get the response 
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim responseObject As WebResponse = Await Task(Of WebResponse).Factory.FromAsync(AddressOf request.BeginGetResponse, AddressOf request.EndGetResponse, request)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim responseStream = responseObject.GetResponseStream()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim sr = New StreamReader(responseStream)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim received As String = Await sr.ReadToEndAsync()
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return received
+&nbsp; End Function
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style="text-indent:-.25in"><span style=""><span style="">Step 3:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>We use the generate method resembles the following:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Dim postdata As String = &quot;wrap_name=&quot; & Uri.EscapeDataString(issuerName) & _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;&wrap_password=&quot; & Uri.EscapeDataString(issuerSecret) & _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;&wrap_scope=&quot; & Uri.EscapeDataString(realm)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim strResponse As String = Await post(acsEndpoint, postdata)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim responseProperties = strResponse.Split(&quot;&&quot;c)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim tokenProperty = responseProperties(0).Split(&quot;=&quot;c)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; token = Uri.UnescapeDataString(tokenProperty(1))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; token = &quot;WRAP access_token=&quot;&quot;&quot; & token & &quot;&quot;&quot;&quot;
+
+</pre>
+<pre id="codePreview" class="vb">
+Dim postdata As String = &quot;wrap_name=&quot; & Uri.EscapeDataString(issuerName) & _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;&wrap_password=&quot; & Uri.EscapeDataString(issuerSecret) & _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;&wrap_scope=&quot; & Uri.EscapeDataString(realm)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim strResponse As String = Await post(acsEndpoint, postdata)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim responseProperties = strResponse.Split(&quot;&&quot;c)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim tokenProperty = responseProperties(0).Split(&quot;=&quot;c)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; token = Uri.UnescapeDataString(tokenProperty(1))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; token = &quot;WRAP access_token=&quot;&quot;&quot; & token & &quot;&quot;&quot;&quot;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style="text-indent:-.25in"><span style=""><span style="">Step 4:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>The code for creating Queue resembles the following:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Sub CreateQueue(queueName As String, token As String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' Create the URI of the new Queue, note that this uses the HTTPS scheme
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim queueAddress = baseAddress & queueName
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim webClient As New WebClient()
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;webClient.Headers(HttpRequestHeader.Authorization) = token
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' Prepare the body of the create queue request
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim putData = &quot;&lt;entry xmlns=&quot;&quot;http://www.w3.org/2005/Atom&quot;&quot;&gt;&quot; & vbCr & vbLf & _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;&lt;title type=&quot;&quot;text&quot;&quot;&gt;&quot; & queueName & &quot;&lt;/title&gt;&quot; & vbCr & vbLf & _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot; &lt;content type=&quot;&quot;application/xml&quot;&quot;&gt;&quot; & vbCr & vbLf & _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;&nbsp; &lt;QueueDescription xmlns:i=&quot;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&quot; xmlns=&quot;&quot;http://schemas.microsoft.com/netservices/2010/10/servicebus/connect&quot;&quot; /&gt;&quot; _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; & vbCr & vbLf & &quot;&nbsp;&nbsp;&nbsp; &lt;/content&gt;&quot; & vbCr & vbLf & _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;&lt;/entry&gt;&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(vbLf & &quot;Creating queue {0}&quot;, queueAddress)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddHandler webClient.UploadStringCompleted, New UploadStringCompletedEventHandler(AddressOf webClient_CreateQueueCompleted)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; webClient.UploadStringAsync(New Uri(queueAddress), &quot;PUT&quot;, putData, token)
+&nbsp;&nbsp; End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Sub CreateQueue(queueName As String, token As String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' Create the URI of the new Queue, note that this uses the HTTPS scheme
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim queueAddress = baseAddress & queueName
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim webClient As New WebClient()
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;webClient.Headers(HttpRequestHeader.Authorization) = token
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' Prepare the body of the create queue request
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim putData = &quot;&lt;entry xmlns=&quot;&quot;http://www.w3.org/2005/Atom&quot;&quot;&gt;&quot; & vbCr & vbLf & _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;&lt;title type=&quot;&quot;text&quot;&quot;&gt;&quot; & queueName & &quot;&lt;/title&gt;&quot; & vbCr & vbLf & _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot; &lt;content type=&quot;&quot;application/xml&quot;&quot;&gt;&quot; & vbCr & vbLf & _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;&nbsp; &lt;QueueDescription xmlns:i=&quot;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&quot; xmlns=&quot;&quot;http://schemas.microsoft.com/netservices/2010/10/servicebus/connect&quot;&quot; /&gt;&quot; _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; & vbCr & vbLf & &quot;&nbsp;&nbsp;&nbsp; &lt;/content&gt;&quot; & vbCr & vbLf & _
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;&lt;/entry&gt;&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(vbLf & &quot;Creating queue {0}&quot;, queueAddress)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddHandler webClient.UploadStringCompleted, New UploadStringCompletedEventHandler(AddressOf webClient_CreateQueueCompleted)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; webClient.UploadStringAsync(New Uri(queueAddress), &quot;PUT&quot;, putData, token)
+&nbsp;&nbsp; End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style="text-indent:-.25in"><span style=""><span style="">Step 5:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>The code for sending message resembles the following:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Sub SendMessage(relativeAddress As String, body As String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim fullAddress As String = baseAddress & relativeAddress & &quot;/messages&quot; & &quot;?timeout=60&quot;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim webClient As New WebClient()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; webClient.Headers(HttpRequestHeader.Authorization) = token
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(vbLf & &quot;Sending message {0} - to address {1}&quot;, body, fullAddress)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddHandler webClient.UploadStringCompleted, New UploadStringCompletedEventHandler(AddressOf webClient_UploadStringCompleted)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; webClient.UploadStringAsync(New Uri(fullAddress), &quot;POST&quot;, body, token)
+&nbsp;&nbsp; End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Sub SendMessage(relativeAddress As String, body As String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim fullAddress As String = baseAddress & relativeAddress & &quot;/messages&quot; & &quot;?timeout=60&quot;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim webClient As New WebClient()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; webClient.Headers(HttpRequestHeader.Authorization) = token
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(vbLf & &quot;Sending message {0} - to address {1}&quot;, body, fullAddress)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddHandler webClient.UploadStringCompleted, New UploadStringCompletedEventHandler(AddressOf webClient_UploadStringCompleted)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; webClient.UploadStringAsync(New Uri(fullAddress), &quot;POST&quot;, body, token)
+&nbsp;&nbsp; End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style="text-indent:-.25in"><span style=""><span style="">Step 6:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>The code for receiving data resembles the following:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Shared Sub DownloadData(fullAddress As String, strMessage As String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim webClient As New WebClient()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; webClient.Headers(HttpRequestHeader.Authorization) = token
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(strMessage)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddHandler webClient.DownloadStringCompleted, New DownloadStringCompletedEventHandler(AddressOf DownloadStringCompletedEventArgs)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; webClient.DownloadStringAsync(New Uri(fullAddress))
+&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp; Private Shared Sub DownloadStringCompletedEventArgs(sender As Object, e As DownloadStringCompletedEventArgs)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If e.[Error] IsNot Nothing Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(e.Result)
+&nbsp;&nbsp; End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Shared Sub DownloadData(fullAddress As String, strMessage As String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim webClient As New WebClient()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; webClient.Headers(HttpRequestHeader.Authorization) = token
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(strMessage)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddHandler webClient.DownloadStringCompleted, New DownloadStringCompletedEventHandler(AddressOf DownloadStringCompletedEventArgs)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; webClient.DownloadStringAsync(New Uri(fullAddress))
+&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp; Private Shared Sub DownloadStringCompletedEventArgs(sender As Object, e As DownloadStringCompletedEventArgs)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If e.[Error] IsNot Nothing Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(e.Result)
+&nbsp;&nbsp; End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style="text-indent:-.25in"><span style=""><span style="">Step 7:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Build the application, and then you can debug it. </p>
+<h2>More Information</h2>
+<p class="MsoNormal">For more info about AppFabric Service Bus REST API Reference, please see this link:
+<br>
+<a href="http://msdn.microsoft.com/en-us/library/gg278338.aspx">http://msdn.microsoft.com/en-us/library/gg278338.aspx</a><br>
+For more info about WebClient Class, please see this link: <br>
+<a href="http://msdn.microsoft.com/en-us/library/tt0f69eh.aspx">http://msdn.microsoft.com/en-us/library/tt0f69eh.aspx</a><br>
+For more info about WebClient.DownloadStringAsync Method, please see this link: <br>
+<a href="http://msdn.microsoft.com/en-us/library/ms144202.aspx">http://msdn.microsoft.com/en-us/library/ms144202.aspx</a><br>
+For more info about WebClient.UploadStringAsync Method, please see this link: <br>
+<a href="http://msdn.microsoft.com/en-us/library/ms144241.aspx">http://msdn.microsoft.com/en-us/library/ms144241.aspx</a><br>
+<br>
+<span style="">&nbsp;</span><br>
+<br>
+<br style="">
+<br style="">
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
