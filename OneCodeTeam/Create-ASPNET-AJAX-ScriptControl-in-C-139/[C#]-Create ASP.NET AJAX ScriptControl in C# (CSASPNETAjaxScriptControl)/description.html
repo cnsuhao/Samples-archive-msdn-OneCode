@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Create ASP.NET AJAX ScriptControl in C# (CSASPNETAjaxScriptControl)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Create ASP.NET AJAX ScriptControl in C# (CSASPNETAjaxScriptControl)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            AJAX
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETAjaxScriptControl-09fe5d88">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h2>ASP.Net APPLICATION : CSASPNETAjaxScriptControl Project Overview</h2>
+<h3>Use:</h3>
+<p><br>
+<span style="font-family:courier new,courier; font-size:small">The CSASPNETAjaxScriptControl sample demonstrates how to create an ASP.Net Ajax
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">ScriptControl, which is a Schedule to allow the user arrange tasks in calendar.</span><br>
+<br>
+</p>
+<h3>Prerequisite:</h3>
+<p><br>
+<span style="font-family:courier new,courier; font-size:small">ASP.NET AJAX Control Toolkit</span><br>
+<span style="font-family:courier new,courier; font-size:small"><a href="http://www.codeplex.com/AjaxControlToolkit" >http://www.codeplex.com/AjaxControlToolkit</a></span><br>
+<br>
+</p>
+<h3>Code Logic:</h3>
+<p><br>
+<span style="font-family:courier new,courier; font-size:small">Microsoft ASP.Net Ajax Extensions enables you to expand the capabilities of an
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">ASP.Net Web Application in order to create a rich client user experience. We
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">can make use of ScriptControl or ExtenderControl to build a rich client behavior
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">or web control. The difference between ExtenderControl and ScriptControl is that
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">Extender is used on creating client script capabilities on an existing control,
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">which is called &quot;TargetControl&quot; for this behavior, whereas ScriptControl is an
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">absolute web control which contains rich client functionality.For example, when
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">we'd like to build a ModalPopup which will pop out an existing Panel, show/hide
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">functionality is the client script application, then we can build it as
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">ExtenderControl. </span>
+<br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">However, for ScriptControl, for instance, TabContainer which is the entirely
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">new web control contains the client script functionality, so we can build it
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">as ScriptControl.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">1. To build a web server control with rich client experiences by ASP.NET page
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">developers, you can use an script control.(Create ASP.Net Ajax Server Control
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">project by File-&gt;New-&gt;Project-&gt;Web-&gt;ASP.Net Ajax Server Control in Visual Studio)
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">An script control is a web server control that inherits the ScriptControl abstract
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">class in the <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Web.UI.aspx"  title="Auto generated link to System.Web.UI">System.Web.UI</a> namespace.
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">Script control is used for establishing a web server control which contains rich
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">client capability.
+</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">public class Schedule : ScriptControl</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">2. The following two methods of the ScriptControl abstract class that you must
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">implement in an script control.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp;public IEnumerable&lt;ScriptDescriptor&gt; GetScriptDescriptors()</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp;{</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ScriptControlDescriptor descriptor = new ScriptControlDescriptor</span><br>
+<span style="font-family:courier new,courier; font-size:small">(&quot;PainControls.Schedule&quot;, this.ClientID);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;descriptor.AddElementProperty(&quot;toolContainer&quot;, ToolContainer.ClientID);</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;descriptor.AddElementProperty(&quot;dateTimePicker&quot;,
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">DateTimePicker.ClientID);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;descriptor.AddElementProperty(&quot;calendarContainer&quot;,
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">CalendarContainer.ClientID);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;descriptor.AddProperty(&quot;calendarCellContentCssClass&quot;,
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">CalendarCellContentCssClass);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (string.IsNullOrEmpty(ServicePath))</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;throw new Exception(&quot;Please set ServicePath property.&quot;);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;descriptor.AddProperty(&quot;servicePath&quot;, ServicePath);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (string.IsNullOrEmpty(UpdateServiceMethod))</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;throw new Exception(&quot;Please set UpdateServiceMethod property.&quot;);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;descriptor.AddProperty(&quot;updateServiceMethod&quot;, UpdateServiceMethod);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (string.IsNullOrEmpty(DeleteServiceMethod))</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;throw new Exception(&quot;Please set DeleteServiceMethod property.&quot;);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;descriptor.AddProperty(&quot;deleteServiceMethod&quot;, DeleteServiceMethod);</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;List&lt;string&gt; aa = new List&lt;string&gt;();</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for (int i = 0; i &lt; DropPanelClientIDCollection.Count; i&#43;&#43;)</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;string a = DropPanelClientIDCollection[i].ClientID;</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;aa.Add(a);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp;
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;descriptor.AddProperty(&quot;dropPanelClientIDCollection&quot;, aa);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;descriptor.AddProperty(&quot;dateTimeFieldName&quot;, DateTimeFieldName);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;descriptor.AddProperty(&quot;titleFieldName&quot;, TitleFieldName);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;descriptor.AddProperty(&quot;descriptionFieldName&quot;, DescriptionFieldName);</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;yield return descriptor;</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp;}</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp;// Generate the script reference</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp;public IEnumerable&lt;ScriptReference&gt; GetScriptReferences()</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp;{</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;yield return new ScriptReference(Page.ClientScript.GetWebResourceUrl</span><br>
+<span style="font-family:courier new,courier; font-size:small">(this.GetType(), &quot;PainControls.Schedule.Schedule.js&quot;));</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp;}</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">3. Embed Css reference in PreRender phase.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">private void RenderCssReference()</span><br>
+<span style="font-family:courier new,courier; font-size:small">{</span><br>
+<span style="font-family:courier new,courier; font-size:small">string cssUrl = Page.ClientScript.GetWebResourceUrl(this.GetType(),
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">&quot;PainControls. Schedule. Schedule.css&quot;);</span><br>
+<span style="font-family:courier new,courier; font-size:small">HtmlLink link = new HtmlLink();</span><br>
+<span style="font-family:courier new,courier; font-size:small">link.Href = cssUrl;</span><br>
+<span style="font-family:courier new,courier; font-size:small">link.Attributes.Add(&quot;type&quot;, &quot;text/css&quot;);</span><br>
+<span style="font-family:courier new,courier; font-size:small">link.Attributes.Add(&quot;rel&quot;, &quot;stylesheet&quot;);</span><br>
+<span style="font-family:courier new,courier; font-size:small">Page.Header.Controls.Add(link);</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">4. Set all resources(contain images, css file and js file) embedded in this
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">script control as &quot;Embedded Resource&quot;(property &quot;Build Action&quot;).</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">5. This script control can derive from IScriptControl interface and a server
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">control, instead of ScriptControl if you'd like to.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">The control can derive from other server controls if you want to make it inherit
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">a server control than ScriptControl.
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">For example: </span>
+<br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">public class Schedule : DataBoundControl, IScriptControl,INamingContainer
+</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">In this scenario, it should derive from IScriptControl interface and a server
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">control class. Meanwhile, we have another three steps need to do:</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">1) Override OnPreRender method. Register the web control as the ScriptControl
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">in OnPreRender phase.</span><br>
+<span style="font-family:courier new,courier; font-size:small">ScriptManager manager = ScriptManager.GetCurrent(this.Page);</span><br>
+<span style="font-family:courier new,courier; font-size:small">if (manager == null)</span><br>
+<span style="font-family:courier new,courier; font-size:small">{</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp;throw new InvalidOperationException(&quot;A ScriptManager is required on the page.&quot;);</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<span style="font-family:courier new,courier; font-size:small">manager.RegisterScriptControl&lt;Schedule&gt;(this);</span><br>
+<span style="font-family:courier new,courier; font-size:small">2) Override Render method. Register the script descriptor which has been defined.
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">ScriptManager.GetCurrent(this.Page).RegisterScriptDescriptors(this);</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">6. The rest work is on client-side. Register client NameSpace first.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">Type.registerNamespace(&quot;PainControls&quot;);</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">7. Build client class.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">PainControls.Schedule = function(element)
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">{</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<span style="font-family:courier new,courier; font-size:small">PainControls.Schedule.prototype = {</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">8. Register the class that inherits &quot; Sys.UI.Control&quot;.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">PainControls.Schedule.registerClass('PainControls. Schedule��, Sys.UI.Control);</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">9. Call base method in constructor method</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">PainControls. Schedule.initializeBase(this, [element]);</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">10. Implementing the Initialize and Dispose Methods.</span><br>
+<span style="font-family:courier new,courier; font-size:small">Build &quot;initialize&quot; and &quot;dispose&quot; method in prototype of the class. The
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">initialize method is called when an instance of the behavior is created.
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">Use this method to set default property values, to create function delegates,
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">and to add delegates as event handlers. The dispose method is called when an
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">instance of the behavior is no longer used on the page and is removed. Use
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">this method to free any resources that are no longer required for the behavior,
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">such as DOM event handlers.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">initialize: function() {</span><br>
+<span style="font-family:courier new,courier; font-size:small">PainControls. Schedule.callBaseMethod(this, 'initialize');</span><br>
+<span style="font-family:courier new,courier; font-size:small">},</span><br>
+<span style="font-family:courier new,courier; font-size:small">dispose: function() {</span><br>
+<span style="font-family:courier new,courier; font-size:small">PainControls. Schedule.callBaseMethod(this, 'dispose');</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">11. Defining the Property Get and Set Methods.</span><br>
+<span style="font-family:courier new,courier; font-size:small">Each property identified in the ScriptDescriptor object of the script control's
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">GetScriptDescriptors() method must have corresponding client accessors. The
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">client property accessors are defined as get_&lt;:property&gt; and set_&lt;:property&gt;
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">methods of the client class prototype.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp;get_titleFieldName: function() {</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp;return this._titleFieldName;</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp;},</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp;set_titleFieldName: function(val) {</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp;if (this._titleFieldName !== val) {</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this._titleFieldName = val;</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.raisePropertyChanged('titleFieldName');</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp; &nbsp; &nbsp;}</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; &nbsp;},</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">12. Defining the Event Handlers for the DOM Element</span><br>
+<span style="font-family:courier new,courier; font-size:small">1) Defining the handler in constructor function:</span><br>
+<span style="font-family:courier new,courier; font-size:small">this._element_focusHandler = null;</span><br>
+<span style="font-family:courier new,courier; font-size:small">2) Associate the handler with the DOM Element event in initailize method:</span><br>
+<span style="font-family:courier new,courier; font-size:small">this._element_focusHandler = Function.createDelegate(this, this._element_onfocus);</span><br>
+<span style="font-family:courier new,courier; font-size:small">3) Add the handler in initailize method:</span><br>
+<span style="font-family:courier new,courier; font-size:small">$addHandler(this.get_element(), 'focus', this._element_focusHandler)</span><br>
+<span style="font-family:courier new,courier; font-size:small">4) Build callback method about this event:</span><br>
+<span style="font-family:courier new,courier; font-size:small">_element_onfocus:function(){</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">13. Defining the Event Handlers for the behavior</span><br>
+<span style="font-family:courier new,courier; font-size:small">Each event identified in the ScriptDescriptor object of the script control's
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">GetScriptDescriptors() method must have corresponding client accessors. The
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">client event accessors are defined as add_&lt;:event&gt; and remove_&lt;:event&gt; methods
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">of the client class prototype. The method Raise&lt;:event&gt; is defined to trigger
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">the event.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">add_showing: function(handler) {</span><br>
+<span style="font-family:courier new,courier; font-size:small">this.get_events().addHandler(&quot;showing&quot;, handler);</span><br>
+<span style="font-family:courier new,courier; font-size:small">},</span><br>
+<span style="font-family:courier new,courier; font-size:small">remove_showing: function(handler) {</span><br>
+<span style="font-family:courier new,courier; font-size:small">this.get_events().removeHandler(&quot;showing&quot;, handler);</span><br>
+<span style="font-family:courier new,courier; font-size:small">},</span><br>
+<span style="font-family:courier new,courier; font-size:small">raiseShowing: function(eventArgs) {</span><br>
+<span style="font-family:courier new,courier; font-size:small">var handler = this.get_events().getHandler('showing');</span><br>
+<span style="font-family:courier new,courier; font-size:small">if (handler) {</span><br>
+<span style="font-family:courier new,courier; font-size:small">handler(this, eventArgs);</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<span style="font-family:courier new,courier; font-size:small">},</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">14. Use this script control Schedule in page.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">1) About Schedule control.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">1. The schedule is bound on DataSource control. You can select a date in left
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">clanedar, it will retrieve the data from DataSource, and present the corresponding
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">task in the right container.</span><br>
+<span style="font-family:courier new,courier; font-size:small">2. Each task will be presented in a DropPanel. You can Drag &amp; Drop it to another
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">cell(day). It will be updated automatically.</span><br>
+<span style="font-family:courier new,courier; font-size:small">3. When you mouse move on the droppanel, it will show CloseButton so that you can
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">remove this task.</span><br>
+<span style="font-family:courier new,courier; font-size:small">4. When mouse over the cell of schedule, it will expend itself by design if it has
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">more task needs to show.</span><br>
+<span style="font-family:courier new,courier; font-size:small">5. In the left calendar, it will highlight the date which has tasks.</span><br>
+<span style="font-family:courier new,courier; font-size:small">6. Since it is an Ajax ScriptControl, you can use custom css style at will.</span><br>
+<span style="font-family:courier new,courier; font-size:small">7. Schedule used the other two script controls ButtonList and DropPanel in this
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">project.</span><br>
+<span style="font-family:courier new,courier; font-size:small">8. You need build and bind a web service file on this control to achieve updating
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">and deleting function asychronously.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">2) What capability needs expend</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">It��s a simple schedule here. The following functionality needs to expend and
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">will be implemented in the next version.</span><br>
+<span style="font-family:courier new,courier; font-size:small">1. Besides &quot;Month&quot; display mode, &quot;Day&quot; display mode is needed.</span><br>
+<span style="font-family:courier new,courier; font-size:small">2. Recently, you can create a DetailView to insert a new task, since Schedule
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">is bound on DataSource.
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">&nbsp; Next time, I'd like to expend the internal insert functionality.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">3) How to use PainControl Schedule:</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">1.Register the assembly in page.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">&lt;%@ Register TagPrefix=&quot;PainControls&quot; Assembly=&quot;PainControls&quot;
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">Namespace=&quot;PainControls&quot; %&gt;</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">2. Use it in the page</span><br>
+<span style="font-family:courier new,courier; font-size:small">&lt;asp:ScriptManager ID=&quot;ScriptManager1&quot; runat=&quot;server&quot; /&gt;</span><br>
+<span style="font-family:courier new,courier; font-size:small">&lt;Pain:Schedule ID=&quot;Schedule&quot; runat=&quot;server&quot; AutoPostBack=&quot;true&quot;
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">DataSourceID=&quot;SqlDataSource1&quot;
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">KeyField=&quot;num&quot; </span>
+<br>
+<span style="font-family:courier new,courier; font-size:small">DateTimeFieldName=&quot;date_time&quot;
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">TitleFieldName=&quot;title&quot;
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">DescriptionFieldName=&quot;description&quot;
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">ServicePath=&quot;ScheduleWebService.asmx&quot;
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">UpdateServiceMethod=&quot;UpdateWebService&quot;
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">DeleteServiceMethod=&quot;DeleteWebService&quot; /&gt;</span><br>
+<span style="font-family:courier new,courier; font-size:small">&lt;asp:SqlDataSource ID=&quot;SqlDataSource1&quot; runat=&quot;server&quot;</span><br>
+<span style="font-family:courier new,courier; font-size:small">ConnectionString=&quot;&lt;%$ ConnectionStrings:DatabaseConnectionString %&gt;&quot;</span><br>
+<span style="font-family:courier new,courier; font-size:small">SelectCommand=&quot;SELECT * FROM [schedule]&quot;&gt;&lt;/asp:SqlDataSource&gt;</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">3. Property</span><br>
+<span style="font-family:courier new,courier; font-size:small">DataSourceID ---- Create a DataSource and bind it on Schedule.</span><br>
+<span style="font-family:courier new,courier; font-size:small">KeyField ---- The field name of primary key of DataSource.</span><br>
+<span style="font-family:courier new,courier; font-size:small">There are three mandatory field you have to create:</span><br>
+<span style="font-family:courier new,courier; font-size:small">DateTimeFieldName ---- related field name about the datetime of the task</span><br>
+<span style="font-family:courier new,courier; font-size:small">TitleFieldName ---- related field name about the title of the task</span><br>
+<span style="font-family:courier new,courier; font-size:small">DescriptionFieldName ---- related field name about the description of the task</span><br>
+<span style="font-family:courier new,courier; font-size:small">ServicePath ---- If you have used AjaxControlToolkit, you must be familar with
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">this property. It means the path of the web service file.</span><br>
+<span style="font-family:courier new,courier; font-size:small">UpdateServiceMethod ---- The web method name to execute updating function</span><br>
+<span style="font-family:courier new,courier; font-size:small">DeleteServiceMethod ---- The web method name to execute deleting function</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">4. Build a web service bound to achieve updating and deleting function</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">The following demo snippets are the web methods of updating function and delete
+</span><br>
+<span style="font-family:courier new,courier; font-size:small">function.</span><br>
+<span style="font-family:courier new,courier; font-size:small">In the web method of updating function:</span><br>
+<span style="font-family:courier new,courier; font-size:small">&quot;key&quot; is the primary key that will be updated.</span><br>
+<span style="font-family:courier new,courier; font-size:small">&quot;updateFieldName&quot; is the field name that will be updated.</span><br>
+<span style="font-family:courier new,courier; font-size:small">&quot;updateValue&quot; is the related value which it is updated to about &quot;updateFieldName&quot;.</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">In the web method of deleting function,</span><br>
+<span style="font-family:courier new,courier; font-size:small">just need &quot;key&quot; that is the primary key that will be deleted.</span><br>
+<span style="font-family:courier new,courier; font-size:small">[WebMethod]</span><br>
+<span style="font-family:courier new,courier; font-size:small">[System.Web.Script.Services.ScriptMethod]</span><br>
+<span style="font-family:courier new,courier; font-size:small">public void UpdateWebService(string key, string updateFieldName, string updateValue)</span><br>
+<span style="font-family:courier new,courier; font-size:small">{</span><br>
+<span style="font-family:courier new,courier; font-size:small">string constr = </span>
+<br>
+<span style="font-family:courier new,courier; font-size:small">(string)ConfigurationManager.ConnectionStrings[&quot;DatabaseConnectionString&quot;].ConnectionString;</span><br>
+<span style="font-family:courier new,courier; font-size:small">string sql = </span>
+<br>
+<span style="font-family:courier new,courier; font-size:small">&quot;update schedule set &quot; &#43; updateFieldName &#43; &quot;='&quot; &#43; updateValue&#43;&quot;' where num=&quot;&#43;key;</span><br>
+<span style="font-family:courier new,courier; font-size:small">SqlConnection connection = new SqlConnection(constr);</span><br>
+<span style="font-family:courier new,courier; font-size:small">SqlCommand sdc = new SqlCommand(sql, connection);</span><br>
+<span style="font-family:courier new,courier; font-size:small">sdc.CommandType = CommandType.Text;</span><br>
+<span style="font-family:courier new,courier; font-size:small">try</span><br>
+<span style="font-family:courier new,courier; font-size:small">{</span><br>
+<span style="font-family:courier new,courier; font-size:small">connection.Open();</span><br>
+<span style="font-family:courier new,courier; font-size:small">sdc.ExecuteScalar();</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<span style="font-family:courier new,courier; font-size:small">catch (SqlException SQLexc)</span><br>
+<span style="font-family:courier new,courier; font-size:small">{</span><br>
+<span style="font-family:courier new,courier; font-size:small">throw new Exception(SQLexc.Message);</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<span style="font-family:courier new,courier; font-size:small">finally</span><br>
+<span style="font-family:courier new,courier; font-size:small">{</span><br>
+<span style="font-family:courier new,courier; font-size:small">connection.Close();</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<span style="font-family:courier new,courier; font-size:small"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Threading.Thread.Sleep.aspx"  title="Auto generated link to System.Threading.Thread.Sleep">System.Threading.Thread.Sleep</a>(2000);</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">[WebMethod]</span><br>
+<span style="font-family:courier new,courier; font-size:small">[System.Web.Script.Services.ScriptMethod]</span><br>
+<span style="font-family:courier new,courier; font-size:small">public void DeleteWebService(string key)</span><br>
+<span style="font-family:courier new,courier; font-size:small">{</span><br>
+<br>
+<span style="font-family:courier new,courier; font-size:small">string constr = </span>
+<br>
+<span style="font-family:courier new,courier; font-size:small">(string)ConfigurationManager.ConnectionStrings[&quot;DatabaseConnectionString&quot;].ConnectionString;</span><br>
+<span style="font-family:courier new,courier; font-size:small">string sql = &quot;delete from schedule where num=&quot; &#43; key;</span><br>
+<span style="font-family:courier new,courier; font-size:small">SqlConnection connection = new SqlConnection(constr);</span><br>
+<span style="font-family:courier new,courier; font-size:small">SqlCommand sdc = new SqlCommand(sql, connection);</span><br>
+<span style="font-family:courier new,courier; font-size:small">sdc.CommandType = CommandType.Text;</span><br>
+<span style="font-family:courier new,courier; font-size:small">try</span><br>
+<span style="font-family:courier new,courier; font-size:small">{</span><br>
+<span style="font-family:courier new,courier; font-size:small">connection.Open();</span><br>
+<span style="font-family:courier new,courier; font-size:small">sdc.ExecuteScalar();</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<span style="font-family:courier new,courier; font-size:small">catch (SqlException SQLexc)</span><br>
+<span style="font-family:courier new,courier; font-size:small">{</span><br>
+<span style="font-family:courier new,courier; font-size:small">throw new Exception(SQLexc.Message);</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<span style="font-family:courier new,courier; font-size:small">finally</span><br>
+<span style="font-family:courier new,courier; font-size:small">{</span><br>
+<span style="font-family:courier new,courier; font-size:small">connection.Close();</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<span style="font-family:courier new,courier; font-size:small"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Threading.Thread.Sleep.aspx"  title="Auto generated link to System.Threading.Thread.Sleep">System.Threading.Thread.Sleep</a>(2000);</span><br>
+<span style="font-family:courier new,courier; font-size:small">}</span><br>
+<br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
