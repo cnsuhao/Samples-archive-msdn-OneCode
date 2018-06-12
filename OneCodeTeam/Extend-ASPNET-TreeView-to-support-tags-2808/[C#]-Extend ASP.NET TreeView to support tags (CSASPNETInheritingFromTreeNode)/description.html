@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Extend ASP.NET TreeView to support tags (CSASPNETInheritingFromTreeNode)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Extend ASP.NET TreeView to support tags (CSASPNETInheritingFromTreeNode)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            TreeView
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETInheritingFromTreeN-c616638c">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>ASP.NET APPLICATION : CSASPNETInheritingFromTreeNode Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+In windows forms TreeView, each tree node has a property called &quot;Tag&quot; which
+<br>
+can be used to store a custom object. Sometimes we want to have the same <br>
+feature in ASP.NET TreeView. This project creates a custom TreeView control <br>
+named &quot;CustomTreeView&quot; to achieve this goal.<br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+Open the page Default.aspx in the browser, you can see a TreeView control in <br>
+the page. Select one of the TreeNode, then the custom object which assigned to <br>
+the selected node will display. <br>
+<br>
+</p>
+<h3>Code Logical:</h3>
+<p style="font-family:Courier New"><br>
+1. Create the custom TreeView.<br>
+<br>
+&nbsp; Define the custom TreeNode named &quot;CustomTreeNode&quot; with a property named &quot;Tag&quot;.<br>
+&nbsp; We are going to store the custom object in that property. In order to save
+<br>
+&nbsp; the new property in View State, we override methods LoadViewState() and <br>
+&nbsp; SaveViewState() to achieve saving and retrieving.<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;protected override void LoadViewState(object state)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;object[] arrState = state as object[];<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.Tag = arrState[0];<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;base.LoadViewState(arrState[1]);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp;protected override object SaveViewState()<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;object[] arrState = new object[2];<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;arrState[1] = base.SaveViewState();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;arrState[0] = this.Tag;<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return arrState;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp;<br>
+&nbsp; &nbsp;In the post back, ASP.NET runtime will recreate the TreeView control. To let
+<br>
+&nbsp; &nbsp;the TreeView control to create custom TreeNode automatically, we override
+<br>
+&nbsp; &nbsp;the helper method CreateNode().<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;protected override TreeNode CreateNode()<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return new CustomTreeNode(this, false);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+2. Define the custom object.<br>
+<br>
+&nbsp; In order to save the object to View State, the object needs to be serializable.<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;[Serializable]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;public class MyItem<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;public string Title { get; set; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+3. Create the test page.<br>
+<br>
+&nbsp; Add a CustomTreeView control in the page. In Page_Load() method, create some
+<br>
+&nbsp; CustomTreeNodes and assign a custom object to each CustomTreeNode.<br>
+<br>
+&nbsp; In the CustomTreeView control's SelectedNodeChanged event handler, retrieve
+<br>
+&nbsp; the custom object from the selected tree node, and then display it.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+TreeNode.Tag Property<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.windows.forms.treenode.tag.aspx">http://msdn.microsoft.com/en-us/library/system.windows.forms.treenode.tag.aspx</a><br>
+<br>
+Control.SaveViewState Method<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.web.ui.control.saveviewstate.aspx">http://msdn.microsoft.com/en-us/library/system.web.ui.control.saveviewstate.aspx</a><br>
+<br>
+Control.LoadViewState Method<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.web.ui.control.loadviewstate.aspx">http://msdn.microsoft.com/en-us/library/system.web.ui.control.loadviewstate.aspx</a><br>
+<br>
+TreeView.CreateNode Method<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.treeview.createnode.aspx">http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.treeview.createnode.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
