@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Batch data update in an Excel-like GridView (CSASPNETExcelLikeGridView)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Batch data update in an Excel-like GridView (CSASPNETExcelLikeGridView)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Controls, GridView
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETExcelLikeGridView-a88756b3">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>ASP.NET APPLICATION : CSASPNETExcelLikeGridView Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+&nbsp;The project illustrates how to do a batch insert,delete and update instead<br>
+&nbsp;of inserting,delting,updating row by row.<br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+1) Open the project and right click the &quot;Default.aspx&quot;, choose &quot;View In Browser&quot;;<br>
+2) When you check a checkbox inside a GridView to mark the row to be deleted,<br>
+&nbsp;the Cell will change to red.<br>
+3) When you add a new row by clicking the Add button, the new row is green<br>
+&nbsp;by default.<br>
+4) When you change a value from a cell inside the GridView, the background<br>
+&nbsp;of the cell will turn blue.<br>
+5) When you click the Save button, all the changes (including modified,<br>
+&nbsp;deleted as well as added data) will be batch executed.<br>
+<br>
+</p>
+<h3>Code Logical:</h3>
+<p style="font-family:Courier New"><br>
+Step1. Create a Web Application by referring “New”--&gt;“Project…”--&gt;“Visual C#”--&gt;“ASPNET Web Application”,
+<br>
+name it as “CSASPNETExcelLikeGridView”.<br>
+<br>
+Step2. Right click your project tag, choose “Add…”--&gt;“New Item…”. <br>
+Expand the “Visual Studio C#” tag and select “Sql Server Database”. Name it as “db_Persons.mdf”.<br>
+Then right click the newly-created database in the “App_Data” folder, choose “Open”. In the left
+<br>
+“Server Explorer” panel please expand the tag “db_Persons.mdf”, and right click the folder called “Tables”,
+<br>
+choose “Add New Table” to create a table as what you can in the App_Data folder's structure and save it as<br>
+&quot;tb_personInfo&quot;.<br>
+<br>
+<br>
+[ NOTE: You can download the free Web Developer from:<br>
+<a  href="http://www.microsoft.com/express/Web/">http://www.microsoft.com/express/Web/</a> ]<br>
+<br>
+[ NOTE: You can also download the free SQL 2008 from:<br>
+<a  href="http://www.microsoft.com/express/Database/">http://www.microsoft.com/express/Database/</a> &nbsp;]<br>
+<br>
+Step3. Delete the following default folders and files created automatically <br>
+by Visual Studio.<br>
+<br>
+Account folder<br>
+Script folder<br>
+Style folder<br>
+About.aspx file<br>
+Default.aspx file<br>
+Global.asax file<br>
+Site.Master file<br>
+<br>
+Step4. Add a connection string in web.config file:<br>
+&lt;connectionStrings&gt;<br>
+&nbsp; &nbsp;&lt;add name=&quot;MyConn&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;connectionString=&quot;Data Source=.\SQLEXPRESS;AttachDbFileName=|DataDirectory|db_Persons.mdf;Integrated Security=True;User Instance=True&quot;/&gt;<br>
+&lt;/connectionStrings&gt;<br>
+<br>
+Step5. Right click the mouse button to create a class named &quot;DBProcess.cs&quot;.
+<br>
+Create a class like what you can see in the file to process with DB <br>
+(For more functions please see the detail comments).<br>
+<br>
+Step6. Drag and drop a GridView, add some template fields, some checkboxes as well<br>
+as an &quot;Add&quot; button, a &quot;Save&quot; button and set all properties as what I've mentioned<br>
+in the aspx markups.<br>
+<br>
+Step7. In order to implement non-refresh modification symbol (cell backcolors).<br>
+We should write some JQuery functions. You can find them in the same Default.aspx<br>
+HTML markups with detail comments.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+ASP.NET QuickStart Torturial:<br>
+<br>
+1）<a  href="http://www.asp.net/data-access/tutorials/batch-deleting-cs">http://www.asp.net/data-access/tutorials/batch-deleting-cs</a><br>
+<br>
+2）<a  href="http://www.asp.net/data-access/tutorials/batch-updating-vb">http://www.asp.net/data-access/tutorials/batch-updating-vb</a><br>
+<br>
+3）<a  href="http://www.asp.net/data-access/tutorials/batch-inserting-vb">http://www.asp.net/data-access/tutorials/batch-inserting-vb</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
