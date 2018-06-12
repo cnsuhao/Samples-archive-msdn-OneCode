@@ -1,0 +1,27 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBEFCodeFirstNonTableObjects", "VBEFCodeFirstNonTableObjects\VBEFCodeFirstNonTableObjects.vbproj", "{C5EEBBAD-2AD9-4C28-95F8-386A21922C8C}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5EEBBAD-2AD9-4C28-95F8-386A21922C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5EEBBAD-2AD9-4C28-95F8-386A21922C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5EEBBAD-2AD9-4C28-95F8-386A21922C8C}.Debug|x86.ActiveCfg = Debug|x86
+		{C5EEBBAD-2AD9-4C28-95F8-386A21922C8C}.Debug|x86.Build.0 = Debug|x86
+		{C5EEBBAD-2AD9-4C28-95F8-386A21922C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5EEBBAD-2AD9-4C28-95F8-386A21922C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5EEBBAD-2AD9-4C28-95F8-386A21922C8C}.Release|x86.ActiveCfg = Release|x86
+		{C5EEBBAD-2AD9-4C28-95F8-386A21922C8C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
