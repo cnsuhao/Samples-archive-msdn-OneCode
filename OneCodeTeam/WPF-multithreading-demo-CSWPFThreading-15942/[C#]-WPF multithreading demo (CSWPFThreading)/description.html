@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>WPF multithreading demo (CSWPFThreading)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>WPF multithreading demo (CSWPFThreading)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            WPF
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            threading
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/11/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSWPFThreading-797c3aff">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">WPF multithreading demo (CSWPFThreading) </span></h1>
+<h2>Introduction</h2>
+<p class="MsoNormal"><br>
+The CSWPFThreading sample project illustrates two WPF threading models. The first one divides a long-running process into many snippets of workitems. Then the dispather of WPF will pick up the workitems one by one from the queue by their priority. The background
+ workitem does not affect the UI operation, so it just looks like the background workitem is processed by another thread. But actually, all of them are executed in the same thread. This trick is very useful if you want single threaded GUI application, and also
+ want to keep the GUI responsive when doing expensive operations in<span style="">��
+</span>the UI thread. <br>
+The second model is similar to the traditional WinForm threading model. The background work item is executed in another thread and it calls the Dispatcher. BeginInvoke method to update the UI.</p>
+<h2>Running the Sample<span style=""> </span></h2>
+<p class="MsoNormal"><span style="">Press F5 to run this application, you will see following result.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="460" height="261" align="middle">
+<img src="description/a77d1df8-58e1-4ef6-92da-26c0ea0778afimage.png" alt="" width="462" height="262" align="middle">
+</span><span style=""></span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal"></p>
+<p class="MsoNormal"><b style="">Long-Running Calculation in UI Thread (Tab1): </b>
+</p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">When the start button is firstly clicked, the continueCalculating is false, so the codes call Dispatcher. BeginInvoke to execute a first workitem for the CheckNextNumber.
+</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In the CheckNextNumber function, it judge if the current number is a prime number. If yes, it updates the UI directly. If not, it calls BeginInvoke to execute the CheckNextNumber again for the next odd number.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+public void CheckNextNumber()
+{
+��� // Reset flag.
+��� fNotAPrime = false;
+
+
+��� for (long i = 3; i &lt;= Math.Sqrt(num); i&#43;&#43;)
+��� {
+������� if (num % i == 0)
+������� {
+����������� // Set not-a-prime flag to true.
+����������� fNotAPrime = true;
+����������� break;
+������� }
+��� }
+
+
+��� // If a prime number.
+��� if (!fNotAPrime)
+��� {
+������� tbPrime.Text = num.ToString();
+��� }
+
+
+��� num &#43;= 2;
+��� if (continueCalculating)
+��� {
+������� btnPrimeNumber.Dispatcher.BeginInvoke(
+����������� System.Windows.Threading.DispatcherPriority.SystemIdle,
+����������� new NextPrimeDelegate(this.CheckNextNumber));
+��� }
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+public void CheckNextNumber()
+{
+��� // Reset flag.
+��� fNotAPrime = false;
+
+
+��� for (long i = 3; i &lt;= Math.Sqrt(num); i&#43;&#43;)
+��� {
+������� if (num % i == 0)
+������� {
+����������� // Set not-a-prime flag to true.
+����������� fNotAPrime = true;
+����������� break;
+������� }
+��� }
+
+
+��� // If a prime number.
+��� if (!fNotAPrime)
+��� {
+������� tbPrime.Text = num.ToString();
+��� }
+
+
+��� num &#43;= 2;
+��� if (continueCalculating)
+��� {
+������� btnPrimeNumber.Dispatcher.BeginInvoke(
+����������� System.Windows.Threading.DispatcherPriority.SystemIdle,
+����������� new NextPrimeDelegate(this.CheckNextNumber));
+��� }
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In the CheckNextNumber function, because the first parameter passed into BeginInvoke is DispatcherPriority.SystemIdle, all of the CheckNextNumber workitem will not break the UI operation.
+</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">When the calculation goes on, we can draw in the UI's InkCanvas, this proves that the UI thread is not affected by the &quot;background&quot; long calculation.
+</span></p>
+<p class="MsoNormal" style=""><b style=""><span style="">Blocked Operation in Worker Thread (Tab2)
+</span></b></p>
+<p class="MsoListParagraph" style="text-indent:-.25in"><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">When the Retrieve Data from Server button is clicked, the click handle retrieveData function is called.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+private void btnRetrieveData_Click(object sender, RoutedEventArgs e)
+{
+��� this.btnRetrieveData.IsEnabled = false;
+��� this.btnRetrieveData.Content = &quot;Contacting Server&quot;;
+
+
+��� NoArgDelegate fetcher = new NoArgDelegate(
+������� this.RetrieveDataFromServer);
+��� fetcher.BeginInvoke(null, null);
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+private void btnRetrieveData_Click(object sender, RoutedEventArgs e)
+{
+��� this.btnRetrieveData.IsEnabled = false;
+��� this.btnRetrieveData.Content = &quot;Contacting Server&quot;;
+
+
+��� NoArgDelegate fetcher = new NoArgDelegate(
+������� this.RetrieveDataFromServer);
+��� fetcher.BeginInvoke(null, null);
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Then our codes use delegate.BeginInvoke to start a thread from the thread pool. This thread is used to perform the long operation of retrieving data.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+/// &lt;summary&gt;
+/// Retrieve data in a worker thread.
+/// &lt;/summary&gt;
+private void RetrieveDataFromServer()
+{
+��� // Simulate the delay from network access.
+��� Thread.Sleep(5000);
+
+
+��� // Generate random data to be displayed.
+��� Random rand = new Random();
+��� Int32[] data = {
+���������������������� rand.Next(1000), rand.Next(1000), 
+�����������������������rand.Next(1000), rand.Next(1000) 
+�������������������};
+
+
+��� // Schedule the update function in the UI thread.
+��� this.Dispatcher.BeginInvoke(
+������� System.Windows.Threading.DispatcherPriority.Normal,
+������� new OneArgDelegate(UpdateUserInterface),
+������� data);
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+/// &lt;summary&gt;
+/// Retrieve data in a worker thread.
+/// &lt;/summary&gt;
+private void RetrieveDataFromServer()
+{
+��� // Simulate the delay from network access.
+��� Thread.Sleep(5000);
+
+
+��� // Generate random data to be displayed.
+��� Random rand = new Random();
+��� Int32[] data = {
+���������������������� rand.Next(1000), rand.Next(1000), 
+�����������������������rand.Next(1000), rand.Next(1000) 
+�������������������};
+
+
+��� // Schedule the update function in the UI thread.
+��� this.Dispatcher.BeginInvoke(
+������� System.Windows.Threading.DispatcherPriority.Normal,
+������� new OneArgDelegate(UpdateUserInterface),
+������� data);
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">We use Thread.Sleep(5000) to simulate a 5 seconds delay here.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span style=""><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">The codes generate 4 random numbers as data and update them to the UI by calling the Dispatcher.BeginInvoke().
+</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">5.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Since the retrieving operation is executed in another thread, we can draw in the InkCanvas normally.
+</span></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/ms741870.aspx">WPF Threading Model</a></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
