@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Win7 taskbar overlay icons (VBWin7TaskbarOverlayIcons)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Win7 taskbar overlay icons (VBWin7TaskbarOverlayIcons)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows 7
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Windows Shell, Windows 7
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">8/20/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBWin7TaskbarOverlayIcons-46c801d6">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">Win7 taskbar overlay icons (VBWin7TaskbarOverlayIcons) </span>
+</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal"><br>
+Windows 7 Taskbar introduces Overlay Icons, which makes your application can provide contextual status information to the user even if the application抯 window is not shown.<span style="">?</span>The user doesn抰 even have to look at the thumbnail or the live
+ preview of your app ?the taskbar button itself can reveal whether you have any interesting status updates.</p>
+<p class="MsoNormal">VBWin7TaskbarOverlayIcons example demonstrates how to set and clear Taskbar Overlay Icons using Taskbar related APIs in Windows API Code Pack.</p>
+<h2>Running the Sample<span style=""> </span></h2>
+<p class="MsoNormal"><span style="">Press F5 to run this application, set status 揂vailable?and select 揝how Overlay Icons? you will see following result.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="335" height="165" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><b><span style="font-size:13.0pt; line-height:115%; font-family:&quot;Cambria&quot;,&quot;serif&quot;">Prerequisite
+</span></b></p>
+<p class="MsoNormal"><span style="">Windows 7 </span></p>
+<p class="MsoNormal"><span style=""><a href="http://www.microsoft.com/windows/windows-7/">http://www.microsoft.com/windows/windows-7/</a>
+</span></p>
+<p class="MsoNormal"><span style="">Windows API Code Pack for Microsoft .NET Framework
+</span></p>
+<p class="MsoNormal"><span style=""><a href="http://code.msdn.microsoft.com/WindowsAPICodePack">http://code.msdn.microsoft.com/WindowsAPICodePack</a>
+</span></p>
+<h2>Creation</h2>
+<p class="MsoListParagraph" style="text-indent:-.25in"><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In form load event, check the Windows version.<span style="">?
+</span>If the current system is not Windows 7 or Windows Server 2008 R2, exit the process.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+' Check the Windows version, if the system is not Windows 7 or
+' Windows Server 2008 R2, exit the current process.
+Private Sub MainForm_Load(ByVal sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, ByVal e As?_
+牋牋牋牋牋牋牋牋牋牋牋牋?<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.EventArgs.aspx"  title="Auto generated link to System.EventArgs">System.EventArgs</a>) Handles MyBase.Load
+牋?If Not TaskbarManager.IsPlatformSupported Then
+牋牋牋?MessageBox.Show(&quot;Overlay Icon is not supported in your &quot; & _
+牋牋牋牋牋牋牋牋牋牋牋?&quot;operation system!&quot; & vbNewLine & &quot;Please launch&quot; & _
+牋牋牋牋牋牋牋牋牋牋牋?&quot; the application in Windows 7 or &quot; & _
+牋牋牋牋牋牋牋牋牋牋牋?&quot;Windows Server 2008 R2 systems.&quot;)
+
+
+牋牋牋?' Exit the current process
+牋牋牋?Application.Exit()
+牋?End If
+End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+' Check the Windows version, if the system is not Windows 7 or
+' Windows Server 2008 R2, exit the current process.
+Private Sub MainForm_Load(ByVal sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, ByVal e As?_
+牋牋牋牋牋牋牋牋牋牋牋牋?<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.EventArgs.aspx"  title="Auto generated link to System.EventArgs">System.EventArgs</a>) Handles MyBase.Load
+牋?If Not TaskbarManager.IsPlatformSupported Then
+牋牋牋?MessageBox.Show(&quot;Overlay Icon is not supported in your &quot; & _
+牋牋牋牋牋牋牋牋牋牋牋?&quot;operation system!&quot; & vbNewLine & &quot;Please launch&quot; & _
+牋牋牋牋牋牋牋牋牋牋牋?&quot; the application in Windows 7 or &quot; & _
+牋牋牋牋牋牋牋牋牋牋牋?&quot;Windows Server 2008 R2 systems.&quot;)
+
+
+牋牋牋?' Exit the current process
+牋牋牋?Application.Exit()
+牋?End If
+End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Create method ShowOrHideOverlayIcon to Show, hide and modify Taskbar button Overlay Icons.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+''' &lt;summary&gt;
+''' Show, hide and modify Taskbar button Overlay Icons
+''' &lt;/summary&gt;
+Private Sub ShowOrHideOverlayIcon()
+
+
+牋?' Show or hide the Overlay Icon
+牋?If showIconCheckBox.Checked Then
+牋牋牋?Dim icon As Icon = Nothing
+
+
+牋牋牋?' Select Overlay Icon image based on the selected status
+牋牋牋?Select Case statusComboBox.SelectedIndex
+牋牋牋?牋牋Case 0
+牋牋牋牋牋牋牋?icon = My.Resources.Available
+牋牋牋牋牋?Case 1
+牋牋牋牋牋牋牋?icon = My.Resources.Away
+牋牋牋牋牋?Case 2
+牋牋牋牋牋牋牋?icon = My.Resources.Offline
+牋牋牋牋牋?Case Else
+牋牋牋牋牋牋牋?MessageBox.Show(&quot;Please set the Status to show the Overlay Icon!&quot;)
+牋牋牋?End Select
+
+
+牋牋牋?' Set the Taskbar Overlay Icon
+牋牋牋?TaskbarManager.Instance.SetOverlayIcon(icon, statusComboBox.SelectedIndex.ToString())
+牋?Else
+牋牋牋?' Hide the Taskbar Overlay Icon
+牋?牋牋TaskbarManager.Instance.SetOverlayIcon(Nothing, Nothing)
+牋?End If
+End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+''' &lt;summary&gt;
+''' Show, hide and modify Taskbar button Overlay Icons
+''' &lt;/summary&gt;
+Private Sub ShowOrHideOverlayIcon()
+
+
+牋?' Show or hide the Overlay Icon
+牋?If showIconCheckBox.Checked Then
+牋牋牋?Dim icon As Icon = Nothing
+
+
+牋牋牋?' Select Overlay Icon image based on the selected status
+牋牋牋?Select Case statusComboBox.SelectedIndex
+牋牋牋?牋牋Case 0
+牋牋牋牋牋牋牋?icon = My.Resources.Available
+牋牋牋牋牋?Case 1
+牋牋牋牋牋牋牋?icon = My.Resources.Away
+牋牋牋牋牋?Case 2
+牋牋牋牋牋牋牋?icon = My.Resources.Offline
+牋牋牋牋牋?Case Else
+牋牋牋牋牋牋牋?MessageBox.Show(&quot;Please set the Status to show the Overlay Icon!&quot;)
+牋牋牋?End Select
+
+
+牋牋牋?' Set the Taskbar Overlay Icon
+牋牋牋?TaskbarManager.Instance.SetOverlayIcon(icon, statusComboBox.SelectedIndex.ToString())
+牋?Else
+牋牋牋?' Hide the Taskbar Overlay Icon
+牋?牋牋TaskbarManager.Instance.SetOverlayIcon(Nothing, Nothing)
+牋?End If
+End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style=""><span style=""></span></p>
+<p class="MsoNormal" style=""></p>
+<p class="MsoNormal" style="">Windows? API Code Pack for Microsoft?.NET Framework</p>
+<p class="MsoNormal" style=""><a href="http://code.msdn.microsoft.com/WindowsAPICodePack">http://code.msdn.microsoft.com/WindowsAPICodePack</a></p>
+<p class="MsoNormal" style="">Welcome to the Windows 7 Taskbar</p>
+<p class="MsoNormal" style=""><a href="http://blogs.microsoft.co.il/blogs/sasha/archive/2009/01/25/welcome-to-the-windows-7-taskbar.aspx">http://blogs.microsoft.co.il/blogs/sasha/archive/2009/01/25/welcome-to-the-windows-7-taskbar.aspx</a></p>
+<p class="MsoNormal" style="">Windows 7 Taskbar: Overlay Icons and Progress Bars</p>
+<p class="MsoNormal" style=""><a href="http://blogs.microsoft.co.il/blogs/sasha/archive/2009/02/16/windows-7-taskbar-overlay-icons-and-progress-bars.aspx">http://blogs.microsoft.co.il/blogs/sasha/archive/2009/02/16/windows-7-taskbar-overlay-icons-and-progress-bars.aspx</a></p>
+<p class="MsoNormal" style="">Windows 7 Training Kit For Developers</p>
+<p class="MsoNormal" style=""><a href="http://www.microsoft.com/downloads/details.aspx?familyid=1C333F06-FADB-4D93-9C80-402621C600E7&amp;displaylang=en">http://www.microsoft.com/downloads/details.aspx?familyid=1C333F06-FADB-4D93-9C80-402621C600E7&amp;displaylang=en</a></p>
+<p class="MsoNormal" style="">Windows 7 Taskbar Dynamic Overlay Icons and Progress Bars</p>
+<p class="MsoNormal" style=""><a href="http://windowsteamblog.com/blogs/developers/archive/2009/07/28/windows-7-taskbar-dynamic-overlay-icons-and-progress-bars.aspx">http://windowsteamblog.com/blogs/developers/archive/2009/07/28/windows-7-taskbar-dynamic-overlay-icons-and-progress-bars.aspx</a></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
