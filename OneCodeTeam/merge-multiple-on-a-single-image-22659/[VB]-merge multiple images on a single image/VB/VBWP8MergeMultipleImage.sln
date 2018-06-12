@@ -1,0 +1,39 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBWP8MergeMultipleImage", "VBWP8MergeMultipleImage\VBWP8MergeMultipleImage.vbproj", "{F5087D76-B79C-4FE5-A755-3242BAF60FF3}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Debug|ARM.ActiveCfg = Debug|ARM
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Debug|ARM.Build.0 = Debug|ARM
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Debug|ARM.Deploy.0 = Debug|ARM
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Debug|x86.ActiveCfg = Debug|x86
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Debug|x86.Build.0 = Debug|x86
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Debug|x86.Deploy.0 = Debug|x86
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Release|ARM.ActiveCfg = Release|ARM
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Release|ARM.Build.0 = Release|ARM
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Release|ARM.Deploy.0 = Release|ARM
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Release|x86.ActiveCfg = Release|x86
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Release|x86.Build.0 = Release|x86
+		{F5087D76-B79C-4FE5-A755-3242BAF60FF3}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
