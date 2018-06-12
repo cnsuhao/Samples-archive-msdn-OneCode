@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="4af2a248-ece4-4db9-8357-fcf6a8fc6e45" Publisher="CN=All-In-One Code Framework" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>CSWindowsStoreAppFileRandomAccessStream</DisplayName>
+    <PublisherDisplayName>All-In-One Code Framework</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="CSWindowsStoreAppFileRandomAccessStream.App">
+      <VisualElements DisplayName="CSWindowsStoreAppFileRandomAccessStream" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="How to use FileRandomAccessStream to manipulate file" ForegroundText="light" BackgroundColor="#E6B80B">
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\TileLogo.png" ShortName="CSWindowsStoreAppFileRandomAccessStream" />
+        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#E6B80B" />
+      </VisualElements>
+      <Extensions>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="sample">
+            <SupportedFileTypes>
+              <FileType>.txt</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="documentsLibrary" />
+  </Capabilities>
+</Package>
