@@ -1,0 +1,27 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CSAzureIncreaseAppPoolIdleTimeout", "CSAzureIncreaseAppPoolIdleTimeout\CSAzureIncreaseAppPoolIdleTimeout.ccproj", "{871C0DC1-AB8C-4D82-B0A7-059CB6ED0B56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRole", "CSAzureIncreaseAppPoolIdleTimeout\WebRole\WebRole.csproj", "{8A1392FB-FAAE-43BA-A9AD-93AF203400E6}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{871C0DC1-AB8C-4D82-B0A7-059CB6ED0B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{871C0DC1-AB8C-4D82-B0A7-059CB6ED0B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{871C0DC1-AB8C-4D82-B0A7-059CB6ED0B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{871C0DC1-AB8C-4D82-B0A7-059CB6ED0B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A1392FB-FAAE-43BA-A9AD-93AF203400E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A1392FB-FAAE-43BA-A9AD-93AF203400E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A1392FB-FAAE-43BA-A9AD-93AF203400E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A1392FB-FAAE-43BA-A9AD-93AF203400E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
