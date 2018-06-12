@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ASP.NET Theme demo (CSASPNETTheme)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>ASP.NET Theme demo (CSASPNETTheme)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Theme
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETTheme-3f2727a5">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>ASP.Net APPLICATION : CSASPNETTheme Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+The CSASPNETTheme sample demonstrates how to create an ASP.Net with themes, <br>
+which can be applied during the page inital progress.<br>
+<br>
+</p>
+<h3>Code Logic:</h3>
+<p style="font-family:Courier New"><br>
+A theme is a collection of property settings that allow you to define the look <br>
+of pages and controls, and then apply the look consistently across pages <br>
+in a Web application, across an entire Web application, or across all Web <br>
+applications on a server.<br>
+<br>
+Themes are made up of a set of elements: skins, cascading style sheets (CSS), <br>
+images, and other resources. At a minimum, a theme will contain skins. <br>
+Themes are defined in special directories in your Web site or on your Web server.<br>
+<br>
+You can define themes for a single Web application, or as global themes <br>
+that can be used by all applications on a Web server. After a theme is defined, <br>
+it can be placed on individual pages using the Theme or StyleSheetTheme attribute
+<br>
+of the @ Page directive, or it can be applied to all pages in an application <br>
+by setting the &lt;pages&gt; element in the application configuration file. <br>
+If the &lt;pages&gt; element is defined in the Machine.config file, <br>
+the theme will apply to all pages in Web applications on the server.<br>
+<br>
+This sample contain 2 themes, which can be changed during page initial period.<br>
+There are 2 buttons on the default page. Once they are clicked, a redirect to <br>
+default page happens which including the theme name. While the page is initailizating,<br>
+the theme parament will be cought, and new theme will be applied.<br>
+<br>
+Step 1: Create a C# ASP.NET Web Application Project <br>
+&nbsp;&nbsp;&nbsp;&nbsp;in Visual Studio 2010 or Visual Web Developer 2010.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Name it as CSASPNETTheme.<br>
+<br>
+Step 2: Open Default.aspx, add following controls:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;asp:Image ID=&quot;Image1&quot; SkinId=&quot;MainTheme&quot; runat=&quot;server&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;ImageUrl=&quot;~/images/Blank.jpg&quot; /&gt;<br>
+&nbsp; &nbsp;&lt;asp:Button ID=&quot;Button1&quot; SkinId=&quot;BlueTheme&quot; <br>
+&nbsp; &nbsp; &nbsp; &nbsp;runat=&quot;server&quot; Text=&quot;Blue&quot; ForeColor=&quot;Blue&quot; BackColor=&quot;Azure&quot;/&gt;<br>
+&nbsp; &nbsp;&lt;asp:Button ID=&quot;Button2&quot; SkinId=&quot;PinkTheme&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;runat=&quot;server&quot; Text=&quot;Pink&quot; ForeColor=&quot;Pink&quot; BackColor=&quot;Red&quot;/&gt;<br>
+<br>
+Step 3: Right click on project in Solution Explorer, go to Add then Add ASP.Net <br>
+&nbsp;&nbsp;&nbsp;&nbsp;Folder, then App_Themes. Right click on App_Theme in Solution Explorer,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;go to Add then Add ASP.Net Folder, then Theme to add a theme.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Add two themes and rename them as BlueTheme and PinkTheme.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Add a skin file and a CSS file in each theme.<br>
+<br>
+Step 4: Open skin file in the BlueTheme, copy and paste following codes:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;asp:Image runat=&quot;server&quot; SkinId=&quot;MainTheme&quot; ImageUrl=&quot;~/images/Blue.jpg&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;asp:Button SkinId=&quot;BlueTheme&quot; runat=&quot;server&quot; Visible=&quot;false&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;asp:Button SkinId=&quot;PinkTheme&quot; runat=&quot;server&quot; Visible=&quot;true&quot;/&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NOTE: A skin file contains property settings for individual controls.<br>
+<br>
+Step 5: Open CSS file in the BlueTheme, copy and paste following codes in body:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;background:blue<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NOTE: Cascading Style Sheets is a simple mechanism for adding style to Web documents.<br>
+<br>
+Step 6: Add PinkTheme defines similar to Step 3 & 4.<br>
+<br>
+Step 7: Double click on the Blue button on default.aspx copy and paste following<br>
+&nbsp; &nbsp;codes to Button1_Click(object sender, EventArgs e):<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response.Redirect(&quot;~/default.aspx?theme=Blue&quot;);<br>
+<br>
+Step 8: Add Pink button actions similar to Step 7.<br>
+<br>
+Step 9: Open Defult.aspx.cs copy and paste following codes in the partial class:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;protected void Page_PreInit(object sender, EventArgs e)<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp;switch (Request.QueryString[&quot;theme&quot;])<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case &quot;Blue&quot;:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Page.Theme = &quot;BlueTheme&quot;;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case &quot;Pink&quot;:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Page.Theme = &quot;PinkTheme&quot;;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;<br>
+&nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp;} <br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+ASP.NET Themes and Skins<br>
+<a  href="http://msdn.microsoft.com/en-us/library/ykzx33wh.aspx?PHPSESSID=8415f84585668e69ce791db4abfd0c45">http://msdn.microsoft.com/en-us/library/ykzx33wh.aspx?PHPSESSID=8415f84585668e69ce791db4abfd0c45</a><br>
+<br>
+How to: Define ASP.NET Page Themes<br>
+<a  href="http://msdn.microsoft.com/en-us/library/ms247256.aspx?PHPSESSID=8415f84585668e69ce791db4abfd0c45">http://msdn.microsoft.com/en-us/library/ms247256.aspx?PHPSESSID=8415f84585668e69ce791db4abfd0c45</a><br>
+<br>
+Cascading Style Sheets<br>
+<a  href="http://www.w3.org/Style/CSS/">http://www.w3.org/Style/CSS/</a><br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
