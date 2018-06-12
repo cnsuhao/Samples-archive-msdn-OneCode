@@ -1,0 +1,27 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EnableCompressionInAzure", "VBAzureEnableCompression\EnableCompressionInAzure\EnableCompressionInAzure.vbproj", "{EC8B4023-A036-438F-8FFA-245270E094EE}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "VBAzureEnableCompression", "VBAzureEnableCompression\VBAzureEnableCompression.ccproj", "{9523DD87-A5A8-4982-B6B5-15E984EA925B}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC8B4023-A036-438F-8FFA-245270E094EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC8B4023-A036-438F-8FFA-245270E094EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC8B4023-A036-438F-8FFA-245270E094EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC8B4023-A036-438F-8FFA-245270E094EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9523DD87-A5A8-4982-B6B5-15E984EA925B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9523DD87-A5A8-4982-B6B5-15E984EA925B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9523DD87-A5A8-4982-B6B5-15E984EA925B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9523DD87-A5A8-4982-B6B5-15E984EA925B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
