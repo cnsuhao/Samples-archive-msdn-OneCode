@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="3a406b55-6e35-492a-ba4d-c2c60f71eae4" Version="1.0.0.0" Publisher="CN=Microsoft-All-In-One Code Framework" />
+  <Properties>
+    <DisplayName>JSWindowsStoreAppBindingLocalXml</DisplayName>
+    <PublisherDisplayName>Microsoft-All-In-One Code Framework</PublisherDisplayName>
+    <Logo>images\storelogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" StartPage="default.html">
+      <VisualElements DisplayName="JSWindowsStoreAppBindingLocalXml" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="This sample demonstrate how to bind local xml file to WinJS.UI.ListView control" ForegroundText="light" BackgroundColor="#E6B80B">
+        <DefaultTile ShowName="allLogos" WideLogo="images\TileLogo.png" />
+        <SplashScreen Image="images\splashscreen.png" BackgroundColor="#E6B80B" />
+      </VisualElements>
+    </Application>
+  </Applications>
+</Package>

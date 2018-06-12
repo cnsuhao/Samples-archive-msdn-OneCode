@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<bookstore>
+
+  <book>
+    <title lang="eng">Fire</title>
+    <price>10.50</price>
+    <author>Jack</author>
+  </book>
+
+  <book>
+    <title lang="eng">Last Day</title>
+    <price>30.35</price>
+    <author>Allen</author>
+  </book>
+
+  <book>
+    <title lang="eng">Follow me!</title>
+    <price>49.99</price>
+    <author>Tom</author>
+  </book>
+
+  <book>
+    <title lang="eng">Never mind</title>
+    <price>32.50</price>
+    <author>Jone</author>
+  </book>
+  <book>
+    <title lang="eng">Working style</title>
+    <price>29.99</price>
+    <author>Linda</author>
+  </book>
+
+  <book>
+    <title lang="eng">Happy ending</title>
+    <price>39.95</price>
+    <author>Jay</author>
+  </book>
+  <book>
+    <title lang="eng">Winner</title>
+    <price>25.00</price>
+    <author>Jessie</author>
+  </book>
+
+  <book>
+    <title lang="eng">The Great</title>
+    <price>49.95</price>
+    <author>Mary</author>
+  </book>
+</bookstore>

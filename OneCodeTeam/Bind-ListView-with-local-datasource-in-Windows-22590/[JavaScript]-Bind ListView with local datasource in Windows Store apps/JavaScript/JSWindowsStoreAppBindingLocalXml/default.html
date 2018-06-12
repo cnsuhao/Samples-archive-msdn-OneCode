@@ -1,0 +1,94 @@
+﻿<!--
+ /****************************** Module Header ******************************\
+  Module Name:  default.html
+  Project:      JSWindowsStoreAppBindingLocalXml
+  Copyright (c) Microsoft Corporation.
+  
+  This sample demonstrate how to bind local xml file to WinJS.UI.ListView control
+   
+  
+  This source is subject to the Microsoft Public License.
+  See http://www.microsoft.com/en-us/openness/licenses.aspx#MPL
+  All other rights reserved.
+  
+  THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, 
+  EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
+ \***************************************************************************/  
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JSWindowsStoreAppBindingLocalXml</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- JSWindowsStoreAppBindingLocalXml references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+
+</head>
+<body>
+    <div data-win-control="WinJS.UI.ViewBox">
+        <div id="rootGrid">
+
+            <!--page title-->
+            <div id="titleGrid">
+                <p id="appLogo">Windows Store Code Samples by All-In-One Code Framework</p>
+                <p id="appName">Windows Store app: How to bind local xml to WinJS.UI.ListViwe control</p>
+                <p id="appDescription">This sample demonstrates how to bind local xml file data to WinJS.UI.ListView control. The ListView below shows the data.</p>
+            </div>
+
+            <!--page content-->
+            <div id="contentGrid">
+                <div id="mediumListTextTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+                    <div class="mediumListTextItem">
+                        <div class="mediumListTextItem-Detail">
+                            <h2 data-win-bind="innerText: title"></h2>
+                            <h2 data-win-bind="innerText: price"></h2>
+                            <h2 data-win-bind="innerText: author"></h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="basicListView" 
+            class="win-selectionstylefilled"
+            data-win-control="WinJS.UI.ListView" 
+            data-win-options="{                 
+                itemTemplate: mediumListTextTemplate, 
+                selectionMode: 'none', 
+                tapBehavior: 'none', 
+                swipeBehavior: 'none', 
+                layout: { type: WinJS.UI.GridLayout } 
+            }"
+        ></div>
+               
+            </div>
+
+            <!--page status-->
+            <div id="statusGrid">
+                <div id="statusDiv"></div>
+            </div>
+
+            <!--page footer-->
+            <div id="footerGrid">
+                <div>
+                    <img src="/images/microsoft.png" /><br />
+                </div>
+                <div id="company">
+                    © 2013 Microsoft Corporation. All rights reserved.
+                </div>
+                <div>
+                    <a href="http://blogs.msdn.com/b/onecode">All-In-One Code Framework</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
