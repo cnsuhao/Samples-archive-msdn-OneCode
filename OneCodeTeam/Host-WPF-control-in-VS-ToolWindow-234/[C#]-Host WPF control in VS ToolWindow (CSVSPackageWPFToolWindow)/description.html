@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Host WPF control in VS ToolWindow (CSVSPackageWPFToolWindow)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Host WPF control in VS ToolWindow (CSVSPackageWPFToolWindow)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            VSX
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Host WPF control in Visual Studio Toolwindow
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSVSPackageWPFToolWindow-7be227d1">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>VSX Module: CSVSPackageWPFToolWindow Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+This sample demostrate how to host a WPF control into Visual Studio <br>
+ToolWindow. <br>
+<br>
+To use the sample<br>
+1. Run the sample<br>
+2. Open tool window by View / Other Windows / WPFToolWindow<br>
+3. A tool window will be docked at place of solution explorer<br>
+4. The tool window hosts a WPF control which represents MyDocuments folder<br>
+structure<br>
+<br>
+</p>
+<h3>Prerequisites:</h3>
+<p style="font-family:Courier New"><br>
+VS 2008 SDK must be installed on the machine. You can download it from:<br>
+<a  href="http://www.microsoft.com/downloads/details.aspx?FamilyID=30402623-93ca-479a-867c-04dc45164f5b&amp;displaylang=en">http://www.microsoft.com/downloads/details.aspx?FamilyID=30402623-93ca-479a-867c-04dc45164f5b&amp;displaylang=en</a><br>
+<br>
+Otherwise the project may not be opened by Visual Studio.<br>
+<br>
+If you run this project on a x64 OS, please also config the Debug tab of the project<br>
+Setting. Set the &quot;Start external program&quot; to <br>
+C:\Program Files(x86)\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe<br>
+<br>
+NOTE: The Package Load Failure Dialog occurs because there is no PLK(Package Load Key)<br>
+&nbsp; &nbsp; &nbsp;Specified in this package. To obtain a PLK, please to go to WebSite:<br>
+&nbsp; &nbsp; &nbsp;<a  href="http://msdn.microsoft.com/en-us/vsx/cc655795.aspx">http://msdn.microsoft.com/en-us/vsx/cc655795.aspx</a><br>
+&nbsp; &nbsp; &nbsp;More info<br>
+&nbsp; &nbsp; &nbsp;<a  href="http://msdn.microsoft.com/en-us/library/bb165395.aspx">http://msdn.microsoft.com/en-us/library/bb165395.aspx</a><br>
+</p>
+<h3>Creation:</h3>
+<p style="font-family:Courier New"><br>
+1. Creating the Project<br>
+Create a Visual Studio Integration Package project that provides a tool window. <br>
+Later, you add a WPF control to this tool window.<br>
+<br>
+To create the Visual Studio project<br>
+<br>
+Create a Visual Studio package that provides a tool window.<br>
+<br>
+In the Visual Studio Integration Package Wizard, use the following settings:<br>
+- Set the programming language to Visual Basic or Visual C#.<br>
+- Use the default values on the Basic Package Information page.<br>
+- Add a tool window that is named Hosted WPF Clock Control.<br>
+- Click Finish.<br>
+<br>
+The wizard generates a project that contains a WinForms user control, <br>
+MyControl, for the tool window.<br>
+<br>
+2. Adding the WPF User Control<br>
+Add a WPF user control to your project. The user control presented here <br>
+represents MyDocuments folder structure by tree view. <br>
+Then, add this WPF control to the control for the tool window in your package.<br>
+<br>
+To create the WPF user control<br>
+<br>
+In Solution Explorer, right-click the tool window project, <br>
+point to Add, and then click New Item.<br>
+<br>
+In the Add New Item dialog box, select the User Control (WPF) template, <br>
+name it WPFControl, and click Add.<br>
+<br>
+Open the WPFControl.xaml file for editing, and replace the child element <br>
+of the UserControl element by using the following markup. <br>
+<br>
+XAML<br>
+&lt;UserControl x:Class=&quot;Company.VSPackageWPFToolWindow.WPFControl&quot;<br>
+&nbsp; &nbsp;xmlns=&quot;<a  href="http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;">http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</a><br>
+&nbsp; &nbsp;xmlns:x=&quot;<a  href="http://schemas.microsoft.com/winfx/2006/xaml&quot;">http://schemas.microsoft.com/winfx/2006/xaml&quot;</a><br>
+&nbsp; &nbsp;Height=&quot;300&quot; Width=&quot;300&quot;&gt;<br>
+&nbsp; &nbsp;&lt;Grid&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;TreeView Name=&quot;treeView&quot; HorizontalAlignment=&quot;Stretch&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HorizontalContentAlignment=&quot;Left&quot; /&gt;<br>
+&nbsp; &nbsp;&lt;/Grid&gt;<br>
+&lt;/UserControl&gt;<br>
+To open the code-behind file for editing, right-click in the XAML editor, <br>
+and then click View Code.<br>
+<br>
+Add the following code:<br>
+public TreeView WPFTreeView<br>
+{<br>
+&nbsp; &nbsp;get<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp;return this.treeView;<br>
+&nbsp; &nbsp;}<br>
+}<br>
+<br>
+Save all files and verify that the solution builds.<br>
+<br>
+To add the WPF user control to the tool window<br>
+a. Open the MyControl user control in design mode.<br>
+b. Remove the default button, button1, from the control.<br>
+c. In the Toolbox, directly drag WPFControl into the Windows Form<br>
+<br>
+Click Dock in parent container to set the Dock property to Fill.<br>
+<br>
+Right-click the design surface, and then click View Code to open the MyControl class in the code editor.<br>
+<br>
+Delete the button1_Click method that the wizard generated.<br>
+<br>
+Add the methods shown in the following example. <br>
+public WPFControl WPFControl<br>
+{<br>
+&nbsp; &nbsp;get<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp;return wpfControl1;<br>
+&nbsp; &nbsp;}<br>
+}<br>
+<br>
+Open the MyToolWindow.cs file, add following code:<br>
+/// &lt;summary&gt;<br>
+/// Standard constructor for the tool window.<br>
+/// &lt;/summary&gt;<br>
+public MyToolWindow() :<br>
+&nbsp; &nbsp;base(null)<br>
+{<br>
+&nbsp; &nbsp;// Set the window title reading it from the resources.<br>
+&nbsp; &nbsp;this.Caption = Resources.ToolWindowTitle;<br>
+&nbsp; &nbsp;// Set the image that will appear on the tab of the window frame<br>
+&nbsp; &nbsp;// when docked with an other window<br>
+&nbsp; &nbsp;// The resource ID correspond to the one defined in the resx file<br>
+&nbsp; &nbsp;// while the Index is the offset in the bitmap strip. Each image in<br>
+&nbsp; &nbsp;// the strip being 16x16.<br>
+&nbsp; &nbsp;this.BitmapResourceID = 301;<br>
+&nbsp; &nbsp;this.BitmapIndex = 1;<br>
+<br>
+<br>
+&nbsp; &nbsp;control = new MyControl();<br>
+&nbsp; &nbsp;wpfControl = control.WPFControl;<br>
+}<br>
+<br>
+public override void OnToolWindowCreated()<br>
+{<br>
+&nbsp; &nbsp;base.OnToolWindowCreated();<br>
+&nbsp; &nbsp;InitializeTreeViewContent();<br>
+<br>
+}<br>
+<br>
+private void InitializeTreeViewContent()<br>
+{<br>
+&nbsp; &nbsp;DirectoryInfo myDocInfo =<br>
+&nbsp; &nbsp; &nbsp; &nbsp;new DirectoryInfo(<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Environment.GetFolderPath(<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Environment.SpecialFolder.MyDocuments<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;);<br>
+&nbsp; &nbsp;IntializeTreeViewContentRecursively(myDocInfo, wpfControl.WPFTreeView.Items);<br>
+}<br>
+<br>
+private void IntializeTreeViewContentRecursively(<br>
+&nbsp; &nbsp;DirectoryInfo myDocInfo, ItemCollection itemCollection)<br>
+{ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp;if (myDocInfo == null)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;return;<br>
+<br>
+&nbsp; &nbsp;try<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp;TreeViewItem item = new TreeViewItem();<br>
+&nbsp; &nbsp; &nbsp; &nbsp;item.Header = myDocInfo.Name;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;itemCollection.Add(item);<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;DirectoryInfo[] subDirs = myDocInfo.GetDirectories();<br>
+&nbsp; &nbsp; &nbsp; &nbsp;if (subDirs != null)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;foreach (DirectoryInfo dir in subDirs)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IntializeTreeViewContentRecursively(dir, item.Items);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;FileInfo[] files = myDocInfo.GetFiles();<br>
+&nbsp; &nbsp; &nbsp; &nbsp;if (files != null)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;foreach (FileInfo file in files)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;TreeViewItem fileItem = new TreeViewItem();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fileItem.Header = file.Name;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fileItem.Tag = file.FullName;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;item.Items.Add(fileItem);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp;}<br>
+&nbsp; &nbsp;catch<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp;return;<br>
+&nbsp; &nbsp;}<br>
+}<br>
+<br>
+3. Add regsitry attribute to the package<br>
+<br>
+Open CSVSPackageWPFToolWindowPackage.cs, add following attribute:<br>
+<br>
+[ProvideToolWindow(typeof(MyToolWindow), Style = VsDockStyle.Tabbed, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;Window = &quot;3ae79031-e1bc-11d0-8f78-00a0c9110057&quot;)]<br>
+<br>
+The attribute indicates that the tool window will be docked at the same place<br>
+as solution explorer.<br>
+&nbsp; &nbsp;</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+Walkthrough: Hosting a WPF User Control in a Tool Window<br>
+<a  href="http://msdn.microsoft.com/en-us/library/cc826120.aspx">http://msdn.microsoft.com/en-us/library/cc826120.aspx</a><br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
