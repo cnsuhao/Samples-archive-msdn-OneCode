@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Monitor file change through VS Service (CSVSPackageMonitorFileChange)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Monitor file change through VS Service (CSVSPackageMonitorFileChange)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            VSX
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Monitor File Change through VS Service
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSVSPackageMonitorFileChang-dec0d36d">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>VSX application : CSVSPackageMonitorFileChange Project Overview </h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+Visual Studio provides SVsFileChangeEx service enables arbitrary components <br>
+to register to be notified when a file is modified outside of the Environment.<br>
+<br>
+This service is useful when you are performing some operation which will be <br>
+interupted by file changes from outside environment.<br>
+<br>
+The service is similar with FileSystemWatcher Class.<br>
+<a target="_blank" href="&lt;a http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.aspx">http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.aspx</a>'&gt;<a  href="http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.aspx">http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.aspx</a><br>
+<br>
+To use this sample, follow the steps as below:<br>
+<br>
+1. Start experimental VS instance<br>
+2. The package will be autoloaded automatically when there is no any solution <br>
+loaded.<br>
+3. The demo monitors user's desktop directory, so please do file or directory <br>
+changes in desktop.<br>
+4. Visual Studio will popup window whenever a change is made.<br>
+<br>
+</p>
+<h3>Prerequisites:</h3>
+<p style="font-family:Courier New"><br>
+VS 2008 SDK must be installed on the machine. You can download it from:<br>
+<a  href="http://www.microsoft.com/downloads/details.aspx?FamilyID=30402623-93ca-479a-867c-04dc45164f5b&amp;displaylang=en">http://www.microsoft.com/downloads/details.aspx?FamilyID=30402623-93ca-479a-867c-04dc45164f5b&amp;displaylang=en</a><br>
+<br>
+Otherwise the project may not be opened by Visual Studio.<br>
+<br>
+If you run this project on a x64 OS, please also config the Debug tab of the project<br>
+Setting. Set the &quot;Start external program&quot; to <br>
+C:\Program Files(x86)\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe<br>
+<br>
+NOTE: The Package Load Failure Dialog occurs because there is no PLK(Package Load Key)<br>
+&nbsp; &nbsp; &nbsp;Specified in this package. To obtain a PLK, please to go to WebSite:<br>
+&nbsp; &nbsp; &nbsp;<a  href="http://msdn.microsoft.com/en-us/vsx/cc655795.aspx">http://msdn.microsoft.com/en-us/vsx/cc655795.aspx</a><br>
+&nbsp; &nbsp; &nbsp;More info<br>
+&nbsp; &nbsp; &nbsp;<a  href="http://msdn.microsoft.com/en-us/library/bb165395.aspx">http://msdn.microsoft.com/en-us/library/bb165395.aspx</a><br>
+</p>
+<h3></h3>
+<p style="font-family:Courier New">Steps:<br>
+In order to implement this sample, following are the core steps:<br>
+(For detailed informaiton, please view sample code)<br>
+<br>
+1. Create package class and specify AutoLoad attribute:<br>
+[ProvideAutoLoad(&quot;{adfc4e64-0397-11d1-9f4e-00a0c911004f}&quot;)]<br>
+adfc4e64-0397-11d1-9f4e-00a0c911004f represents context that there is <br>
+no solution is loaded.<br>
+<br>
+2. In the package's initializate method, add following code:<br>
+<br>
+IVsFileChangeEx fileChangeService =<br>
+&nbsp; &nbsp;GetService(typeof(SVsFileChangeEx)) as IVsFileChangeEx;<br>
+monitor = new CSVSMonitorFileChange();<br>
+uint cookie;<br>
+<br>
+// Enables a client to receive notifications of changes to a directory.<br>
+fileChangeService.AdviseDirChange(<br>
+<br>
+&nbsp; &nbsp;// String form of the moniker identifier of <br>
+&nbsp; &nbsp;// the directory in the project system.<br>
+&nbsp; &nbsp;Environment.GetFolderPath(<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Environment.SpecialFolder.Desktop),<br>
+<br>
+&nbsp; &nbsp;// If true, then events should also be fired <br>
+&nbsp; &nbsp;// for changes to sub directories. If false, <br>
+&nbsp; &nbsp;// then events should not be fired for changes <br>
+&nbsp; &nbsp;// to sub directories.<br>
+&nbsp; &nbsp;Convert.ToInt32(true),<br>
+<br>
+&nbsp; &nbsp;// IVsFileChangeEvents Interface on the object <br>
+&nbsp; &nbsp;// requesting notification of file change events.<br>
+&nbsp; &nbsp;monitor,<br>
+<br>
+&nbsp; &nbsp;// Unique identifier for the file that is <br>
+&nbsp; &nbsp;// associated with the event sink.<br>
+&nbsp; &nbsp;out cookie<br>
+);<br>
+<br>
+3. Implements CSVSMonitorFileChange class which inherited from IVsFileChangeEvents<br>
+Implements DirectoryChanged and FilesChanged methods to popup message box<br>
+when a change is monitored.<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+How to get notifications in editor when the file is modified outside of the editor?<br>
+<a  href="http://blogs.msdn.com/dr._ex/archive/2005/11/01/487721.aspx">http://blogs.msdn.com/dr._ex/archive/2005/11/01/487721.aspx</a><br>
+<br>
+IVsFileChangeEvents Interface<br>
+<a  href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop.ivsfilechangeevents.aspx">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop.ivsfilechangeevents.aspx</a><br>
+<br>
+SVsFileChangeEx Interface<br>
+<a  href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop.svsfilechangeex(VS.80).aspx">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop.svsfilechangeex(VS.80).aspx</a><br>
+<br>
+FileSystemWatcher Class<br>
+<a target="_blank" href="&lt;a http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.aspx">http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.aspx</a>'&gt;<a  href="http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.aspx">http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.aspx</a><br>
+<br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
