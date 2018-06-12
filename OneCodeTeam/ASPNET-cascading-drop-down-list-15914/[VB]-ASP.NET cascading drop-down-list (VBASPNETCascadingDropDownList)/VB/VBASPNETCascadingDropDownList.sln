@@ -1,0 +1,21 @@
+
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBASPNETCascadingDropDownList", "VBASPNETCascadingDropDownList\VBASPNETCascadingDropDownList.vbproj", "{80E70640-E736-429B-B3C6-A55594FDA51E}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80E70640-E736-429B-B3C6-A55594FDA51E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80E70640-E736-429B-B3C6-A55594FDA51E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80E70640-E736-429B-B3C6-A55594FDA51E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80E70640-E736-429B-B3C6-A55594FDA51E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
