@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Windows Phone 7 Custom Gesture Detection (CSWP7GestureDetection)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Windows Phone 7 Custom Gesture Detection (CSWP7GestureDetection)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows Phone 7
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Windows Phone 7
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/28/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSWP7GestureDetection-2aca7ef8">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">Windows Phone 7 Gesture Detection demo</span> (CSWP7GestureDetection)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">This sample demonstrates how to detect <span style="">enlargement/shrink</span> and rotation with two points touch<span style="">ing</span> and one<span style=""> point</span> touch or flick. For example, you can use this sample as a
+ starting point for creating your own photo viewer that supports picture enlargement, rotation,move and flick gestures.
+</p>
+<h2>Building the Sample</h2>
+<p class="MsoNormal">Use Visual Studio 2010 with Windows phone SDK 7.1.you can get started by clicking this link:
+<a href="http://create.msdn.com/en-us/home/getting_started">http://create.msdn.com/en-us/home/getting_started</a></p>
+<h2>Running the Sample</h2>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Open the project in Visual Studio 2010</p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Press Ctrl&#43;F5.</p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Deploy the sample in a real Windows Phone.</p>
+<p class="MsoListParagraphCxSpLast" style=""><span style=""><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>You can use two fingers to enlarge, shrink or rotate. You can use one finger to move or flick.</p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="319" height="529" align="middle">
+</span><span style=""></span></p>
+<h2>Using the Code</h2>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Create a new <span style="">��</span>Silverlight For Windows Phone<span style="">�� project;</span></p>
+<p class="MsoListParagraphCxSpLast" style=""><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Open MainPage.xaml file and replace its layout Grid with the following code:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xaml</span>
+<pre class="hidden">
+&lt;Grid x:Name=&quot;LayoutRoot&quot;&gt;
+    &lt;Grid.Background&gt;
+        &lt;ImageBrush ImageSource=&quot;BG.jpg&quot;&gt;&lt;/ImageBrush&gt;
+    &lt;/Grid.Background&gt;
+
+
+    &lt;StackPanel x:Name=&quot;touchStackPanel&quot; Margin=&quot;10,10,10,10&quot; Background=&quot;Black&quot; Opacity=&quot;0.5&quot;&gt;
+        &lt;TextBlock x:Name=&quot;txt_SharpInfo&quot; Text=&quot;Enlarg and shrink&quot;&gt;&lt;/TextBlock&gt;
+        &lt;TextBlock x:Name=&quot;txt_RotateInfo&quot; Text=&quot;Rotate&quot;&gt;&lt;/TextBlock&gt;
+        &lt;TextBlock x:Name=&quot;txt_FlickInfo&quot; Text=&quot;Flick&quot;&gt;&lt;/TextBlock&gt;
+    &lt;/StackPanel&gt;
+&lt;/Grid&gt;
+
+</pre>
+<pre id="codePreview" class="xaml">
+&lt;Grid x:Name=&quot;LayoutRoot&quot;&gt;
+    &lt;Grid.Background&gt;
+        &lt;ImageBrush ImageSource=&quot;BG.jpg&quot;&gt;&lt;/ImageBrush&gt;
+    &lt;/Grid.Background&gt;
+
+
+    &lt;StackPanel x:Name=&quot;touchStackPanel&quot; Margin=&quot;10,10,10,10&quot; Background=&quot;Black&quot; Opacity=&quot;0.5&quot;&gt;
+        &lt;TextBlock x:Name=&quot;txt_SharpInfo&quot; Text=&quot;Enlarg and shrink&quot;&gt;&lt;/TextBlock&gt;
+        &lt;TextBlock x:Name=&quot;txt_RotateInfo&quot; Text=&quot;Rotate&quot;&gt;&lt;/TextBlock&gt;
+        &lt;TextBlock x:Name=&quot;txt_FlickInfo&quot; Text=&quot;Flick&quot;&gt;&lt;/TextBlock&gt;
+    &lt;/StackPanel&gt;
+&lt;/Grid&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style=""><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Open MainPage.xaml.cs file, alter its code <span style="">like so:</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+using System;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.aspx"  title="Auto generated link to System.Windows">System.Windows</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Controls.aspx"  title="Auto generated link to System.Windows.Controls">System.Windows.Controls</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Documents.aspx"  title="Auto generated link to System.Windows.Documents">System.Windows.Documents</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Input.aspx"  title="Auto generated link to System.Windows.Input">System.Windows.Input</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Media.aspx"  title="Auto generated link to System.Windows.Media">System.Windows.Media</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Media.Animation.aspx"  title="Auto generated link to System.Windows.Media.Animation">System.Windows.Media.Animation</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Shapes.aspx"  title="Auto generated link to System.Windows.Shapes">System.Windows.Shapes</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Phone.Controls.aspx"  title="Auto generated link to Microsoft.Phone.Controls">Microsoft.Phone.Controls</a>;
+
+
+namespace CSWP7GestureDetection
+{
+    public partial class MainPage : PhoneApplicationPage
+    {
+        // Constructor
+        public MainPage()
+        {
+            InitializeComponent();
+            Touch.FrameReported &#43;= new TouchFrameEventHandler(Touch_FrameReported);
+        }
+
+
+        double preDistance = 0;
+        double preAngle = 0;
+        double preFlickX = 0;
+        double preFlickY = 0;
+        void Touch_FrameReported(object sender, TouchFrameEventArgs e)
+        {
+            TouchPointCollection tpc = e.GetTouchPoints(touchStackPanel);
+            if (tpc.Count == 2)
+            {
+                TouchPoint point1 = tpc[0];
+                TouchPoint point2 = tpc[1];
+
+
+                double X1 = point1.Position.X;
+                double X2 = point2.Position.X;
+                double Y1 = point1.Position.Y;
+                double Y2 = point2.Position.Y;
+
+
+                // Detect two fingers enlargement and shrink
+                var distance = Math.Pow((X1 - X2), 2) &#43; Math.Pow((Y1 - Y2), 2);
+                if (distance &gt; preDistance)
+                {
+                    txt_SharpInfo.Text = &quot;enlarge&quot;;
+                }
+                else
+                {
+                    txt_SharpInfo.Text = &quot;shink&quot;;
+                }
+                preDistance = distance;
+
+
+                // Detect rotation.
+                double nowAngle = 0;
+                if ((X2 - X1) == 0)
+                {
+                    nowAngle = 90;
+                }
+                else
+                {
+                    nowAngle = Math.Atan((Y2 - Y1) / (X2 - X1));
+                }
+                if (nowAngle &gt; preAngle)
+                {
+                    txt_RotateInfo.Text = &quot;clock wise rotation&quot;;
+                }
+                else
+                {
+                    txt_RotateInfo.Text = &quot;counter clock wise rotation&quot;;
+                }
+                preAngle = nowAngle;
+            }
+
+
+            if (tpc.Count == 1)
+            {
+                TouchPoint flickPoint = tpc[0];
+                if (flickPoint.Action == TouchAction.Move)
+                {
+                    txt_FlickInfo.Text = &quot;Move&quot;;
+                    preFlickX = flickPoint.Position.X;
+                    preFlickY = flickPoint.Position.Y;
+                }
+                else if (flickPoint.Action == TouchAction.Up)
+                {
+                    double nowflickX = flickPoint.Position.X;
+                    double nowflickY = flickPoint.Position.Y;
+                    double length = Math.Pow((nowflickX - preFlickX), 2) &#43; Math.Pow((nowflickY - preFlickY), 2);
+                    if (length &gt; 0)
+                    {
+                        txt_FlickInfo.Text = String.Concat(&quot;flick&quot;, length.ToString());
+                    }
+                }
+            }
+        }
+    }
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+using System;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.aspx"  title="Auto generated link to System.Windows">System.Windows</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Controls.aspx"  title="Auto generated link to System.Windows.Controls">System.Windows.Controls</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Documents.aspx"  title="Auto generated link to System.Windows.Documents">System.Windows.Documents</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Input.aspx"  title="Auto generated link to System.Windows.Input">System.Windows.Input</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Media.aspx"  title="Auto generated link to System.Windows.Media">System.Windows.Media</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Media.Animation.aspx"  title="Auto generated link to System.Windows.Media.Animation">System.Windows.Media.Animation</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Shapes.aspx"  title="Auto generated link to System.Windows.Shapes">System.Windows.Shapes</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Phone.Controls.aspx"  title="Auto generated link to Microsoft.Phone.Controls">Microsoft.Phone.Controls</a>;
+
+
+namespace CSWP7GestureDetection
+{
+    public partial class MainPage : PhoneApplicationPage
+    {
+        // Constructor
+        public MainPage()
+        {
+            InitializeComponent();
+            Touch.FrameReported &#43;= new TouchFrameEventHandler(Touch_FrameReported);
+        }
+
+
+        double preDistance = 0;
+        double preAngle = 0;
+        double preFlickX = 0;
+        double preFlickY = 0;
+        void Touch_FrameReported(object sender, TouchFrameEventArgs e)
+        {
+            TouchPointCollection tpc = e.GetTouchPoints(touchStackPanel);
+            if (tpc.Count == 2)
+            {
+                TouchPoint point1 = tpc[0];
+                TouchPoint point2 = tpc[1];
+
+
+                double X1 = point1.Position.X;
+                double X2 = point2.Position.X;
+                double Y1 = point1.Position.Y;
+                double Y2 = point2.Position.Y;
+
+
+                // Detect two fingers enlargement and shrink
+                var distance = Math.Pow((X1 - X2), 2) &#43; Math.Pow((Y1 - Y2), 2);
+                if (distance &gt; preDistance)
+                {
+                    txt_SharpInfo.Text = &quot;enlarge&quot;;
+                }
+                else
+                {
+                    txt_SharpInfo.Text = &quot;shink&quot;;
+                }
+                preDistance = distance;
+
+
+                // Detect rotation.
+                double nowAngle = 0;
+                if ((X2 - X1) == 0)
+                {
+                    nowAngle = 90;
+                }
+                else
+                {
+                    nowAngle = Math.Atan((Y2 - Y1) / (X2 - X1));
+                }
+                if (nowAngle &gt; preAngle)
+                {
+                    txt_RotateInfo.Text = &quot;clock wise rotation&quot;;
+                }
+                else
+                {
+                    txt_RotateInfo.Text = &quot;counter clock wise rotation&quot;;
+                }
+                preAngle = nowAngle;
+            }
+
+
+            if (tpc.Count == 1)
+            {
+                TouchPoint flickPoint = tpc[0];
+                if (flickPoint.Action == TouchAction.Move)
+                {
+                    txt_FlickInfo.Text = &quot;Move&quot;;
+                    preFlickX = flickPoint.Position.X;
+                    preFlickY = flickPoint.Position.Y;
+                }
+                else if (flickPoint.Action == TouchAction.Up)
+                {
+                    double nowflickX = flickPoint.Position.X;
+                    double nowflickY = flickPoint.Position.Y;
+                    double length = Math.Pow((nowflickX - preFlickX), 2) &#43; Math.Pow((nowflickY - preFlickY), 2);
+                    if (length &gt; 0)
+                    {
+                        txt_FlickInfo.Text = String.Concat(&quot;flick&quot;, length.ToString());
+                    }
+                }
+            }
+        }
+    }
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"></p>
+<h2>More Information</h2>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/system.windows.input.touch.framereported.aspx">http://msdn.microsoft.com/en-us/library/system.windows.input.touch.framereported.aspx</a></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
