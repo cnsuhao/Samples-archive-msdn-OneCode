@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ASP.NET DataList-based image gallery (CSASPNETDataListImageGallery)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>ASP.NET DataList-based image gallery (CSASPNETDataListImageGallery)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Image Gallery
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETDataListImageGaller-47cd94a6">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>ASP.NET APPLICATION : CSASPNETDataListImageGallery Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+&nbsp;The project illustrates how to implement an image gallery with DataList<br>
+</p>
+<h3>Code Logical:</h3>
+<p style="font-family:Courier New"><br>
+Step1. Create a C# ASP.NET Web Application in Visual Studio 2008 and name it <br>
+as CSASPNETDataListImageGallery.<br>
+<br>
+Step2. Drag a DataList onto page and set RepeatColumns=&quot;5&quot; <br>
+RepeatDirection=&quot;Horizontal&quot;.<br>
+<br>
+&lt;asp:DataList ID=&quot;DataList1&quot; runat=&quot;server&quot; RepeatColumns=&quot;5&quot;
+<br>
+RepeatDirection=&quot;Horizontal&quot; &gt;<br>
+<br>
+Step3. Set template in DataList, which binds to Url field.<br>
+<br>
+&lt;ItemTemplate&gt;<br>
+&nbsp;&lt;asp:ImageButton ID=&quot;imgBtn&quot; runat=&quot;server&quot; <br>
+&nbsp; ImageUrl='&lt;%# &quot;/Image/&quot; &#43; Eval(&quot;Url&quot;) %&gt;' Width=&quot;100px&quot; Height=&quot;100px&quot;
+<br>
+&nbsp; OnClick=&quot;imgBtn_Click&quot; CommandArgument='&lt;%# Container.ItemIndex %&gt;' /&gt;<br>
+&lt;/ItemTemplate&gt;<br>
+<br>
+Step4. Add four buttons for page navigation.<br>
+<br>
+&lt;asp:LinkButton ID=&quot;lbnFirstPage&quot; Text=&quot;First&quot; CommandName=&quot;first&quot;
+<br>
+&nbsp;OnCommand=&quot;Page_OnClick&quot; runat=&quot;server&quot; Width=&quot;125px&quot; /&gt;<br>
+&lt;asp:LinkButton ID=&quot;lbnPrevPage&quot; Text=&quot;Prev&quot; CommandName=&quot;prev&quot;
+<br>
+&nbsp;OnCommand=&quot;Page_OnClick&quot; runat=&quot;server&quot; Width=&quot;125px&quot; /&gt;<br>
+&lt;asp:LinkButton ID=&quot;lbnNextPage&quot; Text=&quot;Next&quot; CommandName=&quot;next&quot;
+<br>
+&nbsp;OnCommand=&quot;Page_OnClick&quot; runat=&quot;server&quot; Width=&quot;125px&quot; /&gt;<br>
+&lt;asp:LinkButton ID=&quot;lbnLastPage&quot; Text=&quot;Last&quot; CommandName=&quot;last&quot;
+<br>
+&nbsp;OnCommand=&quot;Page_OnClick&quot; runat=&quot;server&quot; Width=&quot;125px&quot; /&gt;<br>
+<br>
+Step5: Open the code file of page (Default.aspx.cs)<br>
+<br>
+Step6: Import <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Data.aspx"  title="Auto generated link to System.Data">System.Data</a> and <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.aspx"  title="Auto generated link to System.IO">System.IO</a> namespace to page.<br>
+<br>
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Data.aspx"  title="Auto generated link to System.Data">System.Data</a>;<br>
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.aspx"  title="Auto generated link to System.IO">System.IO</a>;<br>
+<br>
+Step7: Create two properties for page index and page count.<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Property for current page index.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;public int Page_Index<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;get { return (int)ViewState[&quot;_Page_Index&quot;]; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;set { ViewState[&quot;_Page_Index&quot;] = value; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Property for total page count.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;public int Page_Count<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;get { return (int)ViewState[&quot;_Page_Count&quot;]; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;set { ViewState[&quot;_Page_Count&quot;] = value; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+Step8: Return number of images.<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Return total number of images.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;protected int ImageCount()<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DirectoryInfo di = new DirectoryInfo(Server.MapPath(&quot;/Image/&quot;));<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FileInfo[] fi = di.GetFiles();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return fi.GetLength(0);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+Step9: Bind DataList<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Return the data source for DataList.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;protected DataTable BindGrid()<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Get all image paths. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DirectoryInfo di = new DirectoryInfo(Server.MapPath(&quot;/Image/&quot;));<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FileInfo[] fi = di.GetFiles();<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Save all paths to the DataTable as the data source.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DataTable dt = new DataTable();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DataColumn dc = new DataColumn(&quot;Url&quot;, typeof(<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.String.aspx"  title="Auto generated link to System.String">System.String</a>));<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;dt.Columns.Add(dc);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;int lastindex = 0;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (Page_Count == 0 || Page_Index == Page_Count - 1)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lastindex = ImageCount();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lastindex = Page_Index * _pageSize &#43; 5;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for (int i = Page_Index * _pageSize; i &lt; lastindex; i&#43;&#43;)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DataRow dro = dt.NewRow();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;dro[0] = fi[i].Name;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;dt.Rows.Add(dro);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return dt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+Step10: Handle paging buttons.<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Handle the navigation button event.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;public void Page_OnClick(Object sender, CommandEventArgs e)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (e.CommandName.Equals(&quot;first&quot;))<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Page_Index = 0;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnFirstPage.Enabled = false;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnPrevPage.Enabled = false;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnNextPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnLastPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else if (e.CommandName.Equals(&quot;prev&quot;))<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Page_Index -= 1;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (Page_Index == 0)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnFirstPage.Enabled = false;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnPrevPage.Enabled = false;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnNextPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnLastPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnFirstPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnPrevPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnNextPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnLastPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else if (e.CommandName.Equals(&quot;next&quot;))<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Page_Index &#43;= 1;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (Page_Index == Page_Count - 1)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnFirstPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnPrevPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnNextPage.Enabled = false;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnLastPage.Enabled = false;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnFirstPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnPrevPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnNextPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnLastPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else if (e.CommandName.Equals(&quot;last&quot;))<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Page_Index = Page_Count - 1;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnFirstPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnPrevPage.Enabled = true;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnNextPage.Enabled = false;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lbnLastPage.Enabled = false;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DataList1.SelectedIndex = 0;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DataList1.DataSource = BindGrid();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DataList1.DataBind();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Image1.ImageUrl <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= ((Image)DataList1.Items[0].FindControl(&quot;imgBtn&quot;)).ImageUrl;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+Step11: Handle image click event.<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Handle the thumbnail image selecting event.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;protected void imgBtn_Click(object sender, EventArgs e)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ImageButton ib = (ImageButton)sender;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Image1.ImageUrl = ib.ImageUrl;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DataList1.SelectedIndex = Convert.ToInt32(ib.CommandArgument);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MSDN: <br>
+#DataList Server Control<br>
+<a  href="http://msdn.microsoft.com/en-us/library/9cx2f3ks(VS.85).aspx">http://msdn.microsoft.com/en-us/library/9cx2f3ks(VS.85).aspx</a><br>
+<br>
+MSDN: <br>
+#Desiding When to Use the DataGrid, DataList and Repeater<br>
+<a  href="http://msdn.microsoft.com/en-us/library/aa479015.aspx">http://msdn.microsoft.com/en-us/library/aa479015.aspx</a><br>
+<br>
+ASP.NET: <br>
+#Efficient Data Paging with the ASP.NET 2.0 DataList Control and ObjectDataSource
+<br>
+<a  href="http://weblogs.asp.net/scottgu/archive/2006/01/07/434787.aspx">http://weblogs.asp.net/scottgu/archive/2006/01/07/434787.aspx</a><br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
