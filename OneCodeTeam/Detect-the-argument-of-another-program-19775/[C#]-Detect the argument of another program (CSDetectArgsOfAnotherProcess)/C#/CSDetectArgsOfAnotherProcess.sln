@@ -1,0 +1,32 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSProcess", "CSDetectArgsOfAnotherProcess\CSProcess\CSProcess.csproj", "{477F94D9-75F1-423E-9387-ED38360AC6DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSDetectProcess", "CSDetectArgsOfAnotherProcess\CSDetectProcess\CSDetectProcess.csproj", "{DC6C70CF-6D62-43B4-B0D2-F30B370FC448}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4A1D08DE-6B90-4236-A1C1-31902B6D3F89}"
+	ProjectSection(SolutionItems) = preProject
+		CSDetectArgsOfAnotherProcess\Documentation\ReadMe.htm = CSDetectArgsOfAnotherProcess\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{477F94D9-75F1-423E-9387-ED38360AC6DE}.Debug|x86.ActiveCfg = Debug|x86
+		{477F94D9-75F1-423E-9387-ED38360AC6DE}.Debug|x86.Build.0 = Debug|x86
+		{477F94D9-75F1-423E-9387-ED38360AC6DE}.Release|x86.ActiveCfg = Release|x86
+		{477F94D9-75F1-423E-9387-ED38360AC6DE}.Release|x86.Build.0 = Release|x86
+		{DC6C70CF-6D62-43B4-B0D2-F30B370FC448}.Debug|x86.ActiveCfg = Debug|x86
+		{DC6C70CF-6D62-43B4-B0D2-F30B370FC448}.Debug|x86.Build.0 = Debug|x86
+		{DC6C70CF-6D62-43B4-B0D2-F30B370FC448}.Release|x86.ActiveCfg = Release|x86
+		{DC6C70CF-6D62-43B4-B0D2-F30B370FC448}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
