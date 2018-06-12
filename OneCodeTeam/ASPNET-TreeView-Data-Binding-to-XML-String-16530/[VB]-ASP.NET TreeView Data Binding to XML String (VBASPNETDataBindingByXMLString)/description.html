@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ASP.NET TreeView Data Binding to XML String (VBASPNETDataBindingByXMLString)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>ASP.NET TreeView Data Binding to XML String (VBASPNETDataBindingByXMLString)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Data Binding
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/11/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBASPNETDataBindingByXMLStr-ac6afc4d">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    ========================================================================<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; VBASPNETDataBindingByXMLString Overview<br>
+========================================================================<br>
+<br>
+/////////////////////////////////////////////////////////////////////////////<br>
+Use:<br>
+<br>
+This code-sample demonstrates how to bind TreeView by using an XML string<br>
+variable. The web application converts XML string to XML object and binds<br>
+data to TreeView's nodes, the TreeViewBind() method supports binding with<br>
+multilayer structure of XML object via recursion algorithm.<br>
+<br>
+/////////////////////////////////////////////////////////////////////////////<br>
+Demo the Sample. <br>
+<br>
+Please follow these demonstration steps below.<br>
+<br>
+Step 1: Open the VBASPNETDataBindingByXMLString.sln.<br>
+<br>
+Step 2: Expand the VBASPNETDataBindingByXMLString web application and press <br>
+&nbsp; &nbsp; &nbsp; &nbsp;Ctrl &#43; F5 to show the Default.aspx page.<br>
+<br>
+Step 3: You will see a TreeView control on the page, please compare TreeView<br>
+&nbsp; &nbsp; &nbsp; &nbsp;nodes with the XML string which generated by XmlData class.<br>
+<br>
+Step 5: You can also modify this XML string, note new nodes need contain a <br>
+&nbsp; &nbsp; &nbsp; &nbsp;property named &quot;name&quot;, the name property will bind to the TreeView's<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nodes text.<br>
+<br>
+Step 6: Validation finished.<br>
+<br>
+/////////////////////////////////////////////////////////////////////////////<br>
+Code Logical:<br>
+<br>
+Step 1. Create a VB &quot;ASP.NET Empty Web Application&quot; in Visual Studio 2010 or<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Visual Web Developer 2010. Name it as &quot;VBASPNETDataBindingByXMLString&quot;.<br>
+<br>
+Step 2. Add one web form and named it as &quot;Default.aspx&quot;.<br>
+<br>
+Step 3. Create a ASP.NET folder named &quot;App_Code&quot;, create an &quot;XmlNode&quot; class file.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;This class provide a method that return an XML string. The XML string
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;need follow XML syntax and has two properties, &quot;name&quot; and &quot;id&quot;.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The XML string will be like this:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[code]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Public Function GetXmlString() As String<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' XML data string.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim strXml As String =<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;Nodes&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;ParentNode name=&quot;&quot;paNode1&quot;&quot; id=&quot;&quot;1&quot;&quot;&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;ChildNode name=&quot;&quot;chNode11&quot;&quot; id=&quot;&quot;11&quot;&quot;&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;Level2ChildNode name=&quot;&quot;Level2chNode111&quot;&quot; id=&quot;&quot;111&quot;&quot;&gt;&lt;/Level2ChildNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;Level2ChildNode name=&quot;&quot;Level2chNode112&quot;&quot; id=&quot;&quot;112&quot;&quot;&gt;&lt;/Level2ChildNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;/ChildNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot; &lt;ChildNode name=&quot;&quot;chNode12&quot;&quot; id=&quot;&quot;12&quot;&quot;&gt;&lt;/ChildNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;ChildNode name=&quot;&quot;chNode13&quot;&quot; id=&quot;&quot;13&quot;&quot;&gt;&lt;/ChildNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;/ParentNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;ParentNode name=&quot;&quot;paNode2&quot;&quot; id=&quot;&quot;2&quot;&quot;&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;ChildNode name=&quot;&quot;chNode21&quot;&quot; id=&quot;&quot;21&quot;&quot;&gt;&lt;/ChildNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;ChildNode name=&quot;&quot;chNode22&quot;&quot; id=&quot;&quot;22&quot;&quot;&gt;&lt;/ChildNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;ChildNode name=&quot;&quot;chNode23&quot;&quot; id=&quot;&quot;23&quot;&quot;&gt;&lt;/ChildNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;/ParentNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;ParentNode name=&quot;&quot;paNode3&quot;&quot; id=&quot;&quot;3&quot;&quot;&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;ChildNode name=&quot;&quot;chNode31&quot;&quot; id=&quot;&quot;31&quot;&quot;&gt;&lt;/ChildNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;ChildNode name=&quot;&quot;chNode32&quot;&quot; id=&quot;&quot;32&quot;&quot;&gt;&lt;/ChildNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;ChildNode name=&quot;&quot;chNode33&quot;&quot; id=&quot;&quot;33&quot;&quot;&gt;&lt;/ChildNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;/ParentNode&gt;&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;&lt;/Nodes&gt;&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Return strXml<br>
+&nbsp; &nbsp; &nbsp; &nbsp;End Function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[/code]<br>
+<br>
+Step 4. Add a TreeView on Default.aspx page, you do not need edit HTML code,<br>
+&nbsp; &nbsp; &nbsp; &nbsp;just show web form's .vb file and add VB code as follows: &nbsp;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Default.aspx.vb include three methods, TreeViewBind(), AddChildNode(),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and GetXmlStringEvent().<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[code]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Dim data As XmlData<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Protected Sub Page_Load(ByVal sender As Object, ByVal e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.EventArgs.aspx"  title="Auto generated link to System.EventArgs">System.EventArgs</a>) Handles Me.Load<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Me.TreeViewBind()<br>
+&nbsp; &nbsp; &nbsp; &nbsp;End Sub<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' &lt;summary&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' TreeViewBind() method,is use to load an XML string via XmlDocument<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' object, and convert it to XML Object. Binding object to TreeView<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' data source.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' &lt;/summary&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Private Sub TreeViewBind()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Try<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim document As New XmlDocument()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim strXmlString As String = Me.GetXmlStringEvent()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.LoadXml(strXmlString)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim nodeXml As XmlNode = document.DocumentElement<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim nodeTree As TreeNode = Nothing<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;For Each node As XmlNode In nodeXml.ChildNodes<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nodeTree = New TreeNode()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim elementXml As XmlElement = DirectCast(node, XmlElement)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nodeTree.Text = elementXml.GetAttribute(&quot;name&quot;).ToString()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Me.AddChildNode(nodeTree, node)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Me.tvwTreeView.Nodes.Add(nodeTree)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Next<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Catch xmlEx As XmlException<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Response.Write(&quot;XML string errors, please check your XmlData class.<br>
+&quot;)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Response.Write(xmlEx.Message)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;tvwTreeView.Nodes.Clear()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Catch ex As Exception<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Response.Write(ex.Message)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;tvwTreeView.Nodes.Clear()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;End Try<br>
+&nbsp; &nbsp; &nbsp; &nbsp;End Sub<br>
+<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' &lt;summary&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' This method is use to add child nodes to the TreeView nodes via
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' recursion algorithm. <br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' &lt;/summary&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' &lt;param name=&quot;nodeParent&quot;&gt;&lt;/param&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' &lt;param name=&quot;node&quot;&gt;&lt;/param&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Private Sub AddChildNode(ByVal nodeParent As TreeNode, ByVal node As XmlNode)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim nodeTreeChild As TreeNode = Nothing<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;For Each nodeChild As XmlNode In node.ChildNodes<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;If node.ChildNodes.Count = 0 Then<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nodeParent.ChildNodes.Add(nodeTreeChild)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Else<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nodeTreeChild = New TreeNode()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim elementChild As XmlElement = DirectCast(nodeChild, XmlElement)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nodeTreeChild.Text = elementChild.GetAttribute(&quot;name&quot;).ToString()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Me.AddChildNode(nodeTreeChild, nodeChild)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nodeParent.ChildNodes.Add(nodeTreeChild)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;End If<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Next<br>
+&nbsp; &nbsp; &nbsp; &nbsp;End Sub<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' &lt;summary&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' Get XML string.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' &lt;/summary&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;''' &lt;returns&gt;&lt;/returns&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Private Function GetXmlStringEvent() As String<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;data = New XmlData()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim strXmlString As String = data.GetXmlString()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Return strXmlString<br>
+&nbsp; &nbsp; &nbsp; &nbsp;End Function<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;[/code]<br>
+<br>
+Step 5. Modify the XML string, you can add, edit, remove the XML nodes to test<br>
+&nbsp; &nbsp; &nbsp; &nbsp;this code-sample, but remember your new XML string need follow XML syntax.<br>
+<br>
+Step 6. Build the application and you can debug it.<br>
+/////////////////////////////////////////////////////////////////////////////<br>
+References:<br>
+<br>
+MSDN: JQuery<br>
+http://wiki.asp.net/page.aspx/1047/jquery/<br>
+<br>
+MSDN: GridView Class<br>
+http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.aspx<br>
+/////////////////////////////////////////////////////////////////////////////<br>
+
+</div>
+
+
+    </div>
+</body>
+</html>
