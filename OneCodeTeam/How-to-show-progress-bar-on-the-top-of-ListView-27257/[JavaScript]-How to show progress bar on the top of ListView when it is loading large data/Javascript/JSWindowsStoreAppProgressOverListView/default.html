@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JSWindowsStoreAppProgressOverListView</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- JSWindowsStoreAppProgressOverListView references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+</head>
+<body>
+    <div id="rootGrid">
+	<div id="title">
+	<p class="AppLogo">Windows Store Code Samples by All-In-One Code Framework</p>
+	<p class="AppName">Show a ProgressRing over ListView</p>
+	<p class="AppDescription">This sample demonstrates how to show progress ring on the top of ListView when WinJS.UI.ListView is loading large data</p>
+    </div>
+	<div id="content"> 
+		<div>
+			<button id="loadButton" class="action">Load</button>
+		</div>
+        <div id="urlerror">
+			<label >This Url is not valid.</label>
+		</div>
+        <div class="output">
+            <!-- Template -->
+            <div id="myItemTemplate" data-win-control="WinJS.Binding.Template">
+                <div class="smallListIconTextItem">
+                    <img src="#" class="smallListIconTextItem-Image" data-win-bind="src: picture" />
+                    <div class="smallListIconTextItem-Detail">
+                        <h4 data-win-bind="innerText: title"></h4>
+                        <h6 data-win-bind="innerText: text"></h6>
+                    </div>
+                </div>
+            </div>
+         
+            <!-- Note the 'loadingBehavior', 'pagesToLoad', 'automaticallyLoadPages', and 'pagesToLoadThreshold' properties-->
+            <div id="listView" 
+                class="win-selectionstylefilled"
+                data-win-control="WinJS.UI.ListView">
+            </div>  
+            
+         <div id="progressContain">
+             <progress id="loadprogressring" class="win-ring" />
+        </div>
+        </div>
+        
+	</div>
+
+	<div id="footer">
+		<div>
+			<img src="/images/microsoft.png"/><br/>
+		</div>		
+		<div id="company">© 2013 Microsoft Corporation. All rights reserved.
+		<a href="http://blogs.msdn.com/b/onecode">All-In-One Code Framework</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

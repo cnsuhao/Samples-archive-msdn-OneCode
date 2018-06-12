@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/fd0873a3-9a67-441e-9769-e22026a86740Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to show progress bar on the top of ListView when it is loading large data</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to show progress bar on the top of ListView when it is loading large data</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows, Windows 8, Windows Store app Development
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            ListView, Progress Bar, load data
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">2/16/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-show-progress-bar-1ba84ffe">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img src="description/8171.onecodesampletopbanner.png" alt="">
+</a></div>
+<h1>How to get<span> the </span>progress<span> ring to display in the period when</span>
+<span class="SpellE">ListView</span> is loading large data<span> (<span class="SpellE">JSWindowsStoreAppProgressOverListView</span></span>)</h1>
+<h2>Introduction</h2>
+<h2><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">The sample demonstrates how to get the progress ring to display in the period when
+<span class="SpellE">WinJS.UI.ListView</span> control is loading large data. After launching the app, click &quot;load&quot; button to load sample data into
+<span class="SpellE">ListView</span> control. </span></h2>
+<h2>Build the Sample</h2>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span><span>1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Start Visual Studio 2012 and select File &gt; Open &gt; Project/Solution.</p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span><span>2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Go to the directory in which you download the sample. Go to the directory named for the sample, and double-click the Microsoft Visual Studio
+<span class="GramE">Solution(</span>.<span class="SpellE">sln</span>) file.</p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span><span>3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Press F7 or use Build &gt; Build Solution to build the sample.</p>
+<h2>Running the Sample</h2>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span><span>1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Press Ctrl&#43;F5 or F5 to run the project.</p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span><span>2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>After the sample is launched, <span>the screen as shown below will display.</span></p>
+<p class="MsoListParagraphCxSpMiddle"><span><img src="description/image.png" alt="" width="576" height="326" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span><span>3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span>Please click &quot;Load&quot; button to load sample data into <span class="SpellE">
+ListView</span>, the following screen will display: </span></p>
+<p class="MsoListParagraphCxSpMiddle"><span><img src="description/399c932b-352d-42e6-abdd-bb0ed231d024image.png" alt="" width="576" height="326" align="middle">
+</span><span>&nbsp;</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span><span>4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span>When the data loading is finished, the progress ring will be invisible and the data will be shown in
+<span class="SpellE">WinJS.UI.ListView</span> control. </span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">The code<span> snippet</span> below <span>shows the HTML UI.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>HTML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">html</span>
+<pre class="hidden">&lt;body&gt;
+    &lt;div id=&quot;rootGrid&quot;&gt;
+    &lt;div id=&quot;title&quot;&gt;
+    &lt;p class=&quot;AppLogo&quot;&gt;Windows Store Code Samples by All-In-One Code Framework&lt;/p&gt;
+    &lt;p class=&quot;AppName&quot;&gt;Show a ProgressRing over ListView&lt;/p&gt;
+    &lt;p class=&quot;AppDescription&quot;&gt;This sample demonstrates how to show progressring on the top of ListView when WinJS.UI.ListView is loading large data&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;content&quot;&gt; 
+        &lt;div&gt;
+            &lt;button id=&quot;loadButton&quot; class=&quot;action&quot;&gt;Load&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;urlerror&quot;&gt;
+            &lt;label &gt;This Url is not valid.&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;output&quot;&gt;
+            &lt;!-- Template --&gt;
+            &lt;div id=&quot;myItemTemplate&quot; data-win-control=&quot;WinJS.Binding.Template&quot;&gt;
+                &lt;div class=&quot;smallListIconTextItem&quot;&gt;
+                    &lt;img src=&quot;#&quot; class=&quot;smallListIconTextItem-Image&quot; data-win-bind=&quot;src: picture&quot; /&gt;
+                    &lt;div class=&quot;smallListIconTextItem-Detail&quot;&gt;
+                        &lt;h4 data-win-bind=&quot;innerText: title&quot;&gt;&lt;/h4&gt;
+                        &lt;h6 data-win-bind=&quot;innerText: text&quot;&gt;&lt;/h6&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+         
+            &lt;!-- Note the 'loadingBehavior', 'pagesToLoad', 'automaticallyLoadPages', and 'pagesToLoadThreshold' properties--&gt;
+            &lt;div id=&quot;listView&quot; 
+                class=&quot;win-selectionstylefilled&quot;
+                data-win-control=&quot;WinJS.UI.ListView&quot;&gt;
+            &lt;/div&gt;  
+            
+         &lt;div id=&quot;progressContain&quot;&gt;
+             &lt;progress id=&quot;loadprogressring&quot; class=&quot;win-ring&quot; /&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+        
+    &lt;/div&gt;
+
+    &lt;div id=&quot;footer&quot;&gt;
+        &lt;div&gt;
+            &lt;img src=&quot;/images/microsoft.png&quot;/&gt;&lt;br/&gt;
+        &lt;/div&gt;        
+        &lt;div id=&quot;company&quot;&gt;&Acirc;&copy; 2013 Microsoft Corporation. All rights reserved.
+        &lt;a href=&quot;http://blogs.msdn.com/b/onecode&quot;&gt;All-In-One Code Framework&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</pre>
+<div class="preview">
+<pre class="html"><span class="html__tag_start">&lt;body</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span>&nbsp;<span class="html__attr_name">id</span>=<span class="html__attr_value">&quot;rootGrid&quot;</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span>&nbsp;<span class="html__attr_name">id</span>=<span class="html__attr_value">&quot;title&quot;</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;p</span>&nbsp;<span class="html__attr_name">class</span>=<span class="html__attr_value">&quot;AppLogo&quot;</span><span class="html__tag_start">&gt;</span>Windows&nbsp;Store&nbsp;Code&nbsp;Samples&nbsp;by&nbsp;All-In-One&nbsp;Code&nbsp;Framework<span class="html__tag_end">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;p</span>&nbsp;<span class="html__attr_name">class</span>=<span class="html__attr_value">&quot;AppName&quot;</span><span class="html__tag_start">&gt;</span>Show&nbsp;a&nbsp;ProgressRing&nbsp;over&nbsp;ListView<span class="html__tag_end">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;p</span>&nbsp;<span class="html__attr_name">class</span>=<span class="html__attr_value">&quot;AppDescription&quot;</span><span class="html__tag_start">&gt;</span>This&nbsp;sample&nbsp;demonstrates&nbsp;how&nbsp;to&nbsp;show&nbsp;progressring&nbsp;on&nbsp;the&nbsp;top&nbsp;of&nbsp;ListView&nbsp;when&nbsp;WinJS.UI.ListView&nbsp;is&nbsp;loading&nbsp;large&nbsp;data<span class="html__tag_end">&lt;/p&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span>&nbsp;<span class="html__attr_name">id</span>=<span class="html__attr_value">&quot;content&quot;</span><span class="html__tag_start">&gt;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;button</span>&nbsp;<span class="html__attr_name">id</span>=<span class="html__attr_value">&quot;loadButton&quot;</span>&nbsp;<span class="html__attr_name">class</span>=<span class="html__attr_value">&quot;action&quot;</span><span class="html__tag_start">&gt;</span>Load<span class="html__tag_end">&lt;/button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span>&nbsp;<span class="html__attr_name">id</span>=<span class="html__attr_value">&quot;urlerror&quot;</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;label</span>&nbsp;<span class="html__tag_start">&gt;</span>This&nbsp;Url&nbsp;is&nbsp;not&nbsp;valid.<span class="html__tag_end">&lt;/label&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span>&nbsp;<span class="html__attr_name">class</span>=<span class="html__attr_value">&quot;output&quot;</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__comment">&lt;!--&nbsp;Template&nbsp;--&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span>&nbsp;<span class="html__attr_name">id</span>=<span class="html__attr_value">&quot;myItemTemplate&quot;</span>&nbsp;<span class="html__attr_name">data-win-control</span>=<span class="html__attr_value">&quot;WinJS.Binding.Template&quot;</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span>&nbsp;<span class="html__attr_name">class</span>=<span class="html__attr_value">&quot;smallListIconTextItem&quot;</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;img</span>&nbsp;<span class="html__attr_name">src</span>=<span class="html__attr_value">&quot;#&quot;</span>&nbsp;<span class="html__attr_name">class</span>=<span class="html__attr_value">&quot;smallListIconTextItem-Image&quot;</span>&nbsp;<span class="html__attr_name">data-win-bind</span>=<span class="html__attr_value">&quot;src:&nbsp;picture&quot;</span>&nbsp;<span class="html__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span>&nbsp;<span class="html__attr_name">class</span>=<span class="html__attr_value">&quot;smallListIconTextItem-Detail&quot;</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;h4</span>&nbsp;<span class="html__attr_name">data-win-bind</span>=<span class="html__attr_value">&quot;innerText:&nbsp;title&quot;</span><span class="html__tag_start">&gt;</span><span class="html__tag_end">&lt;/h4&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;h6</span>&nbsp;<span class="html__attr_name">data-win-bind</span>=<span class="html__attr_value">&quot;innerText:&nbsp;text&quot;</span><span class="html__tag_start">&gt;</span><span class="html__tag_end">&lt;/h6&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__comment">&lt;!--&nbsp;Note&nbsp;the&nbsp;'loadingBehavior',&nbsp;'pagesToLoad',&nbsp;'automaticallyLoadPages',&nbsp;and&nbsp;'pagesToLoadThreshold'&nbsp;properties--&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span>&nbsp;<span class="html__attr_name">id</span>=<span class="html__attr_value">&quot;listView&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__attr_name">class</span>=<span class="html__attr_value">&quot;win-selectionstylefilled&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__attr_name">data-win-control</span>=<span class="html__attr_value">&quot;WinJS.UI.ListView&quot;</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span>&nbsp;<span class="html__attr_name">id</span>=<span class="html__attr_value">&quot;progressContain&quot;</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;progress</span>&nbsp;<span class="html__attr_name">id</span>=<span class="html__attr_value">&quot;loadprogressring&quot;</span>&nbsp;<span class="html__attr_name">class</span>=<span class="html__attr_value">&quot;win-ring&quot;</span>&nbsp;<span class="html__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span>&nbsp;<span class="html__attr_name">id</span>=<span class="html__attr_value">&quot;footer&quot;</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span><span class="html__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;img</span>&nbsp;<span class="html__attr_name">src</span>=<span class="html__attr_value">&quot;/images/microsoft.png&quot;</span><span class="html__tag_start">/&gt;</span><span class="html__tag_start">&lt;br</span><span class="html__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;div</span>&nbsp;<span class="html__attr_name">id</span>=<span class="html__attr_value">&quot;company&quot;</span><span class="html__tag_start">&gt;&Acirc;</span>&copy;&nbsp;2013&nbsp;Microsoft&nbsp;Corporation.&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_start">&lt;a</span>&nbsp;<span class="html__attr_name">href</span>=<span class="html__attr_value">&quot;http://blogs.msdn.com/b/onecode&quot;</span><span class="html__tag_start">&gt;</span>All-In-One&nbsp;Code&nbsp;Framework<span class="html__tag_end">&lt;/a&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;
+<span class="html__tag_end">&lt;/div&gt;</span>&nbsp;
+<span class="html__tag_end">&lt;/body&gt;</span>&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><a name="OLE_LINK2"></a><a name="OLE_LINK1"><span>The </span>
+</a><span><span><span>following</span> cod</span></span><span>&nbsp;</span><span>e</span> snippet
+<span>shows how to get the progress ring to display during the period when <span class="SpellE">
+ListView</span> is loading large data, and then set the progress ring to be invisible after the data loading is finished.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>JavaScript</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">js</span>
+<pre class="hidden">app.onactivated = function (args) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (args.detail.kind === activation.ActivationKind.launch) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // TODO: This application has been newly launched. Initialize
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // your application here.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // TODO: This application has been reactivated from suspension.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Restore application state here.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; args.setPromise(WinJS.UI.processAll().then(function complete() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // retrieve button
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loadBtn = document.getElementById(&quot;loadButton&quot;);&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // register Click Event for load button
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loadBtn.addEventListener(&quot;click&quot;, loadButtonClick, false);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp; };
+
+
+&nbsp;&nbsp; // load data into listview control
+&nbsp;&nbsp; function loadButtonClick() {&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// clear the datasource
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById(&quot;listView&quot;).winControl.itemDataSource = null;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// set load button disabled 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loadBtn.disabled = true;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // set progress be visible
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById(&quot;loadprogressring&quot;).style.visibility = &quot;visible&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// simulate listview to load large data. because the listview load data synchronously 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(loaddata, 2000);
+&nbsp;&nbsp; }
+
+
+&nbsp;&nbsp; function loaddata()
+&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // get listview element
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var listviewElement = document.getElementById(&quot;listView&quot;);
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // get WinJS.UI.ListView control object
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var listViewControl = listviewElement.winControl;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // binding data to ListView control
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listViewControl.itemDataSource = myData.dataSource;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listViewControl.itemTemplate = document.getElementById(&quot;myItemTemplate&quot;);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listViewControl.layout = new WinJS.UI.GridLayout();
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // force update the layout of listview control to display the binding data
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listViewControl.forceLayout();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// set load button enable and set progress be invisible
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loadBtn.disabled = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById(&quot;loadprogressring&quot;).style.visibility = &quot;collapse&quot;;
+&nbsp;&nbsp; }
+
+</pre>
+<pre class="js" id="codePreview">app.onactivated = function (args) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (args.detail.kind === activation.ActivationKind.launch) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // TODO: This application has been newly launched. Initialize
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // your application here.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // TODO: This application has been reactivated from suspension.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Restore application state here.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; args.setPromise(WinJS.UI.processAll().then(function complete() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // retrieve button
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loadBtn = document.getElementById(&quot;loadButton&quot;);&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // register Click Event for load button
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loadBtn.addEventListener(&quot;click&quot;, loadButtonClick, false);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp; };
+
+
+&nbsp;&nbsp; // load data into listview control
+&nbsp;&nbsp; function loadButtonClick() {&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// clear the datasource
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById(&quot;listView&quot;).winControl.itemDataSource = null;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// set load button disabled 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loadBtn.disabled = true;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // set progress be visible
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById(&quot;loadprogressring&quot;).style.visibility = &quot;visible&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// simulate listview to load large data. because the listview load data synchronously 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(loaddata, 2000);
+&nbsp;&nbsp; }
+
+
+&nbsp;&nbsp; function loaddata()
+&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // get listview element
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var listviewElement = document.getElementById(&quot;listView&quot;);
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // get WinJS.UI.ListView control object
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var listViewControl = listviewElement.winControl;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // binding data to ListView control
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listViewControl.itemDataSource = myData.dataSource;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listViewControl.itemTemplate = document.getElementById(&quot;myItemTemplate&quot;);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listViewControl.layout = new WinJS.UI.GridLayout();
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // force update the layout of listview control to display the binding data
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listViewControl.forceLayout();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// set load button enable and set progress be invisible
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loadBtn.disabled = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById(&quot;loadprogressring&quot;).style.visibility = &quot;collapse&quot;;
+&nbsp;&nbsp; }
+
+</pre>
+</div>
+</div>
+<h2>More Information<span> </span></h2>
+<p class="MsoNormal"><span>Data binding (Windows Store apps using JavaScript and HTML)
+</span></p>
+<p class="MsoNormal"><span><a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx</a>
+</span></p>
+<p class="MsoNormal"><span class="SpellE"><span>WinJS.UI.ListView</span></span><span> object
+</span></p>
+<p class="MsoNormal"><span><a href="http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx</a>
+</span></p>
+<p class="MsoNormal"><span>Adding progress controls (Windows Store apps using JavaScript and HTML)
+</span></p>
+<p class="MsoNormal"><span><a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh465428.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/hh465428.aspx</a>
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/8ceaf4b9-39f1-47dc-ae5e-ffbff5b81e5fimage.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
