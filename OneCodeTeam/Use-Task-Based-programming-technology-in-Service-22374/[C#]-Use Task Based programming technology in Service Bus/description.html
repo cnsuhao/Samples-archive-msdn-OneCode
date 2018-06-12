@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/4f0db316-e33e-4e5c-b975-0f6de635f8e4Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Use Task Based programming technology in Service Bus</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Use Task Based programming technology in Service Bus</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Azure, Service Bus
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/3/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Use-Task-Based-programming-2bf1f4b6">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p class="MsoNormal">This sample shows the new feature in Windows Azure Service Bus Client SDK 2.0.</p>
+<p class="MsoNormal">The SDK APIs have improved to offer <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Threading.Tasks.Task.aspx"  title="Auto generated link to System.Threading.Tasks.Task">System.Threading.Tasks.Task</a> based versions of all asynchronous APIs.</p>
+<p class="MsoNormal">This means that you can write asynchronous code that mere mortals can read.</p>
+<p class="MsoNormal">This sample requires WindowsAuzre.ServiceBus API. Right-click on the project node or References node and select 'Manage NuGet Packages&hellip;' Make sure that you have selected Include Prerelease (the default is Stable only). Then search
+ for service bus. Select Windows Azure Service Bus and click on Install.</p>
+<p class="MsoNormal"><span><img src="description/image.png" alt="" width="576" height="384" align="middle">
+</span></p>
+<p class="MsoNormal"><span lang="EN">From the Package Manager Console, you can install the package by typing in:
+</span></p>
+<p class="MsoNormal"><span lang="EN">Install-Package -Id WindowsAzure.ServiceBus &ndash;IncludePrerelease
+</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">Before the running, you need to change the Microsoft.ServiceBus.ConnectingString in your APP.Config.</p>
+<p class="MsoNormal">Get the Access Key from you Azure portal-&gt; Service bus tab-&gt;&lt;Your service bus namespace name&gt;-&gt;Access Key.</p>
+<p class="MsoNormal"><span><img src="description/b9c2b2d5-5d78-4b90-a515-8a52c1b78f66image.png" alt="" width="500" height="433" align="middle">
+</span></p>
+<p class="MsoNormal">This Microsoft.ServiceBus.ConnectingString is something like:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xml</span>
+<pre class="hidden">&lt;add key=&quot;Microsoft.ServiceBus.ConnectionString&quot; value=&quot;Endpoint=sb://&lt; YOUR NAME SPACE&gt;.servicebus.windows.net/;SharedSecretIssuer=&lt;DEFAULT ISSUER&gt;;SharedSecretValue=DEFAULT KEY&quot; /&gt;
+
+</pre>
+<pre id="codePreview" class="xml">&lt;add key=&quot;Microsoft.ServiceBus.ConnectionString&quot; value=&quot;Endpoint=sb://&lt; YOUR NAME SPACE&gt;.servicebus.windows.net/;SharedSecretIssuer=&lt;DEFAULT ISSUER&gt;;SharedSecretValue=DEFAULT KEY&quot; /&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">You can copy the Connection String's value and paste into this appsetting's value.</p>
+<p class="MsoNormal">Step 1: Create a new WPF project named CSAzureTaskBasedServiceBus.</p>
+<p class="MsoNormal">Step 2: In MainWIndows.xaml, add several controls to the main page.</p>
+<p class="MsoNormal"><span><img src="description/83f37952-a4f4-4464-a5d2-b589b67c6425image.png" alt="" width="577" height="422" align="middle">
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xaml</span>
+<pre class="hidden">&lt;Window x:Class=&quot;CSAuzreTaskBasedServiceBus.MainWindow&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title=&quot;Task Based Service Bus sample&quot; Width=&quot;1094&quot; Height=&quot;800&quot;&gt;
+&nbsp;&nbsp;&nbsp; &lt;Grid Margin=&quot;0,0,0,0&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Grid.ColumnDefinitions&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ColumnDefinition Width=&quot;350*&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ColumnDefinition Width=&quot;350*&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ColumnDefinition Width=&quot;350*&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Grid.ColumnDefinitions&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ListBox Height=&quot;330&quot; HorizontalAlignment=&quot;Right&quot; Margin=&quot;0,225,70,0&quot; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name=&quot;lstQueues&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;254&quot; Grid.Column=&quot;1&quot; /&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Button Content=&quot;Send Message&quot; Height=&quot;23&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;170,192,0,0&quot; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name=&quot;btnSendMessage&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;95&quot; Click=&quot;btnSendMessage_Click&quot;&nbsp; /&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ComboBox HorizontalAlignment=&quot;Left&quot; Name=&quot;cbxChooseSendMessageQueue&quot; Margin=&quot;28,151,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;120&quot; Height=&quot;22&quot; SelectedIndex=&quot;0&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Label Content=&quot;Send Message&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;28,94,0,0&quot; VerticalAlignment=&quot;Top&quot; Height=&quot;26&quot; Width=&quot;86&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Label Content=&quot;Service Bus Queues&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;98,10,0,0&quot; VerticalAlignment=&quot;Top&quot; Height=&quot;26&quot; Width=&quot;113&quot; Grid.Column=&quot;1&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Label Content=&quot;Choose Queue&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;28,115,0,0&quot; VerticalAlignment=&quot;Top&quot; Height=&quot;26&quot; Width=&quot;88&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;TextBox x:Name=&quot;txtSendMessage&quot; HorizontalAlignment=&quot;Left&quot; Height=&quot;23&quot; Margin=&quot;28,192,0,0&quot; TextWrapping=&quot;Wrap&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;120&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Label Content=&quot;Queue list&quot; Grid.Column=&quot;1&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;38,189,0,0&quot; VerticalAlignment=&quot;Top&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Label Content=&quot;Create Queue&quot; Grid.Column=&quot;1&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;38,115,0,0&quot; VerticalAlignment=&quot;Top&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;TextBox&nbsp; Grid.Column=&quot;1&quot; HorizontalAlignment=&quot;Left&quot; Height=&quot;23&quot; Margin=&quot;38,151,0,0&quot; TextWrapping=&quot;Wrap&quot; Name=&quot;txtCreateQueue&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;120&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Button Name=&quot;btnCreateNewQueue&quot; Content=&quot;Create&quot; Grid.Column=&quot;1&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;188,151,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;75&quot; Click=&quot;btnCreateNewQueue_Click&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ComboBox Name=&quot;cbxChooseRetrieveMessageQueue&quot; Grid.Column=&quot;2&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;21,149,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;120&quot; SelectedIndex=&quot;0&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Button Name=&quot;btnRetrieveMessage&quot;&nbsp; Content=&quot;Retrieve&quot; Grid.Column=&quot;2&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;166,149,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;75&quot; Height=&quot;22&quot; Click=&quot;btnRetrieveMessage_Click&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;TextBox x:Name=&quot;txtDetails&quot; Grid.Column=&quot;2&quot; HorizontalAlignment=&quot;Left&quot; Height=&quot;330&quot; Margin=&quot;21,225,0,0&quot; TextWrapping=&quot;Wrap&quot;&nbsp; VerticalAlignment=&quot;Top&quot; Width=&quot;316&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Label Content=&quot;Choose Queue&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;10,115,0,0&quot; VerticalAlignment=&quot;Top&quot; Height=&quot;26&quot; Width=&quot;88&quot; Grid.Column=&quot;2&quot;/&gt;
+
+
+
+
+&nbsp;&nbsp;&nbsp; &lt;/Grid&gt;
+&lt;/Window&gt;
+
+</pre>
+<pre id="codePreview" class="xaml">&lt;Window x:Class=&quot;CSAuzreTaskBasedServiceBus.MainWindow&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title=&quot;Task Based Service Bus sample&quot; Width=&quot;1094&quot; Height=&quot;800&quot;&gt;
+&nbsp;&nbsp;&nbsp; &lt;Grid Margin=&quot;0,0,0,0&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Grid.ColumnDefinitions&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ColumnDefinition Width=&quot;350*&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ColumnDefinition Width=&quot;350*&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ColumnDefinition Width=&quot;350*&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Grid.ColumnDefinitions&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ListBox Height=&quot;330&quot; HorizontalAlignment=&quot;Right&quot; Margin=&quot;0,225,70,0&quot; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name=&quot;lstQueues&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;254&quot; Grid.Column=&quot;1&quot; /&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Button Content=&quot;Send Message&quot; Height=&quot;23&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;170,192,0,0&quot; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name=&quot;btnSendMessage&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;95&quot; Click=&quot;btnSendMessage_Click&quot;&nbsp; /&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ComboBox HorizontalAlignment=&quot;Left&quot; Name=&quot;cbxChooseSendMessageQueue&quot; Margin=&quot;28,151,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;120&quot; Height=&quot;22&quot; SelectedIndex=&quot;0&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Label Content=&quot;Send Message&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;28,94,0,0&quot; VerticalAlignment=&quot;Top&quot; Height=&quot;26&quot; Width=&quot;86&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Label Content=&quot;Service Bus Queues&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;98,10,0,0&quot; VerticalAlignment=&quot;Top&quot; Height=&quot;26&quot; Width=&quot;113&quot; Grid.Column=&quot;1&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Label Content=&quot;Choose Queue&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;28,115,0,0&quot; VerticalAlignment=&quot;Top&quot; Height=&quot;26&quot; Width=&quot;88&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;TextBox x:Name=&quot;txtSendMessage&quot; HorizontalAlignment=&quot;Left&quot; Height=&quot;23&quot; Margin=&quot;28,192,0,0&quot; TextWrapping=&quot;Wrap&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;120&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Label Content=&quot;Queue list&quot; Grid.Column=&quot;1&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;38,189,0,0&quot; VerticalAlignment=&quot;Top&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Label Content=&quot;Create Queue&quot; Grid.Column=&quot;1&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;38,115,0,0&quot; VerticalAlignment=&quot;Top&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;TextBox&nbsp; Grid.Column=&quot;1&quot; HorizontalAlignment=&quot;Left&quot; Height=&quot;23&quot; Margin=&quot;38,151,0,0&quot; TextWrapping=&quot;Wrap&quot; Name=&quot;txtCreateQueue&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;120&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Button Name=&quot;btnCreateNewQueue&quot; Content=&quot;Create&quot; Grid.Column=&quot;1&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;188,151,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;75&quot; Click=&quot;btnCreateNewQueue_Click&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ComboBox Name=&quot;cbxChooseRetrieveMessageQueue&quot; Grid.Column=&quot;2&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;21,149,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;120&quot; SelectedIndex=&quot;0&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Button Name=&quot;btnRetrieveMessage&quot;&nbsp; Content=&quot;Retrieve&quot; Grid.Column=&quot;2&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;166,149,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;75&quot; Height=&quot;22&quot; Click=&quot;btnRetrieveMessage_Click&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;TextBox x:Name=&quot;txtDetails&quot; Grid.Column=&quot;2&quot; HorizontalAlignment=&quot;Left&quot; Height=&quot;330&quot; Margin=&quot;21,225,0,0&quot; TextWrapping=&quot;Wrap&quot;&nbsp; VerticalAlignment=&quot;Top&quot; Width=&quot;316&quot;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Label Content=&quot;Choose Queue&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;10,115,0,0&quot; VerticalAlignment=&quot;Top&quot; Height=&quot;26&quot; Width=&quot;88&quot; Grid.Column=&quot;2&quot;/&gt;
+
+
+
+
+&nbsp;&nbsp;&nbsp; &lt;/Grid&gt;
+&lt;/Window&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">Step 3: Create an Async method to get data from Service Bus, and initialize controls asynchronously.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public async void initializeControls()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cbxChooseRetrieveMessageQueue.IsEnabled = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cbxChooseSendMessageQueue.IsEnabled = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NamespaceManager manager=NamespaceManager.Create();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;string&gt; queueNameList = new List&lt;string&gt;();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var Queues=await manager.GetQueuesAsync();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lstQueues.Items.Clear();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (var queue in Queues)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; queueNameList.Add(queue.Path);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lstQueues.Items.Add(string.Format(&quot;{0}\t\t\tlength={1}&quot;,queue.Path,queue.MessageCount));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cbxChooseSendMessageQueue.ItemsSource = queueNameList;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cbxChooseRetrieveMessageQueue.ItemsSource = queueNameList;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cbxChooseSendMessageQueue.IsEnabled = true;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cbxChooseRetrieveMessageQueue.IsEnabled = true;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+
+</pre>
+<pre id="codePreview" class="csharp">public async void initializeControls()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cbxChooseRetrieveMessageQueue.IsEnabled = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cbxChooseSendMessageQueue.IsEnabled = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NamespaceManager manager=NamespaceManager.Create();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;string&gt; queueNameList = new List&lt;string&gt;();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var Queues=await manager.GetQueuesAsync();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lstQueues.Items.Clear();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (var queue in Queues)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; queueNameList.Add(queue.Path);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lstQueues.Items.Add(string.Format(&quot;{0}\t\t\tlength={1}&quot;,queue.Path,queue.MessageCount));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cbxChooseSendMessageQueue.ItemsSource = queueNameList;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cbxChooseRetrieveMessageQueue.ItemsSource = queueNameList;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cbxChooseSendMessageQueue.IsEnabled = true;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cbxChooseRetrieveMessageQueue.IsEnabled = true;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">Step 4: Create button click event for each buttons, and make them asynchronously.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">private async void btnCreateNewQueue_Click(object sender, RoutedEventArgs e)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnCreateNewQueue.IsEnabled = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NamespaceManager manager = NamespaceManager.Create();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (txtCreateQueue.Text != &quot;&quot; &amp;&amp; (!await (manager.QueueExistsAsync(txtCreateQueue.Text))))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await manager.CreateQueueAsync(txtCreateQueue.Text);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initializeControls();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnCreateNewQueue.IsEnabled = true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; txtCreateQueue.Text = null;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+
+</pre>
+<pre id="codePreview" class="csharp">private async void btnCreateNewQueue_Click(object sender, RoutedEventArgs e)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnCreateNewQueue.IsEnabled = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NamespaceManager manager = NamespaceManager.Create();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (txtCreateQueue.Text != &quot;&quot; &amp;&amp; (!await (manager.QueueExistsAsync(txtCreateQueue.Text))))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await manager.CreateQueueAsync(txtCreateQueue.Text);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initializeControls();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnCreateNewQueue.IsEnabled = true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; txtCreateQueue.Text = null;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">private async void btnSendMessage_Click(object sender, RoutedEventArgs e)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnSendMessage.IsEnabled = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;QueueClient client = QueueClient.Create(cbxChooseSendMessageQueue.SelectedValue.ToString());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (txtSendMessage.Text!=null)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await client.SendAsync(new BrokeredMessage(txtSendMessage.Text));
+
+
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initializeControls();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnSendMessage.IsEnabled = true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+
+</pre>
+<pre id="codePreview" class="csharp">private async void btnSendMessage_Click(object sender, RoutedEventArgs e)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnSendMessage.IsEnabled = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;QueueClient client = QueueClient.Create(cbxChooseSendMessageQueue.SelectedValue.ToString());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (txtSendMessage.Text!=null)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await client.SendAsync(new BrokeredMessage(txtSendMessage.Text));
+
+
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initializeControls();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnSendMessage.IsEnabled = true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">private async void btnRetrieveMessage_Click(object sender, RoutedEventArgs e)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnRetrieveMessage.IsEnabled = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; QueueClient client = QueueClient.Create(cbxChooseRetrieveMessageQueue.SelectedValue.ToString(),ReceiveMode.ReceiveAndDelete);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BrokeredMessage receivedMessage = await client.ReceiveAsync();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (receivedMessage!=null)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; txtDetails.Text=string.Format(&quot;Message Content:\n{0}\n\n&quot;,receivedMessage.GetBody&lt;string&gt;());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; txtDetails.Text &#43;=(&quot;BrokeredMessage Properties\n&quot;&#43;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string.Format(&quot;Size\t{0}\n&quot;,receivedMessage.Size)&#43;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string.Format(&quot;MessageId\t{0}\n&quot;,receivedMessage.MessageId)&#43;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string.Format(&quot;TimeToLive\t{0}\n&quot;,receivedMessage.TimeToLive)&#43;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string.Format(&quot;EnqueuedTimeUtc\t{0}\n&quot;,receivedMessage.EnqueuedTimeUtc)&#43;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string.Format(&quot;ExpiresAtUtc\t{0}\n&quot;,receivedMessage.ExpiresAtUtc));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; initializeControls();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnRetrieveMessage.IsEnabled = true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+
+</pre>
+<pre id="codePreview" class="csharp">private async void btnRetrieveMessage_Click(object sender, RoutedEventArgs e)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnRetrieveMessage.IsEnabled = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; QueueClient client = QueueClient.Create(cbxChooseRetrieveMessageQueue.SelectedValue.ToString(),ReceiveMode.ReceiveAndDelete);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BrokeredMessage receivedMessage = await client.ReceiveAsync();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (receivedMessage!=null)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; txtDetails.Text=string.Format(&quot;Message Content:\n{0}\n\n&quot;,receivedMessage.GetBody&lt;string&gt;());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; txtDetails.Text &#43;=(&quot;BrokeredMessage Properties\n&quot;&#43;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string.Format(&quot;Size\t{0}\n&quot;,receivedMessage.Size)&#43;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string.Format(&quot;MessageId\t{0}\n&quot;,receivedMessage.MessageId)&#43;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string.Format(&quot;TimeToLive\t{0}\n&quot;,receivedMessage.TimeToLive)&#43;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string.Format(&quot;EnqueuedTimeUtc\t{0}\n&quot;,receivedMessage.EnqueuedTimeUtc)&#43;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string.Format(&quot;ExpiresAtUtc\t{0}\n&quot;,receivedMessage.ExpiresAtUtc));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; initializeControls();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnRetrieveMessage.IsEnabled = true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">Step 5: Add initializeControls method to your MainWindow().</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public MainWindow()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; InitializeComponent();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; initializeControls();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</pre>
+<pre id="codePreview" class="csharp">public MainWindow()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; InitializeComponent();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; initializeControls();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><a href="http://blogs.msdn.com/b/windowsazure/archive/2013/04/11/task-based-apis-for-service-bus.aspx">http://blogs.msdn.com/b/windowsazure/archive/2013/04/11/task-based-apis-for-service-bus.aspx</a></p>
+<p class="MsoNormal">&nbsp;</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3482f8c7-6d55-4a99-9a91-52af674e2846image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

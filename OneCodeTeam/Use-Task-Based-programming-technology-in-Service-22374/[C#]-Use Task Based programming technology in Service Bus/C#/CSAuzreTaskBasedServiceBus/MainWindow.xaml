@@ -1,0 +1,31 @@
+﻿<Window x:Class="CSAuzreTaskBasedServiceBus.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Task Based Service Bus sample" Width="1094" Height="800">
+    <Grid Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350*"/>
+            <ColumnDefinition Width="350*"/>
+            <ColumnDefinition Width="350*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Height="330" HorizontalAlignment="Right" Margin="0,225,70,0" 
+                 Name="lstQueues" VerticalAlignment="Top" Width="254" Grid.Column="1" />
+        <Button Content="Send Message" Height="23" HorizontalAlignment="Left" Margin="170,192,0,0" 
+                Name="btnSendMessage" VerticalAlignment="Top" Width="95" Click="btnSendMessage_Click"  />
+        <ComboBox HorizontalAlignment="Left" Name="cbxChooseSendMessageQueue" Margin="28,151,0,0" VerticalAlignment="Top" Width="120" Height="22" SelectedIndex="0"/>
+        <Label Content="Send Message" HorizontalAlignment="Left" Margin="28,94,0,0" VerticalAlignment="Top" Height="26" Width="86"/>
+        <Label Content="Service Bus Queues" HorizontalAlignment="Left" Margin="98,10,0,0" VerticalAlignment="Top" Height="26" Width="113" Grid.Column="1"/>
+        <Label Content="Choose Queue" HorizontalAlignment="Left" Margin="28,115,0,0" VerticalAlignment="Top" Height="26" Width="88"/>
+        <TextBox x:Name="txtSendMessage" HorizontalAlignment="Left" Height="23" Margin="28,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Queue list" Grid.Column="1" HorizontalAlignment="Left" Margin="38,189,0,0" VerticalAlignment="Top"/>
+        <Label Content="Create Queue" Grid.Column="1" HorizontalAlignment="Left" Margin="38,115,0,0" VerticalAlignment="Top"/>
+        <TextBox  Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="38,151,0,0" TextWrapping="Wrap" Name="txtCreateQueue" VerticalAlignment="Top" Width="120"/>
+        <Button Name="btnCreateNewQueue" Content="Create" Grid.Column="1" HorizontalAlignment="Left" Margin="188,151,0,0" VerticalAlignment="Top" Width="75" Click="btnCreateNewQueue_Click"/>
+        <ComboBox Name="cbxChooseRetrieveMessageQueue" Grid.Column="2" HorizontalAlignment="Left" Margin="21,149,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
+        <Button Name="btnRetrieveMessage"  Content="Retrieve" Grid.Column="2" HorizontalAlignment="Left" Margin="166,149,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="btnRetrieveMessage_Click"/>
+        <TextBox x:Name="txtDetails" Grid.Column="2" HorizontalAlignment="Left" Height="330" Margin="21,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="316"/>
+        <Label Content="Choose Queue" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Height="26" Width="88" Grid.Column="2"/>
+
+
+    </Grid>
+</Window>
