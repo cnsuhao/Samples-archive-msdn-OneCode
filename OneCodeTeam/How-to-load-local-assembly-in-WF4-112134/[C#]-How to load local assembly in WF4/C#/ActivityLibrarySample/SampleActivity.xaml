@@ -1,0 +1,34 @@
+﻿<!--****************************** Module Header ******************************\
+Module Name:    SampleActivity.xaml
+Project:        ActivityLibrarySample
+Copyright (c) Microsoft Corporation
+
+The project illustrates how to check whether a file is in use or not.
+
+This source is subject to the Microsoft Public License.
+See http://www.microsoft.com/en-us/openness/resources/licenses.aspx#MPL.
+All other rights reserved.
+
+*****************************************************************************/-->
+<Activity mc:Ignorable="sads sap" x:Class="ActivityLibrarySample.SampleActivity" sap:VirtualizedContainerService.HintSize="251,100" mva:VisualBasic.Settings="Assembly references and imported namespaces for internal implementation"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:s1="clr-namespace:System;assembly=System"
+ xmlns:s2="clr-namespace:System;assembly=System.Xml"
+ xmlns:s3="clr-namespace:System;assembly=System.Core"
+ xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System"
+ xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel"
+ xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core"
+ xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:sl="clr-namespace:System.Linq;assembly=System.Core"
+ xmlns:st="clr-namespace:System.Text;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <WriteLine sad:XamlDebuggerXmlReader.FileName="D:\OneCode\CSLoadAssemblyWF4\ActivityLibrarySample\SampleActivity.xaml" sap:VirtualizedContainerService.HintSize="211,60" Text="Message from activity ..." />
+</Activity>
