@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Shut down a computer using .NET (CSShutdownComputer)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Shut down a computer using .NET (CSShutdownComputer)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows SDK
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            shutdown
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/28/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSShutdownComputer-b2cfbc74">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<div class="WordSection1">
+<h1>The application demonstrates how to shut down a computer using .net. (<span class="SpellE">CSShutdownComputer</span>)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal" style="text-align:justify; text-justify:inter-ideograph">The application demonstrates how to shut down a computer using .net. I&rsquo;ve
+<span class="SpellE">pinvoked</span> the native API&rsquo;s to get this going. Following are the API&rsquo;s implemented&hellip;</p>
+<p class="MsoListParagraphCxSpFirst" style="text-align:justify; text-justify:inter-ideograph; text-indent:-.25in">
+<span><span>1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span class="SpellE">ExitWindowsEx</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-align:justify; text-justify:inter-ideograph; text-indent:-.25in">
+<span><span>2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span class="SpellE">InitiateShutdown</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-align:justify; text-justify:inter-ideograph; text-indent:-.25in">
+<span><span>3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span class="SpellE">InitiateSystemShutdownEx</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-align:justify; text-justify:inter-ideograph; text-indent:-.25in">
+<span><span>4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span class="SpellE">AbortSystemShutdown</span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal">I&rsquo;ve provided links which points towards the documentation in the application itself. Select any of the four radios to activate corresponding API. Fill in the options as per the documentation. Also note that I haven&rsquo;t provided
+ much validation since I would like the user to invoke the API as would like to, no restrictions. Read the documentation carefully.</p>
+<p class="MsoNormal">Also note that remote shutdown will only work if the remote computer has remote shutdown enabled. Use
+<span class="SpellE">secpol.msc</span> to enable this feature for the remote computer.</p>
+<p class="MsoNormal"><span class="SpellE">InitiateShutdown</span> and <span class="SpellE">
+InitiateSystemShutdownEx</span> will end up showing a message box before shutting down the computer. Once the timeout expires the system automatically shutdowns. If you want to prevent this shutdown invoke &ldquo;<span class="SpellE">AbortSystemShutdown</span>&rdquo;.</p>
+<p class="MsoNormal" style="text-align:justify; text-justify:inter-ideograph">This is how the application looks like&hellip;</p>
+<p class="MsoNormal" style="text-align:justify; text-justify:inter-ideograph"><img src="description/image001.png" alt="" width="632" height="710"></p>
+<p class="MsoNormal"><span>&nbsp;</span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">The gist of the application lies in <span class="SpellE">
+MainForm.cs</span> file. This is how the API calls look like&hellip;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">[DllImport(&quot;user32.dll&quot;, CharSet = CharSet.Auto,  SetLastError = true)]
+[return: MarshalAs(UnmanagedType.Bool)]
+static extern bool ExitWindowsEx(uint uFlags, uint uReason);
+protected void CallExitWindowsEx()
+{
+    CheckBox [] chkFlags = { chkEWX_FORCE, 
+                             chkEWX_FORCEIFHUNG, 
+                             chkEWX_HYBRID_SHUTDOWN, 
+                             chkEWX_LOGOFF, 
+                             chkEWX_POWEROFF, 
+                             chkEWX_REBOOT, 
+                             chkEWX_RESTARTAPPS,
+                             chkEWX_SHUTDOWN };
+ 
+    UInt32 dwFlags = GetFlags(chkFlags);
+    UInt32 reason = 0;
+    if (HexToNum(txtReasonEWE.Text, out reason))
+    {
+        if (!ExitWindowsEx(dwFlags, reason))
+        {
+            ShowLastError();
+        }
+    }
+}
+ 
+// Call InitiateShutdown
+[DllImport(&quot;advapi32.dll&quot;, CharSet = CharSet.Auto, SetLastError = true)]
+[return: MarshalAs(UnmanagedType.Bool)]
+static extern bool InitiateShutdown(string lpMachineName, 
+                                    string lpMessage, 
+                                    UInt32 dwGracePeriod, 
+                                    UInt32 dwShutdownFlags, 
+                                    UInt32 dwReason);
+ 
+void CallInitiateShutdown()
+{            
+    CheckBox [] chkFlags = { chkSHUTDOWN_FORCE_OTHERS, 
+                             chkSHUTDOWN_FORCE_SELF, 
+                             chkSHUTDOWN_GRACE_OVERRIDE, 
+                             chkSHUTDOWN_HYBRID, 
+                             chkSHUTDOWN_INSTALL_UPDATES, 
+                             chkSHUTDOWN_NOREBOOT, 
+                             chkSHUTDOWN_POWEROFF,
+                             chkSHUTDOWN_RESTART,
+                             chkSHUTDOWN_RESTARTAPPS };
+    UInt32 flags = GetFlags(chkFlags);
+    UInt32 reason = 0;
+    if (HexToNum(txtReasonIS.Text, out reason))
+    {
+        UInt32 gracePeriod;
+        if (HexToNum(txtGracePeriodIS.Text, out gracePeriod))
+        {
+            if (!InitiateShutdown(txtMachineNameIS.Text, txtMessageIS.Text, gracePeriod, flags, reason))
+            {
+                ShowLastError();
+            }
+        }
+    }
+}
+ 
+// Call InitiateSystemShutdownEx
+[DllImport(&quot;advapi32.dll&quot;, CharSet = CharSet.Auto, SetLastError = true)]
+[return: MarshalAs(UnmanagedType.Bool)]
+public static extern bool InitiateSystemShutdownEx(
+    string lpMachineName,
+    string lpMessage,
+    uint dwTimeout,
+    bool bForceAppsClosed,
+    bool bRebootAfterShutdown,
+    UInt32 dwReason);
+void CallInitiateSystemShutdownEx()
+{
+    UInt32 timeout = 0;
+    if (HexToNum(txtTimeOutISSE.Text, out timeout))
+    {
+        UInt32 reason = 0;
+        if (HexToNum(txtReasonISSE.Text, out reason))
+        {
+            if (!InitiateSystemShutdownEx(txtMachineNameISSE.Text, txtMessageISSE.Text, timeout, chkForceAppsClosed.Checked, chkRebootAfterShutdown.Checked, reason))
+            {
+                ShowLastError();
+            }
+        }
+    }
+}
+</pre>
+<div class="preview">
+<pre class="csharp">[DllImport(<span class="cs__string">&quot;user32.dll&quot;</span>,&nbsp;CharSet&nbsp;=&nbsp;CharSet.Auto,&nbsp;&nbsp;SetLastError&nbsp;=&nbsp;<span class="cs__keyword">true</span>)]&nbsp;
+[<span class="cs__keyword">return</span>:&nbsp;MarshalAs(UnmanagedType.Bool)]&nbsp;
+<span class="cs__keyword">static</span>&nbsp;<span class="cs__keyword">extern</span>&nbsp;<span class="cs__keyword">bool</span>&nbsp;ExitWindowsEx(<span class="cs__keyword">uint</span>&nbsp;uFlags,&nbsp;<span class="cs__keyword">uint</span>&nbsp;uReason);&nbsp;
+<span class="cs__keyword">protected</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;CallExitWindowsEx()&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;CheckBox&nbsp;[]&nbsp;chkFlags&nbsp;=&nbsp;{&nbsp;chkEWX_FORCE,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkEWX_FORCEIFHUNG,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkEWX_HYBRID_SHUTDOWN,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkEWX_LOGOFF,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkEWX_POWEROFF,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkEWX_REBOOT,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkEWX_RESTARTAPPS,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkEWX_SHUTDOWN&nbsp;};&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;UInt32&nbsp;dwFlags&nbsp;=&nbsp;GetFlags(chkFlags);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;UInt32&nbsp;reason&nbsp;=&nbsp;<span class="cs__number">0</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(HexToNum(txtReasonEWE.Text,&nbsp;<span class="cs__keyword">out</span>&nbsp;reason))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(!ExitWindowsEx(dwFlags,&nbsp;reason))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ShowLastError();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+}&nbsp;
+&nbsp;&nbsp;
+<span class="cs__com">//&nbsp;Call&nbsp;InitiateShutdown</span>&nbsp;
+[DllImport(<span class="cs__string">&quot;advapi32.dll&quot;</span>,&nbsp;CharSet&nbsp;=&nbsp;CharSet.Auto,&nbsp;SetLastError&nbsp;=&nbsp;<span class="cs__keyword">true</span>)]&nbsp;
+[<span class="cs__keyword">return</span>:&nbsp;MarshalAs(UnmanagedType.Bool)]&nbsp;
+<span class="cs__keyword">static</span>&nbsp;<span class="cs__keyword">extern</span>&nbsp;<span class="cs__keyword">bool</span>&nbsp;InitiateShutdown(<span class="cs__keyword">string</span>&nbsp;lpMachineName,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;lpMessage,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UInt32&nbsp;dwGracePeriod,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UInt32&nbsp;dwShutdownFlags,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UInt32&nbsp;dwReason);&nbsp;
+&nbsp;&nbsp;
+<span class="cs__keyword">void</span>&nbsp;CallInitiateShutdown()&nbsp;
+{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;CheckBox&nbsp;[]&nbsp;chkFlags&nbsp;=&nbsp;{&nbsp;chkSHUTDOWN_FORCE_OTHERS,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkSHUTDOWN_FORCE_SELF,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkSHUTDOWN_GRACE_OVERRIDE,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkSHUTDOWN_HYBRID,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkSHUTDOWN_INSTALL_UPDATES,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkSHUTDOWN_NOREBOOT,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkSHUTDOWN_POWEROFF,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkSHUTDOWN_RESTART,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkSHUTDOWN_RESTARTAPPS&nbsp;};&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;UInt32&nbsp;flags&nbsp;=&nbsp;GetFlags(chkFlags);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;UInt32&nbsp;reason&nbsp;=&nbsp;<span class="cs__number">0</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(HexToNum(txtReasonIS.Text,&nbsp;<span class="cs__keyword">out</span>&nbsp;reason))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UInt32&nbsp;gracePeriod;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(HexToNum(txtGracePeriodIS.Text,&nbsp;<span class="cs__keyword">out</span>&nbsp;gracePeriod))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(!InitiateShutdown(txtMachineNameIS.Text,&nbsp;txtMessageIS.Text,&nbsp;gracePeriod,&nbsp;flags,&nbsp;reason))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ShowLastError();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+}&nbsp;
+&nbsp;&nbsp;
+<span class="cs__com">//&nbsp;Call&nbsp;InitiateSystemShutdownEx</span>&nbsp;
+[DllImport(<span class="cs__string">&quot;advapi32.dll&quot;</span>,&nbsp;CharSet&nbsp;=&nbsp;CharSet.Auto,&nbsp;SetLastError&nbsp;=&nbsp;<span class="cs__keyword">true</span>)]&nbsp;
+[<span class="cs__keyword">return</span>:&nbsp;MarshalAs(UnmanagedType.Bool)]&nbsp;
+<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">static</span>&nbsp;<span class="cs__keyword">extern</span>&nbsp;<span class="cs__keyword">bool</span>&nbsp;InitiateSystemShutdownEx(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;lpMachineName,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;lpMessage,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">uint</span>&nbsp;dwTimeout,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">bool</span>&nbsp;bForceAppsClosed,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">bool</span>&nbsp;bRebootAfterShutdown,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;UInt32&nbsp;dwReason);&nbsp;
+<span class="cs__keyword">void</span>&nbsp;CallInitiateSystemShutdownEx()&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;UInt32&nbsp;timeout&nbsp;=&nbsp;<span class="cs__number">0</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(HexToNum(txtTimeOutISSE.Text,&nbsp;<span class="cs__keyword">out</span>&nbsp;timeout))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UInt32&nbsp;reason&nbsp;=&nbsp;<span class="cs__number">0</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(HexToNum(txtReasonISSE.Text,&nbsp;<span class="cs__keyword">out</span>&nbsp;reason))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(!InitiateSystemShutdownEx(txtMachineNameISSE.Text,&nbsp;txtMessageISSE.Text,&nbsp;timeout,&nbsp;chkForceAppsClosed.Checked,&nbsp;chkRebootAfterShutdown.Checked,&nbsp;reason))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ShowLastError();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">&nbsp;</p>
+<h2 class="MsoNormal">More Information</h2>
+<p class="MsoNormal" style="text-align:justify; text-justify:inter-ideograph"><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa376868(v=vs.85).aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/aa376868(v=vs.85).aspx</a><strong>&nbsp;</strong></p>
+<p class="MsoNormal">&nbsp; </p>
+<hr>
+<a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png" alt=""></a>
+<p></p>
+<p class="MsoNormal">&nbsp;</p>
+</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
