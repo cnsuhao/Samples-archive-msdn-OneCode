@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Workflow
+     Name="ReplicatorTask"
+ Description="My Replicator Workflow"
+ Id="cb4bd5b4-4120-410a-a82e-d04ad4dda771"
+ CodeBesideClass="MyWorkflow.Workflow.myWorkflow"
+        AssociationUrl="_Layouts/CSSharePointReplicatorActivity/ReplicatorTask/WorkflowAssociationForm.aspx"
+    CodeBesideAssembly="$assemblyname$"
+            
+         >
+    <Categories/>
+
+    <MetaData>
+      <AssociationCategories>List</AssociationCategories>
+      <StatusPageUrl>_layouts/WrkStat.aspx</StatusPageUrl>
+    </MetaData>
+  </Workflow>
+
+</Elements>
+
+
+

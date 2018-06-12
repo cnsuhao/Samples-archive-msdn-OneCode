@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Replicator activity (CSSharepointrReplicatorActivity)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Replicator activity (CSSharepointrReplicatorActivity)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SharePoint
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Workflow, Replicator Activity
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">7/22/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSSharepointrReplicatorActi-d12e1779">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">Use replicator activity in SharePoint workflow </span>(<span style="">CSSharePointReplicatorActivity</span>)</h1>
+<h2>Introduction </h2>
+<p class="MsoPlainText"><span style="">The project shows how to use Replicator activity in a SharePoint Visual Studio workflow.&#8203; &#8203;</span><span style="">In real world, when we develop an approval workflow, we often need to assign task to multiple
+ approvers dynamically, so we need to use replicator activity. </span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style="">Please follow these demonstration steps below.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 1: Open the CSSharePointReplicatorActivity.sln then right click the SharePoint project to edit the &quot;Site Url&quot; to your own.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2: Right-click the &quot;CSSharePointReplicatorActivity&quot; project and click &quot;Deploy&quot;.<br style="">
+<br style="">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: Add the Workflow to a list. Then set the Workflow Association Data which is the approval Partners here.</span><span style="font-size:9.5pt; font-family:Consolas"><br>
+<span style=""><img src="description/image.png" alt="" width="976" height="199" align="middle">
+</span></span><br style="">
+<br style="">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 4: After set the approval Partners, you can click the save button to save Association Data.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 5: Start a workflow on the list. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><img src="description/fdf6694b-941d-48cc-8e24-0a335774167eimage.png" alt="" width="857" height="69" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 6: Enter task list. <br>
+<span style=""><img src="description/dedaa84f-0b96-4e72-a2a6-ce53e2916773image.png" alt="" width="998" height="290" align="middle">
+</span>. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<a name="OLE_LINK10"></a><a name="OLE_LINK11"><span style=""><span style="">Set the Status to &quot;Completed&quot; then you can observe the status of whole workflow. You will see only if the entire task item is completed the workflow to complete.<br style="">
+<br style="">
+</span></span></a></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 7: Validation is finished. </span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style=""><span style="">Code Logical: <span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></p>
+<p class="MsoNormal" style=""><span style="">Step 1: Create a C# Empty SharePoint Project in Visual Studio 2010 and name it as &quot;CSSharePointReplicatorActivity&quot;.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2: Now we will create all tools we need for our </span><span style="">Workflow<span style="">.
+<br>
+Create a </span>reusable activity <span style="">for Replicator. </span>We have at least two ways to achieve this<span style="">: one way is to add a
+</span>SequentialWorkflow and modify the class inherited from SequenceActivity then move it to the specified directory which in the sample is the project root directory then delete the generated workflow configuration file. The other way is to create a new
+ workflow project and add an activity item then move the workflow to our project.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas; color:#2B91AF"><img src="description/acb2eb6e-17c9-4e04-874f-bae64d02c3a6image.png" alt="" width="207" height="34" align="middle">
+</span><span style="font-size:9.5pt; font-family:Consolas; color:#2B91AF"><br>
+</span><span style="">In the </span><span style="">reusable activity, we set Token and other Property as usual. Token is the same as task.
+<br>
+</span><span style="font-size:9.5pt; font-family:Consolas; color:#2B91AF"><img src="description/a39e9f6b-83e7-4420-852c-271c3380a9f9image.png" alt="" width="272" height="383" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Then we write the while condition and other </span>Invoking methods in code-behind.<span style="">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<b style=""><span style="font-size:9.5pt; font-family:Consolas"></span></b></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<a name="OLE_LINK13"></a><a name="OLE_LINK14"><span style=""><span style="">We declare some properties for receiving the value from the workflow.
+</span></span></a></p>
+<p class="MsoNormal" style=""><span style=""><span style=""><a name="OLE_LINK12"><b style=""><span style="font-size:9.5pt; line-height:115%; font-family:Consolas">Note:
+</span></b>You can get the&nbsp;&quot;TaskStatusFieldId&quot; from &quot;AfterProperties.ExtendedProperties&quot; in debugging mode, and then you should use this GUID in your code.</a></span></span><span style=""><span style=""><span style=""><span style="font-size:12.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+</span></span></span></span><span style=""><span style=""><span style=""><span style="">Then build your project.</span></span></span></span><span style=""><span style=""><span style=""><span style="font-size:12.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+</span></span></span></span></p>
+<img src="description/dab1deb3-3f78-47df-9467-31716dca0300image.png" alt="" width="285" height="384" align="middle">
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span lang="EN" style="">Handle &quot;</span>Initialized&quot; and &quot;ChildInitialized&quot; events of ReplicatorActivity. And set value for<span style="font-size:9.5pt; font-family:Consolas"> &quot;</span><span style="">InitialChildData&quot; property.</span><span style="font-size:9.5pt; font-family:Consolas; color:green">
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+//workflowId
+       public Guid workflowId = default(<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Guid.aspx"  title="Auto generated link to System.Guid">System.Guid</a>);
+       //workflowProperties
+       public SPWorkflowActivationProperties workflowProperties = new SPWorkflowActivationProperties();
+
+
+       //handler of OnWorkflowActivated
+       private void onWorkflowActivated1_Invoked(object sender, ExternalDataEventArgs e)
+       {
+           workflowId = workflowProperties.WorkflowId;
+       }
+
+
+       private void replicatorActivity1_Initialized(object sender, EventArgs e)
+       {
+           //Create a set of InitialChildData for task
+           //Anti-serialization workflowProperties.InitiationData to get the initial form instance
+           XmlSerializer serializer = new XmlSerializer(typeof(AssociationData));
+           XmlTextReader reader = new XmlTextReader(new <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.StringReader.aspx"  title="Auto generated link to System.IO.StringReader">System.IO.StringReader</a>(workflowProperties.AssociationData));
+           AssociationData wfData = (AssociationData)serializer.Deserialize(reader);
+
+
+           //Set InitialChild Data
+           InitialChildData = new ArrayList();
+           for (int i = 0; i &lt; wfData.Partners.ContactList.Count; i&#43;&#43;)
+           {
+               InitialChildData.Add(wfData.Partners.ContactList[i]);
+           }
+          
+           //Set data for first task       
+           reTasksActivity1.TaskAssignedTo = InitialChildData[InitialChildData.Count - 1].ToString();
+           reTasksActivity1.TaskTitle = &quot;Vacation Request Approval&quot;;
+           reTasksActivity1.TaskDescription = &quot;Approve Vacation&quot;;
+           reTasksActivity1.TaskDueDate = DateTime.Today.AddDays(7);
+       }
+
+
+       private void rePlicatorActivity_ChildInitialized(object sender, ReplicatorChildEventArgs e)
+       {
+           //Looping through each assignee   
+           reTasksActivity1.TaskAssignedTo = e.InstanceData.ToString();
+           reTasksActivity1.TaskTitle = &quot;Vacation Request Approval&quot;;
+           reTasksActivity1.TaskDescription = &quot;Approve Vacation&quot;;
+           reTasksActivity1.TaskDueDate = DateTime.Today.AddDays(7);
+       }
+
+</pre>
+<pre id="codePreview" class="csharp">
+//workflowId
+       public Guid workflowId = default(<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Guid.aspx"  title="Auto generated link to System.Guid">System.Guid</a>);
+       //workflowProperties
+       public SPWorkflowActivationProperties workflowProperties = new SPWorkflowActivationProperties();
+
+
+       //handler of OnWorkflowActivated
+       private void onWorkflowActivated1_Invoked(object sender, ExternalDataEventArgs e)
+       {
+           workflowId = workflowProperties.WorkflowId;
+       }
+
+
+       private void replicatorActivity1_Initialized(object sender, EventArgs e)
+       {
+           //Create a set of InitialChildData for task
+           //Anti-serialization workflowProperties.InitiationData to get the initial form instance
+           XmlSerializer serializer = new XmlSerializer(typeof(AssociationData));
+           XmlTextReader reader = new XmlTextReader(new <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.StringReader.aspx"  title="Auto generated link to System.IO.StringReader">System.IO.StringReader</a>(workflowProperties.AssociationData));
+           AssociationData wfData = (AssociationData)serializer.Deserialize(reader);
+
+
+           //Set InitialChild Data
+           InitialChildData = new ArrayList();
+           for (int i = 0; i &lt; wfData.Partners.ContactList.Count; i&#43;&#43;)
+           {
+               InitialChildData.Add(wfData.Partners.ContactList[i]);
+           }
+          
+           //Set data for first task       
+           reTasksActivity1.TaskAssignedTo = InitialChildData[InitialChildData.Count - 1].ToString();
+           reTasksActivity1.TaskTitle = &quot;Vacation Request Approval&quot;;
+           reTasksActivity1.TaskDescription = &quot;Approve Vacation&quot;;
+           reTasksActivity1.TaskDueDate = DateTime.Today.AddDays(7);
+       }
+
+
+       private void rePlicatorActivity_ChildInitialized(object sender, ReplicatorChildEventArgs e)
+       {
+           //Looping through each assignee   
+           reTasksActivity1.TaskAssignedTo = e.InstanceData.ToString();
+           reTasksActivity1.TaskTitle = &quot;Vacation Request Approval&quot;;
+           reTasksActivity1.TaskDescription = &quot;Approve Vacation&quot;;
+           reTasksActivity1.TaskDueDate = DateTime.Today.AddDays(7);
+       }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+</p>
+<p class="MsoNormal" style=""><span lang="EN" style="">Step 5: In the Properties Panel of Replicator Activity set the value of ExecutionType to &quot;Parallel&quot;.
+</span></p>
+<p class="MsoNormal" style=""><span lang="EN" style="">Step 6: You can deploy and debug it.</span><b style="">
+</b></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
