@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Windows Azure Access Control for Single Sign-On (VBAzureAccessControlService)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Windows Azure Access Control for Single Sign-On (VBAzureAccessControlService)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Single Sign-On, SSO
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/16/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBAzureAccessControlService-272807b0">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420" ><img id="79969" src="description/120x90_Azure_web_EN_US.jpg" alt="" width="360" height="90"></a></p>
+<h1>Windows Azure Access control service for Web Role (VBAzureAccessControlService)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">This sample code demonstrates how to implement for Access Control Service for your web role application, As we know most of websites and web application has their own user validation system, such simple UserName-Password way, Active Directory,
+ etc. If your web application must support multiple user validation, you must handle different token with different methods, but when you try to move your application to Windows Azure, you will find we can use Access Control for solve this problem, your azure
+ application need only handle one kind of Token from Windows Azure Access Control Service<span>
+</span></p>
+<p class="MsoNormal" style="text-align:right"><a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420"><span style="color:windowtext; text-decoration:none"><span><img src="description/image.png" alt="" width="120" height="90" align="middle">
+</span></span></a><br>
+<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420">Try Windows Azure for free for 90 Days!</a><span>
+</span></p>
+<h2>Building the Sample</h2>
+<p class="MsoNormal">Before running this sample, please install Windows Azure SDK 1.6 and Windows Azure Toolkit for Visual Studio</p>
+<p class="MsoNormal"><a href="http://www.windowsazure.com/en-us/develop/downloads/">http://www.windowsazure.com/en-us/develop/downloads/</a></p>
+<p class="MsoNormal">SQL Server 2008 R2 Express:</p>
+<p class="MsoNormal"><a href="http://www.microsoft.com/download/en/details.aspx?id=23650">http://www.microsoft.com/download/en/details.aspx?id=23650</a></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span>Before run your application, you have to create a Access Control Service in Windows Azure platform and</span> create some identity providers with your subscription. Following the ACS Management Portal Wizard and input your information.</p>
+<p class="MsoNormal"><strong>Step 1</strong>, create preconfigured Identity Providers:</p>
+<p class="MsoNormal">Your work is adding Windows Live ID, Google, Yahoo! Identity providers in your Access Control Service Management Portal.</p>
+<p class="MsoNormal"><strong>Step 2</strong>, create Relying-Party Application:</p>
+<p class="MsoNormal"><span>Name: Your RP (Relying-Party application name) Name.
+</span></p>
+<p class="MsoNormal"><span>Mode: Enter settings manually </span></p>
+<p class="MsoNormal"><span>Realm: Your application directory path. </span></p>
+<p class="MsoNormal"><span>Return URL: Your application return page path. </span>
+</p>
+<p class="MsoNormal"><span>Token Format: SAML 2.0 </span></p>
+<p class="MsoNormal"><span>Token LifeTime: 600 </span></p>
+<p class="MsoNormal"><span>Identity Providers: Google, Windows Live ID, Yahoo! </span>
+</p>
+<p class="MsoNormal"><span>Token Singing: Use Service namespace certificate (standard)
+</span></p>
+<p class="MsoNormal">Then add ACS as the STS reference in your application:</p>
+<p class="MsoNormal"><strong>Step 3</strong>:<span>&nbsp; </span>Please press F5 to start debugging, you will see the following page in your browser:</p>
+<h2><span><img src="description/8f9ce6a5-f3ed-418a-8613-58e3ea19d8d3image.png" alt="" width="576" height="527" align="middle">
+</span></h2>
+<p class="MsoNormal"><strong><span>Step 4</span></strong><span>: Click &quot;Login&quot; button and you can find 3 ways to login your website.
+</span></p>
+<p class="MsoNormal"><span><img src="description/7c6eb881-e6f7-4d3d-ba81-8fd413e15033image.png" alt="" width="576" height="527" align="middle">
+</span></p>
+<p class="MsoNormal"><strong><span>Step 5</span></strong><span>: If User name and password is ok, you can visit the whole web application now.
+</span></p>
+<p class="MsoNormal"><span><img src="description/a4584085-07b7-4ec5-b59c-d6e4fe23ae9fimage.png" alt="" width="576" height="527" align="middle">
+</span></p>
+<p class="MsoNormal"><strong>Step </strong><strong><span>6</span></strong>: Validation finished.</p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">Control Service</p>
+<p class="MsoNormal"><strong>Step 1</strong>. Create a VB &quot;Windows Azure Project&quot; in Visual Studio 2010. Name it as &quot;<span>VBAzureAccessControlService</span>&quot;. Add a Web Role and named it as &quot;<span>VBAzureAccessControlService</span>WebRole&quot;.</p>
+<p class="MsoNormal"><strong>Step 2</strong>. Please following the step 2 of section &quot;Running the sample&quot; create ACS with Azure subscription. Add two web pages in VBAzureAccessControlServiceWebRole application, the Default.aspx can be accessed by anyone.<strong>
+</strong></p>
+<h3>The following xml is used to set &quot;All&quot; folder as the public folder.</h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xml</span>
+<pre class="hidden">&lt;location path=&quot;All&quot;&gt;
+  &lt;system.web&gt;
+    &lt;authorization&gt;
+      &lt;allow users=&quot;*&quot; /&gt;
+    &lt;/authorization&gt;
+  &lt;/system.web&gt;
+&lt;/location&gt;
+
+</pre>
+<pre id="codePreview" class="xml">&lt;location path=&quot;All&quot;&gt;
+  &lt;system.web&gt;
+    &lt;authorization&gt;
+      &lt;allow users=&quot;*&quot; /&gt;
+    &lt;/authorization&gt;
+  &lt;/system.web&gt;
+&lt;/location&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><strong>Step 3</strong>. The next step, display customers' user name in Content.aspx page.</p>
+<h3>The following code shows how to display user identity name in Content.aspx page.</h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">Public userName As String = String.Empty
+Protected Sub Page_Load(ByVal sender As Object, ByVal e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.EventArgs.aspx"  title="Auto generated link to System.EventArgs">System.EventArgs</a>) Handles Me.Load
+    userName = Thread.CurrentPrincipal.Identity.Name
+End Sub
+
+</pre>
+<pre id="codePreview" class="vb">Public userName As String = String.Empty
+Protected Sub Page_Load(ByVal sender As Object, ByVal e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.EventArgs.aspx"  title="Auto generated link to System.EventArgs">System.EventArgs</a>) Handles Me.Load
+    userName = Thread.CurrentPrincipal.Identity.Name
+End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><strong>Step 4</strong>. Build the application and you can debug it.</p>
+<h2>More Information</h2>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg429786.aspx">Access Control Service 2.0</a></p>
+<p class="MsoNormal">&nbsp;</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
