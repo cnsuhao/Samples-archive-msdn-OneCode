@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <page>
+    <add>pageresources</add>
+    <add>pageresources2</add>
+  </page>
+  <sample>
+    <add>sample</add>
+  </sample>
+</Root>
