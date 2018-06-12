@@ -1,0 +1,114 @@
+﻿<common:LayoutAwarePage
+    x:Class="CppWindowsStoreAppManipulateIBuffer.MainPage"
+    IsTabStop="False"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CppWindowsStoreAppManipulateIBuffer"
+    xmlns:common="using:CppWindowsStoreAppManipulateIBuffer.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}" >
+        <Grid x:Name ="contentRoot" Margin="100,20,100,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="titleGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{StaticResource AppLogo}" Style="{StaticResource AppLogoStyle}"/>
+                <TextBlock Grid.Row="1" Text="{StaticResource AppName}" Style="{StaticResource AppHeaderStyle}"/>
+                <TextBlock Grid.Row="2" Text="{StaticResource AppDescription}" Style="{StaticResource AppDescriptionStyle}"   />
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="promptTextBox" Grid.Row="0" TextWrapping="Wrap" Style="{StaticResource BasicTextStyle}" HorizontalAlignment="Left" >
+                        Please select a picture:
+                    </TextBlock>
+                    <Button Grid.Row="1" x:Name="PickAFileButton" Content="Pick picture" Margin="0,10,10,0" Click="PickAFileButton_Click"/>
+                    <Image Grid.Row="2" x:Name="convertedImg" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="2">
+                
+                <Grid x:Name="Footer"  Grid.Row="3" Margin="0,10,0,10" VerticalAlignment="Bottom" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"  Source="Assets/microsoft.png" AutomationProperties.Name="Microsoft Logo" Stretch="None" HorizontalAlignment="Left"/>
+                    <TextBlock Style="{StaticResource AppFooterStyle}" Text="© 2012 Microsoft Corporation. All rights reserved." TextWrapping="Wrap" Grid.Row="1" HorizontalAlignment="Left"/>
+                    <StackPanel x:Name="FooterPanel" Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+                        <HyperlinkButton Content="All-In-One Code Framework" Tag="http://blogs.msdn.com/b/onecode" Click="Footer_Click" FontSize="12"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape"/>
+                <VisualState x:Name="Filled"/>
+
+
+
+                <!-- The back button and title have different styles when snapped -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="titleGrid">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="contentRoot">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>20,20,20,20</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        
+                        <!-- FilePicker APIs will not work if the application is in a snapped state. -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Text" Storyboard.TargetName="promptTextBox">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="To select a picture, please unsnap the app."/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="PickAFileButton">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                            
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)" Storyboard.TargetName="FooterPanel">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <HorizontalAlignment>Left</HorizontalAlignment>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Row)" Storyboard.TargetName="FooterPanel">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="2"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Column)" Storyboard.TargetName="FooterPanel">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</common:LayoutAwarePage>
+

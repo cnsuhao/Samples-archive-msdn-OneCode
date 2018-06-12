@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>cf896e5c-0e0a-44c8-9912-d69d3d1849d5</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>dfe68d79-f788-4382-b34f-616942aea24d</UniqueIdentifier>
+    </Filter>
+    <Page Include="Common\StandardStyles.xaml">
+      <Filter>Common</Filter>
+    </Page>
+    <Image Include="Assets\Logo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Common\LayoutAwarePage.cpp" />
+    <ClCompile Include="Common\SuspensionManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="MainPage.xaml.h" />
+    <ClInclude Include="Common\LayoutAwarePage.h" />
+    <ClInclude Include="Common\SuspensionManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CppWindowsStoreAppManipulateIBuffer_TemporaryKey.pfx" />
+    <None Include="Documentation\ReadMe.htm" />
+    <None Include="Documentation\ReadMe_files\themedata.thmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Microsoft.png" />
+    <Image Include="Assets\TileLogo.png" />
+    <Image Include="Documentation\ReadMe_files\image001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Common\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Documentation\ReadMe_files\colorschememapping.xml" />
+    <Xml Include="Documentation\ReadMe_files\filelist.xml" />
+  </ItemGroup>
+</Project>
