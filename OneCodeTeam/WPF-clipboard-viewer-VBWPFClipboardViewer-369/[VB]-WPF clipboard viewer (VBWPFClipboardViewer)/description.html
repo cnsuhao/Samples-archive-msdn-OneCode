@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>WPF clipboard viewer (VBWPFClipboardViewer)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>WPF clipboard viewer (VBWPFClipboardViewer)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            WPF
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Clipboard
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">7/22/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBWPFClipboardViewer-d95734b4">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">WPF clipboard viewer (VBWPFClipboardViewer) </span></h1>
+<h2>Introduction</h2>
+<p class="MsoNormal"><br>
+This Sample demonstrates how to monitor Windows clipboard changes in a WPF application. In order to be notified by the system when the clipboard content changes, an application must use the SetClipboardViewer function (user32.dll) to add its window into the
+ chain of clipboard viewers. Clipboard viewer windows receive a WM_DRAWCLIPBOARD message whenever the content of the clipboard changes. And the WM_CHANGECBCHAIN message is sent to the first window in the clipboard viewer chain when a window is being removed
+ from the chain. In a WPF application, we use HwndSource class to register a Win32 window message handler to process the messages. This sample also shows a workaround for a known issue in WPF Clipboard.GetImage() method.</p>
+<h2>Running the Sample<span style=""> </span></h2>
+<p class="MsoNormal"><span style="">Press F5 to run this application, you will see following result.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="641" height="480" align="middle">
+</span><span style=""></span></p>
+<h2>Using the Code<span style=""> </span></h2>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Gets the window handle for a Windows Presentation Foundation (WPF).
+</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Adds an event handler to handle the clipboard message.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Sub InitCBViewer()
+牋?Dim wih As New WindowInteropHelper(Me)
+牋?hWndSource = HwndSource.FromHwnd(wih.Handle)
+
+
+牋?hWndSource.AddHook(AddressOf WinProc)牋 ' start processing window messages
+牋?hWndNextViewer = Win32.SetClipboardViewer(hWndSource.Handle)牋?' set this window as a viewer
+牋?isViewing = True
+End Sub
+
+
+Private Function WinProc(ByVal hwnd As IntPtr, ByVal msg As Integer, ByVal wParam As IntPtr, ByVal lParam As IntPtr, ByRef handled As Boolean) As IntPtr
+牋?Select Case msg
+牋牋牋?Case Win32.WM_CHANGECBCHAIN
+牋牋牋牋牋?If wParam = hWndNextViewer Then
+牋牋牋牋牋牋牋?' clipboard viewer chain changed, need to fix it.
+牋牋牋牋牋牋牋?hWndNextViewer = lParam
+
+
+牋牋牋牋牋?ElseIf hWndNextViewer &lt;&gt; IntPtr.Zero Then
+牋牋牋牋牋牋牋?' pass the message to the next viewer
+牋牋牋牋牋牋牋?Win32.SendMessage(hWndNextViewer, msg, wParam, lParam)
+牋牋牋牋牋?End If
+
+
+牋牋牋?Case Win32.WM_DRAWCLIPBOARD
+牋牋牋牋牋?' clipboard content changed
+牋牋牋牋 牋?/span&gt;Me.DrawContent()
+牋牋牋牋牋?' pass the message to the next viewer
+牋牋牋牋牋?Win32.SendMessage(hWndNextViewer, msg, wParam, lParam)
+
+
+牋?End Select
+
+
+牋?Return IntPtr.Zero
+End Function
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Sub InitCBViewer()
+牋?Dim wih As New WindowInteropHelper(Me)
+牋?hWndSource = HwndSource.FromHwnd(wih.Handle)
+
+
+牋?hWndSource.AddHook(AddressOf WinProc)牋 ' start processing window messages
+牋?hWndNextViewer = Win32.SetClipboardViewer(hWndSource.Handle)牋?' set this window as a viewer
+牋?isViewing = True
+End Sub
+
+
+Private Function WinProc(ByVal hwnd As IntPtr, ByVal msg As Integer, ByVal wParam As IntPtr, ByVal lParam As IntPtr, ByRef handled As Boolean) As IntPtr
+牋?Select Case msg
+牋牋牋?Case Win32.WM_CHANGECBCHAIN
+牋牋牋牋牋?If wParam = hWndNextViewer Then
+牋牋牋牋牋牋牋?' clipboard viewer chain changed, need to fix it.
+牋牋牋牋牋牋牋?hWndNextViewer = lParam
+
+
+牋牋牋牋牋?ElseIf hWndNextViewer &lt;&gt; IntPtr.Zero Then
+牋牋牋牋牋牋牋?' pass the message to the next viewer
+牋牋牋牋牋牋牋?Win32.SendMessage(hWndNextViewer, msg, wParam, lParam)
+牋牋牋牋牋?End If
+
+
+牋牋牋?Case Win32.WM_DRAWCLIPBOARD
+牋牋牋牋牋?' clipboard content changed
+牋牋牋牋 牋?/span&gt;Me.DrawContent()
+牋牋牋牋牋?' pass the message to the next viewer
+牋牋牋牋牋?Win32.SendMessage(hWndNextViewer, msg, wParam, lParam)
+
+
+牋?End Select
+
+
+牋?Return IntPtr.Zero
+End Function
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst"><span style=""></span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Draw content in the window </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Sub DrawContent()
+牋?pnlContent.Children.Clear()
+
+
+牋?If Clipboard.ContainsText() Then
+牋牋牋?' we have some text in the clipboard
+牋牋牋?Dim tb As New TextBox
+牋牋牋?tb.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto
+牋牋牋?tb.VerticalScrollBarVisibility = ScrollBarVisibility.Auto
+牋牋牋?tb.Text = Clipboard.GetText()
+牋牋牋?tb.IsReadOnly = True
+牋牋牋?tb.TextWrapping = TextWrapping.NoWrap
+牋牋牋?pnlContent.Children.Add(tb)
+
+
+牋?ElseIf Clipboard.ContainsFileDropList() Then
+牋牋牋?' we have a file drop list in the clipboard
+牋牋牋?Dim lb As New ListBox
+牋牋牋?lb.ItemsSource = Clipboard.GetFileDropList()
+牋牋牋?pnlContent.Children.Add(lb)
+
+
+牋?ElseIf Clipboard.ContainsImage() Then
+牋牋牋?' Because of a known issue in WPF,
+牋牋牋?' we have to use a workaround to get correct
+牋牋牋?' image that can be displayed.
+牋牋牋?' The image have to be saved to a stream and then 
+牋牋牋牋' read out to workaround the issue.
+牋牋牋?Dim ms As New MemoryStream
+牋牋牋?Dim enc As New BmpBitmapEncoder
+牋牋牋?enc.Frames.Add(BitmapFrame.Create(Clipboard.GetImage()))
+牋牋牋?enc.Save(ms)
+牋牋牋?ms.Seek(0, SeekOrigin.Begin)
+
+
+牋牋牋?Dim dec As New BmpBitmapDecoder(ms, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default)
+牋牋牋?Dim img As New Image
+牋牋牋?img.Stretch = Stretch.Uniform
+牋牋牋?img.Source = dec.Frames(0)
+牋牋牋?pnlContent.Children.Add(img)
+
+
+牋?Else
+牋牋牋?Dim lb As New Label
+牋牋牋?lb.Content = &quot;The type of the data in the clipboard is not supported by this sample.&quot;
+牋牋牋?pnlContent.Children.Add(lb)
+牋?End If
+End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Sub DrawContent()
+牋?pnlContent.Children.Clear()
+
+
+牋?If Clipboard.ContainsText() Then
+牋牋牋?' we have some text in the clipboard
+牋牋牋?Dim tb As New TextBox
+牋牋牋?tb.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto
+牋牋牋?tb.VerticalScrollBarVisibility = ScrollBarVisibility.Auto
+牋牋牋?tb.Text = Clipboard.GetText()
+牋牋牋?tb.IsReadOnly = True
+牋牋牋?tb.TextWrapping = TextWrapping.NoWrap
+牋牋牋?pnlContent.Children.Add(tb)
+
+
+牋?ElseIf Clipboard.ContainsFileDropList() Then
+牋牋牋?' we have a file drop list in the clipboard
+牋牋牋?Dim lb As New ListBox
+牋牋牋?lb.ItemsSource = Clipboard.GetFileDropList()
+牋牋牋?pnlContent.Children.Add(lb)
+
+
+牋?ElseIf Clipboard.ContainsImage() Then
+牋牋牋?' Because of a known issue in WPF,
+牋牋牋?' we have to use a workaround to get correct
+牋牋牋?' image that can be displayed.
+牋牋牋?' The image have to be saved to a stream and then 
+牋牋牋牋' read out to workaround the issue.
+牋牋牋?Dim ms As New MemoryStream
+牋牋牋?Dim enc As New BmpBitmapEncoder
+牋牋牋?enc.Frames.Add(BitmapFrame.Create(Clipboard.GetImage()))
+牋牋牋?enc.Save(ms)
+牋牋牋?ms.Seek(0, SeekOrigin.Begin)
+
+
+牋牋牋?Dim dec As New BmpBitmapDecoder(ms, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default)
+牋牋牋?Dim img As New Image
+牋牋牋?img.Stretch = Stretch.Uniform
+牋牋牋?img.Source = dec.Frames(0)
+牋牋牋?pnlContent.Children.Add(img)
+
+
+牋?Else
+牋牋牋?Dim lb As New Label
+牋牋牋?lb.Content = &quot;The type of the data in the clipboard is not supported by this sample.&quot;
+牋牋牋?pnlContent.Children.Add(lb)
+牋?End If
+End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style=""><span style=""></span></p>
+<p class="MsoNormal"></p>
+<p class="MsoNormal" style="">Clipboard</p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/ms648709(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms648709(VS.85).aspx</a></p>
+<p class="MsoNormal" style="">Clipboard Class (<span class="SpellE"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.aspx"  title="Auto generated link to System.Windows">System.Windows</a></span>)</p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/system.windows.clipboard.aspx">http://msdn.microsoft.com/en-us/library/system.windows.clipboard.aspx</a></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
