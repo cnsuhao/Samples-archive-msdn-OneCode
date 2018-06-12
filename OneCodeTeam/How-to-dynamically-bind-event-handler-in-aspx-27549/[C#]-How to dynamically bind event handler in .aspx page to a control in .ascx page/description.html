@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/3e00d0a6-7844-40b8-8b92-12c0e4eeaed2Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to dynamically bind event handler in .aspx page to a control in .ascx page</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to dynamically bind event handler in .aspx page to a control in .ascx page</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Event Handler, Dynamically bind
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/6/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-dynamically-bind-an-d1c4ba64">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img src="description/8171.onecodesampletopbanner.png" alt="">
+</a></div>
+<h2 class="MsoNormal"><strong>Introduction</strong></h2>
+<p class="MsoNormal"><span lang="EN-US">Developers always want to bind a control event to at run time.
+</span></p>
+<p class="MsoNormal"><span lang="EN-US">This sample will demonstrate how to dynamically bind an event handler on an aspx page to a control on an ascx page. You can find&nbsp;answers for all the following questions in this code sample:
+</span></p>
+<p class="MsoNormal"><a name="OLE_LINK2"></a><a name="OLE_LINK3"><span><span lang="EN-US">How to get handler string and use reflection to bind click event to specific method.
+</span></span></a></p>
+<p class="MsoNormal"><span><span><span lang="EN-US">How to write Handler for Click event in external classes.
+</span></span></span></p>
+<h2><strong>Running the Sample</strong></h2>
+<p class="MsoNormal"><span lang="EN-US">You can directly run the sample. </span>
+</p>
+<h2><strong>Using the Code</strong></h2>
+<p class="MsoNormal"><span lang="EN-US">The code sample provides the following functions to solve the questions above.
+</span></p>
+<p class="MsoNormal"><span lang="EN-US">&nbsp;</span></p>
+<h3><strong>How to get handler string and use reflection to bind click event to specific method.</strong></h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">protected void Page_Load(object sender, EventArgs e)
+       {        
+               XElement root = XElement.Load(Server.MapPath(&quot;~/SourceFile.xml&quot;));
+               var images = root.Element(&quot;Images&quot;);
+               var imageElements = images.Elements(&quot;Image&quot;);
+               foreach (var imageElement in imageElements)
+               {
+                   var lbtn = new LinkButton();
+
+                   //Use image Name as linkButton Text
+                   var strArray=imageElement.Element(&quot;URL&quot;).Value.Split('/');
+                   lbtn.Text =strArray[strArray.Length-1];
+                  
+                   //Bind click event with relection method
+                   lbtn.Click &#43;= (ibtnSender, imageClickArgs) =&gt; {
+                       Type clickHandlerType = typeof(ClickHandlers);
+                       ConstructorInfo constructor = clickHandlerType.GetConstructor(Type.EmptyTypes);
+                       Object clickHandlerObject = constructor.Invoke(new Object[] { });
+
+                       var method = clickHandlerType.GetMethod(imageElement.Element(&quot;ClickHandler&quot;).Value);
+                       Object[] addHandlerArgs = { ibtnSender,imageClickArgs };
+                       method.Invoke(clickHandlerObject, addHandlerArgs);
+                   };
+
+                   lbtn.ID = imageElement.Element(&quot;ID&quot;).Value;
+                   
+                   pnlImages.Controls.Add(lbtn);
+           }
+       } 
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">protected</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Page_Load(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XElement&nbsp;root&nbsp;=&nbsp;XElement.Load(Server.MapPath(<span class="cs__string">&quot;~/SourceFile.xml&quot;</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;images&nbsp;=&nbsp;root.Element(<span class="cs__string">&quot;Images&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;imageElements&nbsp;=&nbsp;images.Elements(<span class="cs__string">&quot;Image&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">foreach</span>&nbsp;(var&nbsp;imageElement&nbsp;<span class="cs__keyword">in</span>&nbsp;imageElements)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;lbtn&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;LinkButton();&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//Use&nbsp;image&nbsp;Name&nbsp;as&nbsp;linkButton&nbsp;Text</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;strArray=imageElement.Element(<span class="cs__string">&quot;URL&quot;</span>).Value.Split(<span class="cs__string">'/'</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lbtn.Text&nbsp;=strArray[strArray.Length<span class="cs__number">-1</span>];&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//Bind&nbsp;click&nbsp;event&nbsp;with&nbsp;relection&nbsp;method</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lbtn.Click&nbsp;&#43;=&nbsp;(ibtnSender,&nbsp;imageClickArgs)&nbsp;=&gt;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type&nbsp;clickHandlerType&nbsp;=&nbsp;<span class="cs__keyword">typeof</span>(ClickHandlers);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ConstructorInfo&nbsp;constructor&nbsp;=&nbsp;clickHandlerType.GetConstructor(Type.EmptyTypes);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Object&nbsp;clickHandlerObject&nbsp;=&nbsp;constructor.Invoke(<span class="cs__keyword">new</span>&nbsp;Object[]&nbsp;{&nbsp;});&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;method&nbsp;=&nbsp;clickHandlerType.GetMethod(imageElement.Element(<span class="cs__string">&quot;ClickHandler&quot;</span>).Value);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Object[]&nbsp;addHandlerArgs&nbsp;=&nbsp;{&nbsp;ibtnSender,imageClickArgs&nbsp;};&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method.Invoke(clickHandlerObject,&nbsp;addHandlerArgs);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lbtn.ID&nbsp;=&nbsp;imageElement.Element(<span class="cs__string">&quot;ID&quot;</span>).Value;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pnlImages.Controls.Add(lbtn);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</pre>
+</div>
+</div>
+</div>
+<p><span style="font-size:10px">The code above use Linq to XML get the ClickHandler value in XMl, then use the reflection add this ClickHeandler to click event.</span></p>
+<p class="MsoNormal"><span lang="EN-US">If you want to get method names of a given type in .Net, you can use method<strong><a href="http://msdn2.microsoft.com/en-us/library/4d848zkb.aspx"><span style="font-weight:normal">Type.GetMethods</span></a></strong>.
+ This method returns array of&nbsp;<strong><a href="http://msdn2.microsoft.com/en-us/library/system.reflection.methodinfo_members.aspx"><span style="font-weight:normal">MethodInfo</span></a></strong>&nbsp;objects. MethodInfo contains many informations about
+ the method and of course a method name (MethodInfo.Name). To filter returned methods (for example if you want to get only public static methods) use<a href="http://msdn2.microsoft.com/en-us/library/System.Reflection.BindingFlags.aspx">BindingFlags</a><span>&nbsp;parameter
+ when calling GetMethods method. Required are at least two flags, one from&nbsp;Public/NonPublic<span>&nbsp;and one of&nbsp;Instance/Static<span>&nbsp;flags. Of course you can use all four flags and also DeclaredOnly and FlattenHierarchy. BindingFlags enumeration
+ and MethodInfo class are declared in <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Reflection.aspx"  title="Auto generated link to System.Reflection">System.Reflection</a> namespace.</span> </span>
+</span></span></p>
+<p class="MsoNormal"><span lang="EN-US">&nbsp;</span></p>
+<h3><strong>How to write Handler for Click event in external classes.</strong></h3>
+<p><strong>&nbsp;</strong></p>
+<p><strong></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public class ClickHandlers
+   {
+       XElement root = XElement.Load(HttpContext.Current.Server.MapPath(&quot;SourceFile.xml&quot;));
+       public void ResponseImageURL(object sender, EventArgs e)
+       {
+           var lbtn = (LinkButton)sender;
+           string lbtnID = lbtn.ID;
+
+           var images = root.Element(&quot;Images&quot;);
+           var imageElements = images.Elements(&quot;Image&quot;);
+           var imageURL = (from i in imageElements
+                           where i.Element(&quot;ID&quot;).Value == lbtnID
+                           select i.Element(&quot;URL&quot;)).First().Value;
+                          
+           System.Web.HttpContext.Current.Response.Write(string.Format(&quot;The {0}'s absolute path is:{1}&quot;,lbtn.Text,imageURL));
+       }
+
+
+       public void ResponseImageID(object sender, EventArgs e)
+       {
+           var lbtn = (LinkButton)sender;          
+           System.Web.HttpContext.Current.Response.Write(string.Format(&quot;The {0}'s ID:{1}&quot;, lbtn.Text, lbtn.ID));
+
+       }
+   }
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">class</span>&nbsp;ClickHandlers&nbsp;
+&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XElement&nbsp;root&nbsp;=&nbsp;XElement.Load(HttpContext.Current.Server.MapPath(<span class="cs__string">&quot;SourceFile.xml&quot;</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;ResponseImageURL(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;lbtn&nbsp;=&nbsp;(LinkButton)sender;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">string</span>&nbsp;lbtnID&nbsp;=&nbsp;lbtn.ID;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;images&nbsp;=&nbsp;root.Element(<span class="cs__string">&quot;Images&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;imageElements&nbsp;=&nbsp;images.Elements(<span class="cs__string">&quot;Image&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;imageURL&nbsp;=&nbsp;(from&nbsp;i&nbsp;<span class="cs__keyword">in</span>&nbsp;imageElements&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;i.Element(<span class="cs__string">&quot;ID&quot;</span>).Value&nbsp;==&nbsp;lbtnID&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select&nbsp;i.Element(<span class="cs__string">&quot;URL&quot;</span>)).First().Value;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.Web.HttpContext.Current.Response.Write(<span class="cs__keyword">string</span>.Format(<span class="cs__string">&quot;The&nbsp;{0}'s&nbsp;absolute&nbsp;path&nbsp;is:{1}&quot;</span>,lbtn.Text,imageURL));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;ResponseImageID(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;lbtn&nbsp;=&nbsp;(LinkButton)sender;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.Web.HttpContext.Current.Response.Write(<span class="cs__keyword">string</span>.Format(<span class="cs__string">&quot;The&nbsp;{0}'s&nbsp;ID:{1}&quot;</span>,&nbsp;lbtn.Text,&nbsp;lbtn.ID));&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;}&nbsp;</pre>
+</div>
+</div>
+</div>
+</strong>
+<p></p>
+<p class="MsoNormal"><span lang="EN-US">The code above bind the specific click event to the link button control.
+</span></p>
+<h2><strong>More Information</strong></h2>
+<p class="MsoNormal"><span lang="EN-US"><a href="http://msdn.microsoft.com/en-us/library/ms173183(v=vs.90).aspx">http://msdn.microsoft.com/en-us/library/ms173183(v=vs.90).aspx</a>
+</span></p>
+<p class="MsoNormal"><span lang="EN-US">&nbsp;</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/a20d39fc-847b-4f6c-a5ee-5b3dad80666dimage.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
