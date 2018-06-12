@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>In-process ATL COM server (ATLDllCOMServer)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>In-process ATL COM server (ATLDllCOMServer)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            COM, Windows SDK
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            in-process COM Server
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/11/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/ATLDllCOMServer-b52a7d5d">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h2><span style="font-size:14.0pt; line-height:115%">ACTIVE TEMPLATE LIBRARY </span>
+<span style="font-size:14.0pt; line-height:115%">(</span><span style="font-size:14.0pt; line-height:115%">ATLDllCOMServer</span><span style="font-size:14.0pt; line-height:115%">)
+</span></h2>
+<h2>Introduction</h2>
+<p class="MsoNormal">The ATLDllCOMServer sample demonstrates how to use Acitve Template Library (ATL) wizards in Visual Studio 2008 to generate an in-process COM server. ATL is designed to simplify the process of creating efficient, flexible, lightweight
+ COM components. ATLDllCOMServer exposes an ATL STA simple object with properties, methods, and events:<span style="">
+</span></p>
+<p class="MsoNormal"><span style=""><span style="">&nbsp; </span>Program ID: ATLDllCOMServer.SimpleObject
+</span></p>
+<p class="MsoNormal"><span style=""><span style="">&nbsp; </span>CLSID_SimpleObject: 92FCF37F-F6C7-4F8A-AA09-1A14BA118084
+</span></p>
+<p class="MsoNormal"><span style=""><span style="">&nbsp; </span>IID_ISimpleObject: 830F85D0-91B9-406D-A273-BC33133DD44B
+</span></p>
+<p class="MsoNormal"><span style=""><span style="">&nbsp; </span>DIID__ISimpleObjectEvents: 87AD6FBC-8735-407C-9758-C80B48C78E7C
+</span></p>
+<p class="MsoNormal"><span style=""><span style="">&nbsp; </span>LIBID_ATLDllCOMServerLib: 9B23EFED-A0C1-46B6-A903-218206447F3E
+</span></p>
+<p class="MsoNormal"><span style=""><span style="">&nbsp; </span>AppID: 9DD18FED-55F6-4741-AF25-798B90C4AED5
+</span></p>
+<h2><span style="">Using the code<span style="">&nbsp; </span></span></h2>
+<h3><span style="">Properties: </span></h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+// With both get and put accessor methods
+FLOAT FloatProperty 
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+// With both get and put accessor methods
+FLOAT FloatProperty 
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<h3><span style=""><span style="">&nbsp; </span>Methods: </span></h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+// HelloWorld returns a BSTR &quot;HelloWorld&quot;
+HRESULT HelloWorld([out,retval] BSTR* pRet);
+// GetProcessThreadID outputs the running process ID and thread ID
+HRESULT GetProcessThreadID([out] LONG* pdwProcessId, [out] LONG* pdwThreadId);
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+// HelloWorld returns a BSTR &quot;HelloWorld&quot;
+HRESULT HelloWorld([out,retval] BSTR* pRet);
+// GetProcessThreadID outputs the running process ID and thread ID
+HRESULT GetProcessThreadID([out] LONG* pdwProcessId, [out] LONG* pdwThreadId);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<h3><span style=""><span style="">&nbsp; </span>Events: </span></h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+// FloatPropertyChanging is fired before new value is set to the 
+// FloatProperty property. The [in, out] parameter Cancel allows the 
+// client to cancel the change of FloatProperty.
+void FloatPropertyChanging(
+  [in] FLOAT NewValue, [in, out] VARIANT_BOOL* Cancel);
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+// FloatPropertyChanging is fired before new value is set to the 
+// FloatProperty property. The [in, out] parameter Cancel allows the 
+// client to cancel the change of FloatProperty.
+void FloatPropertyChanging(
+  [in] FLOAT NewValue, [in, out] VARIANT_BOOL* Cancel);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">The majority of codes in the sample are generated by Visual Studio. You can find the detailed steps of creating such a COM server in the Creation section of this document.
+</span></p>
+<h3><span style="">Build: </span></h3>
+<p class="MsoNormal"><span style="">To build ATLDllCOMServer, please run Visual Studio as administrator because<span style="">&nbsp;
+</span>the component needs to be registered into HKCR. </span></p>
+<h3><span style="">Deployment: </span></h3>
+<p class="MsoNormal"><span style="">A. Setup </span></p>
+<p class="MsoNormal"><span style="">Regsvr32.exe ATLDllCOMServer.dll </span></p>
+<p class="MsoNormal"><span style="">B. Cleanup </span></p>
+<p class="MsoNormal"><span style="">Regsvr32.exe /u ATLDllCOMServer.dll</span><span style="">&nbsp;
+</span><span style=""></span></p>
+<h3><span style="">Creation: </span></h3>
+<p class="MsoNormal"><span style="">A. Creating the project </span></p>
+<p class="MsoNormal"><span style="">Step1. Create a Visual C&#43;&#43; / ATL / ATL Project named ATLDllCOMServer in Visual Studio 2008.
+</span></p>
+<p class="MsoNormal"><span style="">Step2. In the page &quot;Application Settings&quot; of ATL Project Wizard, select the server type as Dynamic-link library (DLL), and allow merging of proxy/stub code.
+</span></p>
+<p class="MsoNormal"><span style="">B. Adding an ATL Simple Object </span></p>
+<p class="MsoNormal"><span style="">Step1. In Solution Explorer, add a new ATL / ATL Simple Object class to the project.
+</span></p>
+<p class="MsoNormal"><span style="">Step2. In ATL Simple Object Wizard, specify the short name as SimpleObject, and select the threading model as Apartment (corresponding to STA), select Interface as Dual that supports both IDispatch (late binding) and vtable
+ binding (early binding). Last, select the Connection points check box. This creates the _ISimpleObjectEvents interface in the file ATLDllCOMServer.idl. The Connection points option is the prerequisite for the component to supporting events.
+</span></p>
+<p class="MsoNormal"><span style="">C. Adding Properties to the ATL Simple Object
+</span></p>
+<p class="MsoNormal"><span style="">Step1. In Class View, find the interface ISimpleObject. Right-click it and select Add / Add Property in the menu.
+</span></p>
+<p class="MsoNormal"><span style="">Step2. In the Add Property Wizard, specify the property type as FLOAT and set the property name as FloatProperty. Select both Get function and Put function. SimpleObject therefore exposes FloatProperty with the get&amp;put
+ accessormethods: get_FloatProperty, put_FloatProperty. </span></p>
+<p class="MsoNormal"><span style="">Step3. Add a float field, m_fField, to the class CSimpleObject:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+protected:
+    // Used by FloatProperty
+    float m_fField;
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+protected:
+    // Used by FloatProperty
+    float m_fField;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">Implement the get&amp;put accessor methods of FloatProperty to access m_fField.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+STDMETHODIMP CSimpleObject::get_FloatProperty(FLOAT* pVal)
+{
+    *pVal = m_fField;
+    return S_OK;
+}
+
+
+STDMETHODIMP CSimpleObject::put_FloatProperty(FLOAT newVal)
+{
+    m_fField = newVal;
+    return S_OK;
+}
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+STDMETHODIMP CSimpleObject::get_FloatProperty(FLOAT* pVal)
+{
+    *pVal = m_fField;
+    return S_OK;
+}
+
+
+STDMETHODIMP CSimpleObject::put_FloatProperty(FLOAT newVal)
+{
+    m_fField = newVal;
+    return S_OK;
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">D. Adding Methods to the ATL Simple Object </span>
+</p>
+<p class="MsoNormal"><span style="">Step1. In Class View, find the interface ISimpleObject. Right-click it and select Add / Add Method on the shortcut menu.
+</span></p>
+<p class="MsoNormal"><span style="">Step2. In the Add Method Wizard, specify the method name as HelloWorld. Add a parameter whose parameter attributes = retval, parameter type = BSTR*, and parameter name = pRet.
+</span></p>
+<p class="MsoNormal"><span style="">Step3. Write the body of HelloWorld as this:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+STDMETHODIMP CSimpleObject::HelloWorld(BSTR* pRet)
+{
+    // Allocate memory for the string: 
+    *pRet = ::SysAllocString(L&quot;HelloWorld&quot;);
+    if (pRet == NULL)
+        return E_OUTOFMEMORY;
+
+
+    // The client is now responsible for freeing pbstr
+    return S_OK;
+}
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+STDMETHODIMP CSimpleObject::HelloWorld(BSTR* pRet)
+{
+    // Allocate memory for the string: 
+    *pRet = ::SysAllocString(L&quot;HelloWorld&quot;);
+    if (pRet == NULL)
+        return E_OUTOFMEMORY;
+
+
+    // The client is now responsible for freeing pbstr
+    return S_OK;
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">With the almost same steps, the method GetProcessThreadID is added to get the executing process ID and thread ID.
+</span></p>
+<p class="MsoNormal"><span style="">HRESULT GetProcessThreadID([out] LONG* pdwProcessId, [out] LONG* pdwThreadId);
+</span></p>
+<p class="MsoNormal"><span style="">E. Adding Events to the ATL Simple Object </span>
+</p>
+<p class="MsoNormal"><span style="">The Connection points option in B/Step2 is the prerequisite for the component to supporting events.
+</span></p>
+<p class="MsoNormal"><span style="">Step1. In Class View, expand ATLDllCOMServer / ATLDllCOMServerLib to display _ISimpleObjectEvents.
+</span></p>
+<p class="MsoNormal"><span style="">Step2. Right-click _ISimpleObjectEvents. On the shortcut menu, click Add, and then click Add Method.
+</span></p>
+<p class="MsoNormal"><span style="">Step3. Select a Return Type of void, enter FloatPropertyChanging in the Method name box, and add an [in] parameter FLOAT NewValue, and an [in, out]<span style="">&nbsp;
+</span>parameter VARIANT_BOOL* Cancel. After clicking Finish, _ISimpleObjectEvents dispinterface in the ATLDllCOMServer.idl file should look like this:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+dispinterface _ISimpleObjectEvents
+{
+    properties:
+    methods:
+        [id(1), helpstring(&quot;method FloatPropertyChanging&quot;)] void 
+        FloatPropertyChanging(
+        [in] FLOAT NewValue, [in,out] VARIANT_BOOL* Cancel);
+};
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+dispinterface _ISimpleObjectEvents
+{
+    properties:
+    methods:
+        [id(1), helpstring(&quot;method FloatPropertyChanging&quot;)] void 
+        FloatPropertyChanging(
+        [in] FLOAT NewValue, [in,out] VARIANT_BOOL* Cancel);
+};
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">Step4. Generate the type library by rebuilding the project or by right-clicking the ATLDllCOMServer.idl file in Solution Explorer and clicking Compile on the shortcut menu. Please note: We must compile the IDL file BEFORE
+ setting up a connection point. </span></p>
+<p class="MsoNormal"><span style="">Step5. Use the Implement Connection Point Wizard to implement the Connection Point interface: In Class View, right-click the component's implementation class CSimpleObject. On the shortcut menu, click Add, and then click
+ Add Connection Point. Select _ISimpleObjectEvents from the Source Interfaces list and double-click it to add it to the Implement connection points column. Click Finish. A proxy class for the connection point will be generated (ie. CProxy_ISimpleObjectEvents
+ in this example) in the file _ISimpleObjectEvents_CP.h. This also creates a function with the name Fire_[eventname] that can be called to raise events in the client.
+</span></p>
+<p class="MsoNormal"><span style="">Step6. Fire the event in put_FloatProperty:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+STDMETHODIMP CSimpleObject::put_FloatProperty(FLOAT newVal)
+{
+    // Fire the event, FloatPropertyChanging
+    VARIANT_BOOL cancel = VARIANT_FALSE; 
+    Fire_FloatPropertyChanging(newVal, &cancel);
+
+
+    if (cancel == VARIANT_FALSE)
+    {
+        m_fField = newVal;    // Save the new value
+    } // else, do nothing
+    return S_OK;
+}
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+STDMETHODIMP CSimpleObject::put_FloatProperty(FLOAT newVal)
+{
+    // Fire the event, FloatPropertyChanging
+    VARIANT_BOOL cancel = VARIANT_FALSE; 
+    Fire_FloatPropertyChanging(newVal, &cancel);
+
+
+    if (cancel == VARIANT_FALSE)
+    {
+        m_fField = newVal;    // Save the new value
+    } // else, do nothing
+    return S_OK;
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<h2>More Information</h2>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:������"><a href="http://msdn.microsoft.com/en-us/library/599w5e7x.aspx">ATL Tutorial</a>
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:������"><a href="http://www.codeproject.com/KB/COM/nbd_ipc.aspx">An ATL Component in C&#43;&#43; that fires COM events By Neville Dastur</a>
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:������"><a href="http://support.microsoft.com/kb/194179">KB: AtlEvnt.exe sample shows how to creates ATL sinks by using the ATL IDispEventImpl and IDispEventSimpleImpl classes</a>
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:������"><a href="http://support.microsoft.com/kb/976026/en-us">KB: How to develop an in-process COM component</a>
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
