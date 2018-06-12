@@ -1,0 +1,52 @@
+
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSLoadLibrary", "CSLoadLibrary\CSLoadLibrary\CSLoadLibrary.csproj", "{7BA2E535-A272-4A74-9577-D86E908D3F97}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppDynamicLinkLibrary", "CSLoadLibrary\CppDynamicLinkLibrary\CppDynamicLinkLibrary.vcproj", "{52E95A78-6446-49D8-8F79-31846518D34B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{D9900D98-D95B-49DE-8923-3CCF27DDA583}"
+	ProjectSection(SolutionItems) = preProject
+		CSLoadLibrary\Documentation\ReadMe.htm = CSLoadLibrary\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe_files", "ReadMe_files", "{88644E43-FD2A-4E66-B4D1-CC71A95F4A03}"
+	ProjectSection(SolutionItems) = preProject
+		CSLoadLibrary\Documentation\ReadMe_files\colorschememapping.xml = CSLoadLibrary\Documentation\ReadMe_files\colorschememapping.xml
+		CSLoadLibrary\Documentation\ReadMe_files\filelist.xml = CSLoadLibrary\Documentation\ReadMe_files\filelist.xml
+		CSLoadLibrary\Documentation\ReadMe_files\themedata.thmx = CSLoadLibrary\Documentation\ReadMe_files\themedata.thmx
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BA2E535-A272-4A74-9577-D86E908D3F97}.Debug|x64.ActiveCfg = Debug|x64
+		{7BA2E535-A272-4A74-9577-D86E908D3F97}.Debug|x64.Build.0 = Debug|x64
+		{7BA2E535-A272-4A74-9577-D86E908D3F97}.Debug|x86.ActiveCfg = Debug|x86
+		{7BA2E535-A272-4A74-9577-D86E908D3F97}.Debug|x86.Build.0 = Debug|x86
+		{7BA2E535-A272-4A74-9577-D86E908D3F97}.Release|x64.ActiveCfg = Release|x64
+		{7BA2E535-A272-4A74-9577-D86E908D3F97}.Release|x64.Build.0 = Release|x64
+		{7BA2E535-A272-4A74-9577-D86E908D3F97}.Release|x86.ActiveCfg = Release|x86
+		{7BA2E535-A272-4A74-9577-D86E908D3F97}.Release|x86.Build.0 = Release|x86
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x64.ActiveCfg = Debug|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x64.Build.0 = Debug|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x86.ActiveCfg = Debug|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x86.Build.0 = Debug|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x64.ActiveCfg = Release|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x64.Build.0 = Release|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x86.ActiveCfg = Release|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{88644E43-FD2A-4E66-B4D1-CC71A95F4A03} = {D9900D98-D95B-49DE-8923-3CCF27DDA583}
+	EndGlobalSection
+EndGlobal
