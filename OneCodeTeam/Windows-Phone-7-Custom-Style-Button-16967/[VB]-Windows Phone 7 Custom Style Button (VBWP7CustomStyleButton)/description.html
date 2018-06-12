@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Windows Phone 7 Custom Style Button (VBWP7CustomStyleButton)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Windows Phone 7 Custom Style Button (VBWP7CustomStyleButton)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows Phone 7
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Windows Phone 7
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/28/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBWP7CustomStyleButton-8242193c">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Windows Phone 7 Sample: <span style="">VB</span>WP7CustomStyleButton</h1>
+<h2>Introduction<span style=""> </span></h2>
+<p class="MsoNormal"><span style="">This sample demonstrates how to create your own style button. You do not need to use any additional tool besides Visual Studio 2010. Custom button images are not required. Use XAML only to create beautiful buttons or even
+ buttons that appear similar to those used in other products such as the iPhone. </span>
+</p>
+<p class="MsoNormal" style="">To&nbsp;run&nbsp;the&nbsp;sample:<span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br>
+1.&nbsp;Open&nbsp;the&nbsp;project&nbsp;in&nbsp;Visual&nbsp;Studio&nbsp;2010<span style="">.</span><br>
+2.&nbsp;Press&nbsp;Ctrl&#43;F5.<span style=""> </span></p>
+<p class="MsoNormal"><span style="">You will see a button like this:<br>
+</span><span style=""><img src="description/image.png" alt="" width="303" height="101" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><span style="">When you press the button, it changes to:<br>
+</span><span style=""><img src="description/3deec078-3832-4985-9676-c89577f2205aimage.png" alt="" width="304" height="101" align="middle">
+</span><span style=""></span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal"><span style="">1.&nbsp;Create&nbsp;a&nbsp;new&nbsp;��Silverlight&nbsp;for&nbsp;Windows&nbsp;Phone�� project.
+</span></p>
+<p class="MsoNormal"><span style="">2.&nbsp;Add&nbsp;xmlns:vsm=&quot;clr-namespace:<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.aspx"  title="Auto generated link to System.Windows">System.Windows</a>;assembly=System.Windows&quot;&nbsp;to&nbsp;the&nbsp;root&nbsp;element.&nbsp;The&nbsp;xaml&nbsp;code&nbsp;in&nbsp;MainPage.xaml&nbsp;will&nbsp;be&nbsp;look like&nbsp;this:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xaml</span>
+<pre class="hidden">
+&lt;phone:PhoneApplicationPage 
+    x:Class=&quot;CSWP7CustomStyleButton.MainPage&quot;
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+    xmlns:phone=&quot;clr-namespace:<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Phone.Controls.aspx"  title="Auto generated link to Microsoft.Phone.Controls">Microsoft.Phone.Controls</a>;assembly=Microsoft.Phone&quot;
+    xmlns:shell=&quot;clr-namespace:<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Phone.Shell.aspx"  title="Auto generated link to Microsoft.Phone.Shell">Microsoft.Phone.Shell</a>;assembly=Microsoft.Phone&quot;
+    xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+    xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+    xmlns:vsm=&quot;clr-namespace:<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.aspx"  title="Auto generated link to System.Windows">System.Windows</a>;assembly=System.Windows&quot;
+    mc:Ignorable=&quot;d&quot; d:DesignWidth=&quot;480&quot; d:DesignHeight=&quot;768&quot;
+    FontFamily=&quot;{StaticResource PhoneFontFamilyNormal}&quot;
+    FontSize=&quot;{StaticResource PhoneFontSizeNormal}&quot;
+    Foreground=&quot;{StaticResource PhoneForegroundBrush}&quot;
+    SupportedOrientations=&quot;Portrait&quot; Orientation=&quot;Portrait&quot;
+    shell:SystemTray.IsVisible=&quot;True&quot;&gt;
+
+
+    &lt;UserControl.Resources&gt;
+        &lt;Style x:Key=&quot;metroLight&quot; TargetType=&quot;Button&quot;&gt;
+            &lt;Setter Property=&quot;Background&quot; Value=&quot;DarkRed&quot;/&gt;
+            &lt;Setter Property=&quot;Padding&quot; Value=&quot;3&quot;/&gt;
+            &lt;Setter Property=&quot;BorderThickness&quot; Value=&quot;0&quot;/&gt;
+
+
+            &lt;Setter Property=&quot;Template&quot;&gt;
+                &lt;Setter.Value&gt;
+                    &lt;ControlTemplate TargetType=&quot;Button&quot;&gt;
+                        &lt;Grid&gt;
+                            &lt;vsm:VisualStateManager.VisualStateGroups&gt;
+                                &lt;vsm:VisualStateGroup x:Name=&quot;CommonStates&quot;&gt;
+                                    &lt;vsm:VisualState x:Name=&quot;Normal&quot;&gt;
+                                        &lt;!--&lt;Storyboard&gt;
+                                            &lt;DoubleAnimationUsingKeyFrames BeginTime=&quot;00:00:00&quot; 
+                                                                           Storyboard.TargetName=&quot;glow&quot; 
+                                                                           Storyboard.TargetProperty=&quot;(UIElement.Opacity)&quot;&gt;
+                                                &lt;SplineDoubleKeyFrame KeyTime=&quot;00:00:00.1000000&quot; 
+                                                                      Value=&quot;1&quot;/&gt;
+                                            &lt;/DoubleAnimationUsingKeyFrames&gt;
+                                        &lt;/Storyboard&gt;--&gt;
+                                    &lt;/vsm:VisualState&gt;
+                                    &lt;vsm:VisualState x:Name=&quot;Pressed&quot;&gt;
+                                        &lt;Storyboard&gt;
+                                            &lt;DoubleAnimationUsingKeyFrames BeginTime=&quot;00:00:00&quot; 
+                                                                           Storyboard.TargetName=&quot;glow&quot; 
+                                                                           Storyboard.TargetProperty=&quot;(UIElement.Opacity)&quot;&gt;
+                                                &lt;SplineDoubleKeyFrame KeyTime=&quot;00:00:00.1000000&quot; 
+                                                                      Value=&quot;1&quot;/&gt;
+                                            &lt;/DoubleAnimationUsingKeyFrames&gt;
+                                        &lt;/Storyboard&gt;
+                                    &lt;/vsm:VisualState&gt;
+                                &lt;/vsm:VisualStateGroup&gt;
+                            &lt;/vsm:VisualStateManager.VisualStateGroups&gt;
+
+
+                            &lt;Border x:Name=&quot;border&quot; Background=&quot;DarkRed&quot; 
+                                    BorderBrush=&quot;#FF000000&quot; 
+                                    BorderThickness=&quot;0,0,0,0&quot; CornerRadius=&quot;0,0,0,0&quot;&gt;
+                                &lt;Grid&gt;
+                                    &lt;Grid.RowDefinitions&gt;
+                                        &lt;RowDefinition Height=&quot;0.507*&quot;/&gt;
+                                        &lt;RowDefinition Height=&quot;0.493*&quot;/&gt;
+                                    &lt;/Grid.RowDefinitions&gt;
+
+
+                                    &lt;Border Opacity=&quot;0&quot; HorizontalAlignment=&quot;Stretch&quot; 
+                                            x:Name=&quot;glow&quot; Width=&quot;Auto&quot; 
+                                            Grid.RowSpan=&quot;2&quot; CornerRadius=&quot;4,4,4,4&quot;&gt;
+                                        &lt;Border.Background&gt;
+                                            &lt;RadialGradientBrush&gt;
+                                                &lt;RadialGradientBrush.RelativeTransform&gt;
+                                                    &lt;TransformGroup&gt;
+                                                        &lt;ScaleTransform ScaleX=&quot;1.702&quot; ScaleY=&quot;2.243&quot;/&gt;
+                                                        &lt;SkewTransform AngleX=&quot;0&quot; AngleY=&quot;0&quot;/&gt;
+                                                        &lt;RotateTransform Angle=&quot;0&quot;/&gt;
+                                                        &lt;TranslateTransform X=&quot;-0.368&quot; Y=&quot;-0.152&quot;/&gt;
+                                                    &lt;/TransformGroup&gt;
+                                                &lt;/RadialGradientBrush.RelativeTransform&gt;
+                                                &lt;GradientStop Color=&quot;#B28DBDFF&quot; Offset=&quot;0&quot;/&gt;
+                                                &lt;GradientStop Color=&quot;#008DBDFF&quot; Offset=&quot;1&quot;/&gt;
+                                            &lt;/RadialGradientBrush&gt;
+                                        &lt;/Border.Background&gt;
+                                    &lt;/Border&gt;
+
+
+                                    &lt;ContentPresenter HorizontalAlignment=&quot;Center&quot; 
+                                                        VerticalAlignment=&quot;Center&quot; 
+                                                        Width=&quot;Auto&quot; Grid.RowSpan=&quot;2&quot;/&gt;
+
+
+                                    &lt;Border HorizontalAlignment=&quot;Stretch&quot; Margin=&quot;0,0,0,0&quot; 
+                                            x:Name=&quot;shine&quot; Width=&quot;Auto&quot; CornerRadius=&quot;4,4,0,0&quot;&gt;
+                                    &lt;/Border&gt;
+                                &lt;/Grid&gt;
+                            &lt;/Border&gt;
+                        &lt;/Grid&gt;
+                    &lt;/ControlTemplate&gt;
+                &lt;/Setter.Value&gt;
+            &lt;/Setter&gt;
+        &lt;/Style&gt;
+    &lt;/UserControl.Resources&gt;
+    &lt;!--LayoutRoot is the root grid where all page content is placed--&gt;
+    &lt;Grid x:Name=&quot;LayoutRoot&quot;&gt;
+        &lt;Grid.Background&gt;
+            &lt;ImageBrush ImageSource=&quot;BG.jpg&quot;&gt;&lt;/ImageBrush&gt;
+        &lt;/Grid.Background&gt;
+        &lt;!--TitlePanel contains the name of the application--&gt;
+        &lt;StackPanel x:Name=&quot;TitlePanel&quot; Grid.Row=&quot;0&quot; Margin=&quot;12,17,0,28&quot;&gt;
+            &lt;TextBlock x:Name=&quot;ApplicationTitle&quot; Text=&quot;Custom Style Button&quot; Style=&quot;{StaticResource PhoneTextNormalStyle}&quot;/&gt;
+        &lt;/StackPanel&gt;
+        &lt;Grid x:Name=&quot;ContentPanel&quot; Grid.Row=&quot;1&quot; Margin=&quot;12,0,12,0&quot;&gt;
+            &lt;Button Width=&quot;300&quot; Height=&quot;100&quot; Content=&quot;Metro Light&quot;
+                        Style=&quot;{StaticResource metroLight}&quot;&gt;
+            &lt;/Button&gt;
+        &lt;/Grid&gt;
+    &lt;/Grid&gt;
+&lt;/phone:PhoneApplicationPage&gt;
+
+
+</pre>
+<pre id="codePreview" class="xaml">
+&lt;phone:PhoneApplicationPage 
+    x:Class=&quot;CSWP7CustomStyleButton.MainPage&quot;
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+    xmlns:phone=&quot;clr-namespace:<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Phone.Controls.aspx"  title="Auto generated link to Microsoft.Phone.Controls">Microsoft.Phone.Controls</a>;assembly=Microsoft.Phone&quot;
+    xmlns:shell=&quot;clr-namespace:<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Phone.Shell.aspx"  title="Auto generated link to Microsoft.Phone.Shell">Microsoft.Phone.Shell</a>;assembly=Microsoft.Phone&quot;
+    xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+    xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+    xmlns:vsm=&quot;clr-namespace:<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.aspx"  title="Auto generated link to System.Windows">System.Windows</a>;assembly=System.Windows&quot;
+    mc:Ignorable=&quot;d&quot; d:DesignWidth=&quot;480&quot; d:DesignHeight=&quot;768&quot;
+    FontFamily=&quot;{StaticResource PhoneFontFamilyNormal}&quot;
+    FontSize=&quot;{StaticResource PhoneFontSizeNormal}&quot;
+    Foreground=&quot;{StaticResource PhoneForegroundBrush}&quot;
+    SupportedOrientations=&quot;Portrait&quot; Orientation=&quot;Portrait&quot;
+    shell:SystemTray.IsVisible=&quot;True&quot;&gt;
+
+
+    &lt;UserControl.Resources&gt;
+        &lt;Style x:Key=&quot;metroLight&quot; TargetType=&quot;Button&quot;&gt;
+            &lt;Setter Property=&quot;Background&quot; Value=&quot;DarkRed&quot;/&gt;
+            &lt;Setter Property=&quot;Padding&quot; Value=&quot;3&quot;/&gt;
+            &lt;Setter Property=&quot;BorderThickness&quot; Value=&quot;0&quot;/&gt;
+
+
+            &lt;Setter Property=&quot;Template&quot;&gt;
+                &lt;Setter.Value&gt;
+                    &lt;ControlTemplate TargetType=&quot;Button&quot;&gt;
+                        &lt;Grid&gt;
+                            &lt;vsm:VisualStateManager.VisualStateGroups&gt;
+                                &lt;vsm:VisualStateGroup x:Name=&quot;CommonStates&quot;&gt;
+                                    &lt;vsm:VisualState x:Name=&quot;Normal&quot;&gt;
+                                        &lt;!--&lt;Storyboard&gt;
+                                            &lt;DoubleAnimationUsingKeyFrames BeginTime=&quot;00:00:00&quot; 
+                                                                           Storyboard.TargetName=&quot;glow&quot; 
+                                                                           Storyboard.TargetProperty=&quot;(UIElement.Opacity)&quot;&gt;
+                                                &lt;SplineDoubleKeyFrame KeyTime=&quot;00:00:00.1000000&quot; 
+                                                                      Value=&quot;1&quot;/&gt;
+                                            &lt;/DoubleAnimationUsingKeyFrames&gt;
+                                        &lt;/Storyboard&gt;--&gt;
+                                    &lt;/vsm:VisualState&gt;
+                                    &lt;vsm:VisualState x:Name=&quot;Pressed&quot;&gt;
+                                        &lt;Storyboard&gt;
+                                            &lt;DoubleAnimationUsingKeyFrames BeginTime=&quot;00:00:00&quot; 
+                                                                           Storyboard.TargetName=&quot;glow&quot; 
+                                                                           Storyboard.TargetProperty=&quot;(UIElement.Opacity)&quot;&gt;
+                                                &lt;SplineDoubleKeyFrame KeyTime=&quot;00:00:00.1000000&quot; 
+                                                                      Value=&quot;1&quot;/&gt;
+                                            &lt;/DoubleAnimationUsingKeyFrames&gt;
+                                        &lt;/Storyboard&gt;
+                                    &lt;/vsm:VisualState&gt;
+                                &lt;/vsm:VisualStateGroup&gt;
+                            &lt;/vsm:VisualStateManager.VisualStateGroups&gt;
+
+
+                            &lt;Border x:Name=&quot;border&quot; Background=&quot;DarkRed&quot; 
+                                    BorderBrush=&quot;#FF000000&quot; 
+                                    BorderThickness=&quot;0,0,0,0&quot; CornerRadius=&quot;0,0,0,0&quot;&gt;
+                                &lt;Grid&gt;
+                                    &lt;Grid.RowDefinitions&gt;
+                                        &lt;RowDefinition Height=&quot;0.507*&quot;/&gt;
+                                        &lt;RowDefinition Height=&quot;0.493*&quot;/&gt;
+                                    &lt;/Grid.RowDefinitions&gt;
+
+
+                                    &lt;Border Opacity=&quot;0&quot; HorizontalAlignment=&quot;Stretch&quot; 
+                                            x:Name=&quot;glow&quot; Width=&quot;Auto&quot; 
+                                            Grid.RowSpan=&quot;2&quot; CornerRadius=&quot;4,4,4,4&quot;&gt;
+                                        &lt;Border.Background&gt;
+                                            &lt;RadialGradientBrush&gt;
+                                                &lt;RadialGradientBrush.RelativeTransform&gt;
+                                                    &lt;TransformGroup&gt;
+                                                        &lt;ScaleTransform ScaleX=&quot;1.702&quot; ScaleY=&quot;2.243&quot;/&gt;
+                                                        &lt;SkewTransform AngleX=&quot;0&quot; AngleY=&quot;0&quot;/&gt;
+                                                        &lt;RotateTransform Angle=&quot;0&quot;/&gt;
+                                                        &lt;TranslateTransform X=&quot;-0.368&quot; Y=&quot;-0.152&quot;/&gt;
+                                                    &lt;/TransformGroup&gt;
+                                                &lt;/RadialGradientBrush.RelativeTransform&gt;
+                                                &lt;GradientStop Color=&quot;#B28DBDFF&quot; Offset=&quot;0&quot;/&gt;
+                                                &lt;GradientStop Color=&quot;#008DBDFF&quot; Offset=&quot;1&quot;/&gt;
+                                            &lt;/RadialGradientBrush&gt;
+                                        &lt;/Border.Background&gt;
+                                    &lt;/Border&gt;
+
+
+                                    &lt;ContentPresenter HorizontalAlignment=&quot;Center&quot; 
+                                                        VerticalAlignment=&quot;Center&quot; 
+                                                        Width=&quot;Auto&quot; Grid.RowSpan=&quot;2&quot;/&gt;
+
+
+                                    &lt;Border HorizontalAlignment=&quot;Stretch&quot; Margin=&quot;0,0,0,0&quot; 
+                                            x:Name=&quot;shine&quot; Width=&quot;Auto&quot; CornerRadius=&quot;4,4,0,0&quot;&gt;
+                                    &lt;/Border&gt;
+                                &lt;/Grid&gt;
+                            &lt;/Border&gt;
+                        &lt;/Grid&gt;
+                    &lt;/ControlTemplate&gt;
+                &lt;/Setter.Value&gt;
+            &lt;/Setter&gt;
+        &lt;/Style&gt;
+    &lt;/UserControl.Resources&gt;
+    &lt;!--LayoutRoot is the root grid where all page content is placed--&gt;
+    &lt;Grid x:Name=&quot;LayoutRoot&quot;&gt;
+        &lt;Grid.Background&gt;
+            &lt;ImageBrush ImageSource=&quot;BG.jpg&quot;&gt;&lt;/ImageBrush&gt;
+        &lt;/Grid.Background&gt;
+        &lt;!--TitlePanel contains the name of the application--&gt;
+        &lt;StackPanel x:Name=&quot;TitlePanel&quot; Grid.Row=&quot;0&quot; Margin=&quot;12,17,0,28&quot;&gt;
+            &lt;TextBlock x:Name=&quot;ApplicationTitle&quot; Text=&quot;Custom Style Button&quot; Style=&quot;{StaticResource PhoneTextNormalStyle}&quot;/&gt;
+        &lt;/StackPanel&gt;
+        &lt;Grid x:Name=&quot;ContentPanel&quot; Grid.Row=&quot;1&quot; Margin=&quot;12,0,12,0&quot;&gt;
+            &lt;Button Width=&quot;300&quot; Height=&quot;100&quot; Content=&quot;Metro Light&quot;
+                        Style=&quot;{StaticResource metroLight}&quot;&gt;
+            &lt;/Button&gt;
+        &lt;/Grid&gt;
+    &lt;/Grid&gt;
+&lt;/phone:PhoneApplicationPage&gt;
+
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<h2>More Information</h2>
+<p class="MsoNormal"><span style="">For more information about how to create custom Silverlight style, please also see this link:
+<br>
+<a href="http://www.silverlight.net/learn/creating-ui/styles-and-templates/control-styles-(silverlight-quickstart)">http://www.silverlight.net/learn/creating-ui/styles-and-templates/control-styles-(silverlight-quickstart)</a>
+</span></p>
+<p class="MsoNormal"><span style="">The project can be opened and the user interface can be edited using Expression Blend. For more information about how to use Blend, this article would be helpful:<br>
+</span><a href="http://blogs.msdn.com/b/silverlight/archive/2010/10/25/expression-blend-4-for-windows-phone.aspx">http://blogs.msdn.com/b/silverlight/archive/2010/10/25/expression-blend-4-for-windows-phone.aspx</a><span style="">
+</span></p>
+<p class="MsoNormal"><span style=""></span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
