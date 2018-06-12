@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBASPNETGloablizationInAssembly", "VBASPNETGloablizationInAssembly\VBASPNETGloablizationInAssembly\VBASPNETGloablizationInAssembly.vbproj", "{8CC133E5-5B2D-4457-AF3F-2AEADDB86315}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBASPNETGloablizationInAssemblyResource", "VBASPNETGloablizationInAssembly\VBASPNETGloablizationInAssemblyResource\VBASPNETGloablizationInAssemblyResource.vbproj", "{BEC04B66-E57F-46E4-8BEB-B94EF3FE8983}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CC133E5-5B2D-4457-AF3F-2AEADDB86315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CC133E5-5B2D-4457-AF3F-2AEADDB86315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CC133E5-5B2D-4457-AF3F-2AEADDB86315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CC133E5-5B2D-4457-AF3F-2AEADDB86315}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC04B66-E57F-46E4-8BEB-B94EF3FE8983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC04B66-E57F-46E4-8BEB-B94EF3FE8983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC04B66-E57F-46E4-8BEB-B94EF3FE8983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC04B66-E57F-46E4-8BEB-B94EF3FE8983}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
