@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Databinding in Silverlight 3 (VBSL3DataBinding)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Databinding in Silverlight 3 (VBSL3DataBinding)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Silverlight
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Data Binding
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/13/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBSL3DataBinding-98a59ceb">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;</p>
+<h2>SILVERLIGHT APPLICATION : VBSL3DataBinding Project Overview</h2>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+This example demonstrates how to work with Data Binding Silverlight 3.<br>
+It includes the following general scenarios:<br>
+<br>
+How to use onetime/oneway/twoway Data Binding.<br>
+What is IValueConverter and how to use it.<br>
+How to handle data validation in Data Binding.<br>
+How to use Element Data Binding to bind to the property of other controls.<br>
+What is ObservableCollection.<br>
+General problems you may encounter with when using Data Binding.<br>
+<br>
+</p>
+<h3>Prerequisites:</h3>
+<p style="font-family:Courier New"><br>
+Silverlight 3 Chained Installer<br>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=9442b0f2-7465-417a-88f3-5e7b5409e9dd&amp;displaylang=en" >http://www.microsoft.com/downloads/details.aspx?familyid=9442b0f2-7465-417a-88f3-5e7b5409e9dd&amp;displaylang=en</a><br>
+<br>
+</p>
+<h3>Code Logic:</h3>
+<p style="font-family:Courier New"><br>
+1. How to use onetime/oneway/twoway Data Binding.<br>
+<br>
+Please run the project and following instruction to edit TextBox. You'll notice what's the<br>
+difference among binding modes.<br>
+<br>
+By specifying Mode like below you can control the Binding Mode.<br>
+<br>
+&lt;TextBlock HorizontalAlignment=&quot;Left&quot; Margin=&quot;20,0&quot; FontSize=&quot;11&quot; TextWrapping=&quot;Wrap&quot; Text=&quot;{Binding Name, Mode=OneTime}&quot;/&gt;<br>
+&lt;TextBlock HorizontalAlignment=&quot;Left&quot; Margin=&quot;20,0&quot; FontSize=&quot;11&quot; TextWrapping=&quot;Wrap&quot; Text=&quot;{Binding Name, Mode=OneWay}&quot;/&gt;<br>
+&lt;TextBox HorizontalAlignment=&quot;Left&quot; Margin=&quot;20,0,0,0&quot; FontSize=&quot;11&quot; <br>
+TextWrapping=&quot;Wrap&quot; Text=&quot;{Binding Name, Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}&quot;/&gt; &nbsp;
+<br>
+<br>
+For two way databinding to work property, the source class must implement INotifyPropertyChanged.<br>
+Please refer to Customer class in DAL.vb to learn how to implement this interface.<br>
+<br>
+2. What is IValueConverter and how to use it.<br>
+<br>
+By specifying the Converter of a Binding we can use our custom ValueConverter class that implements IValueConverter.<br>
+Converters can change data from one type to another, translate data based on cultural information,
+<br>
+or modify other aspects of the presentation. Core code logic is like below:<br>
+<br>
+&lt;UserControl.Resources&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;local:MyConverter x:Key=&quot;myconverter&quot;&gt;&lt;/local:MyConverter&gt;<br>
+&lt;/UserControl.Resources&gt;<br>
+&nbsp; &nbsp;...<br>
+&lt;StackPanel Background=&quot;{Binding ID,Converter={StaticResource myconverter}}&quot;&gt;<br>
+<br>
+<br>
+''' &lt;summary&gt;<br>
+''' This is a custom ValueConverter class. It converts int to Brush. <br>
+''' If ID is larger than 1 a redbrush will be returned.<br>
+''' &lt;/summary&gt;<br>
+Public Class MyConverter<br>
+&nbsp; &nbsp;Implements IValueConverter<br>
+&nbsp; &nbsp;Private redbrush As Brush = New SolidColorBrush(Color.FromArgb(255, 255, 0, 0))<br>
+&nbsp; &nbsp;Public Function Convert(ByVal value As Object, ByVal targetType As Type, ByVal parameter As Object, ByVal culture As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Globalization.CultureInfo.aspx"  title="Auto generated link to System.Globalization.CultureInfo">System.Globalization.CultureInfo</a>) As Object Implements IValueConverter.Convert<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;If TypeOf value Is Integer Then<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;If CInt(Fix(value)) &gt; 1 Then<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Return redbrush<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Else<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Return Nothing<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;End If<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Else<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Return Nothing<br>
+&nbsp; &nbsp; &nbsp; &nbsp;End If<br>
+&nbsp; &nbsp;End Function<br>
+<br>
+&nbsp; &nbsp;Public Function ConvertBack(ByVal value As Object, ByVal targetType As Type, ByVal parameter As Object, ByVal culture As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Globalization.CultureInfo.aspx"  title="Auto generated link to System.Globalization.CultureInfo">System.Globalization.CultureInfo</a>) As Object Implements IValueConverter.ConvertBack<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Throw New NotImplementedException()<br>
+&nbsp; &nbsp;End Function<br>
+<br>
+3. How to handle data validation in Data Binding.<br>
+<br>
+In two way binding scenario validation is always needed.<br>
+<br>
+The validation will be done when exception is thrown during update of source objects,<br>
+as long as you've set ValidatesOnExceptions to ture. <br>
+<br>
+If you set NotifyOnValidationError to ture as well you can notify contol by triggering<br>
+BindingValidationError event. You don't have to write code to manually do so. <br>
+All Controls have this feature.<br>
+<br>
+To set ValidatesOnExceptions and BindingValidationErrorin XAML, please use the following code:<br>
+<br>
+&lt;TextBox HorizontalAlignment=&quot;Left&quot; Margin=&quot;20,0,0,0&quot; FontSize=&quot;11&quot; <br>
+TextWrapping=&quot;Wrap&quot; Text=&quot;{Binding Name, Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}&quot;/&gt;<br>
+<br>
+In paticular, we can use Attributes in <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.ComponentModel.DataAnnotations.aspx"  title="Auto generated link to System.ComponentModel.DataAnnotations">System.ComponentModel.DataAnnotations</a><br>
+namespace to help us define restrictions of the value passed to a property pending update<br>
+and throw exception when it's invalid. <br>
+<br>
+To do that,in binding source property's set accessor, add following code. MemberName is the property name.<br>
+<br>
+Dim vc As ValidationContext = New ValidationContext(Me, Nothing, Nothing)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;vc.MemberName = &quot;Name&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Validator.ValidateProperty(value, vc)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<br>
+In most cases the built-in Attributes is enough for use.<br>
+<br>
+For advanced scenarios we may need custom validation means. To do this we can attach CustomValidationAttribute,<br>
+to that property, like below. The first parameter is the type of the custom validation class. The<br>
+second parameter is the validate method in the custom validation class:<br>
+<br>
+&lt;CustomValidation(GetType(MyValidation), &quot;Validate&quot;)&gt; _<br>
+&nbsp;Public Property ID() As Integer<br>
+...<br>
+<br>
+&nbsp;Public Class MyValidation<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Private Sub New()<br>
+&nbsp; &nbsp; &nbsp; &nbsp;End Sub<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Public Shared Function Validate(ByVal [property] As Object, ByVal context As ValidationContext) As ValidationResult<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' You can get Property name from context.MemberName. It's not used here for simplicity.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim customerid As Integer<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' For the simplicity, the change is invalid if new ID equals 11.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;If Int32.TryParse([property].ToString(), customerid) AndAlso customerid = 11 Then<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim validationResult As ValidationResult = New ValidationResult(&quot;Custom Validation Failed. ID cannot be 11&quot;)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Return validationResult<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Else<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Return ValidationResult.Success<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;End If<br>
+&nbsp; &nbsp; &nbsp; &nbsp;End Function<br>
+&nbsp; &nbsp;End Class<br>
+<br>
+4. How to use Element Data Binding to bind to the property of other controls.<br>
+<br>
+To use Element binding, we need to specify the ElementName for Binding and set binding source<br>
+crrectly. The following code in the sample binds the Text property of the TextBlock to the Name<br>
+property of the SelectedItem of the DataGrid. In this sample, SelectedItem is a Customer object so we<br>
+can set SelectedItem.Name as binding source.<br>
+<br>
+&lt;TextBlock Text=&quot;{Binding SelectedItem.Name, ElementName=ConverterScenarioDataGrid}&quot;&gt;&lt;/TextBlock&gt;<br>
+<br>
+5. What is ObservableCollection.<br>
+<br>
+To notify collection elements' change (add or remove), collection class should implement
+<br>
+INotifyCollectionChanged interface. ObservableCollection(Of T) has already implemented it so it's<br>
+always recommended to use it as your collection class.<br>
+<br>
+<br>
+6. General problems you may encounter with when using Data Binding.<br>
+<br>
+Please run the project and click GeneralProblems tab for more details.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+Data Binding<br>
+<a href="http://msdn.microsoft.com/en-us/library/cc278072(VS.95).aspx" >http://msdn.microsoft.com/en-us/library/cc278072(VS.95).aspx</a><br>
+<br>
+Dependency Properties Overview<br>
+<a href="http://msdn.microsoft.com/en-us/library/cc221408(VS.95).aspx" >http://msdn.microsoft.com/en-us/library/cc221408(VS.95).aspx</a><br>
+<br>
+Using Data Annotations to Customize Data Classes<br>
+<a href="http://msdn.microsoft.com/en-us/library/dd901590(VS.95).aspx" >http://msdn.microsoft.com/en-us/library/dd901590(VS.95).aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
