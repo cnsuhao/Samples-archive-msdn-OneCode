@@ -1,0 +1,144 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+VBASPNETCensorKeywordInSite
+</name>
+</assembly>
+<members>
+<member name="F:VBASPNETCensorKeywordInSite._Default.Head1">
+	<summary>
+Head1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETCensorKeywordInSite._Default.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETCensorKeywordInSite._Default.ScriptManager1">
+	<summary>
+ScriptManager1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETCensorKeywordInSite._Default.tbText">
+	<summary>
+tbText control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETCensorKeywordInSite._Default.btnClientCheck">
+	<summary>
+btnClientCheck control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETCensorKeywordInSite._Default.btnEnter">
+	<summary>
+btnEnter control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETCensorKeywordInSite._Default.ltrMsg">
+	<summary>
+ltrMsg control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="M:VBASPNETCensorKeywordInSite.KeyBlackManage.BindGrid">
+	<summary>
+ Bind datatable to GridView
+ </summary>
+</member><member name="F:VBASPNETCensorKeywordInSite.KeyBlackManage.Head1">
+	<summary>
+Head1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETCensorKeywordInSite.KeyBlackManage.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETCensorKeywordInSite.KeyBlackManage.tbKey">
+	<summary>
+tbKey control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETCensorKeywordInSite.KeyBlackManage.RequiredFieldValidator1">
+	<summary>
+RequiredFieldValidator1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETCensorKeywordInSite.KeyBlackManage.btnAdd">
+	<summary>
+btnAdd control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETCensorKeywordInSite.KeyBlackManage.gdvKeyword">
+	<summary>
+gdvKeyword control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="P:VBASPNETCensorKeywordInSite.My.MyWebExtension.Computer">
+	<summary>
+ Returns information about the host computer.
+ </summary>
+</member><member name="P:VBASPNETCensorKeywordInSite.My.MyWebExtension.User">
+	<summary>
+ Returns information for the current Web user.
+ </summary>
+</member><member name="P:VBASPNETCensorKeywordInSite.My.MyWebExtension.Request">
+	<summary>
+ Returns Request object.
+ </summary>
+</member><member name="P:VBASPNETCensorKeywordInSite.My.MyWebExtension.Response">
+	<summary>
+ Returns Response object.
+ </summary>
+</member><member name="P:VBASPNETCensorKeywordInSite.My.MyWebExtension.Log">
+	<summary>
+ Returns the Asp log object.
+ </summary>
+</member><member name="T:VBASPNETCensorKeywordInSite.My.MyWebExtension">
+	<summary>
+ Module used to define the properties that are available in the My Namespace for Web projects.
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>
