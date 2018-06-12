@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="6aaa3c70-9e4c-4503-8c7b-9379a6976cb2" Publisher="CN=All-In-One Code Framework" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>CSWindowsStoreAppProgressRingOverWebView</DisplayName>
+    <PublisherDisplayName>All-In-One Code Framework</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="CSWindowsStoreAppProgressRingOverWebView.App">
+      <VisualElements DisplayName="CSWindowsStoreAppProgressRingOverWebView" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="This sample demonstrates how to display a ProgressRing over WebView" ForegroundText="light" BackgroundColor="#E6B80B">
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\TileLogo.png" />
+        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#E6B80B" />
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
