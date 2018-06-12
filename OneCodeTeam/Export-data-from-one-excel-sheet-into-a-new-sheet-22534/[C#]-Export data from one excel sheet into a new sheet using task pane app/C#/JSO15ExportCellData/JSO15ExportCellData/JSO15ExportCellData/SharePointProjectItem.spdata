@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.OfficeApp" DefaultFile="JSO15ExportCellData.xml" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel" >
+  <Files>
+    <ProjectItemFile Source="JSO15ExportCellData.xml" Type="AppPackage" />
+  </Files>
+  <ExtensionData>
+    <ExtensionDataItem Key="OfficeAppManifestRelativePath" Value="JSO15ExportCellData\JSO15ExportCellData.xml" />
+  </ExtensionData>
+</ProjectItem>

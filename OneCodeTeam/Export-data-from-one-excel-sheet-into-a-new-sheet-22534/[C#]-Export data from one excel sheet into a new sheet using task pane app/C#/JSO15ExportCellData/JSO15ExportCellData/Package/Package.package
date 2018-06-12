@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="ee0560d7-d2f0-4bd5-a106-2ec14c11e1bc" solutionId="ee0560d7-d2f0-4bd5-a106-2ec14c11e1bc" resetWebServer="false" name="JSO15ExportCellData" isDesignerEnabled="false" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <projectItems>
+    <projectItemReference itemId="1b80bf4d-745e-4dc9-8444-e8f7564b9416" />
+  </projectItems>
+</package>

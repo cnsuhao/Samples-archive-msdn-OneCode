@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSO15ExportCellData", "JSO15ExportCellData\JSO15ExportCellData\JSO15ExportCellData.csproj", "{FD98DB32-4B70-4C28-99C7-4EC38D988E56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSO15ExportCellDataWeb", "JSO15ExportCellData\JSO15ExportCellDataWeb\JSO15ExportCellDataWeb.csproj", "{0B5ED779-877C-4F82-8E67-963005894405}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD98DB32-4B70-4C28-99C7-4EC38D988E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD98DB32-4B70-4C28-99C7-4EC38D988E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD98DB32-4B70-4C28-99C7-4EC38D988E56}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FD98DB32-4B70-4C28-99C7-4EC38D988E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD98DB32-4B70-4C28-99C7-4EC38D988E56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD98DB32-4B70-4C28-99C7-4EC38D988E56}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0B5ED779-877C-4F82-8E67-963005894405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B5ED779-877C-4F82-8E67-963005894405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B5ED779-877C-4F82-8E67-963005894405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B5ED779-877C-4F82-8E67-963005894405}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>JSO15ExportCellData</title>
+
+    <link rel="stylesheet" type="text/css" href="../Content/Office.css" />
+
+    <!-- Add your CSS styles to the following file -->
+    <link rel="stylesheet" type="text/css" href="../Content/App.css" />
+
+    <script src="../Scripts/jquery-1.7.1.js"></script>
+
+    <!-- Use the CDN reference to Office.js when deploying your app -->
+    <!--<script src="https://appsforoffice.microsoft.com/lib/1.0/hosted/office.js"></script>-->
+
+    <!-- Use the local script references for Office.js to enable offline debugging -->
+    <script src="../Scripts/Office/1.0/MicrosoftAjax.js"></script>
+    <script src="../Scripts/Office/1.0/office.js"></script>
+
+    <!-- Add your JavaScript to the following file -->
+    <script src="../Scripts/JSO15ExportCellData.js"></script>
+</head>
+<body>
+    <!-- Replace the following with your content -->
+    <div id="Content">
+     <label>Source Sheet Range:</label><input type="text" id="sourceRange"  style="width:150px;margin-left:15px"/>
+        <br />
+        <label>Exported Sheet Range:</label><input type="text" id="exportedRange"  style="width:150px; margin-top:5px; margin-left:5px"/>
+      <br />
+        <input type="button" value="Export" id="btnExport" style="margin-top:10px"/>
+         <div id="message"></div>
+    </div>
+ 
+</body>
+</html>
