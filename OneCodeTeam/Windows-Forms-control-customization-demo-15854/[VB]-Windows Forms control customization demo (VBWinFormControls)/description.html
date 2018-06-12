@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Windows Forms control customization demo (VBWinFormControls)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Windows Forms control customization demo (VBWinFormControls)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows Forms
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Controls
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/1/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBWinFormControls-c859406a">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="font-family:������">WINDOWS FORMS APPLICATION</span> (<span style="font-family:������">VBWinFormControls</span>)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">The Control Customization sample demonstrates how to customize the Windows Forms controls.
+</p>
+<p class="MsoNormal">In this sample, there're 4 examples: </p>
+<p class="MsoNormal">1. Multiple Column ComboBox. </p>
+<p class="MsoNormal">2. ListBox Items <span class="GramE">With</span> Different ToolTips.
+</p>
+<p class="MsoNormal">3. Numeric-only TextBox. </p>
+<p class="MsoNormal">4. A Round Button. </p>
+<h2>Running the Sample<span style=""> </span></h2>
+<p class="MsoNormal">1. Multiple Column ComboBox. </p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>Demonstrates how to display multiple columns of data in the dropdown of a ComboBox.<span style="">
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="576" height="391" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal">2. ListBox Items With Different ToolTips. </p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>Demonstrates how to display different tooltips on each items of the ListBox.<span style="">
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/f531ec6a-3eab-4ba5-be20-636ad58df65eimage.png" alt="" width="576" height="391" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal">3. Numeric-only TextBox. </p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>Demonstrates how to make a TextBox only accepts numbers.<span style="">
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/dba283f0-ee4e-45e6-97f2-a008616ffae0image.png" alt="" width="576" height="391" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal">4. A Round Button. </p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>Demonstrates how to create a Button with irregular shape.<span style="">&nbsp;
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/e7219b88-e24d-48ec-90cc-50eb1c8b0c8aimage.png" alt="" width="576" height="391" align="middle">
+</span><span style=""></span></p>
+<h2><span style="">Using the code</span> </h2>
+<p class="MsoNormal">1. Example 1: &quot;Multiple Column ComboBox&quot;. </p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>1). Create a DataTable with several columns and rows of data;
+</p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>2). Data bind the ComboBox control to the DataTable;
+</p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>3). Enable the owner draw on ComboBox by setting the DrawMode property to DrawMode.OwnerDrawFixed;
+</p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>4). Handle the DrawItem event on the ComboBox;<span style="">
+</span></p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>5). In the DrawItem event handler, compute the bounds for each column and draw corresponding value for each column on its bounds.<span style="">
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Sub MultipleColumnComboBox()
+        Dim dtTest As DataTable = New DataTable()
+        dtTest.Columns.Add(&quot;ID&quot;, GetType(Integer))
+        dtTest.Columns.Add(&quot;Name&quot;, GetType(String))
+
+
+        dtTest.Rows.Add(1, &quot;John&quot;)
+        dtTest.Rows.Add(2, &quot;Amy&quot;)
+        dtTest.Rows.Add(3, &quot;Tony&quot;)
+        dtTest.Rows.Add(4, &quot;Bruce&quot;)
+        dtTest.Rows.Add(5, &quot;Allen&quot;)
+
+
+        ' Bind the ComboBox to the DataTable
+        Me.comboBox1.DataSource = dtTest
+        Me.comboBox1.DisplayMember = &quot;Name&quot;
+        Me.comboBox1.ValueMember = &quot;ID&quot;
+
+
+        ' Enable the owner draw on the ComboBox.
+        Me.comboBox1.DrawMode = DrawMode.OwnerDrawFixed
+        ' Handle the DrawItem event to draw the items.
+    End Sub
+
+
+    Private Sub comboBox1_DrawItem(ByVal sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, _
+                                   ByVal e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Forms.DrawItemEventArgs.aspx"  title="Auto generated link to System.Windows.Forms.DrawItemEventArgs">System.Windows.Forms.DrawItemEventArgs</a>) _
+                                   Handles comboBox1.DrawItem
+        ' Draw the default background
+        e.DrawBackground()
+
+
+        ' The ComboBox is bound to a DataTable,
+        ' so the items are DataRowView objects.
+        Dim drv As DataRowView = CType(comboBox1.Items(e.Index), DataRowView)
+
+
+        ' Retrieve the value of each column.
+        Dim id As Integer = drv(&quot;ID&quot;).ToString()
+        Dim name As String = drv(&quot;Name&quot;).ToString()
+
+
+        ' Get the bounds for the first column
+        Dim r1 As Rectangle = e.Bounds
+        r1.Width = r1.Width / 2
+
+
+        ' Draw the text on the first column
+        Using sb As SolidBrush = New SolidBrush(e.ForeColor)
+            e.Graphics.DrawString(id, e.Font, sb, r1)
+        End Using
+
+
+        ' Draw a line to isolate the columns 
+        Using p As Pen = New Pen(Color.Black)
+            e.Graphics.DrawLine(p, r1.Right, 0, r1.Right, r1.Bottom)
+        End Using
+
+
+        ' Get the bounds for the second column
+        Dim r2 As Rectangle = e.Bounds
+        r2.X = e.Bounds.Width / 2
+        r2.Width = r2.Width / 2
+
+
+        ' Draw the text on the second column
+        Using sb As SolidBrush = New SolidBrush(e.ForeColor)
+            e.Graphics.DrawString(name, e.Font, sb, r2)
+        End Using
+    End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Sub MultipleColumnComboBox()
+        Dim dtTest As DataTable = New DataTable()
+        dtTest.Columns.Add(&quot;ID&quot;, GetType(Integer))
+        dtTest.Columns.Add(&quot;Name&quot;, GetType(String))
+
+
+        dtTest.Rows.Add(1, &quot;John&quot;)
+        dtTest.Rows.Add(2, &quot;Amy&quot;)
+        dtTest.Rows.Add(3, &quot;Tony&quot;)
+        dtTest.Rows.Add(4, &quot;Bruce&quot;)
+        dtTest.Rows.Add(5, &quot;Allen&quot;)
+
+
+        ' Bind the ComboBox to the DataTable
+        Me.comboBox1.DataSource = dtTest
+        Me.comboBox1.DisplayMember = &quot;Name&quot;
+        Me.comboBox1.ValueMember = &quot;ID&quot;
+
+
+        ' Enable the owner draw on the ComboBox.
+        Me.comboBox1.DrawMode = DrawMode.OwnerDrawFixed
+        ' Handle the DrawItem event to draw the items.
+    End Sub
+
+
+    Private Sub comboBox1_DrawItem(ByVal sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, _
+                                   ByVal e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Forms.DrawItemEventArgs.aspx"  title="Auto generated link to System.Windows.Forms.DrawItemEventArgs">System.Windows.Forms.DrawItemEventArgs</a>) _
+                                   Handles comboBox1.DrawItem
+        ' Draw the default background
+        e.DrawBackground()
+
+
+        ' The ComboBox is bound to a DataTable,
+        ' so the items are DataRowView objects.
+        Dim drv As DataRowView = CType(comboBox1.Items(e.Index), DataRowView)
+
+
+        ' Retrieve the value of each column.
+        Dim id As Integer = drv(&quot;ID&quot;).ToString()
+        Dim name As String = drv(&quot;Name&quot;).ToString()
+
+
+        ' Get the bounds for the first column
+        Dim r1 As Rectangle = e.Bounds
+        r1.Width = r1.Width / 2
+
+
+        ' Draw the text on the first column
+        Using sb As SolidBrush = New SolidBrush(e.ForeColor)
+            e.Graphics.DrawString(id, e.Font, sb, r1)
+        End Using
+
+
+        ' Draw a line to isolate the columns 
+        Using p As Pen = New Pen(Color.Black)
+            e.Graphics.DrawLine(p, r1.Right, 0, r1.Right, r1.Bottom)
+        End Using
+
+
+        ' Get the bounds for the second column
+        Dim r2 As Rectangle = e.Bounds
+        r2.X = e.Bounds.Width / 2
+        r2.Width = r2.Width / 2
+
+
+        ' Draw the text on the second column
+        Using sb As SolidBrush = New SolidBrush(e.ForeColor)
+            e.Graphics.DrawString(name, e.Font, sb, r2)
+        End Using
+    End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">2. Example 2: &quot;ListBox Items <span class="GramE">With</span> Different ToolTips&quot;.
+</p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>1). Add some items to the ListBox control;
+</p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>2). Handle the MouseMove event on the ListBox control;
+</p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>3). Call the ListBox.IndexFromPoint method to retrieve the item index at where the mouse hovers;
+</p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>4). If the mouse is over the items, call ToolTip.SetToolTip method to display a tooltip for the individual item.<span style="">&nbsp;&nbsp;
+</span><span style=""></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+   Private Sub ListBoxWithDiffToolTips()
+       ' Setup the ListBox items
+       Me.listBox1.Items.Add(&quot;Item1&quot;)
+       Me.listBox1.Items.Add(&quot;Item2&quot;)
+       Me.listBox1.Items.Add(&quot;Item3&quot;)
+       Me.listBox1.Items.Add(&quot;Item4&quot;)
+       Me.listBox1.Items.Add(&quot;Item5&quot;)
+   End Sub
+
+
+   Private Sub listBox1_MouseMove(ByVal sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, _
+                   ByVal e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Forms.MouseEventArgs.aspx"  title="Auto generated link to System.Windows.Forms.MouseEventArgs">System.Windows.Forms.MouseEventArgs</a>) _
+                                  Handles listBox1.MouseMove
+       Dim hoverIndex As Integer = Me.listBox1.IndexFromPoint(e.Location)
+
+
+       If hoverIndex &gt;= 0 And hoverIndex &lt; listBox1.Items.Count Then
+           Me.toolTip1.SetToolTip(listBox1, listBox1.Items(hoverIndex).ToString())
+       End If
+   End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+   Private Sub ListBoxWithDiffToolTips()
+       ' Setup the ListBox items
+       Me.listBox1.Items.Add(&quot;Item1&quot;)
+       Me.listBox1.Items.Add(&quot;Item2&quot;)
+       Me.listBox1.Items.Add(&quot;Item3&quot;)
+       Me.listBox1.Items.Add(&quot;Item4&quot;)
+       Me.listBox1.Items.Add(&quot;Item5&quot;)
+   End Sub
+
+
+   Private Sub listBox1_MouseMove(ByVal sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, _
+                   ByVal e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Forms.MouseEventArgs.aspx"  title="Auto generated link to System.Windows.Forms.MouseEventArgs">System.Windows.Forms.MouseEventArgs</a>) _
+                                  Handles listBox1.MouseMove
+       Dim hoverIndex As Integer = Me.listBox1.IndexFromPoint(e.Location)
+
+
+       If hoverIndex &gt;= 0 And hoverIndex &lt; listBox1.Items.Count Then
+           Me.toolTip1.SetToolTip(listBox1, listBox1.Items(hoverIndex).ToString())
+       End If
+   End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">3. Example 3: &quot;Numeric-only TextBox&quot;. </p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>The make a TextBox accepts only numbers, we can handle the TextBox.KeyPress event, in the event handler use char.IsNumber method to filter the input keys.<span style="">
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+    Private Sub textBox1_KeyPress(ByVal sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, _
+                   ByVal e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Forms.KeyPressEventArgs.aspx"  title="Auto generated link to System.Windows.Forms.KeyPressEventArgs">System.Windows.Forms.KeyPressEventArgs</a>) _
+                                 Handles textBox1.KeyPress
+       If Not (Char.IsNumber(e.KeyChar) Or e.KeyChar = vbBack) Then
+           e.Handled = True
+       End If
+   End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+    Private Sub textBox1_KeyPress(ByVal sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, _
+                   ByVal e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Forms.KeyPressEventArgs.aspx"  title="Auto generated link to System.Windows.Forms.KeyPressEventArgs">System.Windows.Forms.KeyPressEventArgs</a>) _
+                                 Handles textBox1.KeyPress
+       If Not (Char.IsNumber(e.KeyChar) Or e.KeyChar = vbBack) Then
+           e.Handled = True
+       End If
+   End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>4. Example 4: &quot;A Round Button&quot;.
+</p>
+<p class="MsoNormal"><span style="">&nbsp;&nbsp; </span>The key point of creating a round button is changing its Region property.
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">   
+Public Class RoundButton
+    Inherits Button
+
+
+    Protected Overrides Sub OnPaint(ByVal pevent As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Forms.PaintEventArgs.aspx"  title="Auto generated link to System.Windows.Forms.PaintEventArgs">System.Windows.Forms.PaintEventArgs</a>)
+        Dim path As GraphicsPath = New GraphicsPath()
+        path.AddEllipse(0, 0, ClientSize.Width, ClientSize.Height)
+        Me.Region = New Region(path)
+        MyBase.OnPaint(pevent)
+    End Sub
+End Class
+
+</pre>
+<pre id="codePreview" class="vb">   
+Public Class RoundButton
+    Inherits Button
+
+
+    Protected Overrides Sub OnPaint(ByVal pevent As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Forms.PaintEventArgs.aspx"  title="Auto generated link to System.Windows.Forms.PaintEventArgs">System.Windows.Forms.PaintEventArgs</a>)
+        Dim path As GraphicsPath = New GraphicsPath()
+        path.AddEllipse(0, 0, ClientSize.Width, ClientSize.Height)
+        Me.Region = New Region(path)
+        MyBase.OnPaint(pevent)
+    End Sub
+End Class
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"></p>
+<h2>More Information</h2>
+<p class="MsoListParagraphCxSpFirst" style=""><span style="font-family:Symbol"><span style="">��<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><a href="http://social.msdn.microsoft.com/Forums/en-US/winforms/thread/77a66f05-804e-4d58-8214-0c32d8f43191">Windows Forms General FAQ.</a><span style="">&nbsp;
+</span><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:Symbol"><span style="">��<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><a href="http://msdn.microsoft.com/en-us/library/aa289517.aspx">Shaped Windows Forms and Controls in Visual Studio .NET</a><span style="">&nbsp;&nbsp;
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:Symbol"><span style="">��<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><a href="http://www.codeproject.com/KB/buttons/RoundButton_csharp.aspx">Round Button in C#</a><span style="">&nbsp;&nbsp;
+</span></p>
+<p class="MsoListParagraphCxSpLast"></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
