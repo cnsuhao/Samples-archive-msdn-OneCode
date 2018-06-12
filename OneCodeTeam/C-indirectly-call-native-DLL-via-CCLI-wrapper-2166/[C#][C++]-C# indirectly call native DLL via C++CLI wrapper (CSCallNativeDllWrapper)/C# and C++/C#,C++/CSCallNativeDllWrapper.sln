@@ -1,0 +1,63 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSCallNativeDllWrapper", "CSCallNativeDllWrapper\CSCallNativeDllWrapper\CSCallNativeDllWrapper.csproj", "{BF24B1E5-B532-44A2-8C41-3741DF966DFA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppDynamicLinkLibrary", "CSCallNativeDllWrapper\CppDynamicLinkLibrary\CppDynamicLinkLibrary.vcproj", "{52E95A78-6446-49D8-8F79-31846518D34B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppCLINativeDllWrapper", "CSCallNativeDllWrapper\CppCLINativeDllWrapper\CppCLINativeDllWrapper.vcproj", "{29B487A6-E6ED-46C7-8BBC-2CDE3752E0D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{C113CD0A-5568-4F40-AC18-628D13BBBF10}"
+	ProjectSection(SolutionItems) = preProject
+		CSCallNativeDllWrapper\Documentation\ReadMe.htm = CSCallNativeDllWrapper\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe_files", "ReadMe_files", "{5875E9E1-ED0C-48B8-A551-789D8D878522}"
+	ProjectSection(SolutionItems) = preProject
+		CSCallNativeDllWrapper\Documentation\ReadMe_files\colorschememapping.xml = CSCallNativeDllWrapper\Documentation\ReadMe_files\colorschememapping.xml
+		CSCallNativeDllWrapper\Documentation\ReadMe_files\filelist.xml = CSCallNativeDllWrapper\Documentation\ReadMe_files\filelist.xml
+		CSCallNativeDllWrapper\Documentation\ReadMe_files\image001.png = CSCallNativeDllWrapper\Documentation\ReadMe_files\image001.png
+		CSCallNativeDllWrapper\Documentation\ReadMe_files\image002.png = CSCallNativeDllWrapper\Documentation\ReadMe_files\image002.png
+		CSCallNativeDllWrapper\Documentation\ReadMe_files\themedata.thmx = CSCallNativeDllWrapper\Documentation\ReadMe_files\themedata.thmx
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF24B1E5-B532-44A2-8C41-3741DF966DFA}.Debug|Win32.ActiveCfg = Debug|x86
+		{BF24B1E5-B532-44A2-8C41-3741DF966DFA}.Debug|Win32.Build.0 = Debug|x86
+		{BF24B1E5-B532-44A2-8C41-3741DF966DFA}.Debug|x64.ActiveCfg = Debug|x64
+		{BF24B1E5-B532-44A2-8C41-3741DF966DFA}.Debug|x64.Build.0 = Debug|x64
+		{BF24B1E5-B532-44A2-8C41-3741DF966DFA}.Release|Win32.ActiveCfg = Release|x86
+		{BF24B1E5-B532-44A2-8C41-3741DF966DFA}.Release|Win32.Build.0 = Release|x86
+		{BF24B1E5-B532-44A2-8C41-3741DF966DFA}.Release|x64.ActiveCfg = Release|x64
+		{BF24B1E5-B532-44A2-8C41-3741DF966DFA}.Release|x64.Build.0 = Release|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|Win32.Build.0 = Debug|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x64.ActiveCfg = Debug|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x64.Build.0 = Debug|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|Win32.ActiveCfg = Release|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|Win32.Build.0 = Release|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x64.ActiveCfg = Release|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x64.Build.0 = Release|x64
+		{29B487A6-E6ED-46C7-8BBC-2CDE3752E0D1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{29B487A6-E6ED-46C7-8BBC-2CDE3752E0D1}.Debug|Win32.Build.0 = Debug|Win32
+		{29B487A6-E6ED-46C7-8BBC-2CDE3752E0D1}.Debug|x64.ActiveCfg = Debug|x64
+		{29B487A6-E6ED-46C7-8BBC-2CDE3752E0D1}.Debug|x64.Build.0 = Debug|x64
+		{29B487A6-E6ED-46C7-8BBC-2CDE3752E0D1}.Release|Win32.ActiveCfg = Release|Win32
+		{29B487A6-E6ED-46C7-8BBC-2CDE3752E0D1}.Release|Win32.Build.0 = Release|Win32
+		{29B487A6-E6ED-46C7-8BBC-2CDE3752E0D1}.Release|x64.ActiveCfg = Release|x64
+		{29B487A6-E6ED-46C7-8BBC-2CDE3752E0D1}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5875E9E1-ED0C-48B8-A551-789D8D878522} = {C113CD0A-5568-4F40-AC18-628D13BBBF10}
+	EndGlobalSection
+EndGlobal
