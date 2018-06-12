@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Reflection in the .NET Framework for Windows Store Apps</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Reflection in the .NET Framework for Windows Store Apps</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows 8
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Reflection
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/16/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSWindowsStoreAppReflection-f1636b88">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span><a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144425" ><img id="79968" src="description/DPE_W8_728x90_1022_V2.jpg" alt="" width="728" height="90" style="width:100%"></a></span></h1>
+<h1><span>Reflection in the .NET Framework for Windows Store Apps(CSWindowsStoreAppReflection)
+</span></h1>
+<h2><span>Introduction </span></h2>
+<p class="MsoNormal">This sample demonstrates how to get all classes that inherit from a base class or implement an interface in a C#/VB.NET Windows Store app.</p>
+<p class="MsoNormal">In the .NET for Windows Store apps, the <strong>TypeInfo</strong> class contains some of the functionality of the .NET Framework 4
+<strong>Type</strong> class. A <strong>Type</strong> object represents a reference to a type definition, whereas a
+<strong>TypeInfo</strong> object represents the type definition itself. This enables you to manipulate Type objects without necessarily requiring the runtime to load the assembly they reference. Getting the associated
+<strong>TypeInfo</strong> object forces the assembly to load.</p>
+<p class="MsoNormal"><strong>TypeInfo</strong> contains many of the members available on Type, and many of the reflection properties in the .NET for Windows Store apps return collections of
+<strong>TypeInfo</strong> objects. To get a <strong>TypeInfo</strong> object from a Type object, use the
+<strong>GetTypeInfo</strong> method.</p>
+<p class="MsoNormal">&nbsp;</p>
+<h2><span>Running the Sample </span></h2>
+<p class="MsoListParagraph">1.<span style="font-size:7.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Open this sample in Visual Studio 2012 on Windows 8 machine, and press F5 to run it.</p>
+<p class="MsoListParagraph">2.<span style="font-size:7.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>After the app is launched, you will see following screen.</p>
+<p class="MsoListParagraph"><span><img src="description/image.png" alt="" width="611" height="370" align="middle">
+</span></p>
+<p class="MsoListParagraph">&nbsp;</p>
+<p class="MsoListParagraph">3.<span style="font-size:7.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Select a base class or an interface from the comboboxes, then you can see all classes that inherit a base class or implement an interface.&nbsp;</p>
+<p class="MsoListParagraph"><span><img src="description/18a59010-f560-4482-b39d-b8a56367fe56image.png" alt="" width="616" height="373" align="middle">
+</span></p>
+<p class="MsoListParagraph"><span>&nbsp;</span></p>
+<h2><span>Using the Code </span></h2>
+<p class="MsoNormal">1.<span style="font-size:7.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Define the classes and interfaces to be demonstrated.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public interface IWork
+{
+&nbsp;&nbsp;&nbsp; void Work();
+}
+
+
+public interface IStudy
+{
+&nbsp;&nbsp;&nbsp; void Study();
+}
+
+
+public class Person
+{
+&nbsp;&nbsp;&nbsp; public double Name { get; set; }
+
+
+&nbsp;&nbsp;&nbsp; public int Age { get; set; }
+
+
+&nbsp;&nbsp;&nbsp; public bool IsMale { get; set; }
+}
+
+
+public class Student:Person,IStudy
+{
+&nbsp;&nbsp;&nbsp; public int Grade { get; set; }
+
+
+&nbsp;&nbsp;&nbsp; public string School { get; set; }
+
+
+
+
+
+
+&nbsp;&nbsp;&nbsp; public void Study()
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+
+
+public class Employee:Person,IWork
+{
+&nbsp;&nbsp;&nbsp; public string Company { get; set; }
+
+
+&nbsp;&nbsp;&nbsp; public virtual void Work()
+&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+
+
+public class Engineer:Employee
+{
+&nbsp;&nbsp;&nbsp; public string Technology { get; set; }
+}
+
+
+public class Saler:Employee
+{
+&nbsp;&nbsp;&nbsp; public string Product { get; set; }
+}
+
+</pre>
+<pre id="codePreview" class="csharp">public interface IWork
+{
+&nbsp;&nbsp;&nbsp; void Work();
+}
+
+
+public interface IStudy
+{
+&nbsp;&nbsp;&nbsp; void Study();
+}
+
+
+public class Person
+{
+&nbsp;&nbsp;&nbsp; public double Name { get; set; }
+
+
+&nbsp;&nbsp;&nbsp; public int Age { get; set; }
+
+
+&nbsp;&nbsp;&nbsp; public bool IsMale { get; set; }
+}
+
+
+public class Student:Person,IStudy
+{
+&nbsp;&nbsp;&nbsp; public int Grade { get; set; }
+
+
+&nbsp;&nbsp;&nbsp; public string School { get; set; }
+
+
+
+
+
+
+&nbsp;&nbsp;&nbsp; public void Study()
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+
+
+public class Employee:Person,IWork
+{
+&nbsp;&nbsp;&nbsp; public string Company { get; set; }
+
+
+&nbsp;&nbsp;&nbsp; public virtual void Work()
+&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+
+
+public class Engineer:Employee
+{
+&nbsp;&nbsp;&nbsp; public string Technology { get; set; }
+}
+
+
+public class Saler:Employee
+{
+&nbsp;&nbsp;&nbsp; public string Product { get; set; }
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style="margin-left:1.0in">&nbsp;</p>
+<p class="MsoListParagraph" style="margin-left:1.0in">&nbsp;</p>
+<p class="MsoNormal">2.<span style="font-size:7.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Get all classes and interface in an assembly.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden"> 
+// Get current assembly.
+Assembly asm = typeof(MainPage).GetTypeInfo().Assembly;
+
+
+// Bind all classes under CSWindowsStoreAppReflection.Types to typeCombobox
+typeCombobox.ItemsSource = asm.DefinedTypes
+&nbsp;&nbsp;&nbsp; .Where(t=&gt;t.IsClass &amp;&amp; t.Namespace==&quot;CSWindowsStoreAppReflection.Types&quot;);
+
+
+// Bind all interfaces under CSWindowsStoreAppReflection.Types to interfaceCombobox
+interfaceCombobox.ItemsSource = asm.DefinedTypes
+&nbsp;&nbsp;&nbsp; .Where(t =&gt; t.IsInterface &amp;&amp; t.Namespace == &quot;CSWindowsStoreAppReflection.Types&quot;);
+
+</pre>
+<pre id="codePreview" class="csharp"> 
+// Get current assembly.
+Assembly asm = typeof(MainPage).GetTypeInfo().Assembly;
+
+
+// Bind all classes under CSWindowsStoreAppReflection.Types to typeCombobox
+typeCombobox.ItemsSource = asm.DefinedTypes
+&nbsp;&nbsp;&nbsp; .Where(t=&gt;t.IsClass &amp;&amp; t.Namespace==&quot;CSWindowsStoreAppReflection.Types&quot;);
+
+
+// Bind all interfaces under CSWindowsStoreAppReflection.Types to interfaceCombobox
+interfaceCombobox.ItemsSource = asm.DefinedTypes
+&nbsp;&nbsp;&nbsp; .Where(t =&gt; t.IsInterface &amp;&amp; t.Namespace == &quot;CSWindowsStoreAppReflection.Types&quot;);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">3.<span>&nbsp; </span>Find all the derived classes of the selected type.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">// Get the selected type.
+TypeInfo selectedType = (sender as ComboBox).SelectedItem as TypeInfo;
+
+
+// Find all the derived classes of the selected type.
+Assembly asm = typeof(MainPage).GetTypeInfo().Assembly;
+var subTypes = asm.DefinedTypes
+&nbsp;&nbsp;&nbsp; .Where(t =&gt; t.IsClass &amp;&amp; t.IsSubclassOf(selectedType.AsType()));
+
+</pre>
+<pre id="codePreview" class="csharp">// Get the selected type.
+TypeInfo selectedType = (sender as ComboBox).SelectedItem as TypeInfo;
+
+
+// Find all the derived classes of the selected type.
+Assembly asm = typeof(MainPage).GetTypeInfo().Assembly;
+var subTypes = asm.DefinedTypes
+&nbsp;&nbsp;&nbsp; .Where(t =&gt; t.IsClass &amp;&amp; t.IsSubclassOf(selectedType.AsType()));
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">4.<span>&nbsp; </span>Get all classes that implement the selected interface</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">// Get the selected interface.
+TypeInfo selectedInterface = (sender as ComboBox).SelectedItem as TypeInfo;
+
+
+// Get all classes that implement the selected interface 
+Assembly asm = typeof(MainPage).GetTypeInfo().Assembly;
+var subTypes = asm.DefinedTypes
+&nbsp;&nbsp;&nbsp; .Where(t =&gt; t.IsClass &amp;&amp; t.ImplementedInterfaces.Any(i=&gt; i ==selectedInterface.AsType()));
+
+</pre>
+<pre id="codePreview" class="csharp">// Get the selected interface.
+TypeInfo selectedInterface = (sender as ComboBox).SelectedItem as TypeInfo;
+
+
+// Get all classes that implement the selected interface 
+Assembly asm = typeof(MainPage).GetTypeInfo().Assembly;
+var subTypes = asm.DefinedTypes
+&nbsp;&nbsp;&nbsp; .Where(t =&gt; t.IsClass &amp;&amp; t.ImplementedInterfaces.Any(i=&gt; i ==selectedInterface.AsType()));
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<h2><span>More Information </span></h2>
+<p class="MsoListParagraph"><span style="font-family:Symbol">&bull;</span><span style="font-size:7.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>.NET for Windows Store apps overview</p>
+<p class="MsoListParagraph"><a href="http://msdn.microsoft.com/en-us/library/windows/apps/br230302.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/br230302.aspx</a></p>
+<p class="MsoListParagraph"><span style="font-family:Symbol">&bull;</span><span style="font-size:7.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Reflection in the .NET Framework for Windows Store Apps</p>
+<p class="MsoListParagraph"><a href="http://msdn.microsoft.com/en-us/library/hh535795.aspx">http://msdn.microsoft.com/en-us/library/hh535795.aspx</a></p>
+<p class="MsoListParagraph"><span style="font-family:Symbol">&bull;</span><span style="font-size:7.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class="SpellE">TypeInfo</span> Class</p>
+<p class="MsoListParagraph"><a href="http://msdn.microsoft.com/en-us/library/system.reflection.typeinfo.aspx">http://msdn.microsoft.com/en-us/library/system.reflection.typeinfo.aspx</a></p>
+<p class="MsoListParagraph"><span style="font-family:Symbol">&bull;</span><span style="font-size:7.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Assembly Class</p>
+<p class="MsoListParagraph"><a href="http://msdn.microsoft.com/en-us/library/system.reflection.assembly.aspx">http://msdn.microsoft.com/en-us/library/system.reflection.assembly.aspx</a></p>
+<p class="MsoListParagraph">&nbsp;</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
