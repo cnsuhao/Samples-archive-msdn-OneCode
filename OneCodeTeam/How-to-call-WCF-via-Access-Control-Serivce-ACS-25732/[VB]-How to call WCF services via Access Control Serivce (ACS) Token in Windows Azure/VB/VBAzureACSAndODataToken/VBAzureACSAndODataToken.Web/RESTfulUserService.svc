@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="VB" Debug="true" Service="RESTfulWCFLibrary.UserService" Factory="System.ServiceModel.Activation.WebServiceHostFactory" %>
