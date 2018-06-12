@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="8e74310d-cb0a-48c8-8697-72a89f454ed9" Publisher="CN=v-bos" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>CSUniversalAppSaveSurefaceImageSouce.Windows</DisplayName>
+    <PublisherDisplayName>v-bos</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="CSUniversalAppSaveSurefaceImageSouce.Windows.App">
+      <m2:VisualElements DisplayName="CSUniversalAppSaveSurefaceImageSouce.Windows" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="CSUniversalAppSaveSurefaceImageSouce.Windows" ForegroundText="light" BackgroundColor="#E6B80B">
+        <m2:DefaultTile Wide310x150Logo="Assets\TileLogo.png">
+        </m2:DefaultTile>
+        <m2:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#E6B80B" />
+      </m2:VisualElements>
+    </Application>
+  </Applications>
+</Package>
