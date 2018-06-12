@@ -1,0 +1,21 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBEFPivotOperation", "VBEFPivotOperation\VBEFPivotOperation.vbproj", "{AB537AEC-4CF9-4946-9698-8D23F6A45AFC}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB537AEC-4CF9-4946-9698-8D23F6A45AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB537AEC-4CF9-4946-9698-8D23F6A45AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB537AEC-4CF9-4946-9698-8D23F6A45AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB537AEC-4CF9-4946-9698-8D23F6A45AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
