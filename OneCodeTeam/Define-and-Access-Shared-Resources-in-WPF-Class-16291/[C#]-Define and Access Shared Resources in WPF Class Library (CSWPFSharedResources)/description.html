@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Define and Access Shared Resources in WPF Class Library (CSWPFSharedResources)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Define and Access Shared Resources in WPF Class Library (CSWPFSharedResources)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            WPF
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Shared Resources, Markup Extension
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/7/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSWPFSharedResources-4d5f6e2a">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Define and Access Shared Resources in WPF Class Library (CSWPFSharedResources)</h1>
+<h2>Introduction</h2>
+<p>This sample demonstrates the approach of</p>
+<ol>
+<li>Defining and using shared resources in WPF class library. </li><li>Accessing shared resources using markup extension. </li></ol>
+<p>Normally in a WPF class library the resources used in the controls will not be reflected at the design time. This approach of combining the shared resources along with markup extension helps us to overcome this limitation.</p>
+<h2>Running the Sample</h2>
+<ol>
+<li>Open the solution in Visual Studio. </li><li>Rebuild the solution. </li><li>Under the &ldquo;SharedResource_UsingMarkupExtension&rdquo; project open the Design view of &ldquo;CustomRect.xaml&rdquo;. The page looks empty. This page is using shared resource without MarkupExtension.
+</li><li>Open design view of &ldquo;CustomRectangle.xaml&rdquo;. We can see the image is displayed from the resource file&rdquo; MyResources.xaml&rdquo;.
+</li><li>The design of user control &ldquo;CustomRect.xaml&rdquo; will be viewable only when used in a WPF application. We overcome this limitation by using markup extension.
+</li><li>To test the working of this sample, hit &ldquo;Ctrl&#43;F5&rdquo;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .
+</li><li>A new window will open. The right side with &ldquo;Grey&rdquo; background shows the usercontrol using SharedResource with MarkupExtension and the left side usercontrol use SharedResource without MarkupExtension.
+</li></ol>
+<p><img src="description/image001.png" alt="" width="538" height="361"></p>
+<h2>Using the Code</h2>
+<p>This sample solves the problem having a common place to have application level resources in WPF class library by using Shared resources. Also, we can see the design of the user control in the WPF class library without being implemented in a WPF application
+ by using markup extension.</p>
+<p>You can add more property to the SharedResourceExtension and include more logic in the ProvideValue method to modify the code as per the requirement.</p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">// Adding new parameter.
+private object defaultvalue;
+ 
+public object Default
+{
+    get
+    {
+        return defaultvalue;
+    }
+    set
+    {
+                defaultvalue = value;
+    }
+}
+ 
+ // Constructor accepting two parameter.
+public SharedResourceExtension(object key, object defaultvalue)
+{
+    Key = key;
+    this.Default = defaultvalue;
+}
+ 
+public override object ProvideValue(IServiceProvider serviceProvider)
+{
+    object localValue = SharedResourceDictionaryManager.SharedResourceDictionary[Key];
+ 
+    if (localValue == null)
+    {
+        return SharedResourceDictionaryManager.SharedResourceDictionary[Key];
+    }
+ 
+    return localValue;
+}
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__com">//&nbsp;Adding&nbsp;new&nbsp;parameter.</span>&nbsp;
+<span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">object</span>&nbsp;defaultvalue;&nbsp;
+&nbsp;&nbsp;
+<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">object</span>&nbsp;Default&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">get</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;defaultvalue;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">set</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defaultvalue&nbsp;=&nbsp;<span class="cs__keyword">value</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+}&nbsp;
+&nbsp;&nbsp;
+&nbsp;<span class="cs__com">//&nbsp;Constructor&nbsp;accepting&nbsp;two&nbsp;parameter.</span>&nbsp;
+<span class="cs__keyword">public</span>&nbsp;SharedResourceExtension(<span class="cs__keyword">object</span>&nbsp;key,&nbsp;<span class="cs__keyword">object</span>&nbsp;defaultvalue)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Key&nbsp;=&nbsp;key;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.Default&nbsp;=&nbsp;defaultvalue;&nbsp;
+}&nbsp;
+&nbsp;&nbsp;
+<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">object</span>&nbsp;ProvideValue(IServiceProvider&nbsp;serviceProvider)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">object</span>&nbsp;localValue&nbsp;=&nbsp;SharedResourceDictionaryManager.SharedResourceDictionary[Key];&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(localValue&nbsp;==&nbsp;<span class="cs__keyword">null</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;SharedResourceDictionaryManager.SharedResourceDictionary[Key];&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;localValue;&nbsp;
+}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p>&nbsp;</p>
+<h2>More Information</h2>
+<p><a href="http://msdn.microsoft.com/en-us/library/ee855815.aspx">http://msdn.microsoft.com/en-us/library/ee855815.aspx</a>&nbsp;&nbsp;</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/ms747254.aspx">http://msdn.microsoft.com/en-us/library/ms747254.aspx</a></p>
+<p><a href="http://msdn.microsoft.com/en-us/library/ms747254.aspx">http://msdn.microsoft.com/en-us/library/ms747254.aspx</a></p>
+<p>&nbsp;</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
