@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Background worker thread in ASP.NET (VBASPNETBackgroundWorker)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Background worker thread in ASP.NET (VBASPNETBackgroundWorker)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            threading, backgroundworke<wbr />r
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">12/9/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBASPNETBackgroundWorker-79b5ef14">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Background worker thread in ASP.NET (<span class="SpellE">VBASPNETBackgroundWorker</span>)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">Sometimes we need to do some time-consuming operations in web page. The web page will be freezed until the operation is finished. In this case, we want the operation to run in the background, and also we may want to display the progress
+ of the running operation in&nbsp; web page. <span style="">And sometimes</span>, we may want to schedule some operations (send email/report ect.). In these cases, we hope the operations can be ran at the specific time.
+</p>
+<p class="MsoNormal">This project creates a class named &quot;BackgroundWorker&quot; to achieve these goals. It<span style="">
+</span>creates a page named &quot;Default.aspx&quot; to run the long time operation. And it creates a Background Worker to do the schedule when application starts up, then<span style="">
+</span>it uses &quot;GlobalBackgroundWorker.aspx&quot; page to check the progress.<span style="">
+</span></p>
+<h2>Running the Sample<span style=""> </span></h2>
+<p class="MsoListParagraphCxSpFirst" style="margin-left:.25in"><span style=""><span style="">Step 1:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Open the VBASPNETBackgroundWorker.sln.<span style=""> </span>
+</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style=""><span style="">Step 2:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Expand the <span class="SpellE">VBASPNETBackgroundWorker</span> web application and press Ctrl &#43; F5 to show the Default.aspx.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style=""><span style="">Step 3:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span><span style="">Session based Background Worker.<br>
+<br>
+a. Open Default.aspx, and then click the button to run the operation in background.<span style="">
+<img src="description/image.png" alt="" width="784" height="320" align="middle">
+</span><br>
+b. Open Default.aspx in two browsers then click the buttons at the same time. You will see that two Background Workers work independently.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style=""><span style="">Step 4:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span><span style="">Application Level Background Worker.<br>
+<br>
+a. Open GlobalBackgroundWorker.aspx. You will see that the Background Worker is running.<span style="">
+<img src="description/13c8f8c0-ea34-4b83-9778-52eb5425583eimage.png" alt="" width="863" height="138" align="middle">
+</span><br>
+b. Close the browser, wait for 10 seconds and then open the page again. . You will see that the Background Worker is still running even we closed the browser.</span></p>
+<p class="MsoListParagraphCxSpLast" style="margin-left:.25in"><span style=""><span style="">Step 5:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Validation finished.</p>
+<h2>Using the Code<span style=""> </span></h2>
+<p class="MsoListParagraphCxSpFirst" style="margin-left:.25in"><span style=""><span style="">Step 1:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Create a <span style="">VB</span> &quot;ASP.NET Empty Web Application&quot; in Visual Studio 2012 or Visual Web Developer 2012. Name it as &quot;<span class="SpellE">VBASPNETBackgroundWorker</span>&quot;.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style=""><span style="">Step 2:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span><span style="">&nbsp;</span>Add two web forms in the root directory, name them as &quot;Default.aspx&quot;, &quot;<span style=""> GlobalBackgroundWorker</span>.aspx&quot;.</p>
+<p class="MsoListParagraphCxSpLast" style="margin-left:.25in"><span style=""><span style="">Step 3:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span><span style="">Create a class file and name it as &quot;BackgroundWorker&quot;. It starts an operation (method) in a separated thread.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Public Sub RunWorker(ByVal arguments As Object())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _arguments = arguments
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _innerThread = New Thread(AddressOf Worker)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _innerThread.Start()
+&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp; Private Sub Worker()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _progress = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RaiseEvent DoWork(_progress, _result, _arguments)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _progress = 100
+&nbsp;&nbsp; End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Public Sub RunWorker(ByVal arguments As Object())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _arguments = arguments
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _innerThread = New Thread(AddressOf Worker)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _innerThread.Start()
+&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp; Private Sub Worker()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _progress = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RaiseEvent DoWork(_progress, _result, _arguments)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _progress = 100
+&nbsp;&nbsp; End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style="margin-left:.25in"><span style=""><span style="">Step 4:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>In the page named &quot;Default.aspx&quot;. It uses UpdatePanel to achieve partial<span style=""> refreshing. And it uses Timer control to update the operation progress.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+&lt;!-- UpdateUpanel let the progress can be updated without updating the whole page (partial update). --&gt;
+&nbsp;&nbsp;&nbsp; &lt;asp:UpdatePanel ID=&quot;UpdatePanel1&quot; runat=&quot;server&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ContentTemplate&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- The timer which used to update the progress. --&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;asp:Timer ID=&quot;Timer1&quot; runat=&quot;server&quot; Interval=&quot;100&quot; Enabled=&quot;false&quot; ontick=&quot;Timer1_Tick&quot;&gt;&lt;/asp:Timer&gt;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- The Label which used to display the progress and the result --&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;asp:Label ID=&quot;lbProgress&quot; runat=&quot;server&quot; Text=&quot;&quot;&gt;&lt;/asp:Label&gt;<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Start the operation by inputting value and clicking the button --&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Input a parameter: &lt;asp:TextBox ID=&quot;txtParameter&quot; runat=&quot;server&quot; Text=&quot;Hello World&quot;&gt;&lt;/asp:TextBox&gt;<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;asp:Button ID=&quot;btnStart&quot; runat=&quot;server&quot; Text=&quot;Click to Start the Background Worker&quot; onclick=&quot;btnStart_Click&quot; /&gt;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/ContentTemplate&gt;
+&nbsp;&nbsp;&nbsp; &lt;/asp:UpdatePanel&gt;
+
+</pre>
+<pre id="codePreview" class="vb">
+&lt;!-- UpdateUpanel let the progress can be updated without updating the whole page (partial update). --&gt;
+&nbsp;&nbsp;&nbsp; &lt;asp:UpdatePanel ID=&quot;UpdatePanel1&quot; runat=&quot;server&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ContentTemplate&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- The timer which used to update the progress. --&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;asp:Timer ID=&quot;Timer1&quot; runat=&quot;server&quot; Interval=&quot;100&quot; Enabled=&quot;false&quot; ontick=&quot;Timer1_Tick&quot;&gt;&lt;/asp:Timer&gt;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- The Label which used to display the progress and the result --&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;asp:Label ID=&quot;lbProgress&quot; runat=&quot;server&quot; Text=&quot;&quot;&gt;&lt;/asp:Label&gt;<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Start the operation by inputting value and clicking the button --&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Input a parameter: &lt;asp:TextBox ID=&quot;txtParameter&quot; runat=&quot;server&quot; Text=&quot;Hello World&quot;&gt;&lt;/asp:TextBox&gt;<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;asp:Button ID=&quot;btnStart&quot; runat=&quot;server&quot; Text=&quot;Click to Start the Background Worker&quot; onclick=&quot;btnStart_Click&quot; /&gt;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/ContentTemplate&gt;
+&nbsp;&nbsp;&nbsp; &lt;/asp:UpdatePanel&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">In btnStart_Click() method which handles button click event. It creates a Background Worker and saves it to Session State. So that the Background Worker is bound to current Session.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Dim worker As New BackgroundWorker()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddHandler worker.DoWork, AddressOf worker_DoWork
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; worker.RunWorker({txtParameter.Text})
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' It needs Session Mode is &quot;InProc&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' to keep the Background Worker working.
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Session(&quot;worker&quot;) = worker
+
+</pre>
+<pre id="codePreview" class="vb">
+Dim worker As New BackgroundWorker()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddHandler worker.DoWork, AddressOf worker_DoWork
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; worker.RunWorker({txtParameter.Text})
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' It needs Session Mode is &quot;InProc&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' to keep the Background Worker working.
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Session(&quot;worker&quot;) = worker
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style="margin-left:.25in"><span style=""><span style="">Step 5:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>In the Global class, you will find Application_Start() method creates a<span style=""> Background Worker and then saves it to Application State. Therefore, the Background Worker will keep running in background and it is shared by all users.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Dim worker As New BackgroundWorker()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddHandler worker.DoWork, AddressOf worker_DoWork
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; worker.RunWorker(Nothing)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' This Background Worker is Applicatoin Level,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' so it will keep working and it is shared by all users.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Application(&quot;worker&quot;) = worker
+
+</pre>
+<pre id="codePreview" class="vb">
+Dim worker As New BackgroundWorker()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddHandler worker.DoWork, AddressOf worker_DoWork
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; worker.RunWorker(Nothing)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' This Background Worker is Applicatoin Level,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' so it will keep working and it is shared by all users.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Application(&quot;worker&quot;) = worker
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style="margin-left:.25in"><span style=""><span style="">Step 6:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Build the application and you can debug it<span style="">.</span></p>
+<h2>More Information</h2>
+<p class="MsoNormal">Using Threads and Threading<span style=""><br>
+</span><a href="http://msdn.microsoft.com/en-us/library/e1dx6b2h.aspx">http://msdn.microsoft.com/en-us/library/e1dx6b2h.aspx</a><span style=""><br>
+</span>UpdatePanel Control Overview<span style=""><br>
+</span><a href="http://msdn.microsoft.com/en-us/library/bb386454.aspx">http://msdn.microsoft.com/en-us/library/bb386454.aspx</a><span style=""><br>
+</span>Timer Control Overview<span style=""><br>
+</span><a href="http://msdn.microsoft.com/en-us/library/bb398865.aspx">http://msdn.microsoft.com/en-us/library/bb398865.aspx</a><span style=""><br>
+</span>Events (C# Programming Guide)<span style=""><br>
+</span><a href="http://msdn.microsoft.com/en-us/library/awbftdfh.aspx">http://msdn.microsoft.com/en-us/library/awbftdfh.aspx</a><span style="">
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
