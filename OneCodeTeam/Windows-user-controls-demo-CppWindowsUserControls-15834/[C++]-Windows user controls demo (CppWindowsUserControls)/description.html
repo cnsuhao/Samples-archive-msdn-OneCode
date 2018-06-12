@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Windows user controls demo (CppWindowsUserControls)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Windows user controls demo (CppWindowsUserControls)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows SDK
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            User Controls, Windows UI
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/1/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CppWindowsUserControls-393532c6">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="font-family:������">WIN32 APPLICATION</span> (<span style="font-family:������">CppWindowsUserControls</span>)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">CppWindowsUserControls contains simple examples of how to create user controls defined in user32.dll. The controls include Buttons, Combo-boxes, Edits, List-boxes, RichEdit(in msftedit.dll or riched20.dll or riched32.dll), Scrollbars,
+ and Statics.<span style="">&nbsp; </span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="312" height="298" align="middle">
+</span></p>
+<p class="MsoListParagraph" style=""><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">When we click ��Button�� the UI is: </span></p>
+<p class="MsoNormal"><span style=""><img src="description/5582f5e7-f11f-4fd7-8bbe-56d15c60b662image.png" alt="" width="406" height="335" align="middle">
+</span><span style=""></span></p>
+<p class="MsoListParagraph" style=""><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">When we click ��ListBox�� the UI is: </span></p>
+<p class="MsoNormal"><span style=""><img src="description/a5e26b02-1808-4de0-8ef1-485216e9ca15image.png" alt="" width="406" height="335" align="middle">
+</span><span style=""></span></p>
+<p class="MsoListParagraph" style=""><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">When we click ��ComboBox�� the UI is : </span>
+</p>
+<p class="MsoNormal"><span style=""><img src="description/8a4af778-6f7c-4579-aa58-3b5b27b13c94image.png" alt="" width="406" height="335" align="middle">
+</span><span style=""></span></p>
+<p class="MsoListParagraph" style=""><span style=""><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">When we click ��ScrollBar�� the UI is: </span>
+</p>
+<p class="MsoNormal"><span style=""><img src="description/44b2d9b1-0818-4108-9b02-4ac56e8bee3bimage.png" alt="" width="406" height="335" align="middle">
+</span><span style=""></span></p>
+<p class="MsoListParagraph" style=""><span style=""><span style="">5.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">When we click ��Edit�� the UI is: </span></p>
+<p class="MsoNormal"><span style=""><img src="description/64d7587e-9b0b-45c2-8919-74f9cdebe5f2image.png" alt="" width="406" height="335" align="middle">
+</span><span style=""></span></p>
+<p class="MsoListParagraph" style=""><span style=""><span style="">6.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">When we click ��Static�� the UI is: </span></p>
+<p class="MsoNormal"><span style=""><img src="description/5e46ee74-3cda-4819-bb79-e809d71c9c88image.png" alt="" width="406" height="335" align="middle">
+</span><span style=""></span></p>
+<p class="MsoListParagraph" style=""><span style=""><span style="">7.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">When we click��RichEdit�� the UI is: </span></p>
+<p class="MsoNormal"><span style=""><img src="description/19c9739a-bbf4-42bf-94cd-4d55a8e0a27cimage.png" alt="" width="406" height="335" align="middle">
+</span><span style=""></span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">Step1. According to the CppWindowsDialog example, build up the dialogs for use in this example:
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+#define IDD_MAINDIALOG                  103
+#define IDD_BUTTONDIALOG                130
+#define IDD_COMBOBOXDIALOG              131
+#define IDD_EDITDIALOG                  132
+#define IDD_RICHEDITDIALOG              133
+#define IDD_LISTBOXDIALOG               134
+#define IDD_SCROLLBARDIALOG             135
+#define IDD_STATICDIALOG                136
+#define IDB_BITMAP1                     139
+#define IDC_BUTTON_BUTTON               1000
+#define IDC_BUTTON_COMBOBOX             1001
+#define IDC_BUTTON_EDIT                 1002
+#define IDC_BUTTON_LISTBOX              1003
+#define IDC_BUTTON_SCROLLBAR            1004
+#define IDC_BUTTON_STATIC               1005
+#define IDC_BUTTON_RICHEDIT             1006
+#define IDC_STATIC                      -1
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+#define IDD_MAINDIALOG                  103
+#define IDD_BUTTONDIALOG                130
+#define IDD_COMBOBOXDIALOG              131
+#define IDD_EDITDIALOG                  132
+#define IDD_RICHEDITDIALOG              133
+#define IDD_LISTBOXDIALOG               134
+#define IDD_SCROLLBARDIALOG             135
+#define IDD_STATICDIALOG                136
+#define IDB_BITMAP1                     139
+#define IDC_BUTTON_BUTTON               1000
+#define IDC_BUTTON_COMBOBOX             1001
+#define IDC_BUTTON_EDIT                 1002
+#define IDC_BUTTON_LISTBOX              1003
+#define IDC_BUTTON_SCROLLBAR            1004
+#define IDC_BUTTON_STATIC               1005
+#define IDC_BUTTON_RICHEDIT             1006
+#define IDC_STATIC                      -1
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">IDD_MAINDIALOG - The main dialog, having the buttons to show the sub-dialogs that demonstrate the use of every
+<span class="GramE">types</span> of user-controls. </p>
+<p class="MsoNormal">IDD_BUTTONDIALOG - Demonstrate the various types of button.
+</p>
+<p class="MsoNormal">IDD_COMBOBOXDIALOG - Demonstrate the various types of comboxbox.
+</p>
+<p class="MsoNormal">IDD_EDITDIALOG - Demonstrate the various types of edit control.
+</p>
+<p class="MsoNormal">IDD_RICHEDITDIALOG - Demonstrate the richedit control. </p>
+<p class="MsoNormal">IDD_LISTBOXDIALOG - Demonstrate the listbox control. </p>
+<p class="MsoNormal">IDD_SCROLLBARDIALOG - Demonstrate the scrollbar control. </p>
+<p class="MsoNormal">IDD_STATICDIALOG - Demonstrate the various types of static control.
+</p>
+<p class="MsoNormal">Step2. In each dialog's WM_INITDIALOG event handler, create controls using the CreateWindowEx API. For example,
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+RECT rc = { 20, 20, 150, 30 };
+HWND hBtn = CreateWindowEx(0, L&quot;BUTTON&quot;, L&quot;Default Push Button&quot;, 
+    BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE, 
+    rc.left, rc.top, rc.right, rc.bottom, 
+    hWnd, reinterpret_cast&lt;HMENU&gt;(IDC_DEFPUSHBUTTON), g_hInst, 0);
+if (hBtn)
+{
+    SendMessage(hBtn, WM_SETFONT, reinterpret_cast&lt;WPARAM&gt;(hFont), TRUE);
+}
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+RECT rc = { 20, 20, 150, 30 };
+HWND hBtn = CreateWindowEx(0, L&quot;BUTTON&quot;, L&quot;Default Push Button&quot;, 
+    BS_DEFPUSHBUTTON | WS_CHILD | WS_VISIBLE, 
+    rc.left, rc.top, rc.right, rc.bottom, 
+    hWnd, reinterpret_cast&lt;HMENU&gt;(IDC_DEFPUSHBUTTON), g_hInst, 0);
+if (hBtn)
+{
+    SendMessage(hBtn, WM_SETFONT, reinterpret_cast&lt;WPARAM&gt;(hFont), TRUE);
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">The various control types are created by varying the style bits.
+</p>
+<h2>More Information</h2>
+<p class="MsoListParagraphCxSpFirst" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:Symbol"><span style="">��<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-family:������"><a href="http://msdn.microsoft.com/en-us/library/ms633574.aspx">MSDN: About Window Classes</a>
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:Symbol"><span style="">��<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-family:������"><a href="http://winapi.foosyerdoos.org.uk/info/user_cntrls.php">Creating Windows and User Controls</a>
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:Symbol"><span style="">��<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-family:������"><a href="http://msdn.microsoft.com/en-us/library/ms632680.aspx">MSDN: CreateWindowEx</a>
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:Symbol"><span style="">��<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-family:������"><a href="http://msdn.microsoft.com/en-us/library/bb773169.aspx">MSDN: Control Library</a>
+</span></p>
+<p class="MsoListParagraphCxSpLast"></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
