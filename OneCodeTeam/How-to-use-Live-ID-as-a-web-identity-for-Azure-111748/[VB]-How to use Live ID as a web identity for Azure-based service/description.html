@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=5CF4E24D59324FBE66CF8C9A49A3F942" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:FooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=F8E8917DA8158DB3E7C6F07AA1FFC4F3" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to use Live ID as a web identity for Azure-based service</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to use Live ID as a web identity for Azure-based service</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure, Cloud
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            ACS
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">1/19/2015</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/How-to-use-Live-ID-as-a-a031745e">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode"><img src="description/8171.onecodesampletopbanner.png" alt=""></a></div>
+</h1>
+<h1><strong>How to use </strong><strong>ACS identify with Live ID</strong><strong>&nbsp;</strong></h1>
+<h2><strong>Introduction</strong></h2>
+<p>ACS is built on the principles of claims-based identity, in .net 4.5, there is a big change in WIF, and this sample will show you how to use claims-based identity with windows Azure in Visual Studio 2012.</p>
+<h2><strong>Running the Sample</strong></h2>
+<p>First search &ldquo;TODO:&rdquo; in your web.config file and login.aspx file.</p>
+<p>Change the value to yours.</p>
+<p>For how to get that values, please read: <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/access-control/#config-trust">
+How to Authenticate Web Users with Windows Azure Active Directory Access Control</a></p>
+<h2><strong>Using the Code</strong></h2>
+<ol>
+<li>Open Visual studio. </li><li>Click Tools-&gt;Extensions and update. Then input identity in Online search, select Identity and Access Tool and install.
+</li></ol>
+<p>&nbsp;<img id="132700" src="description/image002.jpg" alt="" width="576" height="399">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3.<span style="font-size:10px">Reopen Visual Studio, create a cloud service named VBAzureIdentityWithLiveID
+ with a web role.</span></p>
+<p><span style="font-size:10px">&nbsp;</span><span style="font-size:10px">&nbsp; &nbsp; &nbsp;4.Right click Web Role project, and click identity and Access.</span></p>
+<p>&nbsp;<img id="132701" src="description/image003.png" alt="" width="352" height="745"></p>
+<p><span style="font-size:10px">&nbsp; &nbsp; &nbsp;5. In &quot;Choose where your users are from&quot; form, choose the third one.</span></p>
+<p>&nbsp;<img id="132702" src="description/image005.jpg" alt="" width="576" height="191"></p>
+<p><span style="font-size:10px">&nbsp; &nbsp; &nbsp;6. Configure your account by click (Configure&hellip;), get the Namespace and management key from your ACS portal.</span></p>
+<p>&nbsp;<img id="132703" src="description/image007.jpg" alt="" width="576" height="410"></p>
+<p><span style="font-size:10px">&nbsp; &nbsp; &nbsp;7. After the configuration, you can edit the APP ID URL and Return URL for you app.</span></p>
+<p>Input <a href="http://127.0.0.1:81/">http://127.0.0.1:81/</a> in both textboxes.</p>
+<p><span style="font-size:10px">&nbsp; &nbsp; &nbsp;8. To customize a Login page, you can download the example code from ACS management portal, or you can write them by yourself.</span></p>
+<p>The most important thing is do not forget to add the IdentityProviders.js to your login page.</p>
+<h3><strong>This code shows how to involve your acs login script in your app.</strong></h3>
+<pre><div class="scriptcode"><div class="pluginEditHolder" pluginCommand="mceScriptCode"><div class="title"><span>HTML</span></div><div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div><span class="hidden">html</span><pre class="hidden">&lt;script src=&quot;https://Myappfabric.accesscontrol.windows.net:443/v2/metadata/IdentityProviders.js?protocol=wsfederation&amp;realm=http%3a%2f%2flocalhost%3a64801%2f&amp;reply_to=http%3a%2f%2flocalhost%3a64801%2fcallback.aspx&amp;context=&amp;request_id=&amp;version=1.0&amp;callback=ShowSigninPage&quot; 
+type=&quot;text/javascript&quot;&gt;
+&lt;/script&gt;</pre>
+<div class="preview">
+<pre class="html"><span class="html__tag_start">&lt;script</span>&nbsp;<span class="html__attr_name">src</span>=<span class="html__attr_value">&quot;https://Myappfabric.accesscontrol.windows.net:443/v2/metadata/IdentityProviders.js?protocol=wsfederation&amp;realm=http%3a%2f%2flocalhost%3a64801%2f&amp;reply_to=http%3a%2f%2flocalhost%3a64801%2fcallback.aspx&amp;context=&amp;request_id=&amp;version=1.0&amp;callback=ShowSigninPage&quot;</span>&nbsp;&nbsp;
+<span class="html__attr_name">type</span>=<span class="html__attr_value">&quot;text/javascript&quot;</span><span class="html__tag_start">&gt;</span>&nbsp;
+<span class="html__tag_end">&lt;/script&gt;</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</pre>
+<h3><strong>This code show&rsquo;s how to create the button for your IDP.</strong></h3>
+<pre><div class="scriptcode"><div class="pluginEditHolder" pluginCommand="mceScriptCode"><div class="title"><span>JavaScript</span></div><div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div><span class="hidden">js</span><pre class="hidden">//Creates a stylized link to an identity provider's login page
+       function CreateIdentityProviderButton(identityProvider) {
+           var idpList = document.getElementById(&quot;IdentityProvidersList&quot;);
+           var button = document.createElement(&quot;button&quot;);
+           button.setAttribute(&quot;name&quot;, identityProvider.Name);
+           button.setAttribute(&quot;id&quot;, identityProvider.LoginUrl);
+           button.className = &quot;IdentityProvider&quot;;
+           button.onclick = IdentityProviderButtonClicked;
+ 
+           // Display an image if an image URL is present
+           if (identityProvider.ImageUrl.length &gt; 0) {
+ 
+               var img = document.createElement(&quot;img&quot;);
+               img.className = &quot;IdentityProviderImage&quot;;
+               img.setAttribute(&quot;src&quot;, identityProvider.ImageUrl);
+               img.setAttribute(&quot;alt&quot;, identityProvider.Name);
+               img.setAttribute(&quot;border&quot;, &quot;0&quot;);
+               img.onLoad = ResizeImage(img);
+ 
+               button.appendChild(img);
+           }
+               // Otherwise, display a text link if no image URL is present
+           else if (identityProvider.ImageUrl.length === 0) {
+               button.appendChild(document.createTextNode(identityProvider.Name));
+           }
+ 
+           idpList.appendChild(button);
+       }</pre>
+<div class="preview">
+<pre class="js"><span class="js__sl_comment">//Creates&nbsp;a&nbsp;stylized&nbsp;link&nbsp;to&nbsp;an&nbsp;identity&nbsp;provider's&nbsp;login&nbsp;page</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;CreateIdentityProviderButton(identityProvider)&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;idpList&nbsp;=&nbsp;document.getElementById(<span class="js__string">&quot;IdentityProvidersList&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;button&nbsp;=&nbsp;document.createElement(<span class="js__string">&quot;button&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button.setAttribute(<span class="js__string">&quot;name&quot;</span>,&nbsp;identityProvider.Name);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button.setAttribute(<span class="js__string">&quot;id&quot;</span>,&nbsp;identityProvider.LoginUrl);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button.className&nbsp;=&nbsp;<span class="js__string">&quot;IdentityProvider&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button.onclick&nbsp;=&nbsp;IdentityProviderButtonClicked;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__sl_comment">//&nbsp;Display&nbsp;an&nbsp;image&nbsp;if&nbsp;an&nbsp;image&nbsp;URL&nbsp;is&nbsp;present</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(identityProvider.ImageUrl.length&nbsp;&gt;&nbsp;<span class="js__num">0</span>)&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;img&nbsp;=&nbsp;document.createElement(<span class="js__string">&quot;img&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img.className&nbsp;=&nbsp;<span class="js__string">&quot;IdentityProviderImage&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img.setAttribute(<span class="js__string">&quot;src&quot;</span>,&nbsp;identityProvider.ImageUrl);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img.setAttribute(<span class="js__string">&quot;alt&quot;</span>,&nbsp;identityProvider.Name);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img.setAttribute(<span class="js__string">&quot;border&quot;</span>,&nbsp;<span class="js__string">&quot;0&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img.onLoad&nbsp;=&nbsp;ResizeImage(img);&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button.appendChild(img);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__sl_comment">//&nbsp;Otherwise,&nbsp;display&nbsp;a&nbsp;text&nbsp;link&nbsp;if&nbsp;no&nbsp;image&nbsp;URL&nbsp;is&nbsp;present</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">else</span>&nbsp;<span class="js__statement">if</span>&nbsp;(identityProvider.ImageUrl.length&nbsp;===&nbsp;<span class="js__num">0</span>)&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button.appendChild(document.createTextNode(identityProvider.Name));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;idpList.appendChild(button);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<br></pre>
+<p>9. In callback.aspx page, you need to use the latest WIF code.</p>
+<h3><strong>This code shows how to get current claims in new WIF.</strong></h3>
+<pre><div class="scriptcode"><div class="pluginEditHolder" pluginCommand="mceScriptCode"><div class="title"><span>C#</span></div><div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div><span class="hidden">csharp</span><pre class="hidden">var UserName = System.Security.Claims.ClaimsPrincipal.Current.FindFirst(ClaimTypes.Name).Value;           
+           if (UserName!=null)
+           {
+               Session[&quot;UserName&quot;] = UserName;
+               Response.Redirect(&quot;Default.aspx&quot;);
+           } 
+</pre>
+<div class="preview">
+<pre class="csharp">var&nbsp;UserName&nbsp;=&nbsp;System.Security.Claims.ClaimsPrincipal.Current.FindFirst(ClaimTypes.Name).Value;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(UserName!=<span class="cs__keyword">null</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Session[<span class="cs__string">&quot;UserName&quot;</span>]&nbsp;=&nbsp;UserName;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response.Redirect(<span class="cs__string">&quot;Default.aspx&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<br></pre>
+<p>&nbsp;</p>
+<h2><strong>More Information</strong><strong>&nbsp;</strong></h2>
+<p><a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/access-control/#config-trust">http://www.windowsazure.com/en-us/develop/net/how-to-guides/access-control/#config-trust</a></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>
