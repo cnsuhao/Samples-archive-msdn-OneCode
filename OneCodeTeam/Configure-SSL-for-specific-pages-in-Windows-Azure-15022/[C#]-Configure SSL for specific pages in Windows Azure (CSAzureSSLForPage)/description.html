@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Configure SSL for specific pages in Windows Azure (CSAzureSSLForPage)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Configure SSL for specific pages in Windows Azure (CSAzureSSLForPage)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Security, ssl
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/16/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSAzureSSLForPage-e844c9fe">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420" ><img id="79969" src="description/120x90_Azure_web_EN_US.jpg" alt="" width="360" height="90"></a></p>
+<h1>Configure SSL for specific page(s) while hosting the application in Azure (CSAzureSSLForPage)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">While hosting the applications in Azure, developers are required to modify IIS settings to suit their application requirements. Many of these IIS settings can be modified only programmatically and developers are required to write code,
+ startup tasks to achieve what they are looking for. One common thing customer does while hosting the applications on-premise is to mix the SSL content with non-SSL content. In Azure, by default you can enable SSL for entire site. There is no provision to enable
+ SSL only for few pages. Hence, i have written sample that customers can use it without investing more time to achieve the task.<span>
+</span></p>
+<p class="MsoNormal" style="text-align:right"><a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420"><span style="color:windowtext; text-decoration:none"><span><img src="description/image.png" alt="" width="120" height="90" align="middle">
+</span></span></a><br>
+<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420">Try Windows Azure for free for 90 Days!</a></p>
+<h2>Building the Sample</h2>
+<p class="MsoNormal">This sample needs to be configured with sitename before running it.</p>
+<p class="MsoNormal">1. Under OnStart() Method, Locate following line, read and make changes to this line of code as per comments below.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">// Since we are looking to enable SSL for only specific page, get the section 
+// of configuration which needs to be changed for specific location
+// Website name can be obtained using  RoleEnvironment.CurrentRoleInstance.Id 
+// and then append &quot;_&quot; along with actual site name specified in ServiceDefinition.csdef
+// Default name of the website is Web. If you have specified different sitename, 
+// please replace &quot;Web&quot; with the specified name in below line of code.
+ConfigurationSection section = config.GetSection(&quot;system.webServer/security/access&quot;,
+    RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot; &#43; &quot;/sslpage.aspx&quot;);
+
+</pre>
+<pre id="codePreview" class="csharp">// Since we are looking to enable SSL for only specific page, get the section 
+// of configuration which needs to be changed for specific location
+// Website name can be obtained using  RoleEnvironment.CurrentRoleInstance.Id 
+// and then append &quot;_&quot; along with actual site name specified in ServiceDefinition.csdef
+// Default name of the website is Web. If you have specified different sitename, 
+// please replace &quot;Web&quot; with the specified name in below line of code.
+ConfigurationSection section = config.GetSection(&quot;system.webServer/security/access&quot;,
+    RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot; &#43; &quot;/sslpage.aspx&quot;);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">2. If you need to enable SSL for multiple pages, below lines should be repeated in the code. Highlighted portion is where you need to replace with page name you are trying to configure SSL for.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">ConfigurationSection section = config.GetSection(&quot;system.webServer/security/access&quot;,
+    RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot; &#43; &quot;/sslpage.aspx&quot;);
+
+
+// Get the sslFlags attribute which is used for configuring SSL settings
+ConfigurationAttribute enabled = section.GetAttribute(&quot;sslFlags&quot;);
+
+
+// Configure sslFlags value as &quot;ssl&quot;. This will enable &quot;Require SSL&quot; flag
+enabled.Value = &quot;Ssl&quot;;
+
+</pre>
+<pre id="codePreview" class="csharp">ConfigurationSection section = config.GetSection(&quot;system.webServer/security/access&quot;,
+    RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot; &#43; &quot;/sslpage.aspx&quot;);
+
+
+// Get the sslFlags attribute which is used for configuring SSL settings
+ConfigurationAttribute enabled = section.GetAttribute(&quot;sslFlags&quot;);
+
+
+// Configure sslFlags value as &quot;ssl&quot;. This will enable &quot;Require SSL&quot; flag
+enabled.Value = &quot;Ssl&quot;;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">3. In the sample, I have configured https endpoint, RDP access using the certificates I have on my machine. You would need to re-configure certificates using the ones you have on your machine or create new certificates for these purposes.
+ To change the certificates, Open the project, go to the properties of the sslRole as shown below and modify the highlighted certificates.</p>
+<p class="MsoNormal"><span><img src="description/a5345c2e-9c22-45ef-95c6-d9f82332e815image.png" alt="" width="915" height="225" align="middle">
+</span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal">Configure the variables as mentioned in the &quot;Building the sample&quot; section and then run the sample by clicking F5 in VS or build the sample and run the exe. Once you confirm that the sample is working, take the code from OnStart() method
+ and incorporate with actual application.</p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">Add references to <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Web.Administration.aspx"  title="Auto generated link to Microsoft.Web.Administration">Microsoft.Web.Administration</a> (location: &lt;systemdrive&gt;\system32\inetsrv) assembly and add below using statement to your project</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Web.Administration.aspx"  title="Auto generated link to Microsoft.Web.Administration">Microsoft.Web.Administration</a>;
+
+</pre>
+<pre id="codePreview" class="csharp">using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Web.Administration.aspx"  title="Auto generated link to Microsoft.Web.Administration">Microsoft.Web.Administration</a>;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">Code to configure SSL is below:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">// Create new ServerManager object to modify IIS7 configuration
+ServerManager serverManager = new ServerManager();
+
+
+// Retrieve Current Application Host Configuration of IIS
+Configuration config = serverManager.GetApplicationHostConfiguration();
+
+
+// Since we are looking to enable SSL for only specific page, get the section 
+// of configuration which needs to be changed for specific location
+// Website name can be obtained using  RoleEnvironment.CurrentRoleInstance.Id 
+// and then append &quot;_&quot; along with actual site name specified in ServiceDefinition.csdef
+// Default name of the website is Web. If you have specified different sitename, 
+// please replace &quot;Web&quot; with the specified name in below line of code.
+ConfigurationSection section = config.GetSection(&quot;system.webServer/security/access&quot;,
+    RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot; &#43; &quot;/sslpage.aspx&quot;);
+
+
+// Get the sslFlags attribute which is used for configuring SSL settings
+ConfigurationAttribute enabled = section.GetAttribute(&quot;sslFlags&quot;);
+
+
+// Configure sslFlags value as &quot;ssl&quot;. This will enable &quot;Require SSL&quot; flag
+enabled.Value = &quot;Ssl&quot;;
+
+
+// Save the changes. If role is not running under elevated executionContext, 
+// this line will result in exception.
+serverManager.CommitChanges();
+
+</pre>
+<pre id="codePreview" class="csharp">// Create new ServerManager object to modify IIS7 configuration
+ServerManager serverManager = new ServerManager();
+
+
+// Retrieve Current Application Host Configuration of IIS
+Configuration config = serverManager.GetApplicationHostConfiguration();
+
+
+// Since we are looking to enable SSL for only specific page, get the section 
+// of configuration which needs to be changed for specific location
+// Website name can be obtained using  RoleEnvironment.CurrentRoleInstance.Id 
+// and then append &quot;_&quot; along with actual site name specified in ServiceDefinition.csdef
+// Default name of the website is Web. If you have specified different sitename, 
+// please replace &quot;Web&quot; with the specified name in below line of code.
+ConfigurationSection section = config.GetSection(&quot;system.webServer/security/access&quot;,
+    RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot; &#43; &quot;/sslpage.aspx&quot;);
+
+
+// Get the sslFlags attribute which is used for configuring SSL settings
+ConfigurationAttribute enabled = section.GetAttribute(&quot;sslFlags&quot;);
+
+
+// Configure sslFlags value as &quot;ssl&quot;. This will enable &quot;Require SSL&quot; flag
+enabled.Value = &quot;Ssl&quot;;
+
+
+// Save the changes. If role is not running under elevated executionContext, 
+// this line will result in exception.
+serverManager.CommitChanges();
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<h2>More Information</h2>
+<p class="MsoNormal">Exercise 4: Securing Windows Azure with SSL<br>
+<a href="http://msdn.microsoft.com/en-us/gg271302">http://msdn.microsoft.com/en-us/gg271302</a></p>
+<p class="MsoNormal">&nbsp;</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

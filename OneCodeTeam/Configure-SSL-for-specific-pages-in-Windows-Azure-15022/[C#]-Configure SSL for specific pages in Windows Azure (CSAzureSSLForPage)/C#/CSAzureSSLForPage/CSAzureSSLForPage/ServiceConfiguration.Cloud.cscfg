@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="sslforpage" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="1" osVersion="*">
+  <Role name="sslRole">
+    <Instances count="1" />
+    <Certificates>
+      <Certificate name="sitecert" thumbprint="7836099FFB4DE37A13650AFD0C7B98CB620A4B5E" thumbprintAlgorithm="sha1" />
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="B79E08F007B2630D927D7C5F1385A0612B57473B" thumbprintAlgorithm="sha1" />
+    </Certificates>
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="hari" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEHZ/0ewI98CvQhowzArREOIwDQYJKoZIhvcNAQEBBQAEggEAMObGePLHOOCpKiqeja+GzZ/DB9R9+LVuXNrlxgfVzyaNnFp9HrWGR/Tsc9Zmn7UQs571t6FZ4M1TPveoegt+HNYKVSiQ4zLyX0kWzNvhYPNQcm7Bej9k/lMyukR1jEn4VzqimH5iYdPzyNYQZzp0bnZyer7i5Zmcd9NbZwacUmeCFSEfhX7wSGoV1MV+tA2mR2MwZOrrBJEoNxstfmjwrrPeNk0WuvSP5yAhFEPbpMvG4XEbwgZpefyaDEzSr2s006LfGMy0iF+NP2ZHa+c3RR+33rKQcc27EcpmFsVmAh1jGDXKtQZpWtK/KVb+5dM/yBt4cSigsqP7lyqNVrCe7jAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECEE7RZVxoskXgBCFPQA202oMU884K3FY7M8c" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2011-12-11T23:59:59.0000000+05:30" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

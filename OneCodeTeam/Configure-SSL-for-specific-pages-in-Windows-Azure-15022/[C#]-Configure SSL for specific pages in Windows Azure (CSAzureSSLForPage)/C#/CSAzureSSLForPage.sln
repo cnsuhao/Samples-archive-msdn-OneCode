@@ -1,0 +1,31 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CSAzureSSLForPage", "CSAzureSSLForPage\CSAzureSSLForPage\CSAzureSSLForPage.ccproj", "{39BCA4AD-0E3A-492C-9C99-1599669345DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sslRole", "CSAzureSSLForPage\sslRole\sslRole.csproj", "{8A8E9B61-500F-44D7-9328-65BC6CAC28CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{9045E19C-ECB2-47E1-895F-3E6631D0CA5A}"
+	ProjectSection(SolutionItems) = preProject
+		CSAzureSSLForPage\Documentation\ReadMe.htm = CSAzureSSLForPage\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39BCA4AD-0E3A-492C-9C99-1599669345DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39BCA4AD-0E3A-492C-9C99-1599669345DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39BCA4AD-0E3A-492C-9C99-1599669345DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39BCA4AD-0E3A-492C-9C99-1599669345DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A8E9B61-500F-44D7-9328-65BC6CAC28CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A8E9B61-500F-44D7-9328-65BC6CAC28CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A8E9B61-500F-44D7-9328-65BC6CAC28CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A8E9B61-500F-44D7-9328-65BC6CAC28CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
