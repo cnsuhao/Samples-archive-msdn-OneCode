@@ -1,0 +1,64 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSCallNativeDllWrapper", "CSCallNativeDllWrapper\CSCallNativeDllWrapper\CSCallNativeDllWrapper.csproj", "{5D979453-F14F-4F74-88EC-6402BF4A62BF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppCLINativeDllWrapper", "CSCallNativeDllWrapper\CppCLINativeDllWrapper\CppCLINativeDllWrapper.vcxproj", "{4C191A8F-5D28-4FA0-AF4C-373B50F69194}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppDynamicLinkLibrary", "CSCallNativeDllWrapper\CppDynamicLinkLibrary\CppDynamicLinkLibrary.vcxproj", "{52E95A78-6446-49D8-8F79-31846518D34B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{ADCAA486-DE50-4533-9063-5ACCBAD74D66}"
+	ProjectSection(SolutionItems) = preProject
+		CSCallNativeDllWrapper\Documentation\ReadMe.htm = CSCallNativeDllWrapper\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe_files", "ReadMe_files", "{FDA60677-CADC-4AFC-8698-205480DA74EC}"
+	ProjectSection(SolutionItems) = preProject
+		CSCallNativeDllWrapper\Documentation\ReadMe_files\colorschememapping.xml = CSCallNativeDllWrapper\Documentation\ReadMe_files\colorschememapping.xml
+		CSCallNativeDllWrapper\Documentation\ReadMe_files\filelist.xml = CSCallNativeDllWrapper\Documentation\ReadMe_files\filelist.xml
+		CSCallNativeDllWrapper\Documentation\ReadMe_files\image001.png = CSCallNativeDllWrapper\Documentation\ReadMe_files\image001.png
+		CSCallNativeDllWrapper\Documentation\ReadMe_files\image002.png = CSCallNativeDllWrapper\Documentation\ReadMe_files\image002.png
+		CSCallNativeDllWrapper\Documentation\ReadMe_files\themedata.thmx = CSCallNativeDllWrapper\Documentation\ReadMe_files\themedata.thmx
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D979453-F14F-4F74-88EC-6402BF4A62BF}.Debug|x64.ActiveCfg = Debug|x64
+		{5D979453-F14F-4F74-88EC-6402BF4A62BF}.Debug|x64.Build.0 = Debug|x64
+		{5D979453-F14F-4F74-88EC-6402BF4A62BF}.Debug|x86.ActiveCfg = Debug|x86
+		{5D979453-F14F-4F74-88EC-6402BF4A62BF}.Debug|x86.Build.0 = Debug|x86
+		{5D979453-F14F-4F74-88EC-6402BF4A62BF}.Release|x64.ActiveCfg = Release|x64
+		{5D979453-F14F-4F74-88EC-6402BF4A62BF}.Release|x64.Build.0 = Release|x64
+		{5D979453-F14F-4F74-88EC-6402BF4A62BF}.Release|x86.ActiveCfg = Release|x86
+		{5D979453-F14F-4F74-88EC-6402BF4A62BF}.Release|x86.Build.0 = Release|x86
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Debug|x64.ActiveCfg = Debug|x64
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Debug|x64.Build.0 = Debug|x64
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Debug|x86.ActiveCfg = Debug|Win32
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Debug|x86.Build.0 = Debug|Win32
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Release|x64.ActiveCfg = Release|x64
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Release|x64.Build.0 = Release|x64
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Release|x86.ActiveCfg = Release|Win32
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Release|x86.Build.0 = Release|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x64.ActiveCfg = Debug|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x64.Build.0 = Debug|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x86.ActiveCfg = Debug|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x86.Build.0 = Debug|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x64.ActiveCfg = Release|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x64.Build.0 = Release|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x86.ActiveCfg = Release|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FDA60677-CADC-4AFC-8698-205480DA74EC} = {ADCAA486-DE50-4533-9063-5ACCBAD74D66}
+	EndGlobalSection
+EndGlobal
