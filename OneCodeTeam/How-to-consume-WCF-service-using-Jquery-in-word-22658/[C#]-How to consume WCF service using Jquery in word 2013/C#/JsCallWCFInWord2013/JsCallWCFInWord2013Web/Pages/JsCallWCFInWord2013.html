@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>JsCallWCFInWord2013</title>
+
+    <link rel="stylesheet" type="text/css" href="../Content/Office.css" />
+
+    <!-- Add your CSS styles to the following file -->
+    <link rel="stylesheet" type="text/css" href="../Content/App.css" />
+
+    <script src="../Scripts/jquery-1.7.1.js"></script>
+
+    <!-- Use the CDN reference to Office.js when deploying your app -->
+    <!--<script src="https://appsforoffice.microsoft.com/lib/1.0/hosted/office.js"></script>-->
+
+    <!-- Use the local script references for Office.js to enable offline debugging -->
+    <script src="../Scripts/Office/1.0/MicrosoftAjax.js"></script>
+    <script src="../Scripts/Office/1.0/office.js"></script>
+
+    <!-- Add your JavaScript to the following file -->
+    <script src="../Scripts/JsCallWCFInWord2013.js"></script>
+</head>
+<body>
+    <!-- Replace the following with your content -->
+    <div id="Content">
+       
+        <input type="text" id="leftTxt" style="margin-right: 0px; padding: 0px;width:100px" />+
+        <input type="text" id="rightTxt" style="padding: 0px; width:100px;" />
+       <div id="error"></div>
+        <input  type="button" value="=" id="getSumBtn" style="margin-top: 10px; padding: 0px; width: 100px;"/>
+        <label>
+        <br />
+        The results for addition of two numbers:</label>
+        <input type="text" id="resultTxt" style="margin-top:auto; width: 210px; display:block" />
+        <input type ="button" value="Set Data" id="setDataBtn" disabled="disabled" style="margin-top: 5px; padding: 0px; width: 100px;"/>
+    </div>
+</body>
+</html>
