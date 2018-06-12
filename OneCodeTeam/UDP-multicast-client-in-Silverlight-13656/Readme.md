@@ -1,0 +1,175 @@
+# UDP multicast client in Silverlight (CSSL4UdpAnySourceMulticastListener)
+## Requires
+* Visual Studio 2010
+## License
+* MS-LPL
+## Technologies
+* Silverlight
+* Network
+## Topics
+* UDP
+* Multicast
+## IsPublished
+* True
+## ModifiedDate
+* 2011-11-01 07:00:40
+## Description
+
+<h1>A simple UDP multicast client in Silverlight (CSSL4UdpAnySourceMulticastListener)</h1>
+<h2>Introduction</h2>
+<p>This code sample implements a simple UDP multicast client in Silverlight, listening on port 8888.&nbsp;</p>
+<h2>Running the Sample</h2>
+<p>1. Build the solution.</p>
+<p>2. Run the &ldquo;CSSL4UDPAnySourceMulticastPolicyServer.exe&rdquo; at first.</p>
+<p>3. View &ldquo;CSSL4UdpAnySourceMulticastListenerTestPage.aspx&rdquo; in Browser. To simulate multi-user communication, you can simply open the web page for several times</p>
+<p><img src="/site/view/file/45121/1/image001.png" alt="" width="819" height="442"></p>
+<p>4. You can send some messages and observe the information.</p>
+<h2>Using the Code</h2>
+<p>1. Since the client runs from Silverlight, it requires that a multicast policy server be available on the same port in order to run. The policy server is exposed in a simple console application,
+<br>
+CSSL4UdpAnySourceMulticastPolicyServer, which uses MSDN code from the Silverlight documentation samples to expose a very simple interface. (<a href="http://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=silverlightsdk&DownloadId=8312">http://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=silverlightsdk&amp;DownloadId=8312</a>)</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">// Create a configuration.  This comes from the Microsoft.Silverlight.PolicyServers.dll reference.
+// The reference is from the Microsoft sample providing a simple implementation of an SL policy server.
+// The code for the policy server sample can be found here:  
+// http://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=silverlightsdk&amp;DownloadId=8312
+MulticastPolicyConfiguration config = new MulticastPolicyConfiguration();
+ 
+// Allow UDP multicast on the default multicast IP, with arbitrarily selected port 8888.
+config.AnySourceConfiguration.Add(&quot;*&quot;, new MulticastResource(IPAddress.Parse(&quot;224.0.0.1&quot;), 8888));
+ 
+// Create a policy server based on the provided configuration.  This allows multicast 
+// to be used from Silverlight clients.
+// The policy server returns an XML policy file to SL clients requesting multicast 
+// on that port, similar to CrossDomainPolicy.xml.
+// The policy file is served over UDP though, so cannot be provided via a web server 
+// as is commonly done with web traffic from SL.
+MulticastPolicyServer server = new MulticastPolicyServer(config);
+server.Start();
+Console.WriteLine(&quot;MulticastPolicyServer running on port 8888...&quot;);
+Console.WriteLine(&quot;Press enter to stop...&quot;);
+Console.ReadLine();
+server.Stop();
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__com">//&nbsp;Create&nbsp;a&nbsp;configuration.&nbsp;&nbsp;This&nbsp;comes&nbsp;from&nbsp;the&nbsp;Microsoft.Silverlight.PolicyServers.dll&nbsp;reference.</span><span class="cs__com">//&nbsp;The&nbsp;reference&nbsp;is&nbsp;from&nbsp;the&nbsp;Microsoft&nbsp;sample&nbsp;providing&nbsp;a&nbsp;simple&nbsp;implementation&nbsp;of&nbsp;an&nbsp;SL&nbsp;policy&nbsp;server.</span><span class="cs__com">//&nbsp;The&nbsp;code&nbsp;for&nbsp;the&nbsp;policy&nbsp;server&nbsp;sample&nbsp;can&nbsp;be&nbsp;found&nbsp;here:&nbsp;&nbsp;</span><span class="cs__com">//&nbsp;http://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=silverlightsdk&amp;DownloadId=8312</span>&nbsp;
+MulticastPolicyConfiguration&nbsp;config&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;MulticastPolicyConfiguration();&nbsp;
+&nbsp;&nbsp;
+<span class="cs__com">//&nbsp;Allow&nbsp;UDP&nbsp;multicast&nbsp;on&nbsp;the&nbsp;default&nbsp;multicast&nbsp;IP,&nbsp;with&nbsp;arbitrarily&nbsp;selected&nbsp;port&nbsp;8888.</span>&nbsp;
+config.AnySourceConfiguration.Add(<span class="cs__string">&quot;*&quot;</span>,&nbsp;<span class="cs__keyword">new</span>&nbsp;MulticastResource(IPAddress.Parse(<span class="cs__string">&quot;224.0.0.1&quot;</span>),&nbsp;<span class="cs__number">8888</span>));&nbsp;
+&nbsp;&nbsp;
+<span class="cs__com">//&nbsp;Create&nbsp;a&nbsp;policy&nbsp;server&nbsp;based&nbsp;on&nbsp;the&nbsp;provided&nbsp;configuration.&nbsp;&nbsp;This&nbsp;allows&nbsp;multicast&nbsp;</span><span class="cs__com">//&nbsp;to&nbsp;be&nbsp;used&nbsp;from&nbsp;Silverlight&nbsp;clients.</span><span class="cs__com">//&nbsp;The&nbsp;policy&nbsp;server&nbsp;returns&nbsp;an&nbsp;XML&nbsp;policy&nbsp;file&nbsp;to&nbsp;SL&nbsp;clients&nbsp;requesting&nbsp;multicast&nbsp;</span><span class="cs__com">//&nbsp;on&nbsp;that&nbsp;port,&nbsp;similar&nbsp;to&nbsp;CrossDomainPolicy.xml.</span><span class="cs__com">//&nbsp;The&nbsp;policy&nbsp;file&nbsp;is&nbsp;served&nbsp;over&nbsp;UDP&nbsp;though,&nbsp;so&nbsp;cannot&nbsp;be&nbsp;provided&nbsp;via&nbsp;a&nbsp;web&nbsp;server&nbsp;</span><span class="cs__com">//&nbsp;as&nbsp;is&nbsp;commonly&nbsp;done&nbsp;with&nbsp;web&nbsp;traffic&nbsp;from&nbsp;SL.</span>&nbsp;
+MulticastPolicyServer&nbsp;server&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;MulticastPolicyServer(config);&nbsp;
+server.Start();&nbsp;
+Console.WriteLine(<span class="cs__string">&quot;MulticastPolicyServer&nbsp;running&nbsp;on&nbsp;port&nbsp;8888...&quot;</span>);&nbsp;
+Console.WriteLine(<span class="cs__string">&quot;Press&nbsp;enter&nbsp;to&nbsp;stop...&quot;</span>);&nbsp;
+Console.ReadLine();&nbsp;
+server.Stop();&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">2. After opening the connection, the client listens for any messages received on the multicast port, and can send messages to other clients also listening on the port. The project CSSL4UdpAnySourceMulticastListener.Web hosts the
+ Silverlight project, and passes the session id of the current session as a parameter when the Silverlight control is launched.&nbsp; This is used by the code to identify messages posted in the multicast channel.</div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">// When the page loads, instantiate the UdpAnySourceMulticastClient on the standard 
+// multicast IP address, using an arbitrarily selected port 8888.  This is how messages 
+// are broadcast and received from clients. Note that the broadcast will not work through 
+// any device that filters multicast packets, and clients will not be able to listen 
+// to multicast packets from Silverlight unless a Silverlight multicast policy server 
+// is available Silverlight will initially send a UDP multicast request for any listening 
+// policy server on the port, and if  policy is returned (an XML file, just like the 
+// CrossDomainPolicy.xml used for web traffic across domains in Silverlight),  then the 
+// client will continue to listen.  If no policy file is returned, the client will fail 
+// to join the session,  throw an exception when it is accessed.
+private UdpAnySourceMulticastClient client = new UdpAnySourceMulticastClient(IPAddress.Parse(&quot;224.0.0.1&quot;), 8888);
+</pre>
+<div class="preview">
+<pre class="js"><span class="js__sl_comment">//&nbsp;When&nbsp;the&nbsp;page&nbsp;loads,&nbsp;instantiate&nbsp;the&nbsp;UdpAnySourceMulticastClient&nbsp;on&nbsp;the&nbsp;standard&nbsp;</span><span class="js__sl_comment">//&nbsp;multicast&nbsp;IP&nbsp;address,&nbsp;using&nbsp;an&nbsp;arbitrarily&nbsp;selected&nbsp;port&nbsp;8888.&nbsp;&nbsp;This&nbsp;is&nbsp;how&nbsp;messages&nbsp;</span><span class="js__sl_comment">//&nbsp;are&nbsp;broadcast&nbsp;and&nbsp;received&nbsp;from&nbsp;clients.&nbsp;Note&nbsp;that&nbsp;the&nbsp;broadcast&nbsp;will&nbsp;not&nbsp;work&nbsp;through&nbsp;</span><span class="js__sl_comment">//&nbsp;any&nbsp;device&nbsp;that&nbsp;filters&nbsp;multicast&nbsp;packets,&nbsp;and&nbsp;clients&nbsp;will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;listen&nbsp;</span><span class="js__sl_comment">//&nbsp;to&nbsp;multicast&nbsp;packets&nbsp;from&nbsp;Silverlight&nbsp;unless&nbsp;a&nbsp;Silverlight&nbsp;multicast&nbsp;policy&nbsp;server&nbsp;</span><span class="js__sl_comment">//&nbsp;is&nbsp;available&nbsp;Silverlight&nbsp;will&nbsp;initially&nbsp;send&nbsp;a&nbsp;UDP&nbsp;multicast&nbsp;request&nbsp;for&nbsp;any&nbsp;listening&nbsp;</span><span class="js__sl_comment">//&nbsp;policy&nbsp;server&nbsp;on&nbsp;the&nbsp;port,&nbsp;and&nbsp;if&nbsp;&nbsp;policy&nbsp;is&nbsp;returned&nbsp;(an&nbsp;XML&nbsp;file,&nbsp;just&nbsp;like&nbsp;the&nbsp;</span><span class="js__sl_comment">//&nbsp;CrossDomainPolicy.xml&nbsp;used&nbsp;for&nbsp;web&nbsp;traffic&nbsp;across&nbsp;domains&nbsp;in&nbsp;Silverlight),&nbsp;&nbsp;then&nbsp;the&nbsp;</span><span class="js__sl_comment">//&nbsp;client&nbsp;will&nbsp;continue&nbsp;to&nbsp;listen.&nbsp;&nbsp;If&nbsp;no&nbsp;policy&nbsp;file&nbsp;is&nbsp;returned,&nbsp;the&nbsp;client&nbsp;will&nbsp;fail&nbsp;</span><span class="js__sl_comment">//&nbsp;to&nbsp;join&nbsp;the&nbsp;session,&nbsp;&nbsp;throw&nbsp;an&nbsp;exception&nbsp;when&nbsp;it&nbsp;is&nbsp;accessed.</span>&nbsp;
+private&nbsp;UdpAnySourceMulticastClient&nbsp;client&nbsp;=&nbsp;<span class="js__operator">new</span>&nbsp;UdpAnySourceMulticastClient(IPAddress.Parse(<span class="js__string">&quot;224.0.0.1&quot;</span>),&nbsp;<span class="js__num">8888</span>);&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">// Initialize the session variable from the InitParams passed into the control via 
+// the web page on which it is hosted.
+session = App.Current.Host.InitParams[&quot;session&quot;];
+ 
+// Initialize the instructions on the user interface to indicate the current session ID for the user.
+txtInstructions.Text &#43;= &quot;\r\n\r\nSession ID for this client: &quot; &#43; session;
+ 
+// Join the client to the multicast, initiated with BeginJoinGroup().
+// The last parameter to the BeginJoinGroup() is simply an object which can contain state, 
+// here not used, and passed as null.
+client.BeginJoinGroup(res =&gt;
+{
+    // BeginJoinGroup takes an AsyncCallback function as its parameter.  In this case,
+    // the simplest way to implement that is with an anonymous function, using =&gt;
+    // The callback function must call EndJoinGroup(), passing the IAsyncResult obtained
+    // from the BeginJoinGroup() when the callback occurs, the variable res.
+    this.client.EndJoinGroup(res);
+ 
+    // After the multicast is successfully joined, invoke the dispatcher thread again to 
+    // send our first multicast message, notifying any other clients that we have joined.
+    Deployment.Current.Dispatcher.BeginInvoke(() =&gt;
+    {
+        Send(&quot;Session &quot; &#43; session &#43; &quot; joined multicast.&quot;);
+        Receive();
+    });
+}, null);  
+</pre>
+<div class="preview">
+<pre class="js"><span class="js__sl_comment">//&nbsp;Initialize&nbsp;the&nbsp;session&nbsp;variable&nbsp;from&nbsp;the&nbsp;InitParams&nbsp;passed&nbsp;into&nbsp;the&nbsp;control&nbsp;via&nbsp;</span><span class="js__sl_comment">//&nbsp;the&nbsp;web&nbsp;page&nbsp;on&nbsp;which&nbsp;it&nbsp;is&nbsp;hosted.</span>&nbsp;
+session&nbsp;=&nbsp;App.Current.Host.InitParams[<span class="js__string">&quot;session&quot;</span>];&nbsp;
+&nbsp;&nbsp;
+<span class="js__sl_comment">//&nbsp;Initialize&nbsp;the&nbsp;instructions&nbsp;on&nbsp;the&nbsp;user&nbsp;interface&nbsp;to&nbsp;indicate&nbsp;the&nbsp;current&nbsp;session&nbsp;ID&nbsp;for&nbsp;the&nbsp;user.</span>&nbsp;
+txtInstructions.Text&nbsp;&#43;=&nbsp;<span class="js__string">&quot;\r\n\r\nSession&nbsp;ID&nbsp;for&nbsp;this&nbsp;client:&nbsp;&quot;</span>&nbsp;&#43;&nbsp;session;&nbsp;
+&nbsp;&nbsp;
+<span class="js__sl_comment">//&nbsp;Join&nbsp;the&nbsp;client&nbsp;to&nbsp;the&nbsp;multicast,&nbsp;initiated&nbsp;with&nbsp;BeginJoinGroup().</span><span class="js__sl_comment">//&nbsp;The&nbsp;last&nbsp;parameter&nbsp;to&nbsp;the&nbsp;BeginJoinGroup()&nbsp;is&nbsp;simply&nbsp;an&nbsp;object&nbsp;which&nbsp;can&nbsp;contain&nbsp;state,&nbsp;</span><span class="js__sl_comment">//&nbsp;here&nbsp;not&nbsp;used,&nbsp;and&nbsp;passed&nbsp;as&nbsp;null.</span>&nbsp;
+client.BeginJoinGroup(res&nbsp;=&gt;&nbsp;
+<span class="js__brace">{</span><span class="js__sl_comment">//&nbsp;BeginJoinGroup&nbsp;takes&nbsp;an&nbsp;AsyncCallback&nbsp;function&nbsp;as&nbsp;its&nbsp;parameter.&nbsp;&nbsp;In&nbsp;this&nbsp;case,</span><span class="js__sl_comment">//&nbsp;the&nbsp;simplest&nbsp;way&nbsp;to&nbsp;implement&nbsp;that&nbsp;is&nbsp;with&nbsp;an&nbsp;anonymous&nbsp;function,&nbsp;using&nbsp;=&gt;</span><span class="js__sl_comment">//&nbsp;The&nbsp;callback&nbsp;function&nbsp;must&nbsp;call&nbsp;EndJoinGroup(),&nbsp;passing&nbsp;the&nbsp;IAsyncResult&nbsp;obtained</span><span class="js__sl_comment">//&nbsp;from&nbsp;the&nbsp;BeginJoinGroup()&nbsp;when&nbsp;the&nbsp;callback&nbsp;occurs,&nbsp;the&nbsp;variable&nbsp;res.</span><span class="js__operator">this</span>.client.EndJoinGroup(res);&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__sl_comment">//&nbsp;After&nbsp;the&nbsp;multicast&nbsp;is&nbsp;successfully&nbsp;joined,&nbsp;invoke&nbsp;the&nbsp;dispatcher&nbsp;thread&nbsp;again&nbsp;to&nbsp;</span><span class="js__sl_comment">//&nbsp;send&nbsp;our&nbsp;first&nbsp;multicast&nbsp;message,&nbsp;notifying&nbsp;any&nbsp;other&nbsp;clients&nbsp;that&nbsp;we&nbsp;have&nbsp;joined.</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Deployment.Current.Dispatcher.BeginInvoke(()&nbsp;=&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Send(<span class="js__string">&quot;Session&nbsp;&quot;</span>&nbsp;&#43;&nbsp;session&nbsp;&#43;&nbsp;<span class="js__string">&quot;&nbsp;joined&nbsp;multicast.&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Receive();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>);&nbsp;
+<span class="js__brace">}</span>,&nbsp;null);&nbsp;&nbsp;&nbsp;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<h2>More Information</h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/en-us/library/ee707325(v=VS.95).aspx">Working with Multicast</a>
+</li><li><a href="http://msdn.microsoft.com/en-us/library/system.net.sockets.udpanysourcemulticastclient(v=VS.95).aspx">UdpAnySourceMulticastClient</a>
+</li></ul>
+<p><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="http://bit.ly/onecodelogo" alt=""></a></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="line-height:normal; margin-bottom:0pt">&nbsp;</p>
+<p>&nbsp;</p>

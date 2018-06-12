@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="CSSL4UdpAnySourceMulticastListener.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Name="tbInstructions" Grid.Row="0" Grid.ColumnSpan="2" Margin="15,15,15,15" TextWrapping="Wrap" FontSize="9" MinWidth="600" MaxWidth="600">
+            This sample demonstrates the use of the UdpAnySourceMulticastClient, sharing messages between as many clients as may broadcast on the same port (8888 in this case).  
+            Open multiple instances of the web page from any machines on a network supporting multicast (or locally on a single machine) to try it out.
+            In order for multicast to work from Silverlight, there must exist a MulticastPolicyServer on the network.  
+            Each message is identified by its client's session ID associated with the web site from where the Silverlight application was loaded.            
+            This sample exposes a simple console application, which runs when it is debugged, to expose such a server.  
+            The code for this server is available as part of the Silverlight SDK, here included as a single binary referenced in the console application.
+        </TextBlock>
+        <TextBox x:Name="tbSend" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,5,5,5" Grid.Row="1" Grid.Column="0" KeyDown="tbSend_KeyDown" />
+        <Button x:Name="btnSend" Content="Send Message" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,5,5,5" Click="btnSend_Click" Grid.Row="1" Grid.Column="1" />
+        <ListBox x:Name="lbChannel" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,5,5,5" Grid.ColumnSpan="2" Grid.Row="2" Background="LightGray" />        
+    </Grid>
+</UserControl>
