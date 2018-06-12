@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Silverlight 3 MediaElement class demo (CSSL3MediaElement)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Silverlight 3 MediaElement class demo (CSSL3MediaElement)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Silverlight
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            MediaElement
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSSL3MediaElement-b48eed67">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt; &lt;HTML xmlns=&quot;http://www.w3.org/TR/REC-html40&quot; xmlns:v = &quot;urn:schemas-microsoft-com:vml&quot; xmlns:o = &quot;urn:schemas-microsoft-com:office:office&quot; xmlns:w = &quot;urn:schemas-microsoft-com:office:word&quot;
+ xmlns:m = &quot;http://schemas.microsoft.com/office/2004/12/omml&quot;&gt;&lt;HEAD&gt; &lt;META content=&quot;text/html; charset=windows-1252&quot; http-equiv=Content-Type&gt; &lt;META name=ProgId content=Word.Document&gt; &lt;META name=GENERATOR content=&quot;MSHTML 9.00.8112.16421&quot;&gt; &lt;META name=Originator
+ content=&quot;Microsoft Word 12&quot;&gt;&lt;LINK rel=File-List href=&quot;ReadMe_files/filelist.xml&quot;&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt; &lt;o:DocumentProperties&gt; &lt;o:Author&gt;Yi-Lun Luo (Wicresoft)&lt;/o:Author&gt; &lt;o:LastAuthor&gt;Yi-Lun Luo (Wicresoft)&lt;/o:LastAuthor&gt; &lt;o:Revision&gt;2&lt;/o:Revision&gt; &lt;o:TotalTime&gt;1379&lt;/o:TotalTime&gt;
+ &lt;o:Created&gt;2009-10-08T09:19:00Z&lt;/o:Created&gt; &lt;o:LastSaved&gt;2009-10-08T09:19:00Z&lt;/o:LastSaved&gt; &lt;o:Pages&gt;4&lt;/o:Pages&gt; &lt;o:Words&gt;935&lt;/o:Words&gt; &lt;o:Characters&gt;5331&lt;/o:Characters&gt; &lt;o:Company&gt;Microsoft&lt;/o:Company&gt; &lt;o:Lines&gt;44&lt;/o:Lines&gt; &lt;o:Paragraphs&gt;12&lt;/o:Paragraphs&gt;
+ &lt;o:CharactersWithSpaces&gt;6254&lt;/o:CharactersWithSpaces&gt; &lt;o:Version&gt;12.00&lt;/o:Version&gt; &lt;/o:DocumentProperties&gt; &lt;/xml&gt;&lt;![endif]--&gt;&lt;LINK rel=dataStoreItem href=&quot;ReadMe_files/item0001.xml&quot; target=ReadMe_files/props0002.xml&gt;&lt;LINK rel=themeData href=&quot;ReadMe_files/themedata.thmx&quot;&gt;&lt;LINK
+ rel=colorSchemeMapping href=&quot;ReadMe_files/colorschememapping.xml&quot;&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt; &lt;w:WordDocument&gt; &lt;w:SpellingState&gt;Clean&lt;/w:SpellingState&gt; &lt;w:TrackMoves&gt;false&lt;/w:TrackMoves&gt; &lt;w:TrackFormatting/&gt; &lt;w:PunctuationKerning/&gt; &lt;w:ValidateAgainstSchemas/&gt;
+ &lt;w:SaveIfXMLInvalid&gt;false&lt;/w:SaveIfXMLInvalid&gt; &lt;w:IgnoreMixedContent&gt;false&lt;/w:IgnoreMixedContent&gt; &lt;w:AlwaysShowPlaceholderText&gt;false&lt;/w:AlwaysShowPlaceholderText&gt; &lt;w:DoNotPromoteQF/&gt; &lt;w:LidThemeOther&gt;EN-US&lt;/w:LidThemeOther&gt; &lt;w:LidThemeAsian&gt;ZH-CN&lt;/w:LidThemeAsian&gt;
+ &lt;w:LidThemeComplexScript&gt;X-NONE&lt;/w:LidThemeComplexScript&gt; &lt;w:Compatibility&gt; &lt;w:BreakWrappedTables/&gt; &lt;w:SnapToGridInCell/&gt; &lt;w:WrapTextWithPunct/&gt; &lt;w:UseAsianBreakRules/&gt; &lt;w:DontGrowAutofit/&gt; &lt;w:SplitPgBreakAndParaMark/&gt; &lt;w:DontVertAlignCellWithSp/&gt; &lt;w:DontBreakConstrainedForcedTables/&gt;
+ &lt;w:DontVertAlignInTxbx/&gt; &lt;w:Word11KerningPairs/&gt; &lt;w:CachedColBalance/&gt; &lt;w:UseFELayout/&gt; &lt;/w:Compatibility&gt; &lt;m:mathPr&gt; &lt;m:mathFont m:val=&quot;Cambria Math&quot;/&gt; &lt;m:brkBin m:val=&quot;before&quot;/&gt; &lt;m:brkBinSub m:val=&quot;&#45;-&quot;/&gt; &lt;m:smallFrac m:val=&quot;off&quot;/&gt; &lt;m:dispDef/&gt; &lt;m:lMargin
+ m:val=&quot;0&quot;/&gt; &lt;m:rMargin m:val=&quot;0&quot;/&gt; &lt;m:defJc m:val=&quot;centerGroup&quot;/&gt; &lt;m:wrapIndent m:val=&quot;1440&quot;/&gt; &lt;m:intLim m:val=&quot;subSup&quot;/&gt; &lt;m:naryLim m:val=&quot;undOvr&quot;/&gt; &lt;/m:mathPr&gt;&lt;/w:WordDocument&gt; &lt;/xml&gt;&lt;![endif]--&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt; &lt;w:LatentStyles DefLockedState=&quot;false&quot;
+ DefUnhideWhenUsed=&quot;true&quot; DefSemiHidden=&quot;true&quot; DefQFormat=&quot;false&quot; DefPriority=&quot;99&quot; LatentStyleCount=&quot;267&quot;&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;0&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Normal&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;heading 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot;
+ Name=&quot;heading 7&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 8&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 9&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ Priority=&quot;39&quot; Name=&quot;toc 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc
+ 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 7&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 8&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 9&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;35&quot; QFormat=&quot;true&quot; Name=&quot;caption&quot;/&gt;
+ &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;10&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Title&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;1&quot; Name=&quot;Default Paragraph Font&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;11&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Subtitle&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;22&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Strong&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;20&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ QFormat=&quot;true&quot; Name=&quot;Emphasis&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;59&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Table Grid&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Placeholder Text&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;1&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;No Spacing&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Light List&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Grid&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 1&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;64&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium
+ Grid 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Shading&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Grid&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light
+ List Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Grid Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 1 Accent 1&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;64&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 2 Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 1 Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Revision&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;34&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;List Paragraph&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;29&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot;
+ Name=&quot;Quote&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;30&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Intense Quote&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2 Accent 1&quot;/&gt;
+ &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 1 Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 2 Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ Priority=&quot;69&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3 Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Shading Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Colorful Grid Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light List Accent
+ 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Grid Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 1 Accent 2&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;64&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 2 Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 1 Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ Priority=&quot;66&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2 Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 1 Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 2 Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3 Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Dark List Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Shading Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List
+ Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Grid Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading Accent 3&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;61&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light List Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Grid Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 1 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;64&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 2 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 1 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Medium Grid 1 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 2 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid
+ 3 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Shading Accent 3&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Grid Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light List Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Light Grid Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 1 Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;64&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading
+ 2 Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 1 Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2 Accent 4&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 1 Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 2 Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3 Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Colorful Shading Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful
+ Grid Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light List Accent 5&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Grid Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 1 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;64&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 2 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 1 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 1 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Medium Grid 2 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List Accent
+ 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Shading Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List Accent 5&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Grid Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light List Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Grid Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Medium Shading 1 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;64&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 2 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium
+ List 1 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 1 Accent 6&quot;/&gt;
+ &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 2 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Shading Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Grid Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;19&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ QFormat=&quot;true&quot; Name=&quot;Subtle Emphasis&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;21&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Intense Emphasis&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;31&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot;
+ Name=&quot;Subtle Reference&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;32&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Intense Reference&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;33&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot;
+ Name=&quot;Book Title&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;37&quot; Name=&quot;Bibliography&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; QFormat=&quot;true&quot; Name=&quot;TOC Heading&quot;/&gt; &lt;/w:LatentStyles&gt; &lt;/xml&gt;&lt;![endif]--&gt; &lt;STYLE&gt; &lt;!-- /* Font Definitions */ @font-face {font-family:Wingdings;
+ panose-1:5 0 0 0 0 0 0 0 0 0; mso-font-charset:2; mso-generic-font-family:auto; mso-font-pitch:variable; mso-font-signature:0 268435456 0 0 -2147483648 0;} @font-face {font-family:SimSun; panose-1:2 1 6 0 3 1 1 1 1 1; mso-font-alt:\5B8B\4F53; mso-font-charset:134;
+ mso-generic-font-family:auto; mso-font-pitch:variable; mso-font-signature:3 680460288 22 0 262145 0;} @font-face {font-family:&quot;Cambria Math&quot;; panose-1:2 4 5 3 5 4 6 3 2 4; mso-font-charset:1; mso-generic-font-family:roman; mso-font-format:other; mso-font-pitch:variable;
+ mso-font-signature:0 0 0 0 0 0;} @font-face {font-family:Cambria; panose-1:2 4 5 3 5 4 6 3 2 4; mso-font-charset:0; mso-generic-font-family:roman; mso-font-pitch:variable; mso-font-signature:-1610611985 1073741899 0 0 159 0;} @font-face {font-family:Calibri;
+ panose-1:2 15 5 2 2 2 4 3 2 4; mso-font-charset:0; mso-generic-font-family:swiss; mso-font-pitch:variable; mso-font-signature:-1610611985 1073750139 0 0 159 0;} @font-face {font-family:&quot;\@SimSun&quot;; panose-1:2 1 6 0 3 1 1 1 1 1; mso-font-charset:134; mso-generic-font-family:auto;
+ mso-font-pitch:variable; mso-font-signature:3 680460288 22 0 262145 0;} /* Style Definitions */ p.MsoNormal, li.MsoNormal, div.MsoNormal {mso-style-unhide:no; mso-style-qformat:yes; mso-style-parent:&quot;&quot;; margin-top:0in; margin-right:0in; margin-bottom:10.0pt;
+ margin-left:0in; line-height:115%; mso-pagination:widow-orphan; font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; mso-ascii-font-family:Calibri; mso-ascii-theme-font:minor-latin; mso-fareast-font-family:SimSun; mso-fareast-theme-font:minor-fareast; mso-hansi-font-family:Calibri;
+ mso-hansi-theme-font:minor-latin; mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:minor-bidi;} h1 {mso-style-priority:9; mso-style-unhide:no; mso-style-qformat:yes; mso-style-link:&quot;Heading 1 Char&quot;; mso-style-next:Normal; margin-top:24.0pt; margin-right:0in;
+ margin-bottom:0in; margin-left:0in; margin-bottom:.0001pt; line-height:115%; mso-pagination:widow-orphan lines-together; page-break-after:avoid; mso-outline-level:1; font-size:14.0pt; font-family:&quot;Cambria&quot;,&quot;serif&quot;; mso-ascii-font-family:Cambria; mso-ascii-theme-font:major-latin;
+ mso-fareast-font-family:SimSun; mso-fareast-theme-font:major-fareast; mso-hansi-font-family:Cambria; mso-hansi-theme-font:major-latin; mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:major-bidi; color:#365F91; mso-themecolor:accent1; mso-themeshade:191;
+ mso-font-kerning:0pt; font-weight:bold;} h2 {mso-style-priority:9; mso-style-qformat:yes; mso-style-link:&quot;Heading 2 Char&quot;; mso-style-next:Normal; margin-top:10.0pt; margin-right:0in; margin-bottom:0in; margin-left:0in; margin-bottom:.0001pt; line-height:115%;
+ mso-pagination:widow-orphan lines-together; page-break-after:avoid; mso-outline-level:2; font-size:13.0pt; font-family:&quot;Cambria&quot;,&quot;serif&quot;; mso-ascii-font-family:Cambria; mso-ascii-theme-font:major-latin; mso-fareast-font-family:SimSun; mso-fareast-theme-font:major-fareast;
+ mso-hansi-font-family:Cambria; mso-hansi-theme-font:major-latin; mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:major-bidi; color:#4F81BD; mso-themecolor:accent1; font-weight:bold;} h3 {mso-style-priority:9; mso-style-qformat:yes; mso-style-link:&quot;Heading
+ 3 Char&quot;; mso-style-next:Normal; margin-top:10.0pt; margin-right:0in; margin-bottom:0in; margin-left:0in; margin-bottom:.0001pt; line-height:115%; mso-pagination:widow-orphan lines-together; page-break-after:avoid; mso-outline-level:3; font-size:11.0pt; font-family:&quot;Cambria&quot;,&quot;serif&quot;;
+ mso-ascii-font-family:Cambria; mso-ascii-theme-font:major-latin; mso-fareast-font-family:SimSun; mso-fareast-theme-font:major-fareast; mso-hansi-font-family:Cambria; mso-hansi-theme-font:major-latin; mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:major-bidi;
+ color:#4F81BD; mso-themecolor:accent1; font-weight:bold;} a:link, span.MsoHyperlink {mso-style-priority:99; color:blue; mso-themecolor:hyperlink; text-decoration:underline; text-underline:single;} a:visited, span.MsoHyperlinkFollowed {mso-style-noshow:yes;
+ mso-style-priority:99; color:purple; mso-themecolor:followedhyperlink; text-decoration:underline; text-underline:single;} p {mso-style-noshow:yes; mso-style-priority:99; margin-top:0in; margin-right:0in; margin-bottom:7.5pt; margin-left:0in; mso-pagination:widow-orphan;
+ font-size:12.0pt; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;; mso-fareast-font-family:&quot;Times New Roman&quot;;} p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing {mso-style-priority:1; mso-style-unhide:no; mso-style-qformat:yes; mso-style-parent:&quot;&quot;; margin:0in; margin-bottom:.0001pt;
+ mso-pagination:widow-orphan; font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; mso-ascii-font-family:Calibri; mso-ascii-theme-font:minor-latin; mso-fareast-font-family:SimSun; mso-fareast-theme-font:minor-fareast; mso-hansi-font-family:Calibri; mso-hansi-theme-font:minor-latin;
+ mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:minor-bidi;} p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph {mso-style-priority:34; mso-style-unhide:no; mso-style-qformat:yes; margin-top:0in; margin-right:0in; margin-bottom:10.0pt;
+ margin-left:.5in; mso-add-space:auto; line-height:115%; mso-pagination:widow-orphan; font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; mso-ascii-font-family:Calibri; mso-ascii-theme-font:minor-latin; mso-fareast-font-family:SimSun; mso-fareast-theme-font:minor-fareast;
+ mso-hansi-font-family:Calibri; mso-hansi-theme-font:minor-latin; mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:minor-bidi;} p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst {mso-style-priority:34; mso-style-unhide:no;
+ mso-style-qformat:yes; mso-style-type:export-only; margin-top:0in; margin-right:0in; margin-bottom:0in; margin-left:.5in; margin-bottom:.0001pt; mso-add-space:auto; line-height:115%; mso-pagination:widow-orphan; font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
+ mso-ascii-font-family:Calibri; mso-ascii-theme-font:minor-latin; mso-fareast-font-family:SimSun; mso-fareast-theme-font:minor-fareast; mso-hansi-font-family:Calibri; mso-hansi-theme-font:minor-latin; mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:minor-bidi;}
+ p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle {mso-style-priority:34; mso-style-unhide:no; mso-style-qformat:yes; mso-style-type:export-only; margin-top:0in; margin-right:0in; margin-bottom:0in; margin-left:.5in;
+ margin-bottom:.0001pt; mso-add-space:auto; line-height:115%; mso-pagination:widow-orphan; font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; mso-ascii-font-family:Calibri; mso-ascii-theme-font:minor-latin; mso-fareast-font-family:SimSun; mso-fareast-theme-font:minor-fareast;
+ mso-hansi-font-family:Calibri; mso-hansi-theme-font:minor-latin; mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:minor-bidi;} p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast {mso-style-priority:34; mso-style-unhide:no;
+ mso-style-qformat:yes; mso-style-type:export-only; margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; mso-add-space:auto; line-height:115%; mso-pagination:widow-orphan; font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; mso-ascii-font-family:Calibri;
+ mso-ascii-theme-font:minor-latin; mso-fareast-font-family:SimSun; mso-fareast-theme-font:minor-fareast; mso-hansi-font-family:Calibri; mso-hansi-theme-font:minor-latin; mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:minor-bidi;} span.Heading2Char
+ {mso-style-name:&quot;Heading 2 Char&quot;; mso-style-priority:9; mso-style-unhide:no; mso-style-locked:yes; mso-style-link:&quot;Heading 2&quot;; mso-ansi-font-size:13.0pt; mso-bidi-font-size:13.0pt; font-family:&quot;Cambria&quot;,&quot;serif&quot;; mso-ascii-font-family:Cambria; mso-ascii-theme-font:major-latin;
+ mso-fareast-font-family:SimSun; mso-fareast-theme-font:major-fareast; mso-hansi-font-family:Cambria; mso-hansi-theme-font:major-latin; mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:major-bidi; color:#4F81BD; mso-themecolor:accent1; font-weight:bold;}
+ span.Heading1Char {mso-style-name:&quot;Heading 1 Char&quot;; mso-style-priority:9; mso-style-unhide:no; mso-style-locked:yes; mso-style-link:&quot;Heading 1&quot;; mso-ansi-font-size:14.0pt; mso-bidi-font-size:14.0pt; font-family:&quot;Cambria&quot;,&quot;serif&quot;; mso-ascii-font-family:Cambria;
+ mso-ascii-theme-font:major-latin; mso-fareast-font-family:SimSun; mso-fareast-theme-font:major-fareast; mso-hansi-font-family:Cambria; mso-hansi-theme-font:major-latin; mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:major-bidi; color:#365F91;
+ mso-themecolor:accent1; mso-themeshade:191; font-weight:bold;} span.Heading3Char {mso-style-name:&quot;Heading 3 Char&quot;; mso-style-priority:9; mso-style-unhide:no; mso-style-locked:yes; mso-style-link:&quot;Heading 3&quot;; font-family:&quot;Cambria&quot;,&quot;serif&quot;; mso-ascii-font-family:Cambria;
+ mso-ascii-theme-font:major-latin; mso-fareast-font-family:SimSun; mso-fareast-theme-font:major-fareast; mso-hansi-font-family:Cambria; mso-hansi-theme-font:major-latin; mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:major-bidi; color:#4F81BD;
+ mso-themecolor:accent1; font-weight:bold;} span.input1 {mso-style-name:input1; mso-style-unhide:no; font-weight:bold;} span.SpellE {mso-style-name:&quot;&quot;; mso-spl-e:yes;} .MsoChpDefault {mso-style-type:export-only; mso-default-props:yes; mso-ascii-font-family:Calibri;
+ mso-ascii-theme-font:minor-latin; mso-fareast-font-family:SimSun; mso-fareast-theme-font:minor-fareast; mso-hansi-font-family:Calibri; mso-hansi-theme-font:minor-latin; mso-bidi-font-family:&quot;Times New Roman&quot;; mso-bidi-theme-font:minor-bidi;} .MsoPapDefault
+ {mso-style-type:export-only; margin-bottom:10.0pt; line-height:115%;} @page Section1 {size:8.5in 11.0in; margin:1.0in 1.0in 1.0in 1.0in; mso-header-margin:.5in; mso-footer-margin:.5in; mso-paper-source:0;} div.Section1 {page:Section1;} /* List Definitions
+ */ @list l0 {mso-list-id:203103492; mso-list-type:hybrid; mso-list-template-ids:-978679978 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;} @list l0:level1 {mso-level-number-format:bullet; mso-level-text:\F0B7; mso-level-tab-stop:none;
+ mso-level-number-position:left; text-indent:-.25in; font-family:Symbol;} @list l1 {mso-list-id:1709645381; mso-list-template-ids:-303535712;} @list l1:level1 {mso-level-number-format:bullet; mso-level-text:\F0B7; mso-level-tab-stop:.5in; mso-level-number-position:left;
+ text-indent:-.25in; mso-ansi-font-size:10.0pt; font-family:Symbol;} @list l2 {mso-list-id:1939096130; mso-list-type:hybrid; mso-list-template-ids:1517349212 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;} @list l2:level1
+ {mso-level-number-format:bullet; mso-level-text:\F0B7; mso-level-tab-stop:none; mso-level-number-position:left; text-indent:-.25in; font-family:Symbol;} @list l3 {mso-list-id:2051411842; mso-list-template-ids:1298664984;} @list l3:level1 {mso-level-number-format:bullet;
+ mso-level-text:\F0B7; mso-level-tab-stop:.5in; mso-level-number-position:left; text-indent:-.25in; mso-ansi-font-size:10.0pt; font-family:Symbol;} ol {margin-bottom:0in;} ul {margin-bottom:0in;} --&gt; &lt;/STYLE&gt; &lt;!--[if gte mso 10]&gt; <style> /* Style Definitions
+ */ table.MsoNormalTable {mso-style-name:"Table Normal"; mso-tstyle-rowband-size:0; mso-tstyle-colband-size:0; mso-style-noshow:yes; mso-style-priority:99; mso-style-qformat:yes; mso-style-parent:""; mso-padding-alt:0in 5.4pt 0in 5.4pt; mso-para-margin-top:0in;
+ mso-para-margin-right:0in; mso-para-margin-bottom:10.0pt; mso-para-margin-left:0in; line-height:115%; mso-pagination:widow-orphan; font-size:11.0pt; font-family:"Calibri","sans-serif"; mso-ascii-font-family:Calibri; mso-ascii-theme-font:minor-latin; mso-hansi-font-family:Calibri;
+ mso-hansi-theme-font:minor-latin;} </style> &lt;![endif]--&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt; &lt;o:shapedefaults v:ext=&quot;edit&quot; spidmax=&quot;3074&quot;/&gt; &lt;/xml&gt;&lt;![endif]--&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt; &lt;o:shapelayout v:ext=&quot;edit&quot;&gt; &lt;o:idmap v:ext=&quot;edit&quot; data=&quot;1&quot;/&gt; &lt;/o:shapelayout&gt;&lt;/xml&gt;&lt;![endif]--&gt;&lt;/HEAD&gt;
+ &lt;BODY style=&quot;tab-interval: .5in&quot; lang=EN-US vLink=purple link=blue&gt; </p>
+<div class="Section1">
+<h1 align="center" style="text-align:center">Work with <span class="SpellE">MediaElement</span></h1>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<h2>Introduction</h2>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span class="SpellE"><span style="font-family:'Cambria','serif'">MediaElement</span></span><span style="font-family:'Cambria','serif'"> is an essential control to create a media player in Silverlight. It supports playing, pausing, stopping
+ audio/video as well as a lot of interesting features. You can simply control <span class="SpellE">
+MediaElement</span> by its properties, events and methods.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">The following points are covered in this sample:&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-0.25in">&lt;![if !supportLists]&gt;<span style="font-family:Symbol"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<span style="font-family:'Cambria','serif'">How to get the total duration of audio/video&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-0.25in">&lt;![if !supportLists]&gt;<span style="font-family:Symbol"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<span style="font-family:'Cambria','serif'">How to create a progress bar for
+<span class="SpellE">MediaElement</span>&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-0.25in">&lt;![if !supportLists]&gt;<span style="font-family:Symbol"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<span style="font-family:'Cambria','serif'">Volume control&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-0.25in">&lt;![if !supportLists]&gt;<span style="font-family:Symbol"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<span style="font-family:'Cambria','serif'">Play/Pause/Stop audio/video&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-0.25in">&lt;![if !supportLists]&gt;<span style="font-family:Symbol"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<span style="font-family:'Cambria','serif'">Events of
+<span class="SpellE">MediaElement</span> (</span><span style="font-family:'Cambria','serif'">MarkerReached, MediaEnded, MediaOpened, MediaFailed, CurrentStateChanged</span><span style="font-family:'Cambria','serif'">)&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-0.25in">&lt;![if !supportLists]&gt;<span style="font-family:Symbol"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<span style="font-family:'Cambria','serif'">How to handle
+<span class="SpellE">MediaElement</span> in full-screen mode&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoListParagraphCxSpLast"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<h2>Prerequisites:</h2>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">Silverlight 3 Tools for Visual Studio 2008 SP1&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><a href="http://www.microsoft.com/downloads/details.aspx?familyid=9442b0f2-7465-417a-88f3-5e7b5409e9dd&amp;displaylang=en"><span style="font-family:'Cambria','serif'">http://www.microsoft.com/downloads/details.aspx?familyid=9442b0f2-7465-417a-88f3-5e7b5409e9dd&amp;displaylang=en</span></a><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span class="SpellE"><span style="font-family:'Cambria','serif'">Silverilght</span></span><span style="font-family:'Cambria','serif'"> 3 runtime:&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><a href="http://silverlight.net/getstarted/"><span style="font-family:'Cambria','serif'">http://silverlight.net/getstarted/</span></a><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<h2>How to get the total duration of Audio/Video</h2>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">You can use the following properties of MediaElement to get the total duration of audio/video that MediaElement plays:&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">MediaElement.NaturalDuration.TimeSpan&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">One note is, you can only get the total duration after MediaOpended event.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<h2>How to create a progress bar for <span class="SpellE">MediaElement</span></h2>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">We can use Slider control to act as the progress bar of our player. In this sample, the idea to do this is as below. &lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-0.25in">&lt;![if !supportLists]&gt;<span style="font-family:Symbol"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<span style="font-family:'Cambria','serif'">Initialize
+</span><span style="font-family:'Cambria','serif'">Slider.Maximum in MediaOpended event.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-0.25in">&lt;![if !supportLists]&gt;<span style="font-family:Symbol"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<span style="font-family:'Cambria','serif'">Use a </span>
+<span style="font-family:'Cambria','serif'">DispatcherTimer to syncronize the current position of the video with the Value properties of
+</span><span style="font-family:'Cambria','serif'">Slider control&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-0.25in">&lt;![if !supportLists]&gt;<span style="font-family:Symbol"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<span style="font-family:'Cambria','serif'">Customize the style of
+<span class="SpellE">Silder</span> control, in which way we can catch </span><span style="font-family:'Cambria','serif'">DragStarted/DragCompleted event of the Thumb control. We can then change the position of MediaElement in these two event handlers.</span><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoListParagraphCxSpLast"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<h2>Volume control</h2>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">In this sample we use another Slider control to control the volume of
+<span class="SpellE">MediaElement</span>. Only one line of code is needed to achieve this:&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'; color:blue">this</span><span style="font-family:'Cambria','serif'">.MyMediaElement.Volume=<span style="color:blue">this</span>.VolumeSlider.Value;&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">The above code is put in the ValueChanged event handler of Slider control.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<h2>Play/Pause/Stop audio/video</h2>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">We can play/pause/stop audio/video by calling
+<span class="SpellE">M<span style="">ediaElement.Play</span></span></span><span style="font-family:'Cambria','serif'">()/MediaElement.Pause()/MediaElement.Stop() methods&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<h2>Events of <span class="SpellE">MediaElement</span></h2>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><b style=""><span style="font-family:'Cambria','serif'">MarkerReached&lt;o:p&gt;&lt;/o:p&gt;</span></b></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">This event fires when a marker of the MediaElement is reached. &lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">After </span><span style="font-family:'Cambria','serif'">markers are loaded from the video and assigned to the
+</span><span style="font-family:'Cambria','serif'">Markers properties of MediaElement, we can add our own markers. If we want to do so, a proper place is MediaOpened event.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">Code to add markers for MediaElement:&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal" style="line-height:normal; margin-bottom:0pt; text-autospace:">
+<span style="font-family:'Courier New'; color:blue; font-size:10pt">this</span><span style="font-family:'Courier New'; font-size:10pt">.MyMediaElement.Markers.Add(<span style="color:blue">new</span>
+<span style="color:#2b91af">TimelineMarker</span>()&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal" style="line-height:normal; margin-bottom:0pt; text-autospace:">
+<span style="font-family:'Courier New'; font-size:10pt"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>{&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal" style="line-height:normal; margin-bottom:0pt; text-autospace:">
+<span style="font-family:'Courier New'; font-size:10pt"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Text = <span style="color:#a31515">&quot;This marker is added by code!&quot;</span>,&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal" style="line-height:normal; margin-bottom:0pt; text-autospace:">
+<span style="font-family:'Courier New'; font-size:10pt"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Time = <span style="color:#2b91af">TimeSpan</span>.FromSeconds(8),&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal" style="line-height:normal; margin-bottom:0pt; text-autospace:">
+<span style="font-family:'Courier New'; font-size:10pt"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Type = <span style="color:#a31515">&quot;MyMarker&quot;&lt;o:p&gt;&lt;/o:p&gt;</span></span></p>
+<p class="MsoNormal"><span style="line-height:115%; font-family:'Courier New'; font-size:10pt"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>});</span><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">To learn how to add markers for a video in Expression Encoder, please refer to:</span><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><a href="http://expression.microsoft.com/en-us/cc482957.aspx"><span style="font-family:'Cambria','serif'">http://expression.microsoft.com/en-us/cc482957.aspx</span></a><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><b style=""><span style="font-family:'Cambria','serif'">MediaEnded&lt;o:p&gt;&lt;/o:p&gt;</span></b></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'; color:black">This event fires when the media has ended. Common usage of this event is to reset state of certain controls or replay audio/video.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'; color:black">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><b style=""><span style="font-family:'Cambria','serif'">MediaOpened&lt;o:p&gt;&lt;/o:p&gt;</span></b></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'; color:black">This event fires when the media stream has been validated and opened, and the file headers have been read.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'; color:black">As described in MSDN, for this event we must take care of following things:&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="vertical-align:top"><span style="font-family:'Cambria','serif'; color:black; font-size:11pt">Properties in this second category will not contain valid values until the
+<span class="SpellE"><span class="input1"><span style="font-weight:normal">MediaElement</span></span></span> raises the
+<span class="SpellE"><span class="input1"><span style="font-weight:normal">MediaOpened</span></span></span> event. The following is a list of
+<span class="SpellE"><span class="input1"><span style="font-weight:normal">MediaElement</span></span></span> properties that will not be valid until after
+<span class="SpellE"><span class="input1"><span style="font-weight:normal">MediaOpened</span></span></span> is raised by that element.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="line-height:140%; text-indent:-0.25in; margin-left:0.5in; vertical-align:top">
+&lt;![if !supportLists]&gt;<span style="line-height:140%; font-family:Symbol; color:black; font-size:10pt"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<a href="http://msdn.microsoft.com/en-us/library/bb979671(VS.95).aspx"><span style="line-height:140%; font-family:'Cambria','serif'; font-size:11pt">Attributes</span></a><span style="line-height:140%; font-family:'Cambria','serif'; color:black; font-size:11pt">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="line-height:140%; text-indent:-0.25in; margin-left:0.5in; vertical-align:top">
+&lt;![if !supportLists]&gt;<span style="line-height:140%; font-family:Symbol; color:black; font-size:10pt"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<a href="http://msdn.microsoft.com/en-us/library/bb979814(VS.95).aspx"><span class="SpellE"><span style="line-height:140%; font-family:'Cambria','serif'; font-size:11pt">AudioStreamCount</span></span></a><span style="line-height:140%; font-family:'Cambria','serif'; color:black; font-size:11pt">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="line-height:140%; text-indent:-0.25in; margin-left:0.5in; vertical-align:top">
+&lt;![if !supportLists]&gt;<span style="line-height:140%; font-family:Symbol; color:black; font-size:10pt"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<a href="http://msdn.microsoft.com/en-us/library/bb979672(VS.95).aspx"><span class="SpellE"><span style="line-height:140%; font-family:'Cambria','serif'; font-size:11pt">AudioStreamIndex</span></span></a><span style="line-height:140%; font-family:'Cambria','serif'; color:black; font-size:11pt">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="line-height:140%; text-indent:-0.25in; margin-left:0.5in; vertical-align:top">
+&lt;![if !supportLists]&gt;<span style="line-height:140%; font-family:Symbol; color:black; font-size:10pt"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<a href="http://msdn.microsoft.com/en-us/library/bb979904(VS.95).aspx"><span class="SpellE"><span style="line-height:140%; font-family:'Cambria','serif'; font-size:11pt">BufferingProgress</span></span></a><span style="line-height:140%; font-family:'Cambria','serif'; color:black; font-size:11pt">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="line-height:140%; text-indent:-0.25in; margin-left:0.5in; vertical-align:top">
+&lt;![if !supportLists]&gt;<span style="line-height:140%; font-family:Symbol; color:black; font-size:10pt"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<a href="http://msdn.microsoft.com/en-us/library/bb979734(VS.95).aspx"><span class="SpellE"><span style="line-height:140%; font-family:'Cambria','serif'; font-size:11pt">DownloadProgress</span></span><span style="line-height:140%; font-family:'Cambria','serif'; font-size:11pt">
+ (<span class="SpellE">MediaElement</span>)</span></a><span style="line-height:140%; font-family:'Cambria','serif'; color:black; font-size:11pt">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="line-height:140%; text-indent:-0.25in; margin-left:0.5in; vertical-align:top">
+&lt;![if !supportLists]&gt;<span style="line-height:140%; font-family:Symbol; color:black; font-size:10pt"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<a href="http://msdn.microsoft.com/en-us/library/bb979836(VS.95).aspx"><span style="line-height:140%; font-family:'Cambria','serif'; font-size:11pt">Markers</span></a><span style="line-height:140%; font-family:'Cambria','serif'; color:black; font-size:11pt">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="line-height:140%; text-indent:-0.25in; margin-left:0.5in; vertical-align:top">
+&lt;![if !supportLists]&gt;<span style="line-height:140%; font-family:Symbol; color:black; font-size:10pt"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<a href="http://msdn.microsoft.com/en-us/library/bb979710(VS.95).aspx"><span class="SpellE"><span style="line-height:140%; font-family:'Cambria','serif'; font-size:11pt">NaturalDuration</span></span></a><span style="line-height:140%; font-family:'Cambria','serif'; color:black; font-size:11pt">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="line-height:140%; text-indent:-0.25in; margin-left:0.5in; vertical-align:top">
+&lt;![if !supportLists]&gt;<span style="line-height:140%; font-family:Symbol; color:black; font-size:10pt"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<a href="http://msdn.microsoft.com/en-us/library/bb979809(VS.95).aspx"><span class="SpellE"><span style="line-height:140%; font-family:'Cambria','serif'; font-size:11pt">NaturalVideoHeight</span></span></a><span style="line-height:140%; font-family:'Cambria','serif'; color:black; font-size:11pt">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="line-height:140%; text-indent:-0.25in; margin-left:0.5in; vertical-align:top">
+&lt;![if !supportLists]&gt;<span style="line-height:140%; font-family:Symbol; color:black; font-size:10pt"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<a href="http://msdn.microsoft.com/en-us/library/bb980128(VS.95).aspx"><span class="SpellE"><span style="line-height:140%; font-family:'Cambria','serif'; font-size:11pt">NaturalVideoWidth</span></span></a><span style="line-height:140%; font-family:'Cambria','serif'; color:black; font-size:11pt">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="vertical-align:top"><span style="font-family:'Cambria','serif'; color:black; font-size:11pt">In addition, the
+</span><a href="http://msdn.microsoft.com/en-us/library/bb979677(VS.95).aspx"><span style="font-family:'Cambria','serif'; font-size:11pt">Position</span></a><span style="font-family:'Cambria','serif'; color:black; font-size:11pt"> property will be null before
+ the <span class="SpellE"><span class="input1"><span style="font-weight:normal">MediaOpened</span></span></span> event. However,
+<span class="input1"><span style="font-weight:normal">Position</span></span> is different from the other properties in the second group because it is settable. You should not attempt to set
+<span class="input1"><span style="font-weight:normal">Position</span></span> until
+<span class="SpellE"><span class="input1"><span style="font-weight:normal">MediaOpened</span></span></span> is raised. You also should not set an initial
+<span class="input1"><span style="font-weight:normal">Position</span></span> value in XAML.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><b style=""><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></b></p>
+<p class="MsoNormal"><b style=""><span style="font-family:'Cambria','serif'">MediaFailed&lt;o:p&gt;&lt;/o:p&gt;</span></b></p>
+<p style="vertical-align:top"><span style="font-family:'Cambria','serif'; color:black; font-size:11pt">This event can occur in the following conditions: &lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="line-height:140%; text-indent:-0.25in; margin-left:0.5in; vertical-align:top">
+&lt;![if !supportLists]&gt;<span style="line-height:140%; font-family:Symbol; color:black; font-size:10pt"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<span style="line-height:140%; font-family:'Cambria','serif'; color:black; font-size:11pt">File not found.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="line-height:140%; text-indent:-0.25in; margin-left:0.5in; vertical-align:top">
+&lt;![if !supportLists]&gt;<span style="line-height:140%; font-family:Symbol; color:black; font-size:10pt"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<span style="line-height:140%; font-family:'Cambria','serif'; color:black; font-size:11pt">Invalid (unrecognized or unsupported) media format.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p style="line-height:140%; text-indent:-0.25in; margin-left:0.5in; vertical-align:top">
+&lt;![if !supportLists]&gt;<span style="line-height:140%; font-family:Symbol; color:black; font-size:10pt"><span style="">�<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>&lt;![endif]&gt;<span style="line-height:140%; font-family:'Cambria','serif'; color:black; font-size:11pt">Unknown media error during playback.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">You may see this event fires when you debug your Silverlight application in visual studio. The URL of the video is valid. You can open the video in Windows Media Player.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">To solve this issue, the first thing you need to check is whether the URL is a cross-scheme one. Common cause is, the URL of the page is of FILE scheme (e.g. �C:\\...�) and the URL of the video
+ is of HTTP scheme (e.g. http://..). Vice versa.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">For more details about this restriction, please check out:&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/cc189008(VS.95).aspx"><span style="font-family:'Cambria','serif'">http://msdn.microsoft.com/en-us/library/cc189008(VS.95).<span class="SpellE">aspx</span></span></a><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><b style=""><span style="font-family:'Cambria','serif'">CurrentStateChanged&lt;o:p&gt;&lt;/o:p&gt;</span></b></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'; color:black">This event fires when the value of the
+<span class="SpellE">CurrentState</span> property changes. In the sample we catch some state change events and display current state on
+</span><span style="font-family:'Cambria','serif'">StatusTextBlock.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></p>
+<h2>How to handle <span class="SpellE">MediaElement</span> in full-screen mode</h2>
+<p class="MsoNormal"><b style=""><span style="font-family:'Cambria','serif'">&lt;o:p&gt;&nbsp;&lt;/o:p&gt;</span></b></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">A common requirement regarding
+<span class="SpellE">MediaElement</span> in full-screen mode is, we expect only the
+<span class="SpellE">MediaElement</span> to appear in the full-screen mode. This sample demonstrates how to do that. Basically the idea is to enlarge width/height of
+<span class="SpellE">MediaElement</span> and hide other controls when Silverlight is in full-screen mode. You can prepare another set of UIs to control
+<span class="SpellE">MediaElement</span> in full-screen mode. &lt;o:p&gt;&lt;/o:p&gt;</span></p>
+<p class="MsoNormal"><span style="font-family:'Cambria','serif'">The code regarding full-screen mode can also be found in our samples CSSL3FullScreen/</span>
+<span style="font-family:'Cambria','serif'">VBSL3FullScreen.&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+</div>
+&lt;/BODY&gt;&lt;/HTML&gt;
+<p></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
