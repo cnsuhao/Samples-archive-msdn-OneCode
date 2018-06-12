@@ -1,0 +1,46 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="CSAzureWPImageUpload.UploadPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" Margin="12,0,12,0" >
+
+        <!--ContentPanel - place additional content here-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="109*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Image  Margin="28,30,149,0"  x:Name="imgSelected" Grid.Row="0" Height="150" Width="150" Grid.Column="2"  />
+        <TextBlock Grid.Row="1" Text="Title" Grid.Column="0"></TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" AcceptsReturn="True" Text="{Binding Path=PictureName, Mode=TwoWay}" Grid.ColumnSpan="2" Margin="0,0,0,87" Grid.RowSpan="2"></TextBox>
+        <TextBlock Grid.Row="2" Text="Desciption" Grid.Column="0"></TextBlock>
+        <TextBox Grid.Row="2" TextWrapping="Wrap" Grid.Column="1"  AcceptsReturn="True" Text="{Binding Path=PictureDescription, Mode=TwoWay}" Grid.ColumnSpan="2"></TextBox>
+        <TextBlock Grid.Row="3" Text="Album" Grid.Column="0"></TextBlock>
+       
+        <!--<TextBox x:Name="tbAlbum" HorizontalAlignment="Right" Width="150" Grid.Row="3" Grid.Column="2"  Visibility="{Binding SelectedAlbum, Converter={StaticResource AlbumToVisibilityConverter}}" Text="{Binding NewAlbumName, Mode=TwoWay}" ></TextBox>-->
+        <Button x:Name="btnSelect" Width="160" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Content="Select" Click="btnSelect_Click" Grid.ColumnSpan="2"></Button>
+        <Button x:Name="btnUpload" Width="160" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Right" Content="Upload" Click="btnUpload_Click"></Button>
+    </Grid>
+
+</phone:PhoneApplicationPage>
