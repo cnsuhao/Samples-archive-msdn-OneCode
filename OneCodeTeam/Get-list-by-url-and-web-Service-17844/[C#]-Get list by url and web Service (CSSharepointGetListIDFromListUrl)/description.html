@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Get list by url and web Service (CSSharepointGetListIDFromListUrl)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Get list by url and web Service (CSSharepointGetListIDFromListUrl)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SharePoint
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            SharePoint, web service, ListID
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">7/22/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSSharepointGetListIDFromLi-354a5a6f">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><a name="OLE_LINK4"></a><a name="OLE_LINK3"><span style=""><span style="">Get the list ID, name from the list
+</span></span></a><span class="SpellE"><span style=""><span style=""><span style="">url</span></span></span></span><span style=""><span style=""><span style="">
+</span>(</span></span><span style=""><span style=""><span class="SpellE"><span class="GramE"><span style="">CSSharePointGetListIDFromListUrl</span></span></span></span></span><span style=""><span style=""><span class="GramE"><span style="">
+</span>)</span></span></span></h1>
+<h2>Introduction </h2>
+<p class="MsoNormal"><span style="">The sample will show you how to get the list ID, name from the list
+<span class="SpellE"><span class="GramE">url</span></span> by using web service. In this sample, we use
+<span class="SpellE">Lists.GetListCollection</span> Method of list web Services. It will return a <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Xml.XmlNode.aspx"  title="Auto generated link to System.Xml.XmlNode">System.Xml.XmlNode</a> object. You can get the value of the attribute &quot;DefaultViewUrl&quot; and append it to site
+<span class="SpellE"><span class="GramE">url</span></span>. After that, you should compare the
+<span class="SpellE"><span class="GramE">url</span></span> with your list <span class="SpellE">
+url</span>, and then find the list ID value. </span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style="">Please follow these demonstration steps below.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 1: Open the CSSharePointGetListIDFromListUrl.sln. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2: Open the <span class="SpellE">Program.cs</span> file to modify the base
+<span class="GramE">url</span> and list url then press &quot;Ctrl&#43;F5&quot; to run the sample.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: Validation finished. </span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style=""><span style="">Code Logical: <span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 1: Create a C# &quot;Console Application&quot; in Visual Studio 2010. Name it as &quot;<span class="SpellE">CSSharePointGetListIDFromListUrl</span> &quot;.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt"><span style="">Step 2:<span style="">&nbsp;
+</span>Add list web service to your project as below:<br>
+<span style="">&nbsp;</span><span style="color:black">Project-&gt; Service References -&gt;Add Server Reference -&gt;Advanced -&gt;Add Web Reference... -&gt;type the url as
+</span>&quot;<span style="color:black">yoursite/_vti_bin/Lists.asmx&quot; -&gt;Create</span>
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: Add the following namespaces to <span class="SpellE">Program.cs</span>.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Xml.Linq.aspx"  title="Auto generated link to System.Xml.Linq">System.Xml.Linq</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Xml.aspx"  title="Auto generated link to System.Xml">System.Xml</a>;
+using CSSPGetListIDFromListUrl.ServiceReference1;
+
+</pre>
+<pre id="codePreview" class="csharp">
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Xml.Linq.aspx"  title="Auto generated link to System.Xml.Linq">System.Xml.Linq</a>;
+using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Xml.aspx"  title="Auto generated link to System.Xml">System.Xml</a>;
+using CSSPGetListIDFromListUrl.ServiceReference1;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 4: Create an instance of list web service.<br style="">
+<br style="">
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+Lists wsLists = new Lists();//list web service
+           wsLists.Url = baseUrl &#43; &quot;/sites/subsite/_vti_bin/Lists.asmx&quot;;//Url
+           wsLists.Credentials = <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Net.CredentialCache.DefaultCredentials.aspx"  title="Auto generated link to System.Net.CredentialCache.DefaultCredentials">System.Net.CredentialCache.DefaultCredentials</a>;//Credentials
+
+</pre>
+<pre id="codePreview" class="csharp">
+Lists wsLists = new Lists();//list web service
+           wsLists.Url = baseUrl &#43; &quot;/sites/subsite/_vti_bin/Lists.asmx&quot;;//Url
+           wsLists.Credentials = <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Net.CredentialCache.DefaultCredentials.aspx"  title="Auto generated link to System.Net.CredentialCache.DefaultCredentials">System.Net.CredentialCache.DefaultCredentials</a>;//Credentials
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 5: Get collection of elements by Linq. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+//Get ListCollection
+          XmlNode xn = wsLists.GetListCollection();
+          //A instance of XmlNodeReader
+          XmlNodeReader xnr = new XmlNodeReader(xn);
+          //Load XElement
+          XElement listMetadatas = XElement.Load(xnr);
+          //Search collection of elements
+          IEnumerable&lt;XElement&gt; childElements = from el in listMetadatas.Elements()
+                                                select el;
+
+</pre>
+<pre id="codePreview" class="csharp">
+//Get ListCollection
+          XmlNode xn = wsLists.GetListCollection();
+          //A instance of XmlNodeReader
+          XmlNodeReader xnr = new XmlNodeReader(xn);
+          //Load XElement
+          XElement listMetadatas = XElement.Load(xnr);
+          //Search collection of elements
+          IEnumerable&lt;XElement&gt; childElements = from el in listMetadatas.Elements()
+                                                select el;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""><br>
+Step 6: Get Id and name by the specified URL. Iteratively access the collection to get the value of the attribute &quot;DefaultViewUrl&quot;. Append it to site URL, and compare the URL with your list URL, then find the list ID value.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+private static void GetIdAndName(IEnumerable&lt;XElement&gt; childElements, string baseUrl, string strListUrl)
+       {
+           // Temporarily store the url of default view.    
+           string strCurrentUrl = string.Empty;
+
+
+           foreach (XElement el in childElements)
+           {
+               // Get url by appending the DefaultViewUrl to site url.
+               strCurrentUrl = baseUrl &#43; el.Attribute(&quot;DefaultViewUrl&quot;).Value;
+
+
+               // If current url contains the specified url. 
+               if ((strCurrentUrl).Contains(strListUrl))
+               {
+                   Console.WriteLine(&quot;ID:&quot; &#43; el.Attribute(&quot;ID&quot;).Value);
+                   Console.WriteLine(&quot;Title:&quot; &#43; el.Attribute(&quot;Title&quot;).Value);
+                   Console.WriteLine(&quot;DefaultViewUrl:&quot; &#43; el.Attribute(&quot;DefaultViewUrl&quot;).Value);
+               }
+           }
+       }
+
+</pre>
+<pre id="codePreview" class="csharp">
+private static void GetIdAndName(IEnumerable&lt;XElement&gt; childElements, string baseUrl, string strListUrl)
+       {
+           // Temporarily store the url of default view.    
+           string strCurrentUrl = string.Empty;
+
+
+           foreach (XElement el in childElements)
+           {
+               // Get url by appending the DefaultViewUrl to site url.
+               strCurrentUrl = baseUrl &#43; el.Attribute(&quot;DefaultViewUrl&quot;).Value;
+
+
+               // If current url contains the specified url. 
+               if ((strCurrentUrl).Contains(strListUrl))
+               {
+                   Console.WriteLine(&quot;ID:&quot; &#43; el.Attribute(&quot;ID&quot;).Value);
+                   Console.WriteLine(&quot;Title:&quot; &#43; el.Attribute(&quot;Title&quot;).Value);
+                   Console.WriteLine(&quot;DefaultViewUrl:&quot; &#43; el.Attribute(&quot;DefaultViewUrl&quot;).Value);
+               }
+           }
+       }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 7: You can debug and test it with specified URL. </span></p>
+<h2>More Information</h2>
+<p class="MsoNormal"><span style="">Lists.GetListCollection Method<br>
+<a href="http://msdn.microsoft.com/en-us/library/lists.lists.getlistcollection(v=office.12).aspx">http://msdn.microsoft.com/en-us/library/lists.lists.getlistcollection(v=office.12).aspx</a><br>
+XmlNode Class<br>
+<a href="http://msdn.microsoft.com/en-us/library/bxz4hfh3.aspx">http://msdn.microsoft.com/en-us/library/bxz4hfh3.aspx</a><br>
+Lists Web Service<br>
+<a href="http://msdn.microsoft.com/en-us/library/websvclists.aspx">http://msdn.microsoft.com/en-us/library/websvclists.aspx</a>
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
