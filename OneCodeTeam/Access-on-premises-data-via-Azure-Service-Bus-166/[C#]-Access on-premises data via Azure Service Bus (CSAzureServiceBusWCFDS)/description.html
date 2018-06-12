@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Access on-premises data via Azure Service Bus (CSAzureServiceBusWCFDS)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Access on-premises data via Azure Service Bus (CSAzureServiceBusWCFDS)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            WCF, Windows Azure, Data Platform
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            WCF Data Services, Service Bus
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">4/16/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSAzureServiceBusWCFDS-d69e2ae0">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420" ><img id="79969" src="description/120x90_Azure_web_EN_US.jpg" alt="" width="360" height="90"></a></p>
+<h2>APPFABRIC : CSAzureServiceBusWCFDS Solution Overview</h2>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+It's a common scenario that we want to expose local database to internet and cloud access.<br>
+However it involves a lot of security problems if we directly allow TCP connections<br>
+to local SQL Server. <br>
+<br>
+In this scenario, another difficulty is to scale the entire system. <br>
+<br>
+Windows Azure can help us resolve both of above issues.<br>
+<br>
+The solution uses the following techniques/products:<br>
+<br>
+*Service Bus in Windows Azure <br>
+*WCF Data Services (formerly named ADO.NET Data Services)<br>
+*SQL Server<br>
+<br>
+Service Bus in Windows Azure provides us with the flexibility and the scalability<br>
+of the entire solution.(You can refer to the LoadBalance sample in AppFabric SDK to learn details<br>
+about how to use Service Bus to do load balance for your service. We don't cover it in this sample<br>
+for the simplicity purpose)<br>
+<br>
+Service Bus also allows you to expose the local data to the intenet, so you can consume the data<br>
+in your cloud applications. While this sample ships with a standard ASP.NET client, you can easily<br>
+convert the client to a Web Role for a Windows Azure solution.<br>
+<br>
+WCF Data Services works as an intermediate node that can provide additional access control and other<br>
+business logic to meet your needs.You may refer to CSADONETDataService/VBADONETDataService samples to<br>
+learn more about it. WCF Data Services has more to do with WCF than ADO.NET. The sample uses a WCF<br>
+message inspector to workaround a potential issue in Service Bus where POST/PUT verbs do not work properly.<br>
+<br>
+SQL Server is the backend database.</p>
+<div align="right">
+<p><a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420"><span style="color:windowtext; text-decoration:none"><span><img src="description/image.png" alt="" width="120" height="90" align="middle">
+</span></span></a><br>
+<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420">Try Windows Azure for free for 90 Days!</a></p>
+</div>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>Prerequisites:</h3>
+<p style="font-family:Courier New"><br>
+Windows Azure AppFabric SDK V1.0<br>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=39856A03-1490-4283-908F-C8BF0BFAD8A5&amp;displaylang=en" >http://www.microsoft.com/downloads/details.aspx?familyid=39856A03-1490-4283-908F-C8BF0BFAD8A5&amp;displaylang=en</a><br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+A. Change code and settings to meet your environment<br>
+<br>
+1.Press Control&#43;H to open &quot;Find and Replace&quot; window.Look in &quot;Entire Solution&quot;.<br>
+<br>
+2.Replace [Your Connection String of Northwind Database] with your connection string of
+<br>
+Northwind Database.<br>
+<br>
+3.Replace [Your Secret] with Current Management Key of your service. <br>
+You can find Current Management Key from our web portal (replace [Your Service Namespace]
+<br>
+with your service namespace):<br>
+https://appfabric.azure.com/ServiceNamespace.aspx?ServiceNamespace=[Your Service Namespace]<br>
+<br>
+4.Replace [Your Service Namespace] with your service namespace.<br>
+<br>
+<br>
+B. Run Service<br>
+<br>
+1.Start debugging CSAzureServiceBusWCFDS project. Input your service namespace and press enter.<br>
+<br>
+2.Wait several seconds for service start and after you see message &quot;Press [Enter] to exit&quot;<br>
+the service has been started.<br>
+<br>
+C. Test Service in browser<br>
+<br>
+1.Stop debugging service and modify Program.cs to test in browser.Replace:<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WebHttpRelayBinding binding = new WebHttpRelayBinding(EndToEndWebHttpSecurityMode.Transport, RelayClientAuthenticationType.RelayAccessToken);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;with:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WebHttpRelayBinding binding = new WebHttpRelayBinding(EndToEndWebHttpSecurityMode.Transport, RelayClientAuthenticationType.None);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+2.Repeat step B.<br>
+<br>
+3.Follow the instruction shown on the console window to access the following URI in browser to test<br>
+(replace [Your Service Namespace] with your service namespace):<br>
+https://[Your Service Namespace].servicebus.windows.net/DataService/Customers<br>
+<br>
+2.View the source of the page you'll be able to see all records in Customers table in Northwind DB.<br>
+<br>
+D.Consume Service in ASP.NET<br>
+<br>
+1. Stop debugging service and modify Program.cs to change code back to:<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WebHttpRelayBinding binding = new WebHttpRelayBinding(EndToEndWebHttpSecurityMode.Transport, RelayClientAuthenticationType.RelayAccessToken);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+2. Repeat step B.<br>
+<br>
+3. Start debugging Client project. You'll be able to view the records in database and insert records.<br>
+To keep it as concise as possible we only use simple select and insert queries. After insert<br>
+you can check your database to view the records or you can insert a record with CustomerID=&quot;abc&quot; so that<br>
+it will be returned by the show-first-10-records query and shown on the page.If you want to know how to
+<br>
+do other queries please refer to WCF Data Services samples in AIO Framework.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+WCF Data Services<br>
+<a href="http://msdn.microsoft.com/en-us/data/bb931106.aspx" >http://msdn.microsoft.com/en-us/data/bb931106.aspx</a><br>
+<br>
+Message Inspectors<br>
+<a href="http://msdn.microsoft.com/en-us/library/aa717047.aspx" >http://msdn.microsoft.com/en-us/library/aa717047.aspx</a><br>
+<br>
+Creating a Custom AppFabric Service Bus Binding<br>
+<a href="http://msdn.microsoft.com/en-us/library/dd582769.aspx" >http://msdn.microsoft.com/en-us/library/dd582769.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
