@@ -1,0 +1,38 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBAzureSQLReportingServices_WebRole", "VBAzureSQLReportingServices\VBAzureSQLReportingServices_WebRole\VBAzureSQLReportingServices_WebRole.vbproj", "{946A61F2-A328-4180-B54E-BEC1C516FA64}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AzureSQLReportingSerivces_MVC4Role", "VBAzureSQLReportingServices\AzureSQLReportingSerivces_MVC4Role\AzureSQLReportingSerivces_MVC4Role.vbproj", "{7F2A0FC2-4D2D-48AD-BA57-D6580C40A9D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{C34BFCBE-5F6A-4BD0-B729-7DA56AE01E94}"
+	ProjectSection(SolutionItems) = preProject
+		VBAzureSQLReportingServices\Documentation\ReadMe.htm = VBAzureSQLReportingServices\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8BAE246E-3D3F-4E24-BB7A-F04285D23440}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{946A61F2-A328-4180-B54E-BEC1C516FA64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{946A61F2-A328-4180-B54E-BEC1C516FA64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{946A61F2-A328-4180-B54E-BEC1C516FA64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{946A61F2-A328-4180-B54E-BEC1C516FA64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F2A0FC2-4D2D-48AD-BA57-D6580C40A9D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F2A0FC2-4D2D-48AD-BA57-D6580C40A9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F2A0FC2-4D2D-48AD-BA57-D6580C40A9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F2A0FC2-4D2D-48AD-BA57-D6580C40A9D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
