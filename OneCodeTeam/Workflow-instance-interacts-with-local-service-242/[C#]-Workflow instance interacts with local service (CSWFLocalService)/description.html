@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Workflow instance interacts with local service (CSWFLocalService)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Workflow instance interacts with local service (CSWFLocalService)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            WF
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Communication
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSWFLocalService-4e785d83">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>CONSOLE APPLICATION : CSWFLocalService</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+How to play the game:<br>
+When the game start,workflow instance will generate a random number,then you <br>
+input a number between 1 and 10,if your input larger than the random number,<br>
+the game will ask you to input a smaller number. if your input number smaller <br>
+than the random number,the game will ask you to input a larger one.Until your <br>
+input number equel to the ramdon number, the game will tell you your input hit <br>
+the answer - show a message:&quot;right&quot;.<br>
+<br>
+I create the sample to demonstrate:<br>
+1. How to send a message from workflow instance to local service?<br>
+&nbsp; When the game start and every time you input a number,game workflow instance
+<br>
+will send out a message to the player(local service),we use <br>
+CallExternalMethodActivity to do it.More info about CallExternalMethodActivity<br>
+please check:<br>
+<a  href="http://xhinker.com/2009/10/27/WFWhatIsCallExternalMethodActivityAndHowToUseIt.aspx">http://xhinker.com/2009/10/27/WFWhatIsCallExternalMethodActivityAndHowToUseIt.aspx</a><br>
+2. How to send a message from workflow host to workflow instance?<br>
+&nbsp; When you input a number,how could the host send the input number to workflow<br>
+instance?We use HandleExternalEventActivity to do it,for a example usage of<br>
+HandleExternalEventActivity,please check:<br>
+<a  href="http://xhinker.com/2009/10/29/WFHandleExternalEventActivity.aspx">http://xhinker.com/2009/10/29/WFHandleExternalEventActivity.aspx</a><br>
+3. How to send a message from local service to workflow host?<br>
+&nbsp; We use CallExternalMethodActivity to send data from the workflow to local<br>
+service.In this game,send message to local service(I mean GuessNumberGameService)<br>
+is not enough.To interact with player, we should let the message end at workflow<br>
+host. We can use event to do it.declare a event in GuessNumberGameService,handler<br>
+the event in workflow host(Program.cs),warp message with MessageEventArgs.<br>
+<br>
+</p>
+<h3>Prerequisite</h3>
+<p style="font-family:Courier New"><br>
+1. Visual Studio 2008<br>
+2. .NET Framework 3.5<br>
+<br>
+</p>
+<h3>Creation:</h3>
+<p style="font-family:Courier New"><br>
+1.Create a Event Arg - MessageEventArgs.cs<br>
+2.Create Local Service - IGuessNumberGameService.cs;GuessNumberGameService.cs<br>
+3.Create WF - GuessNumberGameWF.cs<br>
+4.Host the workflow - Program.cs<br>
+<br>
+For more detail info, please check:<br>
+<a target="_blank" href="&lt;a http://xhinker.com/2009/11/01/WFBuildAGuessNumberGameWithWindowWorkflowFoundation35.aspx">http://xhinker.com/2009/11/01/WFBuildAGuessNumberGameWithWindowWorkflowFoundation35.aspx</a>'&gt;<a  href="http://xhinker.com/2009/11/01/WFBuildAGuessNumberGameWithWindowWorkflowFoundation35.aspx">http://xhinker.com/2009/11/01/WFBuildAGuessNumberGameWithWindowWorkflowFoundation35.aspx</a><br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+<a target="_blank" href="&lt;a http://xhinker.com/2009/11/01/WFBuildAGuessNumberGameWithWindowWorkflowFoundation35.aspx">http://xhinker.com/2009/11/01/WFBuildAGuessNumberGameWithWindowWorkflowFoundation35.aspx</a>'&gt;<a  href="http://xhinker.com/2009/11/01/WFBuildAGuessNumberGameWithWindowWorkflowFoundation35.aspx">http://xhinker.com/2009/11/01/WFBuildAGuessNumberGameWithWindowWorkflowFoundation35.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
