@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Data encryption demo (CSEncryption)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Data encryption demo (CSEncryption)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows Security
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Encryption/Decr<wbr />yption
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSEncryption-2da611ff">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>WINDOWS APPLICATION : CSEncryption Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+Cryptography is used to protect data and has many valuable uses. It can <br>
+protect data from being viewed, modified, or to ensure the integrity <br>
+from the originator. Cryptography can be used as a mechanism to provide secure<br>
+communication over an unsecured network, such as the Internet, by encrypting <br>
+data, sending it across the network in the encrypted state, and then the <br>
+decrypting the data on the receiving end. Encryption can also be used as an<br>
+additional security mechanism to further protect data such as passwords <br>
+stored in a database to prevent them from being human readable or <br>
+understandable. There are two types of cryptography: asymmetric algorithm <br>
+and symmetric algorithm.<br>
+<br>
+<br>
+Symmetric algorithms:<br>
+A symmetric algorithm is a cipher in which encryption and decryption use the <br>
+same key or keys that are mathematically related to one another in such a way<br>
+that it is easy to compute one key from knowledge of the other, which is <br>
+effectively a single key.Some symmetric algorithms commonly used are DES,<br>
+TripleDES, RC2,RijnDael.The following private-key algorithms are available in<br>
+the .NET Framework. <br>
+<br>
+Data Encryption Standard (DES) &nbsp;<br>
+RC2 <br>
+TripleDES <br>
+Rijndael &nbsp;<br>
+<br>
+<br>
+Asymmetric algorithms:<br>
+It uses a public and private key pair to encrypt and decrypt data. The public<br>
+key is made available to anyone and is used to encrypt data to be sent to the <br>
+owner of the private key. The private key, as the name implies, is kept private <br>
+. The private key is used to decrypt the data and will only work if the correct<br>
+public key was used when encrypting the data. The private key is the only key <br>
+that will allow data encrypted with the public key to be decrypted. The <br>
+following public-key algorithms are available for use in the .NET Framework:<br>
+<br>
+Digital Signature Algorithm (DSA) <br>
+RSA <br>
+<br>
+Hashing Algorithms<br>
+A hash is a function that maps an arbitrary-length binary data input to a <br>
+small, fixed-length binary data output, often referred to as a message digest<br>
+or finger print.A good hash function should have the property that it is a very<br>
+low probability that two distinct inputs collide, producing the same hash <br>
+value result.The .NET Framework provides support for the following hash <br>
+algorithms:<br>
+<br>
+HMACSHA1 <br>
+MACTripleDES <br>
+MD5CryptoServiceProvider <br>
+SHA1Managed <br>
+SHA256Managed <br>
+SHA384Managed <br>
+SHA512Managed <br>
+<br>
+<br>
+CSEncryption demonstrates how to use .NET built-in classes to encrypt and <br>
+decrypt data.<br>
+<br>
+</p>
+<h3>Code Logic:</h3>
+<p style="font-family:Courier New"><br>
+1. Use symmetric algorithm to encrypt and decrypt data in .NET.<br>
+<br>
+A. Create the secret key, Initial vector, padding mode, cipher mode for a <br>
+&nbsp; cryptographic provider object which is used later to encrypt or decrypt <br>
+&nbsp; data<br>
+B. Get plaintext as byte array<br>
+C. Create one symmetric algorithm provider which is initialized by parameters<br>
+&nbsp; from stepA. Using this object encrypts data via same secret key which is <br>
+&nbsp; also used in decryption and gets ciphered data.<br>
+D. Create one symmetric algorithm provider which is initialized by parameters<br>
+&nbsp; from stepA. Using this object encrypts data via same secret key and gets <br>
+&nbsp; ciphered data.<br>
+<br>
+2. Use asymmetric algorithm to encrypt and decrypt data in .NET.<br>
+<br>
+A. Create a cryptographic provider object to get public key and private key.<br>
+&nbsp; The private key is used to decrypt data. The public key is used to encrypt<br>
+&nbsp; data.<br>
+B. Get plaintext as byte array<br>
+C. Create one asymmetric algorithm provider which is initialized by public key<br>
+&nbsp; from stepA. Using this object encrypts data via public key and gets <br>
+&nbsp; ciphered data.<br>
+D. Create one symmetric algorithm provider which is initialized by public key<br>
+&nbsp; and private key from stepA. Using this object encrypts data and gets <br>
+&nbsp; ciphered data.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+.NET Security and Cryptography <br>
+<a  href="http://www.amazon.com/Security-Cryptography-Integrated-Object-Innovations/dp/013100851X">http://www.amazon.com/Security-Cryptography-Integrated-Object-Innovations/dp/013100851X</a><br>
+<br>
+RSACryptoServiceProvider Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.security.cryptography.rsacryptoserviceprovider.aspx">http://msdn.microsoft.com/en-us/library/system.security.cryptography.rsacryptoserviceprovider.aspx</a><br>
+<br>
+Cryptography in .NET<br>
+<a  href="http://www.developer.com/net/net/article.php/1548761">http://www.developer.com/net/net/article.php/1548761</a><br>
+<br>
+DSACryptoServiceProvider Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.security.cryptography.dsacryptoserviceprovider.aspx">http://msdn.microsoft.com/en-us/library/system.security.cryptography.dsacryptoserviceprovider.aspx</a><br>
+<br>
+Cryptography in Microsoft.NET Part I: Encryption<br>
+<a  href="http://www.c-sharpcorner.com/UploadFile/gsparamasivam/CryptEncryption11282005061028AM/CryptEncryption.aspx">http://www.c-sharpcorner.com/UploadFile/gsparamasivam/CryptEncryption11282005061028AM/CryptEncryption.aspx</a><br>
+<br>
+Cryptography in Microsoft.NET Part II: Digital Envelop and Digital Signatures<br>
+<a  href="http://www.c-sharpcorner.com/UploadFile/Gowri%20S%20Paramasivam/Cryptography211242005003308AM/Cryptography2.aspx">http://www.c-sharpcorner.com/UploadFile/Gowri%20S%20Paramasivam/Cryptography211242005003308AM/Cryptography2.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
