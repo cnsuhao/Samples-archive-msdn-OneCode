@@ -1,0 +1,21 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBASPNETEmailAddressValidator", "VBASPNETEmailAddressValidator\VBASPNETEmailAddressValidator.vbproj", "{AB34D6DF-4404-4E68-86F6-E3645042AD87}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB34D6DF-4404-4E68-86F6-E3645042AD87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB34D6DF-4404-4E68-86F6-E3645042AD87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB34D6DF-4404-4E68-86F6-E3645042AD87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB34D6DF-4404-4E68-86F6-E3645042AD87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

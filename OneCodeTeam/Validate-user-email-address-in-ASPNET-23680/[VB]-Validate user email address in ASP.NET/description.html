@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Validate user email address in ASP.NET</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Validate user email address in ASP.NET</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Email
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">7/3/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Validate-user-email-0d919665">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Send a confirmation Email to check whether an Email address is available (VBASPNETEmailAddressValidator)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">The project illustrates how to send a confirmation Email to check whether an Email address is available.<span style="">
+</span></p>
+<h2>Running the Sample<span style=""> </span></h2>
+<p class="MsoListParagraphCxSpFirst" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 1:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Open the VBASPNETEmailAddressValidator.sln.<span style=""> </span>
+</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 2:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Expand the VBASPNETEmailAddressValidator web application and press Ctrl &#43; F5 to show the Default.aspx.<span style="">
+<img src="description/image.png" alt="" width="575" height="184" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 3:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span><span style="">We will see a Wizard. In the first step, input a SMTP server name or IP address and one Email address based on that SMTP server and its password. We need to use this to send the confirmation Email.<br>
+In this sample, we use Hotmail, so if you have a hotmail, you can input your hotmail address and password and then click Next.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 4:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span><span style="">In the second step, input an Email address which need to be validated. Of course, you need to see the message to process the next step.
+</span><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style=""><img src="description/c547635b-c538-492a-8476-8572bd6dd17aimage.png" alt="" width="575" height="131" align="middle">
+</span><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 5:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span><span style="">Open the mail message which you have received. Click the link or copy the link address to the browser and you can see a 'Congratulation' message.</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style=""><img src="description/a5608cf8-dde2-4ff0-99e0-205237ac2704image.png" alt="" width="570" height="25" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpLast" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 6:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Validation is complete.</p>
+<h2>Using the Code<span style=""> </span></h2>
+<p class="MsoListParagraphCxSpFirst" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 1:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Create a VB.NET &quot;ASP.NET Empty Web Application&quot; in Visual Studio 2012. Name it as &quot;VBASPNETEmailAddressValidator&quot;.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 2:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span><span style="">&nbsp;</span>Add two folders, &quot;Handler&quot; and &quot;Module&quot;.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 3:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span><span style="">Add a new database file in the App_Data and create a new table called,
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style=""><span style="">&nbsp;&nbsp;
+</span>&quot;tblEmailValidation&quot;. Add six columns which are illustrated like below:
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style="">id: the identity key of the table;
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style="">EmailAddress: store the Email address which need to be validated;
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style="">IsValidated: store a bit to check whether the validation is completed.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style="">IsSendCheckEmail: store a bit to check whether the message has been sent.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style="">ValidatingStartTime: store the datetime which start the validation.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style="">ValdateKey: a unique key which used to tell different validation links.</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 4:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Add a new Linq to SQL class in the Module folder and name it as EmailAddressValidation.dbml. Open the Server Explorer, create a connection to the EmailValidationDB.mdf and drag the tblEmailValidation table and drop it to the desktop of
+ the EmailAddressValidation.dbml. Then build the project.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 5:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Create a new class file, name it as EmailValidation.vb. Write the codes like the sample and we can find more details from the comments in the sample file.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 6:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Create a new HttpHandler in the Handler folder. Write the codes like the sample and we can find more details from the comments in the sample file.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 7:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Modify the Webform1.aspx to Default.aspx and create a Wizard control there. Follow the sample to complete the markups.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 8:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Open the Default.aspx.vb. Write the codes like the sample. You can get more details from the comments in the sample file.</p>
+<p class="MsoListParagraphCxSpLast" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">Step 9:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span></span>Open the web.config. Add a new HttpHandler like below in the &lt;system.web&gt; node.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;httpHandlers&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add name=&quot;EmailAddressValidator&quot; path=&quot;mail.axd&quot; verb=&quot;GET&quot; validate=&quot;false&quot; type=&quot;VBASPNETEmailAddressValidator.EmailAvailableValidationHandler&quot; /&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/httpHandlers&gt;
+
+</pre>
+<pre id="codePreview" class="xml">
+&lt;httpHandlers&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add name=&quot;EmailAddressValidator&quot; path=&quot;mail.axd&quot; verb=&quot;GET&quot; validate=&quot;false&quot; type=&quot;VBASPNETEmailAddressValidator.EmailAvailableValidationHandler&quot; /&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/httpHandlers&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style="margin-left:.25in; text-indent:-.25in"><span style=""><span style="">Step 10:<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Build the application and you can debug it<span style="">.</span></p>
+<h2>More Information</h2>
+<p class="MsoNormal">MSDN: SmtpClient Class<br>
+<a href="http://msdn.microsoft.com/en-us/library/system.net.mail.smtpclient.aspx">http://msdn.microsoft.com/en-us/library/system.net.mail.smtpclient.aspx</a><br>
+MSDN: SQL-CLR Type Mapping (LINQ to SQL)<br>
+<a href="http://msdn.microsoft.com/en-us/library/bb386947.aspx">http://msdn.microsoft.com/en-us/library/bb386947.aspx</a><br>
+MSDN: HttpHandlers<br>
+<a href="http://msdn.microsoft.com/en-us/library/5c67a8bd(VS.71).aspx">http://msdn.microsoft.com/en-us/library/5c67a8bd(VS.71).aspx</a><br>
+<br>
+<span style=""><br style="">
+<br style="">
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
