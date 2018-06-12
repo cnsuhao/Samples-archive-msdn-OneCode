@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Out-of-process C# COM service (CSCOMService)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Out-of-process C# COM service (CSCOMService)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            COM, Windows Service
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Interop, out-of-process COM Service
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSCOMService-fb8eaad7">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>WINDOWS SERVICE : CSCOMService Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+CSCOMService demonstrates an out-of-process COM/DCOM service in the form of &nbsp;<br>
+Windows Service (EXE), which is implemented entirely in Visual C#. <br>
+<br>
+CSCOMService exposes the following item:<br>
+<br>
+1. SimpleObject<br>
+<br>
+Program ID: CSCOMService.SimpleObject<br>
+CLSID_SimpleObject: E2EDB864-02DB-4130-BEE4-2E35B30BBF3B<br>
+IID_ISimpleObject: 83C40736-3189-44bc-AB0F-9FB3703EA172<br>
+DIID_ISimpleObjectEvents: 7A11E6DA-DD09-404c-8731-DB917E783501<br>
+AppID: 2E78BFC7-FDD9-4b87-BB6F-470D08399DD1<br>
+<br>
+Properties:<br>
+// With both get and set accessor methods<br>
+float FloatProperty<br>
+<br>
+Methods:<br>
+// HelloWorld returns a string &quot;HelloWorld&quot;<br>
+string HelloWorld();<br>
+// GetProcessThreadID outputs the running process ID and thread ID<br>
+void GetProcessThreadID(out uint processId, out uint threadId);<br>
+<br>
+Events:<br>
+// FloatPropertyChanging is fired before new value is set to the <br>
+// FloatProperty property. The Cancel parameter allows the client to cancel <br>
+// the change of FloatProperty.<br>
+void FloatPropertyChanging(float NewValue, ref bool Cancel);<br>
+<br>
+</p>
+<h3>Project Relation:</h3>
+<p style="font-family:Courier New"><br>
+CSCOMService - ATLCOMService<br>
+CSCOMService and ATLCOMService, implemented in different languages, are our-<br>
+of-process COM components in the form of Windows Service.<br>
+<br>
+CSCOMService - CSExeCOMServer - CSDllCOMServer<br>
+All are COM components written in Visual C#. CSCOMService is an out-of-<br>
+process component in the form of Windows Service. CSExeCOMServer is an out-<br>
+of-process component in the form of local server. CSDllCOMServer is an in-<br>
+process component in the form of DLL.<br>
+<br>
+</p>
+<h3>Deployment:</h3>
+<p style="font-family:Courier New"><br>
+A. Setup<br>
+<br>
+Regasm.exe CSCOMService.exe<br>
+It registers the types that are COM-visible in CSCOMService.exe.<br>
+<br>
+Installutil.exe CSCOMService.exe<br>
+It installs CSCOMService.exe into SCM as a Windows Service.<br>
+<br>
+B. Cleanup<br>
+<br>
+Regasm.exe /u CSCOMService.exe<br>
+It unregisters the types that are COM-visible in CSCOMService.exe.<br>
+<br>
+Installutil.exe /u CSCOMService.exe<br>
+It uninstalls CSCOMService from SCM.<br>
+<br>
+</p>
+<h3>Creation:</h3>
+<p style="font-family:Courier New"><br>
+A. Creating the project<br>
+<br>
+Step1. Create a Visual C# / Windows / Windows Service project named <br>
+CSCOMService in Visual Studio 2008.<br>
+<br>
+B. Adding the COMHelper class<br>
+<br>
+COMHelper provides the helper functions to register/unregister COM servers <br>
+and encapsulates the native COM APIs to be used in .NET.<br>
+<br>
+C. Adding the Windows Service<br>
+<br>
+Step1. Rename the existing Windows Service component as COMServie.<br>
+<br>
+Step2. Double-click COMService.cs to open the component in the Visual Studio <br>
+designer. In the Properties dialog, set the &quot;ServiceName&quot; property as <br>
+&quot;CSCOMService&quot;. <br>
+<br>
+Step3. In the Properties dialog, click the &quot;Add Installer&quot; button. This
+<br>
+generates a Project Installer component. Rename it as COMServiceInstaller. <br>
+<br>
+Step4. Double-click COMServiceInstaller.cs to open the component in the <br>
+Visual Studio designer. It contains a ServiceProcessInstaller, and a <br>
+ServiceInstaller. Set the Account property of ServiceProcessInstaller as <br>
+LocalSystem so that the service runs as the SYSTEM account. <br>
+<br>
+D. Configuring security access of the service.<br>
+<br>
+Step1. In the contructor of the Service class, call CoInitializeSecurity to, <br>
+for example, allow only administrators to call in.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Initialize COM security<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int hResult = COMNative.CoInitializeSecurity(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IntPtr.Zero, &nbsp; &nbsp;// Add your security descriptor here<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1, IntPtr.Zero, IntPtr.Zero, RPC_C_AUTHN_LEVEL.PKT_PRIVACY,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RPC_C_IMP_LEVEL.IDENTIFY, IntPtr.Zero,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EOLE_AUTHENTICATION_CAPABILITIES.DISABLE_AAA |
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EOLE_AUTHENTICATION_CAPABILITIES.SECURE_REFS |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EOLE_AUTHENTICATION_CAPABILITIES.NO_CUSTOM_MARSHAL,<br>
+&nbsp; &nbsp; &nbsp; &nbsp;IntPtr.Zero);<br>
+<br>
+E. Adding the COM-visible class SimpleObject<br>
+<br>
+Step1. Define a &quot;public&quot; COM-visible interface ISimpleObject to describe
+<br>
+the COM interface of the coclass. Specify its GUID, aka IID, using <br>
+GuidAttribute: <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Guid(&quot;83C40736-3189-44bc-AB0F-9FB3703EA172&quot;), ComVisible(true)]<br>
+<br>
+In this way, IID of the COM object is a fixed value. By default, the <br>
+interfaces used by a .NET Class are transformed to dual interfaces <br>
+[InterfaceType(ComInterfaceType.InterfaceIsDual)] in the IDL. This allows the<br>
+client to get the best of both early binding and late binding. Other options &nbsp;<br>
+are [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)] and <br>
+[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)].<br>
+<br>
+Step2. Inside the interface ISimpleObject, define the prototypes of the <br>
+properties and methods to be exported. <br>
+<br>
+Step3. Define a &quot;public&quot; COM-visible interface ISimpleObjectEvents to <br>
+describe the events the coclass can sink. Specify its GUID, aka the Events Id, <br>
+using GuidAttribute:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Guid(&quot;7A11E6DA-DD09-404c-8731-DB917E783501&quot;), ComVisible(true)]<br>
+<br>
+Decorate the interface as an IDispatch interface:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]<br>
+<br>
+Step4. Inside the interface ISimpleObjectEvents, define the prototype of<br>
+the events to be exported.<br>
+<br>
+Step5. Define a &quot;public&quot; COM-visible class SimpleObject that implements
+<br>
+the interface ISimpleObject. Attach the attribute <br>
+[ClassInterface(ClassInterfaceType.None)] to it, which tells the type-library<br>
+generation tools that we do not require a Class Interface. This ensures that <br>
+the ISimpleObject interface is the default interface. In addition, specify <br>
+the GUID of the class, aka CLSID, using the Guid attribute:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Guid(&quot;E2EDB864-02DB-4130-BEE4-2E35B30BBF3B&quot;), ComVisible(true)]<br>
+<br>
+In this way, CLSID of the COM object is a fixed value. Last, decorate the <br>
+class with a ComSourceInterface attribute:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[ComSourceInterfaces(typeof(ISimpleObjectEvents))]<br>
+<br>
+ComSourceInterfaces identifies a list of interfaces that are exposed as&nbsp;&nbsp;&nbsp;&nbsp;COM
+<br>
+event sources for the attributed class.<br>
+<br>
+Step6. Make sure that the constructor of the class SimpleObject is not <br>
+private (we can either add a public constructor or use the default one), so <br>
+that the COM object is creatable from the COM aware clients.<br>
+<br>
+Step7. Inside SimpleObject, implement the interface ISimpleObject by <br>
+writing the body of the property FloatProperty and the methods HelloWorld, &nbsp;<br>
+GetProcessThreadID.<br>
+<br>
+F. Registering SimpleObject in the registry<br>
+<br>
+Additional registry keys and values are required for the COM service. The <br>
+default COM registration routine in Regasm.exe only works for InprocServer <br>
+in the form of DLL. In order to register the LocalServer, and allow remote <br>
+activation (DCOM), we need to customize the registration routine to change <br>
+InprocServer32 to LocalServer, and to set AppID appropriately.<br>
+<br>
+Step1. Inside SimpleObject, add the functions Register and Unregister, and <br>
+decorate them with ComRegisterFunctionAttribute and <br>
+ComUnregisterFunctionAttribute. The custom routine gets called after Regasm <br>
+finishes the default behaviors. The Register and Unregister functions call <br>
+the helper methods in COMHelper.<br>
+<br>
+G. Registering ClassFactory of SimpleObject<br>
+<br>
+Step1. Create a ClassFactory class that realizes the IClassFactory interface <br>
+for SimpleObject.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/// &lt;summary&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/// Class factory for the class SimpleObject.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/// &lt;/summary&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;internal class SimpleObjectClassFactory : IClassFactory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public int CreateInstance(IntPtr pUnkOuter, ref Guid riid,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out IntPtr ppvObject)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ppvObject = IntPtr.Zero;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (pUnkOuter != IntPtr.Zero)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Marshal.ThrowExceptionForHR(COMNative.CLASS_E_NOAGGREGATION);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (riid == new Guid(SimpleObject.ClassId) ||
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;riid == new Guid(COMNative.GuidIUnknown))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Create the instance of the .NET object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ppvObject = Marshal.GetComInterfaceForObject(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new SimpleObject(), typeof(ISimpleObject));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// The object that ppvObject points to does not support the
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// interface identified by riid.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Marshal.ThrowExceptionForHR(COMNative.E_NOINTERFACE);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0; &nbsp; // S_OK<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public int LockServer(bool fLock)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0; &nbsp; // S_OK<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+Step2. Register the class factory of SimpleObject using the standard &nbsp;<br>
+CoRegisterClassObject API when the service starts. Please note that PInvoking <br>
+CoRegisterClassObject to register COM objects is a technique which is not <br>
+supported.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Register the SimpleObject class object on start<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int hResult = COMNative.CoRegisterClassObject(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ref clsidSimpleObj, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // CLSID to be registered<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new SimpleObjectClassFactory(), &nbsp; // Class factory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLSCTX.LOCAL_SERVER, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Context to run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REGCLS.MULTIPLEUSE, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out _cookie);<br>
+<br>
+Step3. Revoke the registration of SimpleObject using the <br>
+CoRevokeClassObject API when the service stops.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;COMNative.CoRevokeClassObject(_cookie);<br>
+<br>
+H. Configuring and building the project as a COM service<br>
+<br>
+Step1. Open the Properties page of the project and turn to Build Events.<br>
+<br>
+Step2. In Post-build event command line, enter the commands:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Regasm.exe &quot;$(TargetPath)&quot;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Installutil.exe /u &quot;$(TargetPath)&quot;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Installutil.exe &quot;$(TargetPath)&quot; <br>
+<br>
+The commands register the COM-visible types (e.g. SimpleObject) in the <br>
+registry, and install CSCOMService into SCM as a Windows Service. <br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+How to write a DCOM server in C# <br>
+<a  href="http://blogs.msdn.com/adioltean/archive/2004/06/18/159479.aspx">http://blogs.msdn.com/adioltean/archive/2004/06/18/159479.aspx</a><br>
+<br>
+Building COM Servers in .NET <br>
+<a  href="http://www.codeproject.com/KB/COM/BuildCOMServersInDotNet.aspx">http://www.codeproject.com/KB/COM/BuildCOMServersInDotNet.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
