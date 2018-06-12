@@ -1,0 +1,21 @@
+
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBVSAddInToolboxItem", "VBVSAddInToolboxItem\VBVSAddInToolboxItem.vbproj", "{B59F5E5A-A4E6-4B08-9DA9-D300114D67DF}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B59F5E5A-A4E6-4B08-9DA9-D300114D67DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B59F5E5A-A4E6-4B08-9DA9-D300114D67DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B59F5E5A-A4E6-4B08-9DA9-D300114D67DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B59F5E5A-A4E6-4B08-9DA9-D300114D67DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
