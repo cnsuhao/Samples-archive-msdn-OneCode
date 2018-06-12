@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Customize Outlook UI with VSTO Ribbon designer (CSOutlookUIDesigner)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Customize Outlook UI with VSTO Ribbon designer (CSOutlookUIDesigner)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Office
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            VSTO, Ribbon
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSOutlookUIDesigner-3951f050">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>OFFICE ADD-IN : CSOutlookUIDesigner Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+The CSOutlookUIDesigner provides samples on how to customize Office UI using<br>
+the VSTO Designers. It will demonstrate all Ribbon Controls available in the<br>
+Ribbon Designer. It will also demonstrate how to add FormRegions and <br>
+TaskPanes to the Outlook UI.<br>
+<br>
+</p>
+<h3>Creation:</h3>
+<p style="font-family:Courier New"><br>
+A. Ribbon<br>
+<br>
+In order to make the ribbon show corresponding controls on different types<br>
+of Inspectors, we need to:<br>
+1. Group the controls on the designer. One group per type of Inspector.<br>
+2. In the Ribbon's Load event, get a reference to current Inspector using<br>
+&nbsp; the Context property.<br>
+3. Determine the type of the Inspector by checking the CurrentItem property.<br>
+&nbsp; Sample: if (inspector.CurrentItem is MailItem) { ... }<br>
+4. Set the Visible property of corresponding Group on Ribbon to show / hide<br>
+&nbsp; the controls.<br>
+&nbsp; <br>
+MyRibbon uses both custom PNG files stored in project resource file and<br>
+Office built in images as control images. For those controls using Office<br>
+built in images, please note their OfficeImageId property.<br>
+<br>
+B. Custom Task Pane (CTP)<br>
+<br>
+In order to associate a CTP with specific types of Inspectors, we need to:<br>
+1. Handle the Application.Inspectors.NewInspector event.<br>
+2. In the event handler, get the item type of the Inspector and decide<br>
+&nbsp; whether to associate a CTP with the Inspector.<br>
+3. If the item type is right, we can use ThisAddIn's CustomTaskPanes.Add<br>
+&nbsp; method to have the job done.<br>
+<br>
+In order to access the parent CTP / Window object within our UserControl<br>
+code, we need to:<br>
+1. Add a property of type CustomTaskPane to the UserControl.<br>
+2. After creating the CTP, pass the CTP reference to the property created<br>
+&nbsp; in step 1.<br>
+3. Within the UserControl code, access the property to get the CTP reference.<br>
+&nbsp; <br>
+In MyRibbon class, we have a button once clicked, will show the CTP associated<br>
+with the current Inspector. In order to achieve this, we need to:<br>
+1. Go through the Globals.ThisAddIn.CustomTaskPanes, compare each CTP's<br>
+&nbsp; Window property with current Inspector.<br>
+2. If Window == Current Inspector, that CTP is the one associated with the<br>
+&nbsp; Inspector.<br>
+3. Do whatever necessary with the CTP.<br>
+<br>
+C. FormRegion<br>
+To get the current Outlook item within the FormRegion code, use:<br>
+this.OutlookItem<br>
+<br>
+To get the current Outlook Inspector within the FormRegion code, use:<br>
+this.OutlookFormRegion.Inspector<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+Ribbon Designer<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb386089.aspx">http://msdn.microsoft.com/en-us/library/bb386089.aspx</a><br>
+<br>
+Office Ribbon Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/microsoft.office.tools.ribbon.officeribbon.aspx">http://msdn.microsoft.com/en-us/library/microsoft.office.tools.ribbon.officeribbon.aspx</a><br>
+<br>
+CustomTaskPane Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/microsoft.office.tools.customtaskpane.aspx">http://msdn.microsoft.com/en-us/library/microsoft.office.tools.customtaskpane.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
