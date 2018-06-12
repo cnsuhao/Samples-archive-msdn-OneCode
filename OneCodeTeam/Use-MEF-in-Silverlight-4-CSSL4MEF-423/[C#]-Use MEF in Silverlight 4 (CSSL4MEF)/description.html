@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Use MEF in Silverlight 4 (CSSL4MEF)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Use MEF in Silverlight 4 (CSSL4MEF)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Silverlight
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            MEF
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSSL4MEF-7f10dec7">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>SILVERLIGHT APPLICATION : CSSL4MEF Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+Managed Extensibility Framework (MEF) is a framework which could assist <br>
+developers to design extensible application. It's supported by Silverlight 4. <br>
+This sample uses MEF to create a simple text formater. By using the <br>
+predefined contract, users can create components to enhance the formater's <br>
+functionality. The components can be loaded at runtime.<br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+To test this sample:<br>
+1. Open CSSL4MEF solution and build the solution.<br>
+2. Right click CSSL4MEFTestPage.aspx file, select &quot;View in Browser&quot;.<br>
+3. In opened page, you may find a Silverlight application.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a. In right area of Silverlight, there are some controls which cloud change<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the state of text shown on left side. For each controls in right area, it's<br>
+&nbsp;&nbsp;&nbsp;&nbsp;composed with application by MEF.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;b. By Clicking the &quot;Click to load color config control&quot; button, MEF would load<br>
+&nbsp;&nbsp;&nbsp;&nbsp;extension component and recompose the config panel dynamicly.<br>
+<br>
+</p>
+<h3>Prerequisites:</h3>
+<p style="font-family:Courier New"><br>
+Silverlight 4 Tools for Visual Studio 2010<br>
+<a target="_blank" href="&lt;a http://www.silverlight.net/getstarted/">http://www.silverlight.net/getstarted/</a>'&gt;<a  href="http://www.silverlight.net/getstarted/">http://www.silverlight.net/getstarted/</a><br>
+<br>
+Silverilght 4 runtime<br>
+<a target="_blank" href="&lt;a http://www.silverlight.net/getstarted/">http://www.silverlight.net/getstarted/</a>'&gt;<a  href="http://www.silverlight.net/getstarted/">http://www.silverlight.net/getstarted/</a><br>
+<br>
+</p>
+<h3>Code Logic:</h3>
+<p style="font-family:Courier New"><br>
+1. How to use MEF to build an extensible Silverlight Application?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;It's a long story, I recommend CodeBetter's blog MEF series<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a  href="http://codebetter.com/blogs/glenn.block/archive/2009/11/30/building-the-hello-mef-dashboard-in-silverlight-4-part-i.aspx">http://codebetter.com/blogs/glenn.block/archive/2009/11/30/building-the-hello-mef-dashboard-in-silverlight-4-part-i.aspx</a><br>
+<br>
+2. What's the solution structure?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CSSL4MEF project utilized MEF to implement the ConfigPanel control, which cloud<br>
+&nbsp;&nbsp;&nbsp;&nbsp;download plugin xap and extend functionality at runtime.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CSSL4MEF.Web project is CSSL4MEF silverlight application's host web application.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ConfigControl.Contract project defines the contract as the ConfigPanel's extension<br>
+&nbsp;&nbsp;&nbsp;&nbsp;interface.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ConfigControl.Extension project implement configpanel's extension interface, create<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a components &quot;ColorPicker&quot;.<br>
+<br>
+3. How does MEF work in this project?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;When running the application, you may see there are mainly two regions on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;view. The left side shows a short text, and the right side has certain<br>
+&nbsp;&nbsp;&nbsp;&nbsp;controls which could change text style. Actually, these controls are binded to a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;predefined DataModel. Those styled text has no magical, just bind UI property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to datamodel and utilize INotifiyPropertyChanged to update UI in realtime.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;For right side, it is a Silverlight control &quot;ConfigPanel&quot;. It could
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bind to datamodel by &quot;ConfigData&quot; property, and generate config controls<br>
+&nbsp;&nbsp;&nbsp;&nbsp;automaticly.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Because the datamodel's property can be any type and has various requirement,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;To make the ConfigPanel be able to generate appropriate controls for any<br>
+&nbsp;&nbsp;&nbsp;&nbsp;datamodels, we need to let the ConfigPanel be extensible. In this scenario,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MEF could help to meet this desgin task.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;We defined an interface called &quot;IConfigControl&quot;, which should be able to
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return an edit control binded to the given property field. The ConfigPanel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;utilze MEF to hold a list of IConfigControl, by calling <br>
+&nbsp;&nbsp;&nbsp;&nbsp;IConfigControl.MatchTest method, configPanel would find most suitable<br>
+&nbsp;&nbsp;&nbsp;&nbsp;configControl for each property and add&nbsp;&nbsp;&nbsp;&nbsp;control to config panel.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Suppose we have a datamodel, which has Color type property, to extend<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the ConfigPanel to support Color type, we would create a new silverlight<br>
+&nbsp;&nbsp;&nbsp;&nbsp;project, implementing IConfigControl and mark with Export attribute to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;make it discoverable. Then, by using &quot;DeploymentCatalogService&quot;, we could<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dynamicly load the extension config control, once the calagory changed,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;configPanel get notificaton and recompose UI for datamodel.<br>
+&nbsp; &nbsp;<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MEF community site<br>
+<a  href="http://mef.codeplex.com/">http://mef.codeplex.com/</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
