@@ -1,0 +1,32 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CSAzureDeploymentSlot", "CSAzureDeploymentSlot\CSAzureDeploymentSlot\CSAzureDeploymentSlot.ccproj", "{3BED9316-D211-4284-BCF7-BA5D12C4651A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSAzureDeploymentSlot_WebRole", "CSAzureDeploymentSlot\CSAzureDeploymentSlot_WebRole\CSAzureDeploymentSlot_WebRole.csproj", "{88613D5C-8213-428A-B629-F6182DA07A46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe", "ReadMe", "{C4B8BA18-0EA7-4072-9DC6-333CDEA9493F}"
+	ProjectSection(SolutionItems) = preProject
+		CSAzureDeploymentSlot\Documentation\ReadMe.htm = CSAzureDeploymentSlot\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BED9316-D211-4284-BCF7-BA5D12C4651A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BED9316-D211-4284-BCF7-BA5D12C4651A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BED9316-D211-4284-BCF7-BA5D12C4651A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BED9316-D211-4284-BCF7-BA5D12C4651A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88613D5C-8213-428A-B629-F6182DA07A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88613D5C-8213-428A-B629-F6182DA07A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88613D5C-8213-428A-B629-F6182DA07A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88613D5C-8213-428A-B629-F6182DA07A46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
