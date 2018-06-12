@@ -1,0 +1,25 @@
+﻿<script type="text/javascript">
+    function OnToolbarButtonClick() {
+        try {
+
+            if (confirm("Copy image links on this page to clipboard?")) {
+
+                var imgs = external.menuArguments.document.getElementsByTagName("img");
+
+                var msg = "";
+                for (var i = 0; i < imgs.length; i++) {
+                    msg += imgs[i].src + "\r\n";
+                }
+                window.clipboardData.setData('text', msg);
+
+                alert("Use Crtl+V to paste the links to the NotePad.");
+            }
+
+
+        }
+        catch (ex) {
+            debugger;
+        }
+    }
+    OnToolbarButtonClick();
+</script>
