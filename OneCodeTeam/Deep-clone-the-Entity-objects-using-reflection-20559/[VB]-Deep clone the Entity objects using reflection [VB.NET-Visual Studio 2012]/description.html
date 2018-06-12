@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Deep clone the Entity objects using reflection [VB.NET-Visual Studio 2012]</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Deep clone the Entity objects using reflection [VB.NET-Visual Studio 2012]</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ADO.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Reflection, Serialization, Entity Object Clone
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">1/25/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBEFDeepCloneObject-33a90358">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p class="MsoNormalCxSpFirst" style="margin-top:24.0pt; line-height:115%"><b><span style="font-size:14.0pt; line-height:115%; font-family:&quot;Cambria&quot;,&quot;serif&quot;">How to deeply clone/duplicate the Entity objects using reflection (<span class="SpellE">VBEFDeepCloneObject</span>)
+</span></b></p>
+<p class="MsoNormal" style="margin-top:10.0pt; line-height:115%"><b><span style="font-size:13.0pt; line-height:115%; font-family:&quot;Cambria&quot;,&quot;serif&quot;">Introduction
+</span></b></p>
+<p class="MsoNormal" style="margin-bottom:3.0pt"><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">This sample demonstrates how to deeply clone/duplicate entity objects using serialization and reflection.
+</span></p>
+<p class="MsoCommentText" style=""><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Rather than a shallow copy that shares the same memory block between original object and the copied one, Deep copied objects do not depend on the original
+ object's memory block. </span></p>
+<p class="MsoNormal" style="margin-top:10.0pt; line-height:115%"><b><span style="">Building the Sample
+</b></p>
+<p class="MsoNormal" style="margin-bottom:10.0pt; line-height:115%"><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">1. Please run the
+<span class="SpellE">EFCloneDB.sql</span> script on your Microsoft SQL Server. The
+<span class="SpellE">EFCloneDB.sql</span> is used to create four <span class="GramE">
+tables :</span> Employee ,<span style="">&nbsp; </span><span class="SpellE">EmpAddress</span>,
+<span class="SpellE">BasicSalesInfo</span> and <span class="SpellE">DetailSalesInfo</span>.<span style="">&nbsp;
+</span>The relationship between <span class="GramE">Employee <span style="">&nbsp;</span>and</span>
+<span style="">&nbsp;</span><span class="SpellE">EmpAddress</span> is 1:1, relationship between Employee and
+<span style="">&nbsp;</span><span class="SpellE">BasicSalesInfo</span> is 1:1, relationship between
+<span class="SpellE">BasicSalesInfo</span> and <span style="">&nbsp;</span><span class="SpellE">DetailSalesInfo</span> is 1:N.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:10.0pt; line-height:115%"><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">2. Please modify the connection string in the
+<span class="SpellE">App.config</span> according to your Microsoft SQL Server instance name.
+</span></p>
+<p class="MsoNormal" style="margin-top:10.0pt; line-height:115%"><b><span style="font-size:13.0pt; line-height:115%; font-family:&quot;Cambria&quot;,&quot;serif&quot;">Running the Sample
+</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">1．<span style="font:7.0pt &quot;Times New Roman&quot;">
+</span></span></span><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Show the Main Window.
+</span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><img src="description/image.png" alt="" width="576" height="547" align="middle">
+</span><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">2．<span style="font:7.0pt &quot;Times New Roman&quot;">
+</span></span></span><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Click Create button, in the new child window, create a new employee object.
+</span></p>
+<p class="MsoNormal" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.25in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-bottom:10.0pt; line-height:115%"><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><img src="description/45b9c324-440d-44bf-83d3-a313bb8273b6image.png" alt="" width="502" height="294" align="middle">
+</span><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">3．<span style="font:7.0pt &quot;Times New Roman&quot;">
+</span></span></span><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Click the CreateSalesInfo button, in the launched window, add the employee sales information.
+</span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><img src="description/7882f044-de87-4041-9853-ea8d67194549image.png" alt="" width="375" height="235" align="middle">
+</span><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">4．<span style="font:7.0pt &quot;Times New Roman&quot;">
+</span></span></span><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">The employee<span style="">&nbsp;
+</span>information before you click the Clone button. </span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><img src="description/846887ea-5153-4b44-bd1e-bf7c34851a08image.png" alt="" width="576" height="550" align="middle">
+</span><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">5．<span style="font:7.0pt &quot;Times New Roman&quot;">
+</span></span></span><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Click the Clone button, a new employee object and related information will be displayed.
+</span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><img src="description/53ee6d0d-5386-4601-968f-e3c4a45356a4image.png" alt="" width="631" height="599" align="middle">
+</span><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-top:0in; margin-right:0in; margin-bottom:10.0pt; margin-left:.5in; line-height:115%">
+<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormal" style="margin-top:10.0pt; line-height:115%"><b><span style="font-size:13.0pt; line-height:115%; font-family:&quot;Cambria&quot;,&quot;serif&quot;">Using the Code
+</span></b></p>
+<p class="MsoNormal" style=""><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">1. Create an ADO.NET Entity Data Model
+</span></p>
+<p class="MsoNormal" style=""><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">&nbsp;&nbsp;
+</span>1) Name it EmpModel.edmx. </span></p>
+<p class="MsoNormal" style=""><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">&nbsp;&nbsp;
+</span>2) Set the connection string information of the EFCloneDB database. </span>
+</p>
+<p class="MsoNormal" style=""><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">&nbsp;&nbsp;
+</span>3) Select all the data tables. </span></p>
+<p class="MsoNormal" style=""><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormal" style=""><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">2. Create a static class DpCloneHelper used to define some extension methods for the Entity Framework's object<span style="">&nbsp;
+</span>EntityObject. </span></p>
+<p class="MsoNormal" style=""><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">&nbsp;
+</span>1) Create an extension method clone </span><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">using serialization to implement the deep clone for an object<span style="">&nbsp;
+</span>whose the type is EntityObject. </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+''' &lt;summary&gt;
+''' Extension method to Enitity Object. 
+''' Deeply clone the Object.
+''' &lt;/summary&gt;
+''' &lt;param name=&quot;source&quot;&gt;Entity Object need to be cloned &lt;/param&gt;
+''' &lt;returns&gt;The cloned object&lt;/returns&gt;
+&lt;Extension()&gt; _
+Public Function Clone(Of T As EntityObject)(ByVal source As T) As T
+&nbsp;&nbsp;&nbsp; Dim ser As New DataContractSerializer(GetType(T))
+&nbsp;&nbsp;&nbsp; Using stream As MemoryStream = New MemoryStream
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ser.WriteObject(stream, source)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stream.Seek(0, SeekOrigin.Begin)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return DirectCast(ser.ReadObject(stream), T)
+&nbsp;&nbsp;&nbsp; End Using
+End Function
+
+</pre>
+<pre id="codePreview" class="vb">
+''' &lt;summary&gt;
+''' Extension method to Enitity Object. 
+''' Deeply clone the Object.
+''' &lt;/summary&gt;
+''' &lt;param name=&quot;source&quot;&gt;Entity Object need to be cloned &lt;/param&gt;
+''' &lt;returns&gt;The cloned object&lt;/returns&gt;
+&lt;Extension()&gt; _
+Public Function Clone(Of T As EntityObject)(ByVal source As T) As T
+&nbsp;&nbsp;&nbsp; Dim ser As New DataContractSerializer(GetType(T))
+&nbsp;&nbsp;&nbsp; Using stream As MemoryStream = New MemoryStream
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ser.WriteObject(stream, source)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stream.Seek(0, SeekOrigin.Begin)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return DirectCast(ser.ReadObject(stream), T)
+&nbsp;&nbsp;&nbsp; End Using
+End Function
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormal" style=""><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormal" style=""><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">&nbsp;</span>2) Create the below methods to clear the Entity Reference on the cloned Entity. The cloned Entity will not be attached to the object until
+ the Entity References are cleared. The cloned object should be treated as new data and should create new Primary Keys and associate with Referential Integrity.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+''' &lt;summary&gt;
+'''&nbsp; The Extension method will be used to clear the entity of object and all related child objects 
+''' &lt;/summary&gt;
+''' &lt;param name=&quot;source&quot;&gt;Entity Object need to be cleared&lt;/param&gt;
+''' &lt;param name=&quot;bcheckHierarchy&quot;&gt;This parameter is used to define whether to clear all the child object&lt;/param&gt;
+''' &lt;returns&gt;&lt;/returns&gt;
+Private Function ClearEntityObject(Of T As Class)(ByVal source As T, ByVal bCheckHierarchy As Boolean) As T
+&nbsp;&nbsp;&nbsp; If (source Is Nothing) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Throw New Exception(&quot;Null Object cannot be cloned&quot;)
+&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp; Dim tObj As Type = source.GetType
+&nbsp;&nbsp;&nbsp; If (Not tObj.GetProperty(&quot;EntityKey&quot;) Is Nothing) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tObj.GetProperty(&quot;EntityKey&quot;).SetValue(source, Nothing, Nothing)
+&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp; If bCheckHierarchy Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim PropertyList As List(Of PropertyInfo) = Enumerable.ToList(Of PropertyInfo)((From a In source.GetType.GetProperties
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where a.PropertyType.Name.Equals(&quot;ENTITYCOLLECTION`1&quot;, StringComparison.OrdinalIgnoreCase)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select a))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim prop As PropertyInfo
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For Each prop In PropertyList
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim keys As IEnumerable = DirectCast(tObj.GetProperty(prop.Name).GetValue(source, Nothing), IEnumerable)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dim key As Object
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For Each key In keys
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim childProp As EntityReference = Enumerable.SingleOrDefault(Of PropertyInfo)((From a In key.GetType.GetProperties
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where (a.PropertyType.Name.Equals(&quot;EntityReference`1&quot;, StringComparison.OrdinalIgnoreCase))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select a)).GetValue(key, Nothing)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ClearEntityObject(childProp, False)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ClearEntityObject(key, True)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next
+&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp; Return source
+End Function
+
+
+''' &lt;summary&gt;
+'''&nbsp; Clear the entity of object and all related child objects 
+''' &lt;/summary&gt;
+''' &lt;param name=&quot;source&quot;&gt;Entity Object need to be cleared&lt;/param&gt;
+''' &lt;param name=&quot;bcheckHierarchy&quot;&gt;This parameter is used to determine whether to clear all the child object&lt;/param&gt;
+''' &lt;returns&gt;&lt;/returns&gt;
+&lt;Extension()&gt; _
+Public Function ClearEntityReference(ByVal source As EntityObject, ByVal bCheckHierarchy As Boolean) As EntityObject
+&nbsp;&nbsp;&nbsp; Return ClearEntityObject(source, bCheckHierarchy)
+End Function
+
+</pre>
+<pre id="codePreview" class="vb">
+''' &lt;summary&gt;
+'''&nbsp; The Extension method will be used to clear the entity of object and all related child objects 
+''' &lt;/summary&gt;
+''' &lt;param name=&quot;source&quot;&gt;Entity Object need to be cleared&lt;/param&gt;
+''' &lt;param name=&quot;bcheckHierarchy&quot;&gt;This parameter is used to define whether to clear all the child object&lt;/param&gt;
+''' &lt;returns&gt;&lt;/returns&gt;
+Private Function ClearEntityObject(Of T As Class)(ByVal source As T, ByVal bCheckHierarchy As Boolean) As T
+&nbsp;&nbsp;&nbsp; If (source Is Nothing) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Throw New Exception(&quot;Null Object cannot be cloned&quot;)
+&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp; Dim tObj As Type = source.GetType
+&nbsp;&nbsp;&nbsp; If (Not tObj.GetProperty(&quot;EntityKey&quot;) Is Nothing) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tObj.GetProperty(&quot;EntityKey&quot;).SetValue(source, Nothing, Nothing)
+&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp; If bCheckHierarchy Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim PropertyList As List(Of PropertyInfo) = Enumerable.ToList(Of PropertyInfo)((From a In source.GetType.GetProperties
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where a.PropertyType.Name.Equals(&quot;ENTITYCOLLECTION`1&quot;, StringComparison.OrdinalIgnoreCase)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select a))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim prop As PropertyInfo
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For Each prop In PropertyList
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim keys As IEnumerable = DirectCast(tObj.GetProperty(prop.Name).GetValue(source, Nothing), IEnumerable)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dim key As Object
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For Each key In keys
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim childProp As EntityReference = Enumerable.SingleOrDefault(Of PropertyInfo)((From a In key.GetType.GetProperties
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where (a.PropertyType.Name.Equals(&quot;EntityReference`1&quot;, StringComparison.OrdinalIgnoreCase))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select a)).GetValue(key, Nothing)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ClearEntityObject(childProp, False)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ClearEntityObject(key, True)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next
+&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp; Return source
+End Function
+
+
+''' &lt;summary&gt;
+'''&nbsp; Clear the entity of object and all related child objects 
+''' &lt;/summary&gt;
+''' &lt;param name=&quot;source&quot;&gt;Entity Object need to be cleared&lt;/param&gt;
+''' &lt;param name=&quot;bcheckHierarchy&quot;&gt;This parameter is used to determine whether to clear all the child object&lt;/param&gt;
+''' &lt;returns&gt;&lt;/returns&gt;
+&lt;Extension()&gt; _
+Public Function ClearEntityReference(ByVal source As EntityObject, ByVal bCheckHierarchy As Boolean) As EntityObject
+&nbsp;&nbsp;&nbsp; Return ClearEntityObject(source, bCheckHierarchy)
+End Function
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="MsoNormal" style="margin-top:10.0pt; line-height:115%"><b><span style="font-size:13.0pt; line-height:115%; font-family:&quot;Cambria&quot;,&quot;serif&quot;">More Information
+</span></b></p>
+<p class="MsoNormal" style="margin-bottom:10.0pt; line-height:115%"><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">ADO.NET Entity Framework
+</span></p>
+<p class="MsoNormal" style="margin-bottom:10.0pt; line-height:115%"><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><a href="http://msdn.microsoft.com/en-us/library/bb399572.aspx">http://msdn.microsoft.com/en-us/library/bb399572.aspx</a>
+</span></p>
+<p class="MsoNormal" style="margin-bottom:10.0pt; line-height:115%"><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Serialization
+</span></p>
+<p class="MsoNormal" style="margin-bottom:10.0pt; line-height:115%"><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><a href="http://msdn.microsoft.com/en-us/library/7ay27kt9.aspx">http://msdn.microsoft.com/en-us/library/7ay27kt9.aspx</a>
+</span></p>
+<p class="MsoNormal" style="margin-bottom:10.0pt; line-height:115%"><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Reflection
+</span></p>
+<p class="MsoNormal" style="margin-bottom:10.0pt; line-height:115%"><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><a href="http://msdn.microsoft.com/en-us/library/f7ykdhsy.aspx">http://msdn.microsoft.com/en-us/library/f7ykdhsy.aspx</a>
+</span></p>
+<p class="MsoNormal" style=""><span style=""></span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+</span>
+</div>
+
+
+    </div>
+</body>
+</html>
