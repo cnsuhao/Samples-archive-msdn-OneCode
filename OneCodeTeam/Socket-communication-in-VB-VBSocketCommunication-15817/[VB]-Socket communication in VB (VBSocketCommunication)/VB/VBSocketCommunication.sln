@@ -1,0 +1,46 @@
+
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBSocketServer", "VBSocketCommunication\VBSocketServer\VBSocketServer.vbproj", "{FD243BB9-377E-4639-8655-DEF6ECBAED9E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBSocketClient", "VBSocketCommunication\VBSocketClient\VBSocketClient.vbproj", "{3A41CEFF-2019-4879-BC2F-FE3D1AA90B69}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FD243BB9-377E-4639-8655-DEF6ECBAED9E} = {FD243BB9-377E-4639-8655-DEF6ECBAED9E}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{C33944D8-405F-4981-A499-DE126208330D}"
+	ProjectSection(SolutionItems) = preProject
+		VBSocketCommunication\Documentation\ReadMe.htm = VBSocketCommunication\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe_files", "ReadMe_files", "{E3966E61-1D9B-4676-BDD9-92FEFF561CA8}"
+	ProjectSection(SolutionItems) = preProject
+		VBSocketCommunication\Documentation\ReadMe_files\filelist.xml = VBSocketCommunication\Documentation\ReadMe_files\filelist.xml
+		VBSocketCommunication\Documentation\ReadMe_files\image001.png = VBSocketCommunication\Documentation\ReadMe_files\image001.png
+		VBSocketCommunication\Documentation\ReadMe_files\image002.png = VBSocketCommunication\Documentation\ReadMe_files\image002.png
+		VBSocketCommunication\Documentation\ReadMe_files\themedata.thmx = VBSocketCommunication\Documentation\ReadMe_files\themedata.thmx
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD243BB9-377E-4639-8655-DEF6ECBAED9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD243BB9-377E-4639-8655-DEF6ECBAED9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD243BB9-377E-4639-8655-DEF6ECBAED9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD243BB9-377E-4639-8655-DEF6ECBAED9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A41CEFF-2019-4879-BC2F-FE3D1AA90B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A41CEFF-2019-4879-BC2F-FE3D1AA90B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A41CEFF-2019-4879-BC2F-FE3D1AA90B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A41CEFF-2019-4879-BC2F-FE3D1AA90B69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E3966E61-1D9B-4676-BDD9-92FEFF561CA8} = {C33944D8-405F-4981-A499-DE126208330D}
+	EndGlobalSection
+EndGlobal
