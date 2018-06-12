@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Receive process creation notification (CSProcessWatcher)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Receive process creation notification (CSProcessWatcher)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            WMI, Windows General
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Process Events
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">7/12/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSProcessWatcher-538524f4">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>Console Application: CSProcessWatcher Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+The project illustrates how to watch the process creation/modify/shutdown events<br>
+by using the Windows Management Instrumentation(WMI).<br>
+</p>
+<h3>Demo: </h3>
+<p style="font-family:Courier New"><br>
+Please follow these demonstration steps below.<br>
+<br>
+Step 1. Run CSProcessWatcher.exe in a command prompt. The command<br>
+&nbsp; &nbsp; &nbsp; &nbsp;'CSProcessWatcher.exe &lt;ProcessName&gt;' means CSProcessWatcher.exe will watch<br>
+&nbsp; &nbsp; &nbsp; &nbsp;the events of the &lt;ProcessName&gt;. Here, the &lt;ProcessName&gt; is the name of the<br>
+&nbsp; &nbsp; &nbsp; &nbsp;process which you want to watch. If you run CSProcessWatcher.exe directly<br>
+&nbsp; &nbsp; &nbsp; &nbsp;without any command argument, the default &lt;ProcessName&gt; will be &quot;notepad.exe&quot;.<br>
+<br>
+Step 2. Launch the process which you want to watch. Observe the output information
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;from the CSProcesswatcher.exe. <br>
+<br>
+</p>
+<h3>Code Logical:</h3>
+<p style="font-family:Courier New"><br>
+Step 1. &nbsp;Create a Visual C# Console Application, name it &quot;CSProcessWatcher&quot;.<br>
+<br>
+Step 2. &nbsp;Right click the References, choose &quot;Add Reference ...&quot;, then select<br>
+&nbsp; &nbsp; &nbsp; &nbsp; .NET reference &quot;System.Management&quot;, click &quot;OK&quot;.<br>
+<br>
+Step 3. Open the Visual studio 2010 command prompt, navigate to <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;your current project folder and enter the command: &nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mgmtclassgen Win32_Process /n root\cimv2 /o WMI.Win32<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You will get the Process.CS file. Add it into this project.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Step 4. &nbsp;Add a new class 'ProcessWatcher'. Make it derive from <br>
+&nbsp; &nbsp; &nbsp; &nbsp; System.Management.ManagementEventWatcher. Add three events for this class:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; ProcessCreated, ProcessDeleted, ProcessModified.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; In the constructor of class ProcessWatcher, we need to subscribe to temporary<br>
+&nbsp; &nbsp; &nbsp; &nbsp; event notifications based on a specified event query.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp;private void Init(string processName)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.Query.QueryLanguage = &quot;WQL&quot;;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.Query.QueryString = string.Format(processEventQuery, processName);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.EventArrived &#43;= new EventArrivedEventHandler(watcher_EventArrived);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; Meanwhile, when we received an event notification, according to &nbsp;the event<br>
+&nbsp; &nbsp; &nbsp; &nbsp; type, we should raise the corresponding event. <br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;private void watcher_EventArrived(object sender, EventArrivedEventArgs e)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;string eventType = e.NewEvent.ClassPath.ClassName;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WMI.Win32.Process proc = new WMI.Win32.Process(e.NewEvent[&quot;TargetInstance&quot;] as ManagementBaseObject);<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;switch (eventType)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case &quot;__InstanceCreationEvent&quot;:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (ProcessCreated != null)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ProcessCreated(proc);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case &quot;__InstanceDeletionEvent&quot;:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (ProcessDeleted != null)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ProcessDeleted(proc);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case &quot;__InstanceModificationEvent&quot;:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (ProcessModified != null)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ProcessModified(proc);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+WQL (SQL for WMI)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/aa394606(v=VS.85).aspx">http://msdn.microsoft.com/en-us/library/aa394606(v=VS.85).aspx</a><br>
+<br>
+Win32_Process Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/aa394372(v=VS.85).aspx">http://msdn.microsoft.com/en-us/library/aa394372(v=VS.85).aspx</a><br>
+<br>
+__InstanceOperationEvent Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/aa394652(v=VS.85).aspx">http://msdn.microsoft.com/en-us/library/aa394652(v=VS.85).aspx</a><br>
+<br>
+Receiving a WMI Event<br>
+<a  href="http://msdn.microsoft.com/en-us/library/aa393013(VS.85).aspx">http://msdn.microsoft.com/en-us/library/aa393013(VS.85).aspx</a><br>
+<br>
+</p>
+<h3></h3>
+<p style="font-family:Courier New"><br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
