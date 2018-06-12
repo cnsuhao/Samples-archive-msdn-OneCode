@@ -1,0 +1,52 @@
+<?xml version="1.0" standalone="yes"?>
+<BookWorld>
+  <BookData>
+    <ISBN>F2LGFGCEUC</ISBN>
+    <BookName>Mysteries of World</BookName>
+    <Price>20$</Price>
+    <AuthorName>Alfred Newton</AuthorName>
+    <Publisher>McGraw Bills</Publisher>
+  </BookData>
+  <BookData>
+    <ISBN>R2MGFGASDF</ISBN>
+    <BookName>Bank of modern world</BookName>
+    <Price>20$</Price>
+    <AuthorName>Rajib Banerjee</AuthorName>
+    <Publisher>Kaplana Inc</Publisher>
+  </BookData>
+  <BookData>
+    <ISBN>H2LGFGBNFG</ISBN>
+    <BookName>Gulf and Gas</BookName>
+    <Price>40$</Price>
+    <AuthorName>Rahul Banerjee</AuthorName>
+    <Publisher>Oxford Newland</Publisher>
+  </BookData>
+  <BookData>
+    <ISBN>K2LGFGUIFR</ISBN>
+    <BookName>I am just tired. not retired</BookName>
+    <Price>35$</Price>
+    <AuthorName>Rajib Banerjee</AuthorName>
+    <Publisher>New Press</Publisher>
+  </BookData>
+  <BookData>
+    <ISBN>O2LGFGOPTR</ISBN>
+    <BookName>Bomb of Future</BookName>
+    <Price>39$</Price>
+    <AuthorName>James Kirk</AuthorName>
+    <Publisher>Alter Nation</Publisher>
+  </BookData>
+  <BookData>
+    <ISBN>A2LGFGWERT</ISBN>
+    <BookName>Climb the Tomb</BookName>
+    <Price>45$</Price>
+    <AuthorName>Abardeen</AuthorName>
+    <Publisher>New Castle</Publisher>
+  </BookData>
+  <BookData>
+    <ISBN>K2LGFGNJYI</ISBN>
+    <BookName>If you can Dare</BookName>
+    <Price>40$</Price>
+    <AuthorName>Sydmond Rock</AuthorName>
+    <Publisher>Daily Needs</Publisher>
+  </BookData>
+</BookWorld>
