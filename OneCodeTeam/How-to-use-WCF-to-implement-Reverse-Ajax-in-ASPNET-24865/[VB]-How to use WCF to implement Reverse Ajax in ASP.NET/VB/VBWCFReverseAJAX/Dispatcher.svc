@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="VB" Debug="true" Service="VBWCFReverseAJAX.Dispatcher" CodeBehind="Dispatcher.svc.vb" %>
