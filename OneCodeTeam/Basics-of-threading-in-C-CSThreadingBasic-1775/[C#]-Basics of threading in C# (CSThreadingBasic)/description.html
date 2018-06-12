@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Basics of threading in C# (CSThreadingBasic)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Basics of threading in C# (CSThreadingBasic)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            .NET Framework
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            threading
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">8/22/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSThreadingBasic-2d4a57d2">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Console Application <span style="">(</span>CSThreadingBasic<span style="">) </span>
+</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">This example demonstrates how to create threads using C#.NET in three different approaches. And it also shows how to create a thread that require<span style="">s
+</span>a parameter. In the target threads, it also shows how to use lock keyword to ensure a code snippet executed without interruption.
+<span style=""><span style="">&nbsp;</span></span>A process can create one or more threads to execute a portion of the program code associated with the process. Use a
+<span class="SpellE">ThreadStart</span> delegate or the <span class="SpellE">
+ParameterizedThreadStart</span> delegate to specify the program code executed by a thread. The
+<span class="SpellE">ParameterizedThreadStart</span> delegate allows you to pass data to the thread procedure. The .NET Framework provides us with the
+<span class="SpellE"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Threading.aspx"  title="Auto generated link to System.Threading">System.Threading</a></span> namespace, which includes the <span class="SpellE">
+ThreadPool</span> class. This is a static class that you can access directly. It provides us with the essential parts of thread pools. It is an implementation of the common &quot;thread pool&quot; design pattern. It is useful for running many separate tasks
+ in the background. <span class="SpellE"><span class="GramE">QueueUserWorkItem</span></span><span class="GramE">
+<span style=""><span style="">&nbsp;</span>function</span></span><span style=""> q</span>ueues a work item to a worker thread in the thread pool. If a function in a DLL is queued to a worker thread, be sure that the function has completed execution before the
+ DLL is unloaded. </p>
+<p class="MsoNormal">By default, the thread pool has a maximum of 512 threads per process. To raise the queue limit, use the WT_SET_MAX_THREADPOOL_THREAD macro defined in
+<span class="SpellE">WinNT.h</span>.<span style=""> </span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="720" height="365" align="middle">
+</span></p>
+<h2>Using the Code</h2>
+<h3><span style="">1. </span>Create a thread by new Thread object<span style="">.
+</span></h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+ThreadStart ts1 = new ThreadStart(ThreadFunction1);
+Thread t1 = new Thread(ts1);
+t1.Start();
+
+</pre>
+<pre id="codePreview" class="csharp">
+ThreadStart ts1 = new ThreadStart(ThreadFunction1);
+Thread t1 = new Thread(ts1);
+t1.Start();
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><b><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">2. </span></b><b><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Create a thread by
+<span class="SpellE">ThreadPool.QueueUserWorkItem</span></span></b><b><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">.
+</span></b></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadFunction2));
+
+</pre>
+<pre id="codePreview" class="csharp">
+ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadFunction2));
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><b><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">3. </span></b><b><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Create a thread by
+<span class="SpellE">ThreadStart.BeginInvoke</span></span></b><b><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">.
+</span></b></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+ThreadStart ts2 = new ThreadStart(ThreadFunction3);
+ts2.BeginInvoke(null, null);
+
+</pre>
+<pre id="codePreview" class="csharp">
+ThreadStart ts2 = new ThreadStart(ThreadFunction3);
+ts2.BeginInvoke(null, null);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><b><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">4. </span></b><b><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Create a thread with</span></b><b><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"> parameters.
+</span></b></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+ParameterizedThreadStart pts = new ParameterizedThreadStart(ThreadFunction4);
+Thread t2 = new Thread(pts);
+t2.Start(&quot;Message&quot;);
+
+</pre>
+<pre id="codePreview" class="csharp">
+ParameterizedThreadStart pts = new ParameterizedThreadStart(ThreadFunction4);
+Thread t2 = new Thread(pts);
+t2.Start(&quot;Message&quot;);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<h2>More Information</h2>
+<p class="MsoNormal" style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:18.0pt; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:新宋体">C# Threading Programming Guid. </span></p>
+<p class="MsoNormal" style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:18.0pt; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:新宋体"><a href="http://msdn.microsoft.com/en-us/library/ms173178(VS.80).aspx">http://msdn.microsoft.com/en-us/library/ms173178(VS.80).aspx</a>
+</span></p>
+<p class="MsoNormal" style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:18.0pt; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:新宋体">Thread Class document. </span></p>
+<p class="MsoNormal" style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:18.0pt; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:新宋体"><a href="http://msdn.microsoft.com/en-us/library/system.threading.thread.aspx">http://msdn.microsoft.com/en-us/library/system.threading.thread.aspx</a>
+</span></p>
+<p class="MsoNormal" style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:18.0pt; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:新宋体">ThreadPool.QueueWorkItem. </span></p>
+<p class="MsoNormal" style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:18.0pt; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:新宋体"><a href="http://msdn.microsoft.com/en-us/library/kbf0f1ct.aspx">http://msdn.microsoft.com/en-us/library/kbf0f1ct.aspx</a>
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
