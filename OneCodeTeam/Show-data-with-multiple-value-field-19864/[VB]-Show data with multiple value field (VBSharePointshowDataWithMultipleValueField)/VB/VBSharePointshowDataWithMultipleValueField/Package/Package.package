@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="650660ca-136f-48d4-9a0a-62dbf4da7f21" solutionId="650660ca-136f-48d4-9a0a-62dbf4da7f21" resetWebServer="false" name="ShowDataWithMultipleValueField" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="b14bc9f4-921f-4c17-a2b4-d71fb90eacd4" />
+  </features>
+</package>
