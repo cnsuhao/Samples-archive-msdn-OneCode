@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>FlowChart in WF4 (VBWF4FlowChart)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>FlowChart in WF4 (VBWF4FlowChart)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            WF
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Windows Workflow
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBWF4FlowChart-103e3762">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>CONSOLE APPLICATION : VBWF4FlowChart</h2>
+<p style="font-family:Courier New"></p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+This sample demonstrate the usage of WF4 Sequence workflow in a Guess Number<br>
+Game workflow. this sample will also involve the usage of Variable, IFElse <br>
+Activity, DoWhile Activity and Cutomized Activity. <br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+1. Open VBWF4FlowChart.sln with Visual Studio 2010.<br>
+2. Press Ctrl&#43;F5.<br>
+<br>
+</p>
+<h3>Prerequisite:</h3>
+<p style="font-family:Courier New"><br>
+1. Visual Studio 2010<br>
+2. .NET Framework 4.0<br>
+<br>
+</p>
+<h3>Implementation:</h3>
+<p style="font-family:Courier New"><br>
+1. Create a new Workflow Console Workflow named it VBWF4FlowChart;<br>
+<br>
+2. Create a new code file name it ReadNumberActivity.vb, file the file with <br>
+&nbsp; the following code:<br>
+<br>
+Imports System<br>
+Imports <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Activities.aspx"  title="Auto generated link to System.Activities">System.Activities</a><br>
+<br>
+Public Class ReadNumberActivity<br>
+&nbsp; &nbsp;Inherits CodeActivity<br>
+<br>
+&nbsp; &nbsp;Public Property playerInputNumber() As OutArgument(Of Integer)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Get<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Return _playerInputNumber<br>
+&nbsp; &nbsp; &nbsp; &nbsp;End Get<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Set(ByVal value As OutArgument(Of Integer))<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;_playerInputNumber = value<br>
+&nbsp; &nbsp; &nbsp; &nbsp;End Set<br>
+&nbsp; &nbsp;End Property<br>
+&nbsp; &nbsp;Private _playerInputNumber As OutArgument(Of Integer)<br>
+<br>
+<br>
+&nbsp; &nbsp;Protected Overrides Sub Execute(ByVal context As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Activities.CodeActivityContext.aspx"  title="Auto generated link to System.Activities.CodeActivityContext">System.Activities.CodeActivityContext</a>)<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;playerInputNumber.Set(context, Integer.Parse(Console.ReadLine()))<br>
+<br>
+&nbsp; &nbsp;End Sub<br>
+End Class<br>
+<br>
+3. Delete the default created Workflow1.xaml file thenc reate a new Activity name
+<br>
+&nbsp; it GuessNumberGameInflowChart.xaml;author the workflow just like the one exsited
+<br>
+&nbsp; in the project. <br>
+<br>
+4. Open MainModule.vb file, change the code as follow:<br>
+<br>
+Imports <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Activities.aspx"  title="Auto generated link to System.Activities">System.Activities</a><br>
+Imports <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Activities.Statements.aspx"  title="Auto generated link to System.Activities.Statements">System.Activities.Statements</a><br>
+<br>
+Module MainModule<br>
+<br>
+&nbsp; &nbsp;Dim s As Sequence<br>
+<br>
+&nbsp; &nbsp;Sub Main()<br>
+&nbsp; &nbsp; &nbsp; &nbsp;WorkflowInvoker.Invoke(New GuessNumberGameInFlowChart())<br>
+&nbsp; &nbsp;End Sub<br>
+<br>
+End Module<br>
+<br>
+</p>
+<h3>Reference:</h3>
+<p style="font-family:Courier New"><br>
+A Developer's Introduction to Windows Workflow Foundation (WF) in .NET 4<br>
+<a  href="http://msdn.microsoft.com/en-us/library/ee342461.aspx">http://msdn.microsoft.com/en-us/library/ee342461.aspx</a><br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
