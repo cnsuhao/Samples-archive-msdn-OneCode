@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ASP.NET FileUpload demo (VBASPNETFileUpload)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>ASP.NET FileUpload demo (VBASPNETFileUpload)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Controls, FileUpload
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBASPNETFileUpload-4239824d">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>ASP.NET APPLICATION : VBASPNETFileUpload Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+&nbsp;The project illustrates how to upload files in an ASP.NET project by use <br>
+&nbsp;of FileUpload control and VB.NET language. When submit Button is clicked,<br>
+&nbsp;the HasFile property of the FileUpload control is checked to verify that<br>
+&nbsp;a file has been selected to upload. Before the file is saved, File.Exists <br>
+&nbsp;method is called to check whether a file that has the same name already <br>
+&nbsp;exists in the path. If so, the name of uploaded file is postfixed with a <br>
+&nbsp;increasing number so that the exsited file will not be overwritten. After<br>
+&nbsp;the file is uploaded successfully, some basic information is displayed, <br>
+&nbsp;including the original path, name, the size and the content type of the<br>
+&nbsp;uploaded file. All the information is get from the HttpPostedFile object<br>
+&nbsp;pointed by FileUpload.PostedFile property. <br>
+&nbsp;<br>
+</p>
+<h3>Code Logical:</h3>
+<p style="font-family:Courier New"><br>
+Step1. Create a Visual Basic ASP.NET Web Application named VBASPFileUpload in<br>
+Visual Studio 2008 / Visual Web Developer.<br>
+<br>
+Step2. Add a FileUpload control and a Button control into the ASP.NET HTML <br>
+page and rename them according to the following way:<br>
+<br>
+&nbsp; &nbsp;FileUpload1 -&gt; FileUploader<br>
+&nbsp; &nbsp;Button1 &nbsp; &nbsp; -&gt; btnSubmit<br>
+<br>
+[NOTE] The file in the FileUpload control cannot be automatically saved to<br>
+server after a user selects it. Another control, typically like a Button, <br>
+must be provided to submit the page, so that the file can be posted to server. <br>
+<br>
+Step3: Create a new folder and rename it as UploadFiles, which is used to <br>
+store the uploaded files.<br>
+<br>
+Step4: Double-click the Button in page's Designer View to open the Code-Behind <br>
+page in Visual Basic .NET language.<br>
+<br>
+Step5: Import the namespace <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.aspx"  title="Auto generated link to System.IO">System.IO</a> and <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Text.aspx"  title="Auto generated link to System.Text">System.Text</a> at the very beginning<br>
+of the page. Or you can use the complete function name like <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.Path.aspx"  title="Auto generated link to System.IO.Path">System.IO.Path</a> in<br>
+the code.<br>
+<br>
+Step6: Create SaveUploadFile() function which calls HttpPostedFile.SaveAs() <br>
+method to save the file to the server. Actually, FileUpload.SaveAs() method <br>
+does the same thing that calling HttpPostedFile.SaveAs() method itself.<br>
+<br>
+&nbsp; &nbsp;Protected Function SaveUploadFile(ByVal uploadedFile As HttpPostedFile, _<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ByVal SavePath As String) As Boolean<br>
+&nbsp; &nbsp; &nbsp; &nbsp;'...<br>
+&nbsp; &nbsp; &nbsp; &nbsp;uploadedFile.SaveAs(Path.Combine(SavePath, fileName))<br>
+&nbsp; &nbsp; &nbsp; &nbsp;'...<br>
+&nbsp; &nbsp;End Function<br>
+<br>
+[NOTE] When SaveAs() method is called, the full path of the directory on the <br>
+server must be specified, in which the file to upload will be saved. If not, <br>
+an HttpException exception is thrown. This behavior helps to keep the files <br>
+on the server secure, by preventing users from being able to write uploaded <br>
+files to arbitrary locations to server, like some sensitive root directories. <br>
+<br>
+Step7: Create GetUploadFileInfo() funtion to get the basic information of <br>
+the uploaded file.<br>
+<br>
+&nbsp; &nbsp;Protected Function GetUploadFileInfo(ByVal uploadedFile As HttpPostedFile) _<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; As String<br>
+&nbsp; &nbsp; &nbsp; &nbsp;'...<br>
+&nbsp; &nbsp;End Function<br>
+<br>
+Step8: Eidt the Button's click event handler to call SaveUploadFile() to save<br>
+the file. After uploading, call GetUploadFileInfo() function to show file's <br>
+information. <br>
+<br>
+[NOTE] Before calling SaveUploadFile() function, FileUpload.HasFile property<br>
+need to be checked to verify the FileUpload control contains a file. If it <br>
+returns false, display a message to tell the user no file has been selected <br>
+to upload. Do not check the PostedFile.Length property to validate whether a &nbsp; &nbsp;<br>
+file to upload exists because this property could contain 0 bytes even when <br>
+FileUpload control is blank. As a result, the PostedFile property can return <br>
+a non-null value. <br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MSDN: FileUpload Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.fileupload.aspx">http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.fileupload.aspx</a><br>
+<br>
+MSDN: Uploading Files in ASP.NET 2.0<br>
+<a  href="http://msdn.microsoft.com/en-us/library/aa479405.aspx">http://msdn.microsoft.com/en-us/library/aa479405.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
