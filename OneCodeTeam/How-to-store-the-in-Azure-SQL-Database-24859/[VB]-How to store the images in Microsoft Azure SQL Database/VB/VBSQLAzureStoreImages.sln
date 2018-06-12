@@ -1,0 +1,32 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{A1F0D676-B96F-4153-98FB-B4D6EB9633E3}"
+	ProjectSection(SolutionItems) = preProject
+		VBSQLAzureStoreImages\Documentation\ReadMe.htm = VBSQLAzureStoreImages\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "VBSQLAzureStoreImages", "VBSQLAzureStoreImages\VBSQLAzureStoreImages\VBSQLAzureStoreImages.ccproj", "{B376B878-B7B1-416F-B6E2-6E37AB5EA2A2}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBSQLAzureStoreImages_WebRole", "VBSQLAzureStoreImages\VBSQLAzureStoreImages_WebRole\VBSQLAzureStoreImages_WebRole.vbproj", "{EC56E1F8-4DB9-4A01-A28D-3CF925DFA254}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B376B878-B7B1-416F-B6E2-6E37AB5EA2A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B376B878-B7B1-416F-B6E2-6E37AB5EA2A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B376B878-B7B1-416F-B6E2-6E37AB5EA2A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B376B878-B7B1-416F-B6E2-6E37AB5EA2A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC56E1F8-4DB9-4A01-A28D-3CF925DFA254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC56E1F8-4DB9-4A01-A28D-3CF925DFA254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC56E1F8-4DB9-4A01-A28D-3CF925DFA254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC56E1F8-4DB9-4A01-A28D-3CF925DFA254}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
