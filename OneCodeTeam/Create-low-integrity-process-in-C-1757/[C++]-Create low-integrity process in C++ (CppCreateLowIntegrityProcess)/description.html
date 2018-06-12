@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Create low-integrity process in C++ (CppCreateLowIntegrityProcess)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Create low-integrity process in C++ (CppCreateLowIntegrityProcess)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows SDK
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Security, UAC, Integrity Level
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/1/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CppCreateLowIntegrityProces-590914bc">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="font-family:������">WIN32 APPLICATION</span> (<span style="font-family:������">CppCreateLowIntegrityProcess</span>)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">The code sample demonstrates how to start a low-integrity process. The application launches itself at the low integrity level when you click the &quot;Launch myself at low integrity level&quot; button on the application. Low integrity
+ processes can only write to low integrity locations, such as the %USERPROFILE%\AppData\LocalLow folder or the HKEY_CURRENT_USER\Software\AppDataLow key. If you attempt to gain write access to objects at a higher integrity levels, you will get an access denied
+ error even though the user's SID is granted write access in the discretionary access control list (DACL).
+</p>
+<p class="MsoNormal">By default, child processes inherit the integrity level of their parent process. To start a low-integrity process, you must start a new child process<span style="">
+</span>with a low-integrity access token by using CreateProcessAsUser. Please refer to the CreateLowIntegrityProcess sample function for details.<span style="">&nbsp;
+</span><span style=""></span></p>
+<h2><span style="">Compiling the code </span></h2>
+<p class="MsoNormal"><span style="">You must run this sample on Windows Vista or newer operating systems.
+</span></p>
+<h2>Running the<span style=""> sample </span></h2>
+<p class="MsoNormal"><span style="">Step1. After you successfully build the sample project in Visual Studio 2008, you will get the application: CppCreateLowIntegrityProcess.exe.
+</span></p>
+<p class="MsoNormal"><span style="">Step2. Run the application as an ordinary user on a Windows Vista or Windows 7 system with UAC fully enabled. The application should display the following main dialog.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="241" height="189" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><span style="">The process is running at the Medium integrity level. If you click on the [Write to the LocalAppData folder] button or the [Write to the LocalAppDataLow folder] button, you will get a message box saying that the file write
+ operation succeeds as follow: </span></p>
+<p class="MsoNormal"><span style=""><img src="description/b8125081-571c-4248-930a-68176193920dimage.png" alt="" width="380" height="171" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><span style="">Step3. Click on the [Launch myself at low integrity level] button. A new instance of the CppCreateLowIntegrityProcess application is launched as follow, but this time, it is running at the Low integrity level.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/b18d8afa-4d80-4972-9587-52fb43646b1aimage.png" alt="" width="241" height="189" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><span style="">If you click on the [Write to the LocalAppData folder] button, you will get the 0x80070005 error (Access Denied) with the following message.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/707b3f4a-2c1c-4628-8522-dd03616fab3bimage.png" alt="" width="478" height="171" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><span style="">This indicates that the low-integrity process is denied to write to the LocalAppData known folder (%USERPROFILE%\AppData\Local\) because the folder has a higher (Medium) integrity level:
+</span></p>
+<p class="MsoNormal"><span style="">If you click on the [Write to the LocalAppDataLow folder] button, the low-integrity process is able to write to the LocalAppDataLow known folder (%USERPROFILE%\AppData\LocalLow\) when you click the [Write to the LocalAppDataLow
+ folder] button, because the folder has the same Low integrity level: </span></p>
+<p class="MsoNormal"><span style=""><img src="description/f7c70ec5-5779-4800-aacb-5a5de3d9ca03image.png" alt="" width="380" height="171" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><span style="">Step4. Close the application and clean up the test files (testfile.txt) created by the application in %USERPROFILE%\AppData\Local\ and %USERPROFILE%\AppData\LocalLow\.
+</span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">A. Starting a process at low integrity </p>
+<p class="MsoNormal">By default, child processes inherit the integrity level of their parent process. To start a low-integrity process, you must start a new child process with a low-integrity access token using the function CreateProcessAsUser.
+</p>
+<p class="MsoNormal">To start a low-integrity process </p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+  // Open the primary access token of the process.
+  if (!OpenProcessToken(GetCurrentProcess(), TOKEN_DUPLICATE | TOKEN_QUERY |
+      TOKEN_ADJUST_DEFAULT | TOKEN_ASSIGN_PRIMARY, &hToken))
+  {
+      dwError = GetLastError();
+      goto Cleanup;
+  }
+
+
+  // Duplicate the primary token of the current process.
+  if (!DuplicateTokenEx(hToken, 0, NULL, SecurityImpersonation, 
+      TokenPrimary, &hNewToken))
+  {
+      dwError = GetLastError();
+      goto Cleanup;
+  }
+
+
+  // Create the low integrity SID.
+  if (!AllocateAndInitializeSid(&MLAuthority, 1, SECURITY_MANDATORY_LOW_RID, 
+      0, 0, 0, 0, 0, 0, 0, &pIntegritySid))
+  {
+      dwError = GetLastError();
+      goto Cleanup;
+  }
+
+
+  tml.Label.Attributes = SE_GROUP_INTEGRITY;
+  tml.Label.Sid = pIntegritySid;
+
+
+  // Set the integrity level in the access token to low.
+  if (!SetTokenInformation(hNewToken, TokenIntegrityLevel, &tml, 
+      (sizeof(tml) &#43; GetLengthSid(pIntegritySid))))
+  {
+      dwError = GetLastError();
+      goto Cleanup;
+  }
+
+
+  // Create the new process at the Low integrity level.
+  if (!CreateProcessAsUser(hNewToken, NULL, pszCommandLine, NULL, NULL, 
+      FALSE, 0, NULL, NULL, &si, &pi))
+  {
+      dwError = GetLastError();
+      goto Cleanup;
+  }
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+  // Open the primary access token of the process.
+  if (!OpenProcessToken(GetCurrentProcess(), TOKEN_DUPLICATE | TOKEN_QUERY |
+      TOKEN_ADJUST_DEFAULT | TOKEN_ASSIGN_PRIMARY, &hToken))
+  {
+      dwError = GetLastError();
+      goto Cleanup;
+  }
+
+
+  // Duplicate the primary token of the current process.
+  if (!DuplicateTokenEx(hToken, 0, NULL, SecurityImpersonation, 
+      TokenPrimary, &hNewToken))
+  {
+      dwError = GetLastError();
+      goto Cleanup;
+  }
+
+
+  // Create the low integrity SID.
+  if (!AllocateAndInitializeSid(&MLAuthority, 1, SECURITY_MANDATORY_LOW_RID, 
+      0, 0, 0, 0, 0, 0, 0, &pIntegritySid))
+  {
+      dwError = GetLastError();
+      goto Cleanup;
+  }
+
+
+  tml.Label.Attributes = SE_GROUP_INTEGRITY;
+  tml.Label.Sid = pIntegritySid;
+
+
+  // Set the integrity level in the access token to low.
+  if (!SetTokenInformation(hNewToken, TokenIntegrityLevel, &tml, 
+      (sizeof(tml) &#43; GetLengthSid(pIntegritySid))))
+  {
+      dwError = GetLastError();
+      goto Cleanup;
+  }
+
+
+  // Create the new process at the Low integrity level.
+  if (!CreateProcessAsUser(hNewToken, NULL, pszCommandLine, NULL, NULL, 
+      FALSE, 0, NULL, NULL, &si, &pi))
+  {
+      dwError = GetLastError();
+      goto Cleanup;
+  }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"></p>
+<p class="MsoNormal">CreateProcessAsUser updates the security descriptor in the new child process and the security descriptor for the access token to match the integrity level of the low-integrity access token. The CreateLowIntegrityProcess function in the
+ code sample demonstrates this process. </p>
+<p class="MsoNormal">B. Detecting the integrity level of the current process </p>
+<p class="MsoNormal">The GetProcessIntegrityLevel function in the code sample demonstrates how to get the integrity level of the current process.
+<span style=""></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+BOOL GetProcessIntegrityLevel(PDWORD pdwIntegrityLevel)
+{
+    DWORD dwError = ERROR_SUCCESS;
+    HANDLE hToken = NULL;
+    DWORD cbTokenIL = 0;
+    PTOKEN_MANDATORY_LABEL pTokenIL = NULL;
+
+
+    if (pdwIntegrityLevel == NULL)
+    {
+        dwError = ERROR_INVALID_PARAMETER;
+        goto Cleanup;
+    }
+
+
+    // Open the primary access token of the process with TOKEN_QUERY.
+    if (!OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &hToken))
+    {
+        dwError = GetLastError();
+        goto Cleanup;
+    }
+
+
+    // Query the size of the token integrity level information. Note that 
+    // we expect a FALSE result and the last error ERROR_INSUFFICIENT_BUFFER
+    // from GetTokenInformation because we have given it a NULL buffer. On 
+    // exit cbTokenIL will tell the size of the integrity level information.
+    if (!GetTokenInformation(hToken, TokenIntegrityLevel, NULL, 0, &cbTokenIL))
+    {
+        if (ERROR_INSUFFICIENT_BUFFER != GetLastError())
+        {
+            // When the process is run on operating systems prior to Windows 
+            // Vista, GetTokenInformation returns FALSE with the 
+            // ERROR_INVALID_PARAMETER error code because TokenElevation 
+            // is not supported on those operating systems.
+            dwError = GetLastError();
+            goto Cleanup;
+        }
+    }
+
+
+    // Now we allocate a buffer for the integrity level information.
+    pTokenIL = (TOKEN_MANDATORY_LABEL *)LocalAlloc(LPTR, cbTokenIL);
+    if (pTokenIL == NULL)
+    {
+        dwError = GetLastError();
+        goto Cleanup;
+    }
+
+
+    // Retrieve token integrity level information.
+    if (!GetTokenInformation(hToken, TokenIntegrityLevel, pTokenIL, 
+        cbTokenIL, &cbTokenIL))
+    {
+        dwError = GetLastError();
+        goto Cleanup;
+    }
+
+
+    // Integrity Level SIDs are in the form of S-1-16-0xXXXX. (e.g. 
+    // S-1-16-0x1000 stands for low integrity level SID). There is one and 
+    // only one subauthority.
+    *pdwIntegrityLevel = *GetSidSubAuthority(pTokenIL-&gt;Label.Sid, 0);
+
+
+Cleanup:
+    // Centralized cleanup for all allocated resources.
+    if (hToken)
+    {
+        CloseHandle(hToken);
+        hToken = NULL;
+    }
+    if (pTokenIL)
+    {
+        LocalFree(pTokenIL);
+        pTokenIL = NULL;
+        cbTokenIL = 0;
+    }
+
+
+    if (ERROR_SUCCESS != dwError)
+    {
+        // Make sure that the error code is set for failure.
+        SetLastError(dwError);
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
+    }
+}
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+BOOL GetProcessIntegrityLevel(PDWORD pdwIntegrityLevel)
+{
+    DWORD dwError = ERROR_SUCCESS;
+    HANDLE hToken = NULL;
+    DWORD cbTokenIL = 0;
+    PTOKEN_MANDATORY_LABEL pTokenIL = NULL;
+
+
+    if (pdwIntegrityLevel == NULL)
+    {
+        dwError = ERROR_INVALID_PARAMETER;
+        goto Cleanup;
+    }
+
+
+    // Open the primary access token of the process with TOKEN_QUERY.
+    if (!OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &hToken))
+    {
+        dwError = GetLastError();
+        goto Cleanup;
+    }
+
+
+    // Query the size of the token integrity level information. Note that 
+    // we expect a FALSE result and the last error ERROR_INSUFFICIENT_BUFFER
+    // from GetTokenInformation because we have given it a NULL buffer. On 
+    // exit cbTokenIL will tell the size of the integrity level information.
+    if (!GetTokenInformation(hToken, TokenIntegrityLevel, NULL, 0, &cbTokenIL))
+    {
+        if (ERROR_INSUFFICIENT_BUFFER != GetLastError())
+        {
+            // When the process is run on operating systems prior to Windows 
+            // Vista, GetTokenInformation returns FALSE with the 
+            // ERROR_INVALID_PARAMETER error code because TokenElevation 
+            // is not supported on those operating systems.
+            dwError = GetLastError();
+            goto Cleanup;
+        }
+    }
+
+
+    // Now we allocate a buffer for the integrity level information.
+    pTokenIL = (TOKEN_MANDATORY_LABEL *)LocalAlloc(LPTR, cbTokenIL);
+    if (pTokenIL == NULL)
+    {
+        dwError = GetLastError();
+        goto Cleanup;
+    }
+
+
+    // Retrieve token integrity level information.
+    if (!GetTokenInformation(hToken, TokenIntegrityLevel, pTokenIL, 
+        cbTokenIL, &cbTokenIL))
+    {
+        dwError = GetLastError();
+        goto Cleanup;
+    }
+
+
+    // Integrity Level SIDs are in the form of S-1-16-0xXXXX. (e.g. 
+    // S-1-16-0x1000 stands for low integrity level SID). There is one and 
+    // only one subauthority.
+    *pdwIntegrityLevel = *GetSidSubAuthority(pTokenIL-&gt;Label.Sid, 0);
+
+
+Cleanup:
+    // Centralized cleanup for all allocated resources.
+    if (hToken)
+    {
+        CloseHandle(hToken);
+        hToken = NULL;
+    }
+    if (pTokenIL)
+    {
+        LocalFree(pTokenIL);
+        pTokenIL = NULL;
+        cbTokenIL = 0;
+    }
+
+
+    if (ERROR_SUCCESS != dwError)
+    {
+        // Make sure that the error code is set for failure.
+        SetLastError(dwError);
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
+    }
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<h2>More Information</h2>
+<p class="MsoListParagraphCxSpFirst" style=""><span style="font-family:Symbol"><span style="">��<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><a href="http://msdn.microsoft.com/en-us/library/bb625960.aspx">MSDN: Designing Applications to Run at a Low Integrity Level</a>
+</p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:Symbol"><span style="">��<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><a href="http://msdn.microsoft.com/en-us/library/bb250462(VS.85).aspx">MSDN: Understanding and Working in Protected Mode Internet Explorer</a>
+</p>
+<p class="MsoListParagraphCxSpLast"></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
