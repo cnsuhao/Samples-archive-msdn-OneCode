@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\inetpub\wwwroot\testest" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="02/03/2012 09:57:10" />
+    <file relUrl="bin/Microsoft.WindowsAzure.StorageClient.xml" publishTime="10/24/2011 16:37:32" />
+    <file relUrl="bin/Microsoft.WindowsAzure.Diagnostics.dll" publishTime="11/03/2011 15:32:52" />
+    <file relUrl="Files/Microsoft.jpg" publishTime="05/31/2011 16:47:26" />
+    <file relUrl="NoHandler.aspx" publishTime="02/01/2012 18:28:30" />
+    <file relUrl="packages.config" publishTime="02/01/2012 15:04:32" />
+    <file relUrl="bin/TableStorageManager.dll" publishTime="02/03/2012 01:15:26" />
+    <file relUrl="Files/MSDN.jpg" publishTime="05/31/2011 16:46:26" />
+    <file relUrl="bin/Microsoft.WindowsAzure.StorageClient.dll" publishTime="11/03/2011 15:32:50" />
+    <file relUrl="bin/TableStorageManager.pdb" publishTime="02/03/2012 01:15:26" />
+    <file relUrl="bin/ServeFilesFromBlobStorageWebRole.pdb" publishTime="02/03/2012 01:15:28" />
+    <file relUrl="bin/ServeFilesFromBlobStorageWebRole.dll" publishTime="02/03/2012 01:15:28" />
+    <file relUrl="FileUploadPage.aspx" publishTime="02/02/2012 20:03:46" />
+    <file relUrl="bin/System.Web.Providers.dll" publishTime="02/01/2012 15:04:32" />
+    <file relUrl="bin/Microsoft.WindowsAzure.Diagnostics.xml" publishTime="11/03/2011 15:04:58" />
+    <file relUrl="Global.asax" publishTime="02/01/2012 15:04:22" />
+    <file relUrl="Files/Site.css" publishTime="02/01/2012 15:04:22" />
+    <file relUrl="FileManagerHandler.ashx" publishTime="02/01/2012 17:14:58" />
+  </publishProfile>
+</publishData>
