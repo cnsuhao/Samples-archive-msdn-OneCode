@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="60996458-cecd-4ed6-baec-6ad0e3037ff1" Publisher="CN=v-bos" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>CppUniversalAppOpacityMask.Windows</DisplayName>
+    <PublisherDisplayName>v-bos</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="CppUniversalAppOpacityMask_Windows.App">
+      <m2:VisualElements DisplayName="CppUniversalAppOpacityMask.Windows" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="CppUniversalAppOpacityMask.Windows" ForegroundText="light" BackgroundColor="#E6B90B">
+        <m2:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#E6B90B" />
+      </m2:VisualElements>
+    </Application>
+  </Applications>
+</Package>

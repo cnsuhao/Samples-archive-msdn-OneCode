@@ -1,0 +1,136 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CppUniversalAppOpacityMask", "CppUniversalAppOpacityMask", "{F015E790-C3FF-4572-A846-0C633D0309CA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppUniversalAppOpacityMask.Shared", "CppUniversalAppOpacityMask\CppUniversalAppOpacityMask.Shared\CppUniversalAppOpacityMask.Shared.vcxitems", "{9E76C807-46C6-49DD-A161-159D4A455ADB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppUniversalAppOpacityMask.Windows", "CppUniversalAppOpacityMask\CppUniversalAppOpacityMask.Windows\CppUniversalAppOpacityMask.Windows.vcxproj", "{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppUniversalAppOpacityMask.WindowsPhone", "CppUniversalAppOpacityMask\CppUniversalAppOpacityMask.WindowsPhone\CppUniversalAppOpacityMask.WindowsPhone.vcxproj", "{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "D2DImageSourceWithOpacityMask", "D2DImageSourceWithOpacityMask", "{BCA37076-E299-4CE7-B25E-667C73B4122F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "D2DImageSourceWithOpacityMask.Shared", "D2DImageSourceWithOpacityMask\D2DImageSourceWithOpacityMask.Shared\D2DImageSourceWithOpacityMask.Shared.vcxitems", "{9F90F801-D3F7-4BA4-959F-E697AA9D26BB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "D2DImageSourceWithOpacityMask.Windows", "D2DImageSourceWithOpacityMask\D2DImageSourceWithOpacityMask.Windows\D2DImageSourceWithOpacityMask.Windows.vcxproj", "{8586C8FE-491C-4CB5-9337-E7451A46616C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "D2DImageSourceWithOpacityMask.WindowsPhone", "D2DImageSourceWithOpacityMask\D2DImageSourceWithOpacityMask.WindowsPhone\D2DImageSourceWithOpacityMask.WindowsPhone.vcxproj", "{7ED97926-085C-4721-AD9F-F53FEEE74467}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		D2DImageSourceWithOpacityMask\D2DImageSourceWithOpacityMask.Shared\D2DImageSourceWithOpacityMask.Shared.vcxitems*{7ed97926-085c-4721-ad9f-f53feee74467}*SharedItemsImports = 4
+		D2DImageSourceWithOpacityMask\D2DImageSourceWithOpacityMask.Shared\D2DImageSourceWithOpacityMask.Shared.vcxitems*{9f90f801-d3f7-4ba4-959f-e697aa9d26bb}*SharedItemsImports = 9
+		CppUniversalAppOpacityMask\CppUniversalAppOpacityMask.Shared\CppUniversalAppOpacityMask.Shared.vcxitems*{9e76c807-46c6-49dd-a161-159d4a455adb}*SharedItemsImports = 9
+		CppUniversalAppOpacityMask\CppUniversalAppOpacityMask.Shared\CppUniversalAppOpacityMask.Shared.vcxitems*{f8e09823-f5bd-48dc-9748-1d5aa9aa0598}*SharedItemsImports = 4
+		D2DImageSourceWithOpacityMask\D2DImageSourceWithOpacityMask.Shared\D2DImageSourceWithOpacityMask.Shared.vcxitems*{8586c8fe-491c-4cb5-9337-e7451a46616c}*SharedItemsImports = 4
+		CppUniversalAppOpacityMask\CppUniversalAppOpacityMask.Shared\CppUniversalAppOpacityMask.Shared.vcxitems*{08b78248-2ab4-4bd4-8312-7b1304a3ab9c}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://workspace:8080/tfs/sfc
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CppUniversalAppOpacityMask\\CppUniversalAppOpacityMask.Shared\\CppUniversalAppOpacityMask.Shared.vcxitems
+		SccProjectTopLevelParentUniqueName1 = CppUniversalAppOpacityMask.sln
+		SccProjectName1 = CppUniversalAppOpacityMask/CppUniversalAppOpacityMask.Shared
+		SccLocalPath1 = CppUniversalAppOpacityMask\\CppUniversalAppOpacityMask.Shared
+		SccProjectUniqueName2 = CppUniversalAppOpacityMask\\CppUniversalAppOpacityMask.Windows\\CppUniversalAppOpacityMask.Windows.vcxproj
+		SccProjectTopLevelParentUniqueName2 = CppUniversalAppOpacityMask.sln
+		SccProjectName2 = CppUniversalAppOpacityMask/CppUniversalAppOpacityMask.Windows
+		SccLocalPath2 = CppUniversalAppOpacityMask\\CppUniversalAppOpacityMask.Windows
+		SccProjectUniqueName3 = CppUniversalAppOpacityMask\\CppUniversalAppOpacityMask.WindowsPhone\\CppUniversalAppOpacityMask.WindowsPhone.vcxproj
+		SccProjectTopLevelParentUniqueName3 = CppUniversalAppOpacityMask.sln
+		SccProjectName3 = CppUniversalAppOpacityMask/CppUniversalAppOpacityMask.WindowsPhone
+		SccLocalPath3 = CppUniversalAppOpacityMask\\CppUniversalAppOpacityMask.WindowsPhone
+		SccProjectUniqueName4 = D2DImageSourceWithOpacityMask\\D2DImageSourceWithOpacityMask.Shared\\D2DImageSourceWithOpacityMask.Shared.vcxitems
+		SccProjectTopLevelParentUniqueName4 = CppUniversalAppOpacityMask.sln
+		SccProjectName4 = D2DImageSourceWithOpacityMask/D2DImageSourceWithOpacityMask.Shared
+		SccLocalPath4 = D2DImageSourceWithOpacityMask\\D2DImageSourceWithOpacityMask.Shared
+		SccProjectUniqueName5 = D2DImageSourceWithOpacityMask\\D2DImageSourceWithOpacityMask.Windows\\D2DImageSourceWithOpacityMask.Windows.vcxproj
+		SccProjectTopLevelParentUniqueName5 = CppUniversalAppOpacityMask.sln
+		SccProjectName5 = D2DImageSourceWithOpacityMask/D2DImageSourceWithOpacityMask.Windows
+		SccLocalPath5 = D2DImageSourceWithOpacityMask\\D2DImageSourceWithOpacityMask.Windows
+		SccProjectUniqueName6 = D2DImageSourceWithOpacityMask\\D2DImageSourceWithOpacityMask.WindowsPhone\\D2DImageSourceWithOpacityMask.WindowsPhone.vcxproj
+		SccProjectTopLevelParentUniqueName6 = CppUniversalAppOpacityMask.sln
+		SccProjectName6 = D2DImageSourceWithOpacityMask/D2DImageSourceWithOpacityMask.WindowsPhone
+		SccLocalPath6 = D2DImageSourceWithOpacityMask\\D2DImageSourceWithOpacityMask.WindowsPhone
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|ARM = Release|ARM
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Debug|ARM.ActiveCfg = Debug|ARM
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Debug|ARM.Build.0 = Debug|ARM
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Debug|ARM.Deploy.0 = Debug|ARM
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Debug|Win32.Build.0 = Debug|Win32
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Debug|Win32.Deploy.0 = Debug|Win32
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Debug|x64.ActiveCfg = Debug|x64
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Debug|x64.Build.0 = Debug|x64
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Debug|x64.Deploy.0 = Debug|x64
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Release|ARM.ActiveCfg = Release|ARM
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Release|ARM.Build.0 = Release|ARM
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Release|ARM.Deploy.0 = Release|ARM
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Release|Win32.ActiveCfg = Release|Win32
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Release|Win32.Build.0 = Release|Win32
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Release|Win32.Deploy.0 = Release|Win32
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Release|x64.ActiveCfg = Release|x64
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Release|x64.Build.0 = Release|x64
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598}.Release|x64.Deploy.0 = Release|x64
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Debug|ARM.ActiveCfg = Debug|ARM
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Debug|ARM.Build.0 = Debug|ARM
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Debug|ARM.Deploy.0 = Debug|ARM
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Debug|Win32.Build.0 = Debug|Win32
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Debug|Win32.Deploy.0 = Debug|Win32
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Debug|x64.ActiveCfg = Debug|Win32
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Release|ARM.ActiveCfg = Release|ARM
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Release|ARM.Build.0 = Release|ARM
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Release|ARM.Deploy.0 = Release|ARM
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Release|Win32.ActiveCfg = Release|Win32
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Release|Win32.Build.0 = Release|Win32
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Release|Win32.Deploy.0 = Release|Win32
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C}.Release|x64.ActiveCfg = Release|Win32
+		{8586C8FE-491C-4CB5-9337-E7451A46616C}.Debug|ARM.ActiveCfg = Debug|ARM
+		{8586C8FE-491C-4CB5-9337-E7451A46616C}.Debug|ARM.Build.0 = Debug|ARM
+		{8586C8FE-491C-4CB5-9337-E7451A46616C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8586C8FE-491C-4CB5-9337-E7451A46616C}.Debug|Win32.Build.0 = Debug|Win32
+		{8586C8FE-491C-4CB5-9337-E7451A46616C}.Debug|x64.ActiveCfg = Debug|x64
+		{8586C8FE-491C-4CB5-9337-E7451A46616C}.Debug|x64.Build.0 = Debug|x64
+		{8586C8FE-491C-4CB5-9337-E7451A46616C}.Release|ARM.ActiveCfg = Release|ARM
+		{8586C8FE-491C-4CB5-9337-E7451A46616C}.Release|ARM.Build.0 = Release|ARM
+		{8586C8FE-491C-4CB5-9337-E7451A46616C}.Release|Win32.ActiveCfg = Release|Win32
+		{8586C8FE-491C-4CB5-9337-E7451A46616C}.Release|Win32.Build.0 = Release|Win32
+		{8586C8FE-491C-4CB5-9337-E7451A46616C}.Release|x64.ActiveCfg = Release|x64
+		{8586C8FE-491C-4CB5-9337-E7451A46616C}.Release|x64.Build.0 = Release|x64
+		{7ED97926-085C-4721-AD9F-F53FEEE74467}.Debug|ARM.ActiveCfg = Debug|ARM
+		{7ED97926-085C-4721-AD9F-F53FEEE74467}.Debug|ARM.Build.0 = Debug|ARM
+		{7ED97926-085C-4721-AD9F-F53FEEE74467}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7ED97926-085C-4721-AD9F-F53FEEE74467}.Debug|Win32.Build.0 = Debug|Win32
+		{7ED97926-085C-4721-AD9F-F53FEEE74467}.Debug|x64.ActiveCfg = Debug|Win32
+		{7ED97926-085C-4721-AD9F-F53FEEE74467}.Release|ARM.ActiveCfg = Release|ARM
+		{7ED97926-085C-4721-AD9F-F53FEEE74467}.Release|ARM.Build.0 = Release|ARM
+		{7ED97926-085C-4721-AD9F-F53FEEE74467}.Release|Win32.ActiveCfg = Release|Win32
+		{7ED97926-085C-4721-AD9F-F53FEEE74467}.Release|Win32.Build.0 = Release|Win32
+		{7ED97926-085C-4721-AD9F-F53FEEE74467}.Release|x64.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9E76C807-46C6-49DD-A161-159D4A455ADB} = {F015E790-C3FF-4572-A846-0C633D0309CA}
+		{F8E09823-F5BD-48DC-9748-1D5AA9AA0598} = {F015E790-C3FF-4572-A846-0C633D0309CA}
+		{08B78248-2AB4-4BD4-8312-7B1304A3AB9C} = {F015E790-C3FF-4572-A846-0C633D0309CA}
+		{9F90F801-D3F7-4BA4-959F-E697AA9D26BB} = {BCA37076-E299-4CE7-B25E-667C73B4122F}
+		{8586C8FE-491C-4CB5-9337-E7451A46616C} = {BCA37076-E299-4CE7-B25E-667C73B4122F}
+		{7ED97926-085C-4721-AD9F-F53FEEE74467} = {BCA37076-E299-4CE7-B25E-667C73B4122F}
+	EndGlobalSection
+EndGlobal

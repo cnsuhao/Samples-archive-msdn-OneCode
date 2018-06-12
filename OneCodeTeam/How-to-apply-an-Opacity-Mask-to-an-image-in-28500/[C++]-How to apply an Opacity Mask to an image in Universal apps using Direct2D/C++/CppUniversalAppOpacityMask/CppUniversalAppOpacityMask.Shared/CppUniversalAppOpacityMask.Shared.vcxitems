@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>5aad5b84-28c2-4971-aabc-8391c5c8c8dd</SharedGUID>
+    <ItemsProjectGuid>{9e76c807-46c6-49dd-a161-159d4a455adb}</ItemsProjectGuid>
+    <ItemsRootNamespace>CppUniversalAppOpacityMask</ItemsRootNamespace>
+    <ItemsSccProjectName>SAK</ItemsSccProjectName>
+    <ItemsSccAuxPath>SAK</ItemsSccAuxPath>
+    <ItemsSccLocalPath>SAK</ItemsSccLocalPath>
+    <ItemsSccProvider>SAK</ItemsSccProvider>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <ClCompile Include="$(MSBuildThisFileDirectory)App.xaml.cpp">
+      <DependentUpon>$(MSBuildThisFileDirectory)App.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)App.xaml.h">
+      <DependentUpon>$(MSBuildThisFileDirectory)App.xaml</DependentUpon>
+    </ClInclude>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\RelayCommand.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="$(MSBuildThisFileDirectory)Assets\BitmapMask.png" />
+    <Image Include="$(MSBuildThisFileDirectory)Assets\Mask1.png" />
+    <Image Include="$(MSBuildThisFileDirectory)Assets\Mask2.png" />
+  </ItemGroup>
+</Project>
