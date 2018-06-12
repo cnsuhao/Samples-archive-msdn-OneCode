@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>C# app uses ADO.NET to access database (CSUseADONET)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>C# app uses ADO.NET to access database (CSUseADONET)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ADO.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Data Access
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">6/6/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSUseADONET-694a16af">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;</p>
+<h2>CONSOLE APPLICATION : CSUseADONET Project Overview</h2>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+The CSUseADONET example demonstrates the Microsoft ADO.NET technology to <br>
+access databases using Visual C#. It shows the basic structure of <br>
+connecting to a data source, issuing SQL commands, using Untyped DataSet,<br>
+using Strong Typed DataSet, updating related data tables and performing the <br>
+cleanup. <br>
+<br>
+</p>
+<h3>Project Relation:</h3>
+<p style="font-family:Courier New"><br>
+CSUseADONET -&gt; SQLServer2005DB<br>
+CSUseADONET accesses the database created by SQLServer2005DB.<br>
+<br>
+</p>
+<h3>Code Logic:</h3>
+<p style="font-family:Courier New"><br>
+1. Connect to data source. (<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Data.SqlClient.SqlConnection.Open.aspx"  title="Auto generated link to System.Data.SqlClient.SqlConnection.Open">System.Data.SqlClient.SqlConnection.Open</a>)<br>
+<br>
+2. Build and Execute an ADO.NET Command. <br>
+&nbsp; (System.Data.SqlCommand.ExecuteNonQuery)<br>
+&nbsp; It can be a SQL statement (SELECT/UPDATE/INSERT/DELETE), or a stored <br>
+&nbsp; procedure call.<br>
+&nbsp; <br>
+3. Use the Untyped DataSet Object. <br>
+&nbsp; (<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Data.SqlClient.SqlDataAdapter.Fill.aspx"  title="Auto generated link to System.Data.SqlClient.SqlDataAdapter.Fill">System.Data.SqlClient.SqlDataAdapter.Fill</a>)<br>
+&nbsp; The DataSet, which is an in-memory cache of data retrieved from a data <br>
+&nbsp; source, is a major component of the ADO.NET architecture. &nbsp;The DataSet
+<br>
+&nbsp; consists of a collection of DataTable objects that you can relate to each <br>
+&nbsp; other with DataRelation objects.<br>
+&nbsp; <br>
+4. Use the Strong Typed DataSet Object.<br>
+&nbsp; A typed DataSet is a class that derives from a DataSet. As such, it <br>
+&nbsp; inherits all the methods, events, and properties of a DataSet. <br>
+&nbsp; Additionally, a typed DataSet provides strongly typed methods, events, and<br>
+&nbsp; properties. This means you can access tables and columns by name, instead <br>
+&nbsp; of using collection-based methods. Aside from the improved readability of <br>
+&nbsp; the code, a typed DataSet also allows the Visual Studio .NET code editor <br>
+&nbsp; to automatically complete lines as you type.<br>
+&nbsp; <br>
+&nbsp; Steps to create a strong typed DataSet in Visual Studio 2008:<br>
+&nbsp; <br>
+&nbsp; (1) On the &quot;Data&quot; menu, click Show Data Sources. <br>
+&nbsp; <br>
+&nbsp; (2) In the &quot;Data Sources&quot; window, click &quot;Add New Data Source&quot; to start the
+<br>
+&nbsp; &nbsp; &nbsp; &quot;Data Source Configuration Wizard&quot;. <br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; (3) On the &quot;Choose a Data Source Type&quot; page, click &quot;Database&quot; and then <br>
+&nbsp; &nbsp; &nbsp; click &quot;Next&quot;. <br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; (4) On the &quot;Choose Your Data Connection&quot; page, perform one of the <br>
+&nbsp; &nbsp; &nbsp; following actions: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If a data connection to the Northwind sample database is available
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in the drop-down list box, click it.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-or- <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click &quot;New Connection&quot; to open the &quot;Add/Modify Connection&quot; dialog
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;box. For more information, please see
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://msdn.microsoft.com/en-us/library/c3t1z354.aspx." >http://msdn.microsoft.com/en-us/library/c3t1z354.aspx.</a>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp; (5) If the database requires a password, select the option to include <br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; sensitive data, and then click &quot;Next&quot;. <br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+&nbsp; (6) Click &quot;Next&quot; on the &quot;Save the Connection String to the Application <br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Configuration File&quot; page. <br>
+<br>
+&nbsp; (7) Expand the &quot;Tables&quot; node on the &quot;Choose Your Database Objects&quot; page. <br>
+<br>
+&nbsp; (8) Click the check boxes for the tables you want in the DataSet, and then<br>
+&nbsp; &nbsp; &nbsp; click &quot;Finish&quot;. <br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; (9) Click the &quot;PersonCategory&quot; column of the &quot;Person&quot; DataTable to open <br>
+&nbsp; &nbsp; &nbsp; the properties window. &nbsp;Set the &quot;DefaultValue&quot; property to 1.<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; To create a strong typed DataSet by XSD.exe, please see<br>
+&nbsp; <a href="&lt;a target=" >http://msdn.microsoft.com/en-us/library/wha85tzb.aspx</a>'&gt;<a href="http://msdn.microsoft.com/en-us/library/wha85tzb.aspx" >http://msdn.microsoft.com/en-us/library/wha85tzb.aspx</a><br>
+&nbsp; <br>
+5. Update Two Related Data Tables by TableAdapterManager and writting codes <br>
+&nbsp; manually. &nbsp; <br>
+&nbsp; <br>
+&nbsp; Steps when we use TableAdapterManager:<br>
+&nbsp; (1) Create a Windows Form application.<br>
+&nbsp; &nbsp; &nbsp; For detail, please see <br>
+&nbsp; &nbsp; &nbsp; <a href="&lt;a target=" >http://msdn.microsoft.com/en-us/library/54xbah2z.aspx.</a>'&gt;<a href="http://msdn.microsoft.com/en-us/library/54xbah2z.aspx." >http://msdn.microsoft.com/en-us/library/54xbah2z.aspx.</a><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; (2) Create a strong typed DataSet. <br>
+&nbsp; &nbsp; &nbsp; For detail, please see Item 4. &nbsp;<br>
+&nbsp; <br>
+&nbsp; (3) Change the default data-bound controls to be created.<br>
+&nbsp; &nbsp; &nbsp; After populating the Data Sources window, you can choose the controls
+<br>
+&nbsp; &nbsp; &nbsp; to be created when you drag items to a Windows Form. For this
+<br>
+&nbsp; &nbsp; &nbsp; example, the data from the Department table will be displayed in
+<br>
+&nbsp; &nbsp; &nbsp; individual controls (Details). The data from the Course table will be
+<br>
+&nbsp; &nbsp; &nbsp; displayed in a DataGridView control (DataGridView). <br>
+<br>
+&nbsp; (4) Create the data-bound Form.<br>
+&nbsp; &nbsp; &nbsp; After choosing the controls in the Data Sources window, create the
+<br>
+&nbsp; &nbsp; &nbsp; data-bound controls by dragging items in the Data Sources window onto
+<br>
+&nbsp; &nbsp; &nbsp; the form.<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; (5) Update the code to commit changes to the related before saving.<br>
+&nbsp; &nbsp; &nbsp; Add a line of code to call the courseBindingSource.EndEdit method
+<br>
+&nbsp; &nbsp; &nbsp; after the line that calls the departmentBindingSource.EndEdit method<br>
+&nbsp; &nbsp; &nbsp; in departmentBindingNavigatorSaveItem_Click event.<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; (6) Add code to commit parent records in the DataSet before adding new<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; child records<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Create an event handler for the courseBindingSource.AddingNew event.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Add to the event handler a line of code that calls the
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; DepartmentBindingSource.EndEdit method.<br>
+<br>
+&nbsp; Steps when we write code manually:<br>
+&nbsp; (1) Create a Windows Form application.<br>
+&nbsp; &nbsp; &nbsp; For detail, please see <br>
+&nbsp; &nbsp; &nbsp; <a href="&lt;a target=" >http://msdn.microsoft.com/en-us/library/54xbah2z.aspx.</a>'&gt;<a href="http://msdn.microsoft.com/en-us/library/54xbah2z.aspx." >http://msdn.microsoft.com/en-us/library/54xbah2z.aspx.</a><br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; (2) Create a strong typed DataSet. <br>
+&nbsp; &nbsp; &nbsp; For detail, please see Item 4. &nbsp;<br>
+&nbsp; <br>
+&nbsp; (3) Change the default data-bound controls to be created.<br>
+&nbsp; &nbsp; &nbsp; After populating the Data Sources window, you can choose the controls
+<br>
+&nbsp; &nbsp; &nbsp; to be created when you drag items to a Windows Form. For this
+<br>
+&nbsp; &nbsp; &nbsp; example, the data from the Department table will be displayed in
+<br>
+&nbsp; &nbsp; &nbsp; individual controls (Details). The data from the Course table will be
+<br>
+&nbsp; &nbsp; &nbsp; displayed in a DataGridView control (DataGridView). <br>
+<br>
+&nbsp; (4) Create the data-bound Form.<br>
+&nbsp; &nbsp; &nbsp; After choosing the controls in the Data Sources window, create the
+<br>
+&nbsp; &nbsp; &nbsp; data-bound controls by dragging items in the Data Sources window onto
+<br>
+&nbsp; &nbsp; &nbsp; the form.<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; (5) Add code to update the database.<br>
+&nbsp; &nbsp; &nbsp; Replace the code in the event handler to call the Update methods of
+<br>
+&nbsp; &nbsp; &nbsp; the related TableAdapterManager.<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; Note: For clarity this example(Updating related data tables with manually<br>
+&nbsp; written code) does not use a transaction, but if you are updating two or <br>
+&nbsp; more related tables, then you should include all the update logic within <br>
+&nbsp; a transaction. A transaction is a process that assures all related changes
+<br>
+&nbsp; to a database are successful before committing any changes. <br>
+&nbsp; For more information, please see <br>
+&nbsp; <a href="http://msdn.microsoft.com/en-us/library/777e5ebh.aspx." >
+http://msdn.microsoft.com/en-us/library/777e5ebh.aspx.</a><br>
+<br>
+6. Clean up objects before exit. (<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Data.SqlClient.SqlConnection.Close.aspx"  title="Auto generated link to System.Data.SqlClient.SqlConnection.Close">System.Data.SqlClient.SqlConnection.Close</a>)<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+ADO.NET Introduction<br>
+<a href="http://msdn.microsoft.com/en-us/library/e80y5yhx.aspx" >http://msdn.microsoft.com/en-us/library/e80y5yhx.aspx</a><br>
+<br>
+Using DataSets in ADO.NET<br>
+<a href="http://msdn.microsoft.com/en-us/library/ss7fbaez.aspx" >http://msdn.microsoft.com/en-us/library/ss7fbaez.aspx</a><br>
+<br>
+Storing and Retrieving Images from SQL Server using Visual C# .NET<br>
+<a href="http://www.codeproject.com/KB/database/ImageSaveInDataBase.aspx" >http://www.codeproject.com/KB/database/ImageSaveInDataBase.aspx</a><br>
+<br>
+Handling Null Values (ADO.NET)<br>
+<a href="http://msdn.microsoft.com/en-us/library/ms172138.aspx" >http://msdn.microsoft.com/en-us/library/ms172138.aspx</a><br>
+<br>
+Best Practices for Using ADO.NET<br>
+<a href="http://msdn.microsoft.com/en-us/library/ms971481.aspx" >http://msdn.microsoft.com/en-us/library/ms971481.aspx</a><br>
+<br>
+How to Call a Parameterized Stored Procedure by Using ADO.NET and Visual <br>
+C#.NET<br>
+<a href="http://support.microsoft.com/kb/310070/" >http://support.microsoft.com/kb/310070/</a><br>
+<br>
+Typed DataSets (ADO.NET)<br>
+<a href="http://msdn.microsoft.com/en-us/library/esbykkzb.aspx" >http://msdn.microsoft.com/en-us/library/esbykkzb.aspx</a><br>
+<br>
+Generating Strongly Typed DataSets (ADO.NET)<br>
+<a href="&lt;a target=" >http://msdn.microsoft.com/en-us/library/wha85tzb.aspx</a>'&gt;<a href="http://msdn.microsoft.com/en-us/library/wha85tzb.aspx" >http://msdn.microsoft.com/en-us/library/wha85tzb.aspx</a><br>
+<br>
+HOW TO: Create and Use a Typed DataSet by Using Visual C# .NET<br>
+<a href="http://support.microsoft.com/kb/320714/en-us" >http://support.microsoft.com/kb/320714/en-us</a><br>
+<br>
+Saving Data from Related Data Tables (Hierarchical Update)<br>
+<a href="http://msdn.microsoft.com/en-us/library/bb384432.aspx" >http://msdn.microsoft.com/en-us/library/bb384432.aspx</a><br>
+<br>
+Saving Data to a Database (Multiple Tables)<br>
+<a href="http://msdn.microsoft.com/en-us/library/4esb49b4.aspx" >http://msdn.microsoft.com/en-us/library/4esb49b4.aspx</a><br>
+<br>
+MSDN: DataSet<br>
+<a href="http://msdn.microsoft.com/en-us/library/system.data.dataset.aspx" >http://msdn.microsoft.com/en-us/library/system.data.dataset.aspx</a><br>
+<br>
+MSDN: SqlDataAdapter<br>
+<a href="http://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqldataadapter.aspx" >http://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqldataadapter.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
