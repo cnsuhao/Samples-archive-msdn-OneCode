@@ -1,0 +1,606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/fd0873a3-9a67-441e-9769-e22026a86740Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to Generate SAS from Windows Azure Mobile Services</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to Generate SAS from Windows Azure Mobile Services</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure, Mobile Services
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Azure
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web, Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">10/15/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-Generate-SAS-from-512781b3">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>How to Generate Blob SAS from Azure Mobile service (VBAzureMobileServiceGenerateSAS)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">Mobile Services allows you to accelerate your mobile app development by providing a turnkey way to structure storage, authenticate users, and send push notifications. With SDKs for Windows, Android, iOS, and HTML as well as a powerful
+ and flexible REST API, Mobile Services lets you to build connected applications for any platform and deliver a consistent experience across devices.
+</p>
+<p class="MsoNormal">You can find the answers for all the following questions in the code sample:</p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>How to use Azure mobile service generate Blob SAS token.</p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><a name="OLE_LINK2"></a><a name="OLE_LINK1"><span style=""><span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>How to Test the SAS token.</span></a></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal">Before running this Sample, you have to finish the steps below first.</p>
+<p class="MsoListParagraphCxSpFirst" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Login to your Azure portal, create a new mobile service. (In this sample, the name is &quot; azuremobileservicegeneratesas&quot;)</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Copy you mobile service address to the clipboard.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"><span style=""><img src="description/image.png" alt="" width="576" height="362" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in"></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Go to the <a href="http://code.msdn.microsoft.com/How-to-Generate-SAS-from-512781b3/https://account.live.com/developers/applications">
+Live connect developer applciations</a> , follow<a href="http://www.windowsazure.com/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication/"> Register your apps to use a Microsoft Account login</a>, get the Client ID, and Client Secret.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Back to your Azure Mobile service page, click the Identity tab and paste your client ID, and Client Secret to Microsoft account setting.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">5.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Click API tab, create a new API named &quot;generateazuretablesas&quot;.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">6.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Set all the permissions to &quot;Everyone&quot;.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">7.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>In script Copy the %projectfolder%/mobileservicescript/generateazuretablesas.js to this script.</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">8.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Change the account to you own.</p>
+<p class="MsoListParagraphCxSpLast" style="margin-left:.25in; text-indent:-.25in">
+<span style=""><span style="">9.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Open Main.xmal.vb file change the account to your Azure mobile service name.</p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">The code sample provides the following reusable functions for Generating SAS.</p>
+<h3>How to use Azure mobile service generate Blob SAS token?</h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>JavaScript</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">js</span>
+<pre class="hidden">
+var accountName='storage account name';
+var accountKey='storage account key';
+var azure=require('azure');
+var qs=require('querystring');
+var containerName='generateazuretablesas';
+var sas;
+
+
+
+
+exports.get = function(request, response) {
+&nbsp;&nbsp;&nbsp; var host = accountName &#43; '.blob.core.windows.net'; 
+&nbsp;&nbsp;&nbsp;&nbsp;var blobService = azure.createBlobService(accountName, accountKey, host); 
+
+
+&nbsp;&nbsp;&nbsp; blobService.createContainerIfNotExists(containerName, {publicAccessLevel : 'blob'}, function(error){
+&nbsp;&nbsp;&nbsp; if(!error){
+&nbsp;&nbsp;&nbsp; // Container exists now define a policy that provides write access
+&nbsp;&nbsp;&nbsp; // that starts immediately and expires in 5 mins
+&nbsp;&nbsp;&nbsp; var sharedAccessPolicy = {
+&nbsp;&nbsp;&nbsp; AccessPolicy:{
+&nbsp;&nbsp;&nbsp; Permissions: 'rwdl',//rwdl means read write delete list
+&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;//Start: //use for start time in future, beware of server time skew
+&nbsp;&nbsp;&nbsp; Expiry: formatDate(new Date(new Date().getTime() &#43; 30 * 60 * 1000)) //30 minutes from now
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;};
+&nbsp;&nbsp;&nbsp; //Generate the SAS for your BLOB
+&nbsp;&nbsp;&nbsp; var sasQueryString = getSAS(accountName,
+&nbsp;&nbsp;&nbsp; accountKey,
+&nbsp;&nbsp;&nbsp; containerName,
+&nbsp;&nbsp;&nbsp; azure.Constants.BlobConstants.ResourceTypes.CONTAINER,
+&nbsp;&nbsp;&nbsp; sharedAccessPolicy);
+&nbsp;&nbsp;&nbsp; //full path for resource with sas
+&nbsp;&nbsp;&nbsp; sas = '?' &#43; sasQueryString;
+&nbsp;&nbsp;&nbsp; response.send(statusCodes.OK, { sas : sas });
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; else{
+&nbsp;&nbsp;&nbsp; console.error(error);
+&nbsp;&nbsp;&nbsp; response.send(statusCodes.ERROR);
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; });
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function getSAS(accountName, accountKey, path, resourceType, sharedAccessPolicy) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return qs.encode(new azure.SharedAccessSignature(accountName, accountKey)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .generateSignedQueryString(path, {}, resourceType, sharedAccessPolicy));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function formatDate(date){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var raw = date.toJSON();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //blob service does not like milliseconds on the end of the time so strip
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return raw.substr(0, raw.lastIndexOf('.')) &#43; 'Z';
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp; 
+};
+
+</pre>
+<pre id="codePreview" class="js">
+var accountName='storage account name';
+var accountKey='storage account key';
+var azure=require('azure');
+var qs=require('querystring');
+var containerName='generateazuretablesas';
+var sas;
+
+
+
+
+exports.get = function(request, response) {
+&nbsp;&nbsp;&nbsp; var host = accountName &#43; '.blob.core.windows.net'; 
+&nbsp;&nbsp;&nbsp;&nbsp;var blobService = azure.createBlobService(accountName, accountKey, host); 
+
+
+&nbsp;&nbsp;&nbsp; blobService.createContainerIfNotExists(containerName, {publicAccessLevel : 'blob'}, function(error){
+&nbsp;&nbsp;&nbsp; if(!error){
+&nbsp;&nbsp;&nbsp; // Container exists now define a policy that provides write access
+&nbsp;&nbsp;&nbsp; // that starts immediately and expires in 5 mins
+&nbsp;&nbsp;&nbsp; var sharedAccessPolicy = {
+&nbsp;&nbsp;&nbsp; AccessPolicy:{
+&nbsp;&nbsp;&nbsp; Permissions: 'rwdl',//rwdl means read write delete list
+&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;//Start: //use for start time in future, beware of server time skew
+&nbsp;&nbsp;&nbsp; Expiry: formatDate(new Date(new Date().getTime() &#43; 30 * 60 * 1000)) //30 minutes from now
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;};
+&nbsp;&nbsp;&nbsp; //Generate the SAS for your BLOB
+&nbsp;&nbsp;&nbsp; var sasQueryString = getSAS(accountName,
+&nbsp;&nbsp;&nbsp; accountKey,
+&nbsp;&nbsp;&nbsp; containerName,
+&nbsp;&nbsp;&nbsp; azure.Constants.BlobConstants.ResourceTypes.CONTAINER,
+&nbsp;&nbsp;&nbsp; sharedAccessPolicy);
+&nbsp;&nbsp;&nbsp; //full path for resource with sas
+&nbsp;&nbsp;&nbsp; sas = '?' &#43; sasQueryString;
+&nbsp;&nbsp;&nbsp; response.send(statusCodes.OK, { sas : sas });
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; else{
+&nbsp;&nbsp;&nbsp; console.error(error);
+&nbsp;&nbsp;&nbsp; response.send(statusCodes.ERROR);
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; });
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function getSAS(accountName, accountKey, path, resourceType, sharedAccessPolicy) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return qs.encode(new azure.SharedAccessSignature(accountName, accountKey)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .generateSignedQueryString(path, {}, resourceType, sharedAccessPolicy));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function formatDate(date){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var raw = date.toJSON();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //blob service does not like milliseconds on the end of the time so strip
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return raw.substr(0, raw.lastIndexOf('.')) &#43; 'Z';
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp; 
+};
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"></p>
+<h3>How to Test the SAS token?</h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Module Module1
+
+
+&nbsp;&nbsp;&nbsp; Sub Main()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Token formate should like this: &quot;?se=2013-09-28T14%3A35%3A34Z&sr=c&sp=rwdl&sig=GHnBW...&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim sasToken As String = &quot;YOUR SAS TOKEN&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim accountName As String = &quot;YOU STORAGE ACCOUNT NAME&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'First create a File in Azure storage container
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim blobUri As New Uri(String.Format(&quot;https://{0}.blob.core.windows.net/generateazuretablesas/myblob.txt&quot;, accountName))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim blobUri1 As New Uri(String.Format(&quot;https://{0}.blob.core.windows.net/generateazuretablesas/myblob1.txt&quot;, accountName))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim containerUri As New Uri(String.Format(&quot;https://{0}.blob.core.windows.net/generateazuretablesas/&quot;, accountName))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' Create credentials with the SAS token. The SAS token was created in previous example.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim credential As New StorageCredentials(sasToken)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateBlob(blobUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateBlob(blobUri1, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WriteBlob(blobUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DeleteBlob(blobUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ListBlobs(containerUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.ReadLine()
+&nbsp;&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp;&nbsp; Private Sub CreateBlob(blobUri As Uri, credential As StorageCredentials)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' Create a new blob.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim blob As New CloudBlockBlob(blobUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' Upload the blob. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' If the blob does not yet exist, it will be created. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' If the blob does exist, its existing content will be overwritten.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim fileStream = generateStreamFromString(&quot;This is a new text file create by TestClient&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; blob.UploadFromStream(fileStream)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Create blob success! Blob URI:&quot; & vbLf & &quot;{0} &quot;, blobUri.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catch ex As StorageException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(ex.InnerException.ToString())
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Create blob faild, please check your credential, make sure it's right.&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Try
+
+
+&nbsp;&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp;&nbsp; Private Sub WriteBlob(blobUri As Uri, credential As StorageCredentials)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Write a exist blob.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim blob As New CloudBlockBlob(blobUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using stream As Stream = blob.OpenWrite()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim line As String = &quot;this is a new line over write by WriteBlob method&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim buffer As Byte() = Encoding.[Default].GetBytes(line)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stream.Write(buffer, 0, buffer.Length)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Using
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Write blob success! Blob URI:&quot; & vbLf & &quot;{0}&quot;, blobUri.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catch ex As StorageException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(ex.Message.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Write blob faild, please check your credential, make sure it's right.&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Try
+&nbsp;&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp;&nbsp; Private Sub DeleteBlob(blobUri As Uri, credential As StorageCredentials)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim blob As New CloudBlockBlob(blobUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If blob.DeleteIfExists() Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Delete Blob success! Blob URI:&quot; & vbLf & &quot;{0}&quot;, blobUri.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Else
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(&quot;The blob doens't exist. Blob URI:&quot; & vbLf & &quot;{0}&quot;, blobUri.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catch ex As StorageException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(ex.InnerException.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Delete blob faild, please check your credential, make sure it's right.&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Try
+&nbsp;&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp;&nbsp; Private Sub ListBlobs(containerUri As Uri, credential As StorageCredentials)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;List contianer start&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim container As New CloudBlobContainer(containerUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For Each item In container.ListBlobs(Nothing, True)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If item.[GetType]() = GetType(CloudBlockBlob) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim blob As CloudBlockBlob = DirectCast(item, CloudBlockBlob)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Block blob of length {0}: {1}&quot;, blob.Properties.Length, blob.Uri)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ElseIf item.[GetType]() = GetType(CloudPageBlob) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim pageBlob As CloudPageBlob = DirectCast(item, CloudPageBlob)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Page blob of length {0}: {1}&quot;, pageBlob.Properties.Length, pageBlob.Uri)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ElseIf item.[GetType]() = GetType(CloudBlobDirectory) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim directory As CloudBlobDirectory = DirectCast(item, CloudBlobDirectory)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Directory: {0}&quot;, directory.Uri)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;List contianer success!&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catch ex As StorageException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(ex.InnerException.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;List blobs faild, please check your credential, make sure it's right.&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Try
+&nbsp;&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp;&nbsp; Private Function generateStreamFromString(s As String) As Stream
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim stream As New MemoryStream()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim writer As New StreamWriter(stream)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writer.Write(s)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writer.Flush()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stream.Position = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return stream
+&nbsp;&nbsp;&nbsp; End Function
+
+
+End Module
+
+</pre>
+<pre id="codePreview" class="vb">
+Module Module1
+
+
+&nbsp;&nbsp;&nbsp; Sub Main()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Token formate should like this: &quot;?se=2013-09-28T14%3A35%3A34Z&sr=c&sp=rwdl&sig=GHnBW...&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim sasToken As String = &quot;YOUR SAS TOKEN&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim accountName As String = &quot;YOU STORAGE ACCOUNT NAME&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'First create a File in Azure storage container
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim blobUri As New Uri(String.Format(&quot;https://{0}.blob.core.windows.net/generateazuretablesas/myblob.txt&quot;, accountName))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim blobUri1 As New Uri(String.Format(&quot;https://{0}.blob.core.windows.net/generateazuretablesas/myblob1.txt&quot;, accountName))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim containerUri As New Uri(String.Format(&quot;https://{0}.blob.core.windows.net/generateazuretablesas/&quot;, accountName))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' Create credentials with the SAS token. The SAS token was created in previous example.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim credential As New StorageCredentials(sasToken)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateBlob(blobUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateBlob(blobUri1, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WriteBlob(blobUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DeleteBlob(blobUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ListBlobs(containerUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.ReadLine()
+&nbsp;&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp;&nbsp; Private Sub CreateBlob(blobUri As Uri, credential As StorageCredentials)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' Create a new blob.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim blob As New CloudBlockBlob(blobUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' Upload the blob. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' If the blob does not yet exist, it will be created. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' If the blob does exist, its existing content will be overwritten.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim fileStream = generateStreamFromString(&quot;This is a new text file create by TestClient&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; blob.UploadFromStream(fileStream)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Create blob success! Blob URI:&quot; & vbLf & &quot;{0} &quot;, blobUri.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catch ex As StorageException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(ex.InnerException.ToString())
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Create blob faild, please check your credential, make sure it's right.&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Try
+
+
+&nbsp;&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp;&nbsp; Private Sub WriteBlob(blobUri As Uri, credential As StorageCredentials)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Write a exist blob.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim blob As New CloudBlockBlob(blobUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using stream As Stream = blob.OpenWrite()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim line As String = &quot;this is a new line over write by WriteBlob method&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim buffer As Byte() = Encoding.[Default].GetBytes(line)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stream.Write(buffer, 0, buffer.Length)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Using
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Write blob success! Blob URI:&quot; & vbLf & &quot;{0}&quot;, blobUri.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catch ex As StorageException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(ex.Message.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Write blob faild, please check your credential, make sure it's right.&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Try
+&nbsp;&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp;&nbsp; Private Sub DeleteBlob(blobUri As Uri, credential As StorageCredentials)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim blob As New CloudBlockBlob(blobUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If blob.DeleteIfExists() Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Delete Blob success! Blob URI:&quot; & vbLf & &quot;{0}&quot;, blobUri.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Else
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(&quot;The blob doens't exist. Blob URI:&quot; & vbLf & &quot;{0}&quot;, blobUri.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catch ex As StorageException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(ex.InnerException.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Delete blob faild, please check your credential, make sure it's right.&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Try
+&nbsp;&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp;&nbsp; Private Sub ListBlobs(containerUri As Uri, credential As StorageCredentials)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;List contianer start&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim container As New CloudBlobContainer(containerUri, credential)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For Each item In container.ListBlobs(Nothing, True)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If item.[GetType]() = GetType(CloudBlockBlob) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim blob As CloudBlockBlob = DirectCast(item, CloudBlockBlob)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Block blob of length {0}: {1}&quot;, blob.Properties.Length, blob.Uri)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ElseIf item.[GetType]() = GetType(CloudPageBlob) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim pageBlob As CloudPageBlob = DirectCast(item, CloudPageBlob)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Page blob of length {0}: {1}&quot;, pageBlob.Properties.Length, pageBlob.Uri)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ElseIf item.[GetType]() = GetType(CloudBlobDirectory) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim directory As CloudBlobDirectory = DirectCast(item, CloudBlobDirectory)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Directory: {0}&quot;, directory.Uri)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;List contianer success!&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catch ex As StorageException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(ex.InnerException.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;List blobs faild, please check your credential, make sure it's right.&quot;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Try
+&nbsp;&nbsp;&nbsp; End Sub
+
+
+&nbsp;&nbsp;&nbsp; Private Function generateStreamFromString(s As String) As Stream
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim stream As New MemoryStream()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim writer As New StreamWriter(stream)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writer.Write(s)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writer.Flush()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stream.Position = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return stream
+&nbsp;&nbsp;&nbsp; End Function
+
+
+End Module
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"></p>
+<h2>More Information</h2>
+<p class="MsoListParagraph" style="text-indent:-.25in"><span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><a href="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/#permissions">MSDN: Get started with authentication in Mobile Services</a></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/8ceaf4b9-39f1-47dc-ae5e-ffbff5b81e5fimage.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

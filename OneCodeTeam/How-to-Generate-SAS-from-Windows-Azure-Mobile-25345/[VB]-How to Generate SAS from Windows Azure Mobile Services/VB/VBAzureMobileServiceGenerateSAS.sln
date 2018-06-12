@@ -1,0 +1,44 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBAzureMobileServiceGenerateSAS", "VBAzureMobileServiceGenerateSAS\VBAzureMobileServiceGenerateSAS.vbproj", "{D68673B4-E4D0-4110-A270-2CB3680FB20B}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TestClient", "VBAzureMobileServiceGenerateSAS\TestClient\TestClient.vbproj", "{8916D621-6B70-4F1E-8952-5CF8BB901268}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MobileServiceScript", "MobileServiceScript", "{735076E5-5D9D-40E3-BCF8-475C7C6D43EC}"
+	ProjectSection(SolutionItems) = preProject
+		VBAzureMobileServiceGenerateSAS\MobileServiceScript\generateazuretablesas.js = VBAzureMobileServiceGenerateSAS\MobileServiceScript\generateazuretablesas.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{C954A96A-AF71-4B66-9FDC-DEF7D9C6369D}"
+	ProjectSection(SolutionItems) = preProject
+		VBAzureMobileServiceGenerateSAS\Documentation\ReadMe.htm = VBAzureMobileServiceGenerateSAS\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{423503D2-FA21-4E75-A7F9-C69501F85E3C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D68673B4-E4D0-4110-A270-2CB3680FB20B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D68673B4-E4D0-4110-A270-2CB3680FB20B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D68673B4-E4D0-4110-A270-2CB3680FB20B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D68673B4-E4D0-4110-A270-2CB3680FB20B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8916D621-6B70-4F1E-8952-5CF8BB901268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8916D621-6B70-4F1E-8952-5CF8BB901268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8916D621-6B70-4F1E-8952-5CF8BB901268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8916D621-6B70-4F1E-8952-5CF8BB901268}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
