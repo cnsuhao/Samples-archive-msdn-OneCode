@@ -1,0 +1,27 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBAZureBulkImportExportExcelTableStorage", "VBAZureBulkImportExportExcelTableStorage\VBAZureBulkImportExportExcelTableStorage.vbproj", "{3DF6E1C8-8546-43BB-8043-33AC2E92E99E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TableEntityHelper", "TableEntityHelper\TableEntityHelper.vbproj", "{53DE1AAD-623B-4F05-BB24-B62C83E0520C}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DF6E1C8-8546-43BB-8043-33AC2E92E99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DF6E1C8-8546-43BB-8043-33AC2E92E99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DF6E1C8-8546-43BB-8043-33AC2E92E99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DF6E1C8-8546-43BB-8043-33AC2E92E99E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53DE1AAD-623B-4F05-BB24-B62C83E0520C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53DE1AAD-623B-4F05-BB24-B62C83E0520C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53DE1AAD-623B-4F05-BB24-B62C83E0520C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53DE1AAD-623B-4F05-BB24-B62C83E0520C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
