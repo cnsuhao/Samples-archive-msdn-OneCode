@@ -1,0 +1,591 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>LINQ to Objects demoed in C# (CSLinqToObject)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>LINQ to Objects demoed in C# (CSLinqToObject)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            .NET Framework
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            LINQ, LINQ to Objects
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">8/22/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSLinqToObject-ae11b24b">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="font-family:新宋体">CONSOLE APPLICATION</span> (<span style="font-family:新宋体">CSLinqToObject</span>)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal"><span style="">The term &quot;LINQ to Objects&quot; refers to the use of LINQ queries with any
+<span class="SpellE">IEnumerable</span> or <span class="SpellE">IEnumerable</span>&lt;T&gt; collection directly, without the use of an intermediate LINQ provider or API such as LINQ to SQL or LINQ to XML. You can use LINQ to query any enumerable collections
+ such as List&lt;T&gt;, Array, or Dictionary&lt;<span class="SpellE">TKey</span>,
+<span class="SpellE">TValue</span>&gt;. The collection may be user-defined or may be returned by a .NET Framework API.
+</span></p>
+<p class="MsoNormal"><span style="">In a basic sense, LINQ to Objects represents a new approach to collections. In the old way, you had to write complex
+<span class="SpellE">foreach</span> loops that specified how to retrieve data from a collection. In the LINQ approach, you write declarative code that describes what you want to retrieve.
+</span></p>
+<p class="MsoNormal"><span style="">In addition, LINQ queries offer three main advantages over traditional
+<span class="SpellE">foreach</span> loops: </span></p>
+<p class="MsoNormal"><span class="GramE"><span style="">1.They</span></span><span style=""> are more concise and readable, especially when filtering multiple conditions.
+</span></p>
+<p class="MsoNormal"><span class="GramE"><span style="">2.They</span></span><span style=""> provide powerful filtering, ordering, and grouping capabilities with a minimum of application code.
+</span></p>
+<p class="MsoNormal"><span class="GramE"><span style="">3.They</span></span><span style=""> can be ported to other data sources with little or no modification.
+</span></p>
+<p class="MsoNormal"><span style="">In general, the more complex the <span class="GramE">
+operation</span> you want to perform on the data, the more benefit you will realize by using LINQ instead of traditional iteration techniques.
+</span></p>
+<p class="MsoNormal">This example illustrates how to write Linq to <span class="GramE">
+Object</span> queries using Visual C#. First, it builds a class named Person. Person inculdes the ID, Name and Age properties. Then the example creates a list of Person which will be used as the datasource. In the example, you will see the basic Linq operations
+ like select, update, orderby, max, average, etc.<span style="">&nbsp; </span><span style=""></span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="720" height="469" align="middle">
+</span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">1. Define the Person class that includes the ID, Name, and Age properties.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+class Person
+{
+    public Person(int id, string name, int age)
+    {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+
+    private int id;
+
+
+    /// &lt;summary&gt;
+    /// Person ID
+    /// &lt;/summary&gt;
+    public int PersonID
+    {
+        get { return this.id; }
+        set { this.id = value; }
+    }
+
+
+    private string name;
+
+
+    /// &lt;summary&gt;
+    /// Person name
+    /// &lt;/summary&gt;
+    public string Name
+    {
+        get { return this.name; }
+        set { this.name = value; }
+    }
+
+
+    private int age;
+
+
+    /// &lt;summary&gt;
+    /// Age that ranges from 1 to 100
+    /// &lt;/summary&gt;
+    public int Age
+    {
+        get { return this.age; }
+        set
+        {
+            if (value &gt; 0 && value &lt;= 100)
+                this.age = value;
+            else
+                throw new Exception(&quot;Age is out of scope [1,100]&quot;);
+        }
+    }
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+class Person
+{
+    public Person(int id, string name, int age)
+    {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+
+    private int id;
+
+
+    /// &lt;summary&gt;
+    /// Person ID
+    /// &lt;/summary&gt;
+    public int PersonID
+    {
+        get { return this.id; }
+        set { this.id = value; }
+    }
+
+
+    private string name;
+
+
+    /// &lt;summary&gt;
+    /// Person name
+    /// &lt;/summary&gt;
+    public string Name
+    {
+        get { return this.name; }
+        set { this.name = value; }
+    }
+
+
+    private int age;
+
+
+    /// &lt;summary&gt;
+    /// Age that ranges from 1 to 100
+    /// &lt;/summary&gt;
+    public int Age
+    {
+        get { return this.age; }
+        set
+        {
+            if (value &gt; 0 && value &lt;= 100)
+                this.age = value;
+            else
+                throw new Exception(&quot;Age is out of scope [1,100]&quot;);
+        }
+    }
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">2. Build a list of Person to be used as the data source.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+       /////////////////////////////////////////////////////////////////////
+       // Build the Person list that serves as the data source.
+       // 
+       List&lt;Person&gt; persons = new List&lt;Person&gt;();
+
+
+       persons.Add(new Person(1, &quot;Alexander David&quot;, 20));
+       persons.Add(new Person(2, &quot;Aziz Hassouneh&quot;, 18));
+       persons.Add(new Person(3, &quot;Guido Pica&quot;, 20));
+       persons.Add(new Person(4, &quot;Chris Preston&quot;, 19));
+       persons.Add(new Person(5, &quot;Jorgen Rahgek&quot;, 20));
+       persons.Add(new Person(6, &quot;Todd Rowe&quot;, 18));
+       persons.Add(new Person(7, &quot;SPeter addow&quot;, 22));
+       persons.Add(new Person(8, &quot;Markus Breyer&quot;, 19));
+       persons.Add(new Person(9, &quot;Scott Brown&quot;, 20));
+
+</pre>
+<pre id="codePreview" class="csharp">
+       /////////////////////////////////////////////////////////////////////
+       // Build the Person list that serves as the data source.
+       // 
+       List&lt;Person&gt; persons = new List&lt;Person&gt;();
+
+
+       persons.Add(new Person(1, &quot;Alexander David&quot;, 20));
+       persons.Add(new Person(2, &quot;Aziz Hassouneh&quot;, 18));
+       persons.Add(new Person(3, &quot;Guido Pica&quot;, 20));
+       persons.Add(new Person(4, &quot;Chris Preston&quot;, 19));
+       persons.Add(new Person(5, &quot;Jorgen Rahgek&quot;, 20));
+       persons.Add(new Person(6, &quot;Todd Rowe&quot;, 18));
+       persons.Add(new Person(7, &quot;SPeter addow&quot;, 22));
+       persons.Add(new Person(8, &quot;Markus Breyer&quot;, 19));
+       persons.Add(new Person(9, &quot;Scott Brown&quot;, 20));
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">3. Use Linq to perform the query operation.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+       /////////////////////////////////////////////////////////////////////
+       // Query a person in the data source.
+       // 
+       var Todd = (from p in persons
+                   where p.Name == &quot;Todd Rowe&quot;
+                    select p).First();
+       // [-or-]
+       // Use extension method &#43; lambda expression directly 
+       //var Todd = persons.Where(p =&gt; p.Name == &quot;Todd Rowe&quot;).First();
+
+
+       Console.WriteLine(&quot;Todd Rowe's age is {0}&quot;, Todd.Age);
+
+</pre>
+<pre id="codePreview" class="csharp">
+       /////////////////////////////////////////////////////////////////////
+       // Query a person in the data source.
+       // 
+       var Todd = (from p in persons
+                   where p.Name == &quot;Todd Rowe&quot;
+                    select p).First();
+       // [-or-]
+       // Use extension method &#43; lambda expression directly 
+       //var Todd = persons.Where(p =&gt; p.Name == &quot;Todd Rowe&quot;).First();
+
+
+       Console.WriteLine(&quot;Todd Rowe's age is {0}&quot;, Todd.Age);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">4. Use Linq to perform the Update operation.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+/////////////////////////////////////////////////////////////////////
+// Perform the Update operation on the person's age.
+// 
+Todd.Age = 21;
+Console.WriteLine(&quot;Todd Rowe's age is updated to {0}&quot;, (from p in persons
+                                                        where p.Name == &quot;Todd Rowe&quot;
+                                                    select p).First().Age);
+
+</pre>
+<pre id="codePreview" class="csharp">
+/////////////////////////////////////////////////////////////////////
+// Perform the Update operation on the person's age.
+// 
+Todd.Age = 21;
+Console.WriteLine(&quot;Todd Rowe's age is updated to {0}&quot;, (from p in persons
+                                                        where p.Name == &quot;Todd Rowe&quot;
+                                                    select p).First().Age);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">5. Use Linq to perform the Order operation.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+      /////////////////////////////////////////////////////////////////////
+      // Sort the data in the data source.       
+      // Order the persons by age
+      var query1 = from p in persons
+                   orderby p.Age
+                   select p;
+
+
+      Console.WriteLine(&quot;ID\tName\t\tAge&quot;);
+
+
+      foreach (Person p in query1.ToList&lt;Person&gt;())
+      {
+          Console.WriteLine(&quot;{0}\t{1}\t\t{2}&quot;, p.PersonID, p.Name, p.Age);
+      }
+
+</pre>
+<pre id="codePreview" class="csharp">
+      /////////////////////////////////////////////////////////////////////
+      // Sort the data in the data source.       
+      // Order the persons by age
+      var query1 = from p in persons
+                   orderby p.Age
+                   select p;
+
+
+      Console.WriteLine(&quot;ID\tName\t\tAge&quot;);
+
+
+      foreach (Person p in query1.ToList&lt;Person&gt;())
+      {
+          Console.WriteLine(&quot;{0}\t{1}\t\t{2}&quot;, p.PersonID, p.Name, p.Age);
+      }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">6</span>. Use Linq to perform the Max, Min, Average queries.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+       /////////////////////////////////////////////////////////////////////
+       // Print the average, max, min age of the persons.
+       // 
+       double avgAge = (from p in persons
+                        select p.Age).Average();
+       Console.WriteLine(&quot;The average age of the persons is {0:f2}&quot;, avgAge);
+
+
+       double maxAge = (from p in persons
+                        select p.Age).Max();
+       Console.WriteLine(&quot;The maximum age of the persons is {0}&quot;, maxAge);
+
+
+       double minAge = (from p in persons
+                        select p.Age).Min();
+       Console.WriteLine(&quot;The minimum age of the persons is {0}&quot;, minAge);
+
+</pre>
+<pre id="codePreview" class="csharp">
+       /////////////////////////////////////////////////////////////////////
+       // Print the average, max, min age of the persons.
+       // 
+       double avgAge = (from p in persons
+                        select p.Age).Average();
+       Console.WriteLine(&quot;The average age of the persons is {0:f2}&quot;, avgAge);
+
+
+       double maxAge = (from p in persons
+                        select p.Age).Max();
+       Console.WriteLine(&quot;The maximum age of the persons is {0}&quot;, maxAge);
+
+
+       double minAge = (from p in persons
+                        select p.Age).Min();
+       Console.WriteLine(&quot;The minimum age of the persons is {0}&quot;, minAge);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">7</span>. Use Linq to count the Person whose age is larger than 20<span style="">
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+       /////////////////////////////////////////////////////////////////////
+       // Count the persons who age is larger than 20
+       // 
+       var query2 = from p in persons
+                    where p.Age &gt; 20
+                    select p;
+
+
+       int count = query2.Count();
+       Console.WriteLine(&quot;{0} persons are older than 20:&quot;, count);
+       for (int i = 0; i &lt; count; i&#43;&#43;)
+       {
+           Console.WriteLine(query2.ElementAt(i).Name);
+       }
+
+</pre>
+<pre id="codePreview" class="csharp">
+       /////////////////////////////////////////////////////////////////////
+       // Count the persons who age is larger than 20
+       // 
+       var query2 = from p in persons
+                    where p.Age &gt; 20
+                    select p;
+
+
+       int count = query2.Count();
+       Console.WriteLine(&quot;{0} persons are older than 20:&quot;, count);
+       for (int i = 0; i &lt; count; i&#43;&#43;)
+       {
+           Console.WriteLine(query2.ElementAt(i).Name);
+       }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<h2>More Information<span style="font-family:新宋体"> </span></h2>
+<p class="MsoNormal"><span style="">MSDN: LINQ to Objects </span></p>
+<p class="MsoNormal"><span style=""><a href="http://msdn.microsoft.com/en-us/library/bb397919.aspx">http://msdn.microsoft.com/en-us/library/bb397919.aspx</a>
+</span></p>
+<p class="MsoNormal"><span style="">How to Query an ArrayList with LINQ </span>
+</p>
+<p class="MsoNormal"><span style=""><a href="http://msdn.microsoft.com/en-us/library/bb397937.aspx">http://msdn.microsoft.com/en-us/library/bb397937.aspx</a>
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
