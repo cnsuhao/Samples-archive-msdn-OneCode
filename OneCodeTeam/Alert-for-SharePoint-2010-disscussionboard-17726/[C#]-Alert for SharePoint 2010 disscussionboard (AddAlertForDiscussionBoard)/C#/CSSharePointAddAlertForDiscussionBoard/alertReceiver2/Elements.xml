@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <Receivers ListTemplateId="108">
+        <Receiver>
+            <Name>EventReceiver2ItemAdded</Name>
+            <Type>ItemAdded</Type>
+            <Assembly>$SharePoint.Project.AssemblyFullName$</Assembly>
+            <Class>AddAlertForDiscussionBoard.EventReceiver2.EventReceiver2</Class>
+            <SequenceNumber>10000</SequenceNumber>
+            <Synchronization>Synchronous</Synchronization>
+        </Receiver>
+    </Receivers>
+</Elements>
