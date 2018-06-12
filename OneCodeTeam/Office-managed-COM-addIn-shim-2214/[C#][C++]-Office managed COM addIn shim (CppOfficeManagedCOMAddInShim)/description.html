@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Office managed COM addIn shim (CppOfficeManagedCOMAddInShim)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Office managed COM addIn shim (CppOfficeManagedCOMAddInShim)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Office
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Shim, Office Addin
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CppOfficeManagedCOMAddInShi-39f7be85">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>Class Library APPLICATION : CppOfficeManagedCOMAddInShim Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Overview:</h3>
+<p style="font-family:Courier New"><br>
+When we build a managed Office extension of any kind, we should ensure that<br>
+our extension is isolated from other extensions that might be loaded into <br>
+the application. The standard way to isolate our extension is to build a <br>
+custom COM shim by using the COM Shim Wizard, a set of Visual Studio project<br>
+wizards that helps you construct shims quickly and easily.<br>
+<br>
+</p>
+<h3>Project Relation:</h3>
+<p style="font-family:Courier New"><br>
+CppOfficeManagedCOMAddInShim -&gt; CSOfficeSharedAddIn<br>
+CppOfficeManagedCOMAddInShim shims the managed COM AddIn CSOfficeSharedAddIn<br>
+<br>
+ManagedAggregator -&gt; CppOfficeManagedCOMAddInShim<br>
+ManagedAggregator loads and instantiates the add-in object, so that it can <br>
+correctly aggregate this with the shim.<br>
+<br>
+</p>
+<h3>Creation:</h3>
+<p style="font-family:Courier New"><br>
+Step1. Download the COM Shim Wizard template from the Microsoft download<br>
+site, and install it so we can find the Shim AddIn template in Visual Studio,<br>
+<a target="_blank" href="&lt;a http://www.microsoft.com/downloads/details.aspx?FamilyId=3E43BF08-5008-4BB6-AA85-93C1D902470E&amp;displaylang=en">http://www.microsoft.com/downloads/details.aspx?FamilyId=3E43BF08-5008-4BB6-AA85-93C1D902470E&amp;displaylang=en</a>'&gt;<a  href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3E43BF08-5008-4BB6-AA85-93C1D902470E&amp;displaylang=en">http://www.microsoft.com/downloads/details.aspx?FamilyId=3E43BF08-5008-4BB6-AA85-93C1D902470E&amp;displaylang=en</a><br>
+<br>
+Step2. Create an Office COM Addin(Shared AddIn) to be shimed, and compile it. <br>
+In this example, we use CSOfficeSharedAddIn as the target managed COM AddIn.<br>
+It's a good practice to sign the managed COM AddIn dll with strong name.<br>
+<br>
+Step3. Create a new project. In the New Project dialog, navigate to the <br>
+Visual C&#43;&#43; / COMShims node. Select the AddIn Shim project in right panel, <br>
+name it as CppOfficeManagedCOMAddInShim and click OK.<br>
+<br>
+Step4. The COM Shim Wizard pops up. In the first page of the wizard, specify <br>
+the output assembly of the managed COM AddIn project, and press Next button. <br>
+(We may receive a warning dialog saying that the assembly needs to be signed <br>
+as strong name if the target assembly was not signed. Just click Yes to <br>
+ignore it)<br>
+<br>
+Step5. The second page is for configuration when our AddIn implements a <br>
+secondary extensibility interface. We do not need this in this sample. Just <br>
+press Next<br>
+<br>
+Step6. The third page is about Shared Add-in Details. In the page we can <br>
+specify:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Add-in Description<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Add-in Friendly Name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Whether to load the Add-in when the host Office application starts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Whether to install the Add-in to all users<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Add-in's host Office application<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+In this example, we check the Microsoft Word, Visio, Publisher, Project, <br>
+PowerPoint, Outlook, FrontPage, Excel, and Access checkboxes and, press Next <br>
+to go on.<br>
+<br>
+Step7. The last is a summary page. Click Finish to create the AddIn Shim <br>
+project. Accompanied with CppOfficeManagedCOMAddInShim, the wizard creates a <br>
+.NET class library project named ManagedAggregator. The generated project <br>
+also includes a final build task that runs Regsvr32.exe on the target DLL to <br>
+register the shim, so you do not need to register it manually. The final <br>
+build task copies the ManagedAggregator.dll into the target folder for the <br>
+shim. It also copies the managed add-in assembly that you specified into the <br>
+target folder for the shim, along with the configuration file for the add-in. <br>
+The project dependencies are set so that the ManagedAggregator is built first, <br>
+before the shim. If you add a shim project to an existing add-in solution, <br>
+you should adjust the build dependencies, as appropriate. <br>
+<br>
+Step8. After the creation, compile the solution. You will find <br>
+CSOfficeSharedAddIn in Office applications' COM Addins Dialog. And the <br>
+location points to CppOfficeManagedCOMAddInShim.dll instead of mscoree.dll.<br>
+<br>
+</p>
+<h3>Deployment:</h3>
+<p style="font-family:Courier New"><br>
+Step1. Navigate to the output folder of the CppOfficeManagedCOMAddInShim <br>
+project. We can see the generated files:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CppOfficeManagedCOMAddInShim.dll<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ManagedAggregator.dll<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CSOfficeSharedAddIn.dll<br>
+<br>
+Step2. Copy the above three files to the target computer where you want to <br>
+deploy the Add-in.<br>
+<br>
+Step3. On the target computer, start a command prompt as administrator.<br>
+<br>
+Step4. Enter the command &quot;regsvr32 CppOfficeManagedCOMAddInShim.dll&quot; to
+<br>
+register the shim dll.<br>
+<br>
+Step5. Open an Office application to verify the AddIn is shimed by <br>
+CppOfficeManagedCOMAddInShim.dll.<br>
+<br>
+<br>
+If you build a setup project for your add-in, you should add the primary <br>
+output of both the shim and the ManagedAggregator projects to your setup. You <br>
+should also change the value of the Register property for all three project <br>
+outputs. Set this to vsdrpCOM for the shim DLL, and vsdrpDoNotRegister for <br>
+both the original add-in DLL and the ManagedAggregator DLL. <br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MSDN: Isolating Microsoft Office Extensions with the COM Shim Wizard Version <br>
+2.3.1<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb508939.aspx">http://msdn.microsoft.com/en-us/library/bb508939.aspx</a><br>
+<br>
+COM Shim Wizard Author's blog:<br>
+<a  href="http://blogs.msdn.com/andreww/archive/2007/07/05/updated-com-shim-wizards.aspx">http://blogs.msdn.com/andreww/archive/2007/07/05/updated-com-shim-wizards.aspx</a><br>
+<br>
+COM Shim Wizard download page:<br>
+<a target="_blank" href="&lt;a http://www.microsoft.com/downloads/details.aspx?FamilyId=3E43BF08-5008-4BB6-AA85-93C1D902470E&amp;displaylang=en">http://www.microsoft.com/downloads/details.aspx?FamilyId=3E43BF08-5008-4BB6-AA85-93C1D902470E&amp;displaylang=en</a>'&gt;<a  href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3E43BF08-5008-4BB6-AA85-93C1D902470E&amp;displaylang=en">http://www.microsoft.com/downloads/details.aspx?FamilyId=3E43BF08-5008-4BB6-AA85-93C1D902470E&amp;displaylang=en</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
