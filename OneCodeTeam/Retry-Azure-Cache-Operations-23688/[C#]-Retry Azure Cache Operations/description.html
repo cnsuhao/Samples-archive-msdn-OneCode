@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/9bf1b74c-1640-46af-84d3-e440c8f95162Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Retry Azure Cache Operations</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Retry Azure Cache Operations</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            AppFabric, Cache
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">7/3/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Retry-Azure-Cache-cf1c3147">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span lang="EN-US">Retry Azure Cache Operations (<span class="SpellE">CSAzureRetryCache</span>)</span></h1>
+<h2><span lang="EN-US">Introduction</span></h2>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span lang="EN-US" style="color:black">When using cloud based services, it is very common to receive exceptions similar to below while performing cache operations such as get, put. These are called transient errors.<span style="">&nbsp;
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span lang="EN-US" style="color:black">Developer is required to implement retry logic to successfully complete their cache operations.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span lang="EN-US" style="color:black"></span></p>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span class="SpellE"><i><span lang="EN-US" style="color:black">ErrorCode</span></i></span><i><span lang="EN-US" style="color:black">&lt;ERRCA0017&gt;<span class="GramE">:<span class="SpellE">SubStatus</span></span>&lt;ES0006&gt;:There is a temporary failure.
+ Please retry later. (One or more specified cache servers are unavailable, which could be caused by busy network or servers. For on-premises cache clusters, also verify the following conditions. Ensure that security permission has been granted for this client
+ account, and check that the <span class="SpellE">AppFabric</span> Caching Service is allowed through the firewall on all cache hosts. Also the
+<span class="SpellE">MaxBufferSize</span> on the server must be greater than or equal to the serialized object size sent from the client.)
+</span></i></p>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span lang="EN-US" style="color:black"><span style="">&nbsp;</span> </span></p>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span lang="EN-US" style="color:black">This sample implements retry logic to protect the application from crashing in the event of transient errors. This sample uses Transient Fault Handling Application Block to implement retry mechanism
+</span></p>
+<h2><span lang="EN-US">Building the Sample</span></h2>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:5.0pt"><span lang="EN-US" style=""><span style="">1)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Ensure Windows Azure SDK 2.0 is installed on the machine.
+<a href="http://www.windowsazure.com/en-us/develop/downloads/">Download Link</a></span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:5.0pt"><span lang="EN-US" style=""><span style="">2)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Modify the highlighted <span class="SpellE">
+cachenamespace</span>, <span class="SpellE">autherizataionInfo</span> attributes under
+<span class="SpellE">DataCacheClient</span> section of <span class="SpellE">web.config</span> and provide values of your own cache namespace and Authentication Token. Steps to obtain the value of authentication token, cache namespace value can be found
+<a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg278346.aspx">here</a></span></p>
+<h2><span lang="EN-US">Running the Sample</span></h2>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:5.0pt"><span lang="EN-US" style="font-family:Symbol; color:black"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="color:black">Open the Project in VS 2012 and run it in debug or release mode
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-bottom:0cm; margin-bottom:.0001pt; text-indent:5.0pt; line-height:normal; text-autospace:none">
+<span lang="EN-US" style="font-family:Symbol; color:black"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="color:black">Click on &quot;Add <span class="GramE">
+To</span> Cache&quot; button to add a string object to Azure cache. Up on successful operation, &quot;</span><span lang="EN-US" style="color:black">String object added to cache!</span><span lang="EN-US" style="color:black">&quot; message will be printed on
+ the webpage</span><span lang="EN-US" style="color:black"> </span></p>
+<p class="MsoListParagraphCxSpLast" style="margin-bottom:0cm; margin-bottom:.0001pt; text-indent:5.0pt; line-height:normal; text-autospace:none">
+<span lang="EN-US" style="font-family:Symbol; color:black"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="color:black">Click on &quot;Read <span class="GramE">
+From</span> Cache&quot; button to read the string object from Azure Cache. Up on successful operation, value of the string object stored in Azure cache will be printed on the webpage. By default it will be &quot;</span><span lang="EN-US" style="color:black">My
+ Cache</span><span lang="EN-US" style="color:black">&quot; (if no changes are made to code)</span><span lang="EN-US" style="color:black">
+</span></p>
+<h2><span lang="EN-US">Using the Code</span></h2>
+<p class="MsoListParagraph" style="text-indent:5.0pt"><span lang="EN-US" style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="">Define required objects globally, so that they are available for all code paths with in the module.
+</span></p>
+<p class="MsoListParagraph" style="text-indent:5.0pt"><span lang="EN-US" style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="">This method configures strategies, policies, actions required for performing retries.
+</span></p>
+<p class="MsoListParagraph" style="text-indent:5.0pt"><span lang="EN-US" style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="">Create the Cache Object using the
+<span class="SpellE">DataCacheClient</span> configuration specified in <span class="SpellE">
+web.config</span> and perform initial setup required for Azure cache retries </span>
+</p>
+<p class="MsoListParagraph" style="text-indent:5.0pt"><span lang="EN-US" style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Add string object to Cache on a button click event and perform retries in case of transient failures</span><span lang="EN-US" style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">
+</span></p>
+<p class="MsoListParagraph" style="text-indent:5.0pt"><span lang="EN-US" style=""><span style="">5.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Read the value of string object stored in Azure Cache on a button click event and perform retries in case of transient failures</span></p>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span lang="EN-US" style="font-size:9.5pt; font-family:Consolas"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </span></p>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span lang="EN-US" style="font-size:9.5pt; font-family:Consolas"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></p>
+<h2><span lang="EN-US">More Information</span></h2>
+<p class="MsoNormal"><span lang="EN-US">Refer to below blog entry for more information</span></p>
+<p class="MsoNormal"><span lang="EN-US"><a href="http://blogs.msdn.com/b/narahari/archive/2011/12/29/implementing-retry-logic-for-azure-caching-applications-made-easy.aspx">http://blogs.msdn.com/b/narahari/archive/2011/12/29/implementing-retry-logic-for-azure-caching-applications-made-easy.aspx</a></span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/e7f586e1-6f3d-424b-8fbf-c4ed3eb4eb3bimage.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
