@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/0aac1760-b513-488a-ba57-e31d9413a075Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Javascript virtual keyboard in web page (JSVirtualKeyboard)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Javascript virtual keyboard in web page (JSVirtualKeyboard)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Virtual Keyboard
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/JSVirtualKeyboard-6e00ecfe">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>JSVirtualKeyboard Project Overview</h2>
+<p style="font-family:Courier New"><br>
+Use:<br>
+<br>
+This project illustrates how to make a virtual keyboard on the page. For<br>
+example, if we need a password textbox somewhere and we need it can only<br>
+be inputted through a virtual keyboard on the page, this sample may give<br>
+a quick start to build a solution for this situation.<br>
+<br>
+Demo the Sample.<br>
+<br>
+Step1: Browse the Default.htm from the sample. We will see a TextBox and a <br>
+number keyboard following the TextBox.<br>
+<br>
+Step2: Click the number button to enter the value into the TextBox and click<br>
+Backspace button to delete a number in the TextBox.<br>
+<br>
+Step3: The button order of the virtual number keyboard will be changed every<br>
+time the page is refreshed.<br>
+</p>
+<h3>Code Logical:</h3>
+<p style="font-family:Courier New"><br>
+Step1: Create a C# / VB.NET ASP.NET Empty Web Application in Visual Studio 2010.<br>
+<br>
+Step2: Add a Default HTML page into the application called Default.htm.<br>
+<br>
+Step3: Add an HTML Input(Text) control to the page. Set its id to &quot;tbInput&quot;.<br>
+<br>
+Step4: Add an HTML Div control to the page and insert 11 Input(Button) controls<br>
+inside this Div. Ten of these buttons stand for ten numbers and the last one is<br>
+for Backspace button. For layout purpose, please add a &lt;br /&gt; tag between every<br>
+three buttons as well.<br>
+<br>
+&nbsp; &nbsp;&lt;div id=&quot;VirtualKey&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn1&quot; type=&quot;button&quot; value=&quot;1&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn2&quot; type=&quot;button&quot; value=&quot;2&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn3&quot; type=&quot;button&quot; value=&quot;3&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn4&quot; type=&quot;button&quot; value=&quot;4&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn5&quot; type=&quot;button&quot; value=&quot;5&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn6&quot; type=&quot;button&quot; value=&quot;6&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn7&quot; type=&quot;button&quot; value=&quot;7&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn8&quot; type=&quot;button&quot; value=&quot;8&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn9&quot; type=&quot;button&quot; value=&quot;9&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn0&quot; type=&quot;button&quot; value=&quot;0&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btnDel&quot; type=&quot;button&quot; value=&quot;Backspace&quot; /&gt;<br>
+&nbsp; &nbsp;&lt;/div&gt;<br>
+<br>
+Step5: Create two JavaScritp functions on the page called input(e) and del(). <br>
+The input(e) function will enter the number into the TextBox based on the <br>
+parameter e. And the del() function will delete a number from the TextBox.<br>
+<br>
+&nbsp; &nbsp;function input(e) {<br>
+&nbsp; &nbsp; &nbsp; &nbsp;var tbInput = document.getElementById(&quot;tbInput<br>
+&nbsp; &nbsp; &nbsp; &nbsp;tbInput.value = tbInput.value &#43; e.value;<br>
+&nbsp; &nbsp;}<br>
+<br>
+&nbsp; &nbsp;function del() {<br>
+&nbsp; &nbsp; &nbsp; &nbsp;var tbInput = document.getElementById(&quot;tbInput&quot;);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;tbInput.value = tbInput.value.substr(0, tbInput.value.length - 1);<br>
+&nbsp; &nbsp;}<br>
+<br>
+Step6: Set the onclick event of the ten number buttons equal to input(e) <br>
+function and make the parameter to be the button itself. Also set the onclick<br>
+event of the Backspace button to del();.<br>
+<br>
+&nbsp; &nbsp;&lt;div id=&quot;VirtualKey&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn1&quot; type=&quot;button&quot; value=&quot;1&quot; onclick=&quot;input(this);&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn2&quot; type=&quot;button&quot; value=&quot;2&quot; onclick=&quot;input(this);&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn3&quot; type=&quot;button&quot; value=&quot;3&quot; onclick=&quot;input(this);&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn4&quot; type=&quot;button&quot; value=&quot;4&quot; onclick=&quot;input(this);&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn5&quot; type=&quot;button&quot; value=&quot;5&quot; onclick=&quot;input(this);&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn6&quot; type=&quot;button&quot; value=&quot;6&quot; onclick=&quot;input(this);&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn7&quot; type=&quot;button&quot; value=&quot;7&quot; onclick=&quot;input(this);&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn8&quot; type=&quot;button&quot; value=&quot;8&quot; onclick=&quot;input(this);&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn9&quot; type=&quot;button&quot; value=&quot;9&quot; onclick=&quot;input(this);&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;br /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;input id=&quot;btn0&quot; type=&quot;button&quot; value=&quot;0&quot; onclick=&quot;input(this);&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input id=&quot;btnDel&quot; type=&quot;button&quot; value=&quot;Backspace&quot; onclick=&quot;del();&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+<br>
+NOTE: Till now, we can run this sample and input the number to the TextBox<br>
+by click the button of the virtual number keyboard. The steps below will<br>
+tell how to make the button order different when refresh the page.<br>
+<br>
+Step7: Set the onload event of the page to load() function to disorder the<br>
+number button.<br>
+<br>
+&nbsp; &nbsp;function load() {<br>
+&nbsp; &nbsp; &nbsp; &nbsp;var array = new Array();<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;while (array.length &lt; 10) {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var temp = Math.round(Math.random() * 9);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (!contain(array, temp)) {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;array.push(temp);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp;for (i = 0; i &lt; 10; i&#43;&#43;) {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var btn = document.getElementById(&quot;btn&quot; &#43; i);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;btn.value = array[i];<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp;}<br>
+<br>
+NOTE: After the while loop, we will get an array of 10 random number from 0 <br>
+to 9 without repeat. For example: (3,0,5,4,8,6,1,2,9,7). Then, we will set <br>
+the value of the number buttons to each item in this array. This will give <br>
+us a disordered virtual number keyboard.<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+For a more advanced virtual keyboard, please refer to these links:<br>
+<br>
+# Creating a Keyboard with CSS and jQuery <br>
+<a  href="http://net.tutsplus.com/tutorials/javascript-ajax/creating-a-keyboard-with-css-and-jquery/">http://net.tutsplus.com/tutorials/javascript-ajax/creating-a-keyboard-with-css-and-jquery/</a><br>
+<br>
+# Creating a Virtual jQuery Keyboard<br>
+<a  href="http://designshack.co.uk/articles/javascript/creating-a-virtual-jquery-keyboard">http://designshack.co.uk/articles/javascript/creating-a-virtual-jquery-keyboard</a><br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/6b4cf5bf-9f01-459f-b9ba-42bff79b68c6image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
