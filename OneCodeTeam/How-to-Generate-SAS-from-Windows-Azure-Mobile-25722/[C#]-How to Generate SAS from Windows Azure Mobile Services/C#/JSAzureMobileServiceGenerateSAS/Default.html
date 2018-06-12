@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-2.0.3.js"></script>
+   <!-- Change to you own name here-->
+    <script src="https://azuremobileservicegeneratesas.azure-mobile.net/client/MobileServices.Web-1.0.0.js"></script>
+</head>
+<body>
+    <input id="GetSAS" type="button" value="Get SAS" />
+    <br />
+
+    <label id="lbSAS"></label>
+     <script type="text/javascript">
+
+         $("#GetSAS").click(function () {
+             //Change to you own name here
+             var client = new WindowsAzure.MobileServiceClient('https://azuremobileservicegeneratesas.azure-mobile.net/');
+             client.invokeApi('generateazuretablesas', {
+                 method: 'GET'
+
+             }).done(function (response) {
+                 $("#lbSAS").text('sas='+response.result.sas);
+             },
+             function (error) {
+                 var xhr = error.request;
+                 alert('Error - status code: ' + xhr.status + '; body: ' + xhr.responseText);
+             }
+             );
+
+         });
+    </script>
+</body>
+</html>
