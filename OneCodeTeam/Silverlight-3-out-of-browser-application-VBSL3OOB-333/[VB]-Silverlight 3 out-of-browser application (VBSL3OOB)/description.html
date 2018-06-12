@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Silverlight 3 out-of-browser application (VBSL3OOB)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Silverlight 3 out-of-browser application (VBSL3OOB)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Silverlight
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Out-of-Browser
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBSL3OOB-66ca667f">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>SILVERLIGHT APPLICATION : VBSL3OOB Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Overview:</h3>
+<p style="font-family:Courier New"><br>
+This example demonstrates how to work with OOB using VB.<br>
+It includes the following features:<br>
+Install OOB with code (but you cannot remove OOB with code).<br>
+Check if the application is already installed.<br>
+Check for updates.<br>
+Check for network state.<br>
+<br>
+</p>
+<h3>Prerequisites:</h3>
+<p style="font-family:Courier New"><br>
+Required:<br>
+Silverlight 3 Chained Installer<br>
+<a  href="http://www.microsoft.com/downloads/details.aspx?familyid=9442b0f2-7465-417a">http://www.microsoft.com/downloads/details.aspx?familyid=9442b0f2-7465-417a</a><br>
+-88f3-5e7b5409e9dd&displaylang=en<br>
+<br>
+</p>
+<h3>Usage:</h3>
+<p style="font-family:Courier New"><br>
+As for the usage of this sample, first please make sure you've set the<br>
+VBSL3OOB.Web project as the startup project. Otherwise some features will not<br>
+work properly.<br>
+<br>
+Click the Install with code Button, or right click and choose Install VBSL3OOB<br>
+application onto this computer, to install the application.<br>
+<br>
+Close the browser, but do not close the OOB window. Update the source code,<br>
+rebuild and launch the application in browser again. You'll notice the OOB<br>
+application has not been updated yet. Click Check for update in the OOB<br>
+application (not the browser application), and you'll see it asks you to<br>
+restart the OOB. After you restart, you'll notice the update has been applied.<br>
+<br>
+Disable your network connection, and note the red text (information about<br>
+network status) in the bottom of the screen being updated. Enable your network<br>
+connection again, and the red text will be updated again.<br>
+<br>
+</p>
+<h3>Documentation:</h3>
+<p style="font-family:Courier New">OOB, as the name indicates, allows you to work with Silverlight applications<br>
+out of browser. It is very easy to configure a Silverlight application to<br>
+support OOB within Visual Studio. In the Properties page of the Silverlight<br>
+project, simply check &quot;Enable running application out of browser&quot;. Click the<br>
+Out-Of-Browser Settings Button to configure the OOB properties. The MSDN<br>
+document has detailed description about the properties.<br>
+<a target="_blank" href="&lt;a http://msdn.microsoft.com/en-us/library/dd833073(VS.95).aspx">http://msdn.microsoft.com/en-us/library/dd833073(VS.95).aspx</a>'&gt;<a  href="http://msdn.microsoft.com/en-us/library/dd833073(VS.95).aspx">http://msdn.microsoft.com/en-us/library/dd833073(VS.95).aspx</a><br>
+&nbsp; &nbsp;<br>
+Under the hook, what Visual Studio does is exactly creating a manifest file<br>
+that corresponds to that described in the MSDN document. You can find it in<br>
+the Bin folder after you build your application. You can also edit the<br>
+OutOfBrowserSettings.xml file under the Properties folder directly, if you<br>
+don't want to use the tool.<br>
+<br>
+OOB supports update, if it is downloaded from a web site (instead of local<br>
+file system). But you have to manually check if an update is available by<br>
+handling the Application.Current.CheckAndDownloadUpdateCompleted event.<br>
+<br>
+Most Silverlight features work fine in OOB. However, certain features will<br>
+only work if the application is installed from a web site. For example, check<br>
+for update. That's why this sample includes a web application. Please run the<br>
+web application instead of the Silverlight application directly. Also, if the<br>
+application needs to perform network access, you'll have to host it in a web<br>
+site. Otherwise you'll ge cross-scheme errors even if you run inside the<br>
+browser...<br>
+<br>
+Network features work fine in OOB. If you're accessing a network resource<br>
+from the same domain where you install the application, no cross-domain<br>
+policy file is needed. Otherwise, as long as the cross-domain policy file<br>
+allows you to access the resource, it will work fine.<br>
+<br>
+So how does OOB work? Actually the following application is always launched<br>
+when you open an OOB application:<br>
+For x86: C:\Program Files\Microsoft Silverlight\sllauncher.exe<br>
+For x64: C:\Program Files (x86)\Microsoft Silverlight\sllauncher.exe<br>
+<br>
+This application accepts a command line argument like:<br>
+(a number as ID).domainname<br>
+<br>
+When you install the OOB, several files will be downloaded to the following<br>
+folder:<br>
+<br>
+For Vista and later:<br>
+Users\yourname\AppData\LocalLow\Microsoft\Silverlight\OutOfBrowser<br>
+\NumberAsID.domain<br>
+<br>
+For ealier OS:<br>
+Documents and Settings\yourname\Local Settings\Application Data\Microsoft<br>
+\Silverlight\OutOfBrowser\NumberAsID.domain<br>
+<br>
+You'll find a metadata file in this location. This metadata file stores<br>
+information such as where this OOB was downloaded. This affects both update<br>
+and network. If you modify this file to specify another domain, update will<br>
+no longer work, and the original domain does not contain a cross-domain<br>
+policy file, you will no longer be able to access to the network resource.<br>
+However, you can actually use it at your advantage to access network<br>
+resources on another domain that does not have a cross-domain policy file.<br>
+Please refer to the following instructions:<br>
+<br>
+Create your application so that it accesses a network resource on another<br>
+domain that does not have a cross-domain policy file (such as www.bing.com).<br>
+Install the OOB.<br>
+Open the metadata file for the OOB application.<br>
+Modify the FinalAppUri, OriginalSourceUri, and SourceDomain properties, so<br>
+that they point to the external domain.<br>
+Launch the OOB application, and you'll notice you're able to access the<br>
+network resources on the other domain.<br>
+<br>
+However, you have to instruct your users to perform all those steps.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+<a target="_blank" href="&lt;a http://msdn.microsoft.com/en-us/library/dd833073(VS.95).aspx">http://msdn.microsoft.com/en-us/library/dd833073(VS.95).aspx</a>'&gt;<a  href="http://msdn.microsoft.com/en-us/library/dd833073(VS.95).aspx">http://msdn.microsoft.com/en-us/library/dd833073(VS.95).aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
