@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <Images>
+    <Image>
+      <ID>1</ID>
+      <URL>~/Images/Microsoft.jpg</URL>
+      <ClickHandler>ResponseImageURL</ClickHandler>
+    </Image>
+    <!--<Image>
+      <ID>2</ID>
+      <URL>~/Images/asp.net.png</URL>
+      <ClickHandler>ResponseImageID</ClickHandler>
+    </Image>-->
+  </Images>
+</root>
