@@ -1,0 +1,176 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+VBSQLAzureStoreImages_WebRole
+</name>
+</assembly>
+<members>
+<member name="M:VBSQLAzureStoreImages_WebRole._Default.Page_Load(System.Object,System.EventArgs)">
+	<summary>
+ Load the Page
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:VBSQLAzureStoreImages_WebRole._Default.OnDataBound(System.Object,System.Web.UI.WebControls.ListViewItemEventArgs)">
+	<summary>
+ Set the uri of images.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:VBSQLAzureStoreImages_WebRole._Default.OnDeleteImage(System.Object,System.Web.UI.WebControls.CommandEventArgs)">
+	<summary>
+ Delete an image by ImageId.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:VBSQLAzureStoreImages_WebRole._Default.OnCopyImage(System.Object,System.Web.UI.WebControls.CommandEventArgs)">
+	<summary>
+ Copy an image by ImageId
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:VBSQLAzureStoreImages_WebRole._Default.EnsureContainerExists">
+	<summary>
+ Make sure that the Container exits. If it's not, create one.
+ </summary>
+</member><member name="M:VBSQLAzureStoreImages_WebRole._Default.RefreshGallery">
+	<summary>
+ Get the images by the choose of locations
+ </summary>
+</member><member name="M:VBSQLAzureStoreImages_WebRole._Default.SaveImage(System.String,System.String,System.String,System.String,System.Byte[])">
+	<summary>
+ Save the images to the location
+ </summary>
+	<param name="name">It's the name that user inputs.</param>
+	<param name="description">It's the description that user inputs.</param>
+	<param name="fileName">It's the name of the file.</param>
+	<param name="contentType">It's the type of the file.</param>
+	<param name="data">It's the content of the file</param>
+</member><member name="P:VBSQLAzureStoreImages_WebRole.My.MyWebExtension.Application">
+	<summary>
+ Returns information about the current application.
+ </summary>
+</member><member name="P:VBSQLAzureStoreImages_WebRole.My.MyWebExtension.Computer">
+	<summary>
+ Returns information about the host computer.
+ </summary>
+</member><member name="P:VBSQLAzureStoreImages_WebRole.My.MyWebExtension.User">
+	<summary>
+ Returns information for the current Web user.
+ </summary>
+</member><member name="P:VBSQLAzureStoreImages_WebRole.My.MyWebExtension.Request">
+	<summary>
+ Returns Request object.
+ </summary>
+</member><member name="P:VBSQLAzureStoreImages_WebRole.My.MyWebExtension.Response">
+	<summary>
+ Returns Response object.
+ </summary>
+</member><member name="P:VBSQLAzureStoreImages_WebRole.My.MyWebExtension.Log">
+	<summary>
+ Returns the Asp log object.
+ </summary>
+</member><member name="P:VBSQLAzureStoreImages_WebRole.My.MyWebExtension.WebServices">
+	<summary>
+ Provides access to WebServices added to this project.
+ </summary>
+</member><member name="T:VBSQLAzureStoreImages_WebRole.My.MyWebExtension">
+	<summary>
+ Module used to define the properties that are available in the My Namespace for Web projects.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:VBSQLAzureStoreImages_WebRole._Default.Head1">
+	<summary>
+Head1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBSQLAzureStoreImages_WebRole._Default.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBSQLAzureStoreImages_WebRole._Default.imageLocation">
+	<summary>
+imageLocation control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBSQLAzureStoreImages_WebRole._Default.imageName">
+	<summary>
+imageName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBSQLAzureStoreImages_WebRole._Default.imageDescription">
+	<summary>
+imageDescription control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBSQLAzureStoreImages_WebRole._Default.imageFile">
+	<summary>
+imageFile control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBSQLAzureStoreImages_WebRole._Default.upload">
+	<summary>
+upload control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBSQLAzureStoreImages_WebRole._Default.status">
+	<summary>
+status control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBSQLAzureStoreImages_WebRole._Default.images">
+	<summary>
+images control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="T:VBSQLAzureStoreImages_WebRole.GetImage">
+	<summary>
+ Use it to get the images from SQL Azure.
+ </summary>
+</member><member name="T:VBSQLAzureStoreImages_WebRole.ImageInBlob">
+	<summary>
+ If we store the image in the blog, we will use this table to store 
+ the info of image and uri of Blob.
+ </summary>
+</member><member name="T:VBSQLAzureStoreImages_WebRole.ImageInSQLAzure">
+	<summary>
+ If we store the image in the SQL Azure, we will use this table to 
+ store the info of the image.
+ </summary>
+</member><member name="T:VBSQLAzureStoreImages_WebRole.ImagesTable">
+	<summary>
+ If we store the image in the SQL Azure we will use this table to 
+ store the data of the image.
+ </summary>
+</member>
+</members>
+</doc>
