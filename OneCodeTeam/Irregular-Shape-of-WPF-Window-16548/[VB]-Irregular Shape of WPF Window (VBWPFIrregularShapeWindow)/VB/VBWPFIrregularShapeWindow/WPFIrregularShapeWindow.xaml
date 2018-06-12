@@ -1,0 +1,53 @@
+﻿<Window x:Class="WPFIrregularShapeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Title="WPFIrregularShapeWindow" Height="350" Width="525" ButtonBase.Click="Window_Click">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Opacity" Value="0.5" />
+            <Style.Triggers>
+
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                  Duration="0:0:0.2"
+                  Storyboard.TargetProperty="Height"
+                  To="80"  />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                  Duration="0:0:1"
+                  Storyboard.TargetProperty="Height"  />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+
+        </Style>
+
+    </Window.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <!--customers customize here -->
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Height="60" Grid.Row="0" Tag="Ellipse Window">Ellipse Window</Button>
+        <Button Height="60" Grid.Row="1" Tag="Rounded Corners Window">Rounded Corners Window</Button>
+        <Button Height="60" Grid.Row="2" Tag="Popup Corners Window">Popup Corners Window</Button>
+        <Button Height="60" Grid.Row="3" Tag="Triangle Corners Window" >Triangle Corners Window</Button>
+        <Button Height="60" Grid.Row="4" Tag="Picture Based Windows" >Picture Based Windows</Button>
+    </Grid>
+</Window>
