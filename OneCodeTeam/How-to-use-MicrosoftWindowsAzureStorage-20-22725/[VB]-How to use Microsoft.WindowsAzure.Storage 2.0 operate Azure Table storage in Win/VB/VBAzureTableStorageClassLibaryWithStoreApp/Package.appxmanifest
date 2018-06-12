@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="766a45b1-c00c-47a6-acc5-b6ec1fe0aa6f" Publisher="CN=All-In-One Code Framework" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>VBAzureTableStorageClassLibaryWithStoreApp</DisplayName>
+    <PublisherDisplayName>All-In-One Code Framework</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="VBAzureTableStorageClassLibaryWithStoreApp.App">
+      <VisualElements DisplayName="VBAzureTableStorageClassLibaryWithStoreApp" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="VBAzureTableStorageClassLibaryWithStoreApp" ForegroundText="light" BackgroundColor="#E6B80B">
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\TileLogo.png" />
+        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#E6B80B" />
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
