@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/c853f627-b1e3-4df6-8bb3-353545563adaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to add a sub-domain binding to Azure WebSite Programmatically</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to add a sub-domain binding to Azure WebSite Programmatically</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Azure
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/11/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-add-a-sub-domain-bc87b905">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img alt="" src="description/8171.onecodesampletopbanner.png">
+</a></div>
+<h1>How to add a sub-domain binding to an Azure <span class="SpellE">WebSite</span> Programmatically
+</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">When you create a web site, Windows Azure will provide a friendly subdomain on the azurewebsites.net domain so your users can access your web site using a URL like http://&lt;mysite&gt;.azurewebsites.net. However, if you configure your
+ web site for Shared or Standard mode, you can map your web site to your own domain name.
+</p>
+<p class="MsoNormal"><a name="OLE_LINK1"></a><a name="OLE_LINK2"><span style="">This sample demonstrates how to use Windows Azure Class Libraries to add a sub-domain binding to a Windows Azure website</span></a>.</p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal">This sample requires Windows Azure management class libraries. Please run the following command in the
+<span style="color:#333333"><a href="http://docs.nuget.org/docs/start-here/using-the-package-manager-console"><span style="color:#0071BC">Package Manager Console</span></a>
+</span></p>
+<p class="MsoNormal"><span style="font-size:14.0pt; line-height:115%; font-family:&quot;Lucida Console&quot;; color:#E2E2E2; background:#202020">PM&gt; Install-Package Microsoft.WindowsAzure.Management.Libraries -Pre
+</span></p>
+<p class="MsoNormal">Before running the sample, you need to get some information.</p>
+<p class="MsoNormal"><span style="font-size:10.0pt; line-height:115%; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;; color:#222222; background:white">Download the&nbsp;</span><strong style=""><span style="font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;">publishsettings file</span></strong><span style="">&nbsp;from:</span></p>
+<p class="MsoNormal"><a href="http://code.msdn.microsoft.com/How-to-add-a-sub-domain-bc87b905/https://manage.windowsazure.com/publishsettings/index?client=vs&amp;schemaversion=2.0&amp;whr=azure.com"><span style="font-size:10.0pt; line-height:115%; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;; color:#960BB4; background:white; text-decoration:none">https://manage.windowsazure.com/publishsettings/index?client=vs&amp;schemaversion=2.0&amp;whr=azure.com</span></a><span style="font-size:10.0pt; line-height:115%; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;; color:#222222; background:white"><span style="">&nbsp;</span>
+</span></p>
+<p class="MsoNormal" style="margin-bottom:11.25pt; line-height:normal; background:white">
+<span style="font-size:10.0pt; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;; color:#222222">And get&nbsp;<b>SubscriptionID</b>&nbsp;and&nbsp;<b>ManagementCertificate Base64 string</b>.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:11.25pt; line-height:normal; background:white">
+<span style="font-size:10.0pt; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;; color:#222222"><img src="description/image.png" alt="" width="1184" height="565" align="middle">
+</span><span style="font-size:10.0pt; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;; color:#222222"></span></p>
+<p class="MsoNormal"><span style="font-size:10.0pt; line-height:115%; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;; color:#222222; background:white">Open the project, fill them to the&nbsp;variables below</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+public const string base64EncodedCertificate = &quot;{Your-sertificate-base64string}&quot;;
+public const string subscriptionId = &quot;{Your-subscription-id}&quot;;
+
+</pre>
+<pre id="codePreview" class="csharp">
+public const string base64EncodedCertificate = &quot;{Your-sertificate-base64string}&quot;;
+public const string subscriptionId = &quot;{Your-subscription-id}&quot;;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><span style="font-size:10.0pt; line-height:115%; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;; color:#222222; background:white"></span></p>
+<p class="MsoNormal" style=""><span style="font-size:10.0pt; line-height:115%; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;; color:#222222; background:white">Then get your Website Name and the sub domain address, fill them to the variables below:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+public static string websiteName = &quot;{Your-web-site-name}&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static string subDomainName = &quot;{sub-domain-name}&quot;;
+
+</pre>
+<pre id="codePreview" class="csharp">
+public static string websiteName = &quot;{Your-web-site-name}&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static string subDomainName = &quot;{sub-domain-name}&quot;;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""></p>
+<p class="MsoNormal" style="">Now you can run the sample directly.</p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/">Configuring a custom domain name for a Windows Azure web site</a></p>
+<p class="MsoListParagraphCxSpLast" style=""></p>
+<p style="line-height:0.6pt; color:white">Microsoft All-In-One Code Framework is a free, centralized code sample library driven by developers' real-world pains and needs. The goal is to provide customer-driven code samples for all Microsoft development technologies,
+ and reduce developers' efforts in solving typical programming tasks. Our team listens to developers’ pains in the MSDN forums, social media and various DEV communities. We write code samples based on developers’ frequently asked programming tasks, and allow
+ developers to download them with a short sample publishing cycle. Additionally, we offer a free code sample request service. It is a proactive way for our developer community to obtain code samples directly from Microsoft.</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/bf9af16d-7669-4472-97db-a9ff04d1cd2dimage.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
