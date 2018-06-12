@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/4a9514de-6b13-49f8-bc5c-522145f9e787Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to Get Large Mailbox Statistics in Office365</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to Get Large Mailbox Statistics in Office365</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Exchange Online, Office 365
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            office365, Folder Statistics
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/5/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-Get-Large-Mailbox-87ac4aea">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>How to Get Folder Statistics for Large Mailbox in Office 365 Exchange Online (CSOffice365GetFolderStatistics)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">Some of you find your Outlook is frozen when receiving emails. One workaround is moving the large emails to a new folder to allow Outlook finish the synchronization. But before moving these large emails, we need to identify these large
+ email messages and find a proper destination folder for these emails. In this sample, we will demonstrate how to get the statistics of the folders and the subfolders.
+</p>
+<p class="MsoNormal">In this sample, we will use two extended properties: </p>
+<p class="MsoNormal">1. PidTagMessageSize(Property ID: 0x0E08); </p>
+<p class="MsoNormal">2. PR_FOLDER_PATHNAME (Property ID: 0x66B5). </p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal">Press F5 to run the sample, the following is the result.</p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="641" height="112" align="middle">
+</span></p>
+<p class="MsoNormal">First, we use our account to connect the Exchange Online.</p>
+<p class="MsoNormal"><span style=""><img src="description/5e5a8e1c-1f4a-42a0-b1fb-fc0a6793bab6image.png" alt="" width="643" height="374" align="middle">
+</span><span style="">&nbsp;</span></p>
+<p class="MsoNormal">After get the root folders and the subfolders, this sample will show the folders' DisplayName, the path, the size, the number of all the items, the number of the items with attachments, the number of the large items.</p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+1. Get the root folders and the subfolders</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+a. Two extend properties.</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+We use two extend properties in this sample to get the size and path information of the folders.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+const Int32 pidTagMessageSizeExtended = 3592;
+ExtendedPropertyDefinition exPropFolderSize = 
+&nbsp;&nbsp;&nbsp;&nbsp;new ExtendedPropertyDefinition(pidTagMessageSizeExtended, MapiPropertyType.Integer);
+const Int32 PR_FOLDER_PATHNAME = 26293;
+ExtendedPropertyDefinition exPropDefPathName = 
+&nbsp;&nbsp;&nbsp;&nbsp;new ExtendedPropertyDefinition(PR_FOLDER_PATHNAME, MapiPropertyType.String);
+
+</pre>
+<pre id="codePreview" class="csharp">
+const Int32 pidTagMessageSizeExtended = 3592;
+ExtendedPropertyDefinition exPropFolderSize = 
+&nbsp;&nbsp;&nbsp;&nbsp;new ExtendedPropertyDefinition(pidTagMessageSizeExtended, MapiPropertyType.Integer);
+const Int32 PR_FOLDER_PATHNAME = 26293;
+ExtendedPropertyDefinition exPropDefPathName = 
+&nbsp;&nbsp;&nbsp;&nbsp;new ExtendedPropertyDefinition(PR_FOLDER_PATHNAME, MapiPropertyType.String);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+b. Get the root folders.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+SearchFilter rootFilter = new SearchFilter.IsEqualTo(FolderSchema.DisplayName, &quot;Inbox&quot;);
+
+
+List&lt;Folder&gt; rootFolders = GetFolders(service, rootFilter, 
+&nbsp;&nbsp;&nbsp;&nbsp;WellKnownFolderName.MsgFolderRoot, false,folderPropertySet);
+
+</pre>
+<pre id="codePreview" class="csharp">
+SearchFilter rootFilter = new SearchFilter.IsEqualTo(FolderSchema.DisplayName, &quot;Inbox&quot;);
+
+
+List&lt;Folder&gt; rootFolders = GetFolders(service, rootFilter, 
+&nbsp;&nbsp;&nbsp;&nbsp;WellKnownFolderName.MsgFolderRoot, false,folderPropertySet);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+c. Get the subfolders.</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+We will get all the subfolders of each root folder one time.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+foreach (Folder root in rootFolders)
+{
+
+
+&nbsp;&nbsp;&nbsp; List&lt;Folder&gt; subFolders = GetFolders(root, null, true, folderPropertySet);
+
+</pre>
+<pre id="codePreview" class="csharp">
+foreach (Folder root in rootFolders)
+{
+
+
+&nbsp;&nbsp;&nbsp; List&lt;Folder&gt; subFolders = GetFolders(root, null, true, folderPropertySet);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+2. Get the number of emails with attachments and the number of large items.</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+a. Set the filter to get the items with attachments or the large items.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+SearchFilter.SearchFilterCollection filters =
+&nbsp;&nbsp;&nbsp; new SearchFilter.SearchFilterCollection(LogicalOperator.Or);
+
+
+SearchFilter filterAttachment = new SearchFilter.IsEqualTo(ItemSchema.HasAttachments, true);
+SearchFilter filterLargeEmail = new SearchFilter.IsGreaterThan(ItemSchema.Size, largeSize);
+filters.Add(filterAttachment);
+filters.Add(filterLargeEmail);
+
+</pre>
+<pre id="codePreview" class="csharp">
+SearchFilter.SearchFilterCollection filters =
+&nbsp;&nbsp;&nbsp; new SearchFilter.SearchFilterCollection(LogicalOperator.Or);
+
+
+SearchFilter filterAttachment = new SearchFilter.IsEqualTo(ItemSchema.HasAttachments, true);
+SearchFilter filterLargeEmail = new SearchFilter.IsGreaterThan(ItemSchema.Size, largeSize);
+filters.Add(filterAttachment);
+filters.Add(filterLargeEmail);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+b. Get the items with attachments or the large items. </p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+ItemView itemView = new ItemView(pageSize);
+itemView.PropertySet = itemPropertySet;
+itemView.Traversal = ItemTraversal.Shallow;
+
+
+FindItemsResults&lt;Item&gt; searchResults = null;
+List&lt;Item&gt; items = new List&lt;Item&gt;();
+
+
+do
+{
+&nbsp;&nbsp;&nbsp; searchResults = folder.FindItems(filters, itemView);
+&nbsp;&nbsp;&nbsp; items.AddRange(searchResults.Items);
+
+
+&nbsp;&nbsp;&nbsp; itemView.Offset &#43;= pageSize;
+} while (searchResults.MoreAvailable);
+
+</pre>
+<pre id="codePreview" class="csharp">
+ItemView itemView = new ItemView(pageSize);
+itemView.PropertySet = itemPropertySet;
+itemView.Traversal = ItemTraversal.Shallow;
+
+
+FindItemsResults&lt;Item&gt; searchResults = null;
+List&lt;Item&gt; items = new List&lt;Item&gt;();
+
+
+do
+{
+&nbsp;&nbsp;&nbsp; searchResults = folder.FindItems(filters, itemView);
+&nbsp;&nbsp;&nbsp; items.AddRange(searchResults.Items);
+
+
+&nbsp;&nbsp;&nbsp; itemView.Offset &#43;= pageSize;
+} while (searchResults.MoreAvailable);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+c. Get the number of emails with attachments and the number of large items. </p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+Int32 itemsWithAttachmentNum = (from i in items
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where i.HasAttachments
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; select i).Count();
+
+
+Int32 largeItemNum = (from i in items
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where i.Size &gt; largeSize
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; select i).Count();
+
+</pre>
+<pre id="codePreview" class="csharp">
+Int32 itemsWithAttachmentNum = (from i in items
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where i.HasAttachments
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; select i).Count();
+
+
+Int32 largeItemNum = (from i in items
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where i.Size &gt; largeSize
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; select i).Count();
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<h2>More Information</h2>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/dd633709(v=exchg.80).aspx">EWS Managed API 2.0</a>
+</p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/cc433490(v=exchg.80).aspx"><span style="">[MS-OXPROPS]: Exchange Server Protocols Master Property List</span></a><span class="MsoHyperlink">
+</span></p>
+<p class="MsoNormal"><span class="MsoHyperlink"><a href="http://msdn.microsoft.com/en-us/library/dd634678(v=exchg.80).aspx"><span style="">&nbsp;</span><span class="SpellE">ExtendedPropertyDefinition</span> Class</a>
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/60360d80-ea94-4690-bcdd-eb8bb9f9bdb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
