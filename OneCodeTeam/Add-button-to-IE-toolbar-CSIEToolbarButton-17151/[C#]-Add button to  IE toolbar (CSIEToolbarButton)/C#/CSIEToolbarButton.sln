@@ -1,0 +1,52 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSIEToolbarButton", "CSIEToolbarButton\CSIEToolbarButton.csproj", "{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CSIEToolbarButtonSetup(x64)", "CSIEToolbarButton\CSIEToolbarButtonSetup(x64)\CSIEToolbarButtonSetup(x64).vdproj", "{5D53D77B-36F4-4CDA-96F2-7286D9E82E2D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CSIEToolbarButtonSetup(x86)", "CSIEToolbarButton\CSIEToolbarButtonSetup(x86)\CSIEToolbarButtonSetup(x86).vdproj", "{716E9E0C-3287-4993-AF77-85B57A3AD175}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}.Debug|x64.ActiveCfg = Debug|x64
+		{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}.Debug|x64.Build.0 = Debug|x64
+		{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}.Debug|x86.ActiveCfg = Debug|x86
+		{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}.Debug|x86.Build.0 = Debug|x86
+		{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}.Release|x64.ActiveCfg = Release|x64
+		{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}.Release|x64.Build.0 = Release|x64
+		{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}.Release|x86.ActiveCfg = Release|x86
+		{B6782413-1FE8-4AA9-BC4A-7E969A74EE44}.Release|x86.Build.0 = Release|x86
+		{5D53D77B-36F4-4CDA-96F2-7286D9E82E2D}.Debug|Any CPU.ActiveCfg = Debug
+		{5D53D77B-36F4-4CDA-96F2-7286D9E82E2D}.Debug|x64.ActiveCfg = Debug
+		{5D53D77B-36F4-4CDA-96F2-7286D9E82E2D}.Debug|x64.Build.0 = Debug
+		{5D53D77B-36F4-4CDA-96F2-7286D9E82E2D}.Debug|x86.ActiveCfg = Debug
+		{5D53D77B-36F4-4CDA-96F2-7286D9E82E2D}.Release|Any CPU.ActiveCfg = Release
+		{5D53D77B-36F4-4CDA-96F2-7286D9E82E2D}.Release|x64.ActiveCfg = Release
+		{5D53D77B-36F4-4CDA-96F2-7286D9E82E2D}.Release|x64.Build.0 = Release
+		{5D53D77B-36F4-4CDA-96F2-7286D9E82E2D}.Release|x86.ActiveCfg = Release
+		{716E9E0C-3287-4993-AF77-85B57A3AD175}.Debug|Any CPU.ActiveCfg = Debug
+		{716E9E0C-3287-4993-AF77-85B57A3AD175}.Debug|x64.ActiveCfg = Debug
+		{716E9E0C-3287-4993-AF77-85B57A3AD175}.Debug|x86.ActiveCfg = Debug
+		{716E9E0C-3287-4993-AF77-85B57A3AD175}.Debug|x86.Build.0 = Debug
+		{716E9E0C-3287-4993-AF77-85B57A3AD175}.Release|Any CPU.ActiveCfg = Release
+		{716E9E0C-3287-4993-AF77-85B57A3AD175}.Release|x64.ActiveCfg = Release
+		{716E9E0C-3287-4993-AF77-85B57A3AD175}.Release|x86.ActiveCfg = Release
+		{716E9E0C-3287-4993-AF77-85B57A3AD175}.Release|x86.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
