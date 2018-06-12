@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Check OS bitness in VB (VBCheckOSBitness)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Check OS bitness in VB (VBCheckOSBitness)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows General
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            OS bitness
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBCheckOSBitness-31245362">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>APPLICATION : VBCheckOSBitness Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Summary: </h3>
+<p style="font-family:Courier New"><br>
+The code sample demonstrates how to determine whether the operating system of <br>
+the current machine or any remote machine is a 64-bit operating system.<br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+The following steps walk through a demonstration of the sample.<br>
+<br>
+Step1. After you successfully build the sample project in Visual Studio 2008, <br>
+you will get an application: VBCheckOSBitness.exe. <br>
+<br>
+Step2. Run the application in a command prompt (cmd.exe) on a 32-bit <br>
+operating system (e.g. Windows 7 x86). The application prints the following <br>
+content in the command prompt:<br>
+<br>
+&nbsp;Current OS is not 64-bit<br>
+&nbsp;Current OS is not 64-bit<br>
+<br>
+It dictates that the current operating system is not a 64-bit operating <br>
+system.<br>
+<br>
+</p>
+<h3>Code Logic:</h3>
+<p style="font-family:Courier New"><br>
+The sample introduces two solutions of detecting programmatically whether you <br>
+are running on 64-bit operating system.<br>
+<br>
+Solution 1. Use the IsWow64Process function<br>
+<br>
+&nbsp; &nbsp;''' &lt;summary&gt;<br>
+&nbsp; &nbsp;''' The function determines whether the current operating system is a
+<br>
+&nbsp; &nbsp;''' 64-bit operating system.<br>
+&nbsp; &nbsp;''' &lt;/summary&gt;<br>
+&nbsp; &nbsp;''' &lt;returns&gt;<br>
+&nbsp; &nbsp;''' The function returns true if the operating system is 64-bit; <br>
+&nbsp; &nbsp;''' otherwise, it returns false.<br>
+&nbsp; &nbsp;''' &lt;/returns&gt;<br>
+&nbsp; &nbsp;Public Function Is64BitOS() As Boolean<br>
+<br>
+To detect programmatically whether your 32-bit program is running on 64-bit <br>
+operating system, you can use the IsWow64Process function. <br>
+<br>
+&nbsp; &nbsp;Dim flag As Boolean<br>
+&nbsp; &nbsp;Return ((DoesWin32MethodExist(&quot;kernel32.dll&quot;, &quot;IsWow64Process&quot;) _<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AndAlso IsWow64Process(GetCurrentProcess, flag)) AndAlso flag)<br>
+<br>
+If the running process is a 64-bit process, the operating system must be a <br>
+64-bit operating system.<br>
+<br>
+&nbsp; &nbsp;If (IntPtr.Size = 8) Then &nbsp;' 64-bit programs run only on Win64<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Return True<br>
+&nbsp; &nbsp;End If<br>
+<br>
+Solution 2. Query the Win32_Processor WMI class's AddressWidth property<br>
+<br>
+&nbsp; &nbsp;''' &lt;summary&gt;<br>
+&nbsp; &nbsp;''' The function determines whether the operating system of the current
+<br>
+&nbsp; &nbsp;''' machine of any remote machine is a 64-bit operating system through
+<br>
+&nbsp; &nbsp;''' Windows Management Instrumentation (WMI).<br>
+&nbsp; &nbsp;''' &lt;/summary&gt;<br>
+&nbsp; &nbsp;''' &lt;param name=&quot;machineName&quot;&gt;<br>
+&nbsp; &nbsp;''' The full computer name or IP address of the target machine. &quot;.&quot; or
+<br>
+&nbsp; &nbsp;''' null means the local machine. <br>
+&nbsp; &nbsp;''' &lt;/param&gt;<br>
+&nbsp; &nbsp;''' &lt;param name=&quot;userName&quot;&gt;<br>
+&nbsp; &nbsp;''' The user name you need for a connection. A Nothing value indicates
+<br>
+&nbsp; &nbsp;''' the current security context. If the user name is from a domain other
+<br>
+&nbsp; &nbsp;''' than the current domain, the string should contain the domain name
+<br>
+&nbsp; &nbsp;''' and user name, separated by a backslash: string 'username' = <br>
+&nbsp; &nbsp;''' &quot;DomainName\\UserName&quot;. <br>
+&nbsp; &nbsp;''' &lt;/param&gt;<br>
+&nbsp; &nbsp;''' &lt;param name=&quot;password&quot;&gt;The password for the specified user.&lt;/param&gt;<br>
+&nbsp; &nbsp;''' &lt;returns&gt;<br>
+&nbsp; &nbsp;''' The function returns true if the operating system is 64-bit; <br>
+&nbsp; &nbsp;''' otherwise, it returns false.<br>
+&nbsp; &nbsp;''' &lt;/returns&gt;<br>
+&nbsp; &nbsp;''' &lt;exception cref=&quot;System.Management.ManagementException&quot;&gt;<br>
+&nbsp; &nbsp;''' The ManagementException exception is generally thrown with the error<br>
+&nbsp; &nbsp;''' message &quot;User credentials cannot be used for local connections&quot;. To
+<br>
+&nbsp; &nbsp;''' solve it, do not specify userName and password when machineName <br>
+&nbsp; &nbsp;''' refers to the local computer.<br>
+&nbsp; &nbsp;''' &lt;/exception&gt;<br>
+&nbsp; &nbsp;''' &lt;exception cref=&quot;System.UnauthorizedAccessException&quot;&gt;<br>
+&nbsp; &nbsp;''' This exception is usually caused by incorrect user name or password.<br>
+&nbsp; &nbsp;''' &lt;/exception&gt;<br>
+&nbsp; &nbsp;''' &lt;exception cref=&quot;System.Runtime.InteropServices.COMException&quot;&gt;<br>
+&nbsp; &nbsp;''' A common error accompanied with the COMException is &quot;The RPC server
+<br>
+&nbsp; &nbsp;''' is unavailable. (Exception from HRESULT: 0x800706BA)&quot;. This is
+<br>
+&nbsp; &nbsp;''' usually caused by the firewall on the target machine that blocks the
+<br>
+&nbsp; &nbsp;''' WMI connection or some network problem.<br>
+&nbsp; &nbsp;''' &lt;/exception&gt;<br>
+&nbsp; &nbsp;Public Function Is64BitOS(ByVal machineName As String, _<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ByVal userName As String, _<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ByVal password As String) _<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;As Boolean<br>
+<br>
+It queries Win32_Processor.AddressWidth which dicates the current operating <br>
+mode of the processor (on a 32-bit OS, it would be &quot;32&quot;; on a 64-bit OS, it
+<br>
+would be &quot;64&quot;). In contrast, Win32_Processor.DataWidth indicates the <br>
+capability of the processor. On a 64-bit processor, it is &quot;64&quot;. The <br>
+OSArchitecture property of the Win32_OperatingSystem WMI class can also tell <br>
+the bitness of OS. On a 32-bit OS, it would be &quot;32-bit&quot;. However, the <br>
+property is only available on Windows Vista and newer operating systems. <br>
+<br>
+Note: The first solution of using IsWow64Process is the preferred way to <br>
+detect OS bitness of the current system because it is much easier and faster. <br>
+The WMI solution is useful when you want to find this information on a remote <br>
+system. The remote computer must be configured for remote connections of WMI:<br>
+<a  href="http://msdn.microsoft.com/en-us/library/aa389290(VS.85).aspx">http://msdn.microsoft.com/en-us/library/aa389290(VS.85).aspx</a><br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+How to detect programmatically whether you are running on 64-bit Windows<br>
+<a  href="http://blogs.msdn.com/oldnewthing/archive/2005/02/01/364563.aspx">http://blogs.msdn.com/oldnewthing/archive/2005/02/01/364563.aspx</a><br>
+<br>
+MSDN: Win32_Processor Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx">http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx</a><br>
+<br>
+MSDN: Win32_OperatingSystem Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/aa394239(VS.85).aspx">http://msdn.microsoft.com/en-us/library/aa394239(VS.85).aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
