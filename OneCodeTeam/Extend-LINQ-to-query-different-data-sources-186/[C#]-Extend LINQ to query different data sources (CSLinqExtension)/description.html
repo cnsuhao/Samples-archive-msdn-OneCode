@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Extend LINQ to query different data sources (CSLinqExtension)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Extend LINQ to query different data sources (CSLinqExtension)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            LINQ
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Extending LINQ
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSLinqExtension-adef6eb7">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>WINDOWS FORMS APPLICATION : CSLinqExtension Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+The CSLinqExtension sample demonstrates the Microsoft Language-Integrated <br>
+Query (LINQ) technology to access CSV files, File System information, .NET<br>
+assemblies(Reflection), and string text. &nbsp;<br>
+<br>
+</p>
+<h3>Code Logic:</h3>
+<p style="font-family:Courier New"><br>
+1. LINQ to CSV:<br>
+<br>
+&nbsp; A simple LINQ to CSV library to load simple CSV files into string arrays <br>
+&nbsp; line by line. <br>
+&nbsp; The CSV file stores All-In-One Code Framework project information and its <br>
+&nbsp; format:<br>
+&nbsp; (Project Name, Program Language, Description, Owner)<br>
+&nbsp; <br>
+2. LINQ to File System:<br>
+&nbsp; <br>
+&nbsp; A simple LINQ to File System library to show files grouped by extension <br>
+&nbsp; names under one folder, and to display the largest file name and the size.<br>
+&nbsp; <br>
+3. LINQ to Reflection:<br>
+<br>
+&nbsp; A simple LINQ to Reflection library to display the methods of the exported
+<br>
+&nbsp; class in an assembly grouped by return value type.<br>
+&nbsp; <br>
+4. LINQ to String:<br>
+<br>
+&nbsp; A simple LINQ to String library to show the digis characters in a string,<br>
+&nbsp; to count occurrences of a word in a string, and to query for sentences <br>
+&nbsp; that contain a specified set of words.<br>
+&nbsp; <br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+How to: Query for the Largest File or Files in a Directory Tree (LINQ)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb546154.aspx">http://msdn.microsoft.com/en-us/library/bb546154.aspx</a><br>
+<br>
+How to: Group Files by Extension (LINQ)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb546135.aspx">http://msdn.microsoft.com/en-us/library/bb546135.aspx</a><br>
+<br>
+How to: Query An Assembly's Metadata with Reflection (LINQ)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb546150.aspx">http://msdn.microsoft.com/en-us/library/bb546150.aspx</a><br>
+<br>
+How to: Add Custom Methods for LINQ Queries<br>
+<a  href="http://msdn.microsoft.com/en-us/library/cc981895.aspx">http://msdn.microsoft.com/en-us/library/cc981895.aspx</a><br>
+<br>
+How to: Query for Characters in a String (LINQ)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb397940.aspx">http://msdn.microsoft.com/en-us/library/bb397940.aspx</a><br>
+<br>
+How to: Count Occurrences of a Word in a String (LINQ)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb546166.aspx">http://msdn.microsoft.com/en-us/library/bb546166.aspx</a><br>
+<br>
+How to: Query for Sentences that Contain a Specified Set of Words (LINQ)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb546163.aspx">http://msdn.microsoft.com/en-us/library/bb546163.aspx</a><br>
+<br>
+How to: Combine LINQ Queries with Regular Expressions<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb882639.aspx">http://msdn.microsoft.com/en-us/library/bb882639.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
