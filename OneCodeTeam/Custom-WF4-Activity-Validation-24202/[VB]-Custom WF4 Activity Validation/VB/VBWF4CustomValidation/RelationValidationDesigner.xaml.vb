@@ -1,0 +1,3 @@
+﻿Class RelationValidationDesigner
+
+End Class

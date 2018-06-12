@@ -1,0 +1,59 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Workflow1" sap2010:WorkflowViewState.IdRef="Workflow1_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:local="clr-namespace:VBWF4CustomValidation"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <local:PersonInfo Name="{x:Null}" Age="-1" sap2010:WorkflowViewState.IdRef="PersonInfo_1" />
+    <local:RelationValidation sap2010:WorkflowViewState.IdRef="RelationValidation_1">
+      <local:RelationValidation.Branches>
+        <sco:Collection x:TypeArguments="Activity" />
+      </local:RelationValidation.Branches>
+      <local:RelationValidation.LastIndexHint>
+        <Variable x:TypeArguments="x:Int32" />
+      </local:RelationValidation.LastIndexHint>
+      <local:RelationValidation.Variables>
+        <sco:Collection x:TypeArguments="Variable" />
+      </local:RelationValidation.Variables>
+    </local:RelationValidation>
+    <sads:DebugSymbol.Symbol>d1FEOlxVcGdyYWRlXHN0YXJ0XGRvaW5nXFZCV0Y0Q3VzdG9tVmFsaWRhdGlvblxWQldGNEN1c3RvbVZhbGlkYXRpb25cV29ya2Zsb3cxLnhhbWwDHgMsDgIBAR8FH2ECAQMgBSogAgEC</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="PersonInfo_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="RelationValidation_1" sap:VirtualizedContainerService.HintSize="200,81" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="222,267">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Workflow1_1" sap:VirtualizedContainerService.HintSize="262,347" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
