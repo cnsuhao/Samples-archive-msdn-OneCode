@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>.NET Remoting demo (VBRemoting)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>.NET Remoting demo (VBRemoting)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            .NET Framework
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Remoting
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">11/27/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBRemotingClient-74a9fcac">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">.NET <span class="SpellE">Remoting</span> demo (<span class="SpellE">VBRemoting</span>)
+</span></h1>
+<h2>Introduction</h2>
+<p class="MsoNormal"><br>
+.NET remoting provides an abstract approach to interprocess communication that separates the remotable object from a specific client or server application domain and from a specific mechanism of communication.</p>
+<p class="MsoNormal">.NET remoting allows an application to make a remotable object available across remoting boundaries, which includes different appdomains, processes or even different computers connected by a network. .NET Remoting makes a reference of
+ a remotable object available to a client application, which then instantiates and uses a remotable object as if it were a local object. However, the actual code execution happens at the server-side. Any requests to the remotable object are proxied by the .NET
+ Remoting runtime over Channel objects, that encapsulate the actual transport mode, including TCP streams, HTTP streams and named pipes. As a result, by instantiating proper Channel objects, a .NET Remoting application can be made to support different communication
+ protocols without recompiling the application. The runtime itself manages the act of serialization and marshalling of objects across the client and server appdomains.</p>
+<p class="MsoNormal"><span class="SpellE">VBRemotingSharedLibrary</span> contains the remote object types shared by the .NET Remoting clients and servers.</p>
+<p class="MsoNormal"><span class="SpellE">VBRemotingClient</span> is a .NET Remoting client project. It accesses the remote objects (SingleCall objects or Singleton objects or client-activated objects) exposed by the .NET
+<span class="SpellE">Remoting</span> server project, <span class="SpellE">VBRemotingServer</span>.</p>
+<p class="MsoNormal">There are generally two ways to create the .NET Remoting client: using a configuration file or writing codes. The AccessRemotingServerByConfig method demonstrates the former and the AccessRemotingServerByCode method illustrates the latter
+ method.</p>
+<p class="MsoNormal"><span class="SpellE">VBRemotingServer</span> is a .NET Remoting server project. It contains the following remotable objects:</p>
+<p class="MsoNormal">1. RemotingShared.SingleCallObject</p>
+<p class="MsoNormal">URL: tcp://localhost:6100/SingleCallService</p>
+<p class="MsoNormal">SingleCallObject is a server-activated object (SAO) with the &quot;SingleCall&quot; instancing mode. Such objects are created on each method call and objects are not shared among clients. State should not be maintained in such objects
+ because they are destroyed after each method call.</p>
+<p class="MsoNormal">2. RemotingShared.SingletonObject</p>
+<p class="MsoNormal">URL: tcp://localhost:6100/SingletonService</p>
+<p class="MsoNormal">SingletonObject is a server-activated object (SAO) with the &quot;Singleton&quot; instancing mode. Only one object will be created on the server to fulfill the requests of all the clients; that means the object is shared, and the state
+ will be shared by all the clients.</p>
+<p class="MsoNormal">3. RemotingShared.ClientActivatedObject defined in the shared assembly VBRemotingSharedLibrary.DLL:</p>
+<p class="MsoNormal">URL: tcp://localhost:6100/RemotingService</p>
+<p class="MsoNormal">ClientActivatedObject is a client-activated object (CAO) for .NET Remoting.
+</p>
+<p class="MsoNormal">Client-activated objects are created by the server and their lifetime is managed by the client. In contrast to server-activated objects, client-activated objects are created as soon as the client calls &quot;new&quot; or any other object
+ creation methods. Client-activated objects are specific to the client, and objects are not shared among different clients; object instance exists until the lease expires or the client destroys the object.</p>
+<p class="MsoNormal">There are generally two ways to create the .NET Remoting server: using a configuration file or writing codes. The CreateRemotingServerByConfig method demonstrates the former and the CreateRemotingServerByCode method illustrates the latter
+ method.</p>
+<p class="MsoNormal" style=""><b><span style="font-size:13.0pt; line-height:115%; font-family:&quot;Cambria&quot;,&quot;serif&quot;">Running the Sample
+</span></b></p>
+<p class="MsoNormal"><span style="">The following steps walk through a demonstration of the .NET remoting sample.
+</span></p>
+<p class="MsoNormal"><span style="">Step1. After you successfully build the <span class="SpellE">
+VBRemotingClient</span> and <span class="SpellE">VBRemotingServer</span> sample projects in Visual Studio 2012, you will get the console applications: VBRemotingClient.exe and VBRemotingServer.exe.
+</span></p>
+<p class="MsoNormal"><span style="">Step2. Run VBRemotingServer.exe in a command prompt to start up the server project. The command 'VBRemotingServer.exe -<span class="SpellE">configfile</span>' creates and configures the .NET Remoting server using a configuration
+ file. The command 'VBRemotingServer.exe -code' uses code to create the .NET Remoting server with the same configuration. You can choose either one. Because
+<span class="SpellE">VBRemotingServer</span> uses a TCP channel, you may be prompted that Windows Firewall has blocked some features of the application. You can safely allow the access when you see the Windows Firewall dialog.
+</span></p>
+<p class="MsoNormal"><span style="">Step3. Run VBRemotingClient.exe in another command prompt to start up the client project.
+<span class="SpellE">Similiarly</span>, the command 'VBRemotingClient.exe -<span class="SpellE">configfile</span>' reads a configuration file and configure the remoting infrastructure for the client project to connect to the .NET
+<span class="SpellE">Remoting</span> server (<span class="SpellE">VBRemotingServer</span>). The command 'VBRemotingClient.exe -code' uses code to connect to the server with the same configuration. You can choose either one.
+</span></p>
+<p class="MsoNormal"><span style="">By default, <span class="SpellE">VBRemotingClient</span> creates a
+<span class="SpellE">SingleCall</span> server-activated object, and invokes its methods and sets properties.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="611" height="391" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><span style="">SingleCallObject is a server-activated object (SAO) with the &quot;SingleCall&quot; instancing mode. Such objects are created on each method call and objects are not shared among clients. State is not maintained in such
+ objects because they are destroyed after each method call. Therefore, in the above output, the FloatProperty of the SingleCall object was set to 1.2 (Set FloatProperty &#43;= 1.2), but the next retrieval of the float property still returns 0.
+</span></p>
+<p class="MsoNormal"><span style="">You can try out other types of remoting objects (e.g. Singleton object, client-activate object) by uncommenting the corresponding code lines and rebuilding the client project.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+' Create a SingleCall server-activated object
+Dim remoteObj As New SingleCallObject()
+Console.WriteLine(&quot;A SingleCall server-activated proxy is created&quot;)
+' [-or-] Create a Singleton server-activated object
+'Dim remoteObj As New SingletonObject()
+'Console.WriteLine(&quot;A Singleton server-activated proxy is created&quot;)
+' [-or-] Create a client-activated object
+'Dim remoteObj As New ClientActivatedObject()
+'Console.WriteLine(&quot;A client-activated object is created&quot;)
+
+</pre>
+<pre id="codePreview" class="vb">
+' Create a SingleCall server-activated object
+Dim remoteObj As New SingleCallObject()
+Console.WriteLine(&quot;A SingleCall server-activated proxy is created&quot;)
+' [-or-] Create a Singleton server-activated object
+'Dim remoteObj As New SingletonObject()
+'Console.WriteLine(&quot;A Singleton server-activated proxy is created&quot;)
+' [-or-] Create a client-activated object
+'Dim remoteObj As New ClientActivatedObject()
+'Console.WriteLine(&quot;A client-activated object is created&quot;)
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><span style=""></span></p>
+<p class="MsoNormal" style=""><span style="">Step4. Exit the remoting server by pressing ENTER in the server application.
+</span></p>
+<p class="MsoNormal" style=""><b style=""><span style="">Sample Relation: </span>
+</b></p>
+<p class="MsoNormal" style=""><span class="SpellE"><span style="">VBRemotingClient</span></span><span style=""> -&gt;
+<span class="SpellE">VBRemotingServer</span> </span></p>
+<p class="MsoNormal" style=""><span class="SpellE"><span style="">VBRemotingClient</span></span><span style=""> is the client project of the
+<span class="SpellE">VBRemotingServer</span> server project. </span></p>
+<p class="MsoNormal" style=""><span class="SpellE"><span style="">VBRemotingServer</span></span><span style=""> -&gt;
+<span class="SpellE">VBRemotingSharedLibrary</span> </span></p>
+<p class="MsoNormal" style=""><span class="SpellE"><span style="">VBRemotingServer</span></span><span style=""> references a shared library for the client-activated
+</span></p>
+<p class="MsoNormal" style=""><span style="">remoting types. </span></p>
+<p class="MsoNormal" style=""><b><span style="font-size:13.0pt; line-height:115%; font-family:&quot;Cambria&quot;,&quot;serif&quot;">Using the Code
+</span></b></p>
+<p class="MsoNormal" style=""><span class="SpellE"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">VBRemotingServer</span></span><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">:
+</span></p>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Adding remotable types on the service project.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">For client-activated types, they must be defined in an assembly shared by both client and server projects, because client-activated types require not only the same namespace/class name on both
+ sides, but also the same assembly. </span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">Step1. Create a .NET class library project, exposing the type (ClientActivatedObject) that inherits MarshalByRefObject and implement the body of the type. MarshalByRefObject marks the type as a
+ remotable type. </span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">Step2. Add the reference to the class library in the server project.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">For server-activated types, they can be either defined in a shared assembly, or defined on the server project and have an empty proxy of the type one the client projects. Please make sure that
+ the server type and the proxy type have the same namespace/class name though it is not necessary to place them in the same assembly.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">Step1. Add the server-activated types (SingleCallObject, SingletonObject) that inherits MarshalByRefObject to the server project. Implement the body ofthe types.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Creating .NET Remoting server using configuration file.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">Step1. Add an application configuration file to the project.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">Step2. Define the channel to transport message.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">Step3. Register the remotable types.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">Step4. Read the configuration file and configure the remoting infrastructure for the server project. (RemotingConfiguration.Configure)
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Creating .NET Remoting server using code. </span>
+</p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">Step1. Specify the formatter of the messages for delivery. (BinaryClientFormatterSinkProvider, BinaryServerFormatterSinkProvider)Once message has been formatted, it is transported to other application
+ domains through the appropriate channel. .NET comes with the SOAP formatter (<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.Serialization.Formatters.Soap.aspx"  title="Auto generated link to System.Runtime.Serialization.Formatters.Soap">System.Runtime.Serialization.Formatters.Soap</a>) and Binary formatter (<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.Serialization.Formatters.Binary.aspx"  title="Auto generated link to System.Runtime.Serialization.Formatters.Binary">System.Runtime.Serialization.Formatters.Binary</a>).
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">Step2. Create and register the channel to transport message from one project to another. (TcpChannel/HttpChannel/IpcChannel, ChannelServices.RegisterChannel)
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">.NET comes with three built-in channels:
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">TCP channel (<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.Remoting.Channels.Tcp.aspx"  title="Auto generated link to System.Runtime.Remoting.Channels.Tcp">System.Runtime.Remoting.Channels.Tcp</a>)<span style="">牋牋牋牋牋牋牋牋牋牋牋牋牋牋牋牋牋
+</span>- good for binary </span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">HTTP channel (<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.Remoting.Channels.Http.aspx"  title="Auto generated link to System.Runtime.Remoting.Channels.Http">System.Runtime.Remoting.Channels.Http</a>)<span style="">牋牋牋牋牋牋牋牋牋牋牋牋牋牋?</span>- good for internet
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="">IPC channel (<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.Remoting.Channels.Ipc.aspx"  title="Auto generated link to System.Runtime.Remoting.Channels.Ipc">System.Runtime.Remoting.Channels.Ipc</a>)<span style="">牋牋牋牋牋牋牋牋牋牋牋牋牋牋牋牋牋牋
+</span>- based on named pipe </span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpLast" style=""><span style="">Step3. Register the remotable classes on the service project as server-activated types (aka well-known types) or client-activated types. (RemotingConfiguration.RegisterWellKnownServiceType, RemotingConfiguration.RegisterActivatedServiceType)
+</span></p>
+<p class="MsoNormal" style=""><span class="SpellE"><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">VBRemotingClient</span></span><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">:
+</span></p>
+<p class="MsoListParagraphCxSpFirst" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Adding remotable types on the client project.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">For client-activated types, they must be defined in an assembly shared by both client and server projects, because client-activated types require not only the same
+ namespace/class name on both sides, but also the same assembly. </span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Step1. Add the reference to the .NET class library shared by the .NET Remoting server. The class library exposes the client-activated type (ClientActivatedObject) that
+ inherits MarshalByRefObject. </span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">For server-activated types, they can be either defined in a shared assembly, or defined in the server project and have en empty proxy of the type in the client projects.
+ Please make sure that the server type and the proxy type have the same namespace/class name though it is not necessary to place them in the same assembly.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Step1. Add the proxy of the server-activated types (SingleCallObject, SingletonObject) that inherits MarshalByRefObject to the client project. There is no need to implement
+ the body of the types. </span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Accessing .NET Remoting server using configuration file.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Step1. Add an application configuration file to the project.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Step2. Define the channel to transport message.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Step3. Register the remotable types.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Step4. Read the configuration file and configure the remoting infrastructure for the client project. (RemotingConfiguration.Configure)
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Step5. Create the remotable object.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Step6. Use the remotable object as if it were a local object.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Accessing .NET Remoting server using code.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Step1. Specify the formatter of the messages for delivery. (BinaryClientFormatterSinkProvider, BinaryServerFormatterSinkProvider)Once message has been formatted, it
+ is transported to other application domains through the appropriate channel. .NET comes with the SOAP formatter (<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.Serialization.Formatters.Soap.aspx"  title="Auto generated link to System.Runtime.Serialization.Formatters.Soap">System.Runtime.Serialization.Formatters.Soap</a>) and Binary formatter (<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.Serialization.Formatters.Binary.aspx"  title="Auto generated link to System.Runtime.Serialization.Formatters.Binary">System.Runtime.Serialization.Formatters.Binary</a>).
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Step2. Create and register the channel to transport message according to the channel on the server project. (TcpChannel/HttpChannel/IpcChannel, ChannelServices.RegisterChannel)
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Step3. Create the remotable object.
+</span></p>
+<p class="MsoListParagraphCxSpLast" style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">Step4. Use the remotable object as if it were a local object.
+</span></p>
+<p class="MsoNormal" style=""><b><span style="font-size:13.0pt; line-height:115%; font-family:&quot;Cambria&quot;,&quot;serif&quot;">References
+</span></b></p>
+<p class="MsoNormal" style=""><span style="">.NET Framework Remoting Architecture<span style="">?</span>
+</span></p>
+<p class="MsoNormal" style=""><span style=""><a href="http://msdn.microsoft.com/en-us/library/2e7z38xb(VS.85).aspx">http://msdn.microsoft.com/en-us/library/2e7z38xb(VS.85).aspx</a>
+</span></p>
+<p class="MsoNormal" style=""><span style="">.NET Framework Remoting Overview<span style="">?</span>
+</span></p>
+<p class="MsoNormal" style=""><span style=""><a href="http://msdn.microsoft.com/en-us/library/kwdt6w2k(VS.85).aspx">http://msdn.microsoft.com/en-us/library/kwdt6w2k(VS.85).aspx</a>
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
