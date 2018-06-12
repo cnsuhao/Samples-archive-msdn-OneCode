@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{003CCC53-0B59-4C05-A95A-912EF7A4AED5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSSharePointAddElementToHeadTag</RootNamespace>
+    <AssemblyName>CSSharePointAddElementToHeadTag</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    
+    
+    
+    
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CONTROLTEMPLATES\AddElementToHeadTag\HeadInTag.ascx.cs">
+      <DependentUpon>HeadInTag.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\AddElementToHeadTag\HeadInTag.ascx.designer.cs">
+      <DependentUpon>HeadInTag.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\SetElementInHeadTag\SetElementInHeadTag.EventReceiver.cs">
+      <DependentUpon>SetElementInHeadTag.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\AddElementToHeadTag\ClearCustomMeta.aspx.cs">
+      <DependentUpon>ClearCustomMeta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\AddElementToHeadTag\ClearCustomMeta.aspx.designer.cs">
+      <DependentUpon>ClearCustomMeta.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\AddElementToHeadTag\SetMeta.aspx.cs">
+      <DependentUpon>SetMeta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\AddElementToHeadTag\SetMeta.aspx.designer.cs">
+      <DependentUpon>SetMeta.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d88422eb-b363-4517-86ed-eab138011df4}</SharePointProjectItemId>
+    </None>
+    <None Include="CONTROLTEMPLATES\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{76cfef14-3b75-4fe6-a0a1-b004c1b5e902}</SharePointProjectItemId>
+    </None>
+    <None Include="Documentation\ReadMe_files\themedata.thmx" />
+    <None Include="Features\SetElementInHeadTag\SetElementInHeadTag.feature">
+      <FeatureId>{dcb69ad1-4b5b-456c-81bf-1fe7c3322341}</FeatureId>
+    </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0f016acc-2372-4cc7-8596-0e69d644b919}</SharePointProjectItemId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{24dfc4e9-e89c-4f32-9c29-5528ca2d1b16}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{cae6524f-94cf-42d7-8772-68570714c738}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="SiteSettingsPageLinks\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3110a3f0-2c16-4efa-ab92-08d9d3e43de5}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Controls\Elements.xml" />
+    <Content Include="CONTROLTEMPLATES\AddElementToHeadTag\HeadInTag.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Documentation\ReadMe.htm" />
+    <Content Include="Documentation\ReadMe_files\colorschememapping.xml" />
+    <Content Include="Documentation\ReadMe_files\filelist.xml" />
+    <Content Include="Features\SetElementInHeadTag\SetElementInHeadTag.Template.xml">
+      <DependentUpon>SetElementInHeadTag.feature</DependentUpon>
+    </Content>
+    <Content Include="Images\AddElementToHeadTag\FeatureIcon.gif" />
+    <Content Include="Images\AddElementToHeadTag\SectionIcon.gif" />
+    <Content Include="Layouts\AddElementToHeadTag\ClearCustomMeta.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\AddElementToHeadTag\SetMeta.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="SiteSettingsPageLinks\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
+</Project>
