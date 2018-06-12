@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/0aac1760-b513-488a-ba57-e31d9413a075Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to use Windows Azure ACS to authenticate in WPF application</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to use Windows Azure ACS to authenticate in WPF application</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure, Access Control Service (ACS)
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Azure
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">10/15/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-use-Windows-Azure-4990163e">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span lang="EN-US">Use Windows Azure Access Control Service with WPF and WCF web service (VBAzureACSAuthInWPF)</span></h1>
+<h2><span lang="EN-US">Introduction</span></h2>
+<p class="MsoNormal"><span lang="EN-US">Windows Azure Access Control Service integrates WIF, so ASP.NET developers can easily create Claims-Aware Application by Identity and Access extension. But for C/S application, developers can't add STS reference to
+ their client, it's harder to use ACS with client application and web service.</span></p>
+<p class="MsoNormal"><span lang="EN-US">This article and the attached code samples demonstrate how to use Azure ACS work with third part Identity provider such as google, yahoo. You can find the answers for all the following questions in the code sample:</span></p>
+<p class="MsoNormal"><a name="OLE_LINK3"></a><a name="OLE_LINK2"><span style=""><span lang="EN-US" style="">How to use third part IDP such as google, yahoo in WPF.
+</span></span></a></p>
+<p class="MsoNormal"><span style=""><span style=""><span lang="EN-US">How to get RP's claims information in WPF client
+<span style="">app. </span></span></span></span></p>
+<p class="MsoNormal"><span style=""><span style=""><span lang="EN-US">How to desterilize security token provided by google or yahoo.</span></span></span></p>
+<p class="MsoNormal"><span style=""><span style=""><span lang="EN-US">How to secure a web service using Windows Azure ACS.</span></span></span></p>
+<p class="MsoNormal"><span style=""><span style=""><span lang="EN-US">How to verify SWT issued by the specific realm in Windows Azure ACS.</span></span></span></p>
+<h2><span lang="EN-US">Running the Sample</span></h2>
+<p class="Normal"><span lang="EN-US">You should do the steps below before running the code sample.</span></p>
+<p class="Normal"><span lang="EN-US">Step 1: To configure the REST web service as a relying party</span></p>
+<p style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:21.75pt; margin-bottom:.0001pt; text-indent:-17.8pt; line-height:200%; background:white">
+<span lang="EN-US" style="font-size:11.0pt; line-height:200%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; color:#2A2A2A"><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="font-size:11.0pt; line-height:200%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; color:#2A2A2A">Go to the<span class="apple-converted-space">&nbsp;</span><a href="http://go.microsoft.com/fwlink/p/?LinkID=275081"><span style="color:#03697A">Windows
+ Azure Management Portal</span></a>, sign in, and then click<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Active Directory</span></strong>.
+</span></p>
+<p style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:21.75pt; margin-bottom:.0001pt; text-indent:-17.8pt; line-height:200%; background:white">
+<span lang="EN-US" style="font-size:11.0pt; line-height:200%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; color:#2A2A2A"><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="font-size:11.0pt; line-height:200%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; color:#2A2A2A">To manage an Access Control namespace, select the namespace, and then click<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Manage</span></strong>.
+ (Or, click<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Access Control Namespaces</span></strong>, select the namespace, and then click<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Manage</span></strong>.)
+</span></p>
+<p style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:21.75pt; margin-bottom:.0001pt; text-indent:-17.8pt; line-height:200%; background:white">
+<span lang="EN-US" style="font-size:11.0pt; line-height:200%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; color:#2A2A2A"><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="font-size:11.0pt; line-height:200%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; color:#2A2A2A">In the<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Trust Relationships</span></strong><span class="apple-converted-space">&nbsp;</span>section,
+ click<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Relying Party Applications</span></strong>.
+</span></p>
+<p style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:21.75pt; margin-bottom:.0001pt; text-indent:-17.8pt; line-height:200%; background:white">
+<span lang="EN-US" style="font-size:11.0pt; line-height:200%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; color:#2A2A2A"><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="font-size:11.0pt; line-height:200%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; color:#2A2A2A">On the<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Relying Party
+ Applications</span></strong><span class="apple-converted-space">&nbsp;</span>page, click<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Add link</span></strong>. The<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Add
+ Relying Party Application </span></strong>page opens. </span></p>
+<p style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:21.75pt; margin-bottom:.0001pt; text-indent:-17.8pt; background:white">
+<span lang="EN-US" style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; color:#2A2A2A"><span style="">5.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; color:#2A2A2A">In the<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Relying Party Application Settings</span></strong><span class="apple-converted-space">&nbsp;</span>section,
+ make the following selections: </span></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Name</span></strong><span lang="EN-US" style="">—Specify a display name for this relying party, for example,<span class="apple-converted-space">&nbsp;</span></span><span lang="EN-US">VBAzureACSAuthInWPF</span><span lang="EN-US" style="">.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Mode</span></strong><span lang="EN-US" style="">—Select the<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Enter
+ settings manually</span></strong><span class="apple-converted-space">&nbsp;</span>option.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<strong><span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;; font-weight:normal"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span></strong><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Realm</span></strong><span lang="EN-US" style="">—Specify the realm of your WCF service, for example,<span class="apple-converted-space">&nbsp;</span></span><span lang="EN-US" style="background:white"><a href="http://localhost:12526/RESTUserService.svc">http://localhost:12526/RESTUserService.svc</a></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">.
+</span></strong><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal"></span></strong></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Return URL</span></strong><span lang="EN-US" style="">—Leave blank.</span></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Error URL</span></strong><span lang="EN-US" style="">—Leave blank.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Token format</span></strong><span lang="EN-US" style="">—Select the<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">SWT</span></strong><span class="apple-converted-space">&nbsp;</span>option.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Token lifetime (secs)</span></strong><span lang="EN-US" style="">—Leave the default of 600 seconds.
+</span></p>
+<p style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:21.75pt; margin-bottom:.0001pt; text-indent:-17.8pt; background:white">
+<span lang="EN-US" style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">6.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">In the<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Authentication Settings</span></strong><span class="apple-converted-space">&nbsp;</span>section,
+ make the following selections: </span></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Identity providers</span></strong><span lang="EN-US" style="">—checke google and yahoo.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Rule groups</span></strong><span lang="EN-US" style="">—Select the<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Create
+ New Rule Group</span></strong><span class="apple-converted-space">&nbsp;</span>option.
+</span></p>
+<p style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:21.75pt; margin-bottom:.0001pt; text-indent:-17.8pt; background:white">
+<span lang="EN-US" style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">7.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">In the<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Token Signing Settings</span></strong><span class="apple-converted-space">&nbsp;</span>section,
+ make the following selections: </span></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Token signing</span></strong><span lang="EN-US" style="">—Select the<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Use
+ a dedicated certificate</span></strong><span class="apple-converted-space">&nbsp;</span>option.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Token signing key</span></strong><span lang="EN-US" style="">—To generate 256–bit symmetric key, click<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Generate</span></strong>.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Effective date</span></strong><span lang="EN-US" style="">—specify the key's effective date.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:12.0pt; margin-left:21.95pt; text-indent:5.0pt; line-height:normal; background:white">
+<span lang="EN-US" style="font-size:10.0pt; font-family:&quot;Courier New&quot;"><span style="">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;
+</span></span></span><strong><span lang="EN-US" style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Expiration date</span></strong><span lang="EN-US" style="">—specify the key's expiration date.
+</span></p>
+<p style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:21.75pt; margin-bottom:.0001pt; text-indent:-17.8pt; background:white">
+<span lang="EN-US" style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="">8.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US" style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Click<span class="apple-converted-space">&nbsp;</span><strong><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Save</span></strong>.
+</span></p>
+<p style=""><span lang="EN-US" style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">Saving your project will also trigger the creation of a rule group. Now you need to add rules in the rule group.
+</span></p>
+<p style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:22.0pt; margin-bottom:.0001pt; background:white">
+<span lang="EN-US" style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"></span></p>
+<p class="Normal" style="line-height:normal"><span lang="EN-US">Step 2: Change parameters to your own in below files.</span></p>
+<p class="Normal" style="margin-left:36.0pt; text-indent:5.0pt; line-height:normal">
+<span lang="EN-US" style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">VBAzureACSAuthInWPF\ Application.xaml.vb file.</span></p>
+<p class="Normal" style="margin-left:36.0pt; text-indent:5.0pt; line-height:normal">
+<span lang="EN-US" style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">SecurityModule\ SWTModule.vb.</span></p>
+<h2><span lang="EN-US">Using the Code</span></h2>
+<p class="MsoNormal"><span lang="EN-US">The code sample provides the following functions to resolve the questions above.
+</span></p>
+<h3><span lang="EN-US">How to use third part IDP such as google, yahoo in WPF.</span></h3>
+<p class="Normal" style=""><span lang="EN-US"></span></p>
+<p class="Normal" style=""><span lang="EN-US"></span></p>
+<p class="Normal" style=""><span lang="EN-US"></span></p>
+<p class="Normal" style=""><span lang="EN-US"></span></p>
+<p class="MsoNormal" style=""><span lang="EN-US"><a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh289317.aspx">http://msdn.microsoft.com/en-us/library/windowsazure/hh289317.aspx</a></span></p>
+<p class="MsoNormal" style=""><span lang="EN-US"></span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/6b4cf5bf-9f01-459f-b9ba-42bff79b68c6image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
