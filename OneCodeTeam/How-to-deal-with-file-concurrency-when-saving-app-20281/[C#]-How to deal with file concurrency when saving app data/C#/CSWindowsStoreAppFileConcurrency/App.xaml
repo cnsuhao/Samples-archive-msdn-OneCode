@@ -1,0 +1,49 @@
+﻿<Application
+    x:Class="CSWindowsStoreAppFileConcurrency.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CSWindowsStoreAppFileConcurrency"
+    RequestedTheme="Light">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- 
+                    Styles that define common aspects of the platform look and feel
+                    Required by Visual Studio project and item templates
+                 -->
+                <ResourceDictionary Source="Common/StandardStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <x:String x:Key="AppLogo">Windows Store Code Samples by All-In-One Code Framework</x:String>
+            <x:String x:Key="AppName">Windows Store app: Deal with the file concurrency when save app data</x:String>
+            <x:String x:Key="AppDescription">
+                This sample demonstrates how to deal with the file concurrency when save app data. Please input some data in the TextBox and click 'Save' button to save it, the 'Save' button will not be enabled, this is to prevent reentrancy. The thread will delay 3 seconds, then you will find clicking 'Load' button doesn't read the data to the TextBlock, after the 3 seconds passed, the TextBlock will display the data. You can see that only one thread can access the file.
+            </x:String>
+
+            <Style x:Key="AppHeaderStyle" TargetType="TextBlock" BasedOn="{StaticResource HeaderTextStyle}">
+                <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                <Setter Property="Margin" Value="0,10,0,10"></Setter>
+            </Style>
+
+            <Style x:Key="AppLogoStyle" TargetType="TextBlock" BasedOn="{StaticResource TitleTextStyle}">
+                <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            </Style>
+
+            <Style x:Key="AppDescriptionStyle" TargetType="TextBlock" BasedOn="{StaticResource SubheaderTextStyle}">
+                <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                <Setter Property="Margin" Value="0,10,0,10"></Setter>
+            </Style>
+
+            <Style x:Key="AppBodyTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BodyTextStyle}">
+                <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            </Style>
+
+            <Style x:Key="AppFooterStyle" TargetType="TextBlock" BasedOn="{StaticResource CaptionTextStyle}">
+                <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            </Style>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
