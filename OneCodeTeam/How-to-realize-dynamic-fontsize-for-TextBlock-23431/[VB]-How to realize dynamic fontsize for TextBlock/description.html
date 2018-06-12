@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/fd0873a3-9a67-441e-9769-e22026a86740Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to realize dynamic fontsize for TextBlock</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to realize dynamic fontsize for TextBlock</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows, Windows 8, Windows Store app Development
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            TextBlock, windows8
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/25/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-realize-dynamic-8aa39edb">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">How to set dynamic FontSize for TextBlock (VBWindowsStoreAppDynamicFontsize)
+</span></h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">This sample demonstrates how to set dynamic FontSize for a fixed size TextBlock, so that no matter how long the content is, it will be displayed in the TextBlock completely without ScrollBar.</p>
+<h2>Building the Sample</h2>
+<p class="MsoNormal"></p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Start Visual Studio Express&nbsp;2012 for Windows&nbsp;8 and select&nbsp;File&nbsp;&gt;&nbsp;Open&nbsp;&gt;&nbsp;Project/Solution.</p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Go to the directory in which you unzipped the sample. Go to the directory named for the sample, and double-click the Visual Studio Express&nbsp;2012 for Windows&nbsp;8 Solution (.sln) file.</p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Press F6 or use&nbsp;Build&nbsp;&gt;&nbsp;Build Solution&nbsp;to build the sample.</p>
+<p class="MsoListParagraphCxSpLast"></p>
+<h2>Running the Sample</h2>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>After launching the sample, this screen will display.</p>
+<p class="MsoListParagraphCxSpMiddle"><span style=""><img src="description/image.png" alt="" width="576" height="328" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle"></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>You can enter any text in the left TextBox, when the content is too long, that the right TextBlock couldn't display all of them without ScrollBar, you will find the FontSize will automatically change, all of the content will be displayed
+ in it without ScrollBar.</p>
+<p class="MsoListParagraphCxSpLast"><span style=""><img src="description/519e237d-2f38-434e-a02b-53dea61ea79eimage.png" alt="" width="576" height="326" align="middle">
+</span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">The code below shows how to set FontSize dynamically in SizeChanged event.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Sub TextBlock_SizeChanged(sender As Object, e As SizeChangedEventArgs)
+    Dim contentTextBlock As TextBlock = TryCast(sender, TextBlock)
+    If contentTextBlock IsNot Nothing Then
+        Dim height As Double = contentTextBlock.Height
+        If Me.ContentTextBlock.ActualHeight &gt; height Then
+            ' Get how many times the TextBlock's height compares with the existing one
+            Dim fontsizeMultiplier As Double = Math.Sqrt(height / Me.ContentTextBlock.ActualHeight)
+
+
+            ' Set the new FontSize
+            Me.ContentTextBlock.FontSize = Math.Floor(Me.ContentTextBlock.FontSize * fontsizeMultiplier)
+        End If
+        Me.ContentTextBlock.Height = height
+    End If
+End Sub
+
+
+' When user delete some text, TextBlock_SizeChanged event will not raised.
+' In this scenario, we should manually raise it.
+Private Sub ContextText_TextChanged(sender As Object, e As TextChangedEventArgs)
+    If previousTextLength &gt; Me.ContentTextBox.Text.Length Then
+        ' By doing this, TextBlock_SizeChanged event may be fired.
+        Me.ContentTextBlock.FontSize = originalFontSize
+    End If
+    previousTextLength = Me.ContentTextBox.Text.Length
+End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Sub TextBlock_SizeChanged(sender As Object, e As SizeChangedEventArgs)
+    Dim contentTextBlock As TextBlock = TryCast(sender, TextBlock)
+    If contentTextBlock IsNot Nothing Then
+        Dim height As Double = contentTextBlock.Height
+        If Me.ContentTextBlock.ActualHeight &gt; height Then
+            ' Get how many times the TextBlock's height compares with the existing one
+            Dim fontsizeMultiplier As Double = Math.Sqrt(height / Me.ContentTextBlock.ActualHeight)
+
+
+            ' Set the new FontSize
+            Me.ContentTextBlock.FontSize = Math.Floor(Me.ContentTextBlock.FontSize * fontsizeMultiplier)
+        End If
+        Me.ContentTextBlock.Height = height
+    End If
+End Sub
+
+
+' When user delete some text, TextBlock_SizeChanged event will not raised.
+' In this scenario, we should manually raise it.
+Private Sub ContextText_TextChanged(sender As Object, e As TextChangedEventArgs)
+    If previousTextLength &gt; Me.ContentTextBox.Text.Length Then
+        ' By doing this, TextBlock_SizeChanged event may be fired.
+        Me.ContentTextBlock.FontSize = originalFontSize
+    End If
+    previousTextLength = Me.ContentTextBox.Text.Length
+End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"></p>
+<h2>More Information</h2>
+<p class="MsoNormal"><span class="SpellE">FrameworkElement.SizeChanged</span> Event</p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.frameworkelement.sizechanged">http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.frameworkelement.sizechanged</a></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/8ceaf4b9-39f1-47dc-ae5e-ffbff5b81e5fimage.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
