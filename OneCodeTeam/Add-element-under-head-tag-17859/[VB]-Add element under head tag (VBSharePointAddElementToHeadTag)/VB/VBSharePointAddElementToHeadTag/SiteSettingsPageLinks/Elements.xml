@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+
+    <CustomActionGroup
+      Id="CustomAdministration"
+      Location="Microsoft.SharePoint.SiteSettings"
+      Title="Custom Site Administration"
+      Sequence="61"
+      Description=""
+      ImageUrl="/_layouts/images/AddElementToHeadTag/SectionIcon.gif" />
+
+    <CustomAction
+        Id="CustomSetMeta"
+        GroupId="CustomAdministration"
+        Location="Microsoft.SharePoint.SiteSettings"
+        Rights="ManageWeb"
+        Sequence="2"
+        Title="Set Custom Meta"
+        Description="Use this page to configure the meta" >
+        <UrlAction Url="~site/_layouts/AddElementToHeadTag/SetMeta.aspx" />
+    </CustomAction>
+
+    <CustomAction
+       Id="ClearCustomSetMeta"
+       GroupId="CustomAdministration"
+       Location="Microsoft.SharePoint.SiteSettings"
+       Rights="ManageWeb"
+       Sequence="2"
+       Title="Clear Custom Meta"
+       Description="Use this page to Clear the custom meta" >
+        <UrlAction Url="~site/_layouts/AddElementToHeadTag/ClearCustomMeta.aspx" />
+    </CustomAction>
+
+</Elements>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="1d6151e2-9372-4702-8ec3-dcc04ebf0cd5" solutionId="1d6151e2-9372-4702-8ec3-dcc04ebf0cd5" resetWebServer="false" name="VBSharePointAddElementToHeadTag" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="7f42a2fb-42b3-4dd2-b944-4b42ad0f9510" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="751aa1eb-319d-46d2-87e0-0bce558ebc93" />
+    <projectItemReference itemId="ccfc599d-b33c-45a7-86dd-564c08094ec8" />
+    <projectItemReference itemId="289b4681-13ff-464e-8f1f-652a9bbf6f72" />
+  </projectItems>
+</package>
