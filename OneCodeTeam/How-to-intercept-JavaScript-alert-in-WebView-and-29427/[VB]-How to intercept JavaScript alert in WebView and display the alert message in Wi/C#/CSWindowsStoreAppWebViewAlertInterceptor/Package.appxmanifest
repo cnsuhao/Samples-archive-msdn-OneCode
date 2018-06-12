@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="c35c2b35-7182-4e2d-b047-22456e6ba268" Publisher="CN=All-In-One Code Framework" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>CSWindowsStoreAppWebViewAlertInterceptor</DisplayName>
+    <PublisherDisplayName>All-In-One Code Framework</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="CSWindowsStoreAppWebViewAlertInterceptor.App">
+      <m2:VisualElements DisplayName="CSWindowsStoreAppWebViewAlertInterceptor" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="CSWindowsStoreAppWebViewAlertInterceptor" ForegroundText="light" BackgroundColor="#464646">
+        <m2:DefaultTile Wide310x150Logo="Assets\WideLogo.png">
+        </m2:DefaultTile>
+        <m2:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#DB552D" />
+      </m2:VisualElements>
+      <ApplicationContentUriRules>
+        <Rule Match="https://msmall6.northamerica.corp.microsoft.com/index.html" Type="include" />
+        <Rule Match="https://msma116.northamerica.corp.microsoft.com/index.html" Type="include" />
+      </ApplicationContentUriRules>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

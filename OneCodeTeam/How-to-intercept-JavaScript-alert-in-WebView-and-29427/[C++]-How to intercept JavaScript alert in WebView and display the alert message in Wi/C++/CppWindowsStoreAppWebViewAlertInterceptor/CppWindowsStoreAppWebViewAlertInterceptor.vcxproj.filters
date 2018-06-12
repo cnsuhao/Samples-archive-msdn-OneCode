@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>d14db7c6-41ca-4d37-8a73-ee8eb5ed79b6</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>99bc2b29-beae-4e5f-bffb-02d7f2dbce91</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+    <Image Include="Assets\Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Filter Include="Assets\contrast-black">
+      <UniqueIdentifier>{5d687ace-9f88-4ddb-baad-e1f55c52a1f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\contrast-white">
+      <UniqueIdentifier>{36864e5e-54b6-4ef1-afe6-01debcb13744}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="MainPage.xaml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CppWindowsStoreAppWebViewAlertInterceptor_TemporaryKey.pfx" />
+    <None Include="scriptNotify_example.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml" />
+    <Page Include="Common\StandardStyles.xaml">
+      <Filter>Common</Filter>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Microsoft.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\WideLogo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\contrast-black\Logo.png">
+      <Filter>Assets\contrast-black</Filter>
+    </Image>
+    <Image Include="Assets\contrast-black\SmallLogo.png">
+      <Filter>Assets\contrast-black</Filter>
+    </Image>
+    <Image Include="Assets\contrast-black\SplashScreen.png">
+      <Filter>Assets\contrast-black</Filter>
+    </Image>
+    <Image Include="Assets\contrast-black\StoreLogo.png">
+      <Filter>Assets\contrast-black</Filter>
+    </Image>
+    <Image Include="Assets\contrast-black\WideLogo.png">
+      <Filter>Assets\contrast-black</Filter>
+    </Image>
+    <Image Include="Assets\contrast-white\Logo.png">
+      <Filter>Assets\contrast-white</Filter>
+    </Image>
+    <Image Include="Assets\contrast-white\SmallLogo.png">
+      <Filter>Assets\contrast-white</Filter>
+    </Image>
+    <Image Include="Assets\contrast-white\SplashScreen.png">
+      <Filter>Assets\contrast-white</Filter>
+    </Image>
+    <Image Include="Assets\contrast-white\StoreLogo.png">
+      <Filter>Assets\contrast-white</Filter>
+    </Image>
+    <Image Include="Assets\contrast-white\WideLogo.png">
+      <Filter>Assets\contrast-white</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
