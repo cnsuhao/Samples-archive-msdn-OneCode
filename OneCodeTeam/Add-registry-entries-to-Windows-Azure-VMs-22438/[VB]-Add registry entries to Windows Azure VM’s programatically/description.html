@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/04f9c26e-88fd-4dfd-b715-9733d17420b6Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Add registry entries to Windows Azure VM’s programatically</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Add registry entries to Windows Azure VM’s programatically</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Registry, VM
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/5/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Add-registry-entries-to-a9364fcf">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p class="MsoNormal" style="line-height:13.0pt; background:white"><span lang="EN">One of the common asks from developers is the ability to write to registry in Windows Azure. Startup tasks in Windows Azure can help you write to registry.<span>&nbsp;
+</span>This sample code will add the registry keys to Azure VM's. </span></p>
+<p class="MsoNormal" style="text-autospace:none"><span style="color:black">This sample can be run as-is without making any changes to it.
+</span></p>
+<p class="MsoNormal" style="margin-left:36.0pt; text-indent:5.0pt; text-autospace:none">
+<span style="color:black"><span>1)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="color:black">Open the sample on the machine where VS 2010, Windows Azure SDK are installed.</span><span style="color:black">
+</span></p>
+<p class="MsoNormal" style="margin-left:36.0pt; text-indent:5.0pt; text-autospace:none">
+<span style="color:black"><span>2)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="color:black">Right click on the cloud service project i.e.
+<span class="SpellE">VBAzureAddRegistryKeysToVMs</span> and choose Publish. </span>
+</p>
+<p class="MsoNormal" style="margin-left:36.0pt; text-indent:5.0pt; text-autospace:none">
+<span style="color:black"><span>3)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="color:black">Follow the steps in publish Wizard and choose subscription details, deployment slots, etc. and enable remote desktop for all roles.
+</span></p>
+<p class="MsoNormal" style="margin-left:36.0pt; text-indent:5.0pt; text-autospace:none">
+<span style="color:black"><span>4)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="color:black">After successful publish, login to Azure VM and verify that 3 registry keys(One for string, One for binary value, One for DWORD value) are created under
+</span><span lang="EN" style="color:black">HKEY_LOCAL_MACHINE\System\Test\Test1</span><span style="color:black">
+</span></p>
+<p class="MsoListParagraph" style="text-indent:5.0pt; background:white"><span style="font-size:10.0pt; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;"><span>1)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN">Create sample.reg file with required registry entries. For testing purposes, I'm using sample.reg file with below entries</span>.
+<span>In real world scenarios, you can create the registry file simply by exporting the section of registry settings you would like to add to Azure VM's.
+</span></p>
+<p class="MsoNormal" style="margin-left:36.0pt; background:white"><span lang="EN"><span>This sample file adds values settings named &quot;New Binary Setting&quot;, &quot;New DWORD Setting&quot;, &quot;New String Setting&quot; and configures with above specified values</span>.
+</span></p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:5.0pt; background:white">
+<span style="font-size:10.0pt; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;"><span>2)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN">Add the sample.reg file to web role / worker role project as required.</span><span style="font-size:12.0pt; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:5.0pt; background:white">
+<span style="font-size:10.0pt; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;"><span>3)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN">Configure below file properties for sample.reg file , so that it will be copied to bin directory.</span></p>
+<p class="MsoNormal" style="margin-left:36.0pt; background:white"><span lang="EN" style="color:black"><span><span>Build Action : Content</span></span></span><span lang="EN">
+</span></p>
+<p class="MsoNormal" style="margin-top:0cm; margin-right:0cm; margin-bottom:5.0pt; margin-left:36.0pt; background:white">
+<span lang="EN" style="color:black"><span><span>Copy To Output Directory : Copy Always</span></span></span><span lang="EN">
+</span></p>
+<p class="MsoListParagraph" style="text-indent:5.0pt; background:white"><span style="font-size:10.0pt; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;"><span>4)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN">Create addreg.cmd file with below code.</span><span style="font-size:12.0pt; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+</span></p>
+<p class="MsoNormal" style="margin-left:36.0pt; background:white"><span lang="EN"><span>regedit</span> /s sample.reg
+<br>
+exit /b 0</span></p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:5.0pt; background:white">
+<span style="font-size:10.0pt; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;"><span>5)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN">Add the addreg.cmd file to Web Role / Worker role as required.</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:5.0pt; background:white">
+<span style="font-size:10.0pt; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;"><span>6)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN">Configure below file properties for addreg.cmd file, so that it will be copied to bin directory.</span></p>
+<p class="MsoNormal" style="margin-left:36.0pt; background:white"><span lang="EN" style="color:black"><span><span>Build Action : Content</span></span></span><span lang="EN">
+</span></p>
+<p class="MsoNormal" style="margin-top:0cm; margin-right:0cm; margin-bottom:5.0pt; margin-left:36.0pt; background:white">
+<span lang="EN" style="color:black"><span><span>Copy To Output Directory : Copy Always</span></span></span><span lang="EN">
+</span></p>
+<p class="MsoListParagraph" style="text-indent:5.0pt; background:white"><span style="font-size:10.0pt; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;"><span>7)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN">Finally, define startup task in ServiceDefinition.csdef file by adding following block of configuration under &lt;Webrole&gt; / &lt;WorkerRole&gt; tag</span><span style="font-size:12.0pt; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xml</span>
+<pre class="hidden">&lt;Startup&gt;  
+  &lt;Task commandLine=&quot;addreg.cmd&quot; executionContext=&quot;elevated&quot; taskType=&quot;simple&quot;&gt;  &lt;/Task&gt;  
+&lt;/Startup&gt; 
+
+</pre>
+<pre id="codePreview" class="xml">&lt;Startup&gt;  
+  &lt;Task commandLine=&quot;addreg.cmd&quot; executionContext=&quot;elevated&quot; taskType=&quot;simple&quot;&gt;  &lt;/Task&gt;  
+&lt;/Startup&gt; 
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style="background:white"><span style="font-size:12.0pt; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:5.0pt; background:white">
+<span style="font-size:10.0pt; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;"><span>8)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN">Deploy the application to cloud and you should have &quot;New Binary Setting&quot;, &quot;New DWORD Setting&quot;, &quot;New String Setting&quot; under HKEY_LOCAL_MACHINE\System\Test\Test1 path.</span></p>
+<p class="MsoNormal" style="background:white"><span style="font-size:12.0pt; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+<p class="MsoNormal"><span lang="EN"><a href="http://en.wikipedia.org/wiki/.reg">Below articles gives you additional details regarding adding, modifying, deleting registry sub keys, .<span class="SpellE">reg</span> file syntax</a>
+</span><span>&nbsp;</span></p>
+<p class="MsoNormal" style="background:white"><span lang="EN" style="color:black"><a href="http://support.microsoft.com/kb/310516">How to add, modify, or delete registry
+<span class="SpellE">subkeys</span> and values by using a registration entries (.<span class="SpellE">reg</span>) file</a>
+</span></p>
+<p class="MsoNormal" style="background:white"><span lang="EN">Note: If you want to verify that settings are added properly, enable remote desktop connection and connect to VM to verify the settings. Below article can help you enable remote desktop option
+ to your Windows Azure VM's</span></p>
+<p class="MsoNormal" style="background:white"><span lang="EN" style="color:black"><span><a href="http://blogs.msdn.com/b/narahari/archive/2010/12/01/how-to-connect-to-vm-on-windows-azure.aspx"><span>How to connect to VM using Remote
+<span class="GramE">Desktop(</span>RDP) on Windows Azure (Cloud)</span></a></span><span lang="EN">
+</span></span></p>
+<p class="MsoNormal">&nbsp;</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/f0f7f29e-23d4-412b-b4b8-6ee5d2b4cf54image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
