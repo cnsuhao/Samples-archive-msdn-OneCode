@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>C++ app uses ADO to access database (CppUseADO)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>C++ app uses ADO to access database (CppUseADO)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ADO
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Data Platform
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/1/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CppUseADO-0e6e225e">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="font-family:������">CONSOLE APPLICATION</span> (<span style="font-family:������">CppUseADO</span>)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">The CppUseADO sample demonstrates the Microsoft ActiveX Data Objects (ADO) technology to access databases using #import and Visual C&#43;&#43;. It shows the basic structure of connecting to a data source, issuing SQL commands, using the Recordset
+ object and performing the cleanup.<span style="">&nbsp; </span><span style=""></span></p>
+<h2><span style="">Compiling the sample </span></h2>
+<p class="MsoListParagraph" style=""><b style=""><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><b style=""><span style="">First you need to append data file
+</span></b></p>
+<p class="MsoNormal"><span style=""><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>You just append the *.MDF to your database server.<b style=""> </b></span></p>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><b style=""><span style="">There are two methods to connect to the database</span></b><span style="">
+</span></p>
+<p class="MsoListParagraphCxSpLast" style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:54.0pt; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-family:Symbol"><span style="">��<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Use Integrated security to connect the database</p>
+<p class="MsoNormal" style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:36.0pt; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">You needn��t to config username and password in your database server. Just comment code like this:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+// Define the connection string. (The data source is created in the 
+// sample SQLServer2005DB)
+
+
+// Method 1: Use Integrated security to connect the database. 
+_bstr_t bstrConn(&quot;Provider=SQLOLEDB.1;Integrated Security=SSPI;Data Source=localhost\\SQLEXPRESS;Initial Catalog=SQLServer2005DB;&quot;);
+// Open the connection
+hr = spConn.CreateInstance(__uuidof(ADODB::Connection));
+hr = spConn-&gt;Open(bstrConn, &quot;&quot;,&quot;&quot;, NULL);
+
+
+//// Method 2: Don't use Integrated security connect the database.
+//_bstr_t bstrUserID(&quot;HelloWorld&quot;);
+//_bstr_t bstrPassword(&quot;111111&quot;);
+//_bstr_t bstrConn(&quot;Provider=SQLOLEDB.1;Data Source=localhost\\SQLEXPRESS;Initial Catalog=SQLServer2005DB;&quot;);
+//// Open the connection
+//hr = spConn.CreateInstance(__uuidof(ADODB::Connection));
+//hr = spConn-&gt;Open(bstrConn, bstrUserID, bstrPassword, NULL);
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+// Define the connection string. (The data source is created in the 
+// sample SQLServer2005DB)
+
+
+// Method 1: Use Integrated security to connect the database. 
+_bstr_t bstrConn(&quot;Provider=SQLOLEDB.1;Integrated Security=SSPI;Data Source=localhost\\SQLEXPRESS;Initial Catalog=SQLServer2005DB;&quot;);
+// Open the connection
+hr = spConn.CreateInstance(__uuidof(ADODB::Connection));
+hr = spConn-&gt;Open(bstrConn, &quot;&quot;,&quot;&quot;, NULL);
+
+
+//// Method 2: Don't use Integrated security connect the database.
+//_bstr_t bstrUserID(&quot;HelloWorld&quot;);
+//_bstr_t bstrPassword(&quot;111111&quot;);
+//_bstr_t bstrConn(&quot;Provider=SQLOLEDB.1;Data Source=localhost\\SQLEXPRESS;Initial Catalog=SQLServer2005DB;&quot;);
+//// Open the connection
+//hr = spConn.CreateInstance(__uuidof(ADODB::Connection));
+//hr = spConn-&gt;Open(bstrConn, bstrUserID, bstrPassword, NULL);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:36.0pt; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><span style="">&nbsp;</span> </span></p>
+<p class="MsoListParagraph" style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:54.0pt; margin-bottom:.0001pt; text-indent:-18.0pt; line-height:normal; text-autospace:none">
+<span style="font-family:Symbol"><span style="">��<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Use username and password to connect the database</p>
+<p class="MsoNormal" style="margin-top:0cm; margin-right:0cm; margin-bottom:0cm; margin-left:36.0pt; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">You need to add a new user<span class="GramE"> ��</span>HelloWord�� and set the password as ��111111�� in your database server. Then comment code like this:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+//// Method 1: Use Integrated security to connect the database. 
+//_bstr_t bstrConn(&quot;Provider=SQLOLEDB.1;Integrated Security=SSPI;Data Source=localhost\\SQLEXPRESS;Initial Catalog=SQLServer2005DB;&quot;);
+//// Open the connection
+//hr = spConn.CreateInstance(__uuidof(ADODB::Connection));
+//hr = spConn-&gt;Open(bstrConn, &quot;&quot;,&quot;&quot;, NULL);
+
+
+// Method 2: Don't use Integrated security connect the database.
+_bstr_t bstrUserID(&quot;HelloWorld&quot;);
+_bstr_t bstrPassword(&quot;111111&quot;);
+_bstr_t bstrConn(&quot;Provider=SQLOLEDB.1;Data Source=localhost\\SQLEXPRESS;Initial Catalog=SQLServer2005DB;&quot;);
+// Open the connection
+hr = spConn.CreateInstance(__uuidof(ADODB::Connection));
+hr = spConn-&gt;Open(bstrConn, bstrUserID, bstrPassword, NULL);
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+//// Method 1: Use Integrated security to connect the database. 
+//_bstr_t bstrConn(&quot;Provider=SQLOLEDB.1;Integrated Security=SSPI;Data Source=localhost\\SQLEXPRESS;Initial Catalog=SQLServer2005DB;&quot;);
+//// Open the connection
+//hr = spConn.CreateInstance(__uuidof(ADODB::Connection));
+//hr = spConn-&gt;Open(bstrConn, &quot;&quot;,&quot;&quot;, NULL);
+
+
+// Method 2: Don't use Integrated security connect the database.
+_bstr_t bstrUserID(&quot;HelloWorld&quot;);
+_bstr_t bstrPassword(&quot;111111&quot;);
+_bstr_t bstrConn(&quot;Provider=SQLOLEDB.1;Data Source=localhost\\SQLEXPRESS;Initial Catalog=SQLServer2005DB;&quot;);
+// Open the connection
+hr = spConn.CreateInstance(__uuidof(ADODB::Connection));
+hr = spConn-&gt;Open(bstrConn, bstrUserID, bstrPassword, NULL);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="576" height="376" align="middle">
+</span></p>
+<h2>Using the Code</h2>
+<h2><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">1. Connect to the data source. (ADODB::Connection15::Open)
+</span></h2>
+<h2><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">2. Build and execute an ADO command. (ADODB::Command15::Execute)
+</span></h2>
+<h2><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">The command can be a SQL statement (SELECT/UPDATE/INSERT/DELETE), or a stored</span><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">
+</span><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">procedure call.
+</span></h2>
+<h2><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">3. Use the Recordset object. (ADODB::Recordset15::Open / MoveFirst / MoveNext / Fields / Update / UpdateBatch)
+</span></h2>
+<h2><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">Recordset represents the entire set of records from a base table or the results of an executed command. It facilitates the enumeration, insertion, update,
+ deletion of records. At any time, the Recordset object refers to only a single record within the set as the current record.
+</span></h2>
+<h2><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">4. Clean up objects before exit. (ADODB::Recordset15::Close, ADODB::Connection15::Close)
+</span></h2>
+<h2>More Information<span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">
+</span></h2>
+<a href="http://support.microsoft.com/kb/229088">SAMPLE: Vcspnp.exe Demonstrates Passing SQL NULL Parameters and Reading NULL Values with ADO</a>
+<a href="http://www.w3schools.com/ADO/ado_datatypes.asp">ADO Data Types<span style="">
+</span>(The table below shows the ADO Data Type mapping between Access, SQL Server)</a>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
