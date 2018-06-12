@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Diagnose stack overflow in Win32 app (CppStackOverflow)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Diagnose stack overflow in Win32 app (CppStackOverflow)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Diagnostics
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Stack Overflow
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CppStackOverflow-30c558bf">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>CONSOLE APPLICATION : CppStackOverflow Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+CppStackOverflow is designed to show how stack overflow happens in C&#43;&#43; <br>
+applications. When a thread is created, 1MB of virtual memory is reserved for <br>
+use by the thread as a stack. Unlike the heap, it does not expand as needed. <br>
+Its initial size can be changed via /STACK linker switch (See Project <br>
+Property Pages / Linker / System / Stack Reserve Size). When too much memory <br>
+is used on the call stack the stack is said to overflow, typically resulting <br>
+in a program crash. This class of software bug is usually caused by one of <br>
+two types of programming errors: allocation of large stack variable and <br>
+deeply recursive function calls.<br>
+<br>
+</p>
+<h3>Symptoms:</h3>
+<p style="font-family:Courier New"><br>
+The application crashes with the Stack Overflow error.<br>
+<br>
+</p>
+<h3>Causes:</h3>
+<p style="font-family:Courier New"><br>
+There are three possible causes of the Stack Overflow error:<br>
+<br>
+1. A thread uses the entire stack reserved for it. This is often caused by <br>
+deep recursion or allocation of very large stack variable.<br>
+<br>
+2. A thread cannot extend the stack because the page file is maxed out, and <br>
+therefore no additional pages can be committed to extend the stack. <br>
+<br>
+3. A thread cannot extend the stack because the system is within the brief <br>
+period used to extend the page file. <br>
+<br>
+</p>
+<h3>Debugging:</h3>
+<p style="font-family:Courier New"><br>
+A. Visual Studio<br>
+<br>
+Step1. Set a breakpoint (F9) at the end of the StackOverflow() function where <br>
+it is calling StackOverflow() again recursively.<br>
+<br>
+Step2. Press F5 to start debugging.<br>
+<br>
+Step3. Press Ctrl&#43;Alt&#43;M or Click the Memory button in the Debug / Windows <br>
+menu item to bring up the Memory window.<br>
+<br>
+Step4. Type ESP in the Memory window, and press ENTER. &nbsp;Note the block of &nbsp;<br>
+memory on the stack set to zero.<br>
+<br>
+Step5. Press F5 to recursively call StackOverflow. This hits the breakpoint <br>
+again.<br>
+<br>
+Step6. Type ESP in the Memory window, and press ENTER. This time the block of <br>
+memory on the stack was filled with 0x01 bytes. But if you scroll down, the <br>
+block of 0x00 bytes is below. The recursive calls to StackOverflow means that <br>
+the stack space will not get cleaned up until all of the nested functions <br>
+return. In this case, that will never happen.<br>
+<br>
+Step7. Press F5 for several more times. Eventually, you get a stack overflow <br>
+error.<br>
+<br>
+B. Windbg<br>
+<br>
+Step1. See what event caused the debugger to break in:<br>
+<br>
+0:000&gt; .lastevent<br>
+Last event: 2388.2f4c: Stack overflow - code c00000fd (!!! second chance !!!)<br>
+&nbsp;debugger time: Thu Apr &nbsp;2 16:35:59.191 2009 (GMT&#43;8)<br>
+<br>
+Step2 Dump the callstack:<br>
+<br>
+0:000&gt; k<br>
+ChildEBP RetAddr &nbsp;<br>
+0013abd4 00da1453 CppStackOverflow!_chkstk&#43;0x27<br>
+00153370 00da1453 CppStackOverflow!StackOverflow&#43;0x93 <br>
+0016bb0c 00da1453 CppStackOverflow!StackOverflow&#43;0x93 <br>
+001842a8 00da1453 CppStackOverflow!StackOverflow&#43;0x93 <br>
+0019ca44 00da1453 CppStackOverflow!StackOverflow&#43;0x93 <br>
+001b51e0 00da1453 CppStackOverflow!StackOverflow&#43;0x93 <br>
+001cd97c 00da1453 CppStackOverflow!StackOverflow&#43;0x93 <br>
+001e6118 00da1453 CppStackOverflow!StackOverflow&#43;0x93 <br>
+001fe8b4 00da1453 CppStackOverflow!StackOverflow&#43;0x93 <br>
+00217050 00da1453 CppStackOverflow!StackOverflow&#43;0x93 <br>
+0022f7ec 00da1515 CppStackOverflow!StackOverflow&#43;0x93 <br>
+0022f8c4 00da1b18 CppStackOverflow!wmain&#43;0x25 <br>
+0022f914 00da195f CppStackOverflow!__tmainCRTStartup&#43;0x1a8 <br>
+0022f91c 76e04911 CppStackOverflow!wmainCRTStartup&#43;0xf <br>
+0022f928 77d6e4b6 kernel32!BaseThreadInitThunk&#43;0xe<br>
+0022f968 77d6e489 ntdll!__RtlUserThreadStart&#43;0x23<br>
+0022f980 00000000 ntdll!_RtlUserThreadStart&#43;0x1b<br>
+<br>
+Step3. Calculate the approximate size of the current stack:<br>
+<br>
+0:000&gt; ?? (0x0022f980 - @esp)<br>
+unsigned int 0xf4db4<br>
+<br>
+The current size is 0xf4db4 bytes (i.e. 979KB), which is near the limit (1MB).<br>
+<br>
+</p>
+<h3>Detections:</h3>
+<p style="font-family:Courier New"><br>
+1. Detecting stack overflow at compile time.<br>
+<br>
+The VC&#43;&#43; compiler itself is capable of detecting infinite recursion to some <br>
+extent. When the compiler finds such a problem, it throws the following <br>
+warning in the error list.<br>
+<br>
+warning C4717: 'StackOverflow' : recursive on all control paths, function <br>
+will cause runtime stack overflow<br>
+<br>
+If we enable PREfast in the compiler (Project Properties / Code Analysis / <br>
+General node. Change the value of &quot;Enable Code Analysis For C/C&#43;&#43; on Build&quot;
+<br>
+to &quot;Yes (/analyze)&quot;), the compiler will also report the overuse of the stack:<br>
+<br>
+warning C6262: Function uses '100012' bytes of stack: exceeds <br>
+/analyze:stacksize'16384'. Consider moving some data to heap<br>
+<br>
+2. Detecting stack overflow at run-time.<br>
+<br>
+The application directly crashes with the Stack Overflow error at run-time.<br>
+<br>
+</p>
+<h3>Fixes:</h3>
+<p style="font-family:Courier New"><br>
+1. Limit the recursion depth.<br>
+<br>
+2. Keep large allocations on the heap rather than the stack.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+Wiki: Stack overflow<br>
+<a  href="http://en.wikipedia.org/wiki/Stack_overflow">http://en.wikipedia.org/wiki/Stack_overflow</a><br>
+<br>
+Debugging Tools for Windows: Debugging a Stack Overflow<br>
+<a  href="http://msdn.microsoft.com/en-us/library/cc267849.aspx">http://msdn.microsoft.com/en-us/library/cc267849.aspx</a><br>
+<br>
+How to trap stack overflow in a Visual C&#43;&#43; application<br>
+<a  href="http://support.microsoft.com/kb/315937">http://support.microsoft.com/kb/315937</a><br>
+<br>
+MSDN: 6.1.4 Stack Overflow Handling<br>
+<a  href="http://msdn.microsoft.com/en-us/library/aa227159.aspx">http://msdn.microsoft.com/en-us/library/aa227159.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
