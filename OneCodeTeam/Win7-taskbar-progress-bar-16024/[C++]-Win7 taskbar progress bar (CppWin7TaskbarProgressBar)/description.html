@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Win7 taskbar progress bar (CppWin7TaskbarProgressBar)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Win7 taskbar progress bar (CppWin7TaskbarProgressBar)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows 7, Windows SDK
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Windows Shell, Taskbar
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/11/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CppWin7TaskbarProgressBar-6971806c">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">Win7 taskbar progress bar (CppWin7TaskbarProgressbar) </span></h1>
+<h2>Introduction</h2>
+<p class="MsoNormal"><br>
+Windows 7 Taskbar introduces Taskbar Progress Bar, which makes your application can provide contextual status information to the user even if the application's window is not shown. The user doesn't even have to look at the thumbnail or the live preview of your
+ app - the taskbar button itself can reveal whether you have any interesting status updates.<br>
+CppWin7TaskbarProgressBar example demonstrates how to initialize Windows 7 Taskbar list instance, set Taskbar ProgressBar state and progress value using ITaskbarList3 related APIs.</p>
+<h2>Running the Sample<span style=""> </span></h2>
+<p class="MsoNormal"><span style="">Press F5 to run this application, you will see following result.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="703" height="280" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><b><span style="font-size:13.0pt; line-height:115%; font-family:&quot;Cambria&quot;,&quot;serif&quot;">Prerequisite
+</span></b></p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style="font-size:13.0pt; line-height:115%; font-family:&quot;Cambria&quot;,&quot;serif&quot;"><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style=""><a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=c17ba869-9671-4330-a63e-1fd44e0e2505&amp;displaylang=en">Microsoft Windows SDK for Windows 7 and .NET Framework 3.5 SP1</a>
+</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style="font-size:13.0pt; line-height:115%; font-family:&quot;Cambria&quot;,&quot;serif&quot;"><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style=""><a href="http://www.microsoft.com/windows/windows-7/">Windows 7</a>
+</span></p>
+<h2>Creation</h2>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Create Main dialog and following the steps in example CppWindowsDialog.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Set the Main dialog &quot;Application Window&quot; property to True in order to let the main dialog has an entry on the taskbar when visible.
+</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In targetver.h, comments the original version information and add the following codes to specify the minimum required platform is Windows 7.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+#ifndef NTDDI_VERSION������������ // Specifies that the minimum required platform is Windows 7.
+#define NTDDI_VERSION NTDDI_WIN7� // Change this to the appropriate value to target other versions of Windows.
+#endif
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+#ifndef NTDDI_VERSION������������ // Specifies that the minimum required platform is Windows 7.
+#define NTDDI_VERSION NTDDI_WIN7� // Change this to the appropriate value to target other versions of Windows.
+#endif
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In stdafx.h, include necessary header files. </span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+// Windows Header Files:
+#include &lt;windows.h&gt;
+#include &lt;windowsx.h&gt;
+
+
+// C RunTime Header Files
+#include &lt;stdlib.h&gt;
+#include &lt;malloc.h&gt;
+#include &lt;memory.h&gt;
+#include &lt;tchar.h&gt;
+
+
+// ATL/WTL
+#include &lt;atlbase.h&gt;
+#include &lt;atlstr.h&gt;
+#include &lt;atltypes.h&gt;
+
+
+// Header Files for Windows 7 Taskbar features
+#include &lt;shobjidl.h&gt;
+#include &lt;propkey.h&gt;
+#include &lt;propvarutil.h&gt;
+#include &lt;shlobj.h&gt;
+#include &lt;shellapi.h&gt;
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+// Windows Header Files:
+#include &lt;windows.h&gt;
+#include &lt;windowsx.h&gt;
+
+
+// C RunTime Header Files
+#include &lt;stdlib.h&gt;
+#include &lt;malloc.h&gt;
+#include &lt;memory.h&gt;
+#include &lt;tchar.h&gt;
+
+
+// ATL/WTL
+#include &lt;atlbase.h&gt;
+#include &lt;atlstr.h&gt;
+#include &lt;atltypes.h&gt;
+
+
+// Header Files for Windows 7 Taskbar features
+#include &lt;shobjidl.h&gt;
+#include &lt;propkey.h&gt;
+#include &lt;propvarutil.h&gt;
+#include &lt;shlobj.h&gt;
+#include &lt;shellapi.h&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in"><span style=""><span style="">5.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Open the project's properties from the &quot;project&quot; menu by selecting properties. Select &quot;linker - Input&quot; from the tree control on the left of your project properties dialog.<span style="">�
+</span>Add &quot;shlwapi.lib&quot; in the &quot;Additional Dependencies&quot;. </span>
+</p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">6.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In InitInstance, add the following codes to set find the ProgressBar window handle.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+// Find the ProgressBar window handle
+hProgressBar = FindWindowEx(hWnd, NULL, L&quot;msctls_progress32&quot;, NULL);
+if (!hProgressBar)
+{
+��� return FALSE;
+}
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+// Find the ProgressBar window handle
+hProgressBar = FindWindowEx(hWnd, NULL, L&quot;msctls_progress32&quot;, NULL);
+if (!hProgressBar)
+{
+��� return FALSE;
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">7.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In InitInstance, add the following codes to initialize the Windows 7 Taskbar list instance.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+// Initialize the Windows 7 Taskbar list instance
+hr = CoCreateInstance(CLSID_TaskbarList, 
+����NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&g_pTaskbarList));
+if (!SUCCEEDED(hr))
+{
+��� return FALSE;
+}
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+// Initialize the Windows 7 Taskbar list instance
+hr = CoCreateInstance(CLSID_TaskbarList, 
+����NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&g_pTaskbarList));
+if (!SUCCEEDED(hr))
+{
+��� return FALSE;
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">8.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Modify the WM_COMMAND message codes to set Taskbar ProgressBar state (normal, pause, indeterminate, error), progress value, and flash window.
+</span></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/dd391692(VS.85).aspx">ITaskbarList3 Interface</a></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/dd391697(VS.85).aspx">ITaskbarList3::<span class="SpellE">SetProgressState</span> Method</a></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/dd391698(VS.85).aspx">ITaskbarList3::<span class="SpellE">SetProgressValue</span> Method</a></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/bb760818(VS.85).aspx">Progress Bar</a></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/ms686615(VS.85).aspx"><span class="SpellE">CoCreateInstance</span> Function</a></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/bb760850(VS.85).aspx">PBM_SETSTATE Message</a></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/bb760844(VS.85).aspx">PBM_SETPOS Message</a></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/ms644950(VS.85).aspx"><span class="SpellE">SendMessage</span> Function</a></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/ms633500(VS.85).aspx"><span class="SpellE">FindWindowEx</span> Function</a></p>
+<p class="MsoNormal" style=""><a href="http://windowsteamblog.com/blogs/developers/archive/2009/07/28/windows-7-taskbar-dynamic-overlay-icons-and-progress-bars.aspx">Windows 7 Taskbar Dynamic Overlay Icons and Progress Bars</a></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
