@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SharePointSiteUrl>http://win-2ed380lbo8e:7947/</SharePointSiteUrl>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{BB1F664B-9266-4fd6-B973-E1E44974B511}">
+        <ProjectItemStore Id="{d2acc252-fa2f-43d5-b99f-50d65b077ff5}">
+          <DisplayName>WorkflowForContentType</DisplayName>
+          <HistoryList>Workflow History</HistoryList>
+          <HistoryListGuid>{696ae654-9a4c-4218-9735-51c7d82a20c4}</HistoryListGuid>
+          <TaskList>Tasks</TaskList>
+          <TaskListGuid>{f386778b-5149-40b0-8030-01948448b820}</TaskListGuid>
+          <AutoAssociate>true</AutoAssociate>
+          <ManualStart>true</ManualStart>
+          <ListURL>http://win-2ed380lbo8e:7947/Shared%20Documents/Forms/AllItems.aspx</ListURL>
+          <TargetList>Shared Documents</TargetList>
+          <TargetListGuid>{b61203bd-c1ae-4f68-b45f-ce96dac1e582}</TargetListGuid>
+          <StartOnCreate>true</StartOnCreate>
+          <StartOnChange>false</StartOnChange>
+        </ProjectItemStore>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

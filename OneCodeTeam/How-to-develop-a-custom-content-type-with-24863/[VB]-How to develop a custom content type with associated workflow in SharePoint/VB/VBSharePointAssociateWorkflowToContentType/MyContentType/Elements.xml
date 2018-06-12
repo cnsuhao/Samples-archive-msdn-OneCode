@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Document (0x0101) -->
+  <ContentType ID="0x010100cfdd76a8f45d4508b6b7193d336efed1"
+               Name="MyContentType"
+               Group="Custom Content Types"
+               Description="My Content Type VB"
+               Inherits="TRUE"
+               Version="0">
+    <FieldRefs>
+    </FieldRefs>
+  </ContentType>
+</Elements>

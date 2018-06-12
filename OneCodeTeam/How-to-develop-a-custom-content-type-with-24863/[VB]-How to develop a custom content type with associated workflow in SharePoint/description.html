@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/3e00d0a6-7844-40b8-8b92-12c0e4eeaed2Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to develop a custom content type with associated workflow in SharePoint</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to develop a custom content type with associated workflow in SharePoint</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SharePoint, SharePoint Development
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            SharePoint
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">9/12/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-develop-a-custom-a1b6bddf">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">How to develop a custom content type with a workflow associated</span>(<span style="">VBSharePointAssociateWorkflowToContentType</span>)</h1>
+<h2>Introduction </h2>
+<p class="MsoNormal" style=""><span style="">This sample code will demonstrate how to develop a custom content type with a workflow associated. In a real world scenario, customers not only need to structure the data but also need to process the data. Therefore
+ developing a custom content type with workflow associated is significant for customers. There is seldom information about how to develop a custom content type with workflow associated, so this sample will surely bring a lot of help for customers.&#8203;
+</span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style="">Please follow the steps below. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal">
+<span style="">Step 1: Open the VBSharePointAssociateWorkflowToContentType.sln file and then set the &quot;Site URL&quot; to your own site.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2: Open the Feature2.EventReceiver.vb file to modify the &quot;siteName&quot;.
+</span></p>
+<p class="MsoNormal" style="background:white"><span style=""><br>
+Step 3: </span><span style="color:#222222">Go to Shared Documents | List Settings | Advanced settings
+<br>
+Allow management of content types? : choose yes | OK<br>
+Continue, click &quot;Add from existing site content types&quot; link as follows:</span><span style="font-size:12.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;; color:#222222"><br>
+</span><span style="font-size:11.5pt; line-height:115%; font-family:&quot;Arial&quot;,&quot;sans-serif&quot;; color:#222222"><img src="description/image.png" alt="" width="885" height="410" align="middle">
+</span><span style="font-size:11.5pt; line-height:115%; font-family:&quot;Arial&quot;,&quot;sans-serif&quot;; color:#222222"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 4: </span><span style="color:#222222">Choose </span><span style="">MyContentType and</span>
+<span style="color:#222222">then click Add button<br>
+</span><span style=""><img src="description/5a206758-b18e-44f5-b629-ba176a835282image.png" alt="" width="455" height="228" align="middle">
+</span><span style="color:#222222"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="color:#222222">The result will be shown as below<br>
+</span><span style=""><img src="description/e18c910b-d044-45a4-ac1c-def2ed54710eimage.png" alt="" width="464" height="244" align="middle">
+</span><span style="color:#222222"><br>
+</span><span style="">Step 5: </span>Add a new document.<span style="color:#222222"><br>
+</span><span style="">Automatically workflow run as follows:</span><span style="color:#222222">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><img src="description/b6728d04-b224-475a-8063-eaa256f9c740image.png" alt="" width="1045" height="83" align="middle">
+</span><span style=""><br style="">
+<br style="">
+</span><span style="font-size:9.5pt"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 6: Validation is completed. </span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style=""><span style="">Code Logical: <span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></p>
+<p class="MsoNormal" style="background:white"><span style="">Step 1: Create a VB &quot;Empty SharePoint Project&quot; in Visual Studio 2010 and named it as &quot;VBSharePointAssociateWorkflowToContentType&quot;.
+</span><span style="color:#222222">Deploy as a farm solution.</span><span style="">
+</span></p>
+<p class="MsoNormal" style="background:white"><span style="">Step 2: Right-click the project and add a new &quot;Content Type&quot; item to our project and named it as &quot;MyContentType&quot;.
+<br>
+</span><span style="color:#222222">Choose content type Document (option) from DropdownList.<br>
+You will see the structure as follows. Then you can change name of Content Type </span>
+</p>
+<p class="MsoNormal" style="background:white"><span style="color:#222222"><img src="description/5d8a3771-71ea-4541-8562-2b0b22d1fc14image.png" alt="" width="428" height="155" align="middle">
+</span><span style="color:#222222"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: <span style="color:#222222">Right click to project | Add | New Item…<br>
+<span style="">&nbsp;</span>Choose Sequential Workflow and type name is WorkflowForContentType<br>
+Type name for workflow is WorkflowForContentType<br>
+Choose library or list, history list, task list as follows:<br>
+</span><span style=""><img src="description/d6b779ae-214a-4293-8aae-18bc497f17a7image.png" alt="" width="471" height="382" align="middle">
+</span><span style="color:#222222"><br>
+Set default value and then click Finish<br>
+Appear Feature2 when Workflow is added </span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 4: <span style="color:#222222">Right click to Feature2 | Add Event Receiver.<br>
+Declare &quot;</span><span style="color:blue">using</span><span style="color:#222222"> Microsoft.SharePoint.Workflow&quot;.<br>
+Declare Workflow Name and ContentType Name above method FeatureActivated. </span>
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+' Your site
+   Private siteName As String = &quot;http://win-2ed380lbo8e:7947/&quot;
+   ' Workflow Name
+   Private WorkflowName As String = &quot;WorkflowForContentType&quot;
+   ' ContentType Name
+   Private ContentTypeName As String = &quot;MyContentType&quot;
+
+</pre>
+<pre id="codePreview" class="vb">
+' Your site
+   Private siteName As String = &quot;http://win-2ed380lbo8e:7947/&quot;
+   ' Workflow Name
+   Private WorkflowName As String = &quot;WorkflowForContentType&quot;
+   ' ContentType Name
+   Private ContentTypeName As String = &quot;MyContentType&quot;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="line-height:normal; background:white"><span style="color:#222222">Uncommnet method FeatureActivated and paste this segment code to it.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+UpdateWorkflowAssociation(1)
+
+</pre>
+<pre id="codePreview" class="vb">
+UpdateWorkflowAssociation(1)
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="line-height:normal; background:white"><span style="font-size:12.0pt; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;; color:#222222"><br>
+</span><span style="color:#222222">Uncommnet method FeatureDeactivating and paste this segment code to it.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+UpdateWorkflowAssociation(0)
+
+</pre>
+<pre id="codePreview" class="vb">
+UpdateWorkflowAssociation(0)
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style=""><span lang="EN" style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">The U</span><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; color:black">pdateWorkflowAssociation()
+</span><span lang="EN" style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">as shown below.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Sub UpdateWorkflowAssociation(ByVal type As Integer)
+       ' Connect to Sharepoint Site
+       Using site = New SPSite(siteName)
+
+
+           ' Open Sharepoint Site
+           Using Web = site.OpenWeb()
+               ' Get the ContentType by Specific Name
+               Dim theCT As SPContentType = Web.ContentTypes(ContentTypeName)
+               ' Workflow Template
+               Dim theWF As SPWorkflowTemplate = Nothing
+
+
+               ' Fetch the collection of Workflow Template to get the specific one
+               For Each tpl As SPWorkflowTemplate In Web.WorkflowTemplates
+                   If tpl.Name = WorkflowName Then
+                       theWF = tpl
+                   End If
+               Next
+
+
+               ' Represents the association of the workflow template
+               Dim wfAssociation As SPWorkflowAssociation = theCT.WorkflowAssociations.GetAssociationByName(WorkflowName, Web.Locale)
+
+
+               ' If it has associated, remove the association. 
+               If wfAssociation IsNot Nothing Then
+                   theCT.WorkflowAssociations.Remove(wfAssociation)
+               End If
+
+
+               '  Update Workflow Associations
+               theCT.UpdateWorkflowAssociationsOnChildren(True, True, True, False)
+
+
+               '
+               If type &gt; 0 Then
+                   ' Create web ContentType association to the workflow template
+                   wfAssociation = SPWorkflowAssociation.CreateWebContentTypeAssociation(theWF, WorkflowName, &quot;Tasks&quot;, &quot;Workflow History&quot;)
+
+
+                   ' If it hasn't associated then to add a association. Or updates the association.
+                   If theCT.WorkflowAssociations.GetAssociationByName(wfAssociation.Name, Web.Locale) Is Nothing Then
+                       theCT.WorkflowAssociations.Add(wfAssociation)
+                   Else
+                       theCT.WorkflowAssociations.Update(wfAssociation)
+                   End If
+
+
+                   '  Update Workflow Associations
+                   theCT.UpdateWorkflowAssociationsOnChildren(True, True, True, False)
+               End If
+
+
+           End Using
+       End Using
+
+
+   End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Sub UpdateWorkflowAssociation(ByVal type As Integer)
+       ' Connect to Sharepoint Site
+       Using site = New SPSite(siteName)
+
+
+           ' Open Sharepoint Site
+           Using Web = site.OpenWeb()
+               ' Get the ContentType by Specific Name
+               Dim theCT As SPContentType = Web.ContentTypes(ContentTypeName)
+               ' Workflow Template
+               Dim theWF As SPWorkflowTemplate = Nothing
+
+
+               ' Fetch the collection of Workflow Template to get the specific one
+               For Each tpl As SPWorkflowTemplate In Web.WorkflowTemplates
+                   If tpl.Name = WorkflowName Then
+                       theWF = tpl
+                   End If
+               Next
+
+
+               ' Represents the association of the workflow template
+               Dim wfAssociation As SPWorkflowAssociation = theCT.WorkflowAssociations.GetAssociationByName(WorkflowName, Web.Locale)
+
+
+               ' If it has associated, remove the association. 
+               If wfAssociation IsNot Nothing Then
+                   theCT.WorkflowAssociations.Remove(wfAssociation)
+               End If
+
+
+               '  Update Workflow Associations
+               theCT.UpdateWorkflowAssociationsOnChildren(True, True, True, False)
+
+
+               '
+               If type &gt; 0 Then
+                   ' Create web ContentType association to the workflow template
+                   wfAssociation = SPWorkflowAssociation.CreateWebContentTypeAssociation(theWF, WorkflowName, &quot;Tasks&quot;, &quot;Workflow History&quot;)
+
+
+                   ' If it hasn't associated then to add a association. Or updates the association.
+                   If theCT.WorkflowAssociations.GetAssociationByName(wfAssociation.Name, Web.Locale) Is Nothing Then
+                       theCT.WorkflowAssociations.Add(wfAssociation)
+                   Else
+                       theCT.WorkflowAssociations.Update(wfAssociation)
+                   End If
+
+
+                   '  Update Workflow Associations
+                   theCT.UpdateWorkflowAssociationsOnChildren(True, True, True, False)
+               End If
+
+
+           End Using
+       End Using
+
+
+   End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="text-autospace:none"><span style="">Step 5: You can debug and test it.
+</span></p>
+<p class="MsoNormal" style="">SPWorkflowAssociation Class<br>
+<a href="http://msdn.microsoft.com/en-us/library/ms409472">http://msdn.microsoft.com/en-us/library/ms409472</a><br>
+SPWorkflowAssociation<span>.</span>CreateWebContentTypeAssociation Method<br>
+<a href="http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.workflow.spworkflowassociation.createwebcontenttypeassociation.aspx">http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.workflow.spworkflowassociation.createwebcontenttypeassociation.aspx</a><br>
+SPContentType<span>.</span>UpdateWorkflowAssociationsOnChildren Method<br>
+<span style=""><a href="http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.spcontenttype.updateworkflowassociationsonchildren.aspx">http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.spcontenttype.updateworkflowassociationsonchildren.aspx</a><br>
+</span>SPContentType Class<br>
+<span style=""><a href="http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.spcontenttype.aspx">http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.spcontenttype.aspx</a><br>
+</span>SPWorkflowTemplate Class<br>
+<span style=""><a href="http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.workflow.spworkflowtemplate.aspx">http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.workflow.spworkflowtemplate.aspx</a>
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/a20d39fc-847b-4f6c-a5ee-5b3dad80666dimage.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
