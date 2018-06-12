@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Stop postback in javascript (CSASPNETStopPostbackInJS)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Stop postback in javascript (CSASPNETStopPostbackInJS)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Postback
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/20/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETStopPostbackInJS-3889686a">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    ======================================================================== CSASPNETStopPostbackInJS Overview ======================================================================== /////////////////////////////////////////////////////////////////////////////
+ Use: The project illustrates how to stop postbacks event in JavaScript. Basically many threads mentions this kind of questions, people wants to know how to stop auto-postbacks event by use Asp.net server control, such as Button. That's the reason why we need
+ this sample, here we give a CheckBox control in page, people can decide execute postbacks event or not by a convenient way. ///////////////////////////////////////////////////////////////////////////// Demo the Sample. Please follow these demonstration steps
+ below. Step 1: Open the CSASPNETStopPostbackInJS.sln. Step 2: Expand the CSASPNETStopPostbackInJS web application and press Ctrl &#43; F5 to show the Default.aspx. Step 3: In Default.aspx page, there are two links. Click one of them, please. Step 4: Click the
+ button of StopPostBack1.aspx page, and you can find some text in TextBox. If you not select the CheckBox that means allow application execute postbacks event, the TextBox will show &quot;This is a client click. This is a server click&quot;. Step 5: Select CheckBox and
+ click Button again, and the TextBox will only display &quot;This is a client click&quot;. The application had stop postbacks event already. Step 6: Return to Default.aspx page and select another link for testing. Step 7: Validation finished. /////////////////////////////////////////////////////////////////////////////
+ Code Logical: Step 1. Create a C# &quot;ASP.NET Empty Web Application&quot; in Visual Studio 2010 or Visual Web Developer 2010. Name it as &quot;CSASPNETStopPostbackInJS&quot;. Step 2. Add three web forms in the root directory, name them as &quot;Default.aspx&quot;, &quot;StopPostBack1.aspx&quot;,
+ &quot;StopPostBack2.aspx&quot;. Step 3. Add two links in Default.aspx page, assign to StopPostBack1.aspx and StopPostBack2.aspx. Step 4. Create a html table in StopPostBack1.aspx page and fill it with some labels, checkboxes, buttons and a html textbox, add button's
+ onClientClick and onClick events. Coding JavaScript function like this: [code] function onClientClickEvent() { var text = document.getElementById('textDisplay'); var checkbox = document.getElementById('chkStopPostback'); text.value = &quot;This is a client click&quot;;
+ if (checkbox.checked == true) { return false; } else { return true; } } [/code] Use button's onClientClick event to invoke this function. It will check the status of checkbox to decide execute postbacks event or not, the button will not execute server-side
+ code when js function return false. Add following code in function btnCausePostback_Click: [code] textDisplay.Value &#43;= &quot; This is a server click&quot;; [/code] Step 5. StopPostBack2.aspx's layout is similar to StopPostBack2.aspx, you need to add a new html button
+ control and change server button to a hidden button control. Step 6. Use html button's onClick event call js function. Step 7. Build the application and you can debug it. ///////////////////////////////////////////////////////////////////////////// References:
+ MSDN: postbacks Event http://msdn.microsoft.com/en-us/library/aa720416(VS.71).aspx /////////////////////////////////////////////////////////////////////////////
+
+</div>
+
+
+    </div>
+</body>
+</html>
