@@ -1,0 +1,35 @@
+﻿/* Template for items in the ListView */
+.myItem
+{
+    height: 60px;
+    width: 400px;
+    padding: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis; 
+    display: -ms-grid;
+    -ms-grid-rows:2;
+}
+.custom {
+    margin-left:50px;
+}
+/* CSS applied to the ListView */
+#listView
+{
+    height: 240px;
+    width: 480px;
+    padding: 4px;
+    border: solid 2px rgba(0, 0, 0, 0.13);
+}
+
+@media screen and (-ms-view-state: fullscreen-landscape) {
+}
+
+@media screen and (-ms-view-state: filled) {
+}
+
+@media screen and (-ms-view-state: snapped) {
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+}

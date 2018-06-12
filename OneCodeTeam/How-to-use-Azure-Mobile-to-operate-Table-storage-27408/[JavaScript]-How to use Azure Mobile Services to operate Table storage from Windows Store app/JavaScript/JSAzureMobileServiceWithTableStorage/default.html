@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JSAzureMobileServiceWithTableStorage</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+    <script type="text/javascript" src="/js/MobileServices.js"></script>
+
+    <!-- JSAzureMobileServiceWithTableStorage references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+    <script src="js/data.js"></script>
+ 
+</head>
+<body>
+    <div class="custom">
+    <div><label id="lbstate"></label></div><br/>
+    <div ><span>Name:</span></div>
+    <input  type="text" id="txtName" /><br />
+    <div ><span>Short Message</span></div>
+    <div ><input  type="text" id="txtMessage" /></div><br /><br/>
+    <button  id="btnsave" >Leave Message</button>
+    <div><span>The messages you haven't read:</span></div>
+   
+  <div id="TemplateItem" data-win-control="WinJS.Binding.Template">
+        <div  class="myItem">
+            <input type="checkbox" style="-ms-grid-row:auto;margin-top:10px" data-win-bind="checked: complete; dataContext: this" />
+            <h3 style="-ms-grid-column:2; -ms-grid-row:1;">Name:</h3>
+            <h3 style="-ms-grid-column:2; -ms-grid-row:1;margin-left:50px"  data-win-bind="innerText: Name"></h3>
+            <h3 style="-ms-grid-column:2; -ms-grid-row:2;">Message:</h3>
+             <h3  style="-ms-grid-column:2; -ms-grid-row:2;margin-left:70px" data-win-bind="innerText: Message">
+            </h3>
+        </div>
+    </div>
+    <div id="listItems" 
+        class="win-selectionstylefilled"
+        data-win-control="WinJS.UI.ListView"
+        data-win-options="{ selectionMode: 'single',itemTemplate: TemplateItem, layout: {type: WinJS.UI.ListLayout} }">
+    </div>
+
+    <div id="createAppBar" data-win-control="WinJS.UI.AppBar" data-win-options="">
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdDelete',label:'delete',icon:'clear',section:'selection',tooltip:'delete item'}">
+        </button>
+    </div>
+</div>
+</body>
+</html>

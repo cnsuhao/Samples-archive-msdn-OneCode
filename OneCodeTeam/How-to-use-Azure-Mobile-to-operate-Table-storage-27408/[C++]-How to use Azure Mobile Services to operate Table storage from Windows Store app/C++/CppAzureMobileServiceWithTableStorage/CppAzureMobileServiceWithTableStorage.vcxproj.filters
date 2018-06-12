@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>2fdb34db-a58f-4440-9ba1-57e0295bd0f8</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>4275f0ef-3173-451a-90da-a73bc10ebb87</UniqueIdentifier>
+    </Filter>
+    <Page Include="Common\StandardStyles.xaml">
+      <Filter>Common</Filter>
+    </Page>
+    <Image Include="Assets\Logo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{24638f2e-3e14-4c45-a08c-00b1c07909d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation\ReadMe_files">
+      <UniqueIdentifier>{1814939d-d489-4a09-a30a-12bcb8e9d9e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Server side scripts">
+      <UniqueIdentifier>{533674f5-1c22-4d8c-af13-69356bc853a9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="MainPage.xaml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CppAzureMobileServiceWithTableStorage_TemporaryKey.pfx" />
+    <None Include="Documentation\ReadMe_files\themedata.thmx">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </None>
+    <None Include="Documentation\ReadMe.htm">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="Documentation\ReadMe_files\header.htm">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </None>
+    <None Include="Server side script\Delete.js">
+      <Filter>Server side scripts</Filter>
+    </None>
+    <None Include="Server side script\Insert.js">
+      <Filter>Server side scripts</Filter>
+    </None>
+    <None Include="Server side script\Read.js">
+      <Filter>Server side scripts</Filter>
+    </None>
+    <None Include="Server side script\Update.js">
+      <Filter>Server side scripts</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Documentation\ReadMe_files\colorschememapping.xml">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Xml>
+    <Xml Include="Documentation\ReadMe_files\filelist.xml">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Documentation\ReadMe_files\image001.png">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image002.jpg">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image003.png">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image004.jpg">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image005.png">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image006.png">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image007.jpg">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image008.png">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image009.jpg">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image010.png">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Assets\TileLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Microsoft.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
