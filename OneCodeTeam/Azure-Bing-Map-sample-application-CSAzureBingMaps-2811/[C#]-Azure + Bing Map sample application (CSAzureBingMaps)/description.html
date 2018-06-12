@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Azure + Bing Map sample application (CSAzureBingMaps)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Azure + Bing Map sample application (CSAzureBingMaps)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Silverlight, Microsoft Azure, Windows Phone 7, Windows Phone 7.5
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Bing Maps
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud, Phone
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/16/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSAzureBingMaps-bab92df1">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420" ><img id="79969" src="description/120x90_Azure_web_EN_US.jpg" alt="" width="360" height="90"></a></p>
+<h3>Overview</h3>
+<p>This is the source code for the AzureBingMaps sample. You can find a series of blog posts describing on
+<a href="http://blogs.msdn.com/b/windows-azure-support/archive/2010/08/11/bring-the-clouds-together-azure-bing-maps.aspx">
+http://blogs.msdn.com/b/windows-azure-support/archive/2010/08/11/bring-the-clouds-together-azure-bing-maps.aspx</a>. We encourage you to read the blog posts first, and use the source code as a reference.</p>
+<div align="right">
+<p><a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420"><span style="color:windowtext; text-decoration:none"><span>&nbsp;</span></span></a></p>
+</div>
+<h3>System Requirements</h3>
+<p>To build and run this sample, you need the following software:</p>
+<ul>
+<li>Visual Studio 2010 and .NET 4 </li><li>Windows Azure SDK v1.4: <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=7a1089b6-4050-4307-86c4-9dadaa5ed018&amp;displaylang=en">
+http://www.microsoft.com/downloads/en/details.aspx?FamilyID=7a1089b6-4050-4307-86c4-9dadaa5ed018&amp;displaylang=enn</a>
+</li><li>Windows Azure AppFabric SDK 1.0 RTM: <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=39856a03-1490-4283-908f-c8bf0bfad8a5&amp;displaylang=en">
+http://www.microsoft.com/downloads/en/details.aspx?FamilyID=39856a03-1490-4283-908f-c8bf0bfad8a5&amp;displaylang=en</a>
+</li><li>Windows Azure AppFabric Labs SDK: <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=D89640FC-C552-446E-AEAD-B1E0D940F31B">
+http://www.microsoft.com/downloads/en/details.aspx?FamilyID=D89640FC-C552-446E-AEAD-B1E0D940F31B</a>
+</li><li>Windows Server AppFabric: <a href="http://www.microsoft.com/downloads/en/details.aspx?displaylang=en&amp;FamilyID=467e5aa5-c25b-4c80-a6d2-9f8fb0f337d2">
+http://www.microsoft.com/downloads/en/details.aspx?displaylang=en&amp;FamilyID=467e5aa5-c25b-4c80-a6d2-9f8fb0f337d2</a>
+</li><li>Windows Identity Foundation Runtime: <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=eb9c345f-e830-40b8-a5fe-ae7a864c4d76">
+http://www.microsoft.com/downloads/en/details.aspx?FamilyID=eb9c345f-e830-40b8-a5fe-ae7a864c4d76</a>
+</li><li>Windows Identity Foundation SDK: <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504">
+http://www.microsoft.com/downloads/en/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504</a>
+</li><li>Windows Live SDK: <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=9bc1e29e-3c0c-48b8-8148-5629c265300c">
+http://www.microsoft.com/downloads/en/details.aspx?FamilyID=9bc1e29e-3c0c-48b8-8148-5629c265300c</a>
+</li><li>Silverlight 4 SDK: <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=b3deb194-ca86-4fb6-a716-b67c2604a139&amp;displaylang=en">
+http://www.microsoft.com/downloads/en/details.aspx?FamilyID=b3deb194-ca86-4fb6-a716-b67c2604a139&amp;displaylang=en</a>
+</li><li>Bing Maps Silverlight SDK: <a href="http://www.microsoft.com/downloads/en/details.aspx?displaylang=en&amp;FamilyID=beb29d27-6f0c-494f-b028-1e0e3187e830">
+http://www.microsoft.com/downloads/en/details.aspx?displaylang=en&amp;FamilyID=beb29d27-6f0c-494f-b028-1e0e3187e830</a>
+</li><li>Windows Phone SDK: <a href="http://create.msdn.com/en-us/home/getting_started">
+http://create.msdn.com/en-us/home/getting_startedted</a> </li><li>Windows Phone SDK October update: <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=49b9d0c5-6597-4313-912a-f0cca9c7d277">
+http://www.microsoft.com/downloads/en/details.aspx?FamilyID=49b9d0c5-6597-4313-912a-f0cca9c7d277</a>
+</li><li>Windows Phone SDK VB pack: <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=4e97ea70-e479-4c05-814f-639d71690e5d&amp;displaylang=en">
+http://www.microsoft.com/downloads/en/details.aspx?FamilyID=4e97ea70-e479-4c05-814f-639d71690e5d&amp;displaylang=en</a>
+</li><li>OData for Windows Phone: <a href="http://odata.codeplex.com/releases/view/54698#DownloadId=161862">
+http://odata.codeplex.com/releases/view/54698#DownloadId=161862</a> </li><li>SQL Server 2008 or R2 for local simulation (Note, SQL Server 2005 doesn't support spatial data, so 2008 is required) &lt;liA modern web browser such as IE 9
+</li><li>Valid accounts for Windows Azure, Bing Maps, and Windows Live Messenger Connect.
+</li></ul>
+<h3>Projects</h3>
+<p>There're 6 projects in the solution:</p>
+<ul>
+<li>AzureBingMaps: The Windows Azure cloud project. </li><li>AzureBingMaps.WebRole: The Web Role project. It contains the following components:
+<ul>
+<li>A WCF Data Services: Under the DataService folder. </li><li>A HTML client: The HTML markup is defined in HtmlClient.aspx, while the JavaScript code is in Scripts\HtmlClient.js.
+</li><li>Federation related code: Including LoginPage, FederationCallbackHandler, WindowsLiveProfile, and code behind for the HTML/Silverlight clients.
+</li></ul>
+</li><li>AzureBingMaps.DAL: The data access project, including SQL scripts and Entity Framework code.
+</li><li>AzureBingMaps.UnitTest: A unit test project. </li><li>SilverlightClient: The Silverlight client. &lt;WindowsPhoneClient: The Windows Phone client.
+</li></ul>
+<h3>Configurations</h3>
+<p>To build and run the solution, you must modify the configurations to provide your own Azure, Bing Maps, and Windows Live Messenger Connect information. There're totally 7 places to modify:</p>
+<ul>
+<li>In ServiceDefinition.cscfg of AzureBingMaps, configure Windows Azure storage account, remote desktop credential, SSL certificate, and remote desktop certificate.
+</li><li>In Web.config of AzureBingMaps.WebRole, configure SQL Azure connection string, Windows Live Messenger Connect information, the Windows Azure service domain, the AppFabric namespace, the AppFabric caching credential, machine key, WIF certificate, AppFabric
+ ACS certificate. </li><li>In Scripts\HtmlClient.js of AzureBingMaps.WebRole, configure Bing Maps credential.
+</li><li>If you want to do unit test, configure connection string in App.config in AzureBingMaps.UnitTest.
+</li><li>In MainPage.xaml.cs of SilverlightClient, configure Bing Maps credential. </li><li>In MainPage.xaml.cs of WindowsPhoneClient, configure Bing Maps credential. </li><li>In DataSource.cs of WindowsPhoneClient, configure WCF Data Services address. </li></ul>
+<p>In addidion, certain SDKs (such as Windows Live and AppFabric Labs) will not install the required assemblies in GAC. So after you downloaded the SDKs, you may need to modify project references to reference the correct assemblies.</p>
+<p>&nbsp;</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
