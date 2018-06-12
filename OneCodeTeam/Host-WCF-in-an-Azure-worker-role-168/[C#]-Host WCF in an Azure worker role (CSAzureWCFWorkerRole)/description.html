@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Host WCF in an Azure worker role (CSAzureWCFWorkerRole)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Host WCF in an Azure worker role (CSAzureWCFWorkerRole)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            WCF, Windows Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Worker Role
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">4/16/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSAzureWCFWorkerRole-38b4e51d">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420" ><img id="79969" src="description/120x90_Azure_web_EN_US.jpg" alt="" width="360" height="90"></a></p>
+<h2>CLOUD SERVICE : CSAzureWCFWorkerRole Solution Overview</h2>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+In some scenarios we need self-hosting WCF services.If we want to create an HTTP based<br>
+service, we should use web role. For a TCP based WCF service however, worker role is a<br>
+better choice. Due to the existance of load balancer we need to take care of the logic<br>
+and physical listening address. The purpose of this sample is to provide a handy working project<br>
+that hosts WCF in a Worker Role.</p>
+<div align="right">
+<p><a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420"><span style="color:windowtext; text-decoration:none"><span><img src="description/image.png" alt="" width="120" height="90" align="middle">
+</span></span></a><br>
+<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420">Try Windows Azure for free for 90 Days!</a></p>
+</div>
+<p style="font-family:Courier New"><br>
+<br>
+This solution contains three projects:<br>
+<br>
+1. Client project. It's the client application that consumes WCF services.<br>
+2. CloudService project. It's a common Cloud Service that has one Worker Role.<br>
+3. CSWorkerRoleHostingWCF project. It's the key project in the solution, which demonstrates<br>
+how to host WCF in a Worker Role.<br>
+<br>
+Two endpoints are exposed from the WCF service in CSWorkerRoleHostingWCF project:<br>
+1. A metadata endpoint<br>
+2. A service endpoint for MyService service contract<br>
+<br>
+Both endpoints uses TCP bindings.<br>
+<br>
+<br>
+Pre-requests:<br>
+<br>
+Windows Azure Tools for Microsoft Visual Studio<br>
+<a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=7a1089b6-4050-4307-86c4-9dadaa5ed018" >http://www.microsoft.com/downloads/en/details.aspx?FamilyID=7a1089b6-4050-4307-86c4-9dadaa5ed018</a><br>
+<br>
+</p>
+<h3>Code Logic of CSWorkerRoleHostingWCF project:</h3>
+<p style="font-family:Courier New"><br>
+1. Get local ip address and local listening port of Virtual Machine:<br>
+<br>
+string ip = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints[&quot;tcpinput&quot;].IPEndpoint.Address.ToString();<br>
+int tcpport = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints[&quot;tcpinput&quot;].IPEndpoint.Port;<br>
+int mexport = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints[&quot;mexinput&quot;].IPEndpoint.Port;<br>
+<br>
+2. Add a metadata TCP endpoint. The logical listening port is 8001. Client should use this port to request metadata.<br>
+The physical port is the mexport we got in step 1.<br>
+<br>
+ServiceMetadataBehavior metadatabehavior = new ServiceMetadataBehavior();<br>
+host.Description.Behaviors.Add(metadatabehavior);<br>
+Binding mexBinding = MetadataExchangeBindings.CreateMexTcpBinding();<br>
+string mexlistenurl = string.Format(&quot;net.tcp://{0}:{1}/MyServiceMetaDataEndpoint&quot;, ip, mexport);<br>
+string mexendpointurl = string.Format(&quot;net.tcp://{0}:{1}/MyServiceMetaDataEndpoint&quot;, RoleEnvironment.GetConfigurationSettingValue(&quot;Domain&quot;), 8001);<br>
+host.AddServiceEndpoint(typeof(IMetadataExchange), mexBinding, mexendpointurl, new Uri(mexlistenurl));<br>
+<br>
+3. Add a TCP endpoint for MyService.The logical listening port is 9001. Client should use this port to send request.<br>
+The physical port is the tcpport we got in step 1.<br>
+<br>
+string listenurl = string.Format(&quot;net.tcp://{0}:{1}/MyServiceMetaDataEndpointEndpoint&quot;, ip, tcpport);<br>
+string endpointurl = string.Format(&quot;net.tcp://{0}:{1}/MyServiceMetaDataEndpointEndpoint&quot;, RoleEnvironment.GetConfigurationSettingValue(&quot;Domain&quot;), 9001);<br>
+host.AddServiceEndpoint(typeof(IMyService), new NetTcpBinding(SecurityMode.None), endpointurl, new Uri(listenurl));<br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+A. In Compute Emulator:<br>
+<br>
+1. Set CloudService project as Startup project.<br>
+2. Press F5 to start debugging.<br>
+3. Run Client.exe in Client project or debug Client project.<br>
+<br>
+Note if you want to create your own proxy class, When you add service reference in your client project,
+<br>
+the metadata endpoint you input should be net.tcp://localhost:8001/MyServiceMetaDataEndpoint.<br>
+<br>
+B. After deployment to cloud:<br>
+<br>
+1.Please change the setting in ServiceConfiguration.cscfg of CloudService project to:<br>
+<br>
+&nbsp; &nbsp;&lt;Setting name=&quot;Domain&quot; value=&quot;[yourdomain.cloudapp.net]&quot; /&gt;<br>
+<br>
+2.Please change the setting in app.config of Client project to:<br>
+<br>
+&lt;client&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;endpoint address=&quot;net.tcp://[yourdomain.cloudapp.net]:9001/MyServiceEndpoint&quot; binding=&quot;netTcpBinding&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bindingConfiguration=&quot;NetTcpBinding_IMyService&quot; contract=&quot;ServiceReference1.IMyService&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name=&quot;NetTcpBinding_IMyService&quot; /&gt;<br>
+&lt;/client&gt;<br>
+<br>
+Note the metadata endpoint should be net.tcp://[yourdomain.cloudapp.net]:8001/MyServiceMetaDataEndpoint.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+Service Definition Schema<br>
+<a href="http://msdn.microsoft.com/en-us/library/ee758711.aspx" >http://msdn.microsoft.com/en-us/library/ee758711.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
