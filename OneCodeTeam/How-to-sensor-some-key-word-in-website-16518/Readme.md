@@ -1,0 +1,590 @@
+# How to sensor some key word in website (ASPNETSensorKeywordInSite)
+## Requires
+* Visual Studio 2010
+## License
+* MS-LPL
+## Technologies
+* ASP.NET
+## Topics
+* keyword
+* sensor
+## IsPublished
+* True
+## ModifiedDate
+* 2012-04-20 03:28:45
+## Description
+
+<h1>How to filter some indecent words in website (<span class="SpellE"><span style="">CSASPNETCensorKeywordInSite</span></span>)</h1>
+<h2>Introduction </h2>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">The CSASPNETCensorKeywordInSite sample demonstrates how to censor key words in website. Customers usually want to filter some
+<a name="OLE_LINK4"></a><a name="OLE_LINK3"><span style="">indecent words </span>
+</a>in their website. In this sample, we use a word blacklist dictionary to store the indecent words.
+<span style="">&nbsp;</span>And <span style="">&nbsp;</span>we can check the users' input or search results with the blacklist, and replace the key word with specific char, such as &quot;*&quot;.
+</span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style="">Please follow these demonstration steps below.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 1: Open the CSASPNETCensorKeywordInSite.sln. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2: Right-click the KeyBlackManage.aspx page then select &quot;View in Browser&quot;. You can add some
+<span style="">indecent words which you want to censor</span>.<br>
+<span style=""><img src="/site/view/file/56566/1/image.png" alt="" width="538" height="324" align="middle">
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: Right-click the Default.aspx page then select &quot;View in Browser&quot;. Type some content then click the button to test.<br>
+<span style=""><img src="/site/view/file/56567/1/image.png" alt="" width="669" height="377" align="middle">
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 4: Validation finished.</span><span style="font-size:9.5pt; font-family:Consolas">
+</span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style=""><span style="">Code Logical: <span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step1. Create a C# &quot;ASP.NET Web Application&quot; in Visual Studio 2010/Visual Web Developer. Name it as &quot;<span class="SpellE">CSASPNETCensorKeywordInSite</span>&quot;.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step2. If you have installed SQL server 2008 r2 express on your computer, you can directly use the sample database under the App_Data. If not, add a SQL Server Database in the App_Data folder and name it as ��Sample��. The definition of the table
+ ��WordBlack�� as show below: </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">[Id] [int] IDENTITY(1,1) NOT NULL,[Name] [nchar](10) </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">You can insert the following test data or add new data: </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>SQL</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">mysql</span>
+<pre class="hidden">
+INSERT [dbo].[WordBlack] ([Id], [Name]) VALUES (1, N'tmd')
+INSERT [dbo].[WordBlack] ([Id], [Name]) VALUES (2, N'shit')
+INSERT [dbo].[WordBlack] ([Id], [Name]) VALUES (3, N'test')
+
+</pre>
+<pre id="codePreview" class="mysql">
+INSERT [dbo].[WordBlack] ([Id], [Name]) VALUES (1, N'tmd')
+INSERT [dbo].[WordBlack] ([Id], [Name]) VALUES (2, N'shit')
+INSERT [dbo].[WordBlack] ([Id], [Name]) VALUES (3, N'test')
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step3. Add a ��Web Service��. This Web Service is used to get the <span style="">
+blacklist</span>. </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line.
+   [System.Web.Script.Services.ScriptService()]
+   [System.Web.Services.WebService(Namespace = &quot;http://tempuri.org/&quot;)]
+   [System.Web.Services.WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+   [ToolboxItem(false)]
+   public class WebService1 : System.Web.Services.WebService
+   {
+       //Sql Connection
+       private static SqlConnection conn = new SqlConnection(&quot;Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\Sample.mdf;Integrated Security=True;User Instance=True&quot;);
+
+
+       [WebMethod()]
+       public string LoadScript()
+       {
+           // Add your operation implementation here
+           string input = &quot;&quot;;
+
+
+           //Query string
+           string queryString = &quot;SELECT [Name] FROM [WordBlack]&quot;;
+           //set query string
+           SqlCommand command = new SqlCommand(queryString, conn);
+           //Open connection
+           conn.Open();
+           SqlDataReader reader = command.ExecuteReader();
+
+
+           if (reader.HasRows)
+           {
+               while (reader.Read())
+               {
+                   input &#43;= &quot;|&quot; &#43; (reader[&quot;Name&quot;] as string).Trim();
+               }
+               input = input.Substring(1);
+           }
+           reader.Close();
+           //Close connection
+           conn.Close();
+           return input;
+       }      
+   }
+
+</pre>
+<pre id="codePreview" class="csharp">
+// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line.
+   [System.Web.Script.Services.ScriptService()]
+   [System.Web.Services.WebService(Namespace = &quot;http://tempuri.org/&quot;)]
+   [System.Web.Services.WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+   [ToolboxItem(false)]
+   public class WebService1 : System.Web.Services.WebService
+   {
+       //Sql Connection
+       private static SqlConnection conn = new SqlConnection(&quot;Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\Sample.mdf;Integrated Security=True;User Instance=True&quot;);
+
+
+       [WebMethod()]
+       public string LoadScript()
+       {
+           // Add your operation implementation here
+           string input = &quot;&quot;;
+
+
+           //Query string
+           string queryString = &quot;SELECT [Name] FROM [WordBlack]&quot;;
+           //set query string
+           SqlCommand command = new SqlCommand(queryString, conn);
+           //Open connection
+           conn.Open();
+           SqlDataReader reader = command.ExecuteReader();
+
+
+           if (reader.HasRows)
+           {
+               while (reader.Read())
+               {
+                   input &#43;= &quot;|&quot; &#43; (reader[&quot;Name&quot;] as string).Trim();
+               }
+               input = input.Substring(1);
+           }
+           reader.Close();
+           //Close connection
+           conn.Close();
+           return input;
+       }      
+   }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><br>
+Step4. Add two pages then rename to Default.aspx and KeyBlackManage.aspx, the KeyBlackManage page is used to manage the blacklist.<span style="">&nbsp;
+</span>The Default.aspx is used to test. A button is for the client-side input validation, the other button is for the server output validation.
+<br>
+The main code of the client-side input validation as shown below: </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;asp:ScriptManager ID=&quot;ScriptManager1&quot; runat=&quot;server&quot; EnablePageMethods=&quot;true&quot;&gt;
+    &lt;Services&gt;
+        &lt;asp:ServiceReference Path=&quot;~/WebService1.asmx&quot; /&gt;
+    &lt;/Services&gt;
+&lt;/asp:ScriptManager&gt;
+<div>
+    &lt;asp:TextBox ID=&quot;tbText&quot; runat=&quot;server&quot; Height=&quot;151px&quot; TextMode=&quot;MultiLine&quot; Width=&quot;475px&quot;&gt;&lt;/asp:TextBox&gt;
+    <br>
+    &lt;asp:Button ID=&quot;btnClientCheck&quot; runat=&quot;server&quot; Text=&quot;ClientCheck&quot; OnClientClick=&quot;javascript:LoadAndExecuteDynamicJS();&quot; /&gt;
+    <br>
+    &lt;asp:Button ID=&quot;btnEnter&quot; runat=&quot;server&quot; Text=&quot;ServerCheckAndOutPut&quot; OnClick=&quot;btnEnter_Click&quot; /&gt;
+    Output:
+    &lt;asp:Literal ID=&quot;ltrMsg&quot; runat=&quot;server&quot;&gt;&lt;/asp:Literal&gt;
+    <div id="divMsg">
+    </div>
+
+
+    &lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot;&gt;function LoadAndExecuteDynamicJS() {
+  var wsp = CSASPNETCensorKeywordInSite.WebService1;
+  wsp.LoadScript(CallBackFunction);
+        }
+
+
+        function CallBackFunction(result) {
+  var strText = &quot;&quot; &#43; document.getElementById('tbText').value;
+  strText = strText.replace(/(\s)*/gi, &quot;&quot;); //Remove space
+  strText = strText.toLowerCase();              
+      
+  var strs = new Array();
+  strs = result.toLowerCase().split(&quot;|&quot;);
+  var msg = &quot;&quot;;
+  try {                
+      for (i = 0; i &lt; strs.length; i&#43;&#43;) {                      
+          if (strText.indexOf(strs[i]) &gt; -1) {
+              msg = msg &#43; &quot;,&quot; &#43; strs[i];
+          }
+      }
+      if (msg.length &gt; 0) {
+          alert(&quot;Your input has the following illegal characters:&quot; &#43; msg.substring(1,msg.length));
+      }                  
+  }
+  catch (e) {
+      alert(e);
+  }
+        }
+    &lt;/script&gt;
+
+</div></pre>
+<pre id="codePreview" class="xml">
+&lt;asp:ScriptManager ID=&quot;ScriptManager1&quot; runat=&quot;server&quot; EnablePageMethods=&quot;true&quot;&gt;
+    &lt;Services&gt;
+        &lt;asp:ServiceReference Path=&quot;~/WebService1.asmx&quot; /&gt;
+    &lt;/Services&gt;
+&lt;/asp:ScriptManager&gt;
+<div>
+    &lt;asp:TextBox ID=&quot;tbText&quot; runat=&quot;server&quot; Height=&quot;151px&quot; TextMode=&quot;MultiLine&quot; Width=&quot;475px&quot;&gt;&lt;/asp:TextBox&gt;
+    <br>
+    &lt;asp:Button ID=&quot;btnClientCheck&quot; runat=&quot;server&quot; Text=&quot;ClientCheck&quot; OnClientClick=&quot;javascript:LoadAndExecuteDynamicJS();&quot; /&gt;
+    <br>
+    &lt;asp:Button ID=&quot;btnEnter&quot; runat=&quot;server&quot; Text=&quot;ServerCheckAndOutPut&quot; OnClick=&quot;btnEnter_Click&quot; /&gt;
+    Output:
+    &lt;asp:Literal ID=&quot;ltrMsg&quot; runat=&quot;server&quot;&gt;&lt;/asp:Literal&gt;
+    <div id="divMsg">
+    </div>
+
+
+    &lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot;&gt;function LoadAndExecuteDynamicJS() {
+  var wsp = CSASPNETCensorKeywordInSite.WebService1;
+  wsp.LoadScript(CallBackFunction);
+        }
+
+
+        function CallBackFunction(result) {
+  var strText = &quot;&quot; &#43; document.getElementById('tbText').value;
+  strText = strText.replace(/(\s)*/gi, &quot;&quot;); //Remove space
+  strText = strText.toLowerCase();              
+      
+  var strs = new Array();
+  strs = result.toLowerCase().split(&quot;|&quot;);
+  var msg = &quot;&quot;;
+  try {                
+      for (i = 0; i &lt; strs.length; i&#43;&#43;) {                      
+          if (strText.indexOf(strs[i]) &gt; -1) {
+              msg = msg &#43; &quot;,&quot; &#43; strs[i];
+          }
+      }
+      if (msg.length &gt; 0) {
+          alert(&quot;Your input has the following illegal characters:&quot; &#43; msg.substring(1,msg.length));
+      }                  
+  }
+  catch (e) {
+      alert(e);
+  }
+        }
+    &lt;/script&gt;
+
+</div></pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">The main code of the server output validation as shown below:</span><span style="font-size:10.0pt; font-family:&quot;Courier New&quot;">
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+protected void btnEnter_Click(object sender, EventArgs e)
+       {
+           string str = tbText.Text;
+           str = str.Trim(); //Remove the spaces and format symbols in the data
+           string str1 = str.Replace(&quot; &quot;, &quot;&quot;);
+
+
+           bool isBool = ValidByReg(str1);
+
+
+           if (isBool)
+           {
+               ltrMsg.Text = str;
+           }
+           else
+           {
+               ltrMsg.Text = ReplacDirty(str);
+           }
+       }
+
+
+       //The list of KeyBlack such as:dirtyStr1|dirtyStr2|dirtyStr3
+       public static string dirtyStr = &quot;&quot;; 
+
+
+       public string ReplacDirty(string str)
+       {
+           dirtyStr = ReadDic();
+           try
+           {
+               str = Regex.Replace(str, @&quot;&quot; &#43; dirtyStr &#43; &quot;&quot;, @&quot;xxxxx&quot;);
+           }
+           catch (ArgumentException ex)
+           {
+               // Syntax error in the regular expression
+           }
+           return str;
+       }
+
+
+
+
+       private string ReadDic()
+       {
+           String input = &quot;&quot;;
+
+
+           //Query string
+           string queryString = &quot;SELECT [Name] FROM [WordBlack]&quot;;
+           //set query string
+           SqlCommand command = new SqlCommand(queryString, conn);
+           //Open connection
+           conn.Open();
+           SqlDataReader reader = command.ExecuteReader();
+
+
+           if (reader.HasRows)
+           {
+               while (reader.Read())
+               {
+                   input &#43;= &quot;|&quot; &#43; (reader[&quot;Name&quot;] as string).Trim();
+               }
+               input = input.Substring(1);
+           }
+           reader.Close();
+           //Close connection
+           conn.Close();
+           return input;
+
+
+       }
+
+
+       public bool ValidByReg(string str)
+       {
+           dirtyStr = ReadDic();
+           //Regular expression used to detect dirty dictionary
+           Regex validateReg = new Regex(&quot;^((?!&quot; &#43; dirtyStr &#43; &quot;).(?&lt;!&quot; &#43; dirtyStr &#43; &quot;))*$&quot;, RegexOptions.Compiled | RegexOptions.ExplicitCapture);
+      
+           return validateReg.IsMatch(str);
+       }
+
+</pre>
+<pre id="codePreview" class="csharp">
+protected void btnEnter_Click(object sender, EventArgs e)
+       {
+           string str = tbText.Text;
+           str = str.Trim(); //Remove the spaces and format symbols in the data
+           string str1 = str.Replace(&quot; &quot;, &quot;&quot;);
+
+
+           bool isBool = ValidByReg(str1);
+
+
+           if (isBool)
+           {
+               ltrMsg.Text = str;
+           }
+           else
+           {
+               ltrMsg.Text = ReplacDirty(str);
+           }
+       }
+
+
+       //The list of KeyBlack such as:dirtyStr1|dirtyStr2|dirtyStr3
+       public static string dirtyStr = &quot;&quot;; 
+
+
+       public string ReplacDirty(string str)
+       {
+           dirtyStr = ReadDic();
+           try
+           {
+               str = Regex.Replace(str, @&quot;&quot; &#43; dirtyStr &#43; &quot;&quot;, @&quot;xxxxx&quot;);
+           }
+           catch (ArgumentException ex)
+           {
+               // Syntax error in the regular expression
+           }
+           return str;
+       }
+
+
+
+
+       private string ReadDic()
+       {
+           String input = &quot;&quot;;
+
+
+           //Query string
+           string queryString = &quot;SELECT [Name] FROM [WordBlack]&quot;;
+           //set query string
+           SqlCommand command = new SqlCommand(queryString, conn);
+           //Open connection
+           conn.Open();
+           SqlDataReader reader = command.ExecuteReader();
+
+
+           if (reader.HasRows)
+           {
+               while (reader.Read())
+               {
+                   input &#43;= &quot;|&quot; &#43; (reader[&quot;Name&quot;] as string).Trim();
+               }
+               input = input.Substring(1);
+           }
+           reader.Close();
+           //Close connection
+           conn.Close();
+           return input;
+
+
+       }
+
+
+       public bool ValidByReg(string str)
+       {
+           dirtyStr = ReadDic();
+           //Regular expression used to detect dirty dictionary
+           Regex validateReg = new Regex(&quot;^((?!&quot; &#43; dirtyStr &#43; &quot;).(?&lt;!&quot; &#43; dirtyStr &#43; &quot;))*$&quot;, RegexOptions.Compiled | RegexOptions.ExplicitCapture);
+      
+           return validateReg.IsMatch(str);
+       }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">The main code of <span class="SpellE">KeyBlackManage</span> page as shown below:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+/// &lt;summary&gt;
+       /// Bind datatable to GridView
+       /// &lt;/summary&gt;
+       private void BindGrid()
+       {
+           //Query string
+           string queryString = &quot;SELECT [Id], [Name] FROM [WordBlack]&quot;;
+           SqlDataAdapter adapter = new SqlDataAdapter();
+           //set query string
+           adapter.SelectCommand = new SqlCommand(queryString, connection);
+           //Open connection
+           connection.Open();
+           //Sql data is stored DataSet.                 
+           DataSet sqlData = new DataSet();
+           adapter.Fill(sqlData, &quot;WordBlack&quot;);
+           //Close connection
+           connection.Close();
+
+
+           //Bind datatable to GridView
+           gdvKeyword.DataSource = sqlData.Tables[0];
+           gdvKeyword.DataBind();
+       }
+
+
+       //database operation
+       protected void btnAdd_Click(object sender, EventArgs e)
+       {
+           if (IsValid)
+           {               
+               string queryString = &quot;Insert into [WordBlack](Name)values(@Keyword)&quot;;
+               SqlParameter para = new SqlParameter(&quot;Keyword&quot;, tbKey.Text.Trim());
+               SqlCommand command = new SqlCommand(queryString, connection);
+               command.Parameters.Add(para);
+               connection.Open();
+               command.ExecuteNonQuery();
+               connection.Close();
+
+
+               BindGrid();
+           }
+       }
+
+</pre>
+<pre id="codePreview" class="csharp">
+/// &lt;summary&gt;
+       /// Bind datatable to GridView
+       /// &lt;/summary&gt;
+       private void BindGrid()
+       {
+           //Query string
+           string queryString = &quot;SELECT [Id], [Name] FROM [WordBlack]&quot;;
+           SqlDataAdapter adapter = new SqlDataAdapter();
+           //set query string
+           adapter.SelectCommand = new SqlCommand(queryString, connection);
+           //Open connection
+           connection.Open();
+           //Sql data is stored DataSet.                 
+           DataSet sqlData = new DataSet();
+           adapter.Fill(sqlData, &quot;WordBlack&quot;);
+           //Close connection
+           connection.Close();
+
+
+           //Bind datatable to GridView
+           gdvKeyword.DataSource = sqlData.Tables[0];
+           gdvKeyword.DataBind();
+       }
+
+
+       //database operation
+       protected void btnAdd_Click(object sender, EventArgs e)
+       {
+           if (IsValid)
+           {               
+               string queryString = &quot;Insert into [WordBlack](Name)values(@Keyword)&quot;;
+               SqlParameter para = new SqlParameter(&quot;Keyword&quot;, tbKey.Text.Trim());
+               SqlCommand command = new SqlCommand(queryString, connection);
+               command.Parameters.Add(para);
+               connection.Open();
+               command.ExecuteNonQuery();
+               connection.Close();
+
+
+               BindGrid();
+           }
+       }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step5.<b style=""> </b>Build the application and you can debug it.<b style="">
+</b></span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="http://bit.ly/onecodelogo">
+</a></div>
