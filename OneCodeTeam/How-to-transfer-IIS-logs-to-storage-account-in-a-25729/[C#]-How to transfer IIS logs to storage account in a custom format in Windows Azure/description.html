@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/fd0873a3-9a67-441e-9769-e22026a86740Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to transfer IIS logs to storage account in a custom format in Windows Azure</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to transfer IIS logs to storage account in a custom format in Windows Azure</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            IIS, log
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">10/23/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-transfer-IIS-logs-87479fb8">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p class="MsoNormal"><span style="">Because any log file transfer to Azure storage are billable, custom log file before transfer will help you save money. This sample will show you how to custom IIS logs in your Azure web role. This is a
+</span><span style="">frequently asked </span><span style="">question in forum, so we provide this sample code to show how to achieve this</span><span style=""> in .NET</span><span style="">.
+</span></p>
+<p class="MsoNormal"><span style="">Please follow these demonstration steps below.
+</span></p>
+<p class="MsoNormal"><span style="">Step 1: Make sure you </span><span style="">have
+</span><span style="">enabled IIS in your computer. </span></p>
+<p class="MsoNormal"><span style="">Step 2: Right click your cloud project solution, and choose properties, in your Web tab, choose use IIS Web Server.
+</span></p>
+<p class="MsoNormal"><span style="">Step 3: Press Ctrl&#43;F5 to show the Default.aspx</span>.<span style="">
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="800" height="244" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><span style="">Step 4: Don't close the web page, wait one minute and use your server explorer open the latest log file in Windows Azure Storage-&gt; (Development) -&gt;Blobs-&gt;wad-iis-logfiles.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/1debb33c-53c3-402a-adbb-f14b6dffcbf9image.png" alt="" width="924" height="202" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal">Step 5: You will see some log files.</p>
+<p class="MsoNormal"><span style=""><img src="description/9de8d940-0aa0-47ad-9335-91c1714651b5image.png" alt="" width="979" height="117" align="middle">
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+//using (ServerManager serverManager = new ServerManager())
+//{
+//    // Get the website.
+//    // First make sure your cloud programe use IIS Web Server not IIS express.
+//    // Note that &quot;_Web&quot; is the name of the site in the ServiceDefinition.csdef,
+//    // so make sure you change this code if you change the site name in the .csdef
+//    Site site = serverManager.Sites[RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot;];
+//    site.LogFile.LogExtFileFlags = LogExtFileFlags.Date | LogExtFileFlags.Time 
+//        | LogExtFileFlags.ClientIP | LogExtFileFlags.Host | LogExtFileFlags.BytesSent 
+//        | LogExtFileFlags.BytesRecv;
+//    site.LogFile.Period = LoggingRolloverPeriod.Hourly;
+//    serverManager.CommitChanges();
+//}
+
+</pre>
+<pre id="codePreview" class="csharp">
+//using (ServerManager serverManager = new ServerManager())
+//{
+//    // Get the website.
+//    // First make sure your cloud programe use IIS Web Server not IIS express.
+//    // Note that &quot;_Web&quot; is the name of the site in the ServiceDefinition.csdef,
+//    // so make sure you change this code if you change the site name in the .csdef
+//    Site site = serverManager.Sites[RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot;];
+//    site.LogFile.LogExtFileFlags = LogExtFileFlags.Date | LogExtFileFlags.Time 
+//        | LogExtFileFlags.ClientIP | LogExtFileFlags.Host | LogExtFileFlags.BytesSent 
+//        | LogExtFileFlags.BytesRecv;
+//    site.LogFile.Period = LoggingRolloverPeriod.Hourly;
+//    serverManager.CommitChanges();
+//}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="">Step 7: Do the step 3, 4, 5 again, and you will get a simpler log file with less filter parameter.</p>
+<p class="MsoNormal" style=""><span style=""><img src="description/1b91edf9-fc7d-49ea-8bad-6d5db930aabaimage.png" alt="" width="969" height="172" align="middle">
+</span></p>
+<p class="MsoNormal" style="">Code Logical:</p>
+<p class="MsoNormal" style="">Step 1:<span style="">&nbsp; </span>Create a C# windows cloud service with a web role. Service name is &quot;CSAzureTransferringCustomIISLogs&quot;, and web role name is: &quot;AzureTransferringCustomIISLogs&quot;.</p>
+<p class="MsoNormal" style="">Step<span style=""> </span>2:<span style="">&nbsp;
+</span><span style="">Right click cloud project solution, and choose properties, in Web tab, choose use IIS Web Server.</span><span style="">
+</span></p>
+<p class="MsoNormal" style=""><span style="">Step 3:<span style="">&nbsp; </span>
+Add Microsoft.Web.Administration.dll from<span style="">&nbsp; </span>C:\Windows\System32\inetsrv\Microsoft.Web.Administration.dll
+</span></p>
+<p class="MsoNormal" style="">Step<span style=""> 4</span>:<span style="">&nbsp;
+</span>Open the WebRole.cs file cover the onstart() with the codes below.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+public override bool OnStart()
+ {
+     // Get this connection string in web role's setting tab
+     string storageConnectionString = &quot;Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString&quot;;
+     
+     // Get default config
+     DiagnosticMonitorConfiguration config = DiagnosticMonitor.GetDefaultInitialConfiguration();
+     
+     // Transfer the IIS and IIS Failed Request Logs
+     config.Directories.ScheduledTransferPeriod = TimeSpan.FromMinutes(1.0);
+
+
+     // Custom diagnostic logging
+     //using (ServerManager serverManager = new ServerManager())
+     //{
+     //    // Get the website.
+     //    // First make sure your cloud programe use IIS Web Server not IIS express.
+     //    // Note that &quot;_Web&quot; is the name of the site in the ServiceDefinition.csdef,
+     //    // so make sure you change this code if you change the site name in the .csdef
+     //    Site site = serverManager.Sites[RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot;];
+     //    site.LogFile.LogExtFileFlags = LogExtFileFlags.Date | LogExtFileFlags.Time 
+     //        | LogExtFileFlags.ClientIP | LogExtFileFlags.Host | LogExtFileFlags.BytesSent 
+     //        | LogExtFileFlags.BytesRecv;
+     //    site.LogFile.Period = LoggingRolloverPeriod.Hourly;
+     //    serverManager.CommitChanges();
+     //}
+
+
+     DiagnosticMonitor.Start(storageConnectionString, config);
+     RoleEnvironment.Changing &#43;= RoleEnvironmentChanging;
+
+
+     return base.OnStart();
+ }
+
+</pre>
+<pre id="codePreview" class="csharp">
+public override bool OnStart()
+ {
+     // Get this connection string in web role's setting tab
+     string storageConnectionString = &quot;Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString&quot;;
+     
+     // Get default config
+     DiagnosticMonitorConfiguration config = DiagnosticMonitor.GetDefaultInitialConfiguration();
+     
+     // Transfer the IIS and IIS Failed Request Logs
+     config.Directories.ScheduledTransferPeriod = TimeSpan.FromMinutes(1.0);
+
+
+     // Custom diagnostic logging
+     //using (ServerManager serverManager = new ServerManager())
+     //{
+     //    // Get the website.
+     //    // First make sure your cloud programe use IIS Web Server not IIS express.
+     //    // Note that &quot;_Web&quot; is the name of the site in the ServiceDefinition.csdef,
+     //    // so make sure you change this code if you change the site name in the .csdef
+     //    Site site = serverManager.Sites[RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot;];
+     //    site.LogFile.LogExtFileFlags = LogExtFileFlags.Date | LogExtFileFlags.Time 
+     //        | LogExtFileFlags.ClientIP | LogExtFileFlags.Host | LogExtFileFlags.BytesSent 
+     //        | LogExtFileFlags.BytesRecv;
+     //    site.LogFile.Period = LoggingRolloverPeriod.Hourly;
+     //    serverManager.CommitChanges();
+     //}
+
+
+     DiagnosticMonitor.Start(storageConnectionString, config);
+     RoleEnvironment.Changing &#43;= RoleEnvironmentChanging;
+
+
+     return base.OnStart();
+ }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="">Step <span style="">5</span>: Then check your cloud project, csdef file, make sure this module have been auto import to your project:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;Imports&gt;
+  &lt;Import moduleName=&quot;Diagnostics&quot; /&gt;
+&lt;/Imports&gt;
+
+</pre>
+<pre id="codePreview" class="xml">
+&lt;Imports&gt;
+  &lt;Import moduleName=&quot;Diagnostics&quot; /&gt;
+&lt;/Imports&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="">Step <span style="">6</span>: Build the application.
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+//using (ServerManager serverManager = new ServerManager())
+            //{
+            //    // Get the website.
+            //    // First make sure your cloud programe use IIS Web Server not IIS express.
+            //    // Note that &quot;_Web&quot; is the name of the site in the ServiceDefinition.csdef,
+            //    // so make sure you change this code if you change the site name in the .csdef
+            //    Site site = serverManager.Sites[RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot;];
+            //    site.LogFile.LogExtFileFlags = LogExtFileFlags.Date | LogExtFileFlags.Time 
+            //        | LogExtFileFlags.ClientIP | LogExtFileFlags.Host | LogExtFileFlags.BytesSent 
+            //        | LogExtFileFlags.BytesRecv;
+            //    site.LogFile.Period = LoggingRolloverPeriod.Hourly;
+            //    serverManager.CommitChanges();
+            //}
+
+</pre>
+<pre id="codePreview" class="csharp">
+//using (ServerManager serverManager = new ServerManager())
+            //{
+            //    // Get the website.
+            //    // First make sure your cloud programe use IIS Web Server not IIS express.
+            //    // Note that &quot;_Web&quot; is the name of the site in the ServiceDefinition.csdef,
+            //    // so make sure you change this code if you change the site name in the .csdef
+            //    Site site = serverManager.Sites[RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot;];
+            //    site.LogFile.LogExtFileFlags = LogExtFileFlags.Date | LogExtFileFlags.Time 
+            //        | LogExtFileFlags.ClientIP | LogExtFileFlags.Host | LogExtFileFlags.BytesSent 
+            //        | LogExtFileFlags.BytesRecv;
+            //    site.LogFile.Period = LoggingRolloverPeriod.Hourly;
+            //    serverManager.CommitChanges();
+            //}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="">Step <span style="">8</span>: Rebuild the application.</p>
+<p style="margin:0in; margin-bottom:.0001pt"><a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh411525.aspx"><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">How to: Store and View Diagnostic Data in Windows Azure Storage</span></a><span style="font-size:11.0pt; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">
+</span></p>
+<p class="MsoNormal" style=""><a href="http://blogs.msdn.com/b/sriharsha/archive/2012/10/26/how-to-transfer-iis-logs-to-storage-account-in-a-custom-format.aspx"><span style="">How to transfer IIS logs to storage account in a custom format</span></a><span lang="EN" style="">
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/8ceaf4b9-39f1-47dc-ae5e-ffbff5b81e5fimage.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
