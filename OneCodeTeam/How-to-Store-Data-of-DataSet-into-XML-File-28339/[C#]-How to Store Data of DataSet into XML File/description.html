@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/05775082-172d-4631-a367-5687f5230dd6Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to Store Data of DataSet into XML File</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to Store Data of DataSet into XML File</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ADO.NET, Data Access, .NET Development
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            XML, DataSet, XML Schema
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/24/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-Store-Data-of-84fb7463">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img alt="" src="description/8171.onecodesampletopbanner.png">
+</a></div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:24pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:14pt"><span style="font-weight:bold; font-size:14pt">How to Store Data of DataSe</span><span style="font-weight:bold; font-size:14pt">t into XML File</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Introduction</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">In this sample, we will demonstrate how to write data into XML file from DataSet and read data into DataSet from XML.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">1. We will create one dataset with two tables.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">2. We will use two ways to export dataset into the XML files:WriteXml method and GetXml method.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">3. We will use two ways to import dataset from the XML files:ReadXml method and InferXmlSchema method.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Running the Sample</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Press F5 to run the sample, the following is the result.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">First, we create one dataset that contains two tables.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/image.png" alt="" width="638" height="270" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Second, we use two ways to export the dataset into XML files.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">a. Use WriteXml method to export the dataset.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/0c8f4618-00ec-4f31-b351-6585f471b9eaimage.png" alt="" width="642" height="22" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">b. Use GetXml method to export the dataset.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/592cdb2e-96f9-4aa7-9d72-c03fcdb2b2caimage.png" alt="" width="639" height="23" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Third, we import the dataset from the XML files.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">a. Use ReadXml to import the dataset.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">We use ReadXml method to read the XML file that WriteXml method created early. Because we also read the schema from the XML file, we can find that the schema is as same as the schema of the original
+ dataset.</span></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/488c73c1-d97c-4ea8-a2da-471e4b4717a6image.png" alt="" width="639" height="87" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">b. Use InferXmlSchema method to infer the schemas.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">We display four types of XML structures.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp;<span style="font-size:11pt">Elements that only have attributes</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">Following is the Xml document:</span></span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;MySchool&gt;
+  &lt;Course CourseID=&quot;C1045&quot; Year=&quot;2012&quot;  Title=&quot;Calculus&quot; Credits=&quot;4&quot; DepartmentID=&quot;7&quot; /&gt;
+  &lt;Course CourseID=&quot;C1061&quot; Year=&quot;2012&quot;  Title=&quot;Physics&quot; Credits=&quot;4&quot; DepartmentID=&quot;1&quot; /&gt;
+  &lt;Department DepartmentID=&quot;1&quot; Name=&quot;Engineering&quot; Budget=&quot;350000&quot; StartDate=&quot;2007-09-01T00:00:00&#43;08:00&quot; Administrator=&quot;2&quot; /&gt;
+  &lt;Department DepartmentID=&quot;7&quot; Name=&quot;Mathematics&quot; Budget=&quot;250024&quot; StartDate=&quot;2007-09-01T00:00:00&#43;08:00&quot; Administrator=&quot;3&quot; /&gt;
+&lt;/MySchool&gt;
+</pre>
+<pre id="codePreview" class="xml">
+&lt;MySchool&gt;
+  &lt;Course CourseID=&quot;C1045&quot; Year=&quot;2012&quot;  Title=&quot;Calculus&quot; Credits=&quot;4&quot; DepartmentID=&quot;7&quot; /&gt;
+  &lt;Course CourseID=&quot;C1061&quot; Year=&quot;2012&quot;  Title=&quot;Physics&quot; Credits=&quot;4&quot; DepartmentID=&quot;1&quot; /&gt;
+  &lt;Department DepartmentID=&quot;1&quot; Name=&quot;Engineering&quot; Budget=&quot;350000&quot; StartDate=&quot;2007-09-01T00:00:00&#43;08:00&quot; Administrator=&quot;2&quot; /&gt;
+  &lt;Department DepartmentID=&quot;7&quot; Name=&quot;Mathematics&quot; Budget=&quot;250024&quot; StartDate=&quot;2007-09-01T00:00:00&#43;08:00&quot; Administrator=&quot;3&quot; /&gt;
+&lt;/MySchool&gt;
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"></span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">Following is the result of inferring from the above Xml document:</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/f8934f09-da4f-477d-98cd-f714afaa20a9image.png" alt="" width="639" height="73" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">Now we can find that the name of root element becomes the name of dataset, the names of elements become the name of table and the names of attributes become the name of columns.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp;<span style="font-size:11pt">Elements that have attributes and the element text</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">Following is the Xml document:</span></span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;MySchool&gt;
+  &lt;Course CourseID=&quot;C1045&quot; Year=&quot;2012&quot;  Title=&quot;Calculus&quot; Credits=&quot;4&quot; DepartmentID=&quot;7&quot;&gt;New&lt;/Course&gt;
+  &lt;Course CourseID=&quot;C1061&quot; Year=&quot;2012&quot;  Title=&quot;Physics&quot; Credits=&quot;4&quot; DepartmentID=&quot;1&quot; /&gt;
+  &lt;Department DepartmentID=&quot;1&quot; Name=&quot;Engineering&quot; Budget=&quot;350000&quot; StartDate=&quot;2007-09-01T00:00:00&#43;08:00&quot; Administrator=&quot;2&quot; /&gt;
+  &lt;Department DepartmentID=&quot;7&quot; Name=&quot;Mathematics&quot; Budget=&quot;250024&quot; StartDate=&quot;2007-09-01T00:00:00&#43;08:00&quot; Administrator=&quot;3&quot;&gt;Cancelled&lt;/Department&gt;
+&lt;/MySchool&gt;
+</pre>
+<pre id="codePreview" class="xml">
+&lt;MySchool&gt;
+  &lt;Course CourseID=&quot;C1045&quot; Year=&quot;2012&quot;  Title=&quot;Calculus&quot; Credits=&quot;4&quot; DepartmentID=&quot;7&quot;&gt;New&lt;/Course&gt;
+  &lt;Course CourseID=&quot;C1061&quot; Year=&quot;2012&quot;  Title=&quot;Physics&quot; Credits=&quot;4&quot; DepartmentID=&quot;1&quot; /&gt;
+  &lt;Department DepartmentID=&quot;1&quot; Name=&quot;Engineering&quot; Budget=&quot;350000&quot; StartDate=&quot;2007-09-01T00:00:00&#43;08:00&quot; Administrator=&quot;2&quot; /&gt;
+  &lt;Department DepartmentID=&quot;7&quot; Name=&quot;Mathematics&quot; Budget=&quot;250024&quot; StartDate=&quot;2007-09-01T00:00:00&#43;08:00&quot; Administrator=&quot;3&quot;&gt;Cancelled&lt;/Department&gt;
+&lt;/MySchool&gt;
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:24pt; margin-bottom:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:10pt">&nbsp;</span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">Following is the result of inferring from the above Xml document:</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/c33cd25c-4ce2-4b90-b8ba-7112fcaa3139image.png" alt="" width="635" height="87" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">The only difference between type 1 and 2 is that type 2 have the element text in Xml document. So we can find the only difference of the results is that the new columns, &ldquo;Course_Text&rdquo;, &ldquo;Department_Text&rdquo;.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp;<span style="font-size:11pt">Repeating Elements</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">Following is the Xml document:</span></span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;MySchool&gt;
+  &lt;Course&gt;C1045&lt;/Course&gt;
+  &lt;Course&gt;C1061&lt;/Course&gt;
+  &lt;Department&gt;Engineering&lt;/Department&gt; 
+  &lt;Department&gt;Mathematics&lt;/Department&gt;
+&lt;/MySchool&gt;
+</pre>
+<pre id="codePreview" class="xml">
+&lt;MySchool&gt;
+  &lt;Course&gt;C1045&lt;/Course&gt;
+  &lt;Course&gt;C1061&lt;/Course&gt;
+  &lt;Department&gt;Engineering&lt;/Department&gt; 
+  &lt;Department&gt;Mathematics&lt;/Department&gt;
+&lt;/MySchool&gt;
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:24pt; margin-bottom:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:10pt">&nbsp;</span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">Following is the result of inferring from the above Xml document:</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/703c9167-47a5-4e35-b8e3-e9e643006e53image.png" alt="" width="635" height="79" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">We can find that the repeat elements result in a single inferred table.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp;<span style="font-size:11pt">Elements With Child Elements</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">Following is the Xml document:</span></span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;MySchool&gt;
+  &lt;Course&gt;
+    &lt;CourseID&gt;C1045&lt;/CourseID&gt;
+    &lt;Year&gt;2012&lt;/Year&gt;
+    &lt;Title&gt;Calculus&lt;/Title&gt;
+    &lt;Credits&gt;4&lt;/Credits&gt;
+    &lt;DepartmentID&gt;7&lt;/DepartmentID&gt;
+  &lt;/Course&gt;
+  &lt;Course&gt;
+    &lt;CourseID&gt;C1061&lt;/CourseID&gt;
+    &lt;Year&gt;2012&lt;/Year&gt;
+    &lt;Title&gt;Physics&lt;/Title&gt;
+    &lt;Credits&gt;4&lt;/Credits&gt;
+    &lt;DepartmentID&gt;1&lt;/DepartmentID&gt;
+  &lt;/Course&gt;
+  .................................
+  &lt;Department&gt;
+    &lt;DepartmentID&gt;1&lt;/DepartmentID&gt;
+    &lt;Name&gt;Engineering&lt;/Name&gt;
+    &lt;Budget&gt;350000&lt;/Budget&gt;
+    &lt;StartDate&gt;2007-09-01T00:00:00&#43;08:00&lt;/StartDate&gt;
+    &lt;Administrator&gt;2&lt;/Administrator&gt;
+  &lt;/Department&gt;
+  &lt;Department&gt;
+    &lt;DepartmentID&gt;2&lt;/DepartmentID&gt;
+    &lt;Name&gt;English&lt;/Name&gt;
+    &lt;Budget&gt;120000&lt;/Budget&gt;
+    &lt;StartDate&gt;2007-09-01T00:00:00&#43;08:00&lt;/StartDate&gt;
+    &lt;Administrator&gt;6&lt;/Administrator&gt;
+  &lt;/Department&gt;
+  .................................
+&lt;/MySchool&gt;
+</pre>
+<pre id="codePreview" class="xml">
+&lt;MySchool&gt;
+  &lt;Course&gt;
+    &lt;CourseID&gt;C1045&lt;/CourseID&gt;
+    &lt;Year&gt;2012&lt;/Year&gt;
+    &lt;Title&gt;Calculus&lt;/Title&gt;
+    &lt;Credits&gt;4&lt;/Credits&gt;
+    &lt;DepartmentID&gt;7&lt;/DepartmentID&gt;
+  &lt;/Course&gt;
+  &lt;Course&gt;
+    &lt;CourseID&gt;C1061&lt;/CourseID&gt;
+    &lt;Year&gt;2012&lt;/Year&gt;
+    &lt;Title&gt;Physics&lt;/Title&gt;
+    &lt;Credits&gt;4&lt;/Credits&gt;
+    &lt;DepartmentID&gt;1&lt;/DepartmentID&gt;
+  &lt;/Course&gt;
+  .................................
+  &lt;Department&gt;
+    &lt;DepartmentID&gt;1&lt;/DepartmentID&gt;
+    &lt;Name&gt;Engineering&lt;/Name&gt;
+    &lt;Budget&gt;350000&lt;/Budget&gt;
+    &lt;StartDate&gt;2007-09-01T00:00:00&#43;08:00&lt;/StartDate&gt;
+    &lt;Administrator&gt;2&lt;/Administrator&gt;
+  &lt;/Department&gt;
+  &lt;Department&gt;
+    &lt;DepartmentID&gt;2&lt;/DepartmentID&gt;
+    &lt;Name&gt;English&lt;/Name&gt;
+    &lt;Budget&gt;120000&lt;/Budget&gt;
+    &lt;StartDate&gt;2007-09-01T00:00:00&#43;08:00&lt;/StartDate&gt;
+    &lt;Administrator&gt;6&lt;/Administrator&gt;
+  &lt;/Department&gt;
+  .................................
+&lt;/MySchool&gt;
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"></span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">Following is the result of inferring from the above Xml document:</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/ab3bbb7d-3c6e-4f7e-a5dc-5941b4c2b2f8image.png" alt="" width="637" height="83" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">The above Xml document is as same as the document that GetXml method created early and we get the same structure as the original dataset. For this type structure, we can find that the name of root becomes
+ the name of dataset, the names of second level elements become the names of tables and the names of the third level elements become the names of attributes.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Using the Code</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; line-height:24pt; direction:ltr; unicode-bidi:normal; text-autospace:none">
+<span style="font-size:11pt"><span style="font-size:11pt">1. Use two ways to export the dataset into the XML files.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; line-height:24pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">a. Use WriteXml method to export the dataset.</span></span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">
+using (FileStream fsWriterStream = new FileStream(xmlFileName, FileMode.Create))
+{
+    using (XmlTextWriter xmlWriter = new XmlTextWriter(fsWriterStream, Encoding.Unicode))
+    {
+        dataset.WriteXml(xmlWriter, XmlWriteMode.WriteSchema);
+        Console.WriteLine(&quot;Write {0} to the File {1}.&quot;, dataset.DataSetName, xmlFileName);
+        Console.WriteLine();
+    }
+}
+</pre>
+<pre class="hidden">
+Using fsWriterStream As New FileStream(xmlFileName, FileMode.Create)
+    Using xmlWriter As New XmlTextWriter(fsWriterStream, Encoding.Unicode)
+        dataset.WriteXml(xmlWriter, XmlWriteMode.WriteSchema)
+        Console.WriteLine(&quot;Write {0} to the File {1}.&quot;, dataset.DataSetName, xmlFileName)
+        Console.WriteLine()
+    End Using
+End Using
+</pre>
+<pre id="codePreview" class="csharp">
+using (FileStream fsWriterStream = new FileStream(xmlFileName, FileMode.Create))
+{
+    using (XmlTextWriter xmlWriter = new XmlTextWriter(fsWriterStream, Encoding.Unicode))
+    {
+        dataset.WriteXml(xmlWriter, XmlWriteMode.WriteSchema);
+        Console.WriteLine(&quot;Write {0} to the File {1}.&quot;, dataset.DataSetName, xmlFileName);
+        Console.WriteLine();
+    }
+}
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; line-height:24pt; direction:ltr; unicode-bidi:normal; text-autospace:none">
+<span style="font-size:11pt"><span style="font-size:11pt"></span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; line-height:24pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">b. Use GetXml method to export the dataset.</span></span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">
+using (StreamWriter writer = new StreamWriter(xmlFileName))
+{
+    writer.WriteLine(dataset.GetXml());
+    Console.WriteLine(&quot;Get Xml data from {0} and write to the File {1}.&quot;, dataset.DataSetName, xmlFileName);
+    Console.WriteLine();
+}
+</pre>
+<pre class="hidden">
+Using writer As New StreamWriter(xmlFileName)
+    writer.WriteLine(dataset.GetXml())
+    Console.WriteLine(&quot;Get Xml data from {0} and write to the File {1}.&quot;,
+                      dataset.DataSetName, xmlFileName)
+    Console.WriteLine()
+End Using
+</pre>
+<pre id="codePreview" class="csharp">
+using (StreamWriter writer = new StreamWriter(xmlFileName))
+{
+    writer.WriteLine(dataset.GetXml());
+    Console.WriteLine(&quot;Get Xml data from {0} and write to the File {1}.&quot;, dataset.DataSetName, xmlFileName);
+    Console.WriteLine();
+}
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"></span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; line-height:24pt; direction:ltr; unicode-bidi:normal; text-autospace:none">
+<span style="font-size:11pt"><span style="font-size:11pt">2. Use two ways to import the dataset from the XML files.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; line-height:24pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">a. Use ReadXml method to import the dataset.</span></span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">
+using (FileStream fsReaderStream = new FileStream(xmlFileName, FileMode.Open))
+{
+    using (XmlTextReader xmlReader = new XmlTextReader(fsReaderStream))
+    {
+        newDataSet.ReadXml(xmlReader, XmlReadMode.ReadSchema);
+    }
+}
+</pre>
+<pre class="hidden">
+Using fsReaderStream As New FileStream(xmlFileName, FileMode.Open)
+    Using xmlReader As New XmlTextReader(fsReaderStream)
+        newDataSet.ReadXml(xmlReader, XmlReadMode.ReadSchema)
+    End Using
+End Using
+</pre>
+<pre id="codePreview" class="csharp">
+using (FileStream fsReaderStream = new FileStream(xmlFileName, FileMode.Open))
+{
+    using (XmlTextReader xmlReader = new XmlTextReader(fsReaderStream))
+    {
+        newDataSet.ReadXml(xmlReader, XmlReadMode.ReadSchema);
+    }
+}
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"></span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; line-height:24pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">b. Use InferXmlSchema method to import the datset.</span></span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">
+String[] xmlFileNames = { 
+                        @&quot;XMLFiles\ElementsWithOnlyAttributes.xml&quot;, 
+                        @&quot;XMLFiles\ElementsWithAttributes.xml&quot;,
+                        @&quot;XMLFiles\RepeatingElements.xml&quot;, 
+                        @&quot;XMLFiles\ElementsWithChildElements.xml&quot; };
+foreach (String xmlFileName in xmlFileNames)
+{
+    Console.WriteLine(&quot;Result of {0}&quot;, Path.GetFileNameWithoutExtension(xmlFileName));
+    DataSet newSchool = new DataSet();
+    newSchool.InferXmlSchema(xmlFileName,null);
+    DataTableHelper.ShowDataSetSchema(newSchool);
+    Console.WriteLine();
+           }
+</pre>
+<pre class="hidden">
+Dim xmlFileNames() As String =
+    {&quot;XMLFiles\ElementsWithOnlyAttributes.xml&quot;,
+     &quot;XMLFiles\ElementsWithAttributes.xml&quot;,
+     &quot;XMLFiles\RepeatingElements.xml&quot;,
+     &quot;XMLFiles\ElementsWithChildElements.xml&quot;}
+For Each xmlFileName As String In xmlFileNames
+    Console.WriteLine(&quot;Result of {0}&quot;, Path.GetFileNameWithoutExtension(xmlFileName))
+    Dim newSchool As New DataSet()
+    newSchool.InferXmlSchema(xmlFileName, Nothing)
+    DataTableHelper.ShowDataSetSchema(newSchool)
+    Console.WriteLine()
+Next xmlFileName
+</pre>
+<pre id="codePreview" class="csharp">
+String[] xmlFileNames = { 
+                        @&quot;XMLFiles\ElementsWithOnlyAttributes.xml&quot;, 
+                        @&quot;XMLFiles\ElementsWithAttributes.xml&quot;,
+                        @&quot;XMLFiles\RepeatingElements.xml&quot;, 
+                        @&quot;XMLFiles\ElementsWithChildElements.xml&quot; };
+foreach (String xmlFileName in xmlFileNames)
+{
+    Console.WriteLine(&quot;Result of {0}&quot;, Path.GetFileNameWithoutExtension(xmlFileName));
+    DataSet newSchool = new DataSet();
+    newSchool.InferXmlSchema(xmlFileName,null);
+    DataTableHelper.ShowDataSetSchema(newSchool);
+    Console.WriteLine();
+           }
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"></span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">More Information</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="color:#0563C1; text-decoration:underline"></span><a href="http://msdn.microsoft.com/en-us/library/system.data.dataset.getxml.aspx" style="text-decoration:none"><span style="color:#0563C1; text-decoration:underline">DataSet.GetXml
+ Method</span></a></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="color:#0563C1; text-decoration:underline"></span><a href="http://msdn.microsoft.com/en-us/library/d6swf149.aspx" style="text-decoration:none"><span style="color:#0563C1; text-decoration:underline">DataSet.ReadXml Method
+ (XmlReader)</span></a></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="color:#0563C1; text-decoration:underline"></span><a href="http://msdn.microsoft.com/en-us/library/cat50f7f.aspx" style="text-decoration:none"><span style="color:#0563C1; text-decoration:underline">Inferring Tables</span></a></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="color:#0563C1; text-decoration:underline"></span><a href="http://msdn.microsoft.com/en-us/library/fx29c3yd(VS.110).aspx" style="text-decoration:none"><span style="color:#0563C1; text-decoration:underline">Loading a
+ DataSet from XML</span></a></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span> </p>
+<p style="line-height:0.6pt; color:white">Microsoft All-In-One Code Framework is a free, centralized code sample library driven by developers' real-world pains and needs. The goal is to provide customer-driven code samples for all Microsoft development technologies,
+ and reduce developers' efforts in solving typical programming tasks. Our team listens to developers’ pains in the MSDN forums, social media and various DEV communities. We write code samples based on developers’ frequently asked programming tasks, and allow
+ developers to download them with a short sample publishing cycle. Additionally, we offer a free code sample request service. It is a proactive way for our developer community to obtain code samples directly from Microsoft.</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/6b4cf5bf-9f01-459f-b9ba-42bff79b68c6image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
