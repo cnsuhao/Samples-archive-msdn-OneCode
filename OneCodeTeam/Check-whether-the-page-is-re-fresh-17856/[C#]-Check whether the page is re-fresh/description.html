@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/d3400f39-92d4-48d8-84fa-1b85f57d841cCombined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Check whether the page is &quot;re-fresh&quot;</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Check whether the page is &quot;re-fresh&quot;</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            refresh
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">7/5/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETCheckPageRefresh-9811ec12">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>How to check whether the page is refreshed or <span class="Heading1Char">not (<span class="SpellE">CSASPNETCheckPageRefresh</span>)
+</span></h1>
+<h2>Introduction </h2>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">The CSASPNETCheckPageRefresh sample demonstrates how to check whether the page is refreshed or not. User usually wants to check whether a page is refreshed again in order to avoid some duplicated operations. In this demo, we create a user control
+ to collect such information.</span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style="">Please follow these demonstration steps below.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 1: Open the CSASPNETCheckPageRefresh.sln. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2: Right-click the Default.aspx page then select &quot;View in Browser&quot;. Click f5 to refresh. Then close the page.<br style="">
+<br style="">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: Right-click the UrlReferrer.aspx page then click the link. Do the same operation as Step 2.<br style="">
+<br style="">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 4: Validation finished. </span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style=""><span style="">Code Logical: <span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step1. Create a C# &quot;ASP.NET Web Application&quot; in Visual Studio 2012/Visual Web Developer. Name it as &quot;CSASPNETCheckPageRefresh&quot;.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step2. Add a User Control; in this demo, we named it &quot;CheckRefreshUserControl.ascx&quot;. Create a UserControl in order to reuse it in different kinds of pages.<br>
+Declare a variable to storage refresh flag. </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+/// &lt;summary&gt; 
+      /// Flag for checking whether deplicated refreshing or not
+      /// &lt;/summary&gt;   
+      public bool ReFreshCheck { get; set; }
+
+</pre>
+<pre id="codePreview" class="csharp">
+/// &lt;summary&gt; 
+      /// Flag for checking whether deplicated refreshing or not
+      /// &lt;/summary&gt;   
+      public bool ReFreshCheck { get; set; }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">When you login the page for the first time</span><span style="">,</span><span style=""> session should be null</span><span style="">,</span><span style=""> but when you refresh the page</span><span style="">,</span><span style=""> the session
+ will not be null</span><span style="">.</span><span style=""> We can say that you've performed a &quot;duplicated Refresh&quot;</span><span style="">.</span><span style="">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">To differentiate it from Post Back</span><span style="">, </span><span style="">we should also use IsPostBack to check whether the IsPostBack is true--If this is true</span><span style="">,
+</span><span style="">directly set Session=null</span><span style="">.</span><span style="">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">We can operate the Session in the OnInit event of our UserControl. The code as shown below:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+/// &lt;summary&gt;     
+/// Fetch the parent page's class name, which is unique.    
+/// &lt;/summary&gt;  
+string parentName = null;
+protected override void OnInit(EventArgs e)
+{
+    if (Parent.Parent is Page)
+    {
+        parentName = Parent.Parent.GetType().Name;
+        if (IsPostBack)//If it is Post Back, Reset the Session value to null, and it represents not repeated loading
+        {
+            ReFreshCheck = false;
+            Session[parentName] = null;
+        }
+        else if (Request.UrlReferrer != null && Request.UrlReferrer.ToString() != Request.Url.ToString())
+        {
+            //Detect whether coming from the other page by Response.Redirect, in order to avoid misuse 
+            Session[parentName] = null;
+        }
+        else
+        {                   
+            if (Session[parentName] == null)
+            {
+                ReFreshCheck = false;
+                Session[parentName] = true;
+            }
+            else
+            {
+                ReFreshCheck = true;
+            }
+        }
+    }
+    else
+    {
+        throw new Exception(&quot;You must put the control inside the page!&quot;);
+    }
+}      
+
+</pre>
+<pre id="codePreview" class="csharp">
+/// &lt;summary&gt;     
+/// Fetch the parent page's class name, which is unique.    
+/// &lt;/summary&gt;  
+string parentName = null;
+protected override void OnInit(EventArgs e)
+{
+    if (Parent.Parent is Page)
+    {
+        parentName = Parent.Parent.GetType().Name;
+        if (IsPostBack)//If it is Post Back, Reset the Session value to null, and it represents not repeated loading
+        {
+            ReFreshCheck = false;
+            Session[parentName] = null;
+        }
+        else if (Request.UrlReferrer != null && Request.UrlReferrer.ToString() != Request.Url.ToString())
+        {
+            //Detect whether coming from the other page by Response.Redirect, in order to avoid misuse 
+            Session[parentName] = null;
+        }
+        else
+        {                   
+            if (Session[parentName] == null)
+            {
+                ReFreshCheck = false;
+                Session[parentName] = true;
+            }
+            else
+            {
+                ReFreshCheck = true;
+            }
+        }
+    }
+    else
+    {
+        throw new Exception(&quot;You must put the control inside the page!&quot;);
+    }
+}      
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><br>
+Step3. Use the UserControl in the Default page. </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+&lt;%@ Register Src=&quot;CheckRefreshUserControl.ascx&quot; TagName=&quot;CheckRefreshUserControl&quot;
+TagPrefix=&quot;uc1&quot; %&gt;
+…
+   &lt;uc1:CheckRefreshUserControl ID=&quot;CheckRefreshUserControl1&quot; runat=&quot;server&quot; /&gt;
+…</pre>
+<pre id="codePreview" class="csharp">
+&lt;%@ Register Src=&quot;CheckRefreshUserControl.ascx&quot; TagName=&quot;CheckRefreshUserControl&quot;
+TagPrefix=&quot;uc1&quot; %&gt;
+…
+   &lt;uc1:CheckRefreshUserControl ID=&quot;CheckRefreshUserControl1&quot; runat=&quot;server&quot; /&gt;
+…</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step4. In the Default.aspx, first, we judge the value of refresh flag in the
+<span class="SpellE">Page_Load</span> event, and then write our business logic code based on the value.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+protected void Page_Load(object sender, EventArgs e)
+        {
+            if (IsNotRefresh())
+            {
+                WriteMsg(&quot;Page is not refresh&quot;);
+                //do your logic code here
+            }
+            else
+            {
+                WriteMsg(&quot;Page is refresh&quot;);
+                //do your logic code here
+            }
+         
+        }
+
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (IsNotRefresh())
+            {
+                WriteMsg(&quot;Page is not refresh&quot;);
+                //do your logic code here
+            }
+        }
+
+
+        /// &lt;summary&gt;
+        /// Output some message
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;strMsg&quot;&gt;&lt;/param&gt;
+        private void WriteMsg(string strMsg)
+        {
+            Response.Clear();
+            Response.Write(strMsg);
+        }
+
+
+        /// &lt;summary&gt;
+        /// Determine whether is refresh or not
+        /// &lt;/summary&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        private bool IsNotRefresh()
+        {
+            bool isNotRefresh = true;
+
+
+            // User Control
+            CheckRefreshUserControl cruc = this.FindControl(&quot;CheckRefreshUserControl1&quot;) as CheckRefreshUserControl;            
+            //Result
+            isNotRefresh = cruc.ReFreshCheck == false ? true : false;
+            return isNotRefresh;
+        }
+
+</pre>
+<pre id="codePreview" class="csharp">
+protected void Page_Load(object sender, EventArgs e)
+        {
+            if (IsNotRefresh())
+            {
+                WriteMsg(&quot;Page is not refresh&quot;);
+                //do your logic code here
+            }
+            else
+            {
+                WriteMsg(&quot;Page is refresh&quot;);
+                //do your logic code here
+            }
+         
+        }
+
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (IsNotRefresh())
+            {
+                WriteMsg(&quot;Page is not refresh&quot;);
+                //do your logic code here
+            }
+        }
+
+
+        /// &lt;summary&gt;
+        /// Output some message
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;strMsg&quot;&gt;&lt;/param&gt;
+        private void WriteMsg(string strMsg)
+        {
+            Response.Clear();
+            Response.Write(strMsg);
+        }
+
+
+        /// &lt;summary&gt;
+        /// Determine whether is refresh or not
+        /// &lt;/summary&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        private bool IsNotRefresh()
+        {
+            bool isNotRefresh = true;
+
+
+            // User Control
+            CheckRefreshUserControl cruc = this.FindControl(&quot;CheckRefreshUserControl1&quot;) as CheckRefreshUserControl;            
+            //Result
+            isNotRefresh = cruc.ReFreshCheck == false ? true : false;
+            return isNotRefresh;
+        }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">The key code to judge whether the page is refreshed or not as shown below:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+// User Control
+CheckRefreshUserControl cruc = this.FindControl(&quot;CheckRefreshUserControl1&quot;) as CheckRefreshUserControl;            
+//Result
+isRefresh = cruc.ReFreshCheck;
+
+</pre>
+<pre id="codePreview" class="csharp">
+// User Control
+CheckRefreshUserControl cruc = this.FindControl(&quot;CheckRefreshUserControl1&quot;) as CheckRefreshUserControl;            
+//Result
+isRefresh = cruc.ReFreshCheck;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step5.<b style=""> </b>Build the application and you can debug it.<b style="">
+</b></span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b889d079-f6e3-4e60-ae88-9824f8a95a19image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
