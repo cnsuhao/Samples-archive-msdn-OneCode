@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Merge the Config file for Referenced Managed DLL (CSMergeConfig)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Merge the Config file for Referenced Managed DLL (CSMergeConfig)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            XML, .NET Framework
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            LINQ to XML
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">8/22/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSMergeConfig-6e731d92">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Merging the configuration file for a referenced managed <span class="SpellE">
+dll</span> with the console application (<span class="SpellE">CSMergeConfig</span>)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">This program is a generic sample for a scenario where the <span class="SpellE">
+config</span> file of the <span class="SpellE">dll</span> needs to be merged with the Console application so that the Configuration of the class library (contains reference to service) can be accessed during application run to initialize the class.</p>
+<p class="MsoListParagraph" style="text-indent:-.25in"><span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Purpose<span style="">&nbsp;&nbsp; </span>of the sample:</p>
+<p class="MsoNormal" style="text-indent:.5in">Merging the configuration file for a referenced managed
+<span class="SpellE">dll</span> with the console application such that the Specified Section from the
+<span class="SpellE">config</span> file of Class Library will be merged with the console application.
+</p>
+<p class="MsoListParagraph" style="text-indent:-.25in"><span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Why do we need to merge the <span class="SpellE">config</span> file?
+</p>
+<p class="MsoNormal" style="margin-left:.5in">By default, only the <span class="SpellE">
+config</span> file of the executable will be accessed during runtime. If we need to load a class Library that has a service reference, the respective
+<span class="SpellE">dll.config</span> file cannot be accessed which will result in a
+<span class="SpellE"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Reflection.TargetInvocationException.aspx"  title="Auto generated link to System.Reflection.TargetInvocationException">System.Reflection.TargetInvocationException</a></span>. So, to avoid there has been lot of request from our customers to provide a way to merge the
+<span class="SpellE">config</span> file such that we will be able to access the
+<span class="SpellE">config</span> file of the application and still be able to initialize.</p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">We first load the two <span class="SpellE">config</span> files and then merge them.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+var doc = XElement.Load(@&quot;ServiceReferenceddll.dll.config&quot;);
+
+
+var query = from ele in doc.Elements(&quot;system.serviceModel&quot;)
+            select ele;
+
+
+var doc1 = XElement.Load(@&quot;..\CSMergeConfig\App.config&quot;);
+
+
+var node1 = doc.Descendants(&quot;system.serviceModel&quot;).FirstOrDefault();
+var node2 = doc1.Descendants(&quot;system.serviceModel&quot;).FirstOrDefault();
+
+
+XNode node = doc1.Element(&quot;system.serviceModel&quot;);
+
+
+// Lets iterate the node of the console until the last node is reached 
+if (!XElement.DeepEquals(node1, node2))
+{
+    node2.Add(node1.Nodes());
+    doc1.Save(@&quot;..\CSMergeConfig\App.config&quot;);
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+var doc = XElement.Load(@&quot;ServiceReferenceddll.dll.config&quot;);
+
+
+var query = from ele in doc.Elements(&quot;system.serviceModel&quot;)
+            select ele;
+
+
+var doc1 = XElement.Load(@&quot;..\CSMergeConfig\App.config&quot;);
+
+
+var node1 = doc.Descendants(&quot;system.serviceModel&quot;).FirstOrDefault();
+var node2 = doc1.Descendants(&quot;system.serviceModel&quot;).FirstOrDefault();
+
+
+XNode node = doc1.Element(&quot;system.serviceModel&quot;);
+
+
+// Lets iterate the node of the console until the last node is reached 
+if (!XElement.DeepEquals(node1, node2))
+{
+    node2.Add(node1.Nodes());
+    doc1.Save(@&quot;..\CSMergeConfig\App.config&quot;);
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"></p>
+<p class="MsoNormal">These are the inputs: </p>
+<p class="MsoNormal">First <span class="SpellE">config</span> <span class="GramE">
+file :</span> </p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;configuration&gt;
+    &lt;system.serviceModel&gt;
+        &lt;bindings&gt;
+            &lt;basicHttpBinding&gt;
+                &lt;binding name=&quot;BasicHttpBinding_IService&quot; closeTimeout=&quot;00:01:00&quot;
+                    openTimeout=&quot;00:01:00&quot; receiveTimeout=&quot;00:10:00&quot; sendTimeout=&quot;00:01:00&quot;
+                    allowCookies=&quot;false&quot; bypassProxyOnLocal=&quot;false&quot; hostNameComparisonMode=&quot;StrongWildcard&quot;
+                    maxBufferSize=&quot;65536&quot; maxBufferPoolSize=&quot;524288&quot; maxReceivedMessageSize=&quot;65536&quot;
+                    messageEncoding=&quot;Text&quot; textEncoding=&quot;utf-8&quot; transferMode=&quot;Buffered&quot;
+                    useDefaultWebProxy=&quot;true&quot;&gt;
+                    &lt;readerQuotas maxDepth=&quot;32&quot; maxStringContentLength=&quot;8192&quot; maxArrayLength=&quot;16384&quot;
+                        maxBytesPerRead=&quot;4096&quot; maxNameTableCharCount=&quot;16384&quot; /&gt;
+                    &lt;security mode=&quot;None&quot;&gt;
+                        &lt;transport clientCredentialType=&quot;None&quot; proxyCredentialType=&quot;None&quot;
+                            realm=&quot;&quot; /&gt;
+                        &lt;message clientCredentialType=&quot;UserName&quot; algorithmSuite=&quot;Default&quot; /&gt;
+                    &lt;/security&gt;
+                &lt;/binding&gt;
+            &lt;/basicHttpBinding&gt;
+        &lt;/bindings&gt;
+        &lt;client&gt;
+            &lt;endpoint address=&quot;http://localhost/WCFService/Service.svc&quot; binding=&quot;basicHttpBinding&quot;
+                bindingConfiguration=&quot;BasicHttpBinding_IService&quot; contract=&quot;ServiceReference1.IService&quot;
+                name=&quot;BasicHttpBinding_IService&quot; /&gt;
+        &lt;/client&gt;
+    &lt;/system.serviceModel&gt;
+&lt;/configuration&gt;
+
+</pre>
+<pre id="codePreview" class="xml">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;configuration&gt;
+    &lt;system.serviceModel&gt;
+        &lt;bindings&gt;
+            &lt;basicHttpBinding&gt;
+                &lt;binding name=&quot;BasicHttpBinding_IService&quot; closeTimeout=&quot;00:01:00&quot;
+                    openTimeout=&quot;00:01:00&quot; receiveTimeout=&quot;00:10:00&quot; sendTimeout=&quot;00:01:00&quot;
+                    allowCookies=&quot;false&quot; bypassProxyOnLocal=&quot;false&quot; hostNameComparisonMode=&quot;StrongWildcard&quot;
+                    maxBufferSize=&quot;65536&quot; maxBufferPoolSize=&quot;524288&quot; maxReceivedMessageSize=&quot;65536&quot;
+                    messageEncoding=&quot;Text&quot; textEncoding=&quot;utf-8&quot; transferMode=&quot;Buffered&quot;
+                    useDefaultWebProxy=&quot;true&quot;&gt;
+                    &lt;readerQuotas maxDepth=&quot;32&quot; maxStringContentLength=&quot;8192&quot; maxArrayLength=&quot;16384&quot;
+                        maxBytesPerRead=&quot;4096&quot; maxNameTableCharCount=&quot;16384&quot; /&gt;
+                    &lt;security mode=&quot;None&quot;&gt;
+                        &lt;transport clientCredentialType=&quot;None&quot; proxyCredentialType=&quot;None&quot;
+                            realm=&quot;&quot; /&gt;
+                        &lt;message clientCredentialType=&quot;UserName&quot; algorithmSuite=&quot;Default&quot; /&gt;
+                    &lt;/security&gt;
+                &lt;/binding&gt;
+            &lt;/basicHttpBinding&gt;
+        &lt;/bindings&gt;
+        &lt;client&gt;
+            &lt;endpoint address=&quot;http://localhost/WCFService/Service.svc&quot; binding=&quot;basicHttpBinding&quot;
+                bindingConfiguration=&quot;BasicHttpBinding_IService&quot; contract=&quot;ServiceReference1.IService&quot;
+                name=&quot;BasicHttpBinding_IService&quot; /&gt;
+        &lt;/client&gt;
+    &lt;/system.serviceModel&gt;
+&lt;/configuration&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">Second <span class="SpellE">config</span> file -- <span class="SpellE">
+app.config</span> of the Console application that needs to be merged with the specific node from the
+<span class="SpellE">ServiceReferenceddll.dll.config</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+  &lt;system.serviceModel&gt;
+
+
+  &lt;/system.serviceModel&gt;
+&lt;/configuration&gt;
+
+</pre>
+<pre id="codePreview" class="xml">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+  &lt;system.serviceModel&gt;
+
+
+  &lt;/system.serviceModel&gt;
+&lt;/configuration&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">Expected output -- <span class="SpellE">App.config</span> of
+<span class="SpellE">consoleApplication</span> has the following output: </p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+  &lt;system.serviceModel&gt;
+    &lt;bindings&gt;
+      &lt;basicHttpBinding&gt;
+        &lt;binding name=&quot;BasicHttpBinding_IService&quot; closeTimeout=&quot;00:01:00&quot; openTimeout=&quot;00:01:00&quot; receiveTimeout=&quot;00:10:00&quot; sendTimeout=&quot;00:01:00&quot; allowCookies=&quot;false&quot; bypassProxyOnLocal=&quot;false&quot; hostNameComparisonMode=&quot;StrongWildcard&quot; maxBufferSize=&quot;65536&quot; maxBufferPoolSize=&quot;524288&quot; maxReceivedMessageSize=&quot;65536&quot; messageEncoding=&quot;Text&quot; textEncoding=&quot;utf-8&quot; transferMode=&quot;Buffered&quot; useDefaultWebProxy=&quot;true&quot;&gt;
+          &lt;readerQuotas maxDepth=&quot;32&quot; maxStringContentLength=&quot;8192&quot; maxArrayLength=&quot;16384&quot; maxBytesPerRead=&quot;4096&quot; maxNameTableCharCount=&quot;16384&quot; /&gt;
+          &lt;security mode=&quot;None&quot;&gt;
+            &lt;transport clientCredentialType=&quot;None&quot; proxyCredentialType=&quot;None&quot; realm=&quot;&quot; /&gt;
+            &lt;message clientCredentialType=&quot;UserName&quot; algorithmSuite=&quot;Default&quot; /&gt;
+          &lt;/security&gt;
+        &lt;/binding&gt;
+      &lt;/basicHttpBinding&gt;
+    &lt;/bindings&gt;
+    &lt;client&gt;
+      &lt;endpoint address=&quot;http://localhost/WCFService/Service.svc&quot; binding=&quot;basicHttpBinding&quot; bindingConfiguration=&quot;BasicHttpBinding_IService&quot; contract=&quot;ServiceReference1.IService&quot; name=&quot;BasicHttpBinding_IService&quot; /&gt;
+    &lt;/client&gt;
+  &lt;/system.serviceModel&gt;
+&lt;/configuration&gt;
+
+</pre>
+<pre id="codePreview" class="xml">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+  &lt;system.serviceModel&gt;
+    &lt;bindings&gt;
+      &lt;basicHttpBinding&gt;
+        &lt;binding name=&quot;BasicHttpBinding_IService&quot; closeTimeout=&quot;00:01:00&quot; openTimeout=&quot;00:01:00&quot; receiveTimeout=&quot;00:10:00&quot; sendTimeout=&quot;00:01:00&quot; allowCookies=&quot;false&quot; bypassProxyOnLocal=&quot;false&quot; hostNameComparisonMode=&quot;StrongWildcard&quot; maxBufferSize=&quot;65536&quot; maxBufferPoolSize=&quot;524288&quot; maxReceivedMessageSize=&quot;65536&quot; messageEncoding=&quot;Text&quot; textEncoding=&quot;utf-8&quot; transferMode=&quot;Buffered&quot; useDefaultWebProxy=&quot;true&quot;&gt;
+          &lt;readerQuotas maxDepth=&quot;32&quot; maxStringContentLength=&quot;8192&quot; maxArrayLength=&quot;16384&quot; maxBytesPerRead=&quot;4096&quot; maxNameTableCharCount=&quot;16384&quot; /&gt;
+          &lt;security mode=&quot;None&quot;&gt;
+            &lt;transport clientCredentialType=&quot;None&quot; proxyCredentialType=&quot;None&quot; realm=&quot;&quot; /&gt;
+            &lt;message clientCredentialType=&quot;UserName&quot; algorithmSuite=&quot;Default&quot; /&gt;
+          &lt;/security&gt;
+        &lt;/binding&gt;
+      &lt;/basicHttpBinding&gt;
+    &lt;/bindings&gt;
+    &lt;client&gt;
+      &lt;endpoint address=&quot;http://localhost/WCFService/Service.svc&quot; binding=&quot;basicHttpBinding&quot; bindingConfiguration=&quot;BasicHttpBinding_IService&quot; contract=&quot;ServiceReference1.IService&quot; name=&quot;BasicHttpBinding_IService&quot; /&gt;
+    &lt;/client&gt;
+  &lt;/system.serviceModel&gt;
+&lt;/configuration&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><b style="">Note: </b></p>
+<p class="MsoNormal">When run the application for the first time, you will see that we will get an unhandled exception of type '<span class="SpellE"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Reflection.TargetInvocationException.aspx"  title="Auto generated link to System.Reflection.TargetInvocationException">System.Reflection.TargetInvocationException</a></span>' occurred in mscorlib.dll, along with this error, the
+<span class="SpellE">config</span> will be merged. The application will run successfully post this.
+</p>
+<p class="MsoNormal"></p>
+<h2>More Information</h2>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/system.xml.linq.xelement.aspx">http://msdn.microsoft.com/en-us/library/system.xml.linq.xelement.aspx</a></p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/system.xml.linq.xnode.nextnode.aspx">http://msdn.microsoft.com/en-us/library/system.xml.linq.xnode.nextnode.aspx</a></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
