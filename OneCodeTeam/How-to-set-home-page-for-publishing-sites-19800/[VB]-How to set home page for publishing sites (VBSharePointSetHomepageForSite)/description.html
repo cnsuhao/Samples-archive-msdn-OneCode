@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to set home page for publishing sites (VBSharePointSetHomepageForSite)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to set home page for publishing sites (VBSharePointSetHomepageForSite)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SharePoint
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            SharePoint, HomePage
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">12/3/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBSharePointSetHomepageForS-7764d1f1">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><a name="OLE_LINK8"></a><a name="OLE_LINK9"><span style=""><span style="">Programmatically set home page for publishing sites
+</span>(</span></a><span style=""><span style=""><span style="">VBSharePointSetHomepageForSite</span>)</span></span></h1>
+<h2>Introduction </h2>
+<p class="MsoNormal">This sample will demo how to set home page for publishing sites programmatically. According to the specified URL to get a web object and then we will check the SPWeb object to verify whether it is a PublishingWeb object. If it is, set
+ the new Welcome page for this PublishingWeb object.</p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style="">Please follow the steps below. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 1: Open the VBSharePointSetHomepageForSite.sln file. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2: Open the <span class="SpellE">MainModule.vb</span> file to modify the strPublishingWebUrl and the strWelcomePageUrl to your own&#39;s. The strPublishingWebUrl is the URL of SharePoint Site which you want to verify whether it is a PublishingWeb
+ object. The strWelcomePageUrl is the URL of the new WelcomePage. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">In this sample, the original welcomepage's URL is &quot;<a href="http://win-2ed380lbo8e:1234/sites/Wiki/Pages/default.aspx"><span style="color:windowtext">http://win-2ed380lbo8e:1234/sites/Wiki/Pages/default.aspx</span></a>&quot;. The new WelcomePage's
+ URL is &quot;<a href="http://win-2ed380lbo8e:1234/sites/Wiki/Pages/newHome.aspx"><span style="color:windowtext">http://win-2ed380lbo8e:1234/sites/Wiki/Pages/newHome.aspx</span></a>&quot; and the PublishingWeb'Url is &quot;<a href="http://win-2ed380lbo8e:1234/sites/Wiki/"><span style="color:windowtext">http://win-2ed380lbo8e:1234/sites/Wiki/</span></a>&quot;.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">The welcomePage of my test web as shown below: </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><img src="description/image.png" alt="" width="904" height="375" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">After that you can press &quot;Ctrl&#43;F5&quot; to run the sample. Re-visit &quot;<a href="http://win-2ed380lbo8e:1234/sites/Wiki/">http://win-2ed380lbo8e:1234/sites/Wiki/</a>&quot;.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><br>
+<span style=""><img src="description/02b9ca46-fbb7-4d05-891c-949af7e4e264image.png" alt="" width="794" height="348" align="middle">
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">The <span class="SpellE">WelcomePage</span> has been changed. </span>
+</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: Validation is completed. </span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style=""><span style="">Code Logical: <span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 1: Create a VB &quot;Console Application&quot; in Visual Studio 2010 and named it as &quot;VBSharePointSetHomepageForSite&quot;.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2:<span style="">&nbsp; </span>Add the following assembly reference:<br>
+<span style="">&nbsp;</span><span style="color:black">Project-&gt; References -&gt;…</span>
+<span style="color:black">Microsoft.</span>SharePoint.dll<br>
+<span style="color:black"><span style="">&nbsp;</span>Project-&gt; References -&gt;…</span> Microsoft.SharePoint.Publishing.dll
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: Add the following namespace in Program.cs. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Imports <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.SharePoint.aspx"  title="Auto generated link to Microsoft.SharePoint">Microsoft.SharePoint</a>
+
+</pre>
+<pre id="codePreview" class="vb">
+Imports <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.SharePoint.aspx"  title="Auto generated link to Microsoft.SharePoint">Microsoft.SharePoint</a>
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 4: Specify the strPublishingWebUrl and the strWelcomePageUrl.
+<br style="">
+<br style="">
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+' Url of the PublishingWeb
+       Dim strPublishingWebUrl As String = &quot;http://win-2ed380lbo8e:1234/sites/Wiki/&quot;
+       ' Url of the new WelcomePage
+       Dim strWelcomePageUrl As String = &quot; http://win-2ed380lbo8e:1234/sites/Wiki/Pages/newHome.aspx&quot;
+
+</pre>
+<pre id="codePreview" class="vb">
+' Url of the PublishingWeb
+       Dim strPublishingWebUrl As String = &quot;http://win-2ed380lbo8e:1234/sites/Wiki/&quot;
+       ' Url of the new WelcomePage
+       Dim strWelcomePageUrl As String = &quot; http://win-2ed380lbo8e:1234/sites/Wiki/Pages/newHome.aspx&quot;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+' Connect to SharePoint Site
+        Using oSite = New SPSite(strPublishingWebUrl)
+            ' Open SharePoint Site
+            Using oWeb = oSite.OpenWeb()
+                ' Checks the SPWeb object to verify whether it is a PublishingWeb object.
+                If <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.SharePoint.Publishing.PublishingWeb.IsPublishingWeb.aspx"  title="Auto generated link to Microsoft.SharePoint.Publishing.PublishingWeb.IsPublishingWeb">Microsoft.SharePoint.Publishing.PublishingWeb.IsPublishingWeb</a>(oWeb) Then
+                    ' Retrieves an instance of the PublishingWeb that wraps the specified SPWeb object.
+                    Dim oPublishingWeb = <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.SharePoint.Publishing.PublishingWeb.GetPublishingWeb.aspx"  title="Auto generated link to Microsoft.SharePoint.Publishing.PublishingWeb.GetPublishingWeb">Microsoft.SharePoint.Publishing.PublishingWeb.GetPublishingWeb</a>(oWeb)
+
+
+                    Try
+                        ' Get the new WelcomePage File by the url.
+                        Dim oWelcomePageFile = oWeb.GetFile(strWelcomePageUrl)
+                        ' Sets the Welcome page for this PublishingWeb object.
+                        oPublishingWeb.DefaultPage = oWelcomePageFile
+                        ' Saves changes to the PublishingWeb object
+                        oPublishingWeb.Update()
+                    Catch oException As Exception
+                        'handle the exception
+                        Console.WriteLine(oException.Message)
+                    Finally
+                        ' prevent memory leaks by closing the Publishing web
+                        oPublishingWeb.Close()
+                    End Try
+                End If
+            End Using
+        End Using
+
+</pre>
+<pre id="codePreview" class="vb">
+' Connect to SharePoint Site
+        Using oSite = New SPSite(strPublishingWebUrl)
+            ' Open SharePoint Site
+            Using oWeb = oSite.OpenWeb()
+                ' Checks the SPWeb object to verify whether it is a PublishingWeb object.
+                If <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.SharePoint.Publishing.PublishingWeb.IsPublishingWeb.aspx"  title="Auto generated link to Microsoft.SharePoint.Publishing.PublishingWeb.IsPublishingWeb">Microsoft.SharePoint.Publishing.PublishingWeb.IsPublishingWeb</a>(oWeb) Then
+                    ' Retrieves an instance of the PublishingWeb that wraps the specified SPWeb object.
+                    Dim oPublishingWeb = <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.SharePoint.Publishing.PublishingWeb.GetPublishingWeb.aspx"  title="Auto generated link to Microsoft.SharePoint.Publishing.PublishingWeb.GetPublishingWeb">Microsoft.SharePoint.Publishing.PublishingWeb.GetPublishingWeb</a>(oWeb)
+
+
+                    Try
+                        ' Get the new WelcomePage File by the url.
+                        Dim oWelcomePageFile = oWeb.GetFile(strWelcomePageUrl)
+                        ' Sets the Welcome page for this PublishingWeb object.
+                        oPublishingWeb.DefaultPage = oWelcomePageFile
+                        ' Saves changes to the PublishingWeb object
+                        oPublishingWeb.Update()
+                    Catch oException As Exception
+                        'handle the exception
+                        Console.WriteLine(oException.Message)
+                    Finally
+                        ' prevent memory leaks by closing the Publishing web
+                        oPublishingWeb.Close()
+                    End Try
+                End If
+            End Using
+        End Using
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="text-autospace:none"><span style="">Step 6: You can debug and test it.
+</span></p>
+<h2>More Information</h2>
+<p class="MsoNormal">PublishingWeb<span>.</span>IsPublishingWeb Method<br>
+<span style=""><a href="http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.publishing.publishingweb.ispublishingweb.aspx">http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.publishing.publishingweb.ispublishingweb.aspx</a><br>
+</span>PublishingWeb<span>.</span>GetPublishingWeb Method<br>
+<span style=""><a href="http://msdn.microsoft.com/en-us/library/ms497306.aspx">http://msdn.microsoft.com/en-us/library/ms497306.aspx</a></span><br>
+PublishingWeb<span>.</span>DefaultPage Property<br>
+<span style=""><a href="http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.publishing.publishingweb.defaultpage.aspx">http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.publishing.publishingweb.defaultpage.aspx</a><br>
+</span>PublishingWeb.Close Method<span style=""> <br>
+</span><a href="http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.publishing.publishingweb.close(v=office.12).aspx">http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.publishing.publishingweb.close(v=office.12).aspx</a><span style="">
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
