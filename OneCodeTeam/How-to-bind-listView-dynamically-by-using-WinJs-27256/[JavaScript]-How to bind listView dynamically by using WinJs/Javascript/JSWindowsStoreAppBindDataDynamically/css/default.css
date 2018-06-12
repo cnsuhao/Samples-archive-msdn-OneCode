@@ -1,0 +1,185 @@
+﻿/****************************** Module Header ******************************\
+ * Module Name:  default.css
+ * Project:      JSWindowsStoreAppBindDataDynamically
+ * Copyright (c) Microsoft Corporation.
+ * 
+ * This file provide layout of this app
+ *  
+ * 
+ * This source is subject to the Microsoft Public License.
+ * See http://www.microsoft.com/en-us/openness/licenses.aspx#MPL
+ * All other rights reserved.
+ * 
+ * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, 
+ * EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED 
+ * WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
+\***************************************************************************/
+
+#rootGrid {
+    width: 1366px;
+    height: 768px;
+    display: -ms-grid;
+    -ms-grid-rows: auto auto auto auto;
+    margin: 20px 10px 20px 100px;
+}
+
+h2 {
+    color: black;
+    padding: 10px 20px 0px 20px;
+}
+
+#appLogo {
+    font-family: 'segoe ui';
+    font-size: 14.667px;
+    word-wrap: break-word;
+    font-weight: bold;
+}
+
+#appName {
+    font-family: 'segoe ui';
+    font-size: 56px;
+    word-wrap: break-word;
+    margin: -10px 0px -20px 0px;
+    line-height: 50px;
+    max-width: 90%;
+}
+
+#appDescription {
+    font-family: 'segoe ui';
+    font-size: 26.667px;
+    word-wrap: break-word;
+    margin: 30px 90px -10px 0px;
+    max-width: 90%;
+}
+
+#titleGrid {
+    -ms-grid-row: 1;
+    width: 100%;
+    height: 5%;
+}
+
+
+#statusGrid {
+    -ms-grid-row: 3;
+    width: 100%;
+    height: 20px;
+}
+
+#footerGrid {
+    -ms-grid-row: 4;
+    width: 100%;
+    margin: 0px 0px 50px 0px;
+    bottom: 0;
+    position: absolute;
+}
+
+#contentGrid {
+    -ms-grid-row: 2;
+    margin: 20px 30px 20px 0px;
+}
+
+a {
+    font-size: 12px;
+    position: absolute;
+    right: 200px;
+}
+
+.mediumListTextItem {
+    width: 300px;
+    height: 180px;
+    padding: 5px;
+    overflow: hidden;
+    display: -ms-grid;
+}
+
+    .mediumListTextItem .mediumListTextItem-Detail {
+        margin: 5px;
+        -ms-grid-column: 2;
+    }
+
+#basicListView {
+    height: 430px;
+    border: solid 2px rgba(0, 0, 0, 0.13);
+    width: 90%;
+}
+
+@media screen and (-ms-view-state: fullscreen-landscape) {
+}
+
+@media screen and (-ms-view-state: filled) {
+}
+
+@media screen and (-ms-view-state: snapped) {
+    #rootGrid {
+        width: 320px;
+        height: 768px;
+    }
+
+    h2 {
+        color: black;
+        padding: 10px 20px 0px 20px;
+        font-size: x-large;
+    }
+
+    #basicListView {
+        height: 600px;
+        width: 280px;
+        margin: 0px 0px 0px -40px;
+    }
+
+    #titleGrid {
+        display: none;
+    }
+
+    #contentGrid {
+        -ms-grid-row: 2;
+        display: -ms-grid;
+        -ms-grid-columns: auto;
+        -ms-grid-rows: auto auto auto auto;
+        margin: 10px 20px 20px -40px;
+    }
+
+    label {
+        margin-right: 150px;
+    }
+
+    #footerGrid {
+        -ms-grid-row: 4;
+        width: 100%;
+        margin: 0px 0px 20px -70px;
+        bottom: 0;
+        position: absolute;
+    }
+
+    a {
+        -ms-grid-row: 4;
+        font-size: 12px;
+        position: relative;
+        margin-left: 5px;
+        right: 0px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    #contentGrid {
+        -ms-grid-row: 2;
+        display: -ms-grid;
+        -ms-grid-rows: auto auto;
+        margin: 10px 60px 10px 60px;
+    }
+
+    #titleGrid {
+        margin: 10px 30px 10px 30px;
+    }
+
+    #rootGrid {
+        margin: 10px 30px 10px 30px;
+        width: 768px;
+        height: 1366px;
+    }
+
+    #basicListView {
+        height: 900px;
+        width: 100%;
+    }
+}
