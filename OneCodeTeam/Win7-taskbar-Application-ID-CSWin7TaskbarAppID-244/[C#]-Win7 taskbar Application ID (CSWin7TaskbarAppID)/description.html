@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Win7 taskbar Application ID (CSWin7TaskbarAppID)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Win7 taskbar Application ID (CSWin7TaskbarAppID)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows 7, Windows SDK
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Windows Shell, Taskbar
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/4/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSWin7TaskbarAppID-c6d35804">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">Win7 taskbar Application ID (CSWin7TaskbarAppID) </span></h1>
+<h2>Introduction</h2>
+<p class="MsoNormal"><br>
+Application User Model IDs (AppUserModelIDs) are used extensively by the taskbar in Windows 7 and later systems to associate processes, files, and windows with a particular application. In some cases, it is sufficient to rely on the internal AppUserModelID
+ assigned to a process by the system. However, an application that owns multiple processes or an application that is running in a host process might need to explicitly identify itself so that it can group its otherwise disparate windows under a single taskbar
+ button and control the contents of that application's Jump List.</p>
+<p class="MsoNormal">CSWin7TaskbarAppID example demostrates how to set process level Application User Model IDs (AppUserModelIDs or AppIDs) and modify the AppIDs for a specific window using Taskbar related APIs in Windows API Code Pack.</p>
+<p class="MsoNormal"></p>
+<h2>Running the Sample<span style=""> </span></h2>
+<p class="MsoNormal"><span style="">Press F5 to run this application, and click the Open Sub Form button, you will see following result.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="838" height="280" align="middle">
+</span><span style=""></span></p>
+<h2>Creation</h2>
+<p class="MsoListParagraph" style="text-indent:-.25in"><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In form load event, check the Windows version.<span style="">�
+</span>If the current system is Windows 7 or Windows Server 2008 R2, set the process level AppID.<span style="">�
+</span>Otherwise exit the process. </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+// Check the Windows version, then set the current process's AppID or
+// exit the current process
+private void MainForm_Load(object sender, EventArgs e)
+{
+��� // Check whether the current system is Windows 7 or 
+����// Windows Server 2008 R2
+��� if (TaskbarManager.IsPlatformSupported)
+��� {
+������� // Set the AppID for the current process, it calls the 
+��������// Windows API SetCurrentProcessExplicitAppUserModelID
+������� // TaskbarManager.Instance represents an instance of the
+������� // Windows Taskbar
+������� TaskbarManager.Instance.ApplicationId = MainFormAppID;
+
+
+������� // Set the Title of the MainForm to the AppID
+������� this.Text = TaskbarManager.Instance.ApplicationId;
+
+
+������� // Initialize the list holding the SubForms references
+������� SubFormList = new List&lt;SubForm&gt;();
+��� }
+��� else
+��� {
+������� MessageBox.Show(&quot;Taskbar Application ID is not supported in&quot; 
+������������&#43; &quot; your operation system!&quot; &#43; Environment.NewLine &#43;
+����������� &quot;Please launch the application in Windows 7 or &quot; &#43; 
+������������&quot;Windows Server 2008 R2 systems.&quot;);
+
+
+������� // Exit the current process
+������� Application.Exit();
+��� }
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+// Check the Windows version, then set the current process's AppID or
+// exit the current process
+private void MainForm_Load(object sender, EventArgs e)
+{
+��� // Check whether the current system is Windows 7 or 
+����// Windows Server 2008 R2
+��� if (TaskbarManager.IsPlatformSupported)
+��� {
+������� // Set the AppID for the current process, it calls the 
+��������// Windows API SetCurrentProcessExplicitAppUserModelID
+������� // TaskbarManager.Instance represents an instance of the
+������� // Windows Taskbar
+������� TaskbarManager.Instance.ApplicationId = MainFormAppID;
+
+
+������� // Set the Title of the MainForm to the AppID
+������� this.Text = TaskbarManager.Instance.ApplicationId;
+
+
+������� // Initialize the list holding the SubForms references
+������� SubFormList = new List&lt;SubForm&gt;();
+��� }
+��� else
+��� {
+������� MessageBox.Show(&quot;Taskbar Application ID is not supported in&quot; 
+������������&#43; &quot; your operation system!&quot; &#43; Environment.NewLine &#43;
+����������� &quot;Please launch the application in Windows 7 or &quot; &#43; 
+������������&quot;Windows Server 2008 R2 systems.&quot;);
+
+
+������� // Exit the current process
+������� Application.Exit();
+��� }
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In open SubForm button, create a SubForm instance, add it into a List, and set specific AppID for the SubForm.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+// Create a SubForm and set a new AppID for it
+private void openSubFormButton_Click(object sender, EventArgs e)
+{
+��� // Create a new SubForm
+��� SubForm subForm = new SubForm();
+
+
+��� // Set the SubForm's AppID, it calls Windows API
+��� // SHGetPropertyStoreForWindow
+��� TaskbarManager.Instance.SetApplicationIdForSpecificWindow(
+������� subForm.Handle, SubFormAppID);
+
+
+��� // Set the SubForm Title to the new AppID
+��� subForm.Text = SubFormAppID;
+
+
+��� // Display the SubForm
+��� subForm.Show();
+
+
+��� // Add this SubForm's reference into list
+��� SubFormList.Add(subForm);
+
+
+��� // Update the buttons' enable status
+��� resetSubFormAppIDButton.Enabled = true;
+��� setSubFormAppIDButton.Enabled = false;
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+// Create a SubForm and set a new AppID for it
+private void openSubFormButton_Click(object sender, EventArgs e)
+{
+��� // Create a new SubForm
+��� SubForm subForm = new SubForm();
+
+
+��� // Set the SubForm's AppID, it calls Windows API
+��� // SHGetPropertyStoreForWindow
+��� TaskbarManager.Instance.SetApplicationIdForSpecificWindow(
+������� subForm.Handle, SubFormAppID);
+
+
+��� // Set the SubForm Title to the new AppID
+��� subForm.Text = SubFormAppID;
+
+
+��� // Display the SubForm
+��� subForm.Show();
+
+
+��� // Add this SubForm's reference into list
+��� SubFormList.Add(subForm);
+
+
+��� // Update the buttons' enable status
+��� resetSubFormAppIDButton.Enabled = true;
+��� setSubFormAppIDButton.Enabled = false;
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In set button, set all the SubForms a specific AppID.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+// Set all the SubForms's AppIDs to the SubFormAppID
+private void setSubFormAppIDButton_Click(object sender, EventArgs e)
+{
+��� // Set all the SubForms's AppIDs and update the button enable 
+����// status
+��� if (SetAllSubFormAppIDs(SubFormAppID))
+��� {
+� ������resetSubFormAppIDButton.Enabled = true;
+��� }
+��� setSubFormAppIDButton.Enabled = false;
+}������� 
+
+
+/// &lt;summary&gt;
+/// Set all the SubForms' AppID
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;AppID&quot;&gt;The AppID to be set&lt;/param&gt;
+/// &lt;returns&gt;Whether the operation successes&lt;/returns&gt;
+private bool SetAllSubFormAppIDs(string AppID)
+{
+��� // Check whether there are any SubForms exist
+��� if (SubFormList.Count &gt; 0)
+��� {
+������� foreach (var subForm in SubFormList)
+������� {
+����������� // Set each SubForm's AppID, it calls Windows API
+����������� // SHGetPropertyStoreForWindow
+����������� TaskbarManager.Instance.SetApplicationIdForSpecificWindow(
+��������������� subForm.Handle, AppID);
+
+
+����������� // Set the SubForm Title to the new AppID 
+������������subForm.Text = AppID;
+������� }
+������� return true;
+��� }
+��� else
+��� {
+������� MessageBox.Show(&quot;No SubForms now!&quot;);
+������� return false;
+��� }
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+// Set all the SubForms's AppIDs to the SubFormAppID
+private void setSubFormAppIDButton_Click(object sender, EventArgs e)
+{
+��� // Set all the SubForms's AppIDs and update the button enable 
+����// status
+��� if (SetAllSubFormAppIDs(SubFormAppID))
+��� {
+� ������resetSubFormAppIDButton.Enabled = true;
+��� }
+��� setSubFormAppIDButton.Enabled = false;
+}������� 
+
+
+/// &lt;summary&gt;
+/// Set all the SubForms' AppID
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;AppID&quot;&gt;The AppID to be set&lt;/param&gt;
+/// &lt;returns&gt;Whether the operation successes&lt;/returns&gt;
+private bool SetAllSubFormAppIDs(string AppID)
+{
+��� // Check whether there are any SubForms exist
+��� if (SubFormList.Count &gt; 0)
+��� {
+������� foreach (var subForm in SubFormList)
+������� {
+����������� // Set each SubForm's AppID, it calls Windows API
+����������� // SHGetPropertyStoreForWindow
+����������� TaskbarManager.Instance.SetApplicationIdForSpecificWindow(
+��������������� subForm.Handle, AppID);
+
+
+����������� // Set the SubForm Title to the new AppID 
+������������subForm.Text = AppID;
+������� }
+������� return true;
+��� }
+��� else
+��� {
+������� MessageBox.Show(&quot;No SubForms now!&quot;);
+������� return false;
+��� }
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""></span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In reset button, reset all the SubForms to the MainForm's AppID.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+// Reset all the SubForm's AppIDs to the MainFormAppID
+private void resetSubFormAppIDButton_Click(object sender, EventArgs e)
+{
+��� // Set all the SubForms's AppIDs and update the button enable 
+����// status
+��� if (SetAllSubFormAppIDs(MainFormAppID))
+��� {
+������� setSubFormAppIDButton.Enabled = true;
+��� }
+��� resetSubFormAppIDButton.Enabled = false;
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+// Reset all the SubForm's AppIDs to the MainFormAppID
+private void resetSubFormAppIDButton_Click(object sender, EventArgs e)
+{
+��� // Set all the SubForms's AppIDs and update the button enable 
+����// status
+��� if (SetAllSubFormAppIDs(MainFormAppID))
+��� {
+������� setSubFormAppIDButton.Enabled = true;
+��� }
+��� resetSubFormAppIDButton.Enabled = false;
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph" style=""><span style=""></span></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/dd378459(VS.85).aspx">Application User Model IDs (AppUserModelIDs)</a></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/dd378422(VS.85).aspx">SetCurrentProcessExplicitAppUserModelID Function</a></p>
+<p class="MsoNormal" style=""><a href="http://msdn.microsoft.com/en-us/library/dd378430(VS.85).aspx">SHGetPropertyStoreForWindow Function</a></p>
+<p class="MsoNormal" style=""><a href="http://code.msdn.microsoft.com/WindowsAPICodePack">Windows� API Code Pack for Microsoft� .NET Framework</a></p>
+<p class="MsoNormal" style=""><a href="http://www.microsoft.com/downloads/details.aspx?familyid=1C333F06-FADB-4D93-9C80-402621C600E7&amp;displaylang=en">Windows 7 Training Kit For Developers</a></p>
+<p class="MsoNormal" style=""><a href="http://blogs.microsoft.co.il/blogs/sasha/archive/2009/02/15/windows-7-taskbar-application-id.aspx">Windows 7 Taskbar: Application Id</a></p>
+<p class="MsoNormal" style=""><a href="http://windowsteamblog.com/blogs/developers/archive/2009/06/18/developing-for-the-windows-7-taskbar-application-id.aspx">Developing for the Windows 7 Taskbar � Application ID</a></p>
+<p class="MsoNormal" style=""><a href="http://windowsteamblog.com/blogs/developers/archive/2009/06/19/developing-for-the-windows-7-taskbar-application-id-part-2.aspx">Developing for the Windows 7 Taskbar � Application ID � Part 2</a></p>
+<p class="MsoNormal" style=""></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
