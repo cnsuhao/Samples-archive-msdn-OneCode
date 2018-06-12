@@ -1,0 +1,38 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CSAzureBackup", "CSAzureBackup\CSAzureBackup.ccproj", "{46979F82-668D-43C2-B49C-C902FAAD24E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureBackup_WebRole", "AzureBackup_WebRole\AzureBackup_WebRole.csproj", "{6FCD58A1-7000-4550-B842-C7FC3F32E6BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableStoargeManager", "TableStoargeManager\TableStoargeManager.csproj", "{F501FDA3-BA78-4BB2-B995-7C3CBEA26EB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe", "ReadMe", "{70560C21-1EC8-4454-91A5-C4A032BB2EBD}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\ReadMe.htm = Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46979F82-668D-43C2-B49C-C902FAAD24E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46979F82-668D-43C2-B49C-C902FAAD24E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46979F82-668D-43C2-B49C-C902FAAD24E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46979F82-668D-43C2-B49C-C902FAAD24E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FCD58A1-7000-4550-B842-C7FC3F32E6BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FCD58A1-7000-4550-B842-C7FC3F32E6BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FCD58A1-7000-4550-B842-C7FC3F32E6BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FCD58A1-7000-4550-B842-C7FC3F32E6BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F501FDA3-BA78-4BB2-B995-7C3CBEA26EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F501FDA3-BA78-4BB2-B995-7C3CBEA26EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F501FDA3-BA78-4BB2-B995-7C3CBEA26EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F501FDA3-BA78-4BB2-B995-7C3CBEA26EB2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
