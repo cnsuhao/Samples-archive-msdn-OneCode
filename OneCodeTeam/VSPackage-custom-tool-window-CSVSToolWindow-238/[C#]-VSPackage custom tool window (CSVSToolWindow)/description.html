@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>VSPackage custom tool window (CSVSToolWindow)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>VSPackage custom tool window (CSVSToolWindow)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            VSX
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            VSPackage with Tool Window
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSVSToolWindow-bf70548b">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>CSVSToolWindow Module: CSVSToolWindow Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+VSPackages are software modules that make up and extend the Visual Studio <br>
+integrated development environment (IDE) by providing UI elements, services, <br>
+projects, editors, and designers. VSPackages are the principal architectural <br>
+unit of Visual Studio, and are the unit of deployment, licensing, and security <br>
+also. Visual Studio itself is written mostly as a collection of VSPackages. <br>
+This sample demonstrate how to use the the Visual Studio Integration Package <br>
+Wizard to create a simple VSPackage with a tool window that has a Windows Media<br>
+control on it.<br>
+<br>
+</p>
+<h3>Prerequisites:</h3>
+<p style="font-family:Courier New"><br>
+VS 2008 SDK must be installed on the machine. You can download it from:<br>
+<a  href="http://www.microsoft.com/downloads/details.aspx?FamilyID=30402623-93ca-479a-867c-04dc45164f5b&amp;displaylang=en">http://www.microsoft.com/downloads/details.aspx?FamilyID=30402623-93ca-479a-867c-04dc45164f5b&amp;displaylang=en</a><br>
+<br>
+Otherwise the project may not be opened by Visual Studio.<br>
+<br>
+If you run this project on a x64 OS, please also config the Debug tab of the project<br>
+Setting. Set the &quot;Start external program&quot; to <br>
+C:\Program Files(x86)\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe<br>
+<br>
+NOTE: The Package Load Failure Dialog occurs because there is no PLK(Package Load Key)<br>
+&nbsp; &nbsp; &nbsp;Specified in this package. To obtain a PLK, please to go to WebSite:<br>
+&nbsp; &nbsp; &nbsp;<a  href="http://msdn.microsoft.com/en-us/vsx/cc655795.aspx">http://msdn.microsoft.com/en-us/vsx/cc655795.aspx</a><br>
+&nbsp; &nbsp; &nbsp;More info<br>
+&nbsp; &nbsp; &nbsp;<a  href="http://msdn.microsoft.com/en-us/library/bb165395.aspx">http://msdn.microsoft.com/en-us/library/bb165395.aspx</a><br>
+</p>
+<h3>Creation:</h3>
+<p style="font-family:Courier New"><br>
+A: How to Create a VSPackage <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1. Create a new project using Visual Studio Integration Package as template<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; (New Project dialog box -&gt; Other Project Types -&gt; Extensibility).
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2. In the Location box, type the file path for your VSPackage.
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3. In the Name box, type the name for the solution and then click OK to start<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; the wizard. <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3. On the Select a Programming Language page, select Visual C# and have the
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; wizard generate a key.snk file to sign the assembly, then click Next.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4. In the Basic VSPackage Information page, specify details about your
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; VSPackage(Brand the VSPackage) and click Next.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;5. Select the Menu Command option to create a new command for the VSPackage and<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; select Tool Window to create a tool window in this VSPackage. Then click Next.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; The new command is put at the top of the Tools menu.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;6. Type the name(All-In-One) and ID(cmdidToolWindow) for the new
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; menu command in the text boxes, then click Next. The command ID is the name<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; of a constant that represents this menu command in the generated code.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;7. Type the name(My Tool Window) and ID(cmdidMyTool) for new tool window in the
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; text boxes, and click Next.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;8. Uncheck the Intergration Test Project and Unit Test Project, then click<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Finish.<br>
+<br>
+B: Customize the ToolWindow<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1. In Solution Explorer, MyControls.cs in the WinForm Designer.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2. Delete the ClickMe button and add the Windows Media control to MyControls.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3. Set the Dock property to Fill.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+C: Add a Toolbar to the Tool Window<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1. In Solution Explorer, open CSVSToolWindow.vsct.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; VSCT file stands for Visual Studio Command Table. This is an XML based file that
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; describes the layout and appearance of command items for a VSPackage. Command
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; items include buttons, combo boxes, menus, toolbars, and groups of command items.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2. In the &lt;Symbols&gt; section, find the &lt;GuidSymbol&gt; node whose name attribute is
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; guidCSVSToolWindowCmdSet. Add the following two &lt;IDSymbol&gt; elements to the list of
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &lt;IDSymbol&gt; elements in this node to define a toolbar and a toolbar group.
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &lt;IDSymbol name=&quot;ToolbarID&quot; value=&quot;0x1000&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;IDSymbol name=&quot;ToolbarGroupID&quot; value=&quot;0x1001&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3. Just above the &lt;Groups&gt; section, create an empty &lt;Menus&gt; section, and create the
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; following &lt;Menu&gt; element to define the toolbar that you declared in step 2.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &lt;Menus&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;Menu guid=&quot;guidCSVSToolWindowCmdSet&quot; id=&quot;ToolbarID&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;priority=&quot;0x0000&quot; type=&quot;ToolWindowToolbar&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;Parent guid=&quot;guidCSVSToolWindowCmdSet&quot; id=&quot;ToolbarID&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;Strings&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;ButtonText&gt;Tool Window Toolbar&lt;/ButtonText&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;CommandName&gt;Tool Window Toolbar&lt;/CommandName&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/Strings&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;/Menu&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;/Menus&gt; <br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+&nbsp; &nbsp;4. Add a new &lt;Group&gt; element to the &lt;Groups&gt; section to define the group that you
+<br>
+&nbsp; &nbsp; &nbsp; declared in the &lt;Symbols&gt; section. <br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &lt;Group guid=&quot;guidCSVSToolWindowCmdSet&quot; id=&quot;ToolbarGroupID&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;priority=&quot;0x0000&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;Parent guid=&quot;guidCSVSToolWindowCmdSet&quot; id=&quot;ToolbarID&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &lt;/Group&gt;<br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp;5. Save CSVSToolWindow.vsct.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+D: Add a Toolbar to the Tool Window<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1. In Solution Explorer, open CSVSToolWindow.vsct.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; VSCT file stands for Visual Studio Command Table. This is an XML based file that
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; describes the layout and appearance of command items for a VSPackage. Command
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; items include buttons, combo boxes, menus, toolbars, and groups of command items.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2. In the &lt;Symbols&gt; section, declare the following commands just after the toolbar<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; and toolbar group declarations. <br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &lt;IDSymbol name=&quot;cmdidWindowsMediaOpen&quot; value=&quot;0x132&quot; /&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3. In the &lt;Buttons&gt; section, a &lt;Button&gt; element is already present and it contains
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; a definition forthe cmdidToolWindow command. Add one more &lt;Button&gt; element to
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; define the cmdidWindowsMedia and cmdidWindowsMediaOpen commands.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;Button guid=&quot;guidCSVSToolWindowCmdSet&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;id=&quot;cmdidWindowsMediaOpen&quot; priority=&quot;0x0101&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type=&quot;Button&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;Parent guid=&quot;guidCSVSToolWindowCmdSet&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;id=&quot;ToolbarGroupID&quot;/&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;Icon guid=&quot;guidImages&quot; id=&quot;bmpPic1&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;CommandFlag&gt;IconAndText&lt;/CommandFlag&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;Strings&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;CommandName&gt;cmdidWindowsMediaOpen&lt;/CommandName&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;ButtonText&gt;Load File&lt;/ButtonText&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/Strings&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;/Button&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp;4. Save and close CSVSToolWindow.vsct, open PkgCmdID.cs and add the following lines
+<br>
+&nbsp; &nbsp; &nbsp; in the class just after the existing members<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;public const int cmdidWindowsMediaOpen = 0x132;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;public const int ToolbarID = 0x1000;<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp;5. Save PkgCmdID.cs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+E: Implement the Commands:<br>
+<br>
+&nbsp; &nbsp;1. In Solution Explorer, open MyToolWindow.cs, which contains the class for the tool
+<br>
+&nbsp; &nbsp; &nbsp; window itself. Add the following code just after the existing using statements.
+<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.ComponentModel.Design.aspx"  title="Auto generated link to System.ComponentModel.Design">System.ComponentModel.Design</a>;<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp;2. Add the following code to the constructor, just before the line that says
+<br>
+&nbsp; &nbsp; &nbsp; control = new MyControl(). <br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Create the toolbar.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.ToolBar = new CommandID(GuidList.guidCSVSToolWindowCmdSet,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PkgCmdIDList.ToolbarID);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.ToolBarLocation = (int)VSTWT_LOCATION.VSTWT_TOP;<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Create the handlers for the toolbar commands.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var mcs = GetService(typeof(IMenuCommandService))<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;as OleMenuCommandService;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (null != mcs)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var toolbarbtnCmdID = new CommandID(<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;GuidList.guidCSVSToolWindowCmdSet,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PkgCmdIDList.cmdidWindowsMediaOpen);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var menuItem = new MenuCommand(new EventHandler(<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ButtonHandler), toolbarbtnCmdID);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mcs.AddCommand(menuItem);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp;3. In Solution Explorer, right-click MyControl.cs, click View Code, and add the following<br>
+&nbsp; &nbsp; &nbsp; code to the end of the file, just before the final two closing braces.Save and close
+<br>
+&nbsp; &nbsp; &nbsp; MyControl.cs. <br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp;public AxWMPLib.AxWindowsMediaPlayer MediaPlayer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get { return axWindowsMediaPlayer1; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp;4. Open to MyToolWindow.cs, and add the following handler at the end of the class, just before
+<br>
+&nbsp; &nbsp; &nbsp; the two final closing braces. <br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp;private void ButtonHandler(object sender, EventArgs arguments)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;OpenFileDialog fd = new OpenFileDialog();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fd.Filter = &quot;media files |*.wmv;*.asf&quot;;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fd.Multiselect = false;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (DialogResult.OK == fd.ShowDialog())<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;control.MediaPlayer.URL = fd.FileName;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp;5. Save all the files.<br>
+<br>
+F: Testing the Tool Window<br>
+<br>
+&nbsp; &nbsp;1. Press F5 to open a new instance of the Visual Studio experimental build.<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp;2. On the View menu, point to Other Windows and then click My Tool Window.<br>
+&nbsp; &nbsp;<br>
+&nbsp; &nbsp;3. Click the Load File button on the Tool Window and Select a media file.<br>
+<br>
+&nbsp; &nbsp;</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+How to: Create VSPackages (C# and Visual Basic)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb164725.aspx">http://msdn.microsoft.com/en-us/library/bb164725.aspx</a><br>
+<br>
+How to: Register a VSPackage (C#)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb166544.aspx">http://msdn.microsoft.com/en-us/library/bb166544.aspx</a><br>
+<br>
+<br>
+VSPackage Tutorial 1: How to Create a VSPackage<br>
+<a  href="http://msdn.microsoft.com/en-us/library/cc138589.aspx">http://msdn.microsoft.com/en-us/library/cc138589.aspx</a><br>
+<br>
+Designing XML Command Table (.Vsct) Files<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb166366.aspx">http://msdn.microsoft.com/en-us/library/bb166366.aspx</a><br>
+<br>
+Commands Element<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb165399.aspx">http://msdn.microsoft.com/en-us/library/bb165399.aspx</a><br>
+<br>
+KeyBindings Element<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb165085.aspx">http://msdn.microsoft.com/en-us/library/bb165085.aspx</a><br>
+<br>
+VSPackage Tutorial 2: How to Create a Tool Window<br>
+<a  href="http://msdn.microsoft.com/en-us/library/cc138567.aspx">http://msdn.microsoft.com/en-us/library/cc138567.aspx</a><br>
+<br>
+Creating a package with a simple command<br>
+<a  href="http://dotneteers.net/blogs/divedeeper/archive/2008/01/06/LearnVSXNowPart3.aspx">http://dotneteers.net/blogs/divedeeper/archive/2008/01/06/LearnVSXNowPart3.aspx</a><br>
+<br>
+Menus and comands in VS IDE<br>
+<a  href="http://dotneteers.net/blogs/divedeeper/archive/2008/02/22/LearnVSXNowPart13.aspx">http://dotneteers.net/blogs/divedeeper/archive/2008/02/22/LearnVSXNowPart13.aspx</a><br>
+<br>
+</p>
+<h3></h3>
+<p style="font-family:Courier New"><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
