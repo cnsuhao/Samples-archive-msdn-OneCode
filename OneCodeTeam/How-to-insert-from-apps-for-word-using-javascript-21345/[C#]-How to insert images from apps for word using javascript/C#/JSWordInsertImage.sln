@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSWordInsertImage", "JSWordInsertImage\JSWordInsertImage\JSWordInsertImage.csproj", "{E84B2698-CFE6-4FD2-B9E7-02BC219AC067}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSWordInsertImageWeb", "JSWordInsertImage\JSWordInsertImageWeb\JSWordInsertImageWeb.csproj", "{BA204235-6212-4D24-BBF5-1FC745A7D61E}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E84B2698-CFE6-4FD2-B9E7-02BC219AC067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E84B2698-CFE6-4FD2-B9E7-02BC219AC067}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E84B2698-CFE6-4FD2-B9E7-02BC219AC067}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E84B2698-CFE6-4FD2-B9E7-02BC219AC067}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E84B2698-CFE6-4FD2-B9E7-02BC219AC067}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E84B2698-CFE6-4FD2-B9E7-02BC219AC067}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BA204235-6212-4D24-BBF5-1FC745A7D61E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA204235-6212-4D24-BBF5-1FC745A7D61E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA204235-6212-4D24-BBF5-1FC745A7D61E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA204235-6212-4D24-BBF5-1FC745A7D61E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

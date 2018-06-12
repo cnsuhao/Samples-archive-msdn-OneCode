@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/fd0873a3-9a67-441e-9769-e22026a86740Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to insert images from apps for word using javascript</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to insert images from apps for word using javascript</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Office, Office Development
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            insert image, apps for word
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/22/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-insert-from-apps-441703c6">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>How to insert an image from apps to Word by using JavaScript (<span class="SpellE">JSWordInsertImage</span>)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">The demonstration shows how to insert an image from apps to Word by using JavaScript. Apps for Office enable a new extensibility model for supported Microsoft Office 2013 client applications. This new model enables webpages to be hosted
+ inside an Office client application. The <a href="http://msdn.microsoft.com/en-us/library/office/apps/fp142185(v=office.15)">
+JavaScript API for Office</a> is used in apps for Office created for the Office 2013 versions of Word, Excel, and Project Professional. We can use the
+<a href="http://msdn.microsoft.com/en-us/library/office/apps/fp142145(v=office.15)">
+<span class="SpellE">setSelectedDataAsync</span></a> method to insert an image into Word.</p>
+<h2>Building the Sample</h2>
+<p class="MsoNormal">Install Office 2013 RTM and Install Visual Studio 2012 RTM</p>
+<p class="MsoNormal"><a href="http://www.microsoft.com/web/handlers/WebPI.ashx?command=GetInstallerRedirect&amp;appid=OfficeToolsForVS2012GA">Download</a> and Install Microsoft Office Developer Tools for Visual Studio 2012-Preview 2</p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal">Step 1. Open JSWordInsertImage.sln to open the solution and press &quot;F5&quot; on the keyboard to run project,
+<span class="GramE">The</span> form resembles the following:</p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="576" height="356" align="middle">
+</span></p>
+<p class="MsoNormal">Step 2. First, input the Online Picture. If you do not input the address and then click &quot;Preview Picture&quot; button, you will receive a &quot;<span style="color:red">Please input online picture URL</span>&quot; error message. If
+ you input an address that is not picture file, you will receive an &quot;<span style="color:red">Image type must be one of
+<span class="SpellE">gif<span class="GramE">,jpeg,jpg,png</span></span></span>&quot; error message.</p>
+<p class="MsoNormal"><span class="GramE">Step 3.</span> If you input the correct picture address, and then click &quot;Preview Picture&quot; button to preview the image make sure that the URL is valid and the picture exists.</p>
+<p class="MsoNormal"><span style=""><img src="description/91a06823-a758-40d8-ac3b-8fa7678987cdimage.png" alt="" width="966" height="630" align="middle">
+</span><span style="">&nbsp;</span></p>
+<p class="MsoNormal">Step 4. If the picture preview is successful, click &quot;Insert Image&quot; button to insert the valid image into Word document by using the JavaScript API for Office. If the operation is successful, the picture in Word document will
+ resemble the following:</p>
+<p class="MsoNormal"><span style=""><img src="description/5cd60b53-e738-41ce-aaae-7fa9eaaf2e49image.png" alt="" width="963" height="628" align="middle">
+</span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">Step 1. Create an App for Office 2013 project by using visual Studio 2012.</p>
+<p class="MsoNormal">Step 2. Design the UI of the Task Pane by using the following HTML code snippet:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>HTML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">html</span>
+<pre class="hidden">
+&lt;body&gt;
+    &lt;!-- Replace the following with your content --&gt;
+    <div id="Content">
+        &lt;label&gt;Online Picture Address: &lt;/label&gt;
+        &lt;input id=&quot;Text1&quot; type=&quot;text&quot; /&gt;
+        &lt;input type=&quot;button&quot; id=&quot;preViewBtn&quot; value=&quot;Preview Picture&quot;/&gt;
+        <br>
+        <br>
+        <img id="prePic" src="">  
+        </div>
+    <div> 
+        &lt;input type=&quot;Button&quot; value=&quot;Insert Image&quot; id=&quot;insertImageBtn&quot; style=&quot;margin-top: 10px; padding: 0px; width: 100px;&quot;  disabled=&quot;disabled&quot; /&gt; 
+        <br>
+        <span>Results: </span><div id="results"></div>
+
+
+    </div>
+&lt;/body&gt;
+
+</pre>
+<pre id="codePreview" class="html">
+&lt;body&gt;
+    &lt;!-- Replace the following with your content --&gt;
+    <div id="Content">
+        &lt;label&gt;Online Picture Address: &lt;/label&gt;
+        &lt;input id=&quot;Text1&quot; type=&quot;text&quot; /&gt;
+        &lt;input type=&quot;button&quot; id=&quot;preViewBtn&quot; value=&quot;Preview Picture&quot;/&gt;
+        <br>
+        <br>
+        <img id="prePic" src="">  
+        </div>
+    <div> 
+        &lt;input type=&quot;Button&quot; value=&quot;Insert Image&quot; id=&quot;insertImageBtn&quot; style=&quot;margin-top: 10px; padding: 0px; width: 100px;&quot;  disabled=&quot;disabled&quot; /&gt; 
+        <br>
+        <span>Results: </span><div id="results"></div>
+
+
+    </div>
+&lt;/body&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">Step 3. Code the event handle by using the following JavaScript code snippet:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>JavaScript</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">js</span>
+<pre class="hidden">
+Office.initialize = function (reason)
+{
+    $(document).ready(function ()
+    {
+        var picUrl = $('#Text1');
+        $('#preViewBtn').click(function ()
+        {     
+            if (validatePic(picUrl))
+            {
+                preViewPic();
+                $('#insertImageBtn').removeAttr(&quot;disabled&quot;);
+            }
+        });
+       
+        $('#Text1').change(function () {
+            $('#insertImageBtn').attr(&quot;disabled&quot;, &quot;disabled&quot;);
+        });
+
+
+        // If setSelectedDataAsync method is supported by the host application
+        // setDatabtn is hooked up to call the method else setDatabtn is removed
+        if (Office.context.document.setSelectedDataAsync)
+        {       
+            $('#insertImageBtn').click(function () {
+                var imgHtml = &quot;<img>&quot;;
+                setHTMLImage(imgHtml);
+            });
+        }   
+    });
+};
+
+
+// invalidate Picture Url
+function validatePic(picUrl)
+{
+    if (picUrl.val().length == 0)
+    {
+        writeError(&quot;Please input online picture URL&quot;);
+        return false;
+    }
+
+
+    var picextension = picUrl.val().substring(picUrl.val().lastIndexOf(&quot;.&quot;), picUrl.val().length);
+    picextension = picextension.toLowerCase();
+    if ((picextension != &quot;.jpg&quot;) && (picextension != &quot;.gif&quot;) && (picextension != &quot;.jpeg&quot;) && (picextension != &quot;.png&quot;) && (picextension != &quot;.bmp&quot;))
+    {
+        writeError(&quot;Image type must be one of gif,jpeg,jpg,png&quot;);
+        picUrl.focus();
+
+
+        // Clear Picture Url
+        picUrl.select();
+        document.selection.clear();
+        return false;
+    }
+
+
+    $('#results')[0].innerText = &quot;&quot;;
+    return true;
+}
+
+
+// Preview Picture to make sure that url is valid
+function preViewPic()
+{
+    var picaddress = $('#Text1').val();
+    $('#prePic').prop(&quot;src&quot;, picaddress);
+}
+
+
+// Insert image 
+function setHTMLImage(imgHTML)
+{
+    Office.context.document.setSelectedDataAsync(
+        imgHTML,
+        { coercionType: &quot;html&quot; },
+        function (asyncResult) {
+            if (asyncResult.status == &quot;failed&quot;) {
+                writeError('Error: ' &#43; asyncResult.error.message);
+            }
+        });
+}
+
+
+// Print Error Message
+function writeError(text)
+{
+    $('#results')[0].innerText = text;
+    $('#results').css(&quot;color&quot;, &quot;red&quot;);
+}
+
+</pre>
+<pre id="codePreview" class="js">
+Office.initialize = function (reason)
+{
+    $(document).ready(function ()
+    {
+        var picUrl = $('#Text1');
+        $('#preViewBtn').click(function ()
+        {     
+            if (validatePic(picUrl))
+            {
+                preViewPic();
+                $('#insertImageBtn').removeAttr(&quot;disabled&quot;);
+            }
+        });
+       
+        $('#Text1').change(function () {
+            $('#insertImageBtn').attr(&quot;disabled&quot;, &quot;disabled&quot;);
+        });
+
+
+        // If setSelectedDataAsync method is supported by the host application
+        // setDatabtn is hooked up to call the method else setDatabtn is removed
+        if (Office.context.document.setSelectedDataAsync)
+        {       
+            $('#insertImageBtn').click(function () {
+                var imgHtml = &quot;<img>&quot;;
+                setHTMLImage(imgHtml);
+            });
+        }   
+    });
+};
+
+
+// invalidate Picture Url
+function validatePic(picUrl)
+{
+    if (picUrl.val().length == 0)
+    {
+        writeError(&quot;Please input online picture URL&quot;);
+        return false;
+    }
+
+
+    var picextension = picUrl.val().substring(picUrl.val().lastIndexOf(&quot;.&quot;), picUrl.val().length);
+    picextension = picextension.toLowerCase();
+    if ((picextension != &quot;.jpg&quot;) && (picextension != &quot;.gif&quot;) && (picextension != &quot;.jpeg&quot;) && (picextension != &quot;.png&quot;) && (picextension != &quot;.bmp&quot;))
+    {
+        writeError(&quot;Image type must be one of gif,jpeg,jpg,png&quot;);
+        picUrl.focus();
+
+
+        // Clear Picture Url
+        picUrl.select();
+        document.selection.clear();
+        return false;
+    }
+
+
+    $('#results')[0].innerText = &quot;&quot;;
+    return true;
+}
+
+
+// Preview Picture to make sure that url is valid
+function preViewPic()
+{
+    var picaddress = $('#Text1').val();
+    $('#prePic').prop(&quot;src&quot;, picaddress);
+}
+
+
+// Insert image 
+function setHTMLImage(imgHTML)
+{
+    Office.context.document.setSelectedDataAsync(
+        imgHTML,
+        { coercionType: &quot;html&quot; },
+        function (asyncResult) {
+            if (asyncResult.status == &quot;failed&quot;) {
+                writeError('Error: ' &#43; asyncResult.error.message);
+            }
+        });
+}
+
+
+// Print Error Message
+function writeError(text)
+{
+    $('#results')[0].innerText = text;
+    $('#results').css(&quot;color&quot;, &quot;red&quot;);
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<h2>More Information</h2>
+<p class="MsoNormal"><span style=""><span style="">&nbsp;</span>setSelectedDataAsync method:
+</span></p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/office/apps/fp142145(v=office.15)">http://msdn.microsoft.com/en-us/library/office/apps/fp142145(v=office.15)</a></p>
+<p class="MsoNormal">CoercionType enumeration:</p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/office/apps/fp161141">http://msdn.microsoft.com/en-us/library/office/apps/fp161141</a></p>
+<p class="MsoNormal">What's new for Office 2013 developers</p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/library/office/jj229830(v=office.15)">http://msdn.microsoft.com/library/office/jj229830(v=office.15)</a></p>
+<p class="MsoNormal"></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/8ceaf4b9-39f1-47dc-ae5e-ffbff5b81e5fimage.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
