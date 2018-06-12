@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C0091EB70082228EF334CB2A9ABB3AEF" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/80163938-3923-45e4-8b6b-3233e44c1368Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=D7C03121CB737C3D4739D689711ECB52" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to Search Items by Retention Period in Office 365 Exchange Online</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to Search Items by Retention Period in Office 365 Exchange Online</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Exchange Online, Office 365
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Search, O365, retention period
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/26/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-Search-Items-by-3de58d8d">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img alt="" src="description/8171.onecodesampletopbanner.png">
+</a></div>
+<h1>How to Search Items by Retention Period in Office 365 Exchange Online (CSO365SearchByRetention)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">Now we can easily search email messages by retention policy in Outlook. But this feature is not available in Outlook Web App(OWA). In this application, we demonstrate how to search email messages with retention policy enabled in Office
+ 365 Exchange Online by using Exchange Web Service Managed API.</p>
+<p class="MsoNormal">We use the following extend properties to search and get the information: 1. PidTagRetentionPeriod (Property ID:0x301A);2. PidTagRetentionDate (Property ID:0x301C).
+</p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal">Press F5 to run the sample, the following is the result.</p>
+<p class="MsoNormal">First, we input the retention periods that we want to search by. We can input multiple periods that are separated by space.</p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="627" height="37" align="middle">
+</span></p>
+<p class="MsoNormal">Then, we use our account to connect the Exchange Online.</p>
+<p class="MsoNormal"><span style=""><img src="description/60613073-ac78-42ec-a841-9f3661038066image.png" alt="" width="543" height="63" align="middle">
+</span></p>
+<p class="MsoNormal">After connected the server, we get the search results.</p>
+<p class="MsoNormal"><span style=""><img src="description/f024861c-474d-4619-a102-542ad43b09b7image.png" alt="" width="616" height="62" align="middle">
+</span></p>
+<p class="MsoNormal">We can also input char-'*' at first to get all the messages that are applied the retention policies.</p>
+<p class="MsoNormal"><span style=""><img src="description/a1f3ad07-5629-4d88-9763-fab38846c1b7image.png" alt="" width="608" height="203" align="middle">
+</span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+1. Set two extend properties.</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+Use two extend properties to get the retention period and the expire date.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+const Int32 pidTagRetentionPeriod = 12314;
+ExtendedPropertyDefinition exPropRetentionPeriod = 
+&nbsp;&nbsp;&nbsp;&nbsp;new ExtendedPropertyDefinition(pidTagRetentionPeriod, MapiPropertyType.Integer);
+
+
+const Int32 pidTagRetentionDate = 12316;
+ExtendedPropertyDefinition exPropRetentionDate = 
+&nbsp;&nbsp;&nbsp;&nbsp;new ExtendedPropertyDefinition(pidTagRetentionDate, MapiPropertyType.SystemTime);
+
+</pre>
+<pre id="codePreview" class="csharp">
+const Int32 pidTagRetentionPeriod = 12314;
+ExtendedPropertyDefinition exPropRetentionPeriod = 
+&nbsp;&nbsp;&nbsp;&nbsp;new ExtendedPropertyDefinition(pidTagRetentionPeriod, MapiPropertyType.Integer);
+
+
+const Int32 pidTagRetentionDate = 12316;
+ExtendedPropertyDefinition exPropRetentionDate = 
+&nbsp;&nbsp;&nbsp;&nbsp;new ExtendedPropertyDefinition(pidTagRetentionDate, MapiPropertyType.SystemTime);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+2. Set the search filters.</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+Set the search filters for each retention period.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+searchFilterCollection.LogicalOperator = LogicalOperator.Or;
+
+
+foreach (Int32 period in periods)
+{
+&nbsp;&nbsp;&nbsp; SearchFilter.IsEqualTo searchFilter = new SearchFilter.IsEqualTo(exPropRetentionPeriod, period);
+&nbsp;&nbsp;&nbsp; searchFilterCollection.Add(searchFilter);
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+searchFilterCollection.LogicalOperator = LogicalOperator.Or;
+
+
+foreach (Int32 period in periods)
+{
+&nbsp;&nbsp;&nbsp; SearchFilter.IsEqualTo searchFilter = new SearchFilter.IsEqualTo(exPropRetentionPeriod, period);
+&nbsp;&nbsp;&nbsp; searchFilterCollection.Add(searchFilter);
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+3. Set search folder</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+Use search folder to search messages.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+SearchFolder searchFolder = new SearchFolder(service);
+searchFolder.SearchParameters.RootFolderIds.Add(rootFolder);
+searchFolder.SearchParameters.Traversal = SearchFolderTraversal.Deep;
+searchFolder.SearchParameters.SearchFilter = searchFilterCollection;
+searchFolder.DisplayName = DateTime.Now.ToString(&quot;yyyyMMddhhmmss&quot;);
+searchFolder.Save(WellKnownFolderName.SearchFolders);
+
+</pre>
+<pre id="codePreview" class="csharp">
+SearchFolder searchFolder = new SearchFolder(service);
+searchFolder.SearchParameters.RootFolderIds.Add(rootFolder);
+searchFolder.SearchParameters.Traversal = SearchFolderTraversal.Deep;
+searchFolder.SearchParameters.SearchFilter = searchFilterCollection;
+searchFolder.DisplayName = DateTime.Now.ToString(&quot;yyyyMMddhhmmss&quot;);
+searchFolder.Save(WellKnownFolderName.SearchFolders);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+4. Get search results</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+Get search results from search folder and display the information.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+do
+{
+&nbsp;&nbsp;&nbsp; findResults=searchFolder.FindItems(itemView);
+
+
+&nbsp;&nbsp;&nbsp; foreach (Item findResult in findResults)
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Object rPeriod = findResult.ExtendedProperties[0].Value;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Object expireDateTime = findResult.ExtendedProperties[1].Value;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (!mailboxFolderNames.ContainsKey(findResult.ParentFolderId.UniqueId))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Folder folder = Folder.Bind(service, findResult.ParentFolderId);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mailboxFolderNames.Add(findResult.ParentFolderId.UniqueId, folder.DisplayName);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String folderName = mailboxFolderNames[findResult.ParentFolderId.UniqueId];
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;{0,-20}{1,-15}{2,-18}{3}&quot;, findResult.Subject, folderName, rPeriod, expireDateTime);
+&nbsp;&nbsp;&nbsp; }
+} while (findResults.MoreAvailable);
+
+</pre>
+<pre id="codePreview" class="csharp">
+do
+{
+&nbsp;&nbsp;&nbsp; findResults=searchFolder.FindItems(itemView);
+
+
+&nbsp;&nbsp;&nbsp; foreach (Item findResult in findResults)
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Object rPeriod = findResult.ExtendedProperties[0].Value;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Object expireDateTime = findResult.ExtendedProperties[1].Value;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (!mailboxFolderNames.ContainsKey(findResult.ParentFolderId.UniqueId))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Folder folder = Folder.Bind(service, findResult.ParentFolderId);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mailboxFolderNames.Add(findResult.ParentFolderId.UniqueId, folder.DisplayName);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String folderName = mailboxFolderNames[findResult.ParentFolderId.UniqueId];
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;{0,-20}{1,-15}{2,-18}{3}&quot;, findResult.Subject, folderName, rPeriod, expireDateTime);
+&nbsp;&nbsp;&nbsp; }
+} while (findResults.MoreAvailable);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<h2>More Information</h2>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/dd633709(v=exchg.80).aspx">EWS Managed API 2.0</a>
+</p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/cc433490(v=exchg.80).aspx">[MS-OXPROPS]: Exchange Server Protocols Master Property List</a><span class="MsoHyperlink"><span style="color:windowtext; text-decoration:none">
+</span></span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/930cdea2-51da-4cff-b323-20b96df4cf86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
