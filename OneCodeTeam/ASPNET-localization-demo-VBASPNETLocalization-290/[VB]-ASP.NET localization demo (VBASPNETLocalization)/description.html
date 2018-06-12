@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ASP.NET localization demo (VBASPNETLocalization)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>ASP.NET localization demo (VBASPNETLocalization)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Globalization and Localization
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBASPNETLocalization-1a6b62b7">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>ASP.NET APPLICATION : VBASPNETLocalization Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+&nbsp;The project illustrates how to build a multi-lingual website with ASP.NET<br>
+&nbsp;Localization. ASP.NET enables pages obtain content and other data based<br>
+&nbsp;on the preferred language setting of the browser or based on the user's <br>
+&nbsp;explicit choice of language. If controls are configured to get property<br>
+&nbsp;values from resources, at run time, the resource expressions are replaced<br>
+&nbsp;by resources from the appropriate resource file. &nbsp;<br>
+<br>
+</p>
+<h3>Code Logical:</h3>
+<p style="font-family:Courier New"><br>
+Step1. Create a Visual Basic ASP.NET Web Application in Visual Studio 2008 <br>
+or Visual Web Developer. Then rename the defualt page from Defualt.aspx to<br>
+LocalResources.aspx<br>
+<br>
+Step2. Right click the project's name and select contect menu item follow <br>
+this order: &quot;Add&quot; -&gt; &quot;Add ASP.NET forlder&quot; -&gt; &quot;App_LocalResources&quot;.<br>
+<br>
+Step3: Add four new Resources files in this App_LocalResources folder and <br>
+name them as follows:<br>
+&nbsp; &nbsp;<br>
+&nbsp; &nbsp;LocalResources.aspx.de.resx<br>
+&nbsp; &nbsp;LocalResources.aspx.en.resx<br>
+&nbsp; &nbsp;LocalResources.aspx.fr.resx<br>
+&nbsp; &nbsp;LocalResources.aspx.resx<br>
+<br>
+[NOTE] In App_LocalResources folder, the Resources is one on one related to <br>
+ASP.NET page by its name. For example, if the Resources file is working for<br>
+Default.aspx, then its name should be Default.aspx.[CultureInfo].resx. Here,<br>
+our page's name is LocalResources.aspx, so the Resources files need to be<br>
+renamed as LocalResources.aspx.[CultureInfo].resx. The [CultureInfo] is an <br>
+abbreviation to tell with which culture the Resources file is used. Please <br>
+refer to this list for brief information on culture names and corresponding <br>
+abbreviations.<br>
+<br>
+Arabic &nbsp; &nbsp; &nbsp;ar<br>
+German &nbsp; &nbsp; &nbsp;de<br>
+Greece &nbsp; &nbsp; &nbsp;el<br>
+English &nbsp; &nbsp; en<br>
+Spanish &nbsp; &nbsp; es<br>
+French &nbsp; &nbsp; &nbsp;fr<br>
+Italian &nbsp; &nbsp; it<br>
+Japanese &nbsp; &nbsp;ja<br>
+Korean &nbsp; &nbsp; &nbsp;ko<br>
+Chinese &nbsp; &nbsp; zh<br>
+<br>
+Step4: Edit these four Resources files according to the culture to set keys <br>
+and corresponding values. For example, if we need lblLocal.Text to display <br>
+&quot;Hello World&quot; in french, so we add the key &quot;lblHelloWorld.Text&quot; and the value
+<br>
+&quot;Bonjour tout le monde&quot; to LocalResources.aspx.fr.resx file.<br>
+<br>
+[NOTE] The LocalResources.aspx.resx is the file for an invariant culture. No <br>
+culture is assigned to it. If no culture can be determined, the file is then <br>
+utilized. In the demo, we set LocalResources.aspx.resx as the same to the one<br>
+in English.<br>
+<br>
+Step5: Add a DropDownList to the page to let users select the language they <br>
+want to read with. Edit the items' Text as the language name and the value as <br>
+the appropriate abbreviations according to the table above.<br>
+<br>
+Step6: Add InitializeCulture() event handler into Code-Behind page and over-<br>
+rides this handler to set the CurrentUICulture and CurrentCulture according <br>
+to the DropDownList's value. <br>
+<br>
+&nbsp; &nbsp;Protected Overrides Sub InitializeCulture()<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Dim strLanguageInfo As String = Request.Form(&quot;ddlLanguage&quot;)<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;If Not strLanguageInfo Is Nothing Then<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'Thread.CurrentThread.CurrentUICulture = ...<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'Thread.CurrentThread.CurrentCulture = ...<br>
+&nbsp; &nbsp; &nbsp; &nbsp;End If<br>
+&nbsp; &nbsp;End Sub<br>
+<br>
+[NOTE] The reason why here we don't use ddlLanguage.SelectedValue is all the <br>
+page controls, including ddlLanguage is unavailable in this event.<br>
+<br>
+Step6: Add a Label control to LocalResources.aspx and rename it to lblLocal.<br>
+<br>
+Step7: Edit the HTML tags of the Label to add meta:resourceKey attribute and <br>
+point this attribute to the key name in the Resources files.<br>
+<br>
+&nbsp; &nbsp;&lt;asp:Label ID=&quot;lblHelloWorld&quot; &nbsp;runat=&quot;server&quot;
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; meta:resourceKey=&quot;lblLocal&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+[NOTE] In the figure, the properties of the controls are defined in Local<br>
+Resource files. For example, the Label control has its Text property exposed <br>
+as lblLocal.Text. ASP.NET then sets this property value to Label based on <br>
+the culture selection.<br>
+<br>
+[NOTE] All the steps we did above is to show how to use Local Resources <br>
+localize pages. However, all these changes only works in the single page <br>
+and if we goto another page, they will be lost. To handle this issue, <br>
+please continue the following steps to learn how to use Global Resources.<br>
+<br>
+Step8: Right click the project's name and select contect menu item follow <br>
+this order: &quot;Add&quot; -&gt; &quot;Add ASP.NET forlder&quot; -&gt; &quot;App_GlobalResources&quot;.<br>
+<br>
+Step9: Add four new Resources files in this App_GlobalResources folder. Then<br>
+rename them and edit them to meet culture data of different languages.<br>
+<br>
+[NOTE] When using Global Resources files, the file's name doesn't need to be<br>
+the same as any page's name. We can simply call them like GlobalResources. <br>
+<br>
+Step10: Add a new ASP.NET page and name it as GlobalResources.aspx. Also, add<br>
+a Button control to LocalResources.aspx to do the navigation to the page using<br>
+Global Resources via PostBackUrl property<br>
+<br>
+[NOTE] Please don't use a HyperLink or write Response.Redirect to transfer<br>
+the page. This is because we need to pass the value in the DropDownList to<br>
+the new page.<br>
+<br>
+Step11: Add a new Label to the page and rename it to lblGlobal. Then set the<br>
+Text property and the BackColor property of this Label as an Expression Text <br>
+within &lt;%$ ... %&gt;.<br>
+<br>
+&nbsp; &nbsp;&lt;asp:Label ID=&quot;lblGlobal&quot; runat=&quot;server&quot; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; BackColor=&quot;&lt;%$ Resources:GlobalResources, lblGlobalBackColor%&gt;&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Text=&quot;&lt;%$ Resources:GlobalResources, lblGlobalText%&gt;&quot;&gt;<br>
+&nbsp; &nbsp;&lt;/asp:Label&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+[NOTE] This is the way Global Resources works. An Expression is set to the<br>
+property we need to change based on different cultures. We start it with <br>
+&quot;Resources&quot; to declare this is resources field. Then, append the name of a
+<br>
+certain Global Resources file and the key name in it with a comma to split <br>
+these two parameters. By this way, the resouces data, like lblGlobalText is<br>
+able to be accessed from entire website.<br>
+<br>
+Step12: Copy both the HTML source code and the Visual Basic behind code from<br>
+LocalResources.aspx to GlobalResources.aspx and edit the btnNavigate Button <br>
+to give a back link.<br>
+<br>
+[NOTE] Run the application from LocalResources.aspx and select a language.<br>
+We can see the two Labels in the page are both changed based on the value in <br>
+DropDownList. However, if we redirect to GlobalResources.aspx via the Button, <br>
+we find only lblGlobal is changed. Because only this Label is localized by <br>
+Global Resources feature.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MSDN: ASP.NET Globalization and Localization<br>
+<a  href="http://msdn.microsoft.com/en-us/library/c6zyy3s9.aspx">http://msdn.microsoft.com/en-us/library/c6zyy3s9.aspx</a><br>
+<br>
+MSDN: Resources and Localization in ASP.NET 2.0<br>
+<a  href="http://msdn.microsoft.com/en-us/magazine/cc163566.aspx">http://msdn.microsoft.com/en-us/magazine/cc163566.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
