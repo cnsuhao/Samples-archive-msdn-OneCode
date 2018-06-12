@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Silverlight 3 deep zoom feature demo (VBSL3DeepZoom)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Silverlight 3 deep zoom feature demo (VBSL3DeepZoom)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Silverlight
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Deep Zoom
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBSL3DeepZoom-e3c25e81">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt; &lt;html xmlns=&quot;http://www.w3.org/TR/REC-html40&quot; xmlns:v=&quot;urn:schemas-microsoft-com:vml&quot; xmlns:o=&quot;urn:schemas-microsoft-com:office:office&quot; xmlns:w=&quot;urn:schemas-microsoft-com:office:word&quot;
+ xmlns:m=&quot;http://schemas.microsoft.com/office/2004/12/omml&quot;&gt; &lt;head&gt; &lt;title&gt;ReadMe&lt;/title&gt; &lt;meta content=&quot;text/html; charset=utf-8&quot; http-equiv=&quot;Content-Type&quot;&gt; &lt;meta name=&quot;ProgId&quot; content=&quot;Word.Document&quot;&gt; &lt;meta name=&quot;GENERATOR&quot; content=&quot;MSHTML 9.00.8112.16421&quot;&gt;
+ &lt;meta name=&quot;Originator&quot; content=&quot;Microsoft Word 12&quot;&gt; &lt;link rel=&quot;File-List&quot; href=&quot;ReadMe_files/filelist.xml&quot;&gt; &lt;link rel=&quot;Edit-Time-Data&quot; href=&quot;ReadMe_files/editdata.mso&quot;&gt; &lt;!--[if !mso]&gt; &lt;STYLE&gt;v\:* { BEHAVIOR: url(#default#VML) } o\:* { BEHAVIOR: url(#default#VML)
+ } w\:* { BEHAVIOR: url(#default#VML) } .shape { BEHAVIOR: url(#default#VML) } &lt;/STYLE&gt; &lt;![endif]--&gt; &lt;!--[if gte mso 9]&gt;&lt;xml&gt; &lt;o:DocumentProperties&gt; &lt;o:Author&gt;Yi-Lun Luo (Wicresoft)&lt;/o:Author&gt; &lt;o:LastAuthor&gt;Yi-Lun Luo (Wicresoft)&lt;/o:LastAuthor&gt; &lt;o:Revision&gt;2&lt;/o:Revision&gt;
+ &lt;o:TotalTime&gt;0&lt;/o:TotalTime&gt; &lt;o:Created&gt;2009-09-17T09:31:00Z&lt;/o:Created&gt; &lt;o:LastSaved&gt;2009-09-17T09:31:00Z&lt;/o:LastSaved&gt; &lt;o:Pages&gt;3&lt;/o:Pages&gt; &lt;o:Words&gt;2026&lt;/o:Words&gt; &lt;o:Characters&gt;11552&lt;/o:Characters&gt; &lt;o:Company&gt;Microsoft&lt;/o:Company&gt; &lt;o:Lines&gt;96&lt;/o:Lines&gt;
+ &lt;o:Paragraphs&gt;27&lt;/o:Paragraphs&gt; &lt;o:CharactersWithSpaces&gt;13551&lt;/o:CharactersWithSpaces&gt; &lt;o:Version&gt;12.00&lt;/o:Version&gt; &lt;/o:DocumentProperties&gt; &lt;/xml&gt;&lt;![endif]--&gt; &lt;link rel=&quot;themeData&quot; href=&quot;ReadMe_files/themedata.thmx&quot;&gt; &lt;link rel=&quot;colorSchemeMapping&quot; href=&quot;ReadMe_files/colorschememapping.xml&quot;&gt;
+ &lt;!--[if gte mso 9]&gt;&lt;xml&gt; &lt;w:WordDocument&gt; &lt;w:Zoom&gt;96&lt;/w:Zoom&gt; &lt;w:TrackMoves&gt;false&lt;/w:TrackMoves&gt; &lt;w:TrackFormatting/&gt; &lt;w:ValidateAgainstSchemas/&gt; &lt;w:SaveIfXMLInvalid&gt;false&lt;/w:SaveIfXMLInvalid&gt; &lt;w:IgnoreMixedContent&gt;false&lt;/w:IgnoreMixedContent&gt; &lt;w:AlwaysShowPlaceholderText&gt;false&lt;/w:AlwaysShowPlaceholderText&gt;
+ &lt;w:DoNotPromoteQF/&gt; &lt;w:LidThemeOther&gt;EN-US&lt;/w:LidThemeOther&gt; &lt;w:LidThemeAsian&gt;ZH-CN&lt;/w:LidThemeAsian&gt; &lt;w:LidThemeComplexScript&gt;X-NONE&lt;/w:LidThemeComplexScript&gt; &lt;w:Compatibility&gt; &lt;w:BreakWrappedTables/&gt; &lt;w:SnapToGridInCell/&gt; &lt;w:WrapTextWithPunct/&gt; &lt;w:UseAsianBreakRules/&gt;
+ &lt;w:DontGrowAutofit/&gt; &lt;w:SplitPgBreakAndParaMark/&gt; &lt;w:DontVertAlignCellWithSp/&gt; &lt;w:DontBreakConstrainedForcedTables/&gt; &lt;w:DontVertAlignInTxbx/&gt; &lt;w:Word11KerningPairs/&gt; &lt;w:CachedColBalance/&gt; &lt;/w:Compatibility&gt; &lt;w:BrowserLevel&gt;MicrosoftInternetExplorer4&lt;/w:BrowserLevel&gt;
+ &lt;m:mathPr&gt; &lt;m:mathFont m:val=&quot;Cambria Math&quot;/&gt; &lt;m:brkBin m:val=&quot;before&quot;/&gt; &lt;m:brkBinSub m:val=&quot;&#45;-&quot;/&gt; &lt;m:smallFrac m:val=&quot;off&quot;/&gt; &lt;m:dispDef/&gt; &lt;m:lMargin m:val=&quot;0&quot;/&gt; &lt;m:rMargin m:val=&quot;0&quot;/&gt; &lt;m:defJc m:val=&quot;centerGroup&quot;/&gt; &lt;m:wrapIndent m:val=&quot;1440&quot;/&gt; &lt;m:intLim
+ m:val=&quot;subSup&quot;/&gt; &lt;m:naryLim m:val=&quot;undOvr&quot;/&gt; &lt;/m:mathPr&gt;&lt;/w:WordDocument&gt; &lt;/xml&gt;&lt;![endif]--&gt; &lt;!--[if gte mso 9]&gt;&lt;xml&gt; &lt;w:LatentStyles DefLockedState=&quot;false&quot; DefUnhideWhenUsed=&quot;true&quot; DefSemiHidden=&quot;true&quot; DefQFormat=&quot;false&quot; DefPriority=&quot;99&quot; LatentStyleCount=&quot;267&quot;&gt;
+ &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;0&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Normal&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;heading 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ Priority=&quot;9&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;heading 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 4&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 7&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot;
+ QFormat=&quot;true&quot; Name=&quot;heading 8&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;9&quot; QFormat=&quot;true&quot; Name=&quot;heading 9&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ Priority=&quot;39&quot; Name=&quot;toc 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc
+ 7&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 8&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; Name=&quot;toc 9&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;35&quot; QFormat=&quot;true&quot; Name=&quot;caption&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;10&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Title&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;1&quot; Name=&quot;Default Paragraph Font&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;11&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Subtitle&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;22&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Strong&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;20&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Emphasis&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;59&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Table Grid&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Placeholder Text&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;1&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;No Spacing&quot;/&gt;
+ &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light List&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;62&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Grid&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;64&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Medium Shading 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Shading&quot;/&gt;
+ &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Grid&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light List Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Light Grid Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 1 Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;64&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading
+ 2 Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 1 Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Revision&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;34&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;List Paragraph&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;29&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Quote&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;30&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ QFormat=&quot;true&quot; Name=&quot;Intense Quote&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2 Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium
+ Grid 1 Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 2 Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3 Accent 1&quot;/&gt;
+ &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Shading Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ Priority=&quot;72&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Grid Accent 1&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light List Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Light Grid Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 1 Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;64&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading
+ 2 Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 1 Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2 Accent 2&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 1 Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 2 Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3 Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Colorful Shading Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful
+ Grid Accent 2&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light List Accent 3&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Grid Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 1 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;64&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 2 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 1 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 1 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Medium Grid 2 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3 Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List Accent
+ 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Shading Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List Accent 3&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Grid Accent 3&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light List Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Grid Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Medium Shading 1 Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;64&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 2 Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium
+ List 1 Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2 Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 1 Accent 4&quot;/&gt;
+ &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 2 Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3 Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Shading Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Grid Accent 4&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Light Shading Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light List Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Grid Accent
+ 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 1 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;64&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 2 Accent 5&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 1 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;67&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 1 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 2 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3 Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Colorful Shading Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful
+ Grid Accent 5&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;60&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Shading Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;61&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light List Accent 6&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;62&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Light Grid Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;63&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 1 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;64&quot;
+ SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Shading 2 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;65&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 1 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;66&quot; SemiHidden=&quot;false&quot;
+ UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium List 2 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;67&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 1 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;68&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot;
+ Name=&quot;Medium Grid 2 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;69&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Medium Grid 3 Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;70&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Dark List Accent
+ 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;71&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Shading Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;72&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful List Accent 6&quot;/&gt; &lt;w:LsdException
+ Locked=&quot;false&quot; Priority=&quot;73&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; Name=&quot;Colorful Grid Accent 6&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;19&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Subtle Emphasis&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ Priority=&quot;21&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Intense Emphasis&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;31&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Subtle Reference&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot;
+ Priority=&quot;32&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Intense Reference&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;33&quot; SemiHidden=&quot;false&quot; UnhideWhenUsed=&quot;false&quot; QFormat=&quot;true&quot; Name=&quot;Book Title&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;37&quot;
+ Name=&quot;Bibliography&quot;/&gt; &lt;w:LsdException Locked=&quot;false&quot; Priority=&quot;39&quot; QFormat=&quot;true&quot; Name=&quot;TOC Heading&quot;/&gt; &lt;/w:LatentStyles&gt; &lt;/xml&gt;&lt;![endif]--&gt; <style> @font-face { font-family: Wingdings; } @font-face { font-family: SimSun; } @font-face { font-family: Cambria
+ Math; } @font-face { font-family: @SimSun; } @page Section1 { size: 8.5in 11.0in; margin: 1.0in 1.0in 1.0in 1.0in; mso-header-margin: .5in; mso-footer-margin: .5in; mso-paper-source: 0; } P.MsoNormal { margin: 0in 0in 0pt; font-family: "Times New Roman" ,
+ "serif"; font-size: 12pt; mso-fareast-font-family: SimSun; mso-style-unhide: no; mso-style-qformat: yes; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-theme-font: minor-fareast; } LI.MsoNormal { margin: 0in 0in 0pt; font-family: "Times New
+ Roman" , "serif"; font-size: 12pt; mso-fareast-font-family: SimSun; mso-style-unhide: no; mso-style-qformat: yes; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-theme-font: minor-fareast; } DIV.MsoNormal { margin: 0in 0in 0pt; font-family:
+ "Times New Roman" , "serif"; font-size: 12pt; mso-fareast-font-family: SimSun; mso-style-unhide: no; mso-style-qformat: yes; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-theme-font: minor-fareast; } H1 { text-align: center; font-family:
+ "Times New Roman" , "serif"; color: red; margin-left: 0in; font-size: 24pt; font-weight: bold; margin-right: 0in; mso-fareast-font-family: SimSun; mso-style-unhide: no; mso-style-qformat: yes; mso-pagination: widow-orphan; mso-fareast-theme-font: minor-fareast;
+ mso-style-priority: 9; mso-style-link: "Heading 1 Char"; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-outline-level: 1; } H2 { font-family: "Times New Roman" , "serif"; color: #6699ff; margin-left: 0in; font-size: 18pt; font-weight: bold; margin-right:
+ 0in; mso-fareast-font-family: SimSun; mso-style-unhide: no; mso-style-qformat: yes; mso-pagination: widow-orphan; mso-fareast-theme-font: minor-fareast; mso-style-priority: 9; mso-style-link: "Heading 2 Char"; mso-margin-top-alt: auto; mso-margin-bottom-alt:
+ auto; mso-outline-level: 2; } P { font-family: "Times New Roman" , "serif"; margin-left: 0in; font-size: 12pt; margin-right: 0in; mso-fareast-font-family: SimSun; mso-pagination: widow-orphan; mso-fareast-theme-font: minor-fareast; mso-style-priority: 99;
+ mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-style-noshow: yes; } SPAN.Heading1Char { font-family: "Cambria" , "serif"; color: #365f91; font-weight: bold; mso-fareast-font-family: SimSun; mso-style-unhide: no; mso-fareast-theme-font: major-fareast;
+ mso-style-priority: 9; mso-style-link: "Heading 1"; mso-style-name: "Heading 1 Char"; mso-style-locked: yes; mso-ansi-font-size: 14.0pt; mso-bidi-font-size: 14.0pt; mso-ascii-font-family: Cambria; mso-ascii-theme-font: major-latin; mso-hansi-font-family: Cambria;
+ mso-hansi-theme-font: major-latin; mso-bidi-font-family: "Times New Roman"; mso-bidi-theme-font: major-bidi; mso-themecolor: accent1; mso-themeshade: 191; } SPAN.Heading2Char { font-family: "Cambria" , "serif"; color: #4f81bd; font-weight: bold; mso-fareast-font-family:
+ SimSun; mso-style-unhide: no; mso-fareast-theme-font: major-fareast; mso-style-priority: 9; mso-style-link: "Heading 2"; mso-style-noshow: yes; mso-style-name: "Heading 2 Char"; mso-style-locked: yes; mso-ansi-font-size: 13.0pt; mso-bidi-font-size: 13.0pt;
+ mso-ascii-font-family: Cambria; mso-ascii-theme-font: major-latin; mso-hansi-font-family: Cambria; mso-hansi-theme-font: major-latin; mso-bidi-font-family: "Times New Roman"; mso-bidi-theme-font: major-bidi; mso-themecolor: accent1; } P.style1 { font-family:
+ "Times New Roman" , "serif"; color: red; margin-left: 0in; font-size: 12pt; margin-right: 0in; mso-fareast-font-family: SimSun; mso-style-unhide: no; mso-pagination: widow-orphan; mso-fareast-theme-font: minor-fareast; mso-margin-top-alt: auto; mso-margin-bottom-alt:
+ auto; mso-style-name: style1; } LI.style1 { font-family: "Times New Roman" , "serif"; color: red; margin-left: 0in; font-size: 12pt; margin-right: 0in; mso-fareast-font-family: SimSun; mso-style-unhide: no; mso-pagination: widow-orphan; mso-fareast-theme-font:
+ minor-fareast; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-style-name: style1; } DIV.style1 { font-family: "Times New Roman" , "serif"; color: red; margin-left: 0in; font-size: 12pt; margin-right: 0in; mso-fareast-font-family: SimSun; mso-style-unhide:
+ no; mso-pagination: widow-orphan; mso-fareast-theme-font: minor-fareast; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-style-name: style1; } SPAN.style11 { color: red; mso-style-unhide: no; mso-style-name: style11; } .MsoChpDefault { font-size:
+ 10pt; mso-ansi-font-size: 10.0pt; mso-bidi-font-size: 10.0pt; mso-style-type: export-only; mso-default-props: yes; } DIV.Section1 { page: Section1; } OL { margin-bottom: 0in; } UL { margin-bottom: 0in; } </style> &lt;!--[if gte mso 10]&gt; <style> /* Style Definitions
+ */ table.MsoNormalTable {mso-style-name:"Table Normal"; mso-tstyle-rowband-size:0; mso-tstyle-colband-size:0; mso-style-noshow:yes; mso-style-priority:99; mso-style-qformat:yes; mso-style-parent:""; mso-padding-alt:0in 5.4pt 0in 5.4pt; mso-para-margin:0in;
+ mso-para-margin-bottom:.0001pt; mso-pagination:widow-orphan; font-size:10.0pt; font-family:"Times New Roman","serif";} </style> &lt;![endif]--&gt; &lt;meta content=&quot;en-us&quot; http-equiv=&quot;Content-Language&quot;&gt; &lt;!--[if gte mso 9]&gt;&lt;xml&gt; &lt;o:shapedefaults v:ext=&quot;edit&quot; spidmax=&quot;2050&quot;/&gt;
+ &lt;/xml&gt;&lt;![endif]--&gt; &lt;!--[if gte mso 9]&gt;&lt;xml&gt; &lt;o:shapelayout v:ext=&quot;edit&quot;&gt; &lt;o:idmap v:ext=&quot;edit&quot; data=&quot;1&quot;/&gt; &lt;/o:shapelayout&gt;&lt;/xml&gt;&lt;![endif]--&gt; &lt;/head&gt; &lt;body style=&quot;tab-interval: .5in&quot; lang=&quot;EN-US&quot; vlink=&quot;purple&quot; link=&quot;blue&quot;&gt;
+</p>
+<div class="Section1">
+<h1><span style="">Work with Silverlight Deep Zoom&lt;o:p&gt;&lt;/o:p&gt;</span></h1>
+<h2><span style="">Introduction&lt;o:p&gt;&lt;/o:p&gt;</span></h2>
+<p>Silverlight deep zoom allows you to display large images or image collections very effectively. The end users will download a thumbnail of the large image first. As the user zooms in, part of the large image will be downloaded and rendered before the user.</p>
+<p>This sample covers essential areas when working with deep zoom in your application. It demonstrates the following features:</p>
+<ul type="disc">
+<li class="MsoNormal" style=""><span style="">Generate deep zoom content using Deep Zoom Composer.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Download and work with metadata.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Hit test a sub image in a collection.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Create a custom UIElment, and make it zoom/pan together with the MultiScaleImage.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Move a sub image in a collection.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Generate deep zoom content programmatically with the help of DeepZoomTools.dll.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li></ul>
+<h2><span style="">Preparation&lt;o:p&gt;&lt;/o:p&gt;</span></h2>
+<p>We have provided sample source images in the VBSL3DeepZoom.Web\SourceImages folder. In order to reduce the size of the project, we will not include the generated deep zoom contents in the project. The first time you run the sample, we'll demonstrate how
+ to generate deep zoom contents programmatically by calling a WCF service. As long as you don't delete the generated contents, this task will only be performed once. If you want to try again to see how to generate the contents programmatically, please modify
+ the Page class. In its constructor, find the following line:</p>
+<p>client.PrepareDeepZoomAsync(false);</p>
+<p>And change false to true. This will force&nbsp;the WCF service to regenerate the deep zoom content.</p>
+<p>If you want to prepare your own images rather than using those we provide, please follow these steps:</p>
+<ul type="disc">
+<li class="MsoNormal" style=""><span style="">Generate a deep zoom content using Deep Zoom Composer. Please refer to the &quot;<a href="http://code.msdn.microsoft.com/VBSL3DeepZoom-e3c25e81/file:///C:/Users/v-ylluo/Documents/My%20Web%20Sites/ReadMe.html#Work_with_Deep_Zoom_Composer">Work with Deep Zoom Composer</a>&quot;
+ part.&lt;o:p&gt;&lt;/o:p&gt;</span> </li><li class="MsoNormal" style=""><span style="">Copy the GeneratedImages folder to the sample, under VBSL3DeepZoom.Web/ClientBin. Override all existing files.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Comment the code between &quot;Begin Comment&quot; and &quot;End Comment&quot; in the Page class's constructor.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Locate the Page_Loaded method, and uncomment this.DisplayDeepZoom to display the deep zoom content immediately.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li></ul>
+<p>this.DisplayDeepZoom();</p>
+<p>Alternatively, you can choose to generate the deep zoom content programmatically. In this case, please follow these steps:</p>
+<ul type="disc">
+<li class="MsoNormal" style=""><span style="">Put your source image files (at least 2) under VBSL3DeepZoom.Web/SourceImages folder.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Update VBSL3DeepZoom.Web/ClientBin/Metadata.xml, to provide your own metadata. If you don't know what to write for x, y, Width, Height, you can use Deep Zoom Composer to generate a sample scene. Make sure to put
+ only file name (no directory path) for the FileName element. The samples code logic will look for relative path rather than absolute path.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">In the Page class's constructor, find client.PrepareDeepZoomAsync(false), and change false to true.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li></ul>
+<p><span class="style11">Note:</span> When running the sample project, please make sure to set VBSL3DeepZoom.Web (the ASP.NET web site) as the solution's start project, and set Default.html as the start page. Make sure the address in the browser starts with
+ http.</p>
+<h2><a name="Work_with_Deep_Zoom_Composer"><span style="">Work with Deep Zoom Composer</span></a><span style="">&lt;o:p&gt;&lt;/o:p&gt;</span></h2>
+<p>Deep Zoom Composer allows you to create deep zoom contents without writing a single line of code! This tool is very easy to use. The following is a quick guide to reproduce the content used for this sample:</p>
+<ul type="disc">
+<li class="MsoNormal" style=""><span style="">Open Deep Zoom Composer, and create a new project.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">In the Import tab, click Add image to import source images. For this sample to work properly, you need at least two images.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">In the Compose tab, drag and drop the imported images onto the scene. You can overlap images to each other. You can also use your mouse wheel to zoom.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li></ul>
+<p>Now it comes the important part. Deep zoom supports two types of scenarios. Single image scenario (composition), and collection scenario. A composition puts all the images into a single large image, and you will not be able to interact with each sub image.
+ This is useful when you're working with a single image. A collection, on the other hand, will generate one pyramid for each sub image. This allows you to interact with each sub image in code, but more files will be generated, and the total size will be larger.
+ If you want to have more control over the images in your application (as demonstrated in this sample), you'll have to choose the collection format.</p>
+<p>To export the images as a collection, click the Export tab, and then the Custom tab, and make sure to choose Export as a collection. Also remember to type a name, and make sure you choose Deep Zoom Classic &#43; Source as the template:</p>
+<p><img alt="Screenshot" src="ReadMe_files/p1.png"></p>
+<p>So what are the differences among those export templates?</p>
+<ul type="disc">
+<li class="MsoNormal" style=""><span style="">Deep Zoom Classic &#43; Source: It creates a Silverlight project, along with a web site, with full source for you.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Blend 3 Behaviors &#43; Source: It creates a everything that Deep Zoom Classic &#43; Source creates for you, plus several Behaviors and Actions that are used by Expression Blend at design time (requires Expression Blend
+ SDK). This sample does not intend to demonstrate design time support.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Deep Zoom Navigation: It creates a Silverlight application with advanced user experience, such as select each sub image. But it doesn't give you the source code due to legal issues. So you will not be able to
+ customize the application.&lt;o:p&gt;&lt;/o:p&gt;</span> </li><li class="MsoNormal" style=""><span style="">Empty Project &#43; Source: Just an empty project. You need to do everything on your own. Choose this template if you don't like the default zoom behavior, or if you want to start from scratch.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Tag Browser: A sample application created by Kirupa. While this export template doesn't ship the source code, you can download the source code from
+<a href="http://blog.kirupa.com/?p=212">http://blog.kirupa.com/?p=212</a>.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li></ul>
+<p>Other settings in the Export tab includes:</p>
+<ul type="disc">
+<li class="MsoNormal" style=""><span style="">Export format: Export to DeepZoomPix (a cloud service) instead of a local Silverlight project, export as images or Seadragon Ajax instead of Silverlight.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Name and location.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li><li class="MsoNormal" style=""><span style="">Image format: if your collection contains images with alpha channels, please choose PNG, otherwise the alpha channel will be lost. But PNG format is generally slightly larger than JPEG.&lt;o:p&gt;&lt;/o:p&gt;</span>
+</li></ul>
+<h2><span style="">Download and inspect Metadata.xml&lt;o:p&gt;&lt;/o:p&gt;</span></h2>
+<p>Now that we have exported our images as a collection, a Metadata.xml file is generated under the GeneratedImages folder in the web site project. It contains information of each sub image, including the tags we typed. So the first step in our code will be
+ download this xml file. Please refer to the code between &quot;Begin download metadata.&quot; and &quot;End download metadata.&quot; in the Page class's constructor, the webClient_DownloadStringCompleted method, and the ImageMetadata class to see how to perform this task. We
+ will include separate samples to demonstrate how to work with WebClient and xml in the future.</p>
+<h2><span style="">Hit test a sub image&lt;o:p&gt;&lt;/o:p&gt;</span></h2>
+<p>The next step is to perform hit tests. In the sample, when you move your mouse to a sub image, its tag (got from the metadata) will be displayed. Unfortunately, because MultiScaleSubImage class is not derived from UIElement, VisualTreeHelper.FindElementsInHostCoordinates
+ will not help. We have to perform the hit test ourselves. Fortunately, MultiScale(Sub)Image class provides some properties which can help us. Essentially, ViewportWidth determines the size of an image, while ViewportOrigin determines the position of an image.
+ Together, they can precisely locate a sub image. For a visual description of ViewportWidth/Origin, please refer to
+<a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.multiscaleimage.viewportwidth(VS.95).aspx">
+http://msdn.microsoft.com/en-us/library/system.windows.controls.multiscaleimage.viewportwidth(VS.95).aspx</a>.</p>
+<p>Please refer to the HitTest method in the Page class. It demonstrates how to calculate the width/height of the sub image by inspecting ViewportWidth, and how to calculate the position of a sub image by inspecting ViewportOrigin.</p>
+<p>So why do we need to perform a hit test? Because when you can display some information for a &quot;selected&quot; sub image. The HitTestImgae method in the Page class demonstrate how to display the tag (stored in metadata) of a sub image when mouse over.</p>
+<h2><span style="">Make a custom element zoom/pan together with the MultiScaleImage&lt;o:p&gt;&lt;/o:p&gt;</span></h2>
+<p>You can add more images to the MultiScaleImage at runtime by providing a custom source. But sometimes you may want to add non-bitmap contents to the scene, and make it zoom/pan together with the MultiScaleImage. Think of allow the user to add annotation
+ to the scene.</p>
+<p>This sample creates a ball (a vector Ellipse instead of a bitmap). When you zoom and pan the scene, you'll notice the ball scales and moves together with the MultiScaleImage.</p>
+<p>To do so, first we must understand what happens when an element is scaled and translated. All 2D render transforms can be represented by a 3*3 matrix. Without rotation, the matrix looks like the below:</p>
+<table class="MsoNormalTable" border="1" cellpadding="0" width="232" style="border-bottom:medium none; border-left:black 1pt solid; width:173.75pt; border-top:medium none; border-right:black 1pt solid">
+<tbody>
+<tr style="">
+<td width="103" style="border-bottom:medium none; border-left:medium none; padding-bottom:0.75pt; padding-left:0.75pt; width:77.5pt; padding-right:0.75pt; border-top:medium none; border-right:medium none; padding-top:0.75pt">
+<p class="MsoNormal"><span style="">ScaleX&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+</td>
+<td width="89" style="border-bottom:medium none; border-left:medium none; padding-bottom:0.75pt; padding-left:0.75pt; width:66.5pt; padding-right:0.75pt; border-top:medium none; border-right:medium none; padding-top:0.75pt">
+<p class="MsoNormal"><span style="">0&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+</td>
+<td width="283" style="border-bottom:medium none; border-left:medium none; padding-bottom:0.75pt; padding-left:0.75pt; width:212.1pt; padding-right:0.75pt; border-top:medium none; border-right:medium none; padding-top:0.75pt">
+<p class="MsoNormal"><span style="">0&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+</td>
+</tr>
+<tr style="">
+<td width="103" style="border-bottom:medium none; border-left:medium none; padding-bottom:0.75pt; padding-left:0.75pt; width:77.5pt; padding-right:0.75pt; border-top:medium none; border-right:medium none; padding-top:0.75pt">
+<p class="MsoNormal"><span style="">0&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+</td>
+<td width="89" style="border-bottom:medium none; border-left:medium none; padding-bottom:0.75pt; padding-left:0.75pt; width:66.5pt; padding-right:0.75pt; border-top:medium none; border-right:medium none; padding-top:0.75pt">
+<p class="MsoNormal"><span style="">ScaleY&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+</td>
+<td width="283" style="border-bottom:medium none; border-left:medium none; padding-bottom:0.75pt; padding-left:0.75pt; width:212.1pt; padding-right:0.75pt; border-top:medium none; border-right:medium none; padding-top:0.75pt">
+<p class="MsoNormal"><span style="">0&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+</td>
+</tr>
+<tr style="">
+<td width="103" style="border-bottom:medium none; border-left:medium none; padding-bottom:0.75pt; padding-left:0.75pt; width:77.5pt; padding-right:0.75pt; border-top:medium none; border-right:medium none; padding-top:0.75pt">
+<p class="MsoNormal"><span style="">TranslateX&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+</td>
+<td width="89" style="border-bottom:medium none; border-left:medium none; padding-bottom:0.75pt; padding-left:0.75pt; width:66.5pt; padding-right:0.75pt; border-top:medium none; border-right:medium none; padding-top:0.75pt">
+<p class="MsoNormal"><span style="">TranslateY&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+</td>
+<td width="283" style="border-bottom:medium none; border-left:medium none; padding-bottom:0.75pt; padding-left:0.75pt; width:212.1pt; padding-right:0.75pt; border-top:medium none; border-right:medium none; padding-top:0.75pt">
+<p class="MsoNormal"><span style="">1&lt;o:p&gt;&lt;/o:p&gt;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>When you apply the CenterX/Y property for a ScaleTransform, actually the TranslateX/Y field of the matrix will be updated, even though it won't be reflected in a TranslateTransform in the same TransformGroup.</p>
+<p>Deep zoom always scales the scene at the currently mouse point. So we will have to update our CenterX/Y along with the current mouse point. However, as we've already seen in the above description. If you update CenterX/Y, the translation will also be updated.
+ That makes it difficult to control our TranslateTransform. So rather than mess with the CenterX/Y, let's apply a MatrixTransform to the ball, so we only need to think about the final result of the matrix.</p>
+<p>The ScaleX/Y (M11 and M22) property of the matrix can be calculated very easily. Let's focus on TranslateX/Y (OffsetX/Y property of the matrix). It is usually easier to think with a 1D line rather than a 2D rectangle. Note we only need to consider the final
+ result. No matter how many times the line has been zoomed, as long as we know the final result of n, the final result of n &#43; 1 can always be calculated in the same way. This is similar to Mathematical induction.</p>
+<p><img alt="Scale" src="ReadMe_files/p2.png">&nbsp;</p>
+<p>In the above image, suppose the black line AC is scaled to the longer line AE, and the clicked point is B, so it will have to be translated to the position of the green line. That is, the length of FG is the desired translation. The length of FG can be calculated
+ by length(AB) * scale value. Of course, we must add the new translation value with the previous TranslateX/Y. For more information about how to calculate the matrix, please refer to the ZoomBall method in the Page class.</p>
+<h2><span style="">Move sub images in a collection&lt;o:p&gt;&lt;/o:p&gt;</span></h2>
+<p>Another advantage of collection over single image composition is you can move a sub image at runtime, without regenerating the deep zoom content. Suppose you're using the images provided by the sample, if you click the ToggleButton at the top right screen,
+ and then click on the scene, the ball will move to the clicked position. Since the ball is just an Ellipse, it is very easy to modify its MatrixTransform to move it. The interesting part is the wrap in bamboo, together with its child elements, which are all
+ parts of the deep zoom content, will also move together with the ball. You'll notice their relative position remains the same, no matter what zoom level it is. However, the background image, which is also a part of the deep zoom content, will not move. That
+ is, you can move some of the sub images, while keep others in their original position.</p>
+<p>Remember we described ViewportOrigin determines the position of a sub image. So to move a sub image, we need to update its ViewportOrigin. The code for this part can be found in the MoveBallAndSubImages method in the Page class. Note MultiScaleImage has
+ its own logical coordinate system. So we need to use ElementToLogicalPoint method to translate the absolute delta from the global coordinate system to the MultiScaleImage's logical coordinate system.</p>
+<h2><span style="">Generate deep zoom content programmatically&lt;o:p&gt;&lt;/o:p&gt;</span></h2>
+<p>Sometimes, rather than create a pre-configured scene using Deep Zoom Composer, you may want to programmatically generate the scene at runtime.</p>
+<p>There're two solutions. One is to create a custom MultiScaleTileSource class, so you can provide your own source images rather than relying on the dzc_output.xml. This feature will not be demonstrated in the sample. You can refer to the
+<a href="http://www.codeplex.com/deepearth/">Deep Earth</a> sample to see how to create a custom MultiScaleTileSource that receives images from Bing Map.</p>
+<p>The other solution is to generate the content on the server, by using the DeepZoomTools.dll assembly shipped with DeepZoomComposer. To do so, you will first need to create a list of Microsoft.DeepZoomTools.Image objects (note it's not <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Controls.Image.aspx"  title="Auto generated link to System.Windows.Controls.Image">System.Windows.Controls.Image</a>),
+ which describes the source, size, position, etc, of each sub image. Than you can call the CollectionCreator.Create method to create a collection, or call the ImageCreator.Create method to create a composition. If you don't know what values to provide for the
+ size and position, one solution will be use Deep Zoom Composer to generate a sample content where sub images are positioned in a similar way to what you want to render. Then you can calculate the size and position information by parsing the Metadata.xml generated
+ by Deep Zoom Composer.</p>
+<p>The code for this feature can be found in the GenerateDeepZoomService class's CreateDeepZoom method, in the web application (note not in the Silverlight application because we're generating the contents on the server side).</p>
+<h2><span style="">Conclusion&lt;o:p&gt;&lt;/o:p&gt;</span></h2>
+<p>Silvelright deep zoom allows you to display large images or image collections very effectively. In addition to generate the contents using Deep Zoom Composer, you can also programmatically customize a lot of areas.</p>
+</div>
+&lt;/body&gt; &lt;/html&gt;
+<p></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
