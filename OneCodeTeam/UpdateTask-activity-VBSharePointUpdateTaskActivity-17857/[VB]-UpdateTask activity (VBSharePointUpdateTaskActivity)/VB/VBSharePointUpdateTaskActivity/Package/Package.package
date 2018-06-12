@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="07306232-8d5b-4ae7-ab73-a69a61982534" solutionId="07306232-8d5b-4ae7-ab73-a69a61982534" resetWebServer="false" name="VBSharePointUpdateTaskActivity" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="846f3348-1d9b-48d6-8ebb-9bdaa6c81411" />
+  </features>
+</package>
