@@ -1,0 +1,116 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+VBASPNETUserControlPassData
+</name>
+</assembly>
+<members>
+<member name="P:VBASPNETUserControlPassData.UserControl2.StrCaller">
+	<summary>
+ UserControl2 message.
+ </summary>
+</member><member name="F:VBASPNETUserControlPassData.UserControl2.lbPublicVariable2">
+	<summary>
+lbPublicVariable2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETUserControlPassData.UserControl2.tbModifyUserControl1">
+	<summary>
+tbModifyUserControl1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETUserControlPassData.UserControl2.btnSubmit">
+	<summary>
+btnSubmit control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETUserControlPassData.UserControl2.lbFormatMessage">
+	<summary>
+lbFormatMessage control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETUserControlPassData.UserControl2.lbMessage">
+	<summary>
+lbMessage control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETUserControlPassData._Default.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETUserControlPassData._Default.UserControl1ID">
+	<summary>
+UserControl1ID control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETUserControlPassData._Default.UserControl2ID">
+	<summary>
+UserControl2ID control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBASPNETUserControlPassData.UserControl1.lbPublicVariable">
+	<summary>
+lbPublicVariable control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="P:VBASPNETUserControlPassData.UserControl1.StrCallee">
+	<summary>
+ UserControl2 message.
+ </summary>
+</member><member name="P:VBASPNETUserControlPassData.My.MyWebExtension.Computer">
+	<summary>
+ Returns information about the host computer.
+ </summary>
+</member><member name="P:VBASPNETUserControlPassData.My.MyWebExtension.User">
+	<summary>
+ Returns information for the current Web user.
+ </summary>
+</member><member name="P:VBASPNETUserControlPassData.My.MyWebExtension.Request">
+	<summary>
+ Returns Request object.
+ </summary>
+</member><member name="P:VBASPNETUserControlPassData.My.MyWebExtension.Response">
+	<summary>
+ Returns Response object.
+ </summary>
+</member><member name="P:VBASPNETUserControlPassData.My.MyWebExtension.Log">
+	<summary>
+ Returns the Asp log object.
+ </summary>
+</member><member name="T:VBASPNETUserControlPassData.My.MyWebExtension">
+	<summary>
+ Module used to define the properties that are available in the My Namespace for Web projects.
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>
