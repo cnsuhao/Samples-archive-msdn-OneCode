@@ -1,0 +1,32 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureSQLReportingServices_WebRole", "AzureSQLReportingServices_WebRole\AzureSQLReportingServices_WebRole.csproj", "{67435E83-D353-44A8-BFF8-138F1AC7A968}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureSQLReportingSerivces_MVC4Role", "AzureSQLReportingSerivces_MVC4Role\AzureSQLReportingSerivces_MVC4Role.csproj", "{FD86B9FB-5E42-40B7-AEAD-D86F685480F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe", "ReadMe", "{5E7F9F46-0506-4264-876C-B74B571661A0}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\ReadMe.htm = Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67435E83-D353-44A8-BFF8-138F1AC7A968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67435E83-D353-44A8-BFF8-138F1AC7A968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67435E83-D353-44A8-BFF8-138F1AC7A968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67435E83-D353-44A8-BFF8-138F1AC7A968}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD86B9FB-5E42-40B7-AEAD-D86F685480F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD86B9FB-5E42-40B7-AEAD-D86F685480F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD86B9FB-5E42-40B7-AEAD-D86F685480F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD86B9FB-5E42-40B7-AEAD-D86F685480F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
