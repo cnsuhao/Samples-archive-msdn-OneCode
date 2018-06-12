@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction Id="RibbonVisibilitySiteAction" GroupId="SiteAdministration" Location="Microsoft.SharePoint.SiteSettings"  Title="Ribbon Visibility settings1">
+    <UrlAction Url="~site/_layouts/SPRibbonVisibility/RibbonVisibility.aspx"/>
+  </CustomAction>
+</Elements>
