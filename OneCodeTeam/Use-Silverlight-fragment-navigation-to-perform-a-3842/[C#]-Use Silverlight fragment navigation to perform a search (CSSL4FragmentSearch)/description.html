@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Use Silverlight fragment navigation to perform a search (CSSL4FragmentSearch)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Use Silverlight fragment navigation to perform a search (CSSL4FragmentSearch)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Silverlight
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Fragment Navigation, Bing
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">7/17/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSSL4FragmentSearch-abb6a266">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>Sivlerlight APPLICATION: CSSL4FragmentSearch Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+The CSSL4FragmentSearch is a simple sample demonstrating the use of fragment <br>
+navigation within Silverlight to perform a search. &nbsp;The advantage this <br>
+provides is that the search can then be saved by URL, and linked directly, <br>
+with consistent behavior, allowing users to send links to direct results <br>
+within Silverlight.<br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+To run the sample, simply launch the project. &nbsp;A web page will load, with the
+<br>
+Silverlight fragment search component. &nbsp;Type a search, and a Bing search <br>
+filtered on Microsoft.com will be performed with the search terms. &nbsp;Note that
+<br>
+the URL will now include the search terms as a fragment, which can <br>
+subsequently be bookmarked or copied and pasted into a new browser tab, after <br>
+which time the same search will again be performed (as long as the URL <br>
+remains valid - in the debug mode, as long as the project continues to run on <br>
+the same port).<br>
+<br>
+</p>
+<h3>Implementation:</h3>
+<p style="font-family:Courier New"><br>
+The sample uses one simple Silverlight component, and all the relevant code <br>
+is in MainPage.xaml, and its codebehind, MainPage.xaml.cs. &nbsp;The code simply <br>
+implements a fragment navigation event, which performs a web search with the <br>
+Bing web service API, applying the fragment text as the search terms.<br>
+<br>
+&nbsp; &nbsp;&lt;sdk:Frame x:Name=&quot;ContentFrame&quot; FragmentNavigation=&quot;Frame_FragmentNavigation&quot;&gt;<br>
+<br>
+&nbsp; &nbsp;private void Frame_FragmentNavigation(object sender, <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Navigation.FragmentNavigationEventArgs.aspx"  title="Auto generated link to System.Windows.Navigation.FragmentNavigationEventArgs">System.Windows.Navigation.FragmentNavigationEventArgs</a> e)<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp;results.Clear();<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Bing.SearchRequest sr = new Bing.SearchRequest();<br>
+&nbsp; &nbsp; &nbsp; &nbsp;sr.Query = e.Fragment &#43; &quot; (site:microsoft.com)&quot;;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;sr.AppId = &quot;1009092976966EFB6DD6B0F0B98FE5E617990903&quot;;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;sr.Sources = new SourceType[] { SourceType.Web };<br>
+&nbsp; &nbsp; &nbsp; &nbsp;sr.Web = new Bing.WebRequest();<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Bing.BingPortTypeClient bing = new BingPortTypeClient();<br>
+&nbsp; &nbsp; &nbsp; &nbsp;bing.SearchCompleted &#43;= new EventHandler&lt;SearchCompletedEventArgs&gt;(bing_SearchCompleted);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;bing.SearchAsync(sr);<br>
+&nbsp; &nbsp;}<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+For more information about Silverlight fragment navigation, see <br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.windows.controls.page.onfragmentnavigation%28VS.95%29.aspx.">http://msdn.microsoft.com/en-us/library/system.windows.controls.page.onfragmentnavigation%28VS.95%29.aspx.</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
