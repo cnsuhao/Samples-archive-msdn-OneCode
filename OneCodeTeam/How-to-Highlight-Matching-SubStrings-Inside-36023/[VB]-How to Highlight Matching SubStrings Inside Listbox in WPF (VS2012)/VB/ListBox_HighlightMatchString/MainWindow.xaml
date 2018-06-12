@@ -1,0 +1,64 @@
+﻿<Window x:Class="MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ListBox_HighlightMatchString"
+    Title="MainWindow" Height="350" Width="525">
+    <Grid>
+
+        <Grid.Resources>
+            <x:Array x:Key="LocalDataArray" Type="{x:Type local:DummyData}" >
+                <local:DummyData Name="FirstName"/>
+                <local:DummyData Name="LastName"/>
+                <local:DummyData Name="First"/>
+                <local:DummyData Name="Last"/>
+                <local:DummyData Name="Name"/>
+            </x:Array>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <TextBox x:Name="txtSearch"
+                     Grid.Row="0"
+                     Margin="10"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch"
+                     VerticalContentAlignment="Center"/>
+
+            <StackPanel Margin="10,0,0,0" Grid.Row="1" Orientation="Horizontal">
+                <CheckBox x:Name="chkMatchCase" Grid.Row="1" 
+                      Content="Match Case" Checked="chkMatchCase_Checked" Unchecked="chkMatchCase_Unchecked" />
+                <CheckBox Margin="10,0,0,0" x:Name="chkMatchWholeWord" Grid.Row="1" 
+                      Content="Match whole word" IsChecked="True" Checked="chkMatchWholeWord_Checked" Unchecked="chkMatchWholeWord_Unchecked" />
+            </StackPanel>
+
+
+        </Grid>
+        <ListBox x:Name="lbResults" Grid.Row="1"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch"
+                 Margin="10,15,10,15"
+                 ItemsSource="{StaticResource LocalDataArray}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <local:HighlightTextBlock Text="{Binding Name}"
+                                              HighlightBackground="Yellow"
+                                              HighlightForeground="Blue"
+                                              HighlightText="{Binding ElementName=txtSearch,Path=Text}"
+                                              MatchCase="{Binding ElementName=chkMatchCase, Path=IsChecked}"
+                                              MatchWholeWord="{Binding ElementName=chkMatchWholeWord, Path=IsChecked}"
+                                              />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
