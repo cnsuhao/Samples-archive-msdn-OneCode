@@ -1,0 +1,63 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBCallNativeDllWrapper", "VBCallNativeDllWrapper\VBCallNativeDllWrapper\VBCallNativeDllWrapper.vbproj", "{F5D6C686-0A7D-4FA1-AAC1-A17D09C06886}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppCLINativeDllWrapper", "VBCallNativeDllWrapper\CppCLINativeDllWrapper\CppCLINativeDllWrapper.vcxproj", "{4C191A8F-5D28-4FA0-AF4C-373B50F69194}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppDynamicLinkLibrary", "VBCallNativeDllWrapper\CppDynamicLinkLibrary\CppDynamicLinkLibrary.vcxproj", "{52E95A78-6446-49D8-8F79-31846518D34B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{050E3A76-87AD-4257-9295-6521972E6CBC}"
+	ProjectSection(SolutionItems) = preProject
+		VBCallNativeDllWrapper\Documentation\ReadMe.htm = VBCallNativeDllWrapper\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe_files", "ReadMe_files", "{3616BCE9-DC20-4838-9B70-CB8B6BB87F45}"
+	ProjectSection(SolutionItems) = preProject
+		VBCallNativeDllWrapper\Documentation\ReadMe_files\colorschememapping.xml = VBCallNativeDllWrapper\Documentation\ReadMe_files\colorschememapping.xml
+		VBCallNativeDllWrapper\Documentation\ReadMe_files\filelist.xml = VBCallNativeDllWrapper\Documentation\ReadMe_files\filelist.xml
+		VBCallNativeDllWrapper\Documentation\ReadMe_files\image001.png = VBCallNativeDllWrapper\Documentation\ReadMe_files\image001.png
+		VBCallNativeDllWrapper\Documentation\ReadMe_files\themedata.thmx = VBCallNativeDllWrapper\Documentation\ReadMe_files\themedata.thmx
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5D6C686-0A7D-4FA1-AAC1-A17D09C06886}.Debug|x64.ActiveCfg = Debug|x64
+		{F5D6C686-0A7D-4FA1-AAC1-A17D09C06886}.Debug|x64.Build.0 = Debug|x64
+		{F5D6C686-0A7D-4FA1-AAC1-A17D09C06886}.Debug|x86.ActiveCfg = Debug|x86
+		{F5D6C686-0A7D-4FA1-AAC1-A17D09C06886}.Debug|x86.Build.0 = Debug|x86
+		{F5D6C686-0A7D-4FA1-AAC1-A17D09C06886}.Release|x64.ActiveCfg = Release|x64
+		{F5D6C686-0A7D-4FA1-AAC1-A17D09C06886}.Release|x64.Build.0 = Release|x64
+		{F5D6C686-0A7D-4FA1-AAC1-A17D09C06886}.Release|x86.ActiveCfg = Release|x86
+		{F5D6C686-0A7D-4FA1-AAC1-A17D09C06886}.Release|x86.Build.0 = Release|x86
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Debug|x64.ActiveCfg = Debug|x64
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Debug|x64.Build.0 = Debug|x64
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Debug|x86.ActiveCfg = Debug|Win32
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Debug|x86.Build.0 = Debug|Win32
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Release|x64.ActiveCfg = Release|x64
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Release|x64.Build.0 = Release|x64
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Release|x86.ActiveCfg = Release|Win32
+		{4C191A8F-5D28-4FA0-AF4C-373B50F69194}.Release|x86.Build.0 = Release|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x64.ActiveCfg = Debug|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x64.Build.0 = Debug|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x86.ActiveCfg = Debug|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Debug|x86.Build.0 = Debug|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x64.ActiveCfg = Release|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x64.Build.0 = Release|x64
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x86.ActiveCfg = Release|Win32
+		{52E95A78-6446-49D8-8F79-31846518D34B}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3616BCE9-DC20-4838-9B70-CB8B6BB87F45} = {050E3A76-87AD-4257-9295-6521972E6CBC}
+	EndGlobalSection
+EndGlobal
