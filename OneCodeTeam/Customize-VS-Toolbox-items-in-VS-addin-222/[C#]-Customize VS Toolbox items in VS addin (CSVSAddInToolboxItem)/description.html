@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Customize VS Toolbox items in VS addin (CSVSAddInToolboxItem)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Customize VS Toolbox items in VS addin (CSVSAddInToolboxItem)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            VSX
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Toolbox
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/1/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSVSAddInToolboxItem-763e6fbf">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Customize VS Toolbox items in VS addin (CSVSAddInToolboxItem)<span style=""> </span>
+</h1>
+<h2>Introduction<span style=""> </span></h2>
+<p class="MsoNormal">The CSVSAddInToolboxItem project demonstrates how to customize Toolbox items<span style="">
+</span>in DTE automation model or by Toolbox service.</p>
+<p class="MsoNormal">In this sample, an add-in command button named &quot;Add Customized Toolbox Item&quot; will be registered in the Tool menu. By clicking the menu, sample code will<span style="">
+</span>do follow<span style="">ing</span> two things:</p>
+<p class="MsoListParagraphCxSpFirst" style=""><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Use DTE automation model to add an item under CustomTab tab<span style="">
+</span></p>
+<p class="MsoListParagraphCxSpLast" style=""><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Use VS Toolbox service to add an item under CustomTab tab<span style="">
+</span></p>
+<p class="MsoNormal">Both items are HTML content, <span style=""><span style="">&nbsp;</span>and
+</span>they can be used by dragging and dropping to a web page designer.<b><span style="">
+</span></b></p>
+<h2>Building the Sample</h2>
+<p class="MsoNormal">VS 20<span style="">08</span> SP1 SDK must be installed on the machine. You can download it from:
+</p>
+<p class="MsoNormal"><span lang="EN" style=""><a href="http://www.microsoft.com/download/en/details.aspx?id=21827">Visual Studio 2008 SDK 1.1</a></span><span lang="EN" style="">
+</span></p>
+<p class="MsoNormal">Set the Start Action and Start Options of Debug.</p>
+<p class="MsoNormal">Start Action: <u>C:\Program Files\Microsoft Visual Studio </u>
+<u><span style="">9</span>.0\Common7\IDE\devenv.exe</u> (32bit OS) or <u>C:\Program Files (x86)\Microsoft Visual Studio
+</u><u><span style="">9</span>.0\Common7\IDE\devenv.exe</u> (64bit OS)<u> </u></p>
+<p class="MsoNormal">Start Option: <u>/resetaddin CSVSAddInToolboxItem.Connect</u></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="576" height="303" align="middle">
+</span></p>
+<h2>Running the Sample<span style=""> </span></h2>
+<p class="MsoListParagraphCxSpFirst" style=""><a name="OLE_LINK2"></a><a name="OLE_LINK1"><span style=""><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Open CSVSAddInToolboxItem.AddIn file and change the Assembly element to the path of the CSVSAddInToolboxItem.dll file.
+</span></span></a></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""><span style=""><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Copy the CSVSAddInToolboxItem.AddIn file to directory:
+<b style="">%userprofile%\Documents\Visual Studio 2008\Addins\.</b></span></span></span></p>
+<p class="MsoListParagraphCxSpMiddle"><span style=""><span style=""><b style=""><span style=""></span></b></span></span></p>
+<p class="MsoListParagraphCxSpMiddle"><span style=""><span style=""><span style="">Or you can copy both<b style="">
+</b>CSVSAddInToolboxItem.AddIn and CSVSAddInToolboxItem.dll to <b style="">%userprofile%\Documents\Visual Studio 2008\Addins\,
+</b>so you do not have to modify the CSVSAddInToolboxItem.AddIn file.</span> </span>
+</span></p>
+<p class="MsoListParagraphCxSpMiddle"><span style=""><span style=""></span></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""><span style=""><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Press <b style="">F5</b> to debug this project.</span></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""><span style=""><b style=""><span style=""><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b>In the new instance of Visual Studio, </span></span><span style=""><span style=""><span style="">open a new HTML page to edit.<b style="">
+</b></span></span></span></p>
+<p class="MsoListParagraphCxSpMiddle"><span style=""><span style=""><span style=""><img src="description/56ff3b58-27ac-4499-ac67-04ec9bdbfee9image.png" alt="" width="576" height="141" align="middle">
+</span></span></span><span style=""><span style=""><b style=""><span style=""></span></b></span></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""><span style=""><span style=""><span style="">5.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Click <b style="">Tool=&gt; Add item into VS Toolbox</b>,<b style="">
+</b>and then you can view the new tab and items in the Toolbox.</span> </span></span></p>
+<p class="MsoListParagraphCxSpMiddle"><span style=""><span style=""><b style=""><span style=""></span></b></span></span></p>
+<p class="MsoListParagraphCxSpMiddle"><span style=""><span style=""><span style=""><img src="description/d86add30-8614-440f-9d63-68ee930d3469image.png" alt="" width="576" height="83" align="middle">
+</span></span></span><span style=""><span style=""><b style=""><span style=""></span></b></span></span></p>
+<p class="MsoListParagraphCxSpMiddle"><span style=""><span style=""><span style=""><img src="description/d70451b1-ca5f-483f-9b47-c22f747bd74bimage.png" alt="" width="253" height="187" align="middle">
+</span></span></span><span style=""><span style=""><b style=""><span style=""></span></b></span></span></p>
+<p class="MsoListParagraphCxSpMiddle"><span style=""><span style=""><span style=""></span></span></span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><span style=""><span style=""><span style=""><span style="">6.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Drag the items in Toolbox and drop them to the html page, you will see the following 2 new button elements.
+</span></span></span></p>
+<p class="MsoListParagraphCxSpMiddle"><span style=""><span style=""><span style=""><img src="description/3d7d7d74-1983-4fc4-a2de-4f5d6ff2d185image.png" alt="" width="576" height="161" align="middle">
+</span></span></span><span style=""><span style=""><span style=""></span></span></span></p>
+<p class="MsoListParagraphCxSpLast"><span style=""><span style=""><span style=""></span></span></span></p>
+<h2>Using the Code<span style=""> </span></h2>
+<p class="MsoNormal"><span style=""></span></p>
+<p class="MsoListParagraphCxSpFirst" style=""><b style=""><span style=""><span style="">A.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><b style=""><span style="">Background </span></b></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:72.0pt"><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In VS automation model, it provides functions:
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:90.0pt"><span style=""><span style=""><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>i.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Add a tab to the Toolbox (Add method). </span>
+</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:90.0pt"><span style=""><span style=""><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>ii.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Activate a tab in the Toolbox (Activate method).
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:90.0pt"><span style=""><span style=""><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>iii.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Delete a tab from the Toolbox (Delete method).
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:90.0pt"><span style=""><span style=""><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>iv.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Add an item to the Toolbox (Add method). </span>
+</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:90.0pt"><span style=""><span style=""><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>v.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Select an item in the Toolbox (Select method).
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:90.0pt"><span style=""><span style=""><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>vi.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Delete an item from a tab in the Toolbox (Delete method).
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:90.0pt"><span style="">For more detail, please refer to:</span><span style="">
+<a href="http://msdn.microsoft.com/en-us/library/6xs853ft.aspx">How to: Control the Toolbox</a>
+</span><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:72.0pt"><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">VS Toolbox service provides richer access to toolbox functionality.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:72.0pt"><span style="">See
+<a href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop.ivstoolbox.aspx">
+IVsToolbox Interface</a> </span></p>
+<p class="MsoListParagraphCxSpMiddle" style=""><b style=""><span style=""><span style="">B.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><b style=""><span style="">Creation </span></b></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:72.0pt"><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Create Visual Studio Add-in project from File -&gt; New -&gt; Project -&gt; Other Project Types -&gt; Extensibility -&gt; Visual Studio Add-In</span><span style="">.</span><span style="">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:72.0pt"><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">When you create an add-in by using the Add-In Wizard and select the option to display it as a command, the command is on the Tools menu by default.
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:72.0pt"><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In Connect class, add two methods:AddItemByDTE and AddItemByVsToolboxService with following code:
+</span></p>
+<p class="MsoListParagraphCxSpLast" style="margin-left:72.0pt"><span style=""><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Add ConvertToClipboardFormat method. Most of the method code is referenced from
+<a href="http://blogs.msdn.com/jmstall/pages/sample-code-html-clipboard.aspx">http://blogs.msdn.com/jmstall/pages/sample-code-html-clipboard.aspx</a></span><span style="">.
+</span><span style=""></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+/// &lt;summary&gt;
+/// This method adds a Toolbox item by DTE automation model
+/// &lt;/summary&gt;
+private void AddItemByDTE()
+{
+    // Get tabs from automation model
+    ToolBoxTabs tabs = _applicationObject.ToolWindows.ToolBox.ToolBoxTabs;
+    IEnumerator e = tabs.GetEnumerator();
+
+
+    ToolBoxTab tab = null;
+    while (e.MoveNext())
+    {
+        ToolBoxTab ct = e.Current as ToolBoxTab;
+        if (ct.Name == &quot;CustomTab&quot;)
+        {
+            tab = ct;
+            break;
+        }
+    }
+
+
+    // If there is no CustomTab, add one
+    if (tab == null)
+        tab = tabs.Add(&quot;CustomTab&quot;);
+
+
+    // Add Toolbox Item, but we can't customize other information for 
+    // Toolbox item like icon and transparency.
+    tab.ToolBoxItems.Add(
+        &quot;DTE Added HTML Content&quot;, 
+        &quot;&lt;input id=\&quot;Button1\&quot; type=\&quot;button\&quot; value=\&quot;button\&quot; /&gt;&quot;, 
+        vsToolBoxItemFormat.vsToolBoxItemFormatHTML);
+}
+
+
+/// &lt;summary&gt;
+/// This method adds a Toolbox item by VS Toolbox service.
+/// This way provides more flexibilities than DTE way.
+/// &lt;/summary&gt;
+private void AddItemByVsToolboxService()
+{
+    // Get shell service provider.
+    ServiceProvider sp =
+        new ServiceProvider((<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.VisualStudio.OLE.Interop.IServiceProvider.aspx"  title="Auto generated link to Microsoft.VisualStudio.OLE.Interop.IServiceProvider">Microsoft.VisualStudio.OLE.Interop.IServiceProvider</a>)_applicationObject);
+
+
+    // Get the IVsToolbox interface.
+    IVsToolbox tbs = sp.GetService(typeof(SVsToolbox)) as IVsToolbox;
+
+
+    // Toolbox Item Info data 
+    TBXITEMINFO[] itemInfo = new TBXITEMINFO[1];
+    Bitmap bitmap =
+        new Bitmap(this.GetType().Assembly.GetManifestResourceStream(&quot;CSVSAddInToolboxItem.Demo.bmp&quot;));
+    itemInfo[0].bstrText = &quot;Service Added HTML Content&quot;;
+    itemInfo[0].hBmp = bitmap.GetHbitmap(); // Specify the bitmap.
+    itemInfo[0].dwFlags = (uint)__TBXITEMINFOFLAGS.TBXIF_DONTPERSIST;
+
+
+    // OleDataObject to host toolbox data
+    OleDataObject tbItem = new OleDataObject();
+    tbItem.SetText(
+        ConvertToClipboardFormat(&quot;&lt;input id=\&quot;Button1\&quot; type=\&quot;button\&quot; value=\&quot;button\&quot; /&gt;&quot;, null, null),
+        TextDataFormat.Html);
+
+
+    // Add a new toolbox item to MyCustomTab tab
+    tbs.AddItem(tbItem, itemInfo, &quot;CustomTab&quot;);
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+/// &lt;summary&gt;
+/// This method adds a Toolbox item by DTE automation model
+/// &lt;/summary&gt;
+private void AddItemByDTE()
+{
+    // Get tabs from automation model
+    ToolBoxTabs tabs = _applicationObject.ToolWindows.ToolBox.ToolBoxTabs;
+    IEnumerator e = tabs.GetEnumerator();
+
+
+    ToolBoxTab tab = null;
+    while (e.MoveNext())
+    {
+        ToolBoxTab ct = e.Current as ToolBoxTab;
+        if (ct.Name == &quot;CustomTab&quot;)
+        {
+            tab = ct;
+            break;
+        }
+    }
+
+
+    // If there is no CustomTab, add one
+    if (tab == null)
+        tab = tabs.Add(&quot;CustomTab&quot;);
+
+
+    // Add Toolbox Item, but we can't customize other information for 
+    // Toolbox item like icon and transparency.
+    tab.ToolBoxItems.Add(
+        &quot;DTE Added HTML Content&quot;, 
+        &quot;&lt;input id=\&quot;Button1\&quot; type=\&quot;button\&quot; value=\&quot;button\&quot; /&gt;&quot;, 
+        vsToolBoxItemFormat.vsToolBoxItemFormatHTML);
+}
+
+
+/// &lt;summary&gt;
+/// This method adds a Toolbox item by VS Toolbox service.
+/// This way provides more flexibilities than DTE way.
+/// &lt;/summary&gt;
+private void AddItemByVsToolboxService()
+{
+    // Get shell service provider.
+    ServiceProvider sp =
+        new ServiceProvider((<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.VisualStudio.OLE.Interop.IServiceProvider.aspx"  title="Auto generated link to Microsoft.VisualStudio.OLE.Interop.IServiceProvider">Microsoft.VisualStudio.OLE.Interop.IServiceProvider</a>)_applicationObject);
+
+
+    // Get the IVsToolbox interface.
+    IVsToolbox tbs = sp.GetService(typeof(SVsToolbox)) as IVsToolbox;
+
+
+    // Toolbox Item Info data 
+    TBXITEMINFO[] itemInfo = new TBXITEMINFO[1];
+    Bitmap bitmap =
+        new Bitmap(this.GetType().Assembly.GetManifestResourceStream(&quot;CSVSAddInToolboxItem.Demo.bmp&quot;));
+    itemInfo[0].bstrText = &quot;Service Added HTML Content&quot;;
+    itemInfo[0].hBmp = bitmap.GetHbitmap(); // Specify the bitmap.
+    itemInfo[0].dwFlags = (uint)__TBXITEMINFOFLAGS.TBXIF_DONTPERSIST;
+
+
+    // OleDataObject to host toolbox data
+    OleDataObject tbItem = new OleDataObject();
+    tbItem.SetText(
+        ConvertToClipboardFormat(&quot;&lt;input id=\&quot;Button1\&quot; type=\&quot;button\&quot; value=\&quot;button\&quot; /&gt;&quot;, null, null),
+        TextDataFormat.Html);
+
+
+    // Add a new toolbox item to MyCustomTab tab
+    tbs.AddItem(tbItem, itemInfo, &quot;CustomTab&quot;);
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style="margin-left:72.0pt"><span style=""></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:72.0pt"><span style=""></span></p>
+<p class="MsoListParagraphCxSpLast" style="margin-left:72.0pt"><span style=""><span style="">5.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">In the Exec method, invoke both AddItemByDTE and AddItemByVsToolboxService methods</span><span style="">.</span><span style="">
+</span></p>
+<h2>More Information</h2>
+<p class="MsoNormal"><span style=""><a href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop.ivstoolbox_members.aspx">IVsToolbox Members</a></span><span style="">
+</span></p>
+<p class="MsoNormal"><span style=""><a href="http://code.msdn.microsoft.com/EditorwithToolbox">VSSDK IDE Sample: Editor with Toolbox</a></span><span style="">
+</span></p>
+<p class="MsoNormal"><span style=""><a href="http://blogs.msdn.com/dr._ex/archive/2004/03/23/94991.aspx">How do I manipulate ToolBox Items?</a></span><span style="">
+</span></p>
+<p class="MsoNormal"><span style=""><a href="http://msdn.microsoft.com/en-us/library/bb166364.aspx">Toolbox (Visual Studio SDK)</a></span><span style="">
+</span></p>
+<p class="MsoNormal"><span style=""><a href="http://msdn.microsoft.com/en-us/library/6xs853ft.aspx">How to: Control the Toolbox</a></span><span style="">
+</span></p>
+<p class="MsoNormal"><span style=""><a href="http://blogs.msdn.com/jmstall/pages/sample-code-html-clipboard.aspx">Sample code for copying Html to Clipboard</a>
+</span></p>
+<p class="MsoNormal"><span style=""></span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
