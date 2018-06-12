@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7bd86db-8a7a-43ce-8954-21f8f839f51bCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to add multiple delegates in Office 365 Exchange Online</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to add multiple delegates in Office 365 Exchange Online</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Exchange Online, Office 365
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Impersonation, Delegate
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/10/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-add-multiple-af21e3ef">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img src="description/8171.onecodesampletopbanner.png" alt="">
+</a></div>
+<h1><span style="font-size:16.0pt; line-height:115%">How to add Delegates in Office 365 Exchange Online
+</span>(CSO365AddDelegates)</h1>
+<h2>Introduction</h2>
+<p><span style="font-size:small; line-height:115%">Currently, you can easily add delegates in Outlook. But you may find this feature is not available in Outlook Web App (OWA). In this application, we will demonstrate how to add multi delegates in Office 365
+ Exchange Online. </span></p>
+<p><span style="font-size:small; line-height:115%">1. Get the addresses of delegates;
+</span></p>
+<p><span style="font-size:small; line-height:115%">2. Get the addresses of primary accounts;
+</span></p>
+<p><span style="font-size:small; line-height:115%">3. Set the ImpersonatedUserId property if the login account has the impersonation permission.
+</span></p>
+<p><span style="font-size:small; line-height:115%">4. Add all the delegates into all the primary accounts.
+</span></p>
+<h2>Running the Sample</h2>
+<p><span style="font-size:small">Press F5 to run the sample, the following is the result.</span></p>
+<p><span style="font-size:small">First, we use our account to connect the Exchange Online.</span></p>
+<p><span style="font-size:small"><img src="description/image.png" alt="" width="408" height="57" align="middle">
+</span></p>
+<p><span style="font-size:small">Then, we need the identities of the delegates.</span></p>
+<p><span style="font-size:small"><img src="description/60785a76-9cab-4666-ac19-c89d03a9e6fcimage.png" alt="" width="641" height="33" align="middle">
+</span></p>
+<p><span style="font-size:small">And if we have the impersonation permission, we can add the delegates to multi accounts by setting the
+<span style="line-height:115%">ImpersonatedUserId property</span>.</span></p>
+<p><span style="font-size:small"><img src="description/a5539f23-2e76-4f5b-8ccb-8e868ee1b00aimage.png" alt="" width="644" height="41" align="middle">
+</span></p>
+<p><span style="font-size:small">Following is the result: </span></p>
+<p><span style="font-size:small"><img src="description/d918ae3e-baab-462d-9fa4-7f175e2f74f0image.png" alt="" width="650" height="140" align="middle">
+</span></p>
+<p><span style="font-size:small">If we don't have the impersonation permission, we can directly press the Enter to add the delegates to the login account.
+</span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style="margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:small">Before we add the delegates, We need the addresses of the delegates.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">Console.WriteLine(&quot;Please input the user identity(s) that were used as the delegates:&quot;);
+
+
+ String delegateInfo = Console.ReadLine();
+
+
+ // We get the addresses related to the identities of delegates.
+ List&lt;String&gt; delegateIdentities = new List&lt;string&gt;();
+ if (!String.IsNullOrWhiteSpace(delegateInfo))
+ {
+&nbsp;&nbsp;&nbsp;&nbsp; // You can input the &quot;EXIT&quot; to exit.
+&nbsp;&nbsp;&nbsp;&nbsp; if (delegateInfo.ToUpper().CompareTo(&quot;EXIT&quot;) == 0)
+&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return;
+&nbsp;&nbsp;&nbsp;&nbsp; }
+
+
+&nbsp;&nbsp;&nbsp;&nbsp; foreach (String delegateIdentity in delegateInfo.Split(','))
+&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NameResolutionCollection nameResolutions =
+&nbsp;&nbsp;&nbsp; service.ResolveName(delegateIdentity, ResolveNameSearchLocation.DirectoryOnly, true);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (nameResolutions.Count != 1)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;{0} is invalid user identity as the delegate.&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delegateIdentity);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delegateIdentities.Add(nameResolutions[0].Mailbox.Address);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp; }
+
+
+&nbsp;&nbsp;&nbsp;&nbsp; if (delegateIdentities.Count == 0)
+&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;There's not any valid user identity as the delegate.&quot;);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue;
+&nbsp;&nbsp;&nbsp;&nbsp; }
+ }
+ else
+ {
+&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;The delegates cannot be null!&quot;);
+&nbsp;&nbsp;&nbsp;&nbsp; continue;
+ }
+
+</pre>
+<pre id="codePreview" class="csharp">Console.WriteLine(&quot;Please input the user identity(s) that were used as the delegates:&quot;);
+
+
+ String delegateInfo = Console.ReadLine();
+
+
+ // We get the addresses related to the identities of delegates.
+ List&lt;String&gt; delegateIdentities = new List&lt;string&gt;();
+ if (!String.IsNullOrWhiteSpace(delegateInfo))
+ {
+&nbsp;&nbsp;&nbsp;&nbsp; // You can input the &quot;EXIT&quot; to exit.
+&nbsp;&nbsp;&nbsp;&nbsp; if (delegateInfo.ToUpper().CompareTo(&quot;EXIT&quot;) == 0)
+&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return;
+&nbsp;&nbsp;&nbsp;&nbsp; }
+
+
+&nbsp;&nbsp;&nbsp;&nbsp; foreach (String delegateIdentity in delegateInfo.Split(','))
+&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NameResolutionCollection nameResolutions =
+&nbsp;&nbsp;&nbsp; service.ResolveName(delegateIdentity, ResolveNameSearchLocation.DirectoryOnly, true);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (nameResolutions.Count != 1)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;{0} is invalid user identity as the delegate.&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delegateIdentity);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delegateIdentities.Add(nameResolutions[0].Mailbox.Address);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp; }
+
+
+&nbsp;&nbsp;&nbsp;&nbsp; if (delegateIdentities.Count == 0)
+&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;There's not any valid user identity as the delegate.&quot;);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue;
+&nbsp;&nbsp;&nbsp;&nbsp; }
+ }
+ else
+ {
+&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;The delegates cannot be null!&quot;);
+&nbsp;&nbsp;&nbsp;&nbsp; continue;
+ }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode"></div>
+<p class="MsoNormal" style="margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:small">If we have impersonation permission, we can add the delegates to multi accounts by setting the ImpersonatedUserId property.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">Console.WriteLine(&quot;Please input the user identity you want to set the &quot; &#43;
+&nbsp;&nbsp;&nbsp; &quot;delegates(or you can directly press Enter to set delegates in current account):&quot;);
+String primaryInfo = Console.ReadLine();
+
+
+if (!String.IsNullOrWhiteSpace(primaryInfo))
+{
+&nbsp;&nbsp;&nbsp; // You can input the &quot;EXIT&quot; to exit.
+&nbsp;&nbsp;&nbsp; if (primaryInfo.ToUpper().CompareTo(&quot;EXIT&quot;) == 0)
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return;
+&nbsp;&nbsp;&nbsp; }
+
+
+&nbsp;&nbsp;&nbsp; String[] primaryIdentities = primaryInfo.Split(',');
+
+
+&nbsp;&nbsp;&nbsp; foreach (String primaryIdentity in primaryIdentities)
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // If the user identity is valid, we will set it as the ImpersonatedUserId.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NameResolutionCollection nameResolutions =
+&nbsp;&nbsp;&nbsp;&nbsp; service.ResolveName(primaryIdentity, ResolveNameSearchLocation.DirectoryOnly, true);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (nameResolutions.Count != 1)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;{0} is invalid user identity.&quot;, primaryIdentity);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String emailAddress = nameResolutions[0].Mailbox.Address;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; service.ImpersonatedUserId =
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new ImpersonatedUserId(ConnectingIdType.SmtpAddress, emailAddress);
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (String delegateIdentity in delegateIdentities)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddAccountDelegates(service, emailAddress, delegateIdentity, 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;permissionLevelName, permissionLevel);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; }
+}
+
+</pre>
+<pre id="codePreview" class="csharp">Console.WriteLine(&quot;Please input the user identity you want to set the &quot; &#43;
+&nbsp;&nbsp;&nbsp; &quot;delegates(or you can directly press Enter to set delegates in current account):&quot;);
+String primaryInfo = Console.ReadLine();
+
+
+if (!String.IsNullOrWhiteSpace(primaryInfo))
+{
+&nbsp;&nbsp;&nbsp; // You can input the &quot;EXIT&quot; to exit.
+&nbsp;&nbsp;&nbsp; if (primaryInfo.ToUpper().CompareTo(&quot;EXIT&quot;) == 0)
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return;
+&nbsp;&nbsp;&nbsp; }
+
+
+&nbsp;&nbsp;&nbsp; String[] primaryIdentities = primaryInfo.Split(',');
+
+
+&nbsp;&nbsp;&nbsp; foreach (String primaryIdentity in primaryIdentities)
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // If the user identity is valid, we will set it as the ImpersonatedUserId.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NameResolutionCollection nameResolutions =
+&nbsp;&nbsp;&nbsp;&nbsp; service.ResolveName(primaryIdentity, ResolveNameSearchLocation.DirectoryOnly, true);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (nameResolutions.Count != 1)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;{0} is invalid user identity.&quot;, primaryIdentity);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String emailAddress = nameResolutions[0].Mailbox.Address;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; service.ImpersonatedUserId =
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new ImpersonatedUserId(ConnectingIdType.SmtpAddress, emailAddress);
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (String delegateIdentity in delegateIdentities)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddAccountDelegates(service, emailAddress, delegateIdentity, 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;permissionLevelName, permissionLevel);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; }
+}</pre>
+</div>
+</div>
+<p class="MsoNormal" style="margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:small">If we don't have the impersonation permission, we can directly press the Enter to add the delegates to the login account.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">else
+{
+&nbsp;&nbsp;&nbsp; // We can also directly press Enter to add the delegates to the login account. 
+&nbsp;&nbsp;&nbsp;&nbsp;foreach (String delegateIdentity in delegateIdentities)
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddAccountDelegates(service, currentAddress, delegateIdentity, 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;permissionLevelName, permissionLevel);
+&nbsp;&nbsp;&nbsp; }
+}
+
+</pre>
+<pre id="codePreview" class="csharp">else
+{
+&nbsp;&nbsp;&nbsp; // We can also directly press Enter to add the delegates to the login account. 
+&nbsp;&nbsp;&nbsp;&nbsp;foreach (String delegateIdentity in delegateIdentities)
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddAccountDelegates(service, currentAddress, delegateIdentity, 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;permissionLevelName, permissionLevel);
+&nbsp;&nbsp;&nbsp; }
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode"></div>
+<p class="MsoNormal" style="margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:small">We add the delegate to the specific account.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">DelegateUser delegateUser = new DelegateUser(delegateAddress);
+
+
+// Set the permission property of the delegate user.
+foreach (PropertyInfo property in typeof(DelegatePermissions).GetProperties())
+{
+&nbsp;&nbsp;&nbsp; if (String.Compare(property.Name, permissionLevelName) == 0)
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; property.SetValue(delegateUser.Permissions, permissionLevel);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;
+&nbsp;&nbsp;&nbsp; }
+}
+
+
+Mailbox emailBox = new Mailbox(primaryAddress);
+Collection&lt;DelegateUserResponse&gt; responses = service.AddDelegates(emailBox, 
+&nbsp;&nbsp;&nbsp;&nbsp;MeetingRequestsDeliveryScope.DelegatesAndSendInformationToMe, delegateUser);
+foreach (DelegateUserResponse response in responses)
+{
+&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Add {0} as the delegate to the account {1}:{2}&quot;, 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delegateAddress, primaryAddress, response.Result);
+&nbsp;&nbsp;&nbsp; Console.WriteLine();
+}
+
+</pre>
+<pre id="codePreview" class="csharp">DelegateUser delegateUser = new DelegateUser(delegateAddress);
+
+
+// Set the permission property of the delegate user.
+foreach (PropertyInfo property in typeof(DelegatePermissions).GetProperties())
+{
+&nbsp;&nbsp;&nbsp; if (String.Compare(property.Name, permissionLevelName) == 0)
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; property.SetValue(delegateUser.Permissions, permissionLevel);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;
+&nbsp;&nbsp;&nbsp; }
+}
+
+
+Mailbox emailBox = new Mailbox(primaryAddress);
+Collection&lt;DelegateUserResponse&gt; responses = service.AddDelegates(emailBox, 
+&nbsp;&nbsp;&nbsp;&nbsp;MeetingRequestsDeliveryScope.DelegatesAndSendInformationToMe, delegateUser);
+foreach (DelegateUserResponse response in responses)
+{
+&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;Add {0} as the delegate to the account {1}:{2}&quot;, 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delegateAddress, primaryAddress, response.Result);
+&nbsp;&nbsp;&nbsp; Console.WriteLine();
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<h2>More Information</h2>
+<p class="MsoNormal"><span style="font-size:small"><a href="http://msdn.microsoft.com/en-us/library/dd633709(v=exchg.80).aspx">EWS Managed API 2.0</a></span></p>
+<p class="MsoNormal"><span class="MsoHyperlink" style="font-size:small"><span style="color:windowtext; text-decoration:none"><a href="http://msdn.microsoft.com/en-us/library/dd633680(v=exchg.80).aspx">Working with impersonation by using the EWS Managed
+ API</a> </span></span></p>
+<p style="line-height:0.6pt; color:white">Microsoft All-In-One Code Framework is a free, centralized code sample library driven by developers' real-world pains and needs. The goal is to provide customer-driven code samples for all Microsoft development technologies,
+ and reduce developers' efforts in solving typical programming tasks. Our team listens to developers&rsquo; pains in the MSDN forums, social media and various DEV communities. We write code samples based on developers&rsquo; frequently asked programming tasks,
+ and allow developers to download them with a short sample publishing cycle. Additionally, we offer a free code sample request service. It is a proactive way for our developer community to obtain code samples directly from Microsoft.</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/adaa87bc-3ace-4da7-8848-07ab8276df38image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
