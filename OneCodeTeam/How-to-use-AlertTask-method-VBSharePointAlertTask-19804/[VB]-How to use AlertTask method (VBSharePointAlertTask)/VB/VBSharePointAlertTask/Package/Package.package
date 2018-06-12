@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="96a421dd-44b4-4544-a535-5b70dfc4e3a9" solutionId="96a421dd-44b4-4544-a535-5b70dfc4e3a9" resetWebServer="false" name="VBSharePointAlertTask" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="99d9778b-2373-4a69-8146-d33c8cce76fe" />
+  </features>
+</package>
