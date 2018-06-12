@@ -1,0 +1,563 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=62DBC035A4A8AD76676CA11B61CB6C59" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1ca5aaf3-9006-411c-a7ad-19679a8a3b4dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=60546B18CCC226DE9D7A404EDD74623E" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to Use Microsoft Azure Access Control Service with JWT</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to Use Microsoft Azure Access Control Service with JWT</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Security, Azure, Cloud, Access Control Service (ACS)
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            ACS, JWT
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web, Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">8/11/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-Use-Azure-Access-55466410">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img alt="" src="description/8171.onecodesampletopbanner.png">
+</a></div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:24pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-weight:bold; font-size:14pt"></span><span style="font-weight:bold; font-size:14pt">Use Windows Azure Access Control Service with JWT(CS\VBAzureACSJWT)</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-weight:bold; font-size:13pt"></span><span style="font-weight:bold; font-size:13pt">Introduction</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Windows Azure Access Control Service integrates WIF, so ASP.NET developers can easily create Claims-Aware Application by Identity and Access extension. But for C/S application, developers can&rsquo;t&nbsp;
+ add STS reference to their client, it&rsquo;s harder to use ACS with client application and web service.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">This article and the attached code samples demonstrate how to use Azure ACS work with third part Identity provider such as google, yahoo. You can find the answers for all the following questions in the
+ code sample:</span></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">How to use third part IDP such as google, yahoo in WPF.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">How to get RP's claims information in WPF client
+</span><span style="font-size:11pt">app.</span></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">How to desterilize security token provided by google or yahoo.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-weight:bold; font-size:13pt"></span><span style="font-weight:bold; font-size:13pt">Running the Sample</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">You should do the steps below before running the code sample.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Step 1: To configure the REST web service as a relying party</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; background-color:#FFFFFF; line-height:48pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:17.8pt">
+<span style="font-size:11pt"><span style="color:#2A2A2A">&bull;&nbsp;</span><span style="color:#2A2A2A">Go to the&nbsp;</span><a href="http://go.microsoft.com/fwlink/p/?LinkID=275081" style="text-decoration:none"><span style="color:#03697A; text-decoration:underline">Windows
+ Azure Management Portal</span></a><span style="color:#2A2A2A">, sign in, and then click&nbsp;</span><span style="font-weight:bold; color:#2A2A2A">Active Directory</span><span style="color:#2A2A2A">.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; background-color:#FFFFFF; line-height:48pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:17.8pt">
+<span style="font-size:11pt"><span style="color:#2A2A2A">&bull;&nbsp;</span><span style="color:#2A2A2A">To manage an Access Control namespace, select the namespace, and then click&nbsp;</span><span style="font-weight:bold; color:#2A2A2A">Manage</span><span style="color:#2A2A2A">.
+ (Or, click&nbsp;</span><span style="font-weight:bold; color:#2A2A2A">Access Control Namespaces</span><span style="color:#2A2A2A">, select the namespace, and then click&nbsp;</span><span style="font-weight:bold; color:#2A2A2A">Manage</span><span style="color:#2A2A2A">.)</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; background-color:#FFFFFF; line-height:48pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:17.8pt">
+<span style="font-size:11pt"><span style="color:#2A2A2A">&bull;&nbsp;</span><span style="color:#2A2A2A">In the&nbsp;</span><span style="font-weight:bold; color:#2A2A2A">Trust Relationships</span><span style="color:#2A2A2A">&nbsp;section, click&nbsp;</span><span style="font-weight:bold; color:#2A2A2A">Relying
+ Party Applications</span><span style="color:#2A2A2A">.</span></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; background-color:#FFFFFF; line-height:48pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:17.8pt">
+<span style="font-size:11pt"><span style="color:#2A2A2A">&bull;&nbsp;</span><span style="color:#2A2A2A">On the&nbsp;</span><span style="font-weight:bold; color:#2A2A2A">Relying Party Applications</span><span style="color:#2A2A2A">&nbsp;page, click&nbsp;</span><span style="font-weight:bold; color:#2A2A2A">Add
+ link</span><span style="color:#2A2A2A">. The&nbsp;</span><span style="font-weight:bold; color:#2A2A2A">Add Relying Party Application
+</span><span style="color:#2A2A2A">page opens.</span></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:17.8pt">
+<span style="font-size:11pt"><span style="color:#2A2A2A">&bull;&nbsp;</span><span style="color:#2A2A2A">In the&nbsp;</span><span style="font-weight:bold; color:#2A2A2A">Relying Party Application Settings</span><span style="color:#2A2A2A">&nbsp;section, make
+ the following selections:</span></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Name</span><span style="">&mdash;Specify a display name for this relying party, for example,&nbsp;</span><span style="font-size:11pt">CSAzureACSAuthInWPF</span><span style="">.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Mode</span><span style="">&mdash;Select the&nbsp;</span><span style="font-weight:bold">Enter settings manually</span><span style="">&nbsp;option.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Realm</span><span style="">&mdash;Specify the realm of your WCF service, for example,&nbsp;</span><a href="http://localhost:12526/RESTUserService.svc" style="text-decoration:none"><span style="background-color:; color:#0563C1; background:white; text-decoration:underline">http://localhost:12526/RESTUserService.svc</span></a><span style="font-weight:bold">.
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Return URL</span><span style="">&mdash;Leave blank.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Error URL</span><span style="">&mdash;Leave blank.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Token format</span><span style="">&mdash;Select the&nbsp;</span><span style="font-weight:bold">SWT</span><span style="">&nbsp;option.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Token lifetime (secs)</span><span style="">&mdash;Leave the default of 600 seconds.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:17.8pt">
+<span style="font-size:11pt"><span style="">&bull;&nbsp;</span><span style="">In the&nbsp;</span><span style="font-weight:bold">Authentication Settings</span><span style="">&nbsp;section, make the following selections:</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Identity providers</span><span style="">&mdash;checke google and yahoo.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Rule groups</span><span style="">&mdash;Select the&nbsp;</span><span style="font-weight:bold">Create New
+ Rule Group</span><span style="">&nbsp;option.</span></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:17.8pt">
+<span style="font-size:11pt"><span style="">&bull;&nbsp;</span><span style="">In the&nbsp;</span><span style="font-weight:bold">Token Signing Settings</span><span style="">&nbsp;section, make the following selections:</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Token signing</span><span style="">&mdash;Select the&nbsp;</span><span style="font-weight:bold">Use a dedicated
+ certificate</span><span style="">&nbsp;option.</span></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Token signing key</span><span style="">&mdash;To generate 256&ndash;bit symmetric key, click&nbsp;</span><span style="font-weight:bold">Generate</span><span style="">.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Effective date</span><span style="">&mdash;specify the key&rsquo;s effective date.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:5pt; margin-bottom:12pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:72pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="font-style:normal; text-decoration:none; font-weight:normal">&bull;&nbsp;</span><span style="font-weight:bold">Expiration date</span><span style="">&mdash;specify the key&rsquo;s expiration date.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:17.8pt">
+<span style="font-size:11pt"><span style="">&bull;&nbsp;</span><span style="">Click&nbsp;</span><span style="font-weight:bold">Save</span><span style="">.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-bottom:0pt; background-color:#FFFFFF; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:22pt">
+<span style="font-size:11pt"><span style=""></span><span style="">Saving your project will also trigger the creation of a rule group. Now you need to add rules in the rule group.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; line-height:24pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Step 2: Change parameters to your own in below files.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; line-height:24pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt"><span style="">&bull;&nbsp;</span><span style="font-size:11pt">CSAzureACSJWT\ App.xaml.cs file.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-weight:bold; font-size:13pt"></span><span style="font-weight:bold; font-size:13pt">Using the Code</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">The code sample provides the following functions to resolve the questions above.
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; line-height:26.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-weight:bold"></span><span style="font-weight:bold">How to use third part IDP such as google, yahoo in WPF.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style=""></span></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">
+private void GetIdentityProviders()
+       {
+           {
+               Uri identityProviderDiscovery = new Uri(
+                   string.Format(CultureInfo.InvariantCulture,
+                       &quot;https://{0}.{1}/v2/metadata/IdentityProviders.js?protocol=javascriptnotify&realm={2}&version=1.0&quot;,
+                       App.serviceNamespace,
+                       App.acsHostUrl,
+                       HttpUtility.UrlEncode(App.realm)),
+                       UriKind.Absolute
+                   );
+               WebClient webClient = new WebClient();
+               webClient.DownloadStringCompleted &#43;= new DownloadStringCompletedEventHandler(WebClientDownloadStringCompleted);
+               webClient.DownloadStringAsync(identityProviderDiscovery);
+           }
+       }
+</pre>
+<pre class="hidden">
+Private Sub GetIdentityProviders()
+        If True Then
+            Dim identityProviderDiscovery As New Uri(String.Format(CultureInfo.InvariantCulture, &quot;https://{0}.{1}/v2/metadata/IdentityProviders.js?protocol=javascriptnotify&realm={2}&version=1.0&quot;, Application.serviceNamespace, Application.acsHostUrl, HttpUtility.UrlEncode(Application.realm)), UriKind.Absolute)
+            Dim webClient As New WebClient()
+            AddHandler webClient.DownloadStringCompleted, AddressOf WebClientDownloadStringCompleted
+            webClient.DownloadStringAsync(identityProviderDiscovery)
+        End If
+    End Sub
+</pre>
+<pre id="codePreview" class="csharp">
+private void GetIdentityProviders()
+       {
+           {
+               Uri identityProviderDiscovery = new Uri(
+                   string.Format(CultureInfo.InvariantCulture,
+                       &quot;https://{0}.{1}/v2/metadata/IdentityProviders.js?protocol=javascriptnotify&realm={2}&version=1.0&quot;,
+                       App.serviceNamespace,
+                       App.acsHostUrl,
+                       HttpUtility.UrlEncode(App.realm)),
+                       UriKind.Absolute
+                   );
+               WebClient webClient = new WebClient();
+               webClient.DownloadStringCompleted &#43;= new DownloadStringCompletedEventHandler(WebClientDownloadStringCompleted);
+               webClient.DownloadStringAsync(identityProviderDiscovery);
+           }
+       }
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style=""></span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; line-height:26.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-weight:bold"></span><span style="font-weight:bold">How to get RP's claims information in WPF client app.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style=""></span></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">
+[<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.InteropServices.ComVisibleAttribute.aspx"  title="Auto generated link to System.Runtime.InteropServices.ComVisibleAttribute">System.Runtime.InteropServices.ComVisibleAttribute</a>(true)]
+       public class HtmlInteropClass
+       {
+           public void Notify(string jsonToken)
+           {
+               var jwtSTH = getDeserializedToken(jsonToken);
+               foreach (var claim in jwtSTH.Claims)
+               {
+                   if (claim.Type == &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress&quot;)
+                   {
+                       Settings.Default.CustomerEmail = claim.Value;
+                   }
+                   ((MainWindow)Application.Current.MainWindow).tblMessage.Text &#43;= claim.ToString() &#43; &quot;\n&quot;;
+               }
+               foreach (var window in Application.Current.Windows)
+               {
+                   if (window as Login != null)
+                   {
+                       ((Login)window).Close();
+                       ((MainWindow)Application.Current.MainWindow).stateCheck();
+                   }
+               }
+           }
+           /// &lt;summary&gt;
+           /// Third part IDP provider will provide issure a Json formate token, and serialized JWT in &quot;securityToken&quot;.
+           /// This method will deserialized the Json token and return JwtSecurityToken.
+           /// &lt;/summary&gt;
+           /// &lt;param name=&quot;jsonToken&quot;&gt;&lt;/param&gt;
+           /// &lt;returns&gt;&lt;/returns&gt;
+           private JwtSecurityToken getDeserializedToken(string jsonToken)
+           {
+               dynamic jObj = JsonConvert.DeserializeObject(jsonToken);
+               var securityTokenValue = jObj[&quot;securityToken&quot;].ToString();
+               JwtSecurityTokenHandler jwtSTH = new JwtSecurityTokenHandler();
+               var jwtST = jwtSTH.ReadToken(securityTokenValue) as JwtSecurityToken;
+               return jwtST;
+           }
+       }
+</pre>
+<pre class="hidden">
+&lt;<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.InteropServices.ComVisibleAttribute.aspx"  title="Auto generated link to System.Runtime.InteropServices.ComVisibleAttribute">System.Runtime.InteropServices.ComVisibleAttribute</a>(True)&gt; _
+    Public Class HtmlInteropClass
+        Public Sub Notify(jsonToken As String)
+            Dim jwtSTH = getDeserializedToken(jsonToken)
+            For Each claim In jwtSTH.Claims
+                If claim.Type = &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress&quot; Then
+                    My.Settings.CustomerEmail = claim.Value
+                End If
+                DirectCast(Application.Current.MainWindow, MainWindow).tblMessage.Text &#43;= claim.ToString() &#43; vbLf
+            Next
+            For Each window In Application.Current.Windows
+                If TryCast(window, Login) IsNot Nothing Then
+                    DirectCast(window, Login).Close()
+                    DirectCast(Application.Current.MainWindow, MainWindow).stateCheck()
+                End If
+            Next
+        End Sub
+        ''' &lt;summary&gt;
+        ''' Third part IDP provider will provide issure a Json formate token, and serialized JWT in &quot;securityToken&quot;.
+        ''' This method will deserialized the Json token and return JwtSecurityToken.
+        ''' &lt;/summary&gt;
+        ''' &lt;param name=&quot;jsonToken&quot;&gt;&lt;/param&gt;
+        ''' &lt;returns&gt;&lt;/returns&gt;
+        Private Function getDeserializedToken(jsonToken As String) As JwtSecurityToken
+            Dim jObj As Object = JsonConvert.DeserializeObject(jsonToken)
+            Dim securityTokenValue = jObj(&quot;securityToken&quot;).ToString()
+            Dim jwtSTH As New JwtSecurityTokenHandler()
+            Dim jwtST = TryCast(jwtSTH.ReadToken(securityTokenValue), JwtSecurityToken)
+            Return jwtST
+        End Function
+    End Class
+</pre>
+<pre id="codePreview" class="csharp">
+[<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.InteropServices.ComVisibleAttribute.aspx"  title="Auto generated link to System.Runtime.InteropServices.ComVisibleAttribute">System.Runtime.InteropServices.ComVisibleAttribute</a>(true)]
+       public class HtmlInteropClass
+       {
+           public void Notify(string jsonToken)
+           {
+               var jwtSTH = getDeserializedToken(jsonToken);
+               foreach (var claim in jwtSTH.Claims)
+               {
+                   if (claim.Type == &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress&quot;)
+                   {
+                       Settings.Default.CustomerEmail = claim.Value;
+                   }
+                   ((MainWindow)Application.Current.MainWindow).tblMessage.Text &#43;= claim.ToString() &#43; &quot;\n&quot;;
+               }
+               foreach (var window in Application.Current.Windows)
+               {
+                   if (window as Login != null)
+                   {
+                       ((Login)window).Close();
+                       ((MainWindow)Application.Current.MainWindow).stateCheck();
+                   }
+               }
+           }
+           /// &lt;summary&gt;
+           /// Third part IDP provider will provide issure a Json formate token, and serialized JWT in &quot;securityToken&quot;.
+           /// This method will deserialized the Json token and return JwtSecurityToken.
+           /// &lt;/summary&gt;
+           /// &lt;param name=&quot;jsonToken&quot;&gt;&lt;/param&gt;
+           /// &lt;returns&gt;&lt;/returns&gt;
+           private JwtSecurityToken getDeserializedToken(string jsonToken)
+           {
+               dynamic jObj = JsonConvert.DeserializeObject(jsonToken);
+               var securityTokenValue = jObj[&quot;securityToken&quot;].ToString();
+               JwtSecurityTokenHandler jwtSTH = new JwtSecurityTokenHandler();
+               var jwtST = jwtSTH.ReadToken(securityTokenValue) as JwtSecurityToken;
+               return jwtST;
+           }
+       }
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style=""></span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; line-height:26.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-weight:bold"></span><span style="font-weight:bold">How to desterilize security token provided by google or yahoo.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"></span></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span><span class="hidden">vb</span>
+<pre class="hidden">
+/// &lt;summary&gt;
+          /// Third part IDP provider will provide issure a Json formate token, and serialized JWT in &quot;securityToken&quot;.
+          /// This method will deserialized the Json token and return JwtSecurityToken.
+          /// &lt;/summary&gt;
+          /// &lt;param name=&quot;jsonToken&quot;&gt;&lt;/param&gt;
+          /// &lt;returns&gt;&lt;/returns&gt;
+          private JwtSecurityToken getDeserializedToken(string jsonToken)
+          {
+              dynamic jObj = JsonConvert.DeserializeObject(jsonToken);
+              var securityTokenValue = jObj[&quot;securityToken&quot;].ToString();
+              JwtSecurityTokenHandler jwtSTH = new JwtSecurityTokenHandler();
+              var jwtST = jwtSTH.ReadToken(securityTokenValue) as JwtSecurityToken;
+              return jwtST;
+          }
+</pre>
+<pre class="hidden">
+''' &lt;summary&gt;
+       ''' Third part IDP provider will provide issure a Json formate token, and serialized JWT in &quot;securityToken&quot;.
+       ''' This method will deserialized the Json token and return JwtSecurityToken.
+       ''' &lt;/summary&gt;
+       ''' &lt;param name=&quot;jsonToken&quot;&gt;&lt;/param&gt;
+       ''' &lt;returns&gt;&lt;/returns&gt;
+       Private Function getDeserializedToken(jsonToken As String) As JwtSecurityToken
+           Dim jObj As Object = JsonConvert.DeserializeObject(jsonToken)
+           Dim securityTokenValue = jObj(&quot;securityToken&quot;).ToString()
+           Dim jwtSTH As New JwtSecurityTokenHandler()
+           Dim jwtST = TryCast(jwtSTH.ReadToken(securityTokenValue), JwtSecurityToken)
+           Return jwtST
+       End Function
+   End Class
+</pre>
+<pre id="codePreview" class="vb">
+/// &lt;summary&gt;
+          /// Third part IDP provider will provide issure a Json formate token, and serialized JWT in &quot;securityToken&quot;.
+          /// This method will deserialized the Json token and return JwtSecurityToken.
+          /// &lt;/summary&gt;
+          /// &lt;param name=&quot;jsonToken&quot;&gt;&lt;/param&gt;
+          /// &lt;returns&gt;&lt;/returns&gt;
+          private JwtSecurityToken getDeserializedToken(string jsonToken)
+          {
+              dynamic jObj = JsonConvert.DeserializeObject(jsonToken);
+              var securityTokenValue = jObj[&quot;securityToken&quot;].ToString();
+              JwtSecurityTokenHandler jwtSTH = new JwtSecurityTokenHandler();
+              var jwtST = jwtSTH.ReadToken(securityTokenValue) as JwtSecurityToken;
+              return jwtST;
+          }
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"></span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; line-height:26.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-weight:bold"></span>&nbsp;</span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><a name="_GoBack"></a></span></p>
+<p style="line-height:0.6pt; color:white">Microsoft All-In-One Code Framework is a free, centralized code sample library driven by developers' real-world pains and needs. The goal is to provide customer-driven code samples for all Microsoft development technologies,
+ and reduce developers' efforts in solving typical programming tasks. Our team listens to developers’ pains in the MSDN forums, social media and various DEV communities. We write code samples based on developers’ frequently asked programming tasks, and allow
+ developers to download them with a short sample publishing cycle. Additionally, we offer a free code sample request service. It is a proactive way for our developer community to obtain code samples directly from Microsoft.</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
