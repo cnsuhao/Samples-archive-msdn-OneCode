@@ -1,0 +1,135 @@
+﻿body {
+}
+/*root grid css*/
+#rootGrid
+{
+	width: 100%;
+	height: 100%;
+	display: -ms-grid;
+	-ms-grid-rows: auto auto auto;
+	margin:20px 100px 20px 100px;
+}
+
+/*Title CSS*/
+#title {
+ -ms-grid-row:1;
+ word-wrap:break-word;
+ 
+}
+p{
+	margin-top:-20px;
+	margin-bottom:5px;
+	
+}
+.AppLogo{
+	font-size:14.667px;
+	font-family:'segoe ui';
+	
+}
+.AppName{
+	font-family:'segoe ui';
+	font-size:52px;
+	margin-right:10px;
+   
+
+}
+.AppDescription{
+	font-family:'segoe ui';
+	font-size:26.667px;
+	margin-top:5px;
+	margin-right:150px;
+}
+/*Content CSS*/
+#content {
+	-ms-grid-row: 2;
+	display: -ms-grid;
+	-ms-grid-rows: auto auto auto;
+	-ms-grid-columns: 1fr;
+	margin-top:50px;
+	padding-top:10px;
+}
+#input{
+	-ms-grid-row:1;
+	 -ms-grid-column: 1;
+	-ms-grid-row-align:start;
+	text-align:left;
+	font-size:14px;
+}
+#input div{
+	margin-left:10px;
+	
+}
+input[type="text"]{
+	
+	width:10%;
+	margin-left:10px;
+	border: 1px solid grey; 
+}
+button{
+	background-color:white;
+	border: 1px solid grey; 
+	margin-left:5px;
+}
+#error{
+	-ms-grid-row:2;
+	 -ms-grid-column: 1;
+	
+	margin:10px;
+	font-size:12px;
+	color:red;
+}
+#output{
+	-ms-grid-row:3;
+	-ms-grid-column: 1;
+	margin-top:60px;
+}
+
+#output label{
+	margin-left:10px;
+}
+#SpanResult{
+margin-left:5px;	
+}
+/*Footer css*/
+#footer {
+   -ms-grid-row:3;
+	width:100%; 
+	margin: 0px 0px 50px 0px;
+	bottom:0;
+	position:absolute; 
+	font-size:12px;
+}
+a{
+	position:absolute; 
+	right:200px;
+}
+@media screen and (-ms-view-state: fullscreen-landscape) {
+}
+
+@media screen and (-ms-view-state: filled) {
+}
+
+@media screen and (-ms-view-state: snapped) {
+#title {
+		display: none;
+
+	}
+	#rootGrid {
+		margin: 5px;
+	}
+	#content {
+	margin-top:20px;
+	}
+
+	
+	a{
+	position:relative; 
+	margin-left:200px;
+}
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+#AppName {
+	font-size:48px;
+	}
+}

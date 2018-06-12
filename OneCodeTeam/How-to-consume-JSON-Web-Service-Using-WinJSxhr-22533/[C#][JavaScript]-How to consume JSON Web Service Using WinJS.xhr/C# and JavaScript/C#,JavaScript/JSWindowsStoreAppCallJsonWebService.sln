@@ -1,0 +1,59 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "JSWindowsStoreAppCallJsonWebService", "JSWindowsStoreAppCallJsonWebService\JSWindowsStoreAppCallJsonWebService\JSWindowsStoreAppCallJsonWebService.jsproj", "{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONWCFService", "JSWindowsStoreAppCallJsonWebService\JSONWCFService\JSONWCFService.csproj", "{9EFB26B2-849A-4303-9AB0-CFA1377AEEDA}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Debug|ARM.ActiveCfg = Debug|ARM
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Debug|ARM.Build.0 = Debug|ARM
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Debug|ARM.Deploy.0 = Debug|ARM
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Debug|x64.ActiveCfg = Debug|x64
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Debug|x64.Build.0 = Debug|x64
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Debug|x64.Deploy.0 = Debug|x64
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Debug|x86.ActiveCfg = Debug|x86
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Debug|x86.Build.0 = Debug|x86
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Debug|x86.Deploy.0 = Debug|x86
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Release|ARM.ActiveCfg = Release|ARM
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Release|ARM.Build.0 = Release|ARM
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Release|ARM.Deploy.0 = Release|ARM
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Release|x64.ActiveCfg = Release|x64
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Release|x64.Build.0 = Release|x64
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Release|x64.Deploy.0 = Release|x64
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Release|x86.ActiveCfg = Release|x86
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Release|x86.Build.0 = Release|x86
+		{365DF3B2-B23A-4A94-BF85-97B54F5E9D5A}.Release|x86.Deploy.0 = Release|x86
+		{9EFB26B2-849A-4303-9AB0-CFA1377AEEDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EFB26B2-849A-4303-9AB0-CFA1377AEEDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EFB26B2-849A-4303-9AB0-CFA1377AEEDA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{9EFB26B2-849A-4303-9AB0-CFA1377AEEDA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9EFB26B2-849A-4303-9AB0-CFA1377AEEDA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9EFB26B2-849A-4303-9AB0-CFA1377AEEDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EFB26B2-849A-4303-9AB0-CFA1377AEEDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EFB26B2-849A-4303-9AB0-CFA1377AEEDA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{9EFB26B2-849A-4303-9AB0-CFA1377AEEDA}.Release|x64.ActiveCfg = Release|Any CPU
+		{9EFB26B2-849A-4303-9AB0-CFA1377AEEDA}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
