@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="4f429d9f-7ad0-4290-94f8-18656dab9c8a" Version="1.0.0.0" Publisher="CN=Microsoft-All-In-One Code Framework" />
+  <Properties>
+    <DisplayName>JSWindowsStoreAppConvertImageToBase64</DisplayName>
+    <PublisherDisplayName>Microsoft-All-In-One Code Framework</PublisherDisplayName>
+    <Logo>images\storelogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" StartPage="default.html">
+      <VisualElements DisplayName="JSWindowsStoreAppConvertImageToBase64" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="This sample demonstrates how to convert image to base64 string" ForegroundText="light" BackgroundColor="#E6B80B">
+        <DefaultTile ShowName="allLogos" WideLogo="images\TileLogo.png" />
+        <SplashScreen Image="images\splashscreen.png" BackgroundColor="#E6B80B" />
+      </VisualElements>
+    </Application>
+  </Applications>
+</Package>

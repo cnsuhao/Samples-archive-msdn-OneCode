@@ -1,0 +1,207 @@
+﻿/****************************** Module Header ******************************\
+ * Module Name:  default.css
+ * Project:      JSWindowsStoreAppConvertImageToBase64
+ * Copyright (c) Microsoft Corporation.
+ * 
+ * This file provides layout of this app
+ *  
+ * 
+ * This source is subject to the Microsoft Public License.
+ * See http://www.microsoft.com/en-us/openness/licenses.aspx#MPL
+ * All other rights reserved.
+ * 
+ * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, 
+ * EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED 
+ * WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
+\***************************************************************************/
+
+#rootGrid {
+    width: 1366px;
+    height: 768px;
+    display: -ms-grid;
+    -ms-grid-rows: auto auto auto auto;
+    margin: 20px 10px 20px 100px;
+}
+
+
+#appLogo {
+    font-family: 'segoe ui';
+    font-size: 14.667px;
+    word-wrap: break-word;
+    font-weight: bold;
+}
+
+#appName {
+    font-family: 'segoe ui';
+    font-size: 56px;
+    word-wrap: break-word;
+    margin: -10px 0px -20px 0px; 
+    line-height:50px;
+    max-width:90%;   
+}
+
+#appDescription {
+    font-family: 'segoe ui';
+    font-size: 26.667px;
+    word-wrap: break-word;
+    margin: 30px 90px -10px 0px;
+    max-width:90%; 
+}
+
+#titleGrid {
+    -ms-grid-row: 1;
+    width: 100%;
+    height: 5%;
+}
+
+
+#statusGrid {
+    -ms-grid-row: 3;
+    width: 100%;
+    height: 20px;
+}
+
+#footerGrid {
+    -ms-grid-row: 4;
+    width: 100%;
+    margin: 0px 0px 50px 0px;
+    bottom: 0;
+    position: absolute;
+}
+
+#contentGrid {
+    -ms-grid-row: 2;
+    display: -ms-grid;
+    -ms-grid-columns: auto auto;
+    margin: 20px 30px 30px 30px;
+}
+
+#base64Div {
+    font-family: 'segoe ui';
+    word-wrap: break-word;
+    margin: 0px 0px 0px 30px;    
+    -ms-grid-column:2;    
+    width:400px;   
+    height:400px;
+    display:block;
+    overflow-y:auto; 
+}
+
+#imgDiv {
+    -ms-grid-column:1;
+}
+
+#sourceImg {
+    height:100%;
+    width:100%;
+    margin:0px 0px 0px -30px;
+}
+
+a {
+    font-size: 12px;
+    position: absolute;
+    right: 200px;
+}
+
+@media screen and (-ms-view-state: fullscreen-landscape) {
+}
+
+@media screen and (-ms-view-state: filled) {
+}
+
+@media screen and (-ms-view-state: snapped) {
+    #rootGrid {        
+        width:320px;
+        height:768px;
+    }
+
+    #titleGrid {
+        display: none;
+    }
+
+   #contentGrid {
+    -ms-grid-row: 2;
+    display: -ms-grid;
+    -ms-grid-rows: auto auto;
+    margin: 20px 30px 30px 30px;
+}
+
+   
+
+    #footerGrid {
+        -ms-grid-row: 4;
+        width: 100%;
+        margin: 0px 0px 20px -70px;
+        bottom: 0;
+        position: absolute;
+    }
+
+    a {
+        -ms-grid-row: 4;
+        font-size: 12px;
+        position: relative;
+        margin-left: 5px;
+        right: 0px;
+    }
+
+   #base64Div {
+    font-family: 'segoe ui';
+    word-wrap: break-word;       
+    -ms-grid-row:2;    
+    width:250px;   
+    height:400px;
+    display:block;
+    overflow-y:auto; 
+    margin:10px 0px 0px -350px;
+}
+
+#imgDiv {
+    -ms-grid-row:1;
+    margin:0px 0px 0px -70px;
+}
+
+#sourceImg {
+    height:80%;
+    width:80%;    
+}
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+
+     #contentGrid {
+        -ms-grid-row: 2;
+        display: -ms-grid;        
+        -ms-grid-rows: auto auto;
+        margin:10px 60px 10px 60px
+    }
+
+    #titleGrid {
+        margin:10px 30px 10px 30px;
+    }
+
+    #rootGrid {
+        margin:10px 30px 10px 30px;
+        width:768px;
+        height:1366px;
+    }
+
+     #base64Div {
+    font-family: 'segoe ui';
+    word-wrap: break-word;       
+    -ms-grid-row:2;    
+    width:600px;   
+    height:400px;
+    display:block;
+    overflow-y:auto; 
+    margin:20px 0px 0px -650px;
+}
+
+#imgDiv {
+    -ms-grid-row:1;
+}
+
+#sourceImg {
+    height:100%;
+    width:100%;    
+}
+}
