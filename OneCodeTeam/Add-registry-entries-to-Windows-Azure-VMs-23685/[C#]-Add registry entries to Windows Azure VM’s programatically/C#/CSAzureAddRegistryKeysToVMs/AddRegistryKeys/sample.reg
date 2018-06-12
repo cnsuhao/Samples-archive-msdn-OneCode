@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\System\Test\Test1]
+"New Binary Setting"=hex:42,69,6e,61,72,79,20,56,61,6c,75,65  
+"New DWORD Setting"=dword:00000001  
+"New String Setting"="Something"
