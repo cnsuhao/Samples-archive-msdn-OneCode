@@ -1,0 +1,16 @@
+﻿<ps:Config xmlns:ps="urn:Microsoft.SharePoint.PowerShell"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:schemaLocation="urn:Microsoft.SharePoint.PowerShell  SPCmdletSchema.xml">
+  <ps:Assembly Name="$SharePoint.Project.AssemblyFullName$">
+    <ps:Cmdlet>
+      <ps:VerbName>Install-CustomService</ps:VerbName>
+      <ps:ClassName>CustomService.CustomService.PowerShell.InstallCustomService</ps:ClassName>
+      <ps:HelpFile />
+    </ps:Cmdlet>
+    <ps:Cmdlet>
+      <ps:VerbName>New-CustomServiceApplication</ps:VerbName>
+      <ps:ClassName>CustomService.CustomService.PowerShell.NewCustomServiceApplication</ps:ClassName>
+      <ps:HelpFile />
+    </ps:Cmdlet>
+  </ps:Assembly>
+</ps:Config>
