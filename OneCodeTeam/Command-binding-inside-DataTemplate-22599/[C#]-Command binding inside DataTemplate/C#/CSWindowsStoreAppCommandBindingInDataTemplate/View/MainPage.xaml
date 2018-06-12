@@ -1,0 +1,242 @@
+﻿<common:LayoutAwarePage
+    x:Name="pageRoot"
+    x:Class="CSWindowsStoreAppCommandBindingInDataTemplate.View.MainPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CSWindowsStoreAppCommandBindingInDataTemplate.View"
+    xmlns:common="using:CSWindowsStoreAppCommandBindingInDataTemplate.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <common:BoolToStringConverter x:Key="SexConverter"/>
+    </Page.Resources>
+    
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid x:Name="ContentRoot" Margin="100,20,100,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- page title -->
+            <Grid x:Name="TitleGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{StaticResource AppLogo}" Style="{StaticResource AppLogoStyle}"/>
+                <TextBlock Grid.Row="1" Name="AppName" Text="{StaticResource AppName}" Style="{StaticResource AppHeaderStyle}"/>
+                <TextBlock Grid.Row="2" Text="{StaticResource AppDescription}" Style="{StaticResource AppDescriptionStyle}" />
+            </Grid>
+
+            <!-- page body -->
+            <Grid Grid.Row="1">
+                <GridView Name="CustomerGridView"
+                          AutomationProperties.AutomationId="CustomerGridView"
+                          AutomationProperties.Name="Customer Group"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto"
+                          ScrollViewer.VerticalScrollMode="Enabled"
+                          BorderThickness="1"
+                          BorderBrush="Black"                                                    
+                          ItemsSource="{Binding Customers}">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="200" Height="150">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="3,3,0,3">
+                                    <TextBlock Text="Name:" Style="{StaticResource AppBodyTextStyle}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding Name}" Style="{StaticResource AppBodyTextStyle}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="3,3,0,3">
+                                    <TextBlock Text="Sex:" Style="{StaticResource AppBodyTextStyle}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding Sex, Converter={StaticResource SexConverter}}" Style="{StaticResource AppBodyTextStyle}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="3,3,0,3">
+                                    <TextBlock Text="Age:" Style="{StaticResource AppBodyTextStyle}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding Age}" Style="{StaticResource AppBodyTextStyle}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="3,3,0,3">
+                                    <TextBlock Text="Vip:" Style="{StaticResource AppBodyTextStyle}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding Vip}" Style="{StaticResource AppBodyTextStyle}"/>
+                                </StackPanel>
+                                <Button Content="Delete" Margin="0,5,0,0" Command="{Binding DataContext.DeleteCommand, ElementName=CustomerGridView}" CommandParameter="{Binding Id}"/>
+                            </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid MaximumRowsOrColumns="8" VerticalChildrenAlignment="Top"
+					  HorizontalChildrenAlignment="Left" Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
+
+                <ListView Name="CustomerListView"
+                          Visibility="Collapsed"
+                          AutomationProperties.AutomationId="CustomerGridView"
+                          AutomationProperties.Name="Customer Group"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto"
+                          ScrollViewer.VerticalScrollMode="Enabled"
+                          BorderThickness="1"
+                          BorderBrush="Black"                                                    
+                          ItemsSource="{Binding Customers}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="200" Height="150">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="3,3,0,3">
+                                        <TextBlock Text="Name:" Style="{StaticResource AppBodyTextStyle}" Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding Name}" Style="{StaticResource AppBodyTextStyle}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="3,3,0,3">
+                                        <TextBlock Text="Sex:" Style="{StaticResource AppBodyTextStyle}" Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding Sex, Converter={StaticResource SexConverter}}" Style="{StaticResource AppBodyTextStyle}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="3,3,0,3">
+                                        <TextBlock Text="Age:" Style="{StaticResource AppBodyTextStyle}" Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding Age}" Style="{StaticResource AppBodyTextStyle}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="3,3,0,3">
+                                        <TextBlock Text="Vip:" Style="{StaticResource AppBodyTextStyle}" Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding Vip}" Style="{StaticResource AppBodyTextStyle}"/>
+                                    </StackPanel>
+                                    <Button Content="Delete" Margin="0,5,0,0" Command="{Binding DataContext.DeleteCommand, ElementName=CustomerGridView}" CommandParameter="{Binding Id}"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid MaximumRowsOrColumns="8" VerticalChildrenAlignment="Top"
+					  HorizontalChildrenAlignment="Left" Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+
+            </Grid>
+            <!-- Error/Status -->
+            <Grid Grid.Row="2">
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.ThemeDictionaries>
+                            <ResourceDictionary x:Key="Default">
+                                <SolidColorBrush x:Key="StatusBrush">Red</SolidColorBrush>
+                            </ResourceDictionary>
+                            <ResourceDictionary x:Key="HighContrast">
+                                <SolidColorBrush x:Key="StatusBrush">White</SolidColorBrush>
+                            </ResourceDictionary>
+                        </ResourceDictionary.ThemeDictionaries>
+                    </ResourceDictionary>
+                </Grid.Resources>
+                <TextBlock x:Name="StatusText" TextWrapping="Wrap" Foreground="{StaticResource StatusBrush}" />
+            </Grid>
+
+            <!-- Footer -->
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="27*"/>
+                    <ColumnDefinition Width="556*"/>
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="Footer" Margin="0,0,0,10" VerticalAlignment="Bottom" Grid.ColumnSpan="2" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"  Source="../Assets/microsoft.png" AutomationProperties.Name="Microsoft Logo" Stretch="None" HorizontalAlignment="Left"/>
+                    <TextBlock Style="{StaticResource AppFooterStyle}" Text="© 2013 Microsoft Corporation. All rights reserved." TextWrapping="Wrap" Grid.Row="1" HorizontalAlignment="Left"/>
+                    <StackPanel x:Name="FooterPanel" Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+                        <HyperlinkButton Content="All-In-One Code Framework" Tag="http://blogs.msdn.com/b/onecode" Click="FooterClick" FontSize="12"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="AppName" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>0,10,0,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Filled"/>
+
+                <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ContentRoot">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>20,20,20,20</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="AppName" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,20,0,20"></DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <!-- The back button and title have different styles when snapped -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TitleGrid" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CustomerGridView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CustomerListView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ContentRoot">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>20,20,20,20</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)" Storyboard.TargetName="FooterPanel">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <HorizontalAlignment>Left</HorizontalAlignment>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Row)" Storyboard.TargetName="FooterPanel">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="2"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Column)" Storyboard.TargetName="FooterPanel">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</common:LayoutAwarePage>
