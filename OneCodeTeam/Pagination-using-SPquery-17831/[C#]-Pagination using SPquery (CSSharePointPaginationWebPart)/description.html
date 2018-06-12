@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Pagination using SPquery (CSSharePointPaginationWebPart)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Pagination using SPquery (CSSharePointPaginationWebPart)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SharePoint
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            SharePoint, Pagination, SPquery
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">7/22/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSSharePointPaginationWebPa-b44c8073">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><a name="OLE_LINK3"></a><a name="OLE_LINK4"><span style=""><span style="">How to implement
+</span>pagination through </span></a><span class="SpellE"><span style=""><span style="">SPQuery</span></span></span><span style=""><span style=""> (<span class="SpellE">CSSharePointPaginationWebPart</span>)</span></span></h1>
+<h2>Introduction</h2>
+<p class="MsoNormal" style=""><span style="">This sample code demonstrates <a name="OLE_LINK1">
+</a><a name="OLE_LINK2"><span style="">how to implement pagination through SPquery</span></a>. The sample will fetch the list items from a specified web site. You can set how many pages have to be shown for our custom pagination. For e.g., if you have 100
+ items in a list, and <span class="SpellE">rowlimt</span>=50 then the total number of pages should be 2.</span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style=""><span style="">&nbsp;</span>Please follow the steps below.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal">
+<span style="">Step 1: Open the CSSharePointPaginationWebPart.sln file and then set the &quot;Site URL&quot; to your own site.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2: Open the <span style="color:#1F497D">Paginati</span><span style="color:black">onWebPartUserControl.ascx.cs f</span>ile to modify the &quot;SiteCollectionUrl&quot;
+<span style="color:black">and list name. </span>The &quot;SiteCollectionUrl&quot; specifies the site we will search. And the List Name specifies the list
+<a name="OLE_LINK5"></a><a name="OLE_LINK6"><span style="">from which </span>
+</a>we will get data for our data control. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><br>
+Step 3: After that, right-click the &quot;<span class="SpellE">CSSharePointPaginationWebPart</span>&quot; project and click &quot;Deploy&quot;.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal">
+<span style=""><br>
+Step 4: Open the SharePoint site in the browser and then select &quot;Page&quot;.<br>
+</span><span style="font-size:9.5pt"><img src="description/image.png" alt="" width="1041" height="350" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal">
+<span style="font-size:9.5pt"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal">
+<span style="">Step 5: Select Edit.<br>
+<span style=""><img src="description/b8e1153a-2174-4bc9-a8a2-84b485e06328image.png" alt="" width="895" height="222" align="middle">
+</span><br>
+<br style="">
+<br style="">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 6: Select &quot;Insert&quot; Tab and click &quot;Web Part&quot;.<span style="color:black"><br>
+In &quot;Categories&quot;, select &quot;Custom&quot; and in &quot;Web Parts&quot; column select &quot;<span class="SpellE">PaginationWebPart</span>&quot;. Click on &quot;Add&quot; button, then click &quot;OK&quot;, you will see our PaginationWebPart appears
+ in the SharePoint site as follows: </span></span></p>
+<p class="MsoNormal"><span style=""><img src="description/d25bbc99-4ff3-4989-8952-ccefffde330fimage.png" alt="" width="628" height="252" align="middle">
+</span></p>
+<p class="MsoNormal"><span style="">Then we can view the list data by clicking the &quot;Pre&quot; button and the &quot;Next&quot; button.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 8: Validation is completed. </span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style=""><span style="">Code Logical: <span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 1: Create a C# &quot;Empty SharePoint Project&quot; in Visual Studio 2010 and named it as &quot;<span class="SpellE">CSSharePointPaginationWebPart</span>&quot;.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal"><span style="">Step 2: Right-click the project and add a new &quot;Visual Web Part&quot; item to our project and named it as &quot;CSSharePointPaginationWebPart&quot;.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: To show the List Data, we should <span style="color:black">
+add a <span class="SpellE">SPGridView</span> on the User Control. For the custom Pagination we
+</span>add two buttons to the page and edit the text to &quot;Pre&quot; and &quot;Next&quot;. The source code of the page as shown below:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>HTML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">html</span>
+<pre class="hidden">
+&lt;SharePoint:SPGridView runat=&quot;server&quot; ID=&quot;GridView2&quot; AutoGenerateColumns=&quot;false&quot;&gt;
+    &lt;Columns&gt;
+        &lt;asp:BoundField DataField=&quot;Title&quot; HeaderText=&quot;Title&quot; SortExpression=&quot;Title&quot; /&gt;
+    &lt;/Columns&gt;
+&lt;/SharePoint:SPGridView&gt;
+
+
+&lt;asp:Button ID=&quot;btnPre&quot; runat=&quot;server&quot; Text=&quot;Pre&quot; OnClick=&quot;btnPre_Click&quot; /&gt;
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:Button ID=&quot;btnNext&quot; runat=&quot;server&quot; Text=&quot;Next&quot; OnClick=&quot;btnNext_Click&quot; /&gt;
+
+</pre>
+<pre id="codePreview" class="html">
+&lt;SharePoint:SPGridView runat=&quot;server&quot; ID=&quot;GridView2&quot; AutoGenerateColumns=&quot;false&quot;&gt;
+    &lt;Columns&gt;
+        &lt;asp:BoundField DataField=&quot;Title&quot; HeaderText=&quot;Title&quot; SortExpression=&quot;Title&quot; /&gt;
+    &lt;/Columns&gt;
+&lt;/SharePoint:SPGridView&gt;
+
+
+&lt;asp:Button ID=&quot;btnPre&quot; runat=&quot;server&quot; Text=&quot;Pre&quot; OnClick=&quot;btnPre_Click&quot; /&gt;
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:Button ID=&quot;btnNext&quot; runat=&quot;server&quot; Text=&quot;Next&quot; OnClick=&quot;btnNext_Click&quot; /&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas; color:maroon"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 4: <span style="color:black">At the code-behind, first we add the reference of &quot;</span>Microsoft.SharePoint&quot;. Then we add a method which is used to query the list data by SPQuery. We will pass two parameters for the method: rowlimit
+ and pageNo. The method returns a <span class="SpellE"><span style="color:black">SPListItemCollection</span></span><span style="color:#2B91AF">.
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="color:#333333"><br>
+If you need to specify the sort condition, please modify the following code: </span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+query.Query = &quot;&lt;OrderBy Override=\&quot;TRUE\&quot;&gt;&lt;FieldRef Name=\&quot;FileLeafRef\&quot; /&gt;&lt;/OrderBy&gt;&quot;;
+
+</pre>
+<pre id="codePreview" class="csharp">
+query.Query = &quot;&lt;OrderBy Override=\&quot;TRUE\&quot;&gt;&lt;FieldRef Name=\&quot;FileLeafRef\&quot; /&gt;&lt;/OrderBy&gt;&quot;;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 5: Create a &quot;<span class="SpellE">BindData</span>&quot; method for binding data. This method needs a string parameter which is used to change Page No.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">At the beginning of the method, we check and calculate the page no.<span style="">&nbsp;
+</span>The argument &quot;</span><span class="SpellE"><span style="color:black">strOperation</span></span><span style="color:black">&quot;</span><span style=""> is passed from the click event of the button. At the end of the method, we bind the current list
+ data to SPGridView. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">&quot;Pre&quot; and &quot;Next&quot; buttons work by using the following code:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+protected void btnPre_Click(object sender, EventArgs e)
+       {
+           BindData(&quot;Pre&quot;);
+       }
+
+
+       protected void btnNext_Click(object sender, EventArgs e)
+       {
+           BindData(&quot;Next&quot;);
+       }
+
+</pre>
+<pre id="codePreview" class="csharp">
+protected void btnPre_Click(object sender, EventArgs e)
+       {
+           BindData(&quot;Pre&quot;);
+       }
+
+
+       protected void btnNext_Click(object sender, EventArgs e)
+       {
+           BindData(&quot;Next&quot;);
+       }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"><br>
+</span><span style="">Step 6: You can debug and test it. </span></p>
+<p class="MsoNormal" style="">SPQuery.ListItemCollectionPosition Property<br>
+<a href="http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.spquery.listitemcollectionposition.aspx">http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.spquery.listitemcollectionposition.aspx</a><br>
+SPQuery.RowLimit Property<br>
+<a href="http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.spquery.rowlimit.aspx">http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.spquery.rowlimit.aspx</a></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
