@@ -1,0 +1,43 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe", "ReadMe", "{B60F190A-2479-4C33-99D8-EC1CAF0597BB}"
+	ProjectSection(SolutionItems) = preProject
+		CSAzureNTierWebRoleWithSession\Documentation\ReadMe.htm = CSAzureNTierWebRoleWithSession\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CSAzureNTierWebRoleWithSession", "CSAzureNTierWebRoleWithSession\CSAzureNTierWebRoleWithSession\CSAzureNTierWebRoleWithSession.ccproj", "{D4FC2D58-AC30-4F53-90B3-016CF33F3888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureNTierWebRoleWithSession_WebRole", "CSAzureNTierWebRoleWithSession\AzureNTierWebRoleWithSession_WebRole\AzureNTierWebRoleWithSession_WebRole.csproj", "{42D33735-58B3-4B21-A507-6BEEDAE624A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "CSAzureNTierWebRoleWithSession\DataAccessLayer\DataAccessLayer.csproj", "{AE53B628-892C-4803-8C9C-CFEFC6FD88FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "CSAzureNTierWebRoleWithSession\BusinessLayer\BusinessLayer.csproj", "{64D9CA18-BA41-4326-BD5C-AE0395BBD157}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4FC2D58-AC30-4F53-90B3-016CF33F3888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4FC2D58-AC30-4F53-90B3-016CF33F3888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4FC2D58-AC30-4F53-90B3-016CF33F3888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4FC2D58-AC30-4F53-90B3-016CF33F3888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42D33735-58B3-4B21-A507-6BEEDAE624A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42D33735-58B3-4B21-A507-6BEEDAE624A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42D33735-58B3-4B21-A507-6BEEDAE624A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42D33735-58B3-4B21-A507-6BEEDAE624A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE53B628-892C-4803-8C9C-CFEFC6FD88FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE53B628-892C-4803-8C9C-CFEFC6FD88FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE53B628-892C-4803-8C9C-CFEFC6FD88FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE53B628-892C-4803-8C9C-CFEFC6FD88FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64D9CA18-BA41-4326-BD5C-AE0395BBD157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64D9CA18-BA41-4326-BD5C-AE0395BBD157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64D9CA18-BA41-4326-BD5C-AE0395BBD157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64D9CA18-BA41-4326-BD5C-AE0395BBD157}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
