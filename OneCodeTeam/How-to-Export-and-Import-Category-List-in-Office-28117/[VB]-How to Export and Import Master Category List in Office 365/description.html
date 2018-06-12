@@ -1,0 +1,516 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/3e00d0a6-7844-40b8-8b92-12c0e4eeaed2Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to Export and Import Master Category List in Office 365</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to Export and Import Master Category List in Office 365</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Exchange Online, Office 365
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            export, Import, category list
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/10/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-Export-and-Import-40c86904">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img alt="" src="description/8171.onecodesampletopbanner.png">
+</a></div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:24pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:14pt"><span style="font-weight:bold; font-size:14pt">How to Export and Import Master Category List in Office 365
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Introduction</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Currently, Outlook Web App (OWA) do</span><span style="font-size:11pt">es</span><span style="font-size:11pt"> not allow user</span><span style="font-size:11pt">s</span><span style="font-size:11pt"> to
+ export and import Master Category List. But some customers rel</span><span style="font-size:11pt">y</span><span style="font-size:11pt"> on this feature for handling their email messages efficiently. So they need a workaround to mitigate this issue. In this
+ application, we will demonstrate how to export and import Master Category List in O365:</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">1. Export the Master Category List</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">a. Get the account(s) you want to export the Master Category List from</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">b. Get the user configuration of the account(s)</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">c. Export the Master Category List from the user configuration</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">2. Import the Master Category List</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">a. Get the account(s) you want to import the Master Category List into</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">b. Get the file that stores Master Category List</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">c. Get the user configuration of the account(s)</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">d. Import the Master Category List from the file</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Running the Sample</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Press F5 to run the sample.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">First,&nbsp;use your account to connect the Exchange Online.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/image.png" alt="" width="407" height="55" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">1. Export the Master Category List</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; text-indent:9.75pt">
+<span style="font-size:11pt"><span style="font-size:11pt">a. If you have Impersonation permission or you have permission to access the specified accounts, you can export Master Category
+</span><span style="font-size:11pt">L</span><span style="font-size:11pt">ist from multi accounts.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/794d11c2-4131-45a1-ba83-7a5cfa51f24dimage.png" alt="" width="575" height="34" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; text-indent:9.75pt">
+<span style="font-size:11pt"><span style="font-size:11pt">b. Input </span><span style="font-size:11pt">the path of folder that
+</span><span style="font-size:11pt">will </span><span style="font-size:11pt">be used to
+</span><span style="font-size:11pt">store</span><span style="font-size:11pt"> the Master Category List file.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; text-indent:9.75pt">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/72119601-eaae-40f5-8aa4-e0ba010f2fc4image.png" alt="" width="575" height="38" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">If you only export Master Category List from one account, you can input the path of file that
+</span><span style="font-size:11pt">will </span><span style="font-size:11pt">be used to
+</span><span style="font-size:11pt">store</span><span style="font-size:11pt"> the Master Category List.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">2. Import the Master Category List</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; text-indent:9.75pt">
+<span style="font-size:11pt"><span style="font-size:11pt">a. </span><span style="font-size:11pt">If you have Impersonation permission or you have permission to access the specified accounts, you can import Master Category List into multi accounts.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/cd57f466-53f7-4ed1-9594-486568e6e60fimage.png" alt="" width="575" height="37" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">b. Input the path of folder that contains the Master Category List file.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/c8722879-e7f5-4fd4-b23c-8d047dfc3f92image.png" alt="" width="575" height="42" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">If you only import Master Category List into one account, you can input the path of file that</span><span style="font-size:11pt">
+</span><span style="">contains</span><span style="font-size:11pt"> the Master Category List.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Using the Code</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">1. Export the Master Category List</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; text-indent:9.75pt">
+<span style="font-size:11pt"><span style="font-size:11pt">a. Get the accounts that you want to export the Master Category List from.</span></span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">
+Console.WriteLine(&quot;Please input the user identity that you want to export &quot; &#43;
+               &quot;Master Category List from(or you can directly press Enter to export the list &quot; &#43;
+               &quot;from current account):&quot;);
+           String inputInfo = Console.ReadLine();
+           if (!String.IsNullOrWhiteSpace(inputInfo))
+           {
+               String[] identities = inputInfo.Split(',');
+               ..................
+               foreach (String identity in identities)
+               {
+                   NameResolutionCollection nameResolutions =
+                       service.ResolveName(identity, ResolveNameSearchLocation.DirectoryOnly, true);
+                   if (nameResolutions.Count != 1)
+                   {
+                       Console.WriteLine(&quot;{0} is invalid user identity.&quot;, identity);
+                   }
+                   else
+                   {
+                       String emailAddress = nameResolutions[0].Mailbox.Address;
+                       String filePath = GetFilePath(path, identity);
+                       // If our account have Impersonation permission, we can set it.
+                       if (usingImpersonation)
+                       {
+                           service.ImpersonatedUserId =
+                                   new ImpersonatedUserId(ConnectingIdType.SmtpAddress, emailAddress);
+                           ExportMasterCategoryListWithImpersonation(service, filePath);
+                           service.ImpersonatedUserId = null;
+                       }
+                       else
+                       {
+                           ExportMasterCategoryListWithoutImpersonation(service, emailAddress, filePath);
+                       }
+                   }
+               }
+           }
+           else
+           {
+               words = &quot;Please input the folder or file(.xml) path:&quot;;
+               path = InputPath(words, false, false);
+               String filePath = GetFilePath(path, currentAddress);
+               ExportMasterCategoryListWithImpersonation(service, filePath);
+           }
+</pre>
+<pre class="hidden">
+Console.WriteLine(&quot;Please input the user identity that you want to export &quot; & &quot;Master Category List from(or you can directly press Enter to export the list &quot; & &quot;from current account):&quot;)
+           Dim inputInfo As String = Console.ReadLine()
+           If Not String.IsNullOrWhiteSpace(inputInfo) Then
+               Dim identities() As String = inputInfo.Split(&quot;,&quot;c)
+              .....................................................
+               For Each identity As String In identities
+                   Dim nameResolutions As NameResolutionCollection =
+                       service.ResolveName(identity, ResolveNameSearchLocation.DirectoryOnly, True)
+                   If nameResolutions.Count &lt;&gt; 1 Then
+                       Console.WriteLine(&quot;{0} is invalid user identity.&quot;, identity)
+                   Else
+                       Dim emailAddress As String = nameResolutions(0).Mailbox.Address
+                       Dim filePath As String = GetFilePath(path, identity)
+                       ' If our account have Impersonation permission, we can set it.
+                       If usingImpersonation Then
+                           service.ImpersonatedUserId =
+                               New ImpersonatedUserId(ConnectingIdType.SmtpAddress, emailAddress)
+                           ExportMasterCategoryListWithImpersonation(service, filePath)
+                           service.ImpersonatedUserId = Nothing
+                       Else
+                           ExportMasterCategoryListWithoutImpersonation(service, emailAddress, filePath)
+                       End If
+                   End If
+               Next identity
+           Else
+               words = &quot;Please input the folder or file(.xml) path:&quot;
+               path = InputPath(words, False, False)
+               Dim filePath As String = GetFilePath(path, currentAddress)
+               ExportMasterCategoryListWithImpersonation(service, filePath)
+           End If
+</pre>
+<pre id="codePreview" class="csharp">
+Console.WriteLine(&quot;Please input the user identity that you want to export &quot; &#43;
+               &quot;Master Category List from(or you can directly press Enter to export the list &quot; &#43;
+               &quot;from current account):&quot;);
+           String inputInfo = Console.ReadLine();
+           if (!String.IsNullOrWhiteSpace(inputInfo))
+           {
+               String[] identities = inputInfo.Split(',');
+               ..................
+               foreach (String identity in identities)
+               {
+                   NameResolutionCollection nameResolutions =
+                       service.ResolveName(identity, ResolveNameSearchLocation.DirectoryOnly, true);
+                   if (nameResolutions.Count != 1)
+                   {
+                       Console.WriteLine(&quot;{0} is invalid user identity.&quot;, identity);
+                   }
+                   else
+                   {
+                       String emailAddress = nameResolutions[0].Mailbox.Address;
+                       String filePath = GetFilePath(path, identity);
+                       // If our account have Impersonation permission, we can set it.
+                       if (usingImpersonation)
+                       {
+                           service.ImpersonatedUserId =
+                                   new ImpersonatedUserId(ConnectingIdType.SmtpAddress, emailAddress);
+                           ExportMasterCategoryListWithImpersonation(service, filePath);
+                           service.ImpersonatedUserId = null;
+                       }
+                       else
+                       {
+                           ExportMasterCategoryListWithoutImpersonation(service, emailAddress, filePath);
+                       }
+                   }
+               }
+           }
+           else
+           {
+               words = &quot;Please input the folder or file(.xml) path:&quot;;
+               path = InputPath(words, false, false);
+               String filePath = GetFilePath(path, currentAddress);
+               ExportMasterCategoryListWithImpersonation(service, filePath);
+           }
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; text-indent:9.75pt">
+<span style="font-size:11pt"><span style="font-size:11pt">b. Export the Master Category List from the specified account.</span></span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">
+static void ExportMasterCategoryListWithImpersonation(ExchangeService service, String filePath)
+{
+    UserConfiguration userConfiguration = 
+        UserConfiguration.Bind(service, &quot;CategoryList&quot;, WellKnownFolderName.Calendar, 
+        UserConfigurationProperties.XmlData);
+    String categoryListString = UTF8Encoding.UTF8.GetString(userConfiguration.XmlData);
+    WriteFile(categoryListString, filePath);
+}
+</pre>
+<pre class="hidden">
+Private Shared Sub ExportMasterCategoryListWithImpersonation(ByVal service As ExchangeService,
+                                                             ByVal filePath As String)
+    Dim userConfiguration As UserConfiguration =
+        userConfiguration.Bind(service, &quot;CategoryList&quot;, WellKnownFolderName.Calendar,
+                               UserConfigurationProperties.XmlData)
+    Dim categoryListString As String = UTF8Encoding.UTF8.GetString(userConfiguration.XmlData)
+    WriteFile(categoryListString, filePath)
+End Sub
+</pre>
+<pre id="codePreview" class="csharp">
+static void ExportMasterCategoryListWithImpersonation(ExchangeService service, String filePath)
+{
+    UserConfiguration userConfiguration = 
+        UserConfiguration.Bind(service, &quot;CategoryList&quot;, WellKnownFolderName.Calendar, 
+        UserConfigurationProperties.XmlData);
+    String categoryListString = UTF8Encoding.UTF8.GetString(userConfiguration.XmlData);
+    WriteFile(categoryListString, filePath);
+}
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">2. Import the Master Category List</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">a. Import the Master Category List into the specified account.</span></span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">
+static void ImportMasterCategoryListWithImpersonation(ExchangeService service, String filePath)
+{
+    UserConfiguration userConfiguration = UserConfiguration.Bind(service, &quot;CategoryList&quot;, WellKnownFolderName.Calendar, UserConfigurationProperties.XmlData);
+    String categoryListString = ReadFile(filePath);
+    Byte[] categoryListBytes = UTF8Encoding.UTF8.GetBytes(categoryListString);
+    userConfiguration.XmlData = categoryListBytes;
+    userConfiguration.Update();
+}
+</pre>
+<pre class="hidden">
+Private Shared Sub ImportMasterCategoryListWithImpersonation(ByVal service As ExchangeService,
+                                                             ByVal filePath As String)
+    Dim userConfiguration As UserConfiguration = userConfiguration.Bind(service, &quot;CategoryList&quot;,
+                            WellKnownFolderName.Calendar, UserConfigurationProperties.XmlData)
+    Dim categoryListString As String = ReadFile(filePath)
+    Dim categoryListBytes() As Byte = UTF8Encoding.UTF8.GetBytes(categoryListString)
+    userConfiguration.XmlData = categoryListBytes
+    userConfiguration.Update()
+End Sub
+</pre>
+<pre id="codePreview" class="csharp">
+static void ImportMasterCategoryListWithImpersonation(ExchangeService service, String filePath)
+{
+    UserConfiguration userConfiguration = UserConfiguration.Bind(service, &quot;CategoryList&quot;, WellKnownFolderName.Calendar, UserConfigurationProperties.XmlData);
+    String categoryListString = ReadFile(filePath);
+    Byte[] categoryListBytes = UTF8Encoding.UTF8.GetBytes(categoryListString);
+    userConfiguration.XmlData = categoryListBytes;
+    userConfiguration.Update();
+}
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">More Information</span></span>
+</p>
+<a name="_GoBack"></a>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"></span><a href="http://msdn.microsoft.com/en-us/library/dd633709(v=exchg.80).aspx"><span style="color:#0563C1; text-decoration:underline">EWS Managed API 2.0</span></a><span style="font-size:11pt">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="color:#0563C1; color:windowtext"></span><a href="http://msdn.microsoft.com/en-us/library/dd633680(v=exchg.80).aspx" style="text-decoration:none"><span style="color:#0563C1; text-decoration:underline">Working with impersonation
+ by using the EWS Managed API</span></a></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span> </p>
+<p style="line-height:0.6pt; color:white">Microsoft All-In-One Code Framework is a free, centralized code sample library driven by developers' real-world pains and needs. The goal is to provide customer-driven code samples for all Microsoft development technologies,
+ and reduce developers' efforts in solving typical programming tasks. Our team listens to developers’ pains in the MSDN forums, social media and various DEV communities. We write code samples based on developers’ frequently asked programming tasks, and allow
+ developers to download them with a short sample publishing cycle. Additionally, we offer a free code sample request service. It is a proactive way for our developer community to obtain code samples directly from Microsoft.</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/a20d39fc-847b-4f6c-a5ee-5b3dad80666dimage.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
