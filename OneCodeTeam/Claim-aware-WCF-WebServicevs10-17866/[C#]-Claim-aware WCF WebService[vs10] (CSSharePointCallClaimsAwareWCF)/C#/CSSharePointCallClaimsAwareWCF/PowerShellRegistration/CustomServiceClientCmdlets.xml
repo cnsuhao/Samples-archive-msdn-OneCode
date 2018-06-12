@@ -1,0 +1,21 @@
+﻿<ps:Config xmlns:ps="urn:Microsoft.SharePoint.PowerShell"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:schemaLocation="urn:Microsoft.SharePoint.PowerShell  SPCmdletSchema.xml">
+  <ps:Assembly Name="CustomService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2cb5dde18d8cf06f">
+    <ps:Cmdlet>
+      <ps:VerbName>Install-CustomServiceProxy</ps:VerbName>
+      <ps:ClassName>CustomService.PowerShell.InstallCustomServiceProxy</ps:ClassName>
+      <ps:HelpFile />
+    </ps:Cmdlet>
+    <ps:Cmdlet>
+      <ps:VerbName>New-CustomServiceApplicationProxy</ps:VerbName>
+      <ps:ClassName>CustomService.PowerShell.NewCustomServiceApplicationProxy</ps:ClassName>
+      <ps:HelpFile />
+    </ps:Cmdlet>
+    <ps:Cmdlet>
+      <ps:VerbName>Invoke-CustomService</ps:VerbName>
+      <ps:ClassName>CustomService.PowerShell.InvokeCustomService</ps:ClassName>
+      <ps:HelpFile />
+    </ps:Cmdlet>
+  </ps:Assembly>
+</ps:Config>

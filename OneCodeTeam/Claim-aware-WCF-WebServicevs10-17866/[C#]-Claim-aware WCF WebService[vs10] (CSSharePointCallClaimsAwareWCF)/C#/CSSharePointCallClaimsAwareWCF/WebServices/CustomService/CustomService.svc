@@ -1,0 +1,3 @@
+<%@ServiceHost Language="C#" Debug="true" 
+               Service="CustomService.CustomServiceApplication, CustomService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2cb5dde18d8cf06f" 
+               Factory="CustomService.CustomServiceHostFactory, CustomService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2cb5dde18d8cf06f" %>
