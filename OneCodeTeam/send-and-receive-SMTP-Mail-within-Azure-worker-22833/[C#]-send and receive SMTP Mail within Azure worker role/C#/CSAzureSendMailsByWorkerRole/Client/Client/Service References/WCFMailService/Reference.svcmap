@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cb2f61b7-d2f8-457c-ac10-4ae323bac8c4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://127.0.0.1:3721/MailService/metadata" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="metadata.xsd" MetadataType="Schema" ID="36d3dfef-5f04-4d9d-9ff6-40641db78187" SourceId="1" SourceUrl="http://127.0.0.1:3721/MailService/metadata?xsd=xsd0" />
+    <MetadataFile FileName="metadata1.xsd" MetadataType="Schema" ID="997edf98-1828-4512-8f1e-a21441dd1672" SourceId="1" SourceUrl="http://127.0.0.1:3721/MailService/metadata?xsd=xsd3" />
+    <MetadataFile FileName="metadata2.xsd" MetadataType="Schema" ID="09e5ce76-d547-4d02-b92c-ba29fd839359" SourceId="1" SourceUrl="http://127.0.0.1:3721/MailService/metadata?xsd=xsd2" />
+    <MetadataFile FileName="metadata3.xsd" MetadataType="Schema" ID="04324203-7c9b-4e57-8421-bdfd6f382c22" SourceId="1" SourceUrl="http://127.0.0.1:3721/MailService/metadata?xsd=xsd1" />
+    <MetadataFile FileName="MailOperationService.wsdl" MetadataType="Wsdl" ID="a3404c4a-e910-4ccd-8263-9118b183543b" SourceId="1" SourceUrl="http://127.0.0.1:3721/MailService/metadata" />
+    <MetadataFile FileName="metadata.wsdl" MetadataType="Wsdl" ID="60f642ef-9f9d-4573-a838-0ecf05ff7629" SourceId="1" SourceUrl="http://127.0.0.1:3721/MailService/metadata?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
