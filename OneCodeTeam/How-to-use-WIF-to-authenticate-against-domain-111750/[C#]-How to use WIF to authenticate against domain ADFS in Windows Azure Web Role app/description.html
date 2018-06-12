@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=5CF4E24D59324FBE66CF8C9A49A3F942" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:FooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=F8E8917DA8158DB3E7C6F07AA1FFC4F3" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to use WIF to authenticate against domain ADFS in Windows Azure Web Role app</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to use WIF to authenticate against domain ADFS in Windows Azure Web Role app</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure, Cloud
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Authentication, adfs
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">1/19/2015</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/How-to-use-WIF-to-def0de33">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode"><img src="description/8171.onecodesampletopbanner.png" alt=""></a></div>
+</h1>
+<h1>How to use WIF to authenticate against domain ADFS in Windows Azure Web Role application&nbsp;</h1>
+<h2>Introduction</h2>
+<p>CSAzureWebRoleIdentity is a web role hosted in Windows Azure. It federates the authentication to a local STS. This breaks the authentication code from the business logic so that web developer can offload the authentication and authorization to the STS with
+ the help of WIF.</p>
+<h2>Running the Sample</h2>
+<p>You must run this code sample on</p>
+<p>1. Microsoft Windows Vista SP2 (32-bits or 64-bits), Microsoft Windows Server 2008 SP2 (32-bit or 64-bit), Microsoft Windows Server 2008 R2, Microsoft Windows 7 RTM (32-bits or 64-bits)</p>
+<p>2. Microsoft Internet Information Services (IIS) 7.0 with IIS Metabase and IIS 6 configuration compatibility.</p>
+<p>3. Microsoft .NET Framework 4</p>
+<p>4. Microsoft Visual Studio 2010</p>
+<p>5. Microsoft Windows Identity Foundation Runtime</p>
+<p>6. Microsoft Windows Identity Foundation SDK 4.0</p>
+<p>7. Windows Azure Tools for Microsoft Visual Studio 1.4</p>
+<p>1. You need to make sure the certificate used for SSL has the same name as your hosted service.</p>
+<p>&nbsp;&nbsp; You can use CreateCert script in sample Assert folder to create such folder</p>
+<p>&nbsp;&gt;CreateCert yourservicename</p>
+<p>&nbsp;</p>
+<p>2. If you run into exception, &quot;A potentially dangerous Request.Form value was detected from the client&quot;after click &quot;Submit&quot; button on STS, you need to add the following in web.config of the replying party. It will disable the validation in ASP.NET....</p>
+<p>&lt;httpRuntime requestValidationMode=&quot;2.0&quot;/&gt;</p>
+<p>&lt;pages validateRequest=&quot;false&quot; /&gt;</p>
+<p>&lt;/system.web&gt;</p>
+<p>&nbsp;</p>
+<p>3. Make sure &quot;Copy Local&quot; attribute of <a class="libraryLink" href="https://code.msdn.microsoft.com/How-to-use-WIF-to-def0de33/https://msdn.microsoft.com/en-US/library/Microsoft.IdentityModel.aspx"  title="Auto generated link to Microsoft.IdentityModel">Microsoft.IdentityModel</a> assembly in Web role replying party set as True.</p>
+<p>Test:</p>
+<p>When browse to the web role (please note, you need to use HTTPS instead of HTTP protocol ), which is now hosted in Windows Azure. You will be redirected to the local STS first. You can observe this from the browser address bar. After log in, the web role
+ will display your claim in the default page.</p>
+<p>Local STS will first validate the incoming request. If it is coming from the local host or Windows Azure domain, then it will reject the request by throwing an InvalidRequestException. After validation, STS will issue claims of identity. These claims include:
+ name and role. This is done in ValidateReplyTo() and GetOutputClaimsIdentity() method in CustomSecurityTokenService.cs</p>
+<p>The ASP.NET web role uses default template except it displays login user&rsquo;s claims on default page.</p>
+<p>All its authentication and authorization work now is federated to local STS.</p>
+<h2>More Information</h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/en-us/security/aa570351">Identity Management: Windows Identity Foundation</a>
+</li></ul>
+
+</div>
+
+
+    </div>
+</body>
+</html>
