@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="61da6024-73e3-4f8a-99f6-77ed1f9b4ffb" solutionId="61da6024-73e3-4f8a-99f6-77ed1f9b4ffb" resetWebServer="false" name="VBSharePointRenameDocumentDuringUpload" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="a7a7123f-7799-486c-8641-6020ccd9df7d" />
+  </features>
+</package>
