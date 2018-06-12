@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Use Silverlight fragment navigation to perform a search (VBSL4FragmentSearch)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Use Silverlight fragment navigation to perform a search (VBSL4FragmentSearch)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Silverlight
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Fragment Navigation, Bing
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">10/27/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBSL4FragmentSearch-2e8b4c6d">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h2>Sivlerlight APPLICATION: VBSL4FragmentSearch Overview</h2>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+The VBSL4FragmentSearch is a simple sample demonstrating the use of fragment navigation within Silverlight to perform a search.&nbsp; The advantage this provides is that the search can then be saved by URL, and linked directly, with consistent behavior, allowing
+ users to send links to direct results within Silverlight.</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+To run the sample, press ctrl &#43; F5 start the project. The application will show a popup box, click &quot;yes&quot; to continue, a web page will load, with the Silverlight fragment navigation's search component.&nbsp; Input your text in TextBox and click search button,
+ and a Bing search filtered on Microsoft.com will be performed with the search terms.&nbsp; Note that the URL string will now include the search terms as a fragment, which can subsequently be bookmarked or copied and pasted into a new browser tab, after which
+ time the same search will again be performed (as long as the URL remains valid - in the debug mode, as long as the project continues to run on the same port).</p>
+<h3>Implementation:</h3>
+<p style="font-family:Courier New"><br>
+The sample uses one simple Silverlight component, and all the relevant code is in MainPage.xaml, and its code behind, MainPage.xaml.cs.&nbsp; The code simply implements a fragment navigation event, which performs a web search with the Bing web service API,
+ applying the fragment text as the search terms.</p>
+<p style="font-family:Courier New">Following steps below to create this sample:</p>
+<p>Step 1. Create a VB &quot;Silverlight Application&quot; in Visual Studio 2010 or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Visual Web Developer 2010. Name it as &quot;VBSL4FragmentSearch&quot;.</p>
+<p>Step 2. Create a Service Reference folder and add Bing service.</p>
+<p>Step 3. Add Sdk Frame with StackPanel, TextBlock, ListBox controls in MainPage,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; you can refer to MainPage.xaml page.<br>
+&nbsp;&nbsp;<br>
+Step 4&nbsp; Add VB code in MainPage.xaml.cs page as shown below:<br>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>Visual Basic</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">Partial Public Class MainPage
+    Inherits UserControl
+    Dim results As New ObservableCollection(Of WebResult)()
+    Public Sub New()
+        InitializeComponent()
+        SearchResults.ItemsSource = results
+    End Sub
+ 
+    Private Sub Frame_FragmentNavigation(ByVal sender As Object, ByVal e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Navigation.FragmentNavigationEventArgs.aspx"  title="Auto generated link to System.Windows.Navigation.FragmentNavigationEventArgs">System.Windows.Navigation.FragmentNavigationEventArgs</a>)
+        results.Clear()
+ 
+        Dim sr As New Bing.SearchRequest()
+        sr.Query = Convert.ToString(e.Fragment) &amp; &quot; (site:microsoft.com)&quot;
+        sr.AppId = &quot;1009092976966EFB6DD6B0F0B98FE5E617990903&quot;
+        sr.Sources = New SourceType() {SourceType.Web}
+        sr.Web = New Bing.WebRequest()
+        Dim bing As Bing.BingPortTypeClient = New BingPortTypeClient()
+        AddHandler bing.SearchCompleted, AddressOf bing_SearchCompleted
+        bing.SearchAsync(sr)
+    End Sub
+ 
+    Private Sub bing_SearchCompleted(ByVal sender As Object, ByVal e As SearchCompletedEventArgs)
+        If e.Result.Web.Results IsNot Nothing Then
+            For Each wr As WebResult In e.Result.Web.Results
+                results.Add(wr)
+            Next
+        End If
+    End Sub
+ 
+    Private Sub Button_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
+        ContentFrame.Navigate(New Uri(&quot;#&quot; &#43; SearchText.Text, UriKind.Relative))
+    End Sub
+ 
+    Private Sub Link_MouseLeftButtonDown(ByVal sender As Object, ByVal e As MouseButtonEventArgs)
+        Dim uri As New Uri(TryCast(TryCast(sender, StackPanel).Tag, String))
+        System.Windows.Browser.HtmlPage.Window.Navigate(uri)
+    End Sub
+End Class</pre>
+<div class="preview">
+<pre class="vb"><span class="visualBasic__keyword">Partial</span>&nbsp;<span class="visualBasic__keyword">Public</span>&nbsp;<span class="visualBasic__keyword">Class</span>&nbsp;MainPage&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Inherits</span>&nbsp;UserControl&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;results&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;ObservableCollection(<span class="visualBasic__keyword">Of</span>&nbsp;WebResult)()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Public</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;<span class="visualBasic__keyword">New</span>()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitializeComponent()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SearchResults.ItemsSource&nbsp;=&nbsp;results&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Private</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;Frame_FragmentNavigation(<span class="visualBasic__keyword">ByVal</span>&nbsp;sender&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">Object</span>,&nbsp;<span class="visualBasic__keyword">ByVal</span>&nbsp;e&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Navigation.FragmentNavigationEventArgs.aspx"  title="Auto generated link to System.Windows.Navigation.FragmentNavigationEventArgs">System.Windows.Navigation.FragmentNavigationEventArgs</a>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results.Clear()&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;sr&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;Bing.SearchRequest()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sr.Query&nbsp;=&nbsp;Convert.ToString(e.Fragment)&nbsp;&amp;&nbsp;<span class="visualBasic__string">&quot;&nbsp;(site:microsoft.com)&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sr.AppId&nbsp;=&nbsp;<span class="visualBasic__string">&quot;1009092976966EFB6DD6B0F0B98FE5E617990903&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sr.Sources&nbsp;=&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;SourceType()&nbsp;{SourceType.Web}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sr.Web&nbsp;=&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;Bing.WebRequest()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;bing&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;Bing.BingPortTypeClient&nbsp;=&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;BingPortTypeClient()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">AddHandler</span>&nbsp;bing.SearchCompleted,&nbsp;<span class="visualBasic__keyword">AddressOf</span>&nbsp;bing_SearchCompleted&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bing.SearchAsync(sr)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Private</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;bing_SearchCompleted(<span class="visualBasic__keyword">ByVal</span>&nbsp;sender&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">Object</span>,&nbsp;<span class="visualBasic__keyword">ByVal</span>&nbsp;e&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;SearchCompletedEventArgs)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;e.Result.Web.Results&nbsp;<span class="visualBasic__keyword">IsNot</span>&nbsp;<span class="visualBasic__keyword">Nothing</span>&nbsp;<span class="visualBasic__keyword">Then</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">For</span>&nbsp;<span class="visualBasic__keyword">Each</span>&nbsp;wr&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;WebResult&nbsp;<span class="visualBasic__keyword">In</span>&nbsp;e.Result.Web.Results&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results.Add(wr)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Next</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Private</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;Button_Click(<span class="visualBasic__keyword">ByVal</span>&nbsp;sender&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">Object</span>,&nbsp;<span class="visualBasic__keyword">ByVal</span>&nbsp;e&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;RoutedEventArgs)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ContentFrame.Navigate(<span class="visualBasic__keyword">New</span>&nbsp;Uri(<span class="visualBasic__string">&quot;#&quot;</span>&nbsp;&#43;&nbsp;SearchText.Text,&nbsp;UriKind.Relative))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Private</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;Link_MouseLeftButtonDown(<span class="visualBasic__keyword">ByVal</span>&nbsp;sender&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">Object</span>,&nbsp;<span class="visualBasic__keyword">ByVal</span>&nbsp;e&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;MouseButtonEventArgs)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;uri&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;Uri(<span class="visualBasic__keyword">TryCast</span>(<span class="visualBasic__keyword">TryCast</span>(sender,&nbsp;StackPanel).Tag,&nbsp;<span class="visualBasic__keyword">String</span>))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.Windows.Browser.HtmlPage.Window.Navigate(uri)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;
+<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Class</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">Step 5. Build the application and you can debug it.</div>
+<p></p>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>References:</h3>
+<p>For more information about Silverlight fragment navigation, see <br>
+<a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.page.onfragmentnavigation%28VS.95%29.aspx">http://msdn.microsoft.com/en-us/library/system.windows.controls.page.onfragmentnavigation%28VS.95%29.aspx</a>.</p>
+<p>Bing API, Version 2<br>
+<a href="http://msdn.microsoft.com/en-us/library/dd251056.aspx">http://msdn.microsoft.com/en-us/library/dd251056.aspx</a></p>
+<p style="font-family:Courier New"><br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png" alt=""></a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
