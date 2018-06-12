@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>SPS Refresh ParentPage when Close ModalDialog (CSSharePointRefreshParentPage)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>SPS Refresh ParentPage when Close ModalDialog (CSSharePointRefreshParentPage)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SharePoint
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            SharePoint, Dialog
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">12/5/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSSharePointRefreshParentPa-f9a2ba04">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><a name="OLE_LINK2"></a><a name="OLE_LINK1"><span style=""><span style="">How to close the SharePoint modal dialog and refresh the parent page using Server side API
+</span>(</span></a><span style=""><span style=""><span class="SpellE"><span style="">CSSharePointRefreshParentPage</span></span>)</span></span></h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">The project shows how to close the SharePoint modal dialog and refresh the parent page using Server side API. The solution is to write JS directly to the http Response object that will close the dialog. In order to refresh the parent
+ page when the dialog is closed, <a name="OLE_LINK3">you can pass the </a><span class="SpellE"><span style="">DialogResult</span></span><span style="">
+<span class="SpellE">enum</span> value to <span class="SpellE">SP.UI.ModalDialog.RefreshPage</span> as parameter. The
+<span class="SpellE">enum</span> value is returned by <span class="SpellE">dialogReturnValueCallback</span> function</span>.</p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style="">Please follow these demonstration steps below.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 1: Open the CSSharePointRefreshParentPage.sln then right click the SharePoint project to set the &quot;Site Url&quot; to your own.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2: Right-click the &quot;<span class="SpellE">CSSharePointRefreshParentPage</span>&quot; project and click &quot;Deploy&quot;.<br style="">
+<br style="">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: Open the SharePoint site in the browser and select &quot;Page&quot; of a page that you want to operate.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><img src="description/image.png" alt="" width="993" height="409" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><br>
+Step 4: </span>Select &quot;Edit&quot;.<br>
+<span style=""><img src="description/a12ca73e-f289-4bc9-b075-ce6173a2fc2aimage.png" alt="" width="965" height="384" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 5: </span>Having done that, please select &quot;Insert&quot; tab and click &quot;Web Part&quot;.<br>
+<span style=""><img src="description/7c3b5f35-9e1b-434e-a1b0-c83a9888b612image.png" alt="" width="991" height="353" align="middle">
+</span><br style="">
+<br style="">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 6: </span>In &quot;Categories&quot;, select &quot;Custom&quot; and correspondingly in &quot;Web Parts&quot; column, select &quot;ModalDialogWebPart&quot;. Then click on &quot;Add&quot; button that appears on the right side.</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><img src="description/38387e26-a893-470a-a4ea-aaa4b6f5ca35image.png" alt="" width="1004" height="259" align="middle">
+</span><span style=""><br style="">
+<br style="">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 7: </span>After clicking &quot;Add&quot; button, you can see your ModalDialog web part appears in the SharePoint site:<br>
+<span style=""><img src="description/4225faca-b69b-4c53-a56c-266d18cdf846image.png" alt="" width="1033" height="139" align="middle">
+</span><span style="">&nbsp;</span><br>
+<span style="">Step 8: C</span>lick &quot;Create&quot; and then you can see a Modal Dialog appears in the SharePoint site:</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><img src="description/a4c7accc-5d7b-4444-b86e-ad52d151bb38image.png" alt="" width="788" height="225" align="middle">
+</span><br>
+<br>
+<span style="">Step 9: </span>Type some information to test.</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><img src="description/510fe219-1ac6-4627-bdfc-eb36682085cdimage.png" alt="" width="791" height="222" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 10: </span>After clicking &quot;OK&quot;, you can see the modal dialog box is closed, while the parent page is refreshed.</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<br>
+<span style="">Step 11: Validation is finished. </span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style=""><span style="">Code Logical: </span></p>
+<p class="MsoNormal" style=""><span style="">Step 1: Create a C# </span>Empty SharePoint Project
+<span style="">in Visual Studio 2010 and name it as &quot;<span class="SpellE">CSSharePointRefreshParentPage</span>&quot;.
+</span></p>
+<p class="MsoNormal" style="">Step 2: Add a Web Part, you can name it as ModalDialogWebPart.</p>
+<p class="MsoNormal" style="">Step 3: Add JavaScript code to the Web Part. </p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>JavaScript</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">js</span>
+<pre class="hidden">
+function openSitePropertyDialog(url) {
+       var dialogOptions = SP.UI.$create_DialogOptions();
+       dialogOptions.width = 800;
+       dialogOptions.height = 400;
+       dialogOptions.dialogReturnValueCallback = Function.createDelegate(null, sitePropertiesDialogCallback);
+       commonModalDialogOpen(
+               url,
+               dialogOptions,
+               sitePropertiesDialogCallback,
+               null);
+   }
+   function sitePropertiesDialogCallback(dialogResult, returnValue) {
+       if (returnValue != null) {
+           var notificationId = SP.UI.Notify.addNotification(returnValue, false);
+       }
+       SP.UI.ModalDialog.RefreshPage(dialogResult);
+       //refreshUpdatePanelOnDialogCallback(dialogResult);
+   }
+   function refreshUpdatePanelOnDialogCallback(dialogResult) {
+       if (dialogResult == SP.UI.DialogResult.OK) {
+           __doPostBack(&lt;%SPHttpUtility.AddQuote(SPHttpUtility.NoEncode(SitePropertiesUpdatePanel.ClientID),Response.Output);%&gt;);
+       }
+   }
+
+</pre>
+<pre id="codePreview" class="js">
+function openSitePropertyDialog(url) {
+       var dialogOptions = SP.UI.$create_DialogOptions();
+       dialogOptions.width = 800;
+       dialogOptions.height = 400;
+       dialogOptions.dialogReturnValueCallback = Function.createDelegate(null, sitePropertiesDialogCallback);
+       commonModalDialogOpen(
+               url,
+               dialogOptions,
+               sitePropertiesDialogCallback,
+               null);
+   }
+   function sitePropertiesDialogCallback(dialogResult, returnValue) {
+       if (returnValue != null) {
+           var notificationId = SP.UI.Notify.addNotification(returnValue, false);
+       }
+       SP.UI.ModalDialog.RefreshPage(dialogResult);
+       //refreshUpdatePanelOnDialogCallback(dialogResult);
+   }
+   function refreshUpdatePanelOnDialogCallback(dialogResult) {
+       if (dialogResult == SP.UI.DialogResult.OK) {
+           __doPostBack(&lt;%SPHttpUtility.AddQuote(SPHttpUtility.NoEncode(SitePropertiesUpdatePanel.ClientID),Response.Output);%&gt;);
+       }
+   }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="">Step 4: Now, let's add SharePoint &quot;Layouts&quot; Mapped Folder and then add two Application Pages. One is used to add property and the other is used to edit property.</p>
+<p class="MsoNormal" style="">Step 5: Customize the form then we should add some codes to code-behind file as below:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+if (!Page.IsValid)
+           {
+               return;
+           }
+
+
+           //Get propertyName and propertyValue to add
+           string propertyName = NameInputFormTextBox.Text.Trim();
+           string propertyValue = ValueInputFormTextBox.Text.Trim();
+
+
+           if (String.IsNullOrEmpty(propertyName))
+           {
+               NameErrorLabel.Text = &quot;Site property name cannot be empty.&quot;;
+               return;
+           }
+
+
+           try
+           {
+               if (Web.GetProperty(propertyName) != null)
+               {
+                   NameErrorLabel.Text = &quot;Site property name already exists.&quot;;
+                   return;
+               }
+
+
+               Web.AddProperty(propertyName, propertyValue);
+               Web.Update();
+           }
+           catch (Exception ex)
+           {
+               throw new SPException(ex.Message);
+           }
+
+
+           //Refresh the page when the dialog is closed by write JS directly to the
+           //http Response object that will close the dialog         
+           if (SPContext.Current.IsPopUI)
+           {
+               Response.Clear();
+               Response.Write(String.Format(@&quot;&lt;script language=&quot;&quot;javascript&quot;&quot; type=&quot;&quot;text/javascript&quot;&quot;&gt;
+
+
+
+
+
+
+
+
+
+
+               window.frameElement.commonModalDialogClose(1, &quot;&quot;{0}&quot;&quot;);&lt;/script&gt;&quot;, &quot;Site property is successfully added.&quot;));
+               Response.End();
+           }
+           else
+           {
+               SPUtility.Redirect(strSource, SPRedirectFlags.UseSource, this.Context);
+           }          
+
+</pre>
+<pre id="codePreview" class="csharp">
+if (!Page.IsValid)
+           {
+               return;
+           }
+
+
+           //Get propertyName and propertyValue to add
+           string propertyName = NameInputFormTextBox.Text.Trim();
+           string propertyValue = ValueInputFormTextBox.Text.Trim();
+
+
+           if (String.IsNullOrEmpty(propertyName))
+           {
+               NameErrorLabel.Text = &quot;Site property name cannot be empty.&quot;;
+               return;
+           }
+
+
+           try
+           {
+               if (Web.GetProperty(propertyName) != null)
+               {
+                   NameErrorLabel.Text = &quot;Site property name already exists.&quot;;
+                   return;
+               }
+
+
+               Web.AddProperty(propertyName, propertyValue);
+               Web.Update();
+           }
+           catch (Exception ex)
+           {
+               throw new SPException(ex.Message);
+           }
+
+
+           //Refresh the page when the dialog is closed by write JS directly to the
+           //http Response object that will close the dialog         
+           if (SPContext.Current.IsPopUI)
+           {
+               Response.Clear();
+               Response.Write(String.Format(@&quot;&lt;script language=&quot;&quot;javascript&quot;&quot; type=&quot;&quot;text/javascript&quot;&quot;&gt;
+
+
+
+
+
+
+
+
+
+
+               window.frameElement.commonModalDialogClose(1, &quot;&quot;{0}&quot;&quot;);&lt;/script&gt;&quot;, &quot;Site property is successfully added.&quot;));
+               Response.End();
+           }
+           else
+           {
+               SPUtility.Redirect(strSource, SPRedirectFlags.UseSource, this.Context);
+           }          
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><b style="">[Note]</b> The following code is the key; it will refresh the page when the dialog is closed:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+Response.Clear();
+Response.Write(String.Format(@&quot;&lt;script language=&quot;&quot;javascript&quot;&quot; type=&quot;&quot;text/javascript&quot;&quot;&gt;
+
+
+
+
+
+
+
+
+
+
+window.frameElement.commonModalDialogClose(1, &quot;&quot;{0}&quot;&quot;);&lt;/script&gt;&quot;, &quot;Site property is successfully added.&quot;));
+Response.End();
+
+</pre>
+<pre id="codePreview" class="csharp">
+Response.Clear();
+Response.Write(String.Format(@&quot;&lt;script language=&quot;&quot;javascript&quot;&quot; type=&quot;&quot;text/javascript&quot;&quot;&gt;
+
+
+
+
+
+
+
+
+
+
+window.frameElement.commonModalDialogClose(1, &quot;&quot;{0}&quot;&quot;);&lt;/script&gt;&quot;, &quot;Site property is successfully added.&quot;));
+Response.End();
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><span style=""><br>
+</span>Step 6: Build the solution and then try to deploy the project to the SharePoint site. Then you can test it.</p>
+<p class="MsoNormal" style="">SP.UI.ModalDialog.commonModalDialogOpen(url, options, callback, args) Method<br>
+<a href="http://technet.microsoft.com/en-us/library/ff409609.aspx">http://technet.microsoft.com/en-us/library/ff409609.aspx</a><br>
+SP.UI.ModalDialog.RefreshPage(dialogResult) Method<br>
+<a href="http://msdn.microsoft.com/en-us/library/ff411790.aspx">http://msdn.microsoft.com/en-us/library/ff411790.aspx</a><br>
+SP.UI.ModalDialog.commonModalDialogClose(dialogResult, returnVal) Method<br>
+<a href="http://msdn.microsoft.com/en-us/library/ff409682.aspx">http://msdn.microsoft.com/en-us/library/ff409682.aspx</a><br>
+SP.UI.Notify Class<br>
+<a href="http://msdn.microsoft.com/en-us/library/ff408137.aspx">http://msdn.microsoft.com/en-us/library/ff408137.aspx</a></p>
+<p class="MsoNormal" style=""></p>
+<p class="MsoNormal" style=""><br style="">
+<br style="">
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
