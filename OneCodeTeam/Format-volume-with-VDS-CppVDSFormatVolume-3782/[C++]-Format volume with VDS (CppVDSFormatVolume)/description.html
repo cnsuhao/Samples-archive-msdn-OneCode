@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Format volume with VDS (CppVDSFormatVolume)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Format volume with VDS (CppVDSFormatVolume)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            WDK, Windows Driver
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            VDS
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">9/3/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CppVDSFormatVolume-c84cb6f2">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;</p>
+<h2>CONSOLE APPLICATION : CppVDSFormatVolume Project Overview</h2>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+This sample demonstrates how to use VDS to format volumes.<br>
+<br>
+Warning: formatting a volume may result in unexpected data loss. &nbsp;Use this <br>
+sample with care.<br>
+<br>
+</p>
+<h3>Prerequisites:</h3>
+<p style="font-family:Courier New"><br>
+The minimum supported client system of VDS API is Windows Vista. &nbsp;The minimum
+<br>
+supported server system is Windows Server 2003. <br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+You must run this sample project as administrator. &nbsp;The sample takes the <br>
+volume number and the target file system type as user input:<br>
+<br>
+&nbsp; &nbsp;CppVDSFormatVolume.exe [-options]...<br>
+&nbsp; &nbsp; &nbsp;-v &lt;volume number (decimal)&gt; REQUIRED INPUT<br>
+&nbsp; &nbsp; &nbsp;-t &lt;target file system type: NTFS, FAT32, etc.&gt; UPPER CASE ONLY, REQUIRED INPUT<br>
+&nbsp; &nbsp; &nbsp;e.g.: &nbsp;CppVDSFormatVolume.exe -v 3 -t NTFS <br>
+<br>
+The sample project tries to find the volume based on the volume number, and <br>
+format the volume with the specified file system type.<br>
+<br>
+To get the volume number of a certain volume (e.g. &quot;E:\&quot;), you can download <br>
+and run the sample project &quot;CppVDSQueryVolumes&quot; from All-In-One Code <br>
+Framework. CppVDSQueryVolumes lists all volumes in your system and displays <br>
+their volume number appended to the Win32 name output:<br>
+<br>
+&nbsp; &nbsp;Win32 name: \\?\GLOBALROOT\Device\HarddiskVolume&lt;volume number&gt;<br>
+<br>
+For example, <br>
+<br>
+&nbsp; &nbsp;Win32 name: \\?\GLOBALROOT\Device\HarddiskVolume5<br>
+<br>
+Formatting a volume may result in unexpected data loss, so please use this <br>
+sample with care. &nbsp;To play with the sample project safely, you may consider <br>
+plugging in a useless USB flash drive. Find its volume number using the <br>
+CppVDSQueryVolumes sample project. Then pass the volume number to <br>
+CppVDSFormatVolume to format the volume. <br>
+<br>
+&nbsp; &nbsp;CppVDSFormatVolume.exe -v &lt;volume number (decimal)&gt; -t &lt;target file system type e.g. FAT32&gt;<br>
+<br>
+</p>
+<h3>Implementation:</h3>
+<p style="font-family:Courier New"><br>
+The main logic of this code is:<br>
+<br>
+1. connect to the VDS service<br>
+<br>
+&nbsp; &nbsp;IVdsServiceLoader *pLoader;<br>
+&nbsp; &nbsp;hr = CoCreateInstance(CLSID_VdsLoader,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NULL,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CLSCTX_LOCAL_SERVER | CLSCTX_REMOTE_SERVER,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IID_IVdsServiceLoader,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(void **)&amp;pLoader<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;);<br>
+&nbsp; &nbsp;...<br>
+&nbsp; &nbsp;IVdsService *pService;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;hr = pLoader-&gt;LoadService( L&quot;&quot;, &amp;pService );<br>
+&nbsp; &nbsp;...<br>
+<br>
+2. validate user input<br>
+<br>
+3. loop over all software providers: basic and dynamic<br>
+<br>
+&nbsp; &nbsp;IVdsProvider *pProvider;<br>
+&nbsp; &nbsp;hr = pUnk-&gt;QueryInterface(IID_IVdsProvider, (void **)&amp;pProvider);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;VDS_PROVIDER_PROP provProp;<br>
+&nbsp; &nbsp;hr = pProvider-&gt;GetProperties(&amp;provProp);<br>
+&nbsp; &nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;IVdsSwProvider *pSwProvider;<br>
+&nbsp; &nbsp;hr = pProvider-&gt;QueryInterface(IID_IVdsSwProvider, (void **)&amp;pSwProvider);<br>
+&nbsp; &nbsp;...<br>
+<br>
+4. for a given provider, list the packs and the volumes contained in those packs.<br>
+<br>
+&nbsp; &nbsp;hr = pPack-&gt;QueryVolumes( &amp;pEnumVolume );<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Get IVdsVolume &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp;IVdsVolume *pVolume;<br>
+&nbsp; &nbsp;hr = pVolumeUnk-&gt;QueryInterface(IID_IVdsVolume, (void **)&amp;pVolume);<br>
+<br>
+5. for each volume, check for the volume number requested in the user input.<br>
+<br>
+6. if the volume is found, format it with the file system requested in the user input.<br>
+<br>
+&nbsp; &nbsp;hr = pVolumeMF3-&gt;FormatEx2(wszFsType,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Revision,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; UnitAllocationSize,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Label,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (DWORD) Options,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;pAsync);<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+The location for complete information on VDS is:<br>
+<a href="http://msdn.microsoft.com/en-us/library/dd405618(v=VS.85).aspx" >http://msdn.microsoft.com/en-us/library/dd405618(v=VS.85).aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
