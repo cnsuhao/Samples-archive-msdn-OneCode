@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Display security descriptor of various Windows kernel objects (CppCheckSD)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Display security descriptor of various Windows kernel objects (CppCheckSD)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows Security, Windows General
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Security Descriptor, SDDL
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/19/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CppCheckSD-6bac6d3a">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;</p>
+<h2>Windows Console APPLICATION: CppCheckSD Overview</h2>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+The sample demonstrates how to obtain and display the security descriptor for<br>
+various Kernel Objects in Windows. &nbsp;The sample by default only obtains the <br>
+Access Allowed Aces (DACLs) and NOT the System Audit Acess (SACLs) although<br>
+Integrity Aces are SACLs so these will be displayed as well. &nbsp;By default<br>
+the Security Descriptor is displayed in Security Descriptor Definition<br>
+Language (SDDL) format. &nbsp;There is a switch to get more detailed information <br>
+on the security descriptor.<br>
+<br>
+You can obtain the security descriptor for the following kernel objects:<br>
+<br>
+&nbsp; &nbsp;* mailslot<br>
+&nbsp; &nbsp;* service control manager<br>
+&nbsp; &nbsp;* directory <br>
+&nbsp; &nbsp;* event<br>
+&nbsp; &nbsp;* file<br>
+&nbsp; &nbsp;* thread<br>
+&nbsp; &nbsp;* memory mapped file<br>
+&nbsp; &nbsp;* job object<br>
+&nbsp; &nbsp;* desktop<br>
+&nbsp; &nbsp;* printer<br>
+&nbsp; &nbsp;* mutex<br>
+&nbsp; &nbsp;* named pipe<br>
+&nbsp; &nbsp;* process access token<br>
+&nbsp; &nbsp;* process<br>
+&nbsp; &nbsp;* registry key<br>
+&nbsp; &nbsp;* sempahore<br>
+&nbsp; &nbsp;* network share<br>
+&nbsp; &nbsp;* service<br>
+&nbsp; &nbsp;* window station<br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+Step1. Build the sample project in Visual Studio 2010.<br>
+<br>
+Step2. Start a cmd.exe window and Run CppCheckSD.exe. This application will show <br>
+the following help text.<br>
+<br>
+&nbsp; &nbsp;Usage: CppCheckSD [object] [name] &lt;/v&gt; &lt;/a&gt;<br>
+&nbsp; &nbsp; /v : VERBOSE<br>
+&nbsp; &nbsp; /a : Show Audit Aces<br>
+<br>
+&nbsp; &nbsp; -a : mailslot, use \\[server]\mailslot\[mailslotname]<br>
+&nbsp; &nbsp; -c : service control manager<br>
+&nbsp; &nbsp; -d : directory or driver letter, use \\.\[driveletter]<br>
+&nbsp; &nbsp; -e : event<br>
+&nbsp; &nbsp; -f : file<br>
+&nbsp; &nbsp; -h : thread, use tid instead of name<br>
+&nbsp; &nbsp; -i : memory mapped file<br>
+&nbsp; &nbsp; -j : job object<br>
+&nbsp; &nbsp; -k : desktop, use [window station\desktop]<br>
+&nbsp; &nbsp; -l : printer, use \\[server]\[printername]<br>
+&nbsp; &nbsp; -m : mutex<br>
+&nbsp; &nbsp; -n : named pipe, use \\[server or .]\pipe\[pipename]<br>
+&nbsp; &nbsp; -o : process access token, use pid instead of name<br>
+&nbsp; &nbsp; -p : process, use pid instead of name<br>
+&nbsp; &nbsp; -r : registry key, use CLASSES_ROOT, CURRENT_USER, MACHINE, or USERS suchas MACHINE\Software<br>
+&nbsp; &nbsp; -s : sempahore<br>
+&nbsp; &nbsp; -t : network share, use [\\server\sharename]<br>
+&nbsp; &nbsp; -v : service, use [\\server\service]<br>
+&nbsp; &nbsp; -w : window station<br>
+&nbsp; &nbsp; -x : 32 bit registry key<br>
+&nbsp; &nbsp; -y : kernel transaction<br>
+&nbsp; &nbsp; -z : waitable timer<br>
+<br>
+Step3. Type CppCheckSD.exe and a valid command and press Enter, like <br>
+&nbsp; &nbsp; &nbsp; &quot;D:\CppCheckSD.exe -d c:\&quot;, you can see all following information.<br>
+<br>
+&nbsp; &nbsp;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;<br>
+&nbsp; &nbsp;&gt;&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SECURITY INFORMATION &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&gt;&gt;<br>
+&nbsp; &nbsp;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;<br>
+<br>
+&nbsp; &nbsp;object name ........ c:\<br>
+&nbsp; &nbsp;object type ........ directory<br>
+&nbsp; &nbsp;sd ................. O:S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464G:S-1-5-80-9560<br>
+&nbsp; &nbsp;08885-3418522649-1831038044-1853292631-2271478464D:PAI(A;;FA;;;BA)(A;OICIIO;GA;;;BA)(A;;FA;;;SY)(A;O<br>
+&nbsp; &nbsp;ICIIO;GA;;;SY)(A;OICI;0x1200a9;;;BU)(A;OICIIO;SDGXGWGR;;;AU)(A;;LC;;;AU)S:(ML;OINPIO;NW;;;HI)<br>
+&nbsp; &nbsp;length ............. 282<br>
+<br>
+</p>
+<h3>Implementation:</h3>
+<p style="font-family:Courier New"><br>
+1.In order to obtain a security descriptor to any kernel object, you need<br>
+to obtain a handle with the following access permissions:<br>
+<br>
+&nbsp; &nbsp;READ_CONTROL<br>
+<br>
+If you specify the auditing switch, you also need the following access <br>
+permissions:<br>
+<br>
+&nbsp; &nbsp;ACCESS_SYSTEM_SECURITY<br>
+<br>
+and you need to enable the SE_SECURITY_NAME privilege before requesting this<br>
+access right. &nbsp;<br>
+<br>
+<br>
+2. Some Kernel Objects, the security APIs will internally obtain the handle for the<br>
+targeted object while others you have to obtain the handle yourself. &nbsp;There are 2<br>
+functions for doing this:<br>
+<br>
+&nbsp; &nbsp;DumpObjectWithHandle()<br>
+&nbsp; &nbsp;DumpObjectWithName()<br>
+<br>
+By default we are requesting the following security information:<br>
+<br>
+&nbsp; &nbsp;a. Owner<br>
+&nbsp; &nbsp;b. Group<br>
+&nbsp; &nbsp;c. Dacl<br>
+&nbsp; &nbsp;d. Label<br>
+<br>
+If you request to see the audit aces, you also need to specify:<br>
+<br>
+&nbsp; &nbsp;a. Sacl<br>
+<br>
+3. Once you have obtained the Security Descriptor, by default we are displaying <br>
+the Security Descriptor in SDDL format using the following function:<br>
+<br>
+&nbsp; &nbsp;ConvertSecurityDescriptorToStringSecurityDescriptor()<br>
+<br>
+This is done in the DumpSD function. &nbsp;To obtain the full binary security <br>
+descriptor, you need to use various helper functions in the sample. &nbsp;See <br>
+SD.cpp for more information.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+Security Descriptors:<br>
+<a href="http://msdn.microsoft.com/en-us/library/aa379563.aspx" >http://msdn.microsoft.com/en-us/library/aa379563.aspx</a><br>
+<br>
+SDDL:<br>
+<a href="http://msdn.microsoft.com/en-us/library/aa379567.aspx" >http://msdn.microsoft.com/en-us/library/aa379567.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
