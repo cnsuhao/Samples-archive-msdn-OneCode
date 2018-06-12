@@ -1,0 +1,32 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "VBAzureAddFirewallRules", "VBAzureAddFirewallRules\VBAzureAddFirewallRules.ccproj", "{BE03AA9E-830B-48AA-AB8F-BA0DD585B3F8}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AddFirewallRules", "VBAzureAddFirewallRules\AddFirewallRules\AddFirewallRules.vbproj", "{5AAA8EF4-1DB9-4DF0-A713-37154DCD7BBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{08DEE50E-DBE6-434E-BDB9-C3D6573A79CD}"
+	ProjectSection(SolutionItems) = preProject
+		VBAzureAddFirewallRules\Documentation\ReadMe.htm = VBAzureAddFirewallRules\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE03AA9E-830B-48AA-AB8F-BA0DD585B3F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE03AA9E-830B-48AA-AB8F-BA0DD585B3F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE03AA9E-830B-48AA-AB8F-BA0DD585B3F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE03AA9E-830B-48AA-AB8F-BA0DD585B3F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AAA8EF4-1DB9-4DF0-A713-37154DCD7BBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AAA8EF4-1DB9-4DF0-A713-37154DCD7BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AAA8EF4-1DB9-4DF0-A713-37154DCD7BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AAA8EF4-1DB9-4DF0-A713-37154DCD7BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
