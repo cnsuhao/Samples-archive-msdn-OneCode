@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title></title>
+    <script src="../../Scripts/jquery-1.8.2.js" type="text/javascript"></script>
+
+    <link href="../../Content/Office.css" rel="stylesheet" type="text/css" />
+    <script src="https://appsforoffice.microsoft.com/lib/1.0/hosted/office.js" type="text/javascript"></script>
+
+    <!-- To enable offline debugging using a local reference to Office.js, use:                        -->
+    <!--    <script src="../../Scripts/Office/MicrosoftAjax.js" type="text/javascript"></script>       -->
+    <!--    <script src="../../Scripts/Office/1.0/office.js" type="text/javascript"></script>          -->
+
+    <link href="Home.css" rel="stylesheet" type="text/css" />
+    <script src="Home.js" type="text/javascript"></script>
+</head>
+<body>
+    <!-- Page content -->
+    <div class="videoContainer">
+	
+	<video id="myVideo" preload="auto" poster="../../Images/poster.jpg" width="600" height="350">
+	  <source src="http://content4.catalog.video.msn.com/e2/ds/3ba640f1-9b16-455c-9f9d-0c4aca4dc740.mp4" type="video/mp4" />	 
+	  <p>Your browser does not support the video tag.</p>
+	</video>
+
+	<div class="caption">Embed Video Player into Excel Content Pane app</div>
+
+    <!--Custom Control-->
+	<div class="control">
+		<div class="topControl">
+			<div class="progress">
+				<span class="bufferBar"></span>
+				<span class="timeBar"></span>
+			</div>
+			<div class="time">
+				<span class="current"></span> / 
+				<span class="duration"></span> 
+			</div>
+		</div>
+		
+		<div class="btmControl">
+			<div class="btnPlay btn" title="Play/Pause video"></div>
+			<div class="btnStop btn" title="Stop video"></div>
+			<div class="spdText btn">Speed: </div>
+			<div class="btnx1 btn text selected" title="Normal speed">x1</div>
+			<div class="btnx3 btn text" title="Fast forward x3">x3</div>			
+			<div class="btnLight lighton btn" title="Turn on/off light"></div>
+			<div class="volume" title="Set volume">
+				<span class="volumeBar"></span>
+			</div>
+			<div class="sound sound2 btn" title="Mute/Unmute sound"></div>
+		</div>	
+	</div>
+
+	<div class="loading"></div>
+</div>
+</body>
+</html>
