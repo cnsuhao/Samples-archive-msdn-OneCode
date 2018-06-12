@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Generate webpage thumbnail image (CSWinFormSaveWebpageToImage)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Generate webpage thumbnail image (CSWinFormSaveWebpageToImage)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows Forms
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            WebBrowser, Thumbnail
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/19/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSWinFormSaveWebpageToImage-4dcb7aa6">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;</p>
+<h2>CSWinFormSaveWebpageToImage Overview</h2>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+The project illustrates how to save the webpage as an image.<br>
+<br>
+The code sample creates a WebBrowser to retrieve the target webpage's<br>
+html code and uses be WebBrowser.DrawToBitmap method convert the html <br>
+code to .bmp image. In this code-sample, users can set the image's width,<br>
+height and browser's width, height, generate an appropriate image.<br>
+<br>
+<br>
+Demo the Sample. <br>
+<br>
+Please follow these demonstration steps below.<br>
+<br>
+Step 1: Open the CSWinFormSaveWebpageToImage.sln.<br>
+<br>
+Step 2: Expand the CSWinFormSaveWebpageToImage web application and press <br>
+&nbsp; &nbsp; &nbsp; &nbsp;Ctrl &#43; F5 to show the MainForm.cs form.<br>
+<br>
+Step 3: We will see a WebBrowser control, two TextBox controls, a Button,<br>
+&nbsp; &nbsp; &nbsp; &nbsp;and a PictureBox control on the form, you can find the WebBrowser<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;show a web page, the Save Page button will save the current web
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page of WebBrowser control.<br>
+<br>
+Step 4: Click the button to save an image in web application, you can also<br>
+&nbsp; &nbsp; &nbsp; &nbsp;preview it on the PictureBox control. <br>
+<br>
+Step 5: If you update the image's size with TextBox controls text, you can<br>
+&nbsp; &nbsp; &nbsp; &nbsp;retrieve the image in the root directory of web application.<br>
+<br>
+Step 6: You can even click the link of the Default.htm page to redirect the <br>
+&nbsp; &nbsp; &nbsp; &nbsp;www.msdn.com, and click Save Page button to save the online
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;website's page as an image, if you find the image can not contain
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;whole content of pages, please adjust width or height TextBox of
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MainForm.cs form.<br>
+<br>
+Step 7: Validation finished.</p>
+<h3>Implementation:</h3>
+<p style="font-family:Courier New"><br>
+Step 1. Create a C# &quot;Windows Forms Application&quot; in Visual Studio 2010 or<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Visual Web Developer 2010. Name it as &quot;CSWinFormSaveWebpageToImage&quot;.<br>
+<br>
+Step 2. Add one windows form and one class file and named them as <br>
+&nbsp; &nbsp; &nbsp; &nbsp;&quot;MainForm.cs&quot;, &quot;WebPageThumbnail.cs&quot;.<br>
+<br>
+Step 3. The WebPageThumbnail class used to receive image's information and <br>
+&nbsp; &nbsp; &nbsp; &nbsp;generate an appropriate image with html code.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[code]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Constructor method<br>
+&nbsp; &nbsp; &nbsp; &nbsp;public WebpageThumbnail(string data, int browserWidth, int browserHeight, int thumbnailWidth, int thumbnailHeight, ThumbnailMethod method)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.Method = method;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (method == ThumbnailMethod.Url)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.Url = data;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else if (method == ThumbnailMethod.Html)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.Html = data;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.BrowserWidth = browserWidth;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.BrowserHeight = browserHeight;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.Height = thumbnailHeight;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.Width = thumbnailWidth;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// Create a thread to execute GenerateThumbnailInteral method.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// Because the <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Forms.WebBrowser.aspx"  title="Auto generated link to System.Windows.Forms.WebBrowser">System.Windows.Forms.WebBrowser</a> control has to
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// run on a STA thread while the current thread is MTA.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// &lt;returns&gt;&lt;/returns&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;public Bitmap GenerateThumbnail()<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Thread thread = new Thread(new ThreadStart(GenerateThumbnailInteral));<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;thread.SetApartmentState(ApartmentState.STA);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;thread.Start();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;thread.Join();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return ThumbnailImage;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// This method creates WebBrowser instance retrieve the html code. Invoke WebBrowser_DocumentCompleted
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// method and convert html code to a bmp image.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;private void GenerateThumbnailInteral()<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WebBrowser webBrowser = new WebBrowser();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;try<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;webBrowser.ScrollBarsEnabled = false;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (this.Method == ThumbnailMethod.Url)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;webBrowser.Navigate(this.Url);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;webBrowser.DocumentText = this.Html;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;webBrowser.DocumentCompleted &#43;= new WebBrowserDocumentCompletedEventHandler(WebBrowser_DocumentCompleted);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;while (webBrowser.ReadyState != WebBrowserReadyState.Complete)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Application.DoEvents();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;finally<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;webBrowser.Dispose();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;private void WebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WebBrowser webBrowser = (WebBrowser)sender;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;webBrowser.ClientSize = new Size(this.BrowserWidth, this.BrowserHeight);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;webBrowser.ScrollBarsEnabled = false;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.ThumbnailImage = new Bitmap(webBrowser.Bounds.Width, webBrowser.Bounds.Height);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;webBrowser.BringToFront();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;webBrowser.DrawToBitmap(ThumbnailImage, webBrowser.Bounds);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.ThumbnailImage = (Bitmap)ThumbnailImage.GetThumbnailImage(Width, Height, null, IntPtr.Zero);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[/code]<br>
+<br>
+Step 4. In MainForm.cs form, we load the Default.htm page and use<br>
+&nbsp; &nbsp; &nbsp; &nbsp;a button named &quot;btnSavePage&quot; to create image.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;[code]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public string rootDirectotyStr = string.Empty;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;public MainForm()<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;InitializeComponent();<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Load web page of the application.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rootDirectotyStr = Application.StartupPath;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;string webPageUrl = rootDirectotyStr &#43; &quot;\\Default.htm&quot;;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;webBrowserTargetPage.Url = new Uri(webPageUrl, UriKind.RelativeOrAbsolute);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.pctPreview.SizeMode = PictureBoxSizeMode.Zoom;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// Convert WebBrowser's web page as an image and rendering in this page.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// You can also find an image in sample project root directory.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// &lt;param name=&quot;sender&quot;&gt;&lt;/param&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;/// &lt;param name=&quot;e&quot;&gt;&lt;/param&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;private void btnSavePage_Click(object sender, EventArgs e)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;try<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Image's size<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;int width;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;int height;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (!int.TryParse(tbWidth.Text.Trim(), out width) ||<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;!int.TryParse(tbHeight.Text.Trim(), out height))<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MessageBox.Show(&quot;Width or height must be integer number.&quot;);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (width &lt;= 0 || width &gt; 2000 || height &lt;= 0 || height &gt; 6000)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MessageBox.Show(&quot;Width or height are too small or too large. Please change another one.&quot;, &quot;Application Warning&quot;,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; MessageBoxButtons.OK, MessageBoxIcon.Warning);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Save web page as an image in root directory, add an image in page.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;string htmlCode = webBrowserTargetPage.DocumentText;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WebpageThumbnail thumb = new WebpageThumbnail(htmlCode, width, height, width, height, WebpageThumbnail.ThumbnailMethod.Html);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Bitmap imageWebpage = thumb.GenerateThumbnail();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imageWebpage.Save(rootDirectotyStr &#43; &quot;/image.bmp&quot;);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pctPreview.Load(rootDirectotyStr &#43; &quot;/image.bmp&quot;);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;catch (Exception ex)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MessageBox.Show(ex.Message &#43; &quot; Please try again&quot;);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[/code]<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MSDN: BitMap Class<br>
+<a href="http://msdn.microsoft.com/en-us/library/system.drawing.bitmap.aspx" >http://msdn.microsoft.com/en-us/library/system.drawing.bitmap.aspx</a><br>
+<br>
+MSDN: WebBrowser Class<br>
+<a href="http://msdn.microsoft.com/en-us/library/system.windows.forms.webbrowser.aspx" >http://msdn.microsoft.com/en-us/library/system.windows.forms.webbrowser.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
