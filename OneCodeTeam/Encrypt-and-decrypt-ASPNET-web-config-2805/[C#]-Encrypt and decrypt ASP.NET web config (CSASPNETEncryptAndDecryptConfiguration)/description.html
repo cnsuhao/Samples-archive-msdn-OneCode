@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Encrypt and decrypt ASP.NET web config (CSASPNETEncryptAndDecryptConfiguration)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Encrypt and decrypt ASP.NET web config (CSASPNETEncryptAndDecryptConfiguration)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Encryption/Decr<wbr />yption
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETEncryptAndDecryptCo-151e6017">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>ASP.NET APPLICATION : CSASPNETEncryptAndDecryptConfiguration Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+This sample shows how to use RSA encryption algorithm API to encrypt and decrypt <br>
+configuration section in order to protect the sensitive information from interception<br>
+or hijack in ASP.NET web application.<br>
+<br>
+This project contains two snippets. The First One demonstrates how to use RSA provider
+<br>
+and RSA container to encrypt and decrypt some words or values in web application.<br>
+the purpose of first snippet is to let us know the overview of RSA mechanism.<br>
+Second one shows how to use RSA configuration provider to encrypt and decrypt<br>
+configuration section in web.config.<br>
+</p>
+<h3>Prerequisites:</h3>
+<p style="font-family:Courier New"><br>
+If your application hasn't web.config, please create one. And also specify some <br>
+section such as appSetting, connectSetting in this web.config.<br>
+<br>
+How to create Web.config in application:<br>
+<a  href="http://support.microsoft.com/kb/815179/">http://support.microsoft.com/kb/815179/</a><br>
+<br>
+Working with Web.config Files:<br>
+<a  href="http://msdn.microsoft.com/en-us/library/ms460914.aspx">http://msdn.microsoft.com/en-us/library/ms460914.aspx</a><br>
+</p>
+<h3></h3>
+<p style="font-family:Courier New">Start this project:<br>
+<br>
+1.launch CSASPNETEncryptAndDecryptConfiguration.sln as administrator.<br>
+<br>
+<br>
+2.Right click the CommonEncryption.aspx or ConfigurationEncryption.aspx. Choose<br>
+&quot;view in browser&quot; option in menu.<br>
+<br>
+&nbsp;CommonEncrytion:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1) Enter some values in the top textbox. click the &quot;encrypt it&quot; button
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; below this textbox. You will observe the RSA encrypt result string in
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; the multiLine textbox.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2) Then you can click the another button in this page named &quot;decrypt it&quot;.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; And the decrypt result will show on next multiline textbox. You will
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; find that this string is equal to the value which you first entered in<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; the top textbox.<br>
+<br>
+&nbsp;ConfigurationEncryption:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1) Choose a configuration section in dropdownlist.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2) Click &quot;encrypt it&quot; button in below. if the encryption successed, then open
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; web.config file, you will observe the specific section is &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; encrypted and is replaced by some RSA data section.<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; &nbsp; &nbsp;3) If you want to recover this section to plain text. Click &quot;decrypt it&quot;
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; button and check web.config again.<br>
+<br>
+&nbsp;Note: If you are running this application from the file system, when you close the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;application, Visual Studio will display a dialog with the message of &quot;The file
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;has been modified outside the editor. Do you want to reload it?&quot; Click yes and
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;then view the web.config.<br>
+<br>
+</p>
+<h3></h3>
+<p style="font-family:Courier New">Code Logic:<br>
+<br>
+CommonEncrytion:<br>
+<br>
+1. Create a new instance of a CspParameters class and pass the name that you want to call
+<br>
+the key container to the CspParameters.KeyContainerName field.<br>
+2. Create a new RSACryptoServiceProvider instance and pass CsParameter to its' constructor.<br>
+3. Create byte arrays to hold original, encrypted, and decrypted data.<br>
+4. Pass the byte arrays data to ENCRYPT mehotd and get the result of encrypt byte arrays.<br>
+5. Convert this byte array data to its equivalent string by using Convert.ToBase64String
+<br>
+and display it in multiline textbox.<br>
+<br>
+ConfigurationEncryption:<br>
+<br>
+1. Get the dropdownlist selected value to assign which configuration section to encrypt
+<br>
+or decrypt.<br>
+2. Open the web.config in this web application. <br>
+3. Find the specific section and use RSAProtectedConfigurationProvider to encrypt or
+<br>
+decrypt it.<br>
+4. If success, this section will be encrypted by RSA and replaced by soem RSA section
+<br>
+in web.config.<br>
+<br>
+<br>
+Note: If you store sensitive data in any of the following configuration sections, you cannot<br>
+encrypt it by using a protected configuration provider and the Aspnet_regiis.exe tool:<br>
+<br>
+&lt;processModel&gt;<br>
+&lt;runtime&gt;<br>
+&lt;mscorlib&gt;<br>
+&lt;startup&gt;<br>
+&lt;system.runtime.remoting&gt;<br>
+&lt;configProtectedData&gt;<br>
+&lt;satelliteassemblies&gt;<br>
+&lt;cryptographySettings&gt;<br>
+&lt;cryptoNameMapping&gt;<br>
+&lt;cryptoClasses&gt;<br>
+<br>
+The RSAProtectedConfigurationProvider supports machine-level and user-level key containers<br>
+for key storage. In this project, we all use machine-level.<br>
+<br>
+Understanding Machine-Level and User-Level RSA Key Containers:<br>
+<a  href="http://msdn.microsoft.com/en-us/library/f5cs0acs.aspx">http://msdn.microsoft.com/en-us/library/f5cs0acs.aspx</a><br>
+<br>
+Without use RSA provider and API, we can also use Aspnet_regiis.exe tool to encrypt and decrypt section.<br>
+<a  href="http://msdn.microsoft.com/en-us/library/ms998283.aspx">http://msdn.microsoft.com/en-us/library/ms998283.aspx</a><br>
+</p>
+<h3></h3>
+<p style="font-family:Courier New">References:<br>
+<br>
+RSACryptoServiceProvider<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.security.cryptography.rsacryptoserviceprovider(VS.80).aspx">http://msdn.microsoft.com/en-us/library/system.security.cryptography.rsacryptoserviceprovider(VS.80).aspx</a><br>
+<br>
+CspParameters<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.security.cryptography.cspparameters(VS.80).aspx">http://msdn.microsoft.com/en-us/library/system.security.cryptography.cspparameters(VS.80).aspx</a><br>
+<br>
+<br>
+ConfigurationSection<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.configuration.configurationsection.aspx">http://msdn.microsoft.com/en-us/library/system.configuration.configurationsection.aspx</a><br>
+<br>
+SectionInformation.ProtectSection <br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.configuration.sectioninformation.protectsection.aspx">http://msdn.microsoft.com/en-us/library/system.configuration.sectioninformation.protectsection.aspx</a><br>
+<br>
+</p>
+<h3></h3>
+<p style="font-family:Courier New"><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
