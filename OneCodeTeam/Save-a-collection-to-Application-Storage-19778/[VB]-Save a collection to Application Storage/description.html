@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=2C5971170CD50D071D8444DDD87E68CD" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:FooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=01F89A31F1103BC3B9A3B2562E9C41B3" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Save a collection to Application Storage</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Save a collection to Application Storage</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows 8
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            XmlSerializer, Store List/Collection<wbr />, DataContractSer<wbr />iaizer
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">2/8/2015</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/VBWinStoreAppSaveCollection-03b33a3e">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p><span><a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144425" ><img id="79968" src="description/DPE_W8_728x90_1022_V2.jpg" alt="" width="728" height="90" style="width:100%"></a></span></p>
+<h1>How to save a collection of custom objects to local storage (<span>VB</span>WindowsStoreAppSaveCollection)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">This sample demonstrates how to save a collection of custom objects to local storage.</p>
+<h2 class="MsoNormal">Video</h2>
+<p><a href="http://channel9.msdn.com/Blogs/OneCode/How-to-save-a-collection-of-objects-to-application-storage-in-Windows-Store-apps" ><img id="133568" src="https://i1.code.msdn.s-msft.com/cswinstoreappsavecollection-bed5d6e6/image/file/133568/1/how%20to%20save%20a%20data%20collection%20to%20app%20storage%20in%20windows%20store%20apps%20%20%20channel%209.png" alt="" width="640" height="360" style="border:1px solid black"></a></p>
+<h2>Running the Sample</h2>
+<p class="MsoListParagraphCxSpFirst"><span><span>1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Press F5 to run the application</p>
+<p class="MsoListParagraphCxSpMiddle"><span><span>2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>This page will display on your screen.</p>
+<p class="MsoListParagraphCxSpMiddle"><span><img src="description/image.png" alt="" width="623" height="499" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle"><span><span>3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Please fill the information and click Add button to add sample data.</p>
+<p class="MsoListParagraphCxSpMiddle"><span><img src="description/919da548-6590-4ec8-8c06-320e9827e6c9image.png" alt="" width="623" height="499" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle"><span><span>4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>After inserting some data, please click Go button to leave this page, and this page will display on your screen. Now, the collection has already been saved to the local storage.</p>
+<p class="MsoListParagraphCxSpMiddle"><span><img src="description/e214576f-0250-4f40-9f1f-e65dfd4bbbcaimage.png" alt="" width="623" height="499" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle"><span><span>5.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Please click Back button to back to the previous page, it will load the data which we have saved.</p>
+<p class="MsoListParagraphCxSpLast"><span><span>6.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>We can also press &quot;Alt&#43;F4&quot; to terminate the application and run it again later, the data will also be loaded.</p>
+<h2>Using the Code</h2>
+<p class="MsoNormal"><span>&lt;o:p&gt;&nbsp;Serialize objects to xml string.&lt;/o:p&gt;</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">'Serialize to xml
+&nbsp;&nbsp;&nbsp; Public Shared Function ToXml(value As T) As String
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim serializer As New XmlSerializer(GetType(T))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim stringBuilder As New StringBuilder()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim settings As New XmlWriterSettings()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; settings.Indent = True
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; settings.OmitXmlDeclaration = True
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using xmlWriter__1 As XmlWriter = XmlWriter.Create(stringBuilder, settings)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serializer.Serialize(xmlWriter__1, value)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Using
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return stringBuilder.ToString()
+&nbsp;&nbsp;&nbsp; End Function
+
+</pre>
+<pre id="codePreview" class="vb">'Serialize to xml
+&nbsp;&nbsp;&nbsp; Public Shared Function ToXml(value As T) As String
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim serializer As New XmlSerializer(GetType(T))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim stringBuilder As New StringBuilder()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim settings As New XmlWriterSettings()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; settings.Indent = True
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; settings.OmitXmlDeclaration = True
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using xmlWriter__1 As XmlWriter = XmlWriter.Create(stringBuilder, settings)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serializer.Serialize(xmlWriter__1, value)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Using
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return stringBuilder.ToString()
+&nbsp;&nbsp;&nbsp; End Function
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&lt;o:p&gt;&nbsp;Deserialize objects from xml string.&lt;/o:p&gt;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">'Deserialize from xml
+&nbsp; Public Shared Function FromXml(xml As String) As T
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim serializer As New XmlSerializer(GetType(T))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim value As T
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using stringReader As New StringReader(xml)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim deserialized As Object = serializer.Deserialize(stringReader)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; value = DirectCast(deserialized, T)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Using
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return value
+&nbsp; End Function
+End Class
+
+</pre>
+<pre id="codePreview" class="vb">'Deserialize from xml
+&nbsp; Public Shared Function FromXml(xml As String) As T
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim serializer As New XmlSerializer(GetType(T))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim value As T
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using stringReader As New StringReader(xml)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim deserialized As Object = serializer.Deserialize(stringReader)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; value = DirectCast(deserialized, T)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Using
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return value
+&nbsp; End Function
+End Class
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&lt;o:p&gt;&nbsp;Save data to local storage.&lt;/o:p&gt;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">Protected Overrides Async Sub SaveState(pageState As Dictionary(Of String, Object))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim localData As String = ObjectSerializer(Of ObservableCollection(Of Person)).ToXml(itemCollection)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If Not String.IsNullOrEmpty(localData) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim localFile As StorageFile = Await ApplicationData.Current.LocalFolder.CreateFileAsync(&quot;localData.xml&quot;, CreationCollisionOption.ReplaceExisting)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Await FileIO.WriteTextAsync(localFile, localData)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catch ex As Exception
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NotifyUser(ex.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Try
+
+
+&nbsp;&nbsp;&nbsp; End Sub
+
+</pre>
+<pre id="codePreview" class="vb">Protected Overrides Async Sub SaveState(pageState As Dictionary(Of String, Object))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim localData As String = ObjectSerializer(Of ObservableCollection(Of Person)).ToXml(itemCollection)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If Not String.IsNullOrEmpty(localData) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim localFile As StorageFile = Await ApplicationData.Current.LocalFolder.CreateFileAsync(&quot;localData.xml&quot;, CreationCollisionOption.ReplaceExisting)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Await FileIO.WriteTextAsync(localFile, localData)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catch ex As Exception
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NotifyUser(ex.ToString())
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Try
+
+
+&nbsp;&nbsp;&nbsp; End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&lt;o:p&gt;&nbsp;Load data from local storage.&lt;/o:p&gt;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">Protected Overrides Async Sub LoadState(navigationParameter As Object, pageState As Dictionary(Of String, Object))
+&nbsp;&nbsp;&nbsp; Dim localFile As StorageFile
+&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localFile = Await ApplicationData.Current.LocalFolder.GetFileAsync(&quot;localData.xml&quot;)
+&nbsp;&nbsp;&nbsp; Catch ex As FileNotFoundException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localFile = Nothing
+&nbsp;&nbsp;&nbsp; End Try
+&nbsp;&nbsp;&nbsp; If localFile IsNot Nothing Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim localData As String = Await FileIO.ReadTextAsync(localFile)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemCollection = ObjectSerializer(Of ObservableCollection(Of Person)).FromXml(localData)
+&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp; gvData.ItemsSource = itemCollection
+End Sub
+
+</pre>
+<pre id="codePreview" class="vb">Protected Overrides Async Sub LoadState(navigationParameter As Object, pageState As Dictionary(Of String, Object))
+&nbsp;&nbsp;&nbsp; Dim localFile As StorageFile
+&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localFile = Await ApplicationData.Current.LocalFolder.GetFileAsync(&quot;localData.xml&quot;)
+&nbsp;&nbsp;&nbsp; Catch ex As FileNotFoundException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localFile = Nothing
+&nbsp;&nbsp;&nbsp; End Try
+&nbsp;&nbsp;&nbsp; If localFile IsNot Nothing Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim localData As String = Await FileIO.ReadTextAsync(localFile)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemCollection = ObjectSerializer(Of ObservableCollection(Of Person)).FromXml(localData)
+&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp; gvData.ItemsSource = itemCollection
+End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<h2>More Information</h2>
+<p class="MsoNormal">ApplicationData.LocalFolder | localFolder property (Windows)</p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.applicationdata.localfolder">http://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.applicationdata.localfolder</a></p>
+<p class="MsoNormal">Quickstart: Local application data (Windows Store apps using C#/VB/C&#43;&#43; and XAML) (Windows)</p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh700361">http://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh700361</a></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/384daba8-e584-486a-b290-47e791acf177image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
