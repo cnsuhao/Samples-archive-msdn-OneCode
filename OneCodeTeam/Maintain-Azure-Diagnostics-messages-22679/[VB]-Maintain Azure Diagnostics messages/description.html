@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/dccc9827-11ee-4b3a-ac41-f8fd7b8aca03Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Maintain Azure Diagnostics messages</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Maintain Azure Diagnostics messages</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Diagnostics
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/13/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Maintain-Azure-Diagnostics-6cc435a6">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Transfer diagnostics messages and retrieve them from Azure storage (<span style="">VB</span>AzureRetrieveDiagnosticsMessages)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal"><span style="">This sample will show you how to retrieve diagnostics message and transfer them to Azure storage. And also it will show you how to view both logs in Table and logs in blob.</span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style="">Please follow these demonstration steps below.
+</span></p>
+<p class="MsoNormal"><span style="">Step 1: Open the Cloud solution property chose the Web tab and select use IIS web server.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="576" height="144" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><span style="">Step 2: </span>Press Ctrl&#43;F5 to show the Default.aspx.</p>
+<p class="MsoNormal"><span style=""><img src="description/e0628207-8a73-4fa8-acf3-7330d11c7359image.png" alt="" width="576" height="46" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal">Step 3: Click the first one; you will get your developer storage blob structure.</p>
+<p class="MsoNormal"><span style=""><img src="description/fb0eecb7-7f47-44ca-99b3-d6ced3a51d61image.png" alt="" width="576" height="210" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal">Step 4: Then click the leaf node; you will get the file message<span style=""> in a .txt file</span>.<span style="">
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/a64b8e2c-266f-4ade-a9d5-4fde6688fd2bimage.png" alt="" width="578" height="429" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal">Step 5: Then go back to the default.aspx choose the second link. You will get a table list.
+</p>
+<p class="MsoNormal"><span style=""><img src="description/ce357112-b567-4792-a455-268c9097ff86image.png" alt="" width="234" height="98" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal">Step 6: Choose the WADLogsTable, and then you will get the all the tables message.</p>
+<p class="MsoNormal"><span style=""><img src="description/0c8e4ca0-f8c1-436a-b7b0-4de8096e6c00image.png" alt="" width="576" height="128" align="middle">
+</span></p>
+<p class="MsoNormal"></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">Code Logical:</p>
+<p class="MsoNormal">Step 1:<span style="">&nbsp; </span>Create a <span style="">
+VB.NET</span> windows cloud service with a web role. Service name is &quot;<span style="">VB</span>AzureRetrieveDiagnosticsMessages&quot;.</p>
+<p class="MsoNormal">Step2:<span style="">&nbsp; </span>Add two classes: WADLogsTable.<span style="">vb</span>, WADLogsTableDataServiceContext.<span style="">vb</span>.</p>
+<p class="MsoNormal">Step3:<span style="">&nbsp; </span>The WADLogsTable class is a table entity class, WADLogsTableDataServiceContext.<span style="">vb</span> provide<span style="">s</span> a service for query the table.</p>
+<h3>The following code shows how to create a table entity for table in storage.</h3>
+<p class="MsoNormal"><b style=""><span style="">WADLogsTable.vb </span></b></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Public Class WADLogsTable
+    Inherits <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.WindowsAzure.StorageClient.TableServiceEntity.aspx"  title="Auto generated link to Microsoft.WindowsAzure.StorageClient.TableServiceEntity">Microsoft.WindowsAzure.StorageClient.TableServiceEntity</a>
+    Public Property Message() As String
+
+
+    Public Property EventTickCount() As Int64
+
+
+    Public Property DeploymentId() As String
+
+
+    Public Property Role() As String
+
+
+    Public Property RoleInstance() As String
+
+
+    Public Property Level() As Integer
+
+
+    Public Property EventId() As Integer
+
+
+    Public Property Pid() As Integer
+
+
+    Public Property Tid() As Integer
+End Class
+
+</pre>
+<pre id="codePreview" class="vb">
+Public Class WADLogsTable
+    Inherits <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.WindowsAzure.StorageClient.TableServiceEntity.aspx"  title="Auto generated link to Microsoft.WindowsAzure.StorageClient.TableServiceEntity">Microsoft.WindowsAzure.StorageClient.TableServiceEntity</a>
+    Public Property Message() As String
+
+
+    Public Property EventTickCount() As Int64
+
+
+    Public Property DeploymentId() As String
+
+
+    Public Property Role() As String
+
+
+    Public Property RoleInstance() As String
+
+
+    Public Property Level() As Integer
+
+
+    Public Property EventId() As Integer
+
+
+    Public Property Pid() As Integer
+
+
+    Public Property Tid() As Integer
+End Class
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<h3>The following code shows how to create a WCF data service.</h3>
+<p class="MsoNormal"><b style=""><span style="">WADLogsTableDataServiceContext.vb:
+</span></b></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Public Class WADLogsTableDataServiceContext
+    Inherits TableServiceContext
+    Public Sub New(baseAddress As String, credentials As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.WindowsAzure.StorageCredentials.aspx"  title="Auto generated link to Microsoft.WindowsAzure.StorageCredentials">Microsoft.WindowsAzure.StorageCredentials</a>)
+        MyBase.New(baseAddress, credentials)
+    End Sub
+
+
+
+
+    Public ReadOnly Property WADLogs() As IQueryable(Of WADLogsTable)
+        Get
+            Return Me.CreateQuery(Of WADLogsTable)(&quot;WADLogsTable&quot;)
+        End Get
+    End Property
+End Class
+
+</pre>
+<pre id="codePreview" class="vb">
+Public Class WADLogsTableDataServiceContext
+    Inherits TableServiceContext
+    Public Sub New(baseAddress As String, credentials As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.WindowsAzure.StorageCredentials.aspx"  title="Auto generated link to Microsoft.WindowsAzure.StorageCredentials">Microsoft.WindowsAzure.StorageCredentials</a>)
+        MyBase.New(baseAddress, credentials)
+    End Sub
+
+
+
+
+    Public ReadOnly Property WADLogs() As IQueryable(Of WADLogsTable)
+        Get
+            Return Me.CreateQuery(Of WADLogsTable)(&quot;WADLogsTable&quot;)
+        End Get
+    End Property
+End Class
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<p class="MsoNormal">Step 4: Open the WebRole.<span style="">vb</span> file and add below codes to the file.</p>
+<h3>The following code showing how to transfer specific log file to the Azure storage.</h3>
+<p class="MsoNormal"><b style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">WebRole.</span></b><b style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">vb</span></b><b style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">:</span></b><b style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;">
+</span></b></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Public Class WebRole
+    Inherits RoleEntryPoint
+    Public Overrides Function OnStart() As Boolean
+        Dim config As DiagnosticMonitorConfiguration = DiagnosticMonitor.GetDefaultInitialConfiguration()
+
+
+        ' Windows Performance Counters
+        Dim counters As New List(Of String)()
+        counters.Add(&quot;\Processor(_Total)\% Processor Time&quot;)
+        counters.Add(&quot;\Memory\Available Mbytes&quot;)
+        counters.Add(&quot;\TCPv4\Connections Established&quot;)
+        counters.Add(&quot;\ASP.NET Applications(__Total__)\Requests/Sec&quot;)
+        counters.Add(&quot;\Network Interface(*)\Bytes Received/sec&quot;)
+        counters.Add(&quot;\Network Interface(*)\Bytes Sent/sec&quot;)
+        For Each counter As String In counters
+            Dim counterConfig As New PerformanceCounterConfiguration()
+            counterConfig.CounterSpecifier = counter
+            counterConfig.SampleRate = TimeSpan.FromMinutes(5)
+            config.PerformanceCounters.DataSources.Add(counterConfig)
+        Next
+        config.PerformanceCounters.ScheduledTransferPeriod = TimeSpan.FromMinutes(5)
+
+
+        ' Windows Event Logs
+        ' WADWindowsEventLogsTable
+        config.WindowsEventLog.DataSources.Add(&quot;System!*&quot;)
+        ' WADLogsTable
+        config.WindowsEventLog.DataSources.Add(&quot;Application!*&quot;)
+        config.WindowsEventLog.ScheduledTransferPeriod = TimeSpan.FromMinutes(1.0)
+        config.WindowsEventLog.ScheduledTransferLogLevelFilter = LogLevel.Verbose
+
+
+        ' Azure Trace Logs
+        config.Logs.ScheduledTransferPeriod = TimeSpan.FromMinutes(1.0)
+        config.Logs.ScheduledTransferLogLevelFilter = LogLevel.Verbose
+        ' Crash Dumps
+        CrashDumps.EnableCollection(True)
+
+
+        ' IIS Logs
+        config.Directories.ScheduledTransferPeriod = TimeSpan.FromMinutes(1)
+        Trace.WriteLine(&quot;WAD Monitor started&quot;, &quot;Information&quot;)
+        DiagnosticMonitor.Start(&quot;Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString&quot;, config)
+        AddHandler RoleEnvironment.Changing, AddressOf RoleEnvironmentChanging
+
+
+        ' Enabled IIS faild request logs.
+        ' This log file only generate after you have a faild request.
+        Using serverManager As New <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Web.Administration.ServerManager.aspx"  title="Auto generated link to Microsoft.Web.Administration.ServerManager">Microsoft.Web.Administration.ServerManager</a>()
+            Dim iisConfig = serverManager.GetApplicationHostConfiguration()
+
+
+            Dim sitesSection = iisConfig.GetSection(&quot;system.applicationHost/sites&quot;)
+
+
+            Dim siteDefaultsElement = sitesSection.GetChildElement(&quot;siteDefaults&quot;)
+
+
+            Dim logFileElement = siteDefaultsElement.GetChildElement(&quot;logFile&quot;)
+            logFileElement(&quot;enabled&quot;) = True
+
+
+
+
+            serverManager.CommitChanges()
+        End Using
+        Return MyBase.OnStart()
+    End Function
+
+
+    Private Sub RoleEnvironmentChanging(sender As Object, e As RoleEnvironmentChangingEventArgs)
+        If e.Changes.Any(Function(change) TypeOf change Is RoleEnvironmentConfigurationSettingChange) Then
+            e.Cancel = True
+        End If
+    End Sub
+End Class
+
+</pre>
+<pre id="codePreview" class="vb">
+Public Class WebRole
+    Inherits RoleEntryPoint
+    Public Overrides Function OnStart() As Boolean
+        Dim config As DiagnosticMonitorConfiguration = DiagnosticMonitor.GetDefaultInitialConfiguration()
+
+
+        ' Windows Performance Counters
+        Dim counters As New List(Of String)()
+        counters.Add(&quot;\Processor(_Total)\% Processor Time&quot;)
+        counters.Add(&quot;\Memory\Available Mbytes&quot;)
+        counters.Add(&quot;\TCPv4\Connections Established&quot;)
+        counters.Add(&quot;\ASP.NET Applications(__Total__)\Requests/Sec&quot;)
+        counters.Add(&quot;\Network Interface(*)\Bytes Received/sec&quot;)
+        counters.Add(&quot;\Network Interface(*)\Bytes Sent/sec&quot;)
+        For Each counter As String In counters
+            Dim counterConfig As New PerformanceCounterConfiguration()
+            counterConfig.CounterSpecifier = counter
+            counterConfig.SampleRate = TimeSpan.FromMinutes(5)
+            config.PerformanceCounters.DataSources.Add(counterConfig)
+        Next
+        config.PerformanceCounters.ScheduledTransferPeriod = TimeSpan.FromMinutes(5)
+
+
+        ' Windows Event Logs
+        ' WADWindowsEventLogsTable
+        config.WindowsEventLog.DataSources.Add(&quot;System!*&quot;)
+        ' WADLogsTable
+        config.WindowsEventLog.DataSources.Add(&quot;Application!*&quot;)
+        config.WindowsEventLog.ScheduledTransferPeriod = TimeSpan.FromMinutes(1.0)
+        config.WindowsEventLog.ScheduledTransferLogLevelFilter = LogLevel.Verbose
+
+
+        ' Azure Trace Logs
+        config.Logs.ScheduledTransferPeriod = TimeSpan.FromMinutes(1.0)
+        config.Logs.ScheduledTransferLogLevelFilter = LogLevel.Verbose
+        ' Crash Dumps
+        CrashDumps.EnableCollection(True)
+
+
+        ' IIS Logs
+        config.Directories.ScheduledTransferPeriod = TimeSpan.FromMinutes(1)
+        Trace.WriteLine(&quot;WAD Monitor started&quot;, &quot;Information&quot;)
+        DiagnosticMonitor.Start(&quot;Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString&quot;, config)
+        AddHandler RoleEnvironment.Changing, AddressOf RoleEnvironmentChanging
+
+
+        ' Enabled IIS faild request logs.
+        ' This log file only generate after you have a faild request.
+        Using serverManager As New <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Web.Administration.ServerManager.aspx"  title="Auto generated link to Microsoft.Web.Administration.ServerManager">Microsoft.Web.Administration.ServerManager</a>()
+            Dim iisConfig = serverManager.GetApplicationHostConfiguration()
+
+
+            Dim sitesSection = iisConfig.GetSection(&quot;system.applicationHost/sites&quot;)
+
+
+            Dim siteDefaultsElement = sitesSection.GetChildElement(&quot;siteDefaults&quot;)
+
+
+            Dim logFileElement = siteDefaultsElement.GetChildElement(&quot;logFile&quot;)
+            logFileElement(&quot;enabled&quot;) = True
+
+
+
+
+            serverManager.CommitChanges()
+        End Using
+        Return MyBase.OnStart()
+    End Function
+
+
+    Private Sub RoleEnvironmentChanging(sender As Object, e As RoleEnvironmentChangingEventArgs)
+        If e.Changes.Any(Function(change) TypeOf change Is RoleEnvironmentConfigurationSettingChange) Then
+            e.Cancel = True
+        End If
+    End Sub
+End Class
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><b style=""><span style="font-family:&quot;Cambria&quot;,&quot;serif&quot;"></span></b></p>
+<p class="MsoNormal">Step 5: Create several pages to show the storage information.<span style="">
+</span></p>
+<h2>More Information</h2>
+<p class="MsoNormal"><a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/">Enabling Diagnostics in Windows Azure</a></p>
+<p class="MsoNormal"><a href="http://download.microsoft.com/download/4/C/B/4CB0167F-B6D9-4B46-8DF1-69CCCA66FDDE/SystemCenterOperationsManagerMonitoringforAzureHostedAppsatMicrosoft.pdf">SystemCenterOperationsManagerMonitoringforAzureHostedAppsatMicrosoft.pdf</a></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/6a244f64-ef00-4481-b6a4-ee49b0a4a506image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
