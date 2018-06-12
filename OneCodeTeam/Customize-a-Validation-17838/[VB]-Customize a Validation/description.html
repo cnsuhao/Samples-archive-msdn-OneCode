@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/d3400f39-92d4-48d8-84fa-1b85f57d841cCombined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Customize a Validation</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Customize a Validation</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            ASP.NET
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">7/5/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBASPNETCustomizeValidation-eacf8878">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>How to customize a validation in a general ASP.NET <span class="SpellE">CustomValidator</span> control (<span class="SpellE">VBASPNETCustomizeValidation</span>)</h1>
+<h2>Introduction </h2>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">The VBASPNETCustomizeValidation sample shows you how to use a Customized Validation control to do your own validations with the help of CustomValidation.</span><span style="">
+<span style="">Though Microsoft has offered us quite a lot of validation controls such as RequiredValidation, CompareValidation</span></span><span style=""> etc</span><span style="">. However, sometimes these controls don't meet our real needs. For example,
+ in a login form</span><span style="">, usually </span><span style="">we want to do validations to check whether an email has been registered or not by using a validation control</span><span style="">. In this scenario,
+</span><span style="">a Customized Validation is needed</span><span style="">. </span>
+</p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style="">Please follow these demonstration steps below.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 1: Open the VBASPNETCustomizeValidation.sln. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2: Right-click the Default.aspx page then select &quot;View in Browser&quot;. Type an email then click the button to test.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">For invalid email<span class="GramE">:</span><br>
+<span style=""><img src="description/image.png" alt="" width="345" height="85" align="middle">
+</span><br>
+For existing email:<span style=""><br>
+<img src="description/f36e0db6-b9ca-4f72-9613-34d1ef70c170image.png" alt="" width="577" height="74" align="middle">
+</span><br>
+For legitimate and non-existent email:<span style=""><br>
+<img src="description/cead18b2-f5cc-4af6-bf19-baa6c0c6d8f1image.png" alt="" width="367" height="64" align="middle">
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: Validation finished.</span><span style="font-size:9.5pt; font-family:Consolas">
+</span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style=""><span style="">Code Logical: <span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step1. Create a VB &quot;ASP.NET Web Application&quot; in Visual Studio 2012/Visual Web Developer. Name it as &quot;VBASPNETCustomizeValidation&quot;.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step2. If you have installed SQL server 2008 r2 express on your computer, you can directly use the sample database under the App_Data. If not, add a SQL Server Database in the App_Data folder and name it as &quot;MyDB&quot;. The definition of
+ the table &quot;User&quot; as show below: </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">[Id] [int] IDENTITY(1,1) NOT NULL,[Email] [</span><span style="color:black">nvarchar</span><span style="">](</span><span style="color:black"> 50</span><span style="">)
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">You can insert the following test data or add new data: </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>SQL</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">mysql</span>
+<pre class="hidden">
+
+INSERT [dbo].[User] ([ID], [Email]) VALUES (1, N'test@microsoft.com')
+INSERT [dbo].[User] ([ID], [Email]) VALUES (2, N'test1@microsoft.com')
+INSERT [dbo].[User] ([ID], [Email]) VALUES (3, N'test2@microsoft.com')
+
+</pre>
+<pre id="codePreview" class="mysql">
+
+INSERT [dbo].[User] ([ID], [Email]) VALUES (1, N'test@microsoft.com')
+INSERT [dbo].[User] ([ID], [Email]) VALUES (2, N'test1@microsoft.com')
+INSERT [dbo].[User] ([ID], [Email]) VALUES (3, N'test2@microsoft.com')
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step3. Add a success page. </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>HTML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">html</span>
+<pre class="hidden">
+&lt;body&gt;
+    &lt;form id=&quot;form1&quot; runat=&quot;server&quot;&gt;
+    <div>
+    Successfully Registered!
+    </div>
+    &lt;/form&gt;
+&lt;/body&gt;
+
+</pre>
+<pre id="codePreview" class="html">
+&lt;body&gt;
+    &lt;form id=&quot;form1&quot; runat=&quot;server&quot;&gt;
+    <div>
+    Successfully Registered!
+    </div>
+    &lt;/form&gt;
+&lt;/body&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""><br>
+Step4. Edit the Default.aspx Page. It is used to test <span style="">your own validations</span>.<span style="">&nbsp;
+</span>Add a TextBox Control, a Button Control and a CustomValidator Control on this page. Add
+</span><span style="font-size:10.0pt; font-family:&quot;Courier New&quot;; color:red">OnServerValidate</span><span style="font-size:10.0pt; font-family:&quot;Courier New&quot;; color:red">
+</span><span style="">event for</span><span style=""> CustomValidator</span><span lang="ZH-CN" style="font-family:宋体">：</span><span lang="ZH-CN" style="">
+</span><span style=""><br>
+The main code of</span><span style=""> </span><span style="font-size:10.0pt; font-family:&quot;Courier New&quot;; color:red">OnServerValidate</span><span style="">
+</span><span style="">as shown below: </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Protected Sub CustomValidator1_ServerValidate(ByVal source As Object, ByVal args As ServerValidateEventArgs)
+    'Control To Validate:which control to type email
+    Dim tb As TextBox = TryCast(Page.FindControl(CustomValidator1.ControlToValidate), TextBox)
+    'email text
+    Dim strEmail As String = tb.Text.Trim()
+    'flag of exist
+    Dim intNum As Integer = 0
+
+
+    'Regex for email.
+    Dim strRegex As String = &quot;^([a-zA-Z0-9_\-\.]&#43;)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]&#43;\.)&#43;))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$&quot;
+    Dim re As New Regex(strRegex)
+
+
+    'Verify that whether the email format is valid or not, if valid and then query the database to check
+    'determine whether the email is exists, otherwise set isvalid value to false.
+    If re.IsMatch(strEmail) Then
+        Dim cmd As New SqlCommand()
+        cmd.Connection = conn
+        cmd.CommandText = &quot;select count(1) from [user] where email=@email&quot;
+        cmd.Parameters.Add(&quot;@email&quot;, SqlDbType.NVarChar).Value = strEmail
+        cmd.CommandType = CommandType.Text
+        conn.Open()
+        intNum = Convert.ToInt32(cmd.ExecuteScalar())
+        conn.Close()
+    Else
+        CustomValidator1.ErrorMessage = &quot;Invalid Email!&quot;
+        args.IsValid = False
+        Return
+    End If
+
+
+    'Determine whether it exists or not
+    If intNum &gt; 0 Then
+        CustomValidator1.ErrorMessage = &quot;Cannot use the email address, because it exists!&quot;
+        args.IsValid = False
+    Else
+        args.IsValid = True
+    End If
+End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Protected Sub CustomValidator1_ServerValidate(ByVal source As Object, ByVal args As ServerValidateEventArgs)
+    'Control To Validate:which control to type email
+    Dim tb As TextBox = TryCast(Page.FindControl(CustomValidator1.ControlToValidate), TextBox)
+    'email text
+    Dim strEmail As String = tb.Text.Trim()
+    'flag of exist
+    Dim intNum As Integer = 0
+
+
+    'Regex for email.
+    Dim strRegex As String = &quot;^([a-zA-Z0-9_\-\.]&#43;)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]&#43;\.)&#43;))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$&quot;
+    Dim re As New Regex(strRegex)
+
+
+    'Verify that whether the email format is valid or not, if valid and then query the database to check
+    'determine whether the email is exists, otherwise set isvalid value to false.
+    If re.IsMatch(strEmail) Then
+        Dim cmd As New SqlCommand()
+        cmd.Connection = conn
+        cmd.CommandText = &quot;select count(1) from [user] where email=@email&quot;
+        cmd.Parameters.Add(&quot;@email&quot;, SqlDbType.NVarChar).Value = strEmail
+        cmd.CommandType = CommandType.Text
+        conn.Open()
+        intNum = Convert.ToInt32(cmd.ExecuteScalar())
+        conn.Close()
+    Else
+        CustomValidator1.ErrorMessage = &quot;Invalid Email!&quot;
+        args.IsValid = False
+        Return
+    End If
+
+
+    'Determine whether it exists or not
+    If intNum &gt; 0 Then
+        CustomValidator1.ErrorMessage = &quot;Cannot use the email address, because it exists!&quot;
+        args.IsValid = False
+    Else
+        args.IsValid = True
+    End If
+End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">The main code of </span><span class="SpellE"><span style="color:black">btnRegister_<span class="GramE">Click</span></span></span><span class="GramE"><span style=""><span style="">&nbsp;
+</span>event</span></span><span style=""> as shown below</span><span style="">, you can type your own logic code here:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Protected Sub btnRegister_Click(ByVal sender As Object, ByVal e As EventArgs)
+       ' If page is IsValid then jump to another page 
+       If IsValid Then
+           Response.Redirect(&quot;success.aspx&quot;)
+       End If
+   End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Protected Sub btnRegister_Click(ByVal sender As Object, ByVal e As EventArgs)
+       ' If page is IsValid then jump to another page 
+       If IsValid Then
+           Response.Redirect(&quot;success.aspx&quot;)
+       End If
+   End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:Consolas"></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step5.<b style=""> </b>Build the application and you can debug it.<b style="">
+</b></span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b889d079-f6e3-4e60-ae88-9824f8a95a19image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
