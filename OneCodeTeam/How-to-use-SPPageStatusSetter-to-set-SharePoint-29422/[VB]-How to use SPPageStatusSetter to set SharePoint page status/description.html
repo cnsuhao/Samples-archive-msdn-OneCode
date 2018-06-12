@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/d3eca894-72f6-4fa6-95a5-657ddd8733cdCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to use SPPageStatusSetter to set SharePoint page status</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to use SPPageStatusSetter to set SharePoint page status</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SharePoint, SharePoint 2013
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            SPPageStatusSet<wbr />ter
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/23/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-use-SPPageStatusSett-e3760b4b">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img alt="" src="description/8171.onecodesampletopbanner.png">
+</a></div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:24pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:14pt"><span style="font-weight:bold; font-size:14pt">How to use SPPageStatusSetter to set SharePoint page status</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Introduction</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">This sample demonstrates how to use SPPageStatusSetter to
+</span><span style="font-size:11pt">in</span><span style="font-size:11pt">sert page status for SharePoint.
+</span><span style="">The sample include</span><span style="">s</span><span style=""> two scenarios</span><span style="">: 1</span><span style="">) add page status for an application page. 2)
+</span><span style="">Add</span><span style=""> page status from a list event receiver.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Running the Sample</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">Deploy the demo project.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">Suppose we have the following list:</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/image.png" alt="" width="383" height="283" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Click the new item link to add a new item and
+</span><span style="">t</span><span style="font-size:11pt">hen you will see the page as shown below</span><span style="font-size:11pt">:</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/33836be6-79f3-44a6-9c26-5e1c84672ee0image.png" alt="" width="542" height="258" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Select one of the list item and m</span><span style="font-size:11pt">odify it. Then you will</span><span style="font-size:11pt"> see the page
+</span><span style="font-size:11pt">as</span><span style="font-size:11pt"> shown below:</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/9f7a3ba7-3656-4bb9-85f0-20d938bf8ff3image.png" alt="" width="575" height="258" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">Validation is finished</span><span style="font-size:11pt">.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Using the Code</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">Start </span>
+<span style="font-weight:bold">Visual Studio</span><span style="font-size:11pt">.&nbsp;
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">On the </span>
+<span style="font-weight:bold">File </span><span style="font-size:11pt">menu, click
+</span><span style="font-weight:bold">New</span><span style="font-size:11pt">, and then click
+</span><span style="font-weight:bold">Project</span></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">In </span>
+<span style="font-size:11pt">the Installed Templates section</span><span style="font-size:11pt"> of
+</span><span style="font-size:11pt">the </span><span style="font-weight:bold">New Project
+</span><span style="font-size:11pt">dialog box, expand either Visual Basic or Visual C#, expand
+</span><span style="font-weight:bold">SharePoint</span><span style="font-size:11pt">, and then click
+</span><span style="font-weight:bold">Empty SharePoint Project</span></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">Right-click the project to add the desired folder</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt">
+<span style="font-size:11pt"><span style="font-size:11pt">&quot;</span><span style="font-weight:bold">Add</span><span style="font-size:11pt">&quot; &gt;&gt;&quot;</span><span style="font-weight:bold">SharePoint Layouts Mapped Folder</span><span style="font-size:11pt">&quot;.&nbsp;&nbsp;
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">Right-click the &quot;</span><span style="font-weight:bold">Layouts</span><span style="font-size:11pt">&quot; folder then add a new folder named &quot;</span><span style="font-size:11pt"> SharePointSetPageStatus</span><span style="font-size:11pt">&quot;,
+ then add a new Page named &quot;Test.aspx&quot;.</span></span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">The Test page is used to demo how to add page status to an application page.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">Next, we will begin to demo how to add page status from a list event receiver.
+</span><span style="font-size:11pt">We realize this purpose</span><span style="font-size:11pt"> through the following actions</span><span style="font-size:11pt">:</span><span style="font-size:11pt"> create a web part with
+</span><span style="font-weight:bold">SPPageStatusSetter</span><span style="font-size:11pt"> control</span><span style="font-size:11pt"> in it</span><span style="font-size:11pt">
+</span><span style="font-size:11pt">and then add the</span><span style="font-size:11pt"> web part to list view page from an event receiver along with status message</span><span style="font-size:11pt"> dynamically.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">Add a web part to the project. In the web part, we will add a
+</span><span style="font-weight:bold">SPPageStatusSetter</span><span style="font-size:11pt"> control to it and define a custom Message property. The Message property is used to store the status bar message received from Event Receiver. The code resembles the
+ following: </span></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">
+[ToolboxItemAttribute(false)]
+   public class StatusBarWebPart : WebPart
+   {
+       SPPageStatusSetter statusBar;
+       string strMessage;
+       public StatusBarWebPart()
+       {
+           this.Message = string.Empty;
+       }
+       [Category(&quot;Custom Properties&quot;)]
+       [Browsable(false)]
+       public string Message
+       {
+           get
+           {
+               return strMessage;
+           }
+           set
+           {
+               strMessage = value;
+           }
+       }
+       protected override void CreateChildControls()
+       {
+           statusBar = new SPPageStatusSetter();
+           statusBar.AddStatus(&quot;Action&quot;, Message, SPPageStatusColor.Blue);          
+                   
+           if (!string.IsNullOrEmpty(Message))
+           {
+               Controls.Add(statusBar);
+           }
+       }
+       protected override void RenderContents(HtmlTextWriter writer)
+       {
+           writer.Write(&quot;Status Bar demo&quot;);
+           RenderChildren(writer);
+       }
+   }
+</pre>
+<pre class="hidden">
+&lt;ToolboxItemAttribute(false)&gt; _
+Public Class StatusBarWebPart
+    Inherits WebPart
+    Private statusBar As SPPageStatusSetter
+    Private strMessage As String
+    Public Sub New()
+        Me.Message = String.Empty
+    End Sub
+    &lt;Category(&quot;Custom Properties&quot;)&gt; _
+    &lt;Browsable(False)&gt; _
+    Public Property Message() As String
+        Get
+            Return strMessage
+        End Get
+        Set(value As String)
+            strMessage = value
+        End Set
+    End Property
+    Protected Overrides Sub CreateChildControls()
+        statusBar = New SPPageStatusSetter()
+        statusBar.AddStatus(&quot;Action&quot;, Message, SPPageStatusColor.Blue)
+        If Not String.IsNullOrEmpty(Message) Then
+            Controls.Add(statusBar)
+        End If
+    End Sub
+    Protected Overrides Sub RenderContents(writer As HtmlTextWriter)
+        writer.Write(&quot;Status Bar demo&quot;)
+        RenderChildren(writer)
+    End Sub
+End Class
+</pre>
+<pre id="codePreview" class="csharp">
+[ToolboxItemAttribute(false)]
+   public class StatusBarWebPart : WebPart
+   {
+       SPPageStatusSetter statusBar;
+       string strMessage;
+       public StatusBarWebPart()
+       {
+           this.Message = string.Empty;
+       }
+       [Category(&quot;Custom Properties&quot;)]
+       [Browsable(false)]
+       public string Message
+       {
+           get
+           {
+               return strMessage;
+           }
+           set
+           {
+               strMessage = value;
+           }
+       }
+       protected override void CreateChildControls()
+       {
+           statusBar = new SPPageStatusSetter();
+           statusBar.AddStatus(&quot;Action&quot;, Message, SPPageStatusColor.Blue);          
+                   
+           if (!string.IsNullOrEmpty(Message))
+           {
+               Controls.Add(statusBar);
+           }
+       }
+       protected override void RenderContents(HtmlTextWriter writer)
+       {
+           writer.Write(&quot;Status Bar demo&quot;);
+           RenderChildren(writer);
+       }
+   }
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">Add an event receiver to the project. For demo purpose, we will handle
+</span><span style="font-size:11pt">the </span><span style="font-size:11pt">list item&rsquo;s ItemAdded event and ItemUpdated event. Create an instance of the web part, then we will set custom status bar message to the Message property and then add (or update)
+ the web part to the list page. </span></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">
+/// &lt;summary&gt;
+   /// List Item Events.
+   /// &lt;/summary&gt;
+   public class PageStatusEventReceiver : SPItemEventReceiver
+   {
+       StatusBarWebPart.StatusBarWebPart statusBarWebPart;
+       /// &lt;summary&gt;
+       /// An item was added.
+       /// &lt;/summary&gt;
+       public override void ItemAdded(SPItemEventProperties properties)
+       {
+           base.ItemAdded(properties);
+           SPWeb web = properties.Web;
+           string oUrl = properties.List.DefaultViewUrl;
+           <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager.aspx"  title="Auto generated link to Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager">Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager</a> coll = web.GetLimitedWebPartManager(oUrl, System.Web.UI.WebControls.WebParts.PersonalizationScope.Shared);
+           if (coll.WebParts.Count &gt; 1)
+           {
+               statusBarWebPart = (StatusBarWebPart.StatusBarWebPart)coll.WebParts[1];
+               if (statusBarWebPart != null)
+               {
+                   statusBarWebPart.Message = &quot;Item Added&quot;;
+                   coll.SaveChanges(statusBarWebPart);               
+               }
+           }
+           else
+           {
+               statusBarWebPart = new StatusBarWebPart.StatusBarWebPart();
+               statusBarWebPart.Message = &quot;Item Added&quot;;
+               statusBarWebPart.Hidden = true;
+               coll.AddWebPart(statusBarWebPart, &quot;Left&quot;, 1); 
+               coll.SaveChanges(statusBarWebPart);
+           }           
+       }
+      
+       /// &lt;summary&gt;
+       /// An item was updated.
+       /// &lt;/summary&gt;
+       public override void ItemUpdated(SPItemEventProperties properties)
+       {
+           base.ItemUpdated(properties);
+           SPWeb web = properties.Web;
+           string oUrl = properties.List.DefaultViewUrl;
+           <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager.aspx"  title="Auto generated link to Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager">Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager</a> coll = web.GetLimitedWebPartManager(oUrl, System.Web.UI.WebControls.WebParts.PersonalizationScope.Shared);
+           if (coll.WebParts.Count &gt; 1)
+           {
+               statusBarWebPart = (StatusBarWebPart.StatusBarWebPart)coll.WebParts[1];
+               if (statusBarWebPart != null)
+               {
+                   statusBarWebPart.Message = &quot;Item Updated&quot;;
+                   coll.SaveChanges(statusBarWebPart);               
+               }
+           }
+           else
+           {
+               statusBarWebPart = new StatusBarWebPart.StatusBarWebPart();
+               statusBarWebPart.Message = &quot;Item Updated&quot;;
+               statusBarWebPart.Hidden = true;
+               coll.AddWebPart(statusBarWebPart, &quot;Left&quot;, 1);
+               coll.SaveChanges(statusBarWebPart);            
+           }           
+       }
+   }
+</pre>
+<pre class="hidden">
+Public Class PageStatusEventReceiver
+    Inherits SPItemEventReceiver
+    Private statusBarWebPart As StatusBarWebPart
+    ''' &lt;summary&gt;
+    ''' An item was added.
+    ''' &lt;/summary&gt;
+    Public Overrides Sub ItemAdded(properties As SPItemEventProperties)
+        MyBase.ItemAdded(properties)
+        Dim web As SPWeb = properties.Web
+        Dim oUrl As String = properties.List.DefaultViewUrl
+        Dim coll As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager.aspx"  title="Auto generated link to Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager">Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager</a> = web.GetLimitedWebPartManager(oUrl, System.Web.UI.WebControls.WebParts.PersonalizationScope.[Shared])
+        If coll.WebParts.Count &gt; 1 Then
+            statusBarWebPart = DirectCast(coll.WebParts(1), StatusBarWebPart)
+            If statusBarWebPart IsNot Nothing Then
+                statusBarWebPart.Message = &quot;Item Added-vb&quot;
+                coll.SaveChanges(statusBarWebPart)
+            End If
+        Else
+            statusBarWebPart = New StatusBarWebPart()
+            statusBarWebPart.Message = &quot;Item Added-vb&quot;
+            statusBarWebPart.Hidden = True
+            coll.AddWebPart(statusBarWebPart, &quot;Left&quot;, 1)
+            coll.SaveChanges(statusBarWebPart)
+        End If
+    End Sub
+    ''' &lt;summary&gt;
+    ''' An item was updated.
+    ''' &lt;/summary&gt;
+    Public Overrides Sub ItemUpdated(properties As SPItemEventProperties)
+        MyBase.ItemUpdated(properties)
+        Dim web As SPWeb = properties.Web
+        Dim oUrl As String = properties.List.DefaultViewUrl
+        Dim coll As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager.aspx"  title="Auto generated link to Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager">Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager</a> = web.GetLimitedWebPartManager(oUrl, System.Web.UI.WebControls.WebParts.PersonalizationScope.[Shared])
+        If coll.WebParts.Count &gt; 1 Then
+            statusBarWebPart = DirectCast(coll.WebParts(1), StatusBarWebPart)
+            If statusBarWebPart IsNot Nothing Then
+                statusBarWebPart.Message = &quot;Item Updated-vb&quot;
+                coll.SaveChanges(statusBarWebPart)
+            End If
+        Else
+            statusBarWebPart = New StatusBarWebPart()
+            statusBarWebPart.Message = &quot;Item Updated-vb&quot;
+            statusBarWebPart.Hidden = True
+            coll.AddWebPart(statusBarWebPart, &quot;Left&quot;, 1)
+            coll.SaveChanges(statusBarWebPart)
+        End If
+    End Sub
+End Class
+</pre>
+<pre id="codePreview" class="csharp">
+/// &lt;summary&gt;
+   /// List Item Events.
+   /// &lt;/summary&gt;
+   public class PageStatusEventReceiver : SPItemEventReceiver
+   {
+       StatusBarWebPart.StatusBarWebPart statusBarWebPart;
+       /// &lt;summary&gt;
+       /// An item was added.
+       /// &lt;/summary&gt;
+       public override void ItemAdded(SPItemEventProperties properties)
+       {
+           base.ItemAdded(properties);
+           SPWeb web = properties.Web;
+           string oUrl = properties.List.DefaultViewUrl;
+           <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager.aspx"  title="Auto generated link to Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager">Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager</a> coll = web.GetLimitedWebPartManager(oUrl, System.Web.UI.WebControls.WebParts.PersonalizationScope.Shared);
+           if (coll.WebParts.Count &gt; 1)
+           {
+               statusBarWebPart = (StatusBarWebPart.StatusBarWebPart)coll.WebParts[1];
+               if (statusBarWebPart != null)
+               {
+                   statusBarWebPart.Message = &quot;Item Added&quot;;
+                   coll.SaveChanges(statusBarWebPart);               
+               }
+           }
+           else
+           {
+               statusBarWebPart = new StatusBarWebPart.StatusBarWebPart();
+               statusBarWebPart.Message = &quot;Item Added&quot;;
+               statusBarWebPart.Hidden = true;
+               coll.AddWebPart(statusBarWebPart, &quot;Left&quot;, 1); 
+               coll.SaveChanges(statusBarWebPart);
+           }           
+       }
+      
+       /// &lt;summary&gt;
+       /// An item was updated.
+       /// &lt;/summary&gt;
+       public override void ItemUpdated(SPItemEventProperties properties)
+       {
+           base.ItemUpdated(properties);
+           SPWeb web = properties.Web;
+           string oUrl = properties.List.DefaultViewUrl;
+           <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager.aspx"  title="Auto generated link to Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager">Microsoft.SharePoint.WebPartPages.SPLimitedWebPartManager</a> coll = web.GetLimitedWebPartManager(oUrl, System.Web.UI.WebControls.WebParts.PersonalizationScope.Shared);
+           if (coll.WebParts.Count &gt; 1)
+           {
+               statusBarWebPart = (StatusBarWebPart.StatusBarWebPart)coll.WebParts[1];
+               if (statusBarWebPart != null)
+               {
+                   statusBarWebPart.Message = &quot;Item Updated&quot;;
+                   coll.SaveChanges(statusBarWebPart);               
+               }
+           }
+           else
+           {
+               statusBarWebPart = new StatusBarWebPart.StatusBarWebPart();
+               statusBarWebPart.Message = &quot;Item Updated&quot;;
+               statusBarWebPart.Hidden = true;
+               coll.AddWebPart(statusBarWebPart, &quot;Left&quot;, 1);
+               coll.SaveChanges(statusBarWebPart);            
+           }           
+       }
+   }
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal; margin-left:36pt; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt"></span><span style="font-size:11pt">Now y</span><a name="_GoBack"></a><span style="font-size:11pt">ou can build and debug it.</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span> </p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; margin-top:10pt; margin-bottom:0pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">More Information</span></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">SPPageStatusSetter class</span><span style="font-size:11pt">
+<br clear="all">
+</span><a href="http://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.webcontrols.sppagestatussetter(v=office.15).aspx" style="text-decoration:none"><span style="color:#0563C1; text-decoration:underline">http://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.webcontrols.sppagestatussetter(v=office.15).aspx</span></a><span style="font-size:11pt">
+<br clear="all">
+</span><span style="font-size:11pt">SPLimitedWebPartManager class</span><span style="font-size:11pt">
+<br clear="all">
+</span><a href="http://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.webpartpages.splimitedwebpartmanager(v=office.15).aspx" style="text-decoration:none"><span style="color:#0563C1; text-decoration:underline">http://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.webpartpages.splimitedwebpartmanager(v=office.15).aspx</span></a><span style="font-size:11pt">
+<br clear="all">
+</span><span style="font-size:11pt">SPItemEventReceiver class</span><span style="font-size:11pt">
+<br clear="all">
+</span><a href="http://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.spitemeventreceiver(v=office.15).aspx" style="text-decoration:none"><span style="color:#0563C1; text-decoration:underline">http://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.spitemeventreceiver(v=office.15).aspx</span></a><span style="font-size:11pt">
+<br clear="all">
+</span><span style="font-size:11pt">Using SPPageStatusSetter to Show Status SharePoint 2010</span><span style="font-size:11pt">
+<br clear="all">
+</span><a href="http://www.learningsharepoint.com/2010/10/03/using-sppagestatussetter-to-show-status-sharepoint-2010/" style="text-decoration:none"><span style="color:#0563C1; text-decoration:underline">http://www.learningsharepoint.com/2010/10/03/using-sppagestatussetter-to-show-status-sharepoint-2010/</span></a></span>
+</p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><br clear="all">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:.0001pt; font-size:10.0pt; line-height:27.6pt; margin-bottom:10pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span> </p>
+<p style="line-height:0.6pt; color:white">Microsoft All-In-One Code Framework is a free, centralized code sample library driven by developers' real-world pains and needs. The goal is to provide customer-driven code samples for all Microsoft development technologies,
+ and reduce developers' efforts in solving typical programming tasks. Our team listens to developers’ pains in the MSDN forums, social media and various DEV communities. We write code samples based on developers’ frequently asked programming tasks, and allow
+ developers to download them with a short sample publishing cycle. Additionally, we offer a free code sample request service. It is a proactive way for our developer community to obtain code samples directly from Microsoft.</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/1b86aeb4-a14d-4ea4-a94f-7e109eb28a8dimage.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

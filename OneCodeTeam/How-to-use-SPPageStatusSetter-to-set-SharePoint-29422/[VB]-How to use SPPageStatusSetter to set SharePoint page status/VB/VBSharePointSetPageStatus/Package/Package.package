@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="151b4390-801f-44bf-8b09-2114ed317fff" solutionId="151b4390-801f-44bf-8b09-2114ed317fff" resetWebServer="false" sharePointProductVersion="15.0" name="VBSharePointSetPageStatus" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="0b60edc9-9415-445a-b30d-1a8cad2707a2" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="8d19c6ff-ee64-4568-966d-6ed1fca6b62d" />
+  </projectItems>
+</package>
