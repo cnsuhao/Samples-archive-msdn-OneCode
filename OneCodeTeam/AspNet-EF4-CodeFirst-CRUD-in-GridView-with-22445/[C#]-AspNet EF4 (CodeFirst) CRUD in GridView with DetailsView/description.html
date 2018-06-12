@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/04f9c26e-88fd-4dfd-b715-9733d17420b6Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>AspNet EF4 (CodeFirst) CRUD in GridView with DetailsView</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>AspNet EF4 (CodeFirst) CRUD in GridView with DetailsView</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Entity Framework, GridView
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/5/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/AspNet-EF4-CodeFirst-CRUD-fd054e37">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    =====================================================================================<br>
+ASP.NET APPLICATION : VBASPNETCodeFirstCRUDInGridViewWithDetailsView Project Overview<br>
+=====================================================================================<br>
+<br>
+//////////////////////////////////////////////////////////////////////////////////////<br>
+Summary:<br>
+<br>
+&nbsp;The project shows up several new feature appearing in CodeFirst RTM<br>
+&nbsp;<br>
+&nbsp;Pre-conditions when to run the program：<br>
+<br>
+&nbsp;1) Double click the solution to open the sample code.<br>
+<br>
+&nbsp;2) We should install &quot;NuGet&quot; in the Extension Manage under the &quot;Tools&quot;=&gt;&quot;Extension Manager&quot;<br>
+&nbsp;,then press &quot;Nuget&quot; and choose &quot;Online Gallery&quot; on the left,<br>
+&nbsp;then you can see &quot;Nuget&quot;,just download and it will be installed soon.<br>
+&nbsp;After finishing this step, you should restart your VS.<br>
+<br>
+&nbsp;3) let's go to the &quot;Tools&quot;=&gt;&quot;Library Package Manager&quot;,please just type this below after &quot;PM&gt;&quot;<br>
+<br>
+&nbsp;Install-Package EntityFramework<br>
+&nbsp;<br>
+&nbsp;This will import all the dll files into your current project and you can start with EF4.1 RTM!<br>
+<br>
+<br>
+//////////////////////////////////////////////////////////////////////////////////////<br>
+Demo:<br>
+<br>
+&nbsp;Open the sample project and run the application, you can see the a Default.aspx page
+<br>
+&nbsp;that will guide you to three pages: Students, Courses and CoursesChoice. Click any link<br>
+&nbsp;you can go to the mapping page——<br>
+<br>
+&nbsp;1) Students: You can create,delete or update a student's info.<br>
+&nbsp;2) Courses: You can edit,create a class in the DetailsView with GridView.<br>
+&nbsp;3) CoursesChoice: You can create,update or delete an existing choice info.<br>
+<br>
+<br>
+//////////////////////////////////////////////////////////////////////////////////////<br>
+Code Logic:<br>
+<br>
+Step1. Open your Visual Studio 2000 Ultimate/Express or other related version <br>
+to create a VB Web application by choosing &quot;File&quot; -&gt; &quot;New&quot; -&gt; &quot;Project...&quot;, <br>
+expand the &quot;Visual Basic&quot; tag and select &quot;Web&quot;, then choose &quot;ASP.NET Web Application&quot;.<br>
+Please name it as &quot;CSASPNETCodeFirstCRUDInGridViewWithDetailsView&quot; and switch &quot;Solution&quot;
+<br>
+dropdownlist to &quot;Create new solution&quot;, in the end check the checkbox &quot;Create<br>
+directory for solution&quot; and press OK button to create the solution.<br>
+<br>
+[ NOTE: You can also download the free Visual studio 2010 Express ISO package and install Visual C#<br>
+http://download.microsoft.com/download/1/E/5/1E5F1C0A-0D5B-426A-A603-1798B951DDAE/VS2010Express1.iso]<br>
+<br>
+Step2. Delete the following default folders and files created automatically <br>
+by Visual Studio,and right click the project to create a Global.asax file, then import<br>
+the CodeFirst necessary dll libraries as what we do in &quot;Summary&quot; section.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Account folder<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Script folder<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Style folder<br>
+&nbsp;&nbsp;&nbsp;&nbsp;About.aspx file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Global.asax file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default.aspx file<br>
+<br>
+Step3. Create a Default.aspx and write down the codes below to create a content page:<br>
+<br>
+&lt;%@ Page Language=&quot;vb&quot; AutoEventWireup=&quot;false&quot; CodeBehind=&quot;Default.aspx.vb&quot; Inherits=&quot;VBASPNETCodeFirstCRUDInGridViewWithDetailsView._Default&quot; %&gt;<br>
+<br>
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;<br>
+<br>
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;<br>
+&lt;head id=&quot;Head1&quot; runat=&quot;server&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;School Management System&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;form id=&quot;form1&quot; runat=&quot;server&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<div><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p align="center"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<h3>School Management System (using CodeFirst) Sample</h3>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <a href="http://code.msdn.microsoft.com/AspNet-EF4-CodeFirst-CRUD-fd054e37/Students.aspx" >Go To Students page</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <a href="http://code.msdn.microsoft.com/AspNet-EF4-CodeFirst-CRUD-fd054e37/Courses.aspx" >Go To Courses page</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <a href="http://code.msdn.microsoft.com/AspNet-EF4-CodeFirst-CRUD-fd054e37/CourseChoice.aspx" >Go To Course Choice pages</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+<p></p>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/form&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+<br>
+<br>
+Step4. Create a model file called &quot;DataBaseModel.vb&quot;, in which we can just construct what<br>
+tables we need, here's snippet of codes:<br>
+<br>
+&nbsp; ''' &lt;summary&gt;<br>
+''' This is a student table<br>
+''' &lt;/summary&gt;<br>
+Public Class Student<br>
+&nbsp;&nbsp;&nbsp;&nbsp;''' &lt;summary&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;''' Point out this is a Primary Key and it's auto-generated.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;''' &lt;/summary&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Key()&gt; _<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;DatabaseGenerated(System.ComponentModel.DataAnnotations.DatabaseGeneratedOption.Identity)&gt; _<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Public Property StudentId() As Integer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return _studentId<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End Get<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set(ByVal value As Integer)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_studentId = value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End Set<br>
+&nbsp;&nbsp;&nbsp;&nbsp;End Property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Private _studentId As Integer<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;''' &lt;summary&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;''' Point out this field is not null and it has the number
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;''' of character to int.MaxValue<br>
+&nbsp;&nbsp;&nbsp;&nbsp;''' &lt;/summary&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;Required()&gt; _<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;MaxLength(Integer.MaxValue)&gt; _<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Public Property StudentName() As String<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return _studentName<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End Get<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set(ByVal value As String)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_studentName = value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End Set<br>
+&nbsp;&nbsp;&nbsp;&nbsp;End Property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Private _studentName As String<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Public Overridable Property Courses() As ICollection(Of Student_Course)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return _courses<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End Get<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set(ByVal value As ICollection(Of Student_Course))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_courses = value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End Set<br>
+&nbsp;&nbsp;&nbsp;&nbsp;End Property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Private _courses As ICollection(Of Student_Course)<br>
+End Class<br>
+<br>
+<br>
+Step5. Create a file called &quot;DBCreator.vb&quot;, which is used for auto-generating<br>
+db with tables from the model classes. See the complete codes in the file.<br>
+<br>
+<br>
+Step6. Create a file called &quot;DBObjectDataSource.vb&quot;, this file offers different<br>
+CRUD ways for http://code.msdn.microsoft.com/AspNet-EF4-CodeFirst-CRUD-fd054e37/Students.aspx, http://code.msdn.microsoft.com/AspNet-EF4-CodeFirst-CRUD-fd054e37/Courses.aspx and CoursesChoice.aspx page as the datasources<br>
+for the ObjectDataSources bound to data presentation controls, as you can see in the<br>
+sample code.<br>
+<br>
+Step7. Create the http://code.msdn.microsoft.com/AspNet-EF4-CodeFirst-CRUD-fd054e37/Students.aspx page and add a GridView there, then bind it to &quot;StudentDataSource&quot;<br>
+to get all the existing students in the db with CRUD methods.<br>
+And drag and drop a textbox for inputting a new student's name with the required <br>
+validation control. See the codes in http://code.msdn.microsoft.com/AspNet-EF4-CodeFirst-CRUD-fd054e37/Students.aspx.<br>
+<br>
+Step8. Create the http://code.msdn.microsoft.com/AspNet-EF4-CodeFirst-CRUD-fd054e37/Courses.aspx page and add a GridView there, then bind it to &quot;CourseDataSource&quot;<br>
+to get all the existing courses. Make the GridView selectable by clicking the right<br>
+corner's arrow and choose &quot;Enable Selection&quot;.<br>
+And drag and drop a detailsview, bind it to &quot;CourseDetailsDataSource&quot; with CRUD methods<br>
+from DBObjectDataSource.vb and click the right arrow, and check &quot;Enable Editing&quot;,&quot;Enable<br>
+Inserting&quot;. Then convert them into Template fields, and them in the EditTemplateField<br>
+and InsertTemplate, please add a required validation control there.<br>
+<br>
+Step9. Create the http://code.msdn.microsoft.com/AspNet-EF4-CodeFirst-CRUD-fd054e37/CourseChoice.aspx page and add a Dropdownlist called &quot;ddrStudents&quot;, then bind it<br>
+to &quot;StudentDataSource&quot; to fetch all of the existing students in the db, and drag and drop<br>
+a GridView inside, bind it to &quot;Student_CourseDataSource&quot; with CRUD methods, add another dropdownlist<br>
+named &quot;ddrRestCourses&quot; should be bound with the third ObjectDataSource called &quot;RestCourseDataSource&quot;.<br>
+In the end, add a textbox and name it as &quot;tbScore&quot; with a required validation,regular expression<br>
+validation and add a button for creating a new course choice record.<br>
+<br>
+Step10. In the global.asax page in order to create a whole db with test data contents, we can temporarily<br>
+set &quot;RecreateDB&quot; to &quot;true&quot;in the Web.config, for further usage, we set it to false：<br>
+<br>
+&nbsp;&lt;appSettings&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;add key=&quot;RecreateDB&quot; value=&quot;true&quot;/&gt;<br>
+&nbsp;&lt;/appSettings&gt;<br>
+<br>
+And now we call the method like this——<br>
+<br>
+''' &lt;summary&gt;<br>
+''' To decide whether to create data contents once the Server starts.<br>
+''' &lt;/summary&gt;<br>
+Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DBCreator.DBAutoCreator(Convert.ToBoolean(ConfigurationManager.AppSettings(&quot;RecreateDB&quot;)))<br>
+End Sub<br>
+<br>
+Step11. Create a Web.sitemap and drag and drop Navigator control to each of the page.<br>
+<br>
+//////////////////////////////////////////////////////////////////////////////////////<br>
+Reference：<br>
+<br>
+Entity Framework Preview: code first, ObjectSet and DbContext<br>
+http://msdn.microsoft.com/en-us/magazine/gg232765.aspx<br>
+<br>
+//////////////////////////////////////////////////////////////////////////////////////<br>
+
+</div>
+
+
+    </div>
+</body>
+</html>
