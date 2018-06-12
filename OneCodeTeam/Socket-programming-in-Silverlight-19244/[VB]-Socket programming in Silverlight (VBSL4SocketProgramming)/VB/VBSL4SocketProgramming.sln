@@ -1,0 +1,43 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBSL4SocketProgramming", "VBSL4SocketProgramming\VBSL4SocketProgramming.vbproj", "{AC57D7DA-B955-420D-A8C9-00184E0773B8}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBSL4SocketProgrammingServer", "VBSL4SocketProgrammingServer\VBSL4SocketProgrammingServer.vbproj", "{ADDA5183-A610-4BA6-B0D7-4FBC5DCB15A9}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC57D7DA-B955-420D-A8C9-00184E0773B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC57D7DA-B955-420D-A8C9-00184E0773B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC57D7DA-B955-420D-A8C9-00184E0773B8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AC57D7DA-B955-420D-A8C9-00184E0773B8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AC57D7DA-B955-420D-A8C9-00184E0773B8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AC57D7DA-B955-420D-A8C9-00184E0773B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC57D7DA-B955-420D-A8C9-00184E0773B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC57D7DA-B955-420D-A8C9-00184E0773B8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AC57D7DA-B955-420D-A8C9-00184E0773B8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AC57D7DA-B955-420D-A8C9-00184E0773B8}.Release|x86.ActiveCfg = Release|Any CPU
+		{ADDA5183-A610-4BA6-B0D7-4FBC5DCB15A9}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{ADDA5183-A610-4BA6-B0D7-4FBC5DCB15A9}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{ADDA5183-A610-4BA6-B0D7-4FBC5DCB15A9}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{ADDA5183-A610-4BA6-B0D7-4FBC5DCB15A9}.Debug|x86.ActiveCfg = Debug|x86
+		{ADDA5183-A610-4BA6-B0D7-4FBC5DCB15A9}.Debug|x86.Build.0 = Debug|x86
+		{ADDA5183-A610-4BA6-B0D7-4FBC5DCB15A9}.Release|Any CPU.ActiveCfg = Release|x86
+		{ADDA5183-A610-4BA6-B0D7-4FBC5DCB15A9}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{ADDA5183-A610-4BA6-B0D7-4FBC5DCB15A9}.Release|Mixed Platforms.Build.0 = Release|x86
+		{ADDA5183-A610-4BA6-B0D7-4FBC5DCB15A9}.Release|x86.ActiveCfg = Release|x86
+		{ADDA5183-A610-4BA6-B0D7-4FBC5DCB15A9}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
