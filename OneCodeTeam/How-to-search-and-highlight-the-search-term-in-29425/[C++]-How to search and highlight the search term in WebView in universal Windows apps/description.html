@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=5CF4E24D59324FBE66CF8C9A49A3F942" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:FooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=F8E8917DA8158DB3E7C6F07AA1FFC4F3" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to search and highlight the search term in WebView in universal Windows apps</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to search and highlight the search term in WebView in universal Windows apps</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows, Windows Phone, Windows 8, Windows Phone 8, Windows Store app Development, Windows Phone Development, Windows 8.1, Windows Phone 8.1
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            WebView, universal app
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Phone, Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">12/29/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/How-to-search-and-248d933f">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img src="description/8171.onecodesampletopbanner.png" alt="">
+</a></div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:24pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:14pt"><span style="font-weight:bold; font-size:14pt">How to search and highlight the search term in WebView in universal Windows apps</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Introduction</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span>WebView continues to be a hot topic in the Windows Store</span><span> a</span><span>pp forums. The ability to bring in web content and manipulate it as you wish is a strong desire for many developers. This code sample will
+ show you </span><span>how to highlight search terms in any page which you load into a WebView by injecting and invoking custom-written JavaScript from your Windows Store app.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-weight:bold">Please note: Th</span><span style="font-weight:bold">e</span><span style="font-weight:bold"> sample</span><span style="font-weight:bold">s were written
+</span><span style="font-weight:bold">based on the following blog entry:</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><a href="http://blogs.msdn.com/b/wsdevsol/archive/2013/05/07/webview-magic-tricks-highlight-a-search-term.aspx" style="text-decoration:none"><span style="color:#0563c1; text-decoration:underline">http://blogs.msdn.com/b/wsdevsol/archive/2013/05/07/webview-magic-tricks-highlight-a-search-term.aspx</span></a></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Running the Sample</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">You can build and run the sample</span><span style="font-size:11pt">
+</span><span style="font-size:11pt">in V</span><span style="font-size:11pt">isual Studio 2013</span><span style="font-size:11pt">. The following is the screenshot of the running sample.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/image.png" alt="" width="479" height="306" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Using the Code</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">highlight.js file is responsible for highlighting terms and clearing the highlight.</span></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>JavaScript</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">js</span>
+<pre class="hidden">var OriginalBody;
+function HighlightFunction(SearchTerm) {
+    if (OriginalBody == null) { OriginalBody = document.getElementsByTagName('body')[0].innerHTML; }
+    var bdy = document.getElementsByTagName('body')[0].innerHTML;
+    var re = new RegExp('(\\b' &#43; SearchTerm &#43; '\\b)', 'ig');
+    bdy = bdy.replace(re, '<span style="background-color:yellow; font-weight:bold">$1&lt;\/span&gt;');
+    var re1 = new RegExp('(&lt;[^&gt;]*?)<span style="background-color:yellow; font-weight:bold">(' &#43; SearchTerm &#43; ')&lt;\/span&gt;(.*?&gt;)', 'ig');
+    bdy = bdy.replace(re1, '$1$2$3');
+    var re2 = new RegExp('(&lt;script.*?&gt;)<span style="background-color:yellow; font-weight:bold">(' &#43; SearchTerm &#43; ')&lt;\/span&gt;(&lt;\/script&gt;)', 'ig');
+    bdy = bdy.replace(re2, '$1$2$3');
+    var re3 = new RegExp('(&lt;textarea.*?&gt;)<span style="background-color:yellow; font-weight:bold">(' &#43; SearchTerm &#43; ')&lt;\/span&gt;(&lt;\/textarea&gt;)', 'ig');
+    bdy = bdy.replace(re3, '$1$2$3');
+    document.getElementsByTagName('body')[0].innerHTML = bdy;
+}
+function RestoreFunction() {
+    document.getElementsByTagName('body')[0].innerHTML = OriginalBody;
+}
+</span></span></span></span></pre>
+<pre id="codePreview" class="js">var OriginalBody;
+function HighlightFunction(SearchTerm) {
+    if (OriginalBody == null) { OriginalBody = document.getElementsByTagName('body')[0].innerHTML; }
+    var bdy = document.getElementsByTagName('body')[0].innerHTML;
+    var re = new RegExp('(\\b' &#43; SearchTerm &#43; '\\b)', 'ig');
+    bdy = bdy.replace(re, '<span style="background-color:yellow; font-weight:bold">$1&lt;\/span&gt;');
+    var re1 = new RegExp('(&lt;[^&gt;]*?)<span style="background-color:yellow; font-weight:bold">(' &#43; SearchTerm &#43; ')&lt;\/span&gt;(.*?&gt;)', 'ig');
+    bdy = bdy.replace(re1, '$1$2$3');
+    var re2 = new RegExp('(&lt;script.*?&gt;)<span style="background-color:yellow; font-weight:bold">(' &#43; SearchTerm &#43; ')&lt;\/span&gt;(&lt;\/script&gt;)', 'ig');
+    bdy = bdy.replace(re2, '$1$2$3');
+    var re3 = new RegExp('(&lt;textarea.*?&gt;)<span style="background-color:yellow; font-weight:bold">(' &#43; SearchTerm &#43; ')&lt;\/span&gt;(&lt;\/textarea&gt;)', 'ig');
+    bdy = bdy.replace(re3, '$1$2$3');
+    document.getElementsByTagName('body')[0].innerHTML = bdy;
+}
+function RestoreFunction() {
+    document.getElementsByTagName('body')[0].innerHTML = OriginalBody;
+}
+</span></span></span></span></pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span>&nbsp;</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">In MainPage, first </span>
+<span style="font-size:11pt">we</span><span style="font-size:11pt"> </span><span style="font-size:11pt">open and read the highlight.js file.</span><span>
+</span></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span><span class="hidden">cplusplus</span>
+<pre class="hidden">protected async override void OnNavigatedTo(NavigationEventArgs e)
+{
+    StorageFile highlightFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri(&quot;ms-appx:///highlight.js&quot;));
+    highlightFunctionJS = await FileIO.ReadTextAsync(highlightFile);
+}
+</pre>
+<pre class="hidden">void MainPage::OnNavigatedTo(NavigationEventArgs^ e)
+{
+ create_task(StorageFile::GetFileFromApplicationUriAsync(ref new Uri(&quot;ms-appx:///highlight.js&quot;))).then([this](StorageFile^ highlightFile)
+ {
+  create_task(FileIO::ReadTextAsync(highlightFile)).then([this](String^ s)
+  {
+   m_highlightFunctionJS = s;
+  });
+ });
+}
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">protected</span>&nbsp;async&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;OnNavigatedTo(NavigationEventArgs&nbsp;e)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;StorageFile&nbsp;highlightFile&nbsp;=&nbsp;await&nbsp;StorageFile.GetFileFromApplicationUriAsync(<span class="cs__keyword">new</span>&nbsp;Uri(<span class="cs__string">&quot;ms-appx:///highlight.js&quot;</span>));&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;highlightFunctionJS&nbsp;=&nbsp;await&nbsp;FileIO.ReadTextAsync(highlightFile);&nbsp;
+}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span>&nbsp;</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Then implement highlight/clear functions
+</span><span style="font-size:11pt">by invoking JavaScript function </span><span>asyn</span><a name="_GoBack"></a><span>chronously.</span></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span><span class="hidden">cplusplus</span>
+<pre class="hidden">private async void HighlightButton_Click(object sender, RoutedEventArgs e)
+{
+    if(String.IsNullOrWhiteSpace(HighlightTerm.Text) || HighlightTerm.Text == &quot;Term to highlight&quot;)
+    {
+        HighlightTerm.Text = &quot;Term to highlight&quot;;
+        return;
+    }
+    if (!cleared)
+    {
+        ClearButton_Click(sender, e);
+    }
+    await MyWebView.InvokeScriptAsync(&quot;eval&quot;, new string[] { highlightFunctionJS &#43; &quot; HighlightFunction('&quot; &#43; HighlightTerm.Text &#43; &quot;');&quot; });
+    
+    HighlightTerm.Text = &quot;Term to highlight&quot;;
+    cleared = false;
+}
+private async void ClearButton_Click(object sender, RoutedEventArgs e)
+{
+    await MyWebView.InvokeScriptAsync(&quot;eval&quot;, new string[] { highlightFunctionJS &#43; &quot; RestoreFunction();&quot; });
+    cleared = true;
+}
+</pre>
+<pre class="hidden">void CppWindowsStoreAppWebViewHighlightWords::MainPage::HighlightButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+ if (HighlightTerm-&gt;Text == &quot;&quot; || HighlightTerm-&gt;Text == &quot;Term to highlight&quot;)
+ {
+  HighlightTerm-&gt;Text = &quot;Term to highlight&quot;;
+  return;
+ }
+ if (!m_isCleared)
+ {
+  ClearButton_Click(sender, e);
+ }
+ Array&lt;String^&gt;^ argsArray = { m_highlightFunctionJS &#43; &quot; HighlightFunction('&quot; &#43; HighlightTerm-&gt;Text &#43; &quot;');&quot; };
+ Platform::Collections::Vector&lt;String^&gt;^ arguments = ref new Platform::Collections::Vector&lt;String^&gt;(argsArray);
+ create_task(this-&gt;MyWebView-&gt;InvokeScriptAsync(ref new String(L&quot;eval&quot;), arguments)).then([this](String^ result)
+ {
+  HighlightTerm-&gt;Text = &quot;Term to highlight&quot;;
+  m_isCleared = false;
+ });
+}
+void CppWindowsStoreAppWebViewHighlightWords::MainPage::ClearButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+ Array&lt;String^&gt;^ argsArray = { m_highlightFunctionJS &#43; &quot; RestoreFunction();&quot; };
+ Platform::Collections::Vector&lt;String^&gt;^ arguments = ref new Platform::Collections::Vector&lt;String^&gt;(argsArray);
+ create_task(this-&gt;MyWebView-&gt;InvokeScriptAsync(ref new String(L&quot;eval&quot;), arguments)).then([this](String^ result)
+ {
+  m_isCleared = true;
+ });
+}
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">private</span>&nbsp;async&nbsp;<span class="cs__keyword">void</span>&nbsp;HighlightButton_Click(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;RoutedEventArgs&nbsp;e)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>(String.IsNullOrWhiteSpace(HighlightTerm.Text)&nbsp;||&nbsp;HighlightTerm.Text&nbsp;==&nbsp;<span class="cs__string">&quot;Term&nbsp;to&nbsp;highlight&quot;</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HighlightTerm.Text&nbsp;=&nbsp;<span class="cs__string">&quot;Term&nbsp;to&nbsp;highlight&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(!cleared)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ClearButton_Click(sender,&nbsp;e);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;MyWebView.InvokeScriptAsync(<span class="cs__string">&quot;eval&quot;</span>,&nbsp;<span class="cs__keyword">new</span>&nbsp;<span class="cs__keyword">string</span>[]&nbsp;{&nbsp;highlightFunctionJS&nbsp;&#43;&nbsp;<span class="cs__string">&quot;&nbsp;HighlightFunction('&quot;</span>&nbsp;&#43;&nbsp;HighlightTerm.Text&nbsp;&#43;&nbsp;<span class="cs__string">&quot;');&quot;</span>&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;HighlightTerm.Text&nbsp;=&nbsp;<span class="cs__string">&quot;Term&nbsp;to&nbsp;highlight&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;cleared&nbsp;=&nbsp;<span class="cs__keyword">false</span>;&nbsp;
+}&nbsp;
+<span class="cs__keyword">private</span>&nbsp;async&nbsp;<span class="cs__keyword">void</span>&nbsp;ClearButton_Click(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;RoutedEventArgs&nbsp;e)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;MyWebView.InvokeScriptAsync(<span class="cs__string">&quot;eval&quot;</span>,&nbsp;<span class="cs__keyword">new</span>&nbsp;<span class="cs__keyword">string</span>[]&nbsp;{&nbsp;highlightFunctionJS&nbsp;&#43;&nbsp;<span class="cs__string">&quot;&nbsp;RestoreFunction();&quot;</span>&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;cleared&nbsp;=&nbsp;<span class="cs__keyword">true</span>;&nbsp;
+}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span>&nbsp;</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">More Information</span></span></p>
+<p style="margin-left:36pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">WebView class</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.webview.aspx" style="text-decoration:none"><span style="color:#0563c1; text-decoration:underline">http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.webview.aspx</span></a></span></p>
+<p style="margin-left:36pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span>WebView.InvokeScriptAsync method</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.webview.invokescriptasync.aspx" style="text-decoration:none"><span style="color:#0563c1; text-decoration:underline">http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.webview.invokescriptasync.aspx</span></a></span></p>
+<p style="margin-left:36pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp; <span style="font-size:11pt">WebView Magic Tricks: Highlight a Search Term</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><a href="http://blogs.msdn.com/b/wsdevsol/archive/2013/05/07/webview-magic-tricks-highlight-a-search-term.aspx" style="text-decoration:none"><span style="color:#0563c1; text-decoration:underline">http://blogs.msdn.com/b/wsdevsol/archive/2013/05/07/webview-magic-tricks-highlight-a-search-term.aspx</span></a></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt">&nbsp;</span></p>
+<p style="line-height:0.6pt; color:white">Microsoft All-In-One Code Framework is a free, centralized code sample library driven by developers' real-world pains and needs. The goal is to provide customer-driven code samples for all Microsoft development technologies,
+ and reduce developers' efforts in solving typical programming tasks. Our team listens to developers&rsquo; pains in the MSDN forums, social media and various DEV communities. We write code samples based on developers&rsquo; frequently asked programming tasks,
+ and allow developers to download them with a short sample publishing cycle. Additionally, we offer a free code sample request service. It is a proactive way for our developer community to obtain code samples directly from Microsoft.</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/ed0ec86e-d8a6-48f0-96ff-137a6c05d71cimage.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
