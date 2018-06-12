@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Detect the process running platform in C++ (CppPlatformDetector)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Detect the process running platform in C++ (CppPlatformDetector)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows General
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Platform Detector
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CppPlatformDetector-1f8160e9">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>CONSOLE APPLICATION : CppPlatformDetector Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+The CppPlatformDetector code sample demonstrates the following tasks related <br>
+to platform detection:<br>
+<br>
+1. Detect the name of the current operating system. <br>
+&nbsp; (e.g. &quot;Microsoft Windows 7 Enterprise&quot;)<br>
+2. Detect the version of the current operating system.<br>
+&nbsp; (e.g. &quot;Microsoft Windows NT 6.1.7600.0&quot;)<br>
+3. Determine whether the current operating system is a 64-bit operating <br>
+&nbsp; system. <br>
+4. Determine whether the current process is a 64-bit process. <br>
+5. Determine whether an arbitrary process running on the system is 64-bit. <br>
+<br>
+</p>
+<h3>Demo:</h3>
+<p style="font-family:Courier New"><br>
+The following steps walk through a demonstration of the sample.<br>
+<br>
+Step1. In Visual Studio 2010, configure the sample project to target the x64<br>
+platform. After you successfully build the sample project, you will get an <br>
+application: CppPlatformDetector.exe. <br>
+<br>
+Step2. Run the application in a command prompt (cmd.exe) on a 64-bit <br>
+operating system (e.g. Windows 7 x64 Ultimate). The application prints the <br>
+following information in the command prompt:<br>
+<br>
+&nbsp;Current OS: Microsoft Windows 7 Ultimate<br>
+&nbsp;Version: Microsoft Windows NT 6.1.7600.0 Workstation<br>
+&nbsp;Current OS is 64-bit<br>
+&nbsp;Current process is 64-bit<br>
+<br>
+It dictates that the current operating system is Microsoft Windows 7 Ultimate. <br>
+Its version is 6.1.7600.0. The OS is a workstation instead of a server or <br>
+domain controller. The system is 64-bit. The current process is a 64-bit <br>
+process. <br>
+<br>
+Step3. In Task Manager, find a 32-bit process running on the system, and get <br>
+its process ID (e.g. 6100). Run CppPlatformDetector.exe with the process ID <br>
+as the first argument. For example, <br>
+<br>
+&nbsp; &nbsp;CppPlatformDetector.exe 6100<br>
+<br>
+The application will output:<br>
+<br>
+&nbsp;...<br>
+&nbsp;Process 6100 is not 64-bit<br>
+<br>
+It indicates that the specified process is not a 64-bit process.<br>
+<br>
+</p>
+<h3>Implementation:</h3>
+<p style="font-family:Courier New"><br>
+A. Get the name of the current operating system. <br>
+&nbsp; (e.g. &quot;Microsoft Windows 7 Enterprise&quot;)<br>
+<br>
+The name of the operating system (e.g. &quot;Microsoft Windows 7 Ultimate&quot;) can be
+<br>
+retrieved from the Caption property of the Win32_OperatingSystem WMI class <br>
+(<a  href="http://msdn.microsoft.com/en-us/library/aa394239.aspx).">http://msdn.microsoft.com/en-us/library/aa394239.aspx).</a> You can find the C&#43;&#43;
+<br>
+code that queries the value of Win32_OperatingSystem.Caption in the GetOSName <br>
+function of PlatformDetector.h/cpp.<br>
+<br>
+Alternatively, you can build the string of the operating system name by using <br>
+the GetVersionEx, GetSystemMetrics, GetProductInfo, and GetNativeSystemInfo <br>
+functions. The MSDN article &quot;Getting the System Version&quot; gives an example:<br>
+<a target="_blank" href="&lt;a http://msdn.microsoft.com/en-us/library/ms724429.aspx">http://msdn.microsoft.com/en-us/library/ms724429.aspx</a>.'&gt;<a  href="http://msdn.microsoft.com/en-us/library/ms724429.aspx">http://msdn.microsoft.com/en-us/library/ms724429.aspx</a>.
+ However, the solution <br>
+is not flexible for new releases of operating systems. <br>
+<br>
+--------------------<br>
+<br>
+B. Get the version of the current operating system.<br>
+&nbsp; (e.g. &quot;Microsoft Windows NT 6.1.7600.0&quot;)<br>
+<br>
+The OSVERSIONINFOEX structure outputted by GetVersionEx tells the major, <br>
+minor version numbers (dwMajorVersion, dwMinorVersion), the build number <br>
+(dwBuildNumber), and the major, minor version number of the latest Service <br>
+Pack (wServicePackMajor, wServicePackMinor). You can use these numbers to <br>
+quickly determine what the operating system is, whether a certain Service Pack <br>
+is installed, etc. OSVERSIONINFOEX.wProductType can tell whether the <br>
+operating system is a workstation or a server or a domain controller. <br>
+<br>
+The GetOSVersionString function in PlatformDetector.h/cpp retrieves the <br>
+concatenated string representation of the platform identifier, version, and <br>
+service pack that are currently installed on the operating system. For <br>
+example, &quot;Microsoft Windows NT 6.1.7600.0 Workstation&quot;.<br>
+<br>
+--------------------<br>
+<br>
+C. Determine the whether the current OS is a 64-bit operating system. &nbsp;<br>
+<br>
+&nbsp; &nbsp;//<br>
+&nbsp; &nbsp;// &nbsp; FUNCTION: Is64BitOS()<br>
+&nbsp; &nbsp;//<br>
+&nbsp; &nbsp;// &nbsp; PURPOSE: The function determines whether the current operating system is
+<br>
+&nbsp; &nbsp;// &nbsp; a 64-bit operating system.<br>
+&nbsp; &nbsp;//<br>
+&nbsp; &nbsp;// &nbsp; RETURN VALUE: The function returns TRUE if the operating system is
+<br>
+&nbsp; &nbsp;// &nbsp; 64-bit; otherwise, it returns FALSE.<br>
+&nbsp; &nbsp;//<br>
+&nbsp; &nbsp;BOOL Is64BitOS()<br>
+<br>
+If the running process is a 64-bit process, the operating system must be a <br>
+64-bit operating system. <br>
+<br>
+#if defined(_WIN64)<br>
+&nbsp; &nbsp;return TRUE; &nbsp; // 64-bit programs run only on Win64<br>
+<br>
+To detect programmatically whether your 32-bit program is running on 64-bit <br>
+operating system, you can use the IsWow64Process function. <br>
+<br>
+#elif defined(_WIN32)<br>
+&nbsp; &nbsp;// 32-bit programs run on both 32-bit and 64-bit Windows<br>
+&nbsp; &nbsp;BOOL f64bitOS = FALSE;<br>
+&nbsp; &nbsp;return (SafeIsWow64Process(GetCurrentProcess(), &f64bitOS) && f64bitOS);<br>
+<br>
+SafeIsWow64Process is a wrapper of the IsWow64Process API. It determines <br>
+whether the specified process is running under WOW64. IsWow64Process does not <br>
+exist prior to Windows XP with SP2 and Window Server 2003 &nbsp;with SP1. For <br>
+compatibility with operating systems that do not support IsWow64Process, call <br>
+GetProcAddress to detect whether IsWow64Process is implemented in <br>
+Kernel32.dll. If GetProcAddress succeeds, it is safe to call IsWow64Process <br>
+dynamically. Otherwise, WOW64 is not present.<br>
+<br>
+--------------------<br>
+<br>
+D. Determine whether the current process or an arbitrary process running on <br>
+the system is a 64-bit process. <br>
+<br>
+If you are determining whether the currently running process is a 64-bit <br>
+process, you can use the VC&#43;&#43; preprocessor symbols which get set during the <br>
+build to simply return true/false.<br>
+<br>
+&nbsp; &nbsp;BOOL Is64BitProcess(void)<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp;#if defined(_WIN64)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;return TRUE; &nbsp; // 64-bit program<br>
+&nbsp; &nbsp;#else<br>
+&nbsp; &nbsp; &nbsp; &nbsp;return FALSE;<br>
+&nbsp; &nbsp;#endif<br>
+&nbsp; &nbsp;}<br>
+<br>
+If you are detecting whether an arbitrary application running on the system <br>
+is a 64-bit process, you need to determine the OS bitness and if it is 64-bit, <br>
+call IsWow64Process() with the target process handle.<br>
+<br>
+&nbsp; &nbsp;BOOL Is64BitProcess(HANDLE hProcess)<br>
+&nbsp; &nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;BOOL f64bitProc = FALSE;<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;if (Is64BitOS())<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;// On 64bit OS, if a process is not running under Wow64 mode, the
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// process must be a 64bit process.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;f64bitProc = !(SafeIsWow64Process(hProcess, &f64bitProc) && f64bitProc);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;return f64bitProc;<br>
+&nbsp; &nbsp;}<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MSDN: Getting the System Version<br>
+<a  href="http://msdn.microsoft.com/en-us/library/ms724429.aspx">http://msdn.microsoft.com/en-us/library/ms724429.aspx</a><br>
+<br>
+How to detect programmatically whether you are running on 64-bit Windows<br>
+<a  href="http://blogs.msdn.com/oldnewthing/archive/2005/02/01/364563.aspx">http://blogs.msdn.com/oldnewthing/archive/2005/02/01/364563.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
