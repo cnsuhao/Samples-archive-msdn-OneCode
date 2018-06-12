@@ -1,0 +1,737 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Create new events for shape in Excel (VBExcelNewEventForShapes)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Create new events for shape in Excel (VBExcelNewEventForShapes)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Office
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Excel, Shape
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">12/20/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBExcelNewEventForShapes-2f50fbab">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>How to create new events for shape in Excel (VBExcelNewEventForShapes)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">This sample demonstrates how to create new events&#8203;<span style="">&nbsp;
+</span>for shape in Excel by VSTO. The excel object model doesn't have any events to control manipulations with shapes.<span style="">&nbsp;
+</span>In this project I demonstrate an approach to solve this problem.</p>
+<p class="MsoNormal">The project creates four custom events to demonstrate, you also can add others events according to the codes of this project.<span style="">&nbsp;
+</span>The four events are ShapeSelectionChange, ShapeRemoved, ShapeCreated and ShapeMoved.</p>
+<p class="MsoNormal">ShapeSelectionChange occurs when the user change selected shape; ShapeRemoved occurs when a shape is removed from the shapes collection of the current sheet; ShapeCreated occurs when a shape is added to the shapes collection of the current
+ sheet; ShapeMoved occurs when a shape is moved.<span style=""> The custom task panel is used to track the event of shapes and show the event's message.
+</span></p>
+<h2>Building the Sample</h2>
+<p class="MsoNormal" style="margin-bottom:7.5pt; line-height:normal">Before you build the sample, you must install Microsoft office2010 on your Operation System<span style="font-size:12.0pt; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;; color:black">.</span><span style="font-size:12.0pt; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;; color:black">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:7.5pt; line-height:normal">This project references the
+<span style="">P</span>rimary <span style="">I</span>nterop <span style="">A</span>ssembly
+<span style="">(PIA )</span>for Microsoft Office <span style="">Excel </span>20<span style="">10</span><span style="font-size:12.0pt; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;; color:black">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:7.5pt; line-height:normal">Be sure that your Excel2010 is not running when building sample.</p>
+<p class="MsoNormal" style="margin-bottom:7.5pt; line-height:normal"><span style="font-size:12.0pt; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;; color:black"></span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal">The following steps walk through a demonstration of creating new events for shapes.</p>
+<p class="MsoNormal">Step1. Open <span style="">VBExcel</span>NewEventForShapes.sln to open the excel Add-in project<span style=""> and then click F5 to run this project.
+</span></p>
+<p class="MsoNormal"><span style="">You will see the following form: </span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="774" height="620" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal">Step2. <span style="">Select Add-Ins ribbon and click &quot;start checking shapes&quot; button to start track events of shapes.
+</span></p>
+<p class="MsoNormal"><span style="">You will see the below form: </span></p>
+<p class="MsoNormal"><span style=""><img src="description/b155b3ab-24b0-456a-97a8-6135975f9176image.png" alt="" width="778" height="627" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step3. Select<span style="">&nbsp; </span>a shape(for example a rectangle), the task panel will show &quot;The type name of the selected object is</span><span style="font-size:9.5pt; font-family:新宋体; color:#A31515">
+</span><span style="">Rectangle&quot; message. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step4. When you change selected shape (for example, you can now select a circle shape now),
+</span><span style="">&nbsp;</span><span style="">the </span>ShapeSelectionChange<span style=""> event<span style="">&nbsp;
+</span>occurs at this time, you will see the message &quot;ShapeSelctionChange, Selection form Rectangle 1 to Oval 2&quot; in custom task panel.<span style="">&nbsp;
+</span></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step5. When you move a shape, the ShapeMoved event will occur and there are corresponding message to show in custom task panel, you also can delete or add a shape or shapes, the ShapeRemove or
+</span>ShapeCreated<span style=""> event will occur. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step6. The name of &quot;start checking shapes&quot; button changes to &quot;stop checking shapes&quot; after you click &quot;start checking shapes&quot; button, you can click &quot;stop checking shapes&quot; to stop track events of shapes and
+ you also can restart to track events by clicking &quot;start checking shapes&quot; button.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step7. Close Excel 2010 and In the Solution Explorer, right click </span>
+VBExcelNewEventForShapes<span style=""> and click Clean. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<h2>Using the Code<span style=""> </span></h2>
+<p class="MsoNormal"><span style="">Step1. Create an Excel Add-in project. On the File Menu, choose New, Project, In the templates pane, under the node for language you want to use, expand office and choose 2010 node, select Excel 2010 Add-in and the enter
+ the name of the project. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step2. Declare two classes,</span><span style="font-size:9.5pt; font-family:新宋体; color:#2B91AF">
+</span><span style="">MyShape.vb class represents Excel.Shape Object and MyShapes.vb class represents the collection of Excel.Shape object.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="font-size:9.5pt; font-family:新宋体; color:#2B91AF"></span></p>
+<p class="MsoNormal"><span style="">Step3. Create a Windows Forms User Control named CustomTaskPanel as a task panel. Add a ListBox Control to show the events' message in User Control.
+</span></p>
+<p class="MsoNormal"><span style="">Step4. Declare instance of CustomTaskPanel and add it to CustomTaskPanes collection.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+' Task Panel object
+Private customTaskPanel As CustomTaskPanel
+
+
+' Initialize Task Pane 
+' set the Position and width of task panel 
+customTaskPanel = New CustomTaskPanel()
+Dim mycustomerTaskPane As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Office.Tools.CustomTaskPane.aspx"  title="Auto generated link to Microsoft.Office.Tools.CustomTaskPane">Microsoft.Office.Tools.CustomTaskPane</a> = Me.CustomTaskPanes.Add(customTaskPanel, &quot;Custom Task Panel Tracking Event&quot;)
+mycustomerTaskPane.Visible = True
+mycustomerTaskPane.Width = 450
+mycustomerTaskPane.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight
+
+</pre>
+<pre id="codePreview" class="vb">
+' Task Panel object
+Private customTaskPanel As CustomTaskPanel
+
+
+' Initialize Task Pane 
+' set the Position and width of task panel 
+customTaskPanel = New CustomTaskPanel()
+Dim mycustomerTaskPane As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Office.Tools.CustomTaskPane.aspx"  title="Auto generated link to Microsoft.Office.Tools.CustomTaskPane">Microsoft.Office.Tools.CustomTaskPane</a> = Me.CustomTaskPanes.Add(customTaskPanel, &quot;Custom Task Panel Tracking Event&quot;)
+mycustomerTaskPane.Visible = True
+mycustomerTaskPane.Width = 450
+mycustomerTaskPane.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<p class="MsoNormal"><span style="">Step5. Create custom<span style="">&nbsp; </span>
+command bar button, click the button to start to track events of shapes. </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+' CommandBar variable
+' Click commandBarbutton to start log shapes' events
+Private commandBarStart As Office.CommandBar
+Private WithEvents commandBarButtonStart As Office.CommandBarButton
+
+
+ ' Add a custom commandbar button and set the name is &quot;Start checking shapes&quot;
+    commandBarStart = Me.Application.CommandBars.ActiveMenuBar
+
+
+    ' Add the commandbar button into the commandbar
+    commandBarButtonStart = DirectCast(commandBarStart.Controls.Add(Office.MsoControlType.msoControlButton, Before:=1, Temporary:=True), Office.CommandBarButton)
+    commandBarButtonStart.Style = Office.MsoButtonStyle.msoButtonCaption
+    commandBarButtonStart.Caption = StartJob
+    commandBarButtonStart.FaceId = 60
+    commandBarButtonStart.Visible = True
+
+</pre>
+<pre id="codePreview" class="vb">
+' CommandBar variable
+' Click commandBarbutton to start log shapes' events
+Private commandBarStart As Office.CommandBar
+Private WithEvents commandBarButtonStart As Office.CommandBarButton
+
+
+ ' Add a custom commandbar button and set the name is &quot;Start checking shapes&quot;
+    commandBarStart = Me.Application.CommandBars.ActiveMenuBar
+
+
+    ' Add the commandbar button into the commandbar
+    commandBarButtonStart = DirectCast(commandBarStart.Controls.Add(Office.MsoControlType.msoControlButton, Before:=1, Temporary:=True), Office.CommandBarButton)
+    commandBarButtonStart.Style = Office.MsoButtonStyle.msoButtonCaption
+    commandBarButtonStart.Caption = StartJob
+    commandBarButtonStart.FaceId = 60
+    commandBarButtonStart.Visible = True
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<p class="MsoNormal"><span style="">Step6. Create Custom events for shapes. </span>
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+''' &lt;summary&gt;
+   ''' Occurs when the user selected shape change
+   ''' &lt;/summary&gt;
+   ''' &lt;param name=&quot;newselectedshape&quot;&gt;Selected shape Now&lt;/param&gt;
+   ''' &lt;param name=&quot;preselectedshape&quot;&gt;Selected shape Before&lt;/param&gt;
+   Private Sub ShapeSelctionChange(newselectedshape As MyShape, preselectedshape As MyShape)
+       customTaskPanel.AddMessage(&quot;ShapeSelctionChange, Selction from &quot; & Convert.ToString(preselectedshape.Name) & &quot; to &quot; & Convert.ToString(newselectedshape.Name))
+   End Sub
+
+
+
+
+   ''' &lt;summary&gt;
+   ''' Occurs when a shape(s) is removed from the Shapes collection of the current sheet
+   ''' &lt;/summary&gt;
+   ''' &lt;param name=&quot;shapesRemoved__1&quot;&gt;The removed shapes&lt;/param&gt;
+   Private Sub ShapesRemoved(shapesRemoved__1 As MyShapes)
+       customTaskPanel.AddMessage(&quot;ShapesRemoved Event Occures.&quot; & shapesRemoved__1.Count.ToString() & &quot; shape(s) are removed from Sheet.Shapes.&quot;)
+   End Sub
+
+
+   ''' &lt;summary&gt;
+   ''' Occurs when a shape is Created
+   ''' &lt;/summary&gt;
+   ''' &lt;param name=&quot;shapesCreated__1&quot;&gt;The Created shape&lt;/param&gt;
+   Private Sub ShapesCreated(shapesCreated__1 As MyShapes)
+       customTaskPanel.AddMessage(&quot;ShapeCreated Event Occures.&quot; & shapesCreated__1.Count.ToString() & &quot; shape(s) are added to the Sheet.Shapes collection.&quot;)
+   End Sub
+
+
+   ''' &lt;summary&gt;
+   ''' Occurs when a shape is moved
+   ''' &lt;/summary&gt;
+   ''' &lt;param name=&quot;myshape&quot;&gt;The moved shape&lt;/param&gt;
+   Private Sub ShapeMoved(myshape As MyShape)
+       customTaskPanel.AddMessage(&quot;ShapeMoved Event Occurs, Shape.Name='&quot; & Convert.ToString(myshape.Name) & &quot;'&quot;)
+   End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+''' &lt;summary&gt;
+   ''' Occurs when the user selected shape change
+   ''' &lt;/summary&gt;
+   ''' &lt;param name=&quot;newselectedshape&quot;&gt;Selected shape Now&lt;/param&gt;
+   ''' &lt;param name=&quot;preselectedshape&quot;&gt;Selected shape Before&lt;/param&gt;
+   Private Sub ShapeSelctionChange(newselectedshape As MyShape, preselectedshape As MyShape)
+       customTaskPanel.AddMessage(&quot;ShapeSelctionChange, Selction from &quot; & Convert.ToString(preselectedshape.Name) & &quot; to &quot; & Convert.ToString(newselectedshape.Name))
+   End Sub
+
+
+
+
+   ''' &lt;summary&gt;
+   ''' Occurs when a shape(s) is removed from the Shapes collection of the current sheet
+   ''' &lt;/summary&gt;
+   ''' &lt;param name=&quot;shapesRemoved__1&quot;&gt;The removed shapes&lt;/param&gt;
+   Private Sub ShapesRemoved(shapesRemoved__1 As MyShapes)
+       customTaskPanel.AddMessage(&quot;ShapesRemoved Event Occures.&quot; & shapesRemoved__1.Count.ToString() & &quot; shape(s) are removed from Sheet.Shapes.&quot;)
+   End Sub
+
+
+   ''' &lt;summary&gt;
+   ''' Occurs when a shape is Created
+   ''' &lt;/summary&gt;
+   ''' &lt;param name=&quot;shapesCreated__1&quot;&gt;The Created shape&lt;/param&gt;
+   Private Sub ShapesCreated(shapesCreated__1 As MyShapes)
+       customTaskPanel.AddMessage(&quot;ShapeCreated Event Occures.&quot; & shapesCreated__1.Count.ToString() & &quot; shape(s) are added to the Sheet.Shapes collection.&quot;)
+   End Sub
+
+
+   ''' &lt;summary&gt;
+   ''' Occurs when a shape is moved
+   ''' &lt;/summary&gt;
+   ''' &lt;param name=&quot;myshape&quot;&gt;The moved shape&lt;/param&gt;
+   Private Sub ShapeMoved(myshape As MyShape)
+       customTaskPanel.AddMessage(&quot;ShapeMoved Event Occurs, Shape.Name='&quot; & Convert.ToString(myshape.Name) & &quot;'&quot;)
+   End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<p class="MsoNormal"><span style="">Step7. Implement CommandBars.OnUpdate event to detect event occurring.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+''' &lt;summary&gt;
+   ''' CommandBars Update function
+   ''' &lt;/summary&gt;
+   ''' &lt;remarks&gt;&lt;/remarks&gt;
+   Private Sub commandBars_OnUpdate() Handles commandBars.OnUpdate
+       If Not isWorking Then
+           Return
+       End If
+
+
+       selecteTypeNameNow = GetSelectedTypeName()
+
+
+       ' Initialize current Selected shape and  current Existing shapes
+       FillCollections()
+
+
+       ' detect whether the custom events occur
+       ProcessExistingShapes()
+       ProcessSelectedShape()
+
+
+       ' Initialize previous Selected shape and previous Existing shapes again
+       shapesExistingLastTime = shapesExistingNow
+       shapeSelectedLastTime = shapeSelectedNow
+
+
+       ' Initialize previous Selected Object and Type Name again
+       selectedTypeNameLastTime = selecteTypeNameNow
+   End Sub
+
+
+   ''' &lt;summary&gt;
+   ''' Get Selected shape and Existing shapes
+   ''' &lt;/summary&gt;
+   Private Sub FillCollections()
+       If selecteTypeNameNow Is Nothing OrElse selectedTypeNameLastTime Is Nothing Then
+           customTaskPanel.AddMessage(&quot;The type name of the selected object is &quot; & selectedTypeNameLastTime)
+       Else
+           If selecteTypeNameNow &lt;&gt; selectedTypeNameLastTime Then
+               customTaskPanel.AddMessage(&quot;The type name of the selected object is &quot; & selecteTypeNameNow)
+           End If
+       End If
+
+
+       ' Get the current selected shape and current existing shapes
+       shapeSelectedNow = GetShapeSelected()
+       shapesExistingNow = New MyShapes(TryCast(Me.Application.ActiveSheet, Excel._Worksheet))
+
+
+       ' Get the current Selected Object and current Type Name
+       selecteTypeNameNow = GetSelectedTypeName()
+   End Sub
+
+
+   ''' &lt;summary&gt;
+   ''' Get Selected Type Name
+   ''' &lt;/summary&gt;
+   ''' &lt;returns&gt;return Selected TypeName&lt;/returns&gt;
+   Private Function GetSelectedTypeName() As String
+       Dim typename As String = Nothing
+       Dim selection As Object = Me.Application.Selection
+       If selection IsNot Nothing Then
+           typename = <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.VisualBasic.Information.TypeName.aspx"  title="Auto generated link to Microsoft.VisualBasic.Information.TypeName">Microsoft.VisualBasic.Information.TypeName</a>(selection)
+       End If
+
+
+       Return typename
+   End Function
+
+
+   ''' &lt;summary&gt;
+   ''' Get Selected Shape
+   ''' &lt;/summary&gt;
+   ''' &lt;returns&gt;Return Selected Shape&lt;/returns&gt;
+   Private Function GetShapeSelected() As MyShape
+       Dim selectedShape As Excel.Shape = Nothing
+       Dim myselectedShape As MyShape = Nothing
+       Dim selectedShapeRange As Excel.ShapeRange = Nothing
+       Try
+           selectedShapeRange = Me.Application.Selection.ShapeRange
+       Catch
+           If selecteTypeNameNow &lt;&gt; selectedTypeNameLastTime Then
+               customTaskPanel.AddMessage(&quot;No shape selected&quot;)
+           End If
+       End Try
+
+
+       If selectedShapeRange IsNot Nothing Then
+           selectedShape = TryCast(selectedShapeRange.Item(1), Excel.Shape)
+           If selectedShape IsNot Nothing Then
+               myselectedShape = New MyShape(selectedShape)
+               Return myselectedShape
+           End If
+       End If
+
+
+       Return myselectedShape
+   End Function
+
+
+   ''' &lt;summary&gt;
+   ''' Analyze Existing Shapes
+   ''' &lt;/summary&gt;
+   ''' &lt;remarks&gt;&lt;/remarks&gt;
+   Private Sub ProcessExistingShapes()
+       Dim shapesCreated__1 As MyShapes = shapesExistingNow.GetShapesMissingIn(shapesExistingLastTime)
+       Dim shapesRemoved__2 As MyShapes = shapesExistingLastTime.GetShapesMissingIn(shapesExistingNow)
+
+
+       ' If Removed Shapes is not zero
+       ' Then ShapesRemoved Event Occurs
+       ' Show the number of Removed Shapes in Task Panel
+       If shapesRemoved__2.Count &lt;&gt; 0 Then
+           ShapesRemoved(shapesRemoved__2)
+       End If
+       If shapesCreated__1.Count &lt;&gt; 0 Then
+           ShapesCreated(shapesCreated__1)
+       End If
+   End Sub
+
+
+   ''' &lt;summary&gt;
+   ''' Analyze Selected Shape
+   ''' &lt;/summary&gt;
+   ''' &lt;remarks&gt;&lt;/remarks&gt;
+   Private Sub ProcessSelectedShape()
+       If shapeSelectedLastTime Is Nothing OrElse shapeSelectedNow Is Nothing Then
+           Return
+       End If
+       ' compare previous selected shape's ID with current sekected shape's ID
+       ' to detect whether ShapeSelectionChange event occurs
+       If shapeSelectedNow.ID &lt;&gt; shapeSelectedLastTime.ID Then
+           Me.ShapeSelctionChange(shapeSelectedNow, shapeSelectedLastTime)
+       Else
+           ' compare previous selected shape's top or left with current slected shape's top or left
+           ' to detect whether ShapeMoved event occurs
+           If shapeSelectedNow.Top &lt;&gt; shapeSelectedLastTime.Top OrElse shapeSelectedNow.Left &lt;&gt; shapeSelectedLastTime.Left Then
+               Me.ShapeMoved(shapeSelectedNow)
+           End If
+       End If
+   End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+''' &lt;summary&gt;
+   ''' CommandBars Update function
+   ''' &lt;/summary&gt;
+   ''' &lt;remarks&gt;&lt;/remarks&gt;
+   Private Sub commandBars_OnUpdate() Handles commandBars.OnUpdate
+       If Not isWorking Then
+           Return
+       End If
+
+
+       selecteTypeNameNow = GetSelectedTypeName()
+
+
+       ' Initialize current Selected shape and  current Existing shapes
+       FillCollections()
+
+
+       ' detect whether the custom events occur
+       ProcessExistingShapes()
+       ProcessSelectedShape()
+
+
+       ' Initialize previous Selected shape and previous Existing shapes again
+       shapesExistingLastTime = shapesExistingNow
+       shapeSelectedLastTime = shapeSelectedNow
+
+
+       ' Initialize previous Selected Object and Type Name again
+       selectedTypeNameLastTime = selecteTypeNameNow
+   End Sub
+
+
+   ''' &lt;summary&gt;
+   ''' Get Selected shape and Existing shapes
+   ''' &lt;/summary&gt;
+   Private Sub FillCollections()
+       If selecteTypeNameNow Is Nothing OrElse selectedTypeNameLastTime Is Nothing Then
+           customTaskPanel.AddMessage(&quot;The type name of the selected object is &quot; & selectedTypeNameLastTime)
+       Else
+           If selecteTypeNameNow &lt;&gt; selectedTypeNameLastTime Then
+               customTaskPanel.AddMessage(&quot;The type name of the selected object is &quot; & selecteTypeNameNow)
+           End If
+       End If
+
+
+       ' Get the current selected shape and current existing shapes
+       shapeSelectedNow = GetShapeSelected()
+       shapesExistingNow = New MyShapes(TryCast(Me.Application.ActiveSheet, Excel._Worksheet))
+
+
+       ' Get the current Selected Object and current Type Name
+       selecteTypeNameNow = GetSelectedTypeName()
+   End Sub
+
+
+   ''' &lt;summary&gt;
+   ''' Get Selected Type Name
+   ''' &lt;/summary&gt;
+   ''' &lt;returns&gt;return Selected TypeName&lt;/returns&gt;
+   Private Function GetSelectedTypeName() As String
+       Dim typename As String = Nothing
+       Dim selection As Object = Me.Application.Selection
+       If selection IsNot Nothing Then
+           typename = <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.VisualBasic.Information.TypeName.aspx"  title="Auto generated link to Microsoft.VisualBasic.Information.TypeName">Microsoft.VisualBasic.Information.TypeName</a>(selection)
+       End If
+
+
+       Return typename
+   End Function
+
+
+   ''' &lt;summary&gt;
+   ''' Get Selected Shape
+   ''' &lt;/summary&gt;
+   ''' &lt;returns&gt;Return Selected Shape&lt;/returns&gt;
+   Private Function GetShapeSelected() As MyShape
+       Dim selectedShape As Excel.Shape = Nothing
+       Dim myselectedShape As MyShape = Nothing
+       Dim selectedShapeRange As Excel.ShapeRange = Nothing
+       Try
+           selectedShapeRange = Me.Application.Selection.ShapeRange
+       Catch
+           If selecteTypeNameNow &lt;&gt; selectedTypeNameLastTime Then
+               customTaskPanel.AddMessage(&quot;No shape selected&quot;)
+           End If
+       End Try
+
+
+       If selectedShapeRange IsNot Nothing Then
+           selectedShape = TryCast(selectedShapeRange.Item(1), Excel.Shape)
+           If selectedShape IsNot Nothing Then
+               myselectedShape = New MyShape(selectedShape)
+               Return myselectedShape
+           End If
+       End If
+
+
+       Return myselectedShape
+   End Function
+
+
+   ''' &lt;summary&gt;
+   ''' Analyze Existing Shapes
+   ''' &lt;/summary&gt;
+   ''' &lt;remarks&gt;&lt;/remarks&gt;
+   Private Sub ProcessExistingShapes()
+       Dim shapesCreated__1 As MyShapes = shapesExistingNow.GetShapesMissingIn(shapesExistingLastTime)
+       Dim shapesRemoved__2 As MyShapes = shapesExistingLastTime.GetShapesMissingIn(shapesExistingNow)
+
+
+       ' If Removed Shapes is not zero
+       ' Then ShapesRemoved Event Occurs
+       ' Show the number of Removed Shapes in Task Panel
+       If shapesRemoved__2.Count &lt;&gt; 0 Then
+           ShapesRemoved(shapesRemoved__2)
+       End If
+       If shapesCreated__1.Count &lt;&gt; 0 Then
+           ShapesCreated(shapesCreated__1)
+       End If
+   End Sub
+
+
+   ''' &lt;summary&gt;
+   ''' Analyze Selected Shape
+   ''' &lt;/summary&gt;
+   ''' &lt;remarks&gt;&lt;/remarks&gt;
+   Private Sub ProcessSelectedShape()
+       If shapeSelectedLastTime Is Nothing OrElse shapeSelectedNow Is Nothing Then
+           Return
+       End If
+       ' compare previous selected shape's ID with current sekected shape's ID
+       ' to detect whether ShapeSelectionChange event occurs
+       If shapeSelectedNow.ID &lt;&gt; shapeSelectedLastTime.ID Then
+           Me.ShapeSelctionChange(shapeSelectedNow, shapeSelectedLastTime)
+       Else
+           ' compare previous selected shape's top or left with current slected shape's top or left
+           ' to detect whether ShapeMoved event occurs
+           If shapeSelectedNow.Top &lt;&gt; shapeSelectedLastTime.Top OrElse shapeSelectedNow.Left &lt;&gt; shapeSelectedLastTime.Left Then
+               Me.ShapeMoved(shapeSelectedNow)
+           End If
+       End If
+   End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<h2>More Information</h2>
+<p class="MsoNormal"><span style=""><a href="http://msdn.microsoft.com/en-us/library/aa942846.aspx">How to Add a custom task panel</a>
+</span></p>
+<p class="MsoNormal"><span style=""><a href="http://msdn.microsoft.com/en-US/library/0batekf4(v=vs.80).aspx">How to create office Menu</a>
+</span></p>
+<p class="MsoNormal"><span style=""><a href="http://msdn.microsoft.com/en-us/library/microsoft.office.core._commandbarsevents_event.onupdate.aspx">CommandBars.OnUpdate Event</a>
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
