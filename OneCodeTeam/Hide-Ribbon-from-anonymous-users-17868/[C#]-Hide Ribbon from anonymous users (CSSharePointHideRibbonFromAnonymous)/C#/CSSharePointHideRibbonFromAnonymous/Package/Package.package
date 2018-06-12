@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="fdd10854-9282-489c-ac04-b38155bf8cd1" solutionId="57fbfd18-d8a7-4094-bbec-fe3e93bc925d" resetWebServer="false" name="ConsultPoint.SharePoint.RibbonVisibility" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="8926c0ff-1261-45de-984a-0aab4c77a20a" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="9e8a8393-8542-45bf-8e14-59bd826d57ae" />
+    <projectItemReference itemId="74d7d39c-322d-445b-9251-05f9ac99405a" />
+  </projectItems>
+</package>
