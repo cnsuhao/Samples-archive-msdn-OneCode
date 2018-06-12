@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="a612dc92-f5b8-4eb4-aa1e-b3f2d818ff25" solutionId="a612dc92-f5b8-4eb4-aa1e-b3f2d818ff25" resetWebServer="false" name="CSSharePointAssociateWorkflowToContentType" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="19ec90f6-8f99-400f-b37a-90ab24188fd2" />
+    <featureReference itemId="4d91a365-20b6-46bb-8017-e67c14b2f218" />
+  </features>
+</package>
