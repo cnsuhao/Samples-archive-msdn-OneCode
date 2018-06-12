@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Dynamically build lambda exp (CSDynamicallyBuildLambdaExpressionWithField)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Dynamically build lambda exp (CSDynamicallyBuildLambdaExpressionWithField)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            .NET Framework
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Lambda Expression
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">8/22/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSDynamicallyBuildLambdaExp-d75a695b">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    ======================================================================================<br>
+&nbsp; &nbsp; &nbsp;Windows APPLICATION: CSDynamicallyBuildLambdaExpressionWithField Overview &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+======================================================================================<br>
+//////////////////////////////////////////////////////////////////////////////////////<br>
+Summary:<br>
+<br>
+&nbsp;This sample demonstrates how to dynamically build lambda expression and show data
+<br>
+&nbsp;into DataGridView Control.<br>
+<br>
+&nbsp;This sample shows up multiple conditions jointing together and dynamically <br>
+&nbsp;generate &nbsp;LINQ TO SQL. LINQ is a great way to declaratively filter and query data
+<br>
+&nbsp;in a Type_Safe,Intuitive,and very expressive way.this sample achieve it. For example,<br>
+&nbsp;the search feature in this application allow the customer to find all records that
+<br>
+&nbsp;meet criteria defined on multiple columns.<br>
+<br>
+&nbsp; <br>
+//////////////////////////////////////////////////////////////////////////////////////<br>
+Demo:<br>
+<br>
+Step1. Build this project in Visual Studio 2010. <br>
+<br>
+Step2. Download SQL2000SampleDb.msi according to the website mentioned as follows:<br>
+&nbsp; &nbsp; &nbsp; http://www.microsoft.com/downloads/en/details.aspx?FamilyID=06616212-0356-46a0-8da2-eebc53a68034&displaylang=en<br>
+&nbsp; &nbsp; &nbsp;<br>
+Step3. Install it into your system catalog and startup your SQL Server Management Studio.<br>
+<br>
+Step4. Right click the treenode written as &quot;Databases&quot; and left click &quot;Attach...&quot;.<br>
+<br>
+Step5. Make sure just Northwind.MDF and Northwind.LDF are installed in the system catalog,<br>
+&nbsp; &nbsp; &nbsp; which has complete access control privileges.Under the above condition,<br>
+&nbsp; &nbsp; &nbsp; Select the button written as &quot;Add...&quot; inside Attach Databases Dialog to attach
+<br>
+&nbsp; &nbsp; &nbsp; Northwind database. <br>
+<br>
+Step6. Select app.config inside the NorthwindApp project to modify the connections string
+<br>
+&nbsp; &nbsp; &nbsp; or double click Settings.settings under the NorthwindApp project and modify column<br>
+&nbsp; &nbsp; &nbsp; written as &quot;value&quot;.<br>
+<br>
+Step7. Right click the NorthwindApp project and click the menuitem written as &quot;Set as Startup Project&quot;.<br>
+<br>
+Step8. Click F5 shortcut key and select condition field ,condition operator and condition value.<br>
+<br>
+Step9. Click the button written as &quot;Search&quot; and view the result parsed by LINQ TO SQL.<br>
+<br>
+<br>
+//////////////////////////////////////////////////////////////////////////////////////<br>
+Code Logic:<br>
+1. There are three main classes: Condition, Condition(Of T), and Condition(Of T,S)<br>
+&nbsp; a. Condition is an abstract class that is used to construct the generic versions.<br>
+&nbsp; By structuring it this we get the benefits of generic type parameter inference-i.e.<br>
+&nbsp; we don't have to worry about passing the generic type parameters to the method;<br>
+&nbsp; the factory method figures it out for us.<br>
+&nbsp; b. Condition(Of T) is used to join multiple conditions together. T is the element<br>
+&nbsp; type(i.e. Order in the example above).<br>
+&nbsp; c. Condition(Of T,S) is the simplest type;it represents an &quot;object.propery&lt;comparison&gt; value&quot;<br>
+&nbsp; expression. The type parameter S will be inferred to be the type of the value passed<br>
+&nbsp; in(i.e. String,Date,Boolean etc...).<br>
+2. For local execution of a query we compile the LambdaExpression to a delegate so that<br>
+&nbsp; it can be executed in-memory. The user can invoke this delegate by calling the Matches
+<br>
+&nbsp; method.<br>
+&nbsp; // Compile the lambda expression into a delegate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;del = (Func&lt;T, bool&gt;)(LambdaExpr.Compile());<br>
+3. The extension methods at the bottom are defined on IQueryable(Of T) for remote execution,<br>
+&nbsp; and IEnumerable(Of T) for local execution.<br>
+<br>
+<br>
+//////////////////////////////////////////////////////////////////////////////////////<br>
+References:<br>
+<br>
+Implementing Dynamic Searching Using LINQ <br>
+http://blogs.msdn.com/b/vbteam/archive/2007/08/29/implementing-dynamic-searching-using-linq.aspx<br>
+<br>
+LINQ to SQL (Part 9 - Using a Custom LINQ Expression with the &lt;asp:LinqDatasource&gt; control)
+<br>
+http://weblogs.asp.net/scottgu/archive/2007/09/07/linq-to-sql-part-9-using-a-custom-linq-expression-with-the-lt-asp-linqdatasource-gt-control.aspx<br>
+<br>
+<br>
+//////////////////////////////////////////////////////////////////////////////////////<br>
+
+</div>
+
+
+    </div>
+</body>
+</html>
