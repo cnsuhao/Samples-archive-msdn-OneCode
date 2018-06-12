@@ -1,0 +1,18 @@
+﻿<Window x:Class="AzureMobileServiceGenerateSAS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="480" Width="640">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="189" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button Name="btnStart" Content="Start to get SAS" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                Margin="10,10,433,140" FontSize="20" Click="btnStart_Click" />
+        <Label Content="UserID:" HorizontalAlignment="Left" Margin="53,79,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.294,-0.103" Width="55"/>
+        <TextBox AcceptsReturn="True" Margin="10,0,10,10" Name="txtDebug" Grid.Row="1" Height="250" VerticalAlignment="Bottom" />
+        <TextBox x:Name="tbUserID" HorizontalAlignment="Left" Height="27" Margin="146,77,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="462"/>
+        <Label Content="SAS:" HorizontalAlignment="Left" Margin="71,131,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.196,0.347" Width="37"/>
+        <TextBox x:Name="tbSAS" HorizontalAlignment="Left" Margin="146,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="462"/>   
+    </Grid>
+</Window>
