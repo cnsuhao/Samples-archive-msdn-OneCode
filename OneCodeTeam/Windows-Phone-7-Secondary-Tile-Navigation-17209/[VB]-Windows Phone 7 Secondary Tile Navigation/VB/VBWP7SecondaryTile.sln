@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBWP7SecondaryTile", "VBWP7SecondaryTile\VBWP7SecondaryTile.vbproj", "{8EECC2A1-F712-4457-A984-DBDDE24A9AD5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{796BE5D6-25C4-4760-A369-BA6B6352FAE9}"
+	ProjectSection(SolutionItems) = preProject
+		VBWP7SecondaryTile\Documentation\ReadMe.htm = VBWP7SecondaryTile\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EECC2A1-F712-4457-A984-DBDDE24A9AD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EECC2A1-F712-4457-A984-DBDDE24A9AD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EECC2A1-F712-4457-A984-DBDDE24A9AD5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8EECC2A1-F712-4457-A984-DBDDE24A9AD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EECC2A1-F712-4457-A984-DBDDE24A9AD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EECC2A1-F712-4457-A984-DBDDE24A9AD5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
