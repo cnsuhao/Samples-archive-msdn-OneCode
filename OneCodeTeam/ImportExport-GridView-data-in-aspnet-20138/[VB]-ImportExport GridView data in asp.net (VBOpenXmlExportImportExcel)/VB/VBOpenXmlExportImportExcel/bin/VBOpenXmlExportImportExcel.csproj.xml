@@ -1,0 +1,160 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+VBOpenXmlExportImportExcel.csproj
+</name>
+</assembly>
+<members>
+<member name="M:VBOpenXmlExportImportExcel.csproj.CreateSpreadSheetProvider.InitilizeCellHeaders">
+	<summary>
+  Add the item into List
+ </summary>
+</member><member name="M:VBOpenXmlExportImportExcel.csproj.CreateSpreadSheetProvider.Get(System.Int32,System.Int32)">
+	<summary>
+  Returns the column caption for the given row and column index
+ </summary>
+	<param name="rowIndex">Index of the row.</param>
+	<param name="columnIndex">Index of the column.</param>
+	<returns></returns>
+</member><member name="M:VBOpenXmlExportImportExcel.csproj.CreateSpreadSheetProvider.ExportToExcel(System.Data.DataTable,System.String)">
+	<summary>
+  Generate an excel file with data in GridView control
+ </summary>
+	<param name="datatable">DataTable object</param>
+	<param name="filepath">The Path of exported excel file</param>
+</member><member name="M:VBOpenXmlExportImportExcel.csproj.CreateSpreadSheetProvider.CreateExcelFile(DocumentFormat.OpenXml.Packaging.SpreadsheetDocument,System.Data.DataTable)">
+	<summary>
+  Create SpreadSheet Document and Fill datas
+ </summary>
+	<param name="spreadsheetdoc">SpreadSheet Document</param>
+	<param name="table">DataTable Object</param>
+</member><member name="M:VBOpenXmlExportImportExcel.csproj.CreateSpreadSheetProvider.CreateWorkBookPart(DocumentFormat.OpenXml.Packaging.WorkbookPart)">
+	<summary>
+ Create an Workbook instance and add its children
+ </summary>
+	<param name="workbookPart">WorkbookPart Object</param>
+</member><member name="M:VBOpenXmlExportImportExcel.csproj.CreateSpreadSheetProvider.CreateWorkSheetPart(DocumentFormat.OpenXml.Packaging.WorksheetPart,System.Data.DataTable)">
+	<summary>
+  Generates content of worksheetPart
+ </summary>
+	<param name="worksheetPart">WorksheetPart Object</param>
+	<param name="table">DataTable Object</param>
+</member><member name="M:VBOpenXmlExportImportExcel.csproj.CreateSpreadSheetProvider.CreateSharedStringTablePart(DocumentFormat.OpenXml.Packaging.SharedStringTablePart,System.Data.DataTable)">
+	<summary>
+ Generates content of sharedStringTablePart
+ </summary>
+	<param name="sharedStringTablePart">SharedStringTablePart Object</param>
+	<param name="table">DataTable Object</param>
+</member><member name="M:VBOpenXmlExportImportExcel.csproj.CreateSpreadSheetProvider.CreateWorkBookStylesPart(DocumentFormat.OpenXml.Packaging.WorkbookStylesPart)">
+	<summary>
+ Generates content of workbookStylesPart
+ </summary>
+	<param name="workbookStylesPart">WorkbookStylesPart Object</param>
+</member><member name="F:VBOpenXmlExportImportExcel.csproj.ExportAndImportExcel.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBOpenXmlExportImportExcel.csproj.ExportAndImportExcel.gridViewTest">
+	<summary>
+gridViewTest control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBOpenXmlExportImportExcel.csproj.ExportAndImportExcel.btnExport">
+	<summary>
+btnExport control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBOpenXmlExportImportExcel.csproj.ExportAndImportExcel.FileUpload1">
+	<summary>
+FileUpload1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:VBOpenXmlExportImportExcel.csproj.ExportAndImportExcel.btnImport">
+	<summary>
+btnImport control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="M:VBOpenXmlExportImportExcel.csproj.ExportAndImportExcel.btnImport_Click(System.Object,System.EventArgs)">
+	<summary>
+  Import Excel Data into GridView Control 
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:VBOpenXmlExportImportExcel.csproj.ExportAndImportExcel.ReadExcelFile(System.String)">
+	<summary>
+  Read Data from selected excel file on client
+ </summary>
+	<param name="filename">File Path</param>
+	<returns></returns>
+</member><member name="M:VBOpenXmlExportImportExcel.csproj.ExportAndImportExcel.GetValueOfCell(DocumentFormat.OpenXml.Packaging.SpreadsheetDocument,DocumentFormat.OpenXml.Spreadsheet.Cell)">
+	<summary>
+  Get Value in Cell 
+ </summary>
+	<param name="spreadsheetdocument">SpreadSheet Document</param>
+	<param name="cell">Cell in SpreadSheet Document</param>
+	<returns>The value in cell</returns>
+</member><member name="M:VBOpenXmlExportImportExcel.csproj.ExportAndImportExcel.btnExport_Click(System.Object,System.EventArgs)">
+	<summary>
+  Export Data in GridView control to Excel file
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:VBOpenXmlExportImportExcel.csproj.ExportAndImportExcel.CreateDataTable(System.Web.UI.WebControls.GridView)">
+	<summary>
+  Create DataTable from GridView Control
+ </summary>
+	<param name="girdViewtest">GridView Control</param>
+	<returns>An instance of DataTable Object</returns>
+</member><member name="P:VBOpenXmlExportImportExcel.csproj.My.MyWebExtension.Application">
+	<summary>
+ Returns information about the current application.
+ </summary>
+</member><member name="P:VBOpenXmlExportImportExcel.csproj.My.MyWebExtension.Computer">
+	<summary>
+ Returns information about the host computer.
+ </summary>
+</member><member name="P:VBOpenXmlExportImportExcel.csproj.My.MyWebExtension.User">
+	<summary>
+ Returns information for the current Web user.
+ </summary>
+</member><member name="P:VBOpenXmlExportImportExcel.csproj.My.MyWebExtension.Request">
+	<summary>
+ Returns Request object.
+ </summary>
+</member><member name="P:VBOpenXmlExportImportExcel.csproj.My.MyWebExtension.Response">
+	<summary>
+ Returns Response object.
+ </summary>
+</member><member name="P:VBOpenXmlExportImportExcel.csproj.My.MyWebExtension.Log">
+	<summary>
+ Returns the Asp log object.
+ </summary>
+</member><member name="P:VBOpenXmlExportImportExcel.csproj.My.MyWebExtension.WebServices">
+	<summary>
+ Provides access to WebServices added to this project.
+ </summary>
+</member><member name="T:VBOpenXmlExportImportExcel.csproj.My.MyWebExtension">
+	<summary>
+ Module used to define the properties that are available in the My Namespace for Web projects.
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>
