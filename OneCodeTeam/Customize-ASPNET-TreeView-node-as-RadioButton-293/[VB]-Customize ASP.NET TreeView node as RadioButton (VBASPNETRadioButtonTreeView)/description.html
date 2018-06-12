@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Customize ASP.NET TreeView node as RadioButton (VBASPNETRadioButtonTreeView)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Customize ASP.NET TreeView node as RadioButton (VBASPNETRadioButtonTreeView)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Controls, TreeView
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBASPNETRadioButtonTreeView-8a1b8fe9">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>VBASPNETRadioButtonTreeView Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+&nbsp;The project shows how to simulate a RadioButton Group within the TreeView <br>
+&nbsp;control to make the user can only select one item from a note tree. Since <br>
+&nbsp;there is no build-in feature to achieve this, we use two images to imitate<br>
+&nbsp;the RadioButton and set TreeNode's ImageUrl property as the path of these<br>
+&nbsp;images. When user clicks the item in tree, reset the Checked value and the<br>
+&nbsp;ImageUrl value of the treenode to make it looks lick a selected item of a <br>
+&nbsp;RadioButton appearance. <br>
+</p>
+<h3>Code Logical:</h3>
+<p style="font-family:Courier New"><br>
+Step1. Create a Visual Basic ASP.NET Web Application in Visual Studio 2008 /<br>
+Visual Web Developer and name it as VBASPNETRadioButtonTreeView.<br>
+<br>
+Step2. Add an TreeView control into the page and change its ID property to<br>
+RadioButtonTreeView.<br>
+<br>
+Step3: Add some test TreeNode to the TreeView follow the HTML code.<br>
+<br>
+&lt;asp:TreeView ID=&quot;RadioButtonTreeView&quot; runat=&quot;server&quot; ShowLines=&quot;True&quot;&gt;<br>
+&nbsp; &nbsp;&lt;Nodes&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:TreeNode SelectAction=&quot;Expand&quot; Text=&quot;Operating System&quot; Value=&quot;OS&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:TreeNode Text=&quot;Windows XP SP1&quot; Value=&quot;Windows XP SP1&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:TreeNode Text=&quot;Windows XP SP2&quot; Value=&quot;Windows XP SP2&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:TreeNode Text=&quot;Windows 2003&quot; Value=&quot;Windows 2003&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:TreeNode Text=&quot;Windows Vista&quot; Value=&quot;Windows Vista&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;/asp:TreeNode&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:TreeNode SelectAction=&quot;Expand&quot; Text=&quot;Application&quot; Value=&quot;App&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:TreeNode Text=&quot;Office XP&quot; Value=&quot;Office XP&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:TreeNode Text=&quot;Office 2003&quot; Value=&quot;Office 2003&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:TreeNode Text=&quot;Office 2007&quot; Value=&quot;Office 2007&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;/asp:TreeNode&gt;<br>
+&nbsp; &nbsp;&lt;/Nodes&gt;<br>
+&lt;/asp:TreeView&gt;<br>
+<br>
+[NOTE] The TreeView exposes custom TreeNodeStyle properties for each node <br>
+type (RootNodeStyle, ParentNodeStyle, and LeafNodeStyle), each of which has<br>
+an ImageUrl property used for defining an icon for the node type. These <br>
+images are rendered to the left of the node text, as shown in the figure <br>
+above. Each TreeNode may selectively override the default image for its <br>
+node type using the ImageUrl property on the TreeNode object. <br>
+<br>
+Step4: Perpare two images. One for the state that the TreeNode isn't been<br>
+selected, the other for being selected. There already have been two existed<br>
+images doing the role. However, we can also make them ourselves by snipping<br>
+from other RadioButton from the screen.<br>
+<br>
+Step5: Set the TreeNode's ImageUrl property to the path of the image standing<br>
+for unchecked.<br>
+<br>
+Step7: Open the Code-Behind page and locate the VB.NET code into the<br>
+SelectedNodeChanged eventer handler of the TreeView control.<br>
+<br>
+[NOTE] In this step, what the code does is to loop through all the tree nodes <br>
+in the same level of the selected one and set the Checked propert to false as <br>
+well as the image first. Then, change the selected node one to be Checked and<br>
+set the ImageUrl of this node to the path of the Checked image.<br>
+<br>
+Step8: Write the code to handle the Click event of the Button to return the <br>
+final selection from the RadioButtonTreeView via CheckedNodes property.<br>
+<br>
+[NOTE] All the things we do is to imitate the feature to TreeView control <br>
+and make it looks like contains a list of RadioButton. So, when user click<br>
+the TreeView, the page will post back and get flash somehow. Anyway, it is<br>
+a work around that is not difficult and can be used if anyone need to add<br>
+radiobuttons to a TreeView control.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MSDN: TreeView Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.windows.forms.treeview.aspx">http://msdn.microsoft.com/en-us/library/system.windows.forms.treeview.aspx</a><br>
+<br>
+MSDN: TreeView Web Server Control Overview<br>
+<a  href="http://msdn.microsoft.com/en-us/library/e8z5184w.aspx">http://msdn.microsoft.com/en-us/library/e8z5184w.aspx</a><br>
+<br>
+ASP.NET Quickstart Tutorials: TreeView<br>
+<a  href="http://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/navigation/treeview.aspx">http://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/navigation/treeview.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
