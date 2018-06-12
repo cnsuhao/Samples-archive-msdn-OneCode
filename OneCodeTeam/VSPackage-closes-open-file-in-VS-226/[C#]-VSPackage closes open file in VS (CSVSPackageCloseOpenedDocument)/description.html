@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>VSPackage closes open file in VS (CSVSPackageCloseOpenedDocument)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>VSPackage closes open file in VS (CSVSPackageCloseOpenedDocument)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            VSX
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Close already open document
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSVSPackageCloseOpenedDocum-d2e6bee1">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>Visual Studio VSPackage : CSVSPackageCloseOpenedDocument Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+This sample demonstrates how to close the document which is already open in<br>
+another editor.<br>
+<br>
+In Visual Studio, a specific editor cannot open the document which is already<br>
+open by another editor. &nbsp;For example, if a .cs file is already open with<br>
+Code Editor, trying to open that .cs file with XML Editor will cause a dialog<br>
+comes out saying &quot;The document 'xxx.cs' is already open. &nbsp;Do you want to<br>
+close it?&quot;<br>
+Another example is, in VC&#43;&#43; project, the Resource View toolwindow will always<br>
+trying to open the .rc file in a invisible editor(IVsInvisibleEditor) and<br>
+track its change to update the information in its tree view. &nbsp;So if we want<br>
+to open the .rc file with Code Editor(right-click -&gt; View Code) for seeing<br>
+its source code, the same dialog will appear.<br>
+<br>
+In this sample, it shows how to use the IVsRunningDocumentTable interface to<br>
+access the RDT(Running Document Table), find out the opened document and<br>
+lock it, then trying to close it, so that other editors can open the same<br>
+document without the dialog prompt showing.<br>
+<br>
+</p>
+<h3>Prerequisites:</h3>
+<p style="font-family:Courier New"><br>
+VS 2008 SDK must be installed on the machine. You can download it from:<br>
+<a  href="http://www.microsoft.com/downloads/details.aspx?FamilyID=30402623-93ca-479a-">http://www.microsoft.com/downloads/details.aspx?FamilyID=30402623-93ca-479a-</a><br>
+867c-04dc45164f5b&displaylang=en<br>
+<br>
+Otherwise the project may not be opened by Visual Studio.<br>
+<br>
+NOTE: The Package Load Failure Dialog occurs because there is no<br>
+&nbsp; &nbsp; &nbsp;PLK(Package Load Key) Specified in this package. To obtain a PLK, please<br>
+&nbsp; &nbsp; &nbsp;to go to WebSite:<br>
+&nbsp; &nbsp; &nbsp;<a  href="http://msdn.microsoft.com/en-us/vsx/cc655795.aspx">http://msdn.microsoft.com/en-us/vsx/cc655795.aspx</a><br>
+&nbsp; &nbsp; &nbsp;More info:<br>
+&nbsp; &nbsp; &nbsp;<a  href="http://msdn.microsoft.com/en-us/library/bb165395.aspx">http://msdn.microsoft.com/en-us/library/bb165395.aspx</a><br>
+<br>
+</p>
+<h3>Creation:</h3>
+<p style="font-family:Courier New"><br>
+Step1. Create a Visual Studio Integration Package project from the New<br>
+Project dialog named CSVSPackageCloseOpenedDocument, choose Visual C# as<br>
+the development language.<br>
+Check the Menu Command checkbox to create a menu command.<br>
+<br>
+Step2. Open the CSVSPackageCloseOpenedDocumentPackage.cs file, define a<br>
+method named CloseAndOpenInXMLEditor which will trying to open a file with<br>
+XML Editor, if the document is already open in another editor, close it from<br>
+the RDT.<br>
+<br>
+private void CloseAndOpenInXMLEditor(string filePath)<br>
+{<br>
+&nbsp; &nbsp;IVsHierarchy ppHier = null;<br>
+&nbsp; &nbsp;uint pitemid = <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.VisualStudio.VSConstants.VSITEMID_NIL.aspx"  title="Auto generated link to Microsoft.VisualStudio.VSConstants.VSITEMID_NIL">Microsoft.VisualStudio.VSConstants.VSITEMID_NIL</a>;<br>
+&nbsp; &nbsp;IntPtr ppunkDocData = IntPtr.Zero;<br>
+&nbsp; &nbsp;uint pdwCookie = <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.VisualStudio.VSConstants.VSITEMID_NIL.aspx"  title="Auto generated link to Microsoft.VisualStudio.VSConstants.VSITEMID_NIL">Microsoft.VisualStudio.VSConstants.VSITEMID_NIL</a>;<br>
+<br>
+&nbsp; &nbsp;try<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Get the IVsRunningDocumentTable interface and cast it to<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// IVsRunningDocumentTable2 interface.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;IVsRunningDocumentTable rdt =<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;GetService(typeof(SVsRunningDocumentTable))<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;as IVsRunningDocumentTable;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;IVsRunningDocumentTable2 rdt2 = rdt as IVsRunningDocumentTable2;<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Find the opened document(.rc file) from the RDT.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;rdt.FindAndLockDocument((uint)_VSRDTFLAGS.RDT_NoLock, filePath,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;out ppHier, out pitemid, out ppunkDocData, out pdwCookie);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;if (ppunkDocData != IntPtr.Zero)<br>
+&nbsp; &nbsp; &nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Close the opened document.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure.aspx"  title="Auto generated link to Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure">Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure</a>(<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rdt2.CloseDocuments((uint)__FRAMECLOSE.FRAMECLOSE_SaveIfDirty,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;null, pdwCookie));<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ppunkDocData = IntPtr.Zero;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;}<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;IVsInvisibleEditorManager spIEM;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;IVsInvisibleEditor invisibleEditor = null;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;IVsWindowFrame winFrame = null;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Guid logicalView = <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.VisualStudio.VSConstants.LOGVIEWID_Primary.aspx"  title="Auto generated link to Microsoft.VisualStudio.VSConstants.LOGVIEWID_Primary">Microsoft.VisualStudio.VSConstants.LOGVIEWID_Primary</a>;<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Get the IVsInvisibleEditorManager interface.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;spIEM = (IVsInvisibleEditorManager)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;GetService(typeof(IVsInvisibleEditorManager));<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Register a invisible editor, then the specific document will be<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// loaded into the RDT.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;spIEM.RegisterInvisibleEditor(filePath, null,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(uint)_EDITORREGFLAGS.RIEF_ENABLECACHING,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;null, out invisibleEditor);<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Get the IVsUIShellOpenDocument interface.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;IVsUIShellOpenDocument uiShellOpenDocument =<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;GetService(typeof(SVsUIShellOpenDocument))<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;as IVsUIShellOpenDocument;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Guid of the Microsoft XML editor<br>
+&nbsp; &nbsp; &nbsp; &nbsp;Guid guidXMLEditor = new Guid(&quot;{FA3CD31E-987B-443A-9B81-186104E8DAC1}&quot;);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;rdt.FindAndLockDocument((uint)_VSRDTFLAGS.RDT_NoLock, filePath,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;out ppHier, out pitemid, out ppunkDocData, out pdwCookie);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Open the document in XML editor.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure.aspx"  title="Auto generated link to Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure">Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure</a>(<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;uiShellOpenDocument.OpenSpecificEditor((uint)0, filePath,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ref guidXMLEditor, &quot;&quot;, ref logicalView, &quot;XML Editor&quot;,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ppHier as IVsUIHierarchy, pitemid,<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ppunkDocData, this, out winFrame));<br>
+&nbsp; &nbsp; &nbsp; &nbsp;// Show the editor window.<br>
+&nbsp; &nbsp; &nbsp; &nbsp;winFrame.Show();<br>
+&nbsp; &nbsp;}<br>
+&nbsp; &nbsp;catch (Exception e)<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp;<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Windows.Forms.MessageBox.Show.aspx"  title="Auto generated link to System.Windows.Forms.MessageBox.Show">System.Windows.Forms.MessageBox.Show</a>(e.Message);<br>
+&nbsp; &nbsp;}<br>
+}<br>
+<br>
+Step3. Call the method CloseAndOpenInXMLEditor in the menu command handler,<br>
+replace the default message box.<br>
+<br>
+private void MenuItemCallback(object sender, EventArgs e)<br>
+{<br>
+&nbsp; &nbsp;CloseAndOpenInXMLEditor(@&quot;E:\Projects\TestProject\TestProject\TestProject.cs&quot;);<br>
+}<br>
+<br>
+To test the method CloseAndOpenInXMLEditor, you will need to replace the<br>
+passed file to the specific one you want to open in XML Editor.<br>
+<br>
+Step4. Save and compile the project.<br>
+<br>
+Step5. Run this VSPackage in a new instance of Visual Studio(simply press F5),<br>
+open a existing project in the new instance of Visual Studio, open a project<br>
+file with the Code Editor(e.g.: double-click a .cs file in Solution Explorer).<br>
+Then run our method from Tools -&gt; CSVSPackageCloseOpenedDocument, you will<br>
+see the opened document being closed then opened again in XML Editor without<br>
+the &quot;The document 'xxx.cs' is already open. &nbsp;Do you want to close it?&quot; dialog<br>
+being shown.<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MSDN: IVsRunningDocumentTable Interface<br>
+<a target="_blank" href="&lt;a &lt;a http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop</a>'&gt;<a  href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop</a>'&gt;<a target="_blank" href="&lt;a http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop</a>'&gt;<a  href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop</a><br>
+.ivsrunningdocumenttable(VS.80).aspx<br>
+<br>
+MSDN: IVsRunningDocumentTable2 Interface<br>
+<a target="_blank" href="&lt;a &lt;a http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop</a>'&gt;<a  href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop</a>'&gt;<a target="_blank" href="&lt;a http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop</a>'&gt;<a  href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop</a><br>
+.ivsrunningdocumenttable2(VS.80).aspx<br>
+<br>
+MSDN: IVsUIShellOpenDocument.OpenSpecificEditor Method<br>
+<a target="_blank" href="&lt;a &lt;a http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop</a>'&gt;<a  href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop</a>'&gt;<a target="_blank" href="&lt;a http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop</a>'&gt;<a  href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop">http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.shell.interop</a><br>
+.ivsuishellopendocument.openspecificeditor.aspx<br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
