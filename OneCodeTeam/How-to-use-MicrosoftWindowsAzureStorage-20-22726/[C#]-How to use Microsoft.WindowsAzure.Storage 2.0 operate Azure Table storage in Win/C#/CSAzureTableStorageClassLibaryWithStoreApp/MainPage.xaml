@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="CSAzureTableStorageClassLibaryWithStoreApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CSAzureTableStorageClassLibaryWithStoreApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">     
+        <TextBox x:Name="tbMessage" HorizontalAlignment="Left" Margin="79,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="79,160,0,0" VerticalAlignment="Top" Click="btnSave_Click"/>
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="177,160,0,0" VerticalAlignment="Top" Click="btnDelete_Click"/>
+        <Button x:Name="btnComplete" Content="Complete" HorizontalAlignment="Left" Margin="280,160,0,0" VerticalAlignment="Top" Click="btnComplete_Click"/>
+        <ListView x:Name="lvwTodoItems" HorizontalAlignment="Left" Height="437" Margin="79,219,0,0" VerticalAlignment="Top" Width="300">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource BasicTextStyle}" >
+                                    <Run Text="Message:" FontWeight="Bold"/>
+                                    <Run Text="{Binding Message}"/>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBox x:Name="lbState" HorizontalAlignment="Left" Margin="484,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="197" Width="349"  IsReadOnly="True"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,94,0,0" TextWrapping="Wrap" Text="Todo message:" VerticalAlignment="Top" Height="32" Width="64" FontSize="14"/>
+    </Grid>
+</Page>
