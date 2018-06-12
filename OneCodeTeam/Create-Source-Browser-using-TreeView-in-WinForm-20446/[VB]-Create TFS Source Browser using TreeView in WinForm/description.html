@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Create TFS Source Browser using TreeView in WinForm</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Create TFS Source Browser using TreeView in WinForm</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            TFS
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            TFS
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">1/17/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBWinformTFSTreeView-1035a0b1">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Create Team Foundation Server Source Browser using TreeView in Windows Form (VBWinformTFSTreeView)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal"><span style="">This article and the attached code sample demonstrate how to display the Team Foundation Server hierarchical source items in a tree structure outside Visual Studio Team Explorer.<span style="">&nbsp;
+</span>You can find the answers for all the following questions in the code sample:
+</span></p>
+<p class="MsoListBulletCxSpFirst" style=""><span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">How to make connection with Team Foundation Server?
+</span></p>
+<p class="MsoListBulletCxSpMiddle" style=""><span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">How to get one level Team Foundation Server Version Control Items?
+</span></p>
+<p class="MsoListBulletCxSpLast" style=""><span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">How to create the TreeView.BeforeExpand event handler and generate the TreeNode based on the hierarchy of Team Foundation Version Control Server?
+</span></p>
+<h2>Building the Sample</h2>
+<p class="MsoNormal"><span style="">To build this sample, you must install TFS (Team Foundation Server) 2010 SP1 Object Model at first.<span style="">&nbsp;
+</span>By using the TFS Object Model, the attached code samples can retrieve the Team Foundation Version Control Server Items outside the Visual Studio or Team Explorer.
+</span></p>
+<p class="MsoNormal"><span style="">The standalone Team Foundation Server 2010 SP1 Object Model Installer is available for download from the Visual Studio Gallery:
+</span></p>
+<p class="MsoNormal"><a href="http://visualstudiogallery.msdn.microsoft.com/a37e19fb-3052-4fc9-bef7-4a4682069a75">Download the Team Foundation Server 2010 SP1 Object Model Installer here</a><span style="">.
+</span></p>
+<p class="MsoNormal"><b style=""><span style="">Note</span></b><span style="">: this is the same Object Model included with the Visual Studio &amp; Team Explorer SKU.<span style="">&nbsp;&nbsp;&nbsp;
+</span></span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style="">After you successfully build the sample project in Visual Studio 2010, you will get the application CSWinformTFSTreeView.exe.<span style="">&nbsp;
+</span>Run the application either in debug mode in the Visual Studio or in standalone mode in the Windows Explorer.<span style="">&nbsp;&nbsp;
+</span>The application should be initially displayed as following on the Main dialog.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="576" height="432" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><span style="">Click the Connect button and add the Team Foundation Server connection in the &quot;Connect to Team Project&quot; Dialog.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/e2b50ae8-dd8e-43ac-b6cb-0f2cbf435559image.png" alt="" width="576" height="359" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal"><span style="">When the connection with Team Foundation Server is established, you will see the TFS Version Control Server items shown in the hierarchical structure in the Tree View at the bottom of the Main dialog.
+</span></p>
+<p class="MsoListBullet" style=""><span style=""><img src="description/740d5748-e98b-41bb-a21c-3b0ab44547b6image.png" alt="" width="576" height="432" align="middle">
+</span><span style=""></span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal"><span style="">The code sample provides the following reusable functions for browsing the Team Foundation Version Control hierarchical sources in the Windows Forms TreeView control.</span>
+<span style=""></span></p>
+<p class="MsoNormal"><b style=""><span style="">How to make connection with Team Foundation Server?
+</span></b></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Public Function Connect() As Boolean
+&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TfsVersionControlServer = New TfsTeamProjectCollection(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TeamFoundationServerCollectionUri).GetService(Of VersionControlServer)()
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return (Not GetChildLevelTfsVcsItems(&quot;$/&quot;) Is Nothing)
+&nbsp;&nbsp;&nbsp; Catch tfsUnavailableException As TeamFoundationServiceUnavailableException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CommonUtilities.ShowWarning(tfsUnavailableException.Message)
+&nbsp;&nbsp;&nbsp; Catch webException As WebException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CommonUtilities.ShowError(webException.Message)
+&nbsp;&nbsp;&nbsp; End Try
+
+
+&nbsp;&nbsp;&nbsp; Return False
+End Function
+
+</pre>
+<pre id="codePreview" class="vb">
+Public Function Connect() As Boolean
+&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TfsVersionControlServer = New TfsTeamProjectCollection(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TeamFoundationServerCollectionUri).GetService(Of VersionControlServer)()
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return (Not GetChildLevelTfsVcsItems(&quot;$/&quot;) Is Nothing)
+&nbsp;&nbsp;&nbsp; Catch tfsUnavailableException As TeamFoundationServiceUnavailableException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CommonUtilities.ShowWarning(tfsUnavailableException.Message)
+&nbsp;&nbsp;&nbsp; Catch webException As WebException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CommonUtilities.ShowError(webException.Message)
+&nbsp;&nbsp;&nbsp; End Try
+
+
+&nbsp;&nbsp;&nbsp; Return False
+End Function
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><b style=""><span style=""></span></b></p>
+<p class="MsoNormal"><b style=""><span style="">How to get one level Team Foundation Server Version Control Items?
+</span></b></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Public Function GetChildLevelTfsVcsItems(ByVal serverNodePath As String) As ItemSet
+&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return TfsVersionControlServer.GetItems(serverNodePath,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RecursionType.OneLevel)
+&nbsp;&nbsp;&nbsp; Catch tfsUnavailableException As TeamFoundationServiceUnavailableException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CommonUtilities.ShowWarning(tfsUnavailableException.Message)
+&nbsp;&nbsp;&nbsp; Catch webException As WebException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CommonUtilities.ShowError(webException.Message)
+&nbsp;&nbsp;&nbsp; End Try
+
+
+&nbsp;&nbsp;&nbsp; Return Nothing
+End Function
+
+</pre>
+<pre id="codePreview" class="vb">
+Public Function GetChildLevelTfsVcsItems(ByVal serverNodePath As String) As ItemSet
+&nbsp;&nbsp;&nbsp; Try
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return TfsVersionControlServer.GetItems(serverNodePath,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RecursionType.OneLevel)
+&nbsp;&nbsp;&nbsp; Catch tfsUnavailableException As TeamFoundationServiceUnavailableException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CommonUtilities.ShowWarning(tfsUnavailableException.Message)
+&nbsp;&nbsp;&nbsp; Catch webException As WebException
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CommonUtilities.ShowError(webException.Message)
+&nbsp;&nbsp;&nbsp; End Try
+
+
+&nbsp;&nbsp;&nbsp; Return Nothing
+End Function
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<p class="MsoNormal"><b style=""><span style="">How to create the TreeView.BeforeExpand event handler and generate the TreeNode based on the hierarchy of Team Foundation Version Control Server?
+</span></b></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Sub TvwSourceBrowserBeforeExpand(sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, e As Windows.Forms.TreeViewCancelEventArgs) Handles tvwSourceBrowser.BeforeExpand
+&nbsp;&nbsp;&nbsp; If ((Not e Is Nothing) AndAlso (Not e.Node Is Nothing)) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim currentNode As TreeNode = e.Node
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim currentNodeServerPath As String = TryCast(currentNode.Tag, String)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If Not String.IsNullOrEmpty(currentNodeServerPath) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim asyncResult As IAsyncResult = tvwSourceBrowser.BeginInvoke(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; New Action(Of TreeNode)(AddressOf Me.GenerateChildrenTFSTreeNode),
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; New Object() {currentNode})
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tvwSourceBrowser.EndInvoke(asyncResult)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp; End If
+End Sub
+
+
+''' &lt;summary&gt;
+''' Generate children TFSNode per the parentNode server path.
+''' &lt;/summary&gt;
+''' &lt;param name=&quot;parentNode&quot;&gt;parent TreeNode&lt;/param&gt;
+''' &lt;remarks&gt;&lt;/remarks&gt;
+Private Sub GenerateChildrenTFSTreeNode(ByVal parentNode As TreeNode)
+&nbsp;&nbsp;&nbsp; Dim currentNodeServerPath As String = TryCast(parentNode.Tag, String)
+
+
+&nbsp;&nbsp;&nbsp; If Not String.IsNullOrEmpty(currentNodeServerPath) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parentNode.Nodes.Clear()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim items As ItemSet =
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tfsContext.GetChildLevelTfsVcsItems(currentNodeServerPath)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If ((Not items Is Nothing) AndAlso (Not items.Items Is Nothing)) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' Filter the first item which is the self item.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For i As Integer = 1 To Enumerable.Count(Of Item)(items.Items) - 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim tfsTreeNode As TreeNode =
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateTFSTreeNode(items.Items(i).ServerItem,
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items.Items(i).ItemType)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If (Not tfsTreeNode Is Nothing) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parentNode.Nodes.Add(tfsTreeNode)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp; End If
+End Sub
+
+
+''' &lt;summary&gt;
+''' Create TreeNode per the tfs server item type
+''' If it's a folder type, use Folder icon for the node;
+''' If it's a file type, get the file type associated icon for the node.
+''' &lt;/summary&gt;
+''' &lt;param name=&quot;tfsServerItem&quot;&gt;TFS Server item full path&lt;/param&gt;
+''' &lt;param name=&quot;tfsItemType&quot;&gt;TFS Server item type&lt;/param&gt;
+''' &lt;returns&gt;TreeNode for a tfs server item&lt;/returns&gt;
+''' &lt;remarks&gt;&lt;/remarks&gt;
+Private Function CreateTFSTreeNode(ByVal tfsServerItem As String,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ByVal tfsItemType As ItemType) As TreeNode
+&nbsp;&nbsp;&nbsp; Dim treeNode As TreeNode = Nothing
+
+
+&nbsp;&nbsp;&nbsp; If Not String.IsNullOrEmpty(tfsServerItem) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim nodeName As String = Path.GetFileName(tfsServerItem)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If String.IsNullOrEmpty(nodeName) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return treeNode
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End If
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim imageIndex As Integer = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; treeNode = New TreeNode(nodeName)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select Case tfsItemType
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Case ItemType.Folder
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imageIndex = ImageListExtension.GetImageListIndex(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imageList, My.Resources.FolderExtensionName)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; treeNode.Nodes.Add(My.Resources.WaitingTreeNodeName)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exit Select
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Case ItemType.File
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim nodeExtension As String = Path.GetExtension(nodeName)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imageIndex = ImageListExtension.GetImageListIndex(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imageList, nodeExtension)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exit Select
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Select
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; treeNode.ImageIndex = imageIndex
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; treeNode.SelectedImageIndex = imageIndex
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; treeNode.Tag = tfsServerItem
+&nbsp;&nbsp;&nbsp; End If
+
+
+&nbsp;&nbsp;&nbsp; Return treeNode
+End Function
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Sub TvwSourceBrowserBeforeExpand(sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, e As Windows.Forms.TreeViewCancelEventArgs) Handles tvwSourceBrowser.BeforeExpand
+&nbsp;&nbsp;&nbsp; If ((Not e Is Nothing) AndAlso (Not e.Node Is Nothing)) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim currentNode As TreeNode = e.Node
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim currentNodeServerPath As String = TryCast(currentNode.Tag, String)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If Not String.IsNullOrEmpty(currentNodeServerPath) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim asyncResult As IAsyncResult = tvwSourceBrowser.BeginInvoke(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; New Action(Of TreeNode)(AddressOf Me.GenerateChildrenTFSTreeNode),
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; New Object() {currentNode})
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tvwSourceBrowser.EndInvoke(asyncResult)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp; End If
+End Sub
+
+
+''' &lt;summary&gt;
+''' Generate children TFSNode per the parentNode server path.
+''' &lt;/summary&gt;
+''' &lt;param name=&quot;parentNode&quot;&gt;parent TreeNode&lt;/param&gt;
+''' &lt;remarks&gt;&lt;/remarks&gt;
+Private Sub GenerateChildrenTFSTreeNode(ByVal parentNode As TreeNode)
+&nbsp;&nbsp;&nbsp; Dim currentNodeServerPath As String = TryCast(parentNode.Tag, String)
+
+
+&nbsp;&nbsp;&nbsp; If Not String.IsNullOrEmpty(currentNodeServerPath) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parentNode.Nodes.Clear()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim items As ItemSet =
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tfsContext.GetChildLevelTfsVcsItems(currentNodeServerPath)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If ((Not items Is Nothing) AndAlso (Not items.Items Is Nothing)) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' Filter the first item which is the self item.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For i As Integer = 1 To Enumerable.Count(Of Item)(items.Items) - 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim tfsTreeNode As TreeNode =
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateTFSTreeNode(items.Items(i).ServerItem,
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items.Items(i).ItemType)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If (Not tfsTreeNode Is Nothing) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parentNode.Nodes.Add(tfsTreeNode)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If
+&nbsp;&nbsp;&nbsp; End If
+End Sub
+
+
+''' &lt;summary&gt;
+''' Create TreeNode per the tfs server item type
+''' If it's a folder type, use Folder icon for the node;
+''' If it's a file type, get the file type associated icon for the node.
+''' &lt;/summary&gt;
+''' &lt;param name=&quot;tfsServerItem&quot;&gt;TFS Server item full path&lt;/param&gt;
+''' &lt;param name=&quot;tfsItemType&quot;&gt;TFS Server item type&lt;/param&gt;
+''' &lt;returns&gt;TreeNode for a tfs server item&lt;/returns&gt;
+''' &lt;remarks&gt;&lt;/remarks&gt;
+Private Function CreateTFSTreeNode(ByVal tfsServerItem As String,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ByVal tfsItemType As ItemType) As TreeNode
+&nbsp;&nbsp;&nbsp; Dim treeNode As TreeNode = Nothing
+
+
+&nbsp;&nbsp;&nbsp; If Not String.IsNullOrEmpty(tfsServerItem) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim nodeName As String = Path.GetFileName(tfsServerItem)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If String.IsNullOrEmpty(nodeName) Then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return treeNode
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End If
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim imageIndex As Integer = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; treeNode = New TreeNode(nodeName)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select Case tfsItemType
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Case ItemType.Folder
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imageIndex = ImageListExtension.GetImageListIndex(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imageList, My.Resources.FolderExtensionName)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; treeNode.Nodes.Add(My.Resources.WaitingTreeNodeName)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exit Select
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Case ItemType.File
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim nodeExtension As String = Path.GetExtension(nodeName)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imageIndex = ImageListExtension.GetImageListIndex(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imageList, nodeExtension)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exit Select
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Select
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; treeNode.ImageIndex = imageIndex
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; treeNode.SelectedImageIndex = imageIndex
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; treeNode.Tag = tfsServerItem
+&nbsp;&nbsp;&nbsp; End If
+
+
+&nbsp;&nbsp;&nbsp; Return treeNode
+End Function
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<h2>More Information</h2>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/ms181475(v=vs.100).aspx">MSDN: Connect to and Access Team Projects in Team Foundation Server</a></p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/bb286958(v=vs.100).aspx">MSDN: Connect to Team Foundation Server from a Console Application</a></p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-US/library/bb138913(v=vs.100).aspx">MSDN: VersionControlServer.GetItems Method (String, RecursionType)</a></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
