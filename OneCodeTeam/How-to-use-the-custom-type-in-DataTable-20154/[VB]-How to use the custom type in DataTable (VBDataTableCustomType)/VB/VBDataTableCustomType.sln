@@ -1,0 +1,21 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBDataTableCustomType", "VBDataTableCustomType\VBDataTableCustomType.vbproj", "{FDF5B028-969C-415D-A0B3-EB8EABB284E8}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDF5B028-969C-415D-A0B3-EB8EABB284E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF5B028-969C-415D-A0B3-EB8EABB284E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF5B028-969C-415D-A0B3-EB8EABB284E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF5B028-969C-415D-A0B3-EB8EABB284E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
