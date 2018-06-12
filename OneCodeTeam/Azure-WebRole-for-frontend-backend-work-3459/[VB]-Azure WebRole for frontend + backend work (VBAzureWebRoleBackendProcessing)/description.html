@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Azure WebRole for frontend + backend work (VBAzureWebRoleBackendProcessing)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Azure WebRole for frontend + backend work (VBAzureWebRoleBackendProcessing)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            WebRole, Backend Operation
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/16/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBAzureWebRoleBackendProces-5c14157d">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420" ><img id="79969" src="description/120x90_Azure_web_EN_US.jpg" alt="" width="360" height="90"></a></p>
+<h1>WINDOWS AZURE APPLICATION : VBAzureWebRoleBackendProcessing Project Overview</h1>
+<h2>Prerequisites</h2>
+<ol>
+<li>Visual Studio 2010. The trial version can be downloaded from <a href="http://www.microsoft.com/visualstudio/en-us/try">
+Visual Studio 2010 Trial Downloads</a> </li><li>Windows Azure SDK which can be downloaded from <a href="http://www.microsoft.com/windowsazure/sdk/">
+Download Windows Azure SDK</a> </li></ol>
+<h2>Summary</h2>
+<p>Windows Azure provides a worker role to perform backend processing. A worker role will be deployed to one or more separated instances. However, sometimes we want to perform backend processing in the same instance of web role for cost saving purpose etc.</p>
+<p>This sample shows how to achieve this goal by using startup task in a web role to run a console application in the backend. The backend processor works much similar to a worker role. The difference is that it runs as a startup task in the same instance of
+ the web role.</p>
+<p>Please note if a VM crashes both the frontend web role and the backend processor on the VM stop working, and the scalability of the backend processor is coupled with scalability of the web role, which may not be suitable in some scenario.</p>
+<p>This solution contains 4 projects:</p>
+<ul>
+<li><strong>Common</strong> is a Class Library that acts as both data access layer and bussiness layer. DataSources class, WordDataContext class, WordEntry are for accessing Table Storage and Queue Storage. BackendProcessor class contains the logic that will
+ be run in backend. </li><li><strong>Processor</strong> is a Console Application that runs the backend logic.
+</li><li><strong>WebRole</strong> is a Web Role project that contains a web page to demo this sample.
+</li><li><strong>AzureService</strong> is a Windows Azure Service project that configures the web role and the startup task.
+</li></ul>
+<h2>How to demo this sample</h2>
+<h3>How to run this sample on local machine</h3>
+<p>Please open the solution in Visual Studio 2010 in Administrator mode, set AzureService project as startup project and press F5 (or click &quot;Start Debugging&quot; from Debug menu).The browser will be opened automatically and will be displaying a sample web page.</p>
+<p>Please input some words into the text box and press the Process button. The words will be added to Azure Table Storage. Then later, these words will be processed to be upper case by a backend processor.</p>
+<h3>How to debug this sample locally</h3>
+<p>Please temporarily comment out Startup element from ServiceDefinition.csdef file.Press F5 to start debugging the web role. For now, the Processor is not started up. When the web role is running, please right click the Processor project in Solution Explorer
+ window and click Debug -&gt; Start new instance. Now you are debugging both the WebRole project and the Processor project.</p>
+<h3>How to publish this sample to the cloud</h3>
+<p>Open the solution in Visual Studio 2010 in Administrator mode. Right click the AzureService project in Solution Explorer window and click Publish. Please see
+<a href="http://msdn.microsoft.com/en-us/library/ee460772.aspx">Publishing a Windows Azure Application from Visual Studio</a> for more information.</p>
+<p>Please make sure you have a valid storage account when you test the application published to cloud. To change the connection string, please open up
+<a href="http://code.msdn.microsoft.com/VBAzureWebRoleBackendProces-5c14157d/https://windows.azure.com/">Azure Platform Management Portal</a>, select the published service project, and click the
+<strong>Configure</strong> button. In the <strong>Configure Deployment</strong> dialog, select
+<strong>Edit current configuration</strong> and edit the DataConnectionString setting as followed:</p>
+<pre>&lt;Setting name=&quot;DataConnectionString&quot; value=&quot;<strong>DefaultEndpointsProtocol=https;AccountName=[YourAccountName];AccountKey=[YourAccountKey]</strong>&quot; /&gt;
+</pre>
+<h2>Key Logic</h2>
+<h3>useLegacyV2RuntimeActivationPolicy</h3>
+<p>The Processor project relies on <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.WindowsAzure.ServiceRuntime.aspx"  title="Auto generated link to Microsoft.WindowsAzure.ServiceRuntime">Microsoft.WindowsAzure.ServiceRuntime</a> assembly which is a mixed mode assembly. The useLegacyV2RuntimeActivationPolicy attribute is required for referencing any mixed mode assembly.So the configuration file Processor project
+ contains the following setting:</p>
+<pre>&lt;startup <strong>useLegacyV2RuntimeActivationPolicy=&quot;true&quot;</strong>&gt;
+    &lt;supportedRuntime version=&quot;v4.0&quot; sku=&quot;.NETFramework,Version=v4.0&quot;/&gt;
+&lt;/startup&gt;
+</pre>
+<h3>Use a console application within the same solution in startup task</h3>
+<p>Firstly create the Processor console application in the same solution. Then in the WebRole project, add a reference to the console application project.Adding the reference will cause the console application to be built and copied to the output folder of
+ WebRole project when a build action is applied to WebRole project.</p>
+<p>By default, when we add reference to a project, the application configuration file will not be copied to the target output folder.To overcome this, we create a second config file called VBAzureWebRoleBackendProcessing.Processor.exe.config (VBAzureWebRoleBackendProcessing.Processor.exe
+ is the file name of the console application) in the console project. Set <strong>
+Copy to Output Directory</strong> as <strong>Copy always.</strong> This configuration file will be used when the console application is loaded as startup task by the web role.</p>
+<p>In AzureService project, open ServiceDefinition.csdef file. Add a Startup element within WebRole element to start up the the console application.</p>
+<pre>&lt;Startup&gt;
+    &lt;Task commandLine=&quot;VBAzureWebRoleBackendProcessing.Processor.exe&quot; executionContext=&quot;elevated&quot; taskType=&quot;background&quot; /&gt;
+&lt;/Startup&gt;
+</pre>
+<h2>References</h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/en-us/library/hh180155.aspx">Starting Tasks Before Role Instances Start in Windows Azure</a>
+</li><li><a href="http://msdn.microsoft.com/en-us/library/bbx34a2h.aspx">&lt;startup&gt; Element&lt;startup&gt; Element</a>
+</li></ul>
+<p>&nbsp;</p>
+<hr>
+<p><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png" alt="">
+</a></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>
