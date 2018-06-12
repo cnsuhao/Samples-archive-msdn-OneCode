@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Item open="1">
+    <Name>Asp.net</Name>
+    <Category>Asp.net</Category>
+    <Path>Relative Pages/Aspnet.aspx</Path>
+  </Item>
+  <Item open="0">
+    <Name>Asp.net_DataControl</Name>
+    <Category>Asp.net</Category>
+    <Path>Relative Pages/Aspnet_DataControl.aspx</Path>
+  </Item>
+  <Item open="0">
+    <Name>Asp.net_MVC</Name>
+    <Category>Asp.net</Category>
+    <Path>Relative Pages/Aspnet_MVC.aspx</Path>
+  </Item>
+  <Item open="1">
+    <Name>Silverlight</Name>
+    <Category>Silverlightt</Category>
+    <Path>Relative Pages/Silverlight.aspx</Path>
+  </Item>
+  <Item open="0">
+    <Name>Silverlight_Toolkit</Name>
+    <Category>Silverlight</Category>
+    <Path>Relative Pages/Silverlight_Toolkit.aspx</Path>
+  </Item>
+  <Item open="1">
+    <Name>WCF</Name>
+    <Category>WCF</Category>
+    <Path>Relative Pages/WCF.aspx</Path>
+  </Item>
+</Root>
