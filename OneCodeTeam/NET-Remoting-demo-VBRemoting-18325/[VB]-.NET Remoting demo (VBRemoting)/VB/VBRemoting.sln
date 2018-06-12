@@ -1,0 +1,49 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documention", "Documention", "{1CBCFB3F-AE0A-4143-AD5A-A7A5969E66F0}"
+	ProjectSection(SolutionItems) = preProject
+		VBRemoting\Documention\ReadMe.htm = VBRemoting\Documention\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe_Files", "ReadMe_Files", "{FAFA5A20-5291-4609-A03F-27F3AB64AC1C}"
+	ProjectSection(SolutionItems) = preProject
+		VBRemoting\Documention\ReadMe_files\colorschememapping.xml = VBRemoting\Documention\ReadMe_files\colorschememapping.xml
+		VBRemoting\Documention\ReadMe_files\filelist.xml = VBRemoting\Documention\ReadMe_files\filelist.xml
+		VBRemoting\Documention\ReadMe_files\image001.png = VBRemoting\Documention\ReadMe_files\image001.png
+		VBRemoting\Documention\ReadMe_files\image002.jpg = VBRemoting\Documention\ReadMe_files\image002.jpg
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBRemotingClient", "VBRemoting\VBRemotingClient\VBRemotingClient.vbproj", "{ACADD514-A735-41DC-AA97-654D15A2CBD8}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBRemotingServer", "VBRemoting\VBRemotingServer\VBRemotingServer.vbproj", "{080F193C-AF9A-4F92-ACD5-9EB47D9F4ADE}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBRemotingSharedLibrary", "VBRemoting\VBRemotingSharedLibrary\VBRemotingSharedLibrary.vbproj", "{B542E17D-30C0-422B-8D67-00CB3AE48ECC}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACADD514-A735-41DC-AA97-654D15A2CBD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACADD514-A735-41DC-AA97-654D15A2CBD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACADD514-A735-41DC-AA97-654D15A2CBD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACADD514-A735-41DC-AA97-654D15A2CBD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{080F193C-AF9A-4F92-ACD5-9EB47D9F4ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080F193C-AF9A-4F92-ACD5-9EB47D9F4ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080F193C-AF9A-4F92-ACD5-9EB47D9F4ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080F193C-AF9A-4F92-ACD5-9EB47D9F4ADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B542E17D-30C0-422B-8D67-00CB3AE48ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B542E17D-30C0-422B-8D67-00CB3AE48ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B542E17D-30C0-422B-8D67-00CB3AE48ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B542E17D-30C0-422B-8D67-00CB3AE48ECC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FAFA5A20-5291-4609-A03F-27F3AB64AC1C} = {1CBCFB3F-AE0A-4143-AD5A-A7A5969E66F0}
+	EndGlobalSection
+EndGlobal
