@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/0aac1760-b513-488a-ba57-e31d9413a075Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to use Azure ACS (Access Control Service) protect ASP.NET Web API</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to use Azure ACS (Access Control Service) protect ASP.NET Web API</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Azure
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">2/25/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-use-Azure-ACS-b5750512">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img alt="" src="description/8171.onecodesampletopbanner.png">
+</a></div>
+<h1><span lang="EN-US">Use ACS secure Asp.net Web API (CSAzureACSWithWebAPI)</span></h1>
+<h2><span lang="EN-US">Introduction</span></h2>
+<p class="Normal"><span lang="EN-US">Secure Web API is a hot topic in asp.net forum.</span></p>
+<p class="Normal"><span lang="EN-US">This sample will show you how to use Azure ACS secure the web API. It will require you sign in with Live ID/Google/Yahoo/Live connect account first before you use the web API.</span></p>
+<h2><span lang="EN-US">Running the Sample</span></h2>
+<p class="MsoListParagraphCxSpFirst" style="margin-left:18.0pt; text-indent:5.0pt">
+<span lang="EN-US" style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Right click &quot;CSAzureACSWithWebAPI&quot; project, and choose &quot;identity and access&quot;. (If you can't find this selection, go to the tools-&gt;Extentions and updates-&gt;OnLine-&gt;search &quot;Identity&quot;
+ and install the &quot;Identity and Access Tool&quot;, then restart your Visual Studio.)</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt; text-indent:5.0pt">
+<span lang="EN-US" style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Choose &quot;Use the Windows Azure Access Control Service&quot;, and configure your ACS Namesapce.</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt"><span lang="EN-US" style=""><img src="description/image.png" alt="" width="486" height="317" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt; text-indent:5.0pt">
+<span lang="EN-US" style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Check all the items in check boxes list, then click ok.</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt"><span lang="EN-US" style=""><img src="description/bdafbed7-0ee0-47b6-be8d-fa0401c849beimage.png" alt="" width="576" height="418" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt"><span lang="EN-US"></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt; text-indent:5.0pt">
+<span lang="EN-US" style=""><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Login to your Azure portal, choose your &quot;Access control Namespace&quot; and click Manage.</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt"><span lang="EN-US" style=""><img src="description/0fe4868e-67c8-4445-8814-ea8ede6d3babimage.png" alt="" width="576" height="390" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt"><span lang="EN-US"></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt; text-indent:5.0pt">
+<span lang="EN-US" style=""><span style="">5.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">In your ACS portal choose &quot;relying party applications&quot; in Trust relationships.</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt; text-indent:5.0pt">
+<span lang="EN-US" style=""><span style="">6.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">You can find the replying party applications is auto created.<span style="">
+<img src="description/61c94d11-073b-4af3-a233-c50b3e4823e4image.png" alt="" width="576" height="245" align="middle">
+</span></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt; text-indent:5.0pt">
+<span lang="EN-US" style=""><span style="">7.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Add a new relying party Application for your Web API, for more details please refer to
+<a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh289317.aspx">http://msdn.microsoft.com/en-us/library/windowsazure/hh289317.aspx</a>.</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt; text-indent:5.0pt">
+<span lang="EN-US" style=""><span style="">8.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Press Ctrl&#43;F5 to run the sample, click login and choose an IDP and sign in.</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt; text-indent:5.0pt">
+<span lang="EN-US" style=""><span style="">9.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">After you sign in ,you can get the content in the textbox as below</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left:18.0pt"><span lang="EN-US" style=""><img src="description/f0bbc32c-07ab-4c25-a676-0f3662c16cccimage.png" alt="" width="576" height="243" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpLast" style="margin-left:18.0pt"><span lang="EN-US"></span></p>
+<h2><span lang="EN-US">Using the Code</span></h2>
+<p class="Normal" style="margin-left:18.0pt; text-indent:5.0pt"><span lang="EN-US" style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Please read this article first to get the concept of how to secure your Web API
+<a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh289317.aspx">http://msdn.microsoft.com/en-us/library/windowsazure/hh289317.aspx</a>.</span></p>
+<p class="Normal" style="margin-left:18.0pt; text-indent:5.0pt"><span lang="EN-US" style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Create a Web API Project, you can create any kind of web API you want. In this sample, we create a Web API as this article described:
+<a href="http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api">
+http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api</a>.</span></p>
+<p class="Normal" style="margin-left:18.0pt; text-indent:5.0pt"><span lang="EN-US" style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang="EN-US">Add the SWTModule</span></p>
+<h3><span lang="EN-US">SWTModule</span></h3>
+<p class="Normal"><span lang="EN-US">4. Add the token validator:</span></p>
+<h3><span lang="EN-US">Token validator</span></h3>
+<p class="Normal" style="margin-left:18.0pt"><span lang="EN-US">5. Create CSAzureACSWithWebAPI project, and in Default.aspx code behind paste the code below:</span></p>
+<p class="Normal" style="margin-left:18.0pt"><span lang="EN-US">Default.aspx code behind</span></p>
+<p class="Normal"><span lang="EN-US">6. In default.aspx copy the login url from ACS portal-&gt; application integration-&gt;login pages.</span></p>
+<h2><span lang="EN-US">More Information</span></h2>
+<p class="MsoNormal"><span lang="EN-US"><a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh289317.aspx">http://msdn.microsoft.com/en-us/library/windowsazure/hh289317.aspx</a></span></p>
+<p class="MsoNormal"><span lang="EN-US"></span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/6b4cf5bf-9f01-459f-b9ba-42bff79b68c6image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
