@@ -1,0 +1,1115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to add wartermark text/image to a bitmap in Windows Store app? [C#-Visual St</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to add wartermark text/image to a bitmap in Windows Store app? [C#-Visual St</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows, Windows 8, Windows Store app Development
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Windows Store app, Wartermark text/image
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">6/5/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-add-wartermark-f6313fad">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p class="MsoNormal"><span style="">In Windows Store app, you can't use GDI/GDI&#43; graphics API any more. This sample will show you how to draw watermark text or image to a bitmap in D2D. The sample contains two projects: one is a C&#43;&#43; Windows Runtime Component
+ which wraps D2D/DWrite/WIC API and exposes some drawing functions and helper functions; the other one is the Client app which consumes the WinRT Component to finish the real work.
+</span></p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Build the solution in Visual Studio 2012, press F5 to run it.</span></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">After the app is launched, you will </span><span style="">see
+</span><span style="">something like this: </span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="576" height="355" align="middle">
+</span><span style=""></span></p>
+<p class="MsoListParagraph" style="text-indent:-.25in"><span style=""><span style="">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Load a background image first, and then you can add watermark text or image to it.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/3ee207dd-baaa-468c-ae2b-29bf85d19977image.png" alt="" width="576" height="354" align="middle">
+</span><span style=""></span></p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style=""><span style="">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Optionally, you can undo the last operation. </span>
+</p>
+<p class="MsoListParagraphCxSpLast" style="text-indent:-.25in"><span style=""><span style="">5.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">You can save the modified image to a file by clicking &quot;Save to file&quot; button.
+</span></p>
+<p class="MsoNormal"><span style=""><img src="description/20da3897-e97c-428a-9421-ec680943a988image.png" alt="" width="576" height="432" align="middle">
+</span><span style=""></span></p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in"><span style=""><span style="">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">WatermarkComponent </span></p>
+<p class="MsoListParagraphCxSpLast" style="margin-left:.75in; text-indent:-.25in">
+<span style=""><span style="">a)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">WatermarkComponent wraps D2D/DWrite/WIC API and exposes some useful functions:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+
+void Initialize();
+void SetBitmapRenderTarget(IRandomAccessStream^  backgroundImageStream);
+void BeginDraw();
+IRandomAccessStream^ EndDraw(bool needPreview);
+void DrawText(Platform::String^ text, Point startPoint, Platform::String^ fontFamilyName,Color foregroundColor, 
+    float fontSize, FONT_STYLE_ENUM fontStyle, FONT_WEIGHT_ENUM fontWeight, Platform::String^ localeName);
+void DrawImage(IRandomAccessStream^ watermarkImageStream, Point startPoint, float opacity);
+void SaveBitmapToFile();
+Platform::Array&lt;Platform::String^&gt;^ GetSystemFont();
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+
+void Initialize();
+void SetBitmapRenderTarget(IRandomAccessStream^  backgroundImageStream);
+void BeginDraw();
+IRandomAccessStream^ EndDraw(bool needPreview);
+void DrawText(Platform::String^ text, Point startPoint, Platform::String^ fontFamilyName,Color foregroundColor, 
+    float fontSize, FONT_STYLE_ENUM fontStyle, FONT_WEIGHT_ENUM fontWeight, Platform::String^ localeName);
+void DrawImage(IRandomAccessStream^ watermarkImageStream, Point startPoint, float opacity);
+void SaveBitmapToFile();
+Platform::Array&lt;Platform::String^&gt;^ GetSystemFont();
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraphCxSpFirst" style="margin-left:.75in"><span style=""></span></p>
+<p class="MsoListParagraphCxSpLast" style="margin-left:.75in; text-indent:-.25in">
+<span style=""><span style="">b)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="">Initialize function is used to initialize the resources required to run
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+// Initialize the DirectX resources required to run.
+void D2DWrapper::Initialize()
+{
+    CreateDeviceIndependentResources();
+    CreateDeviceResources();
+}
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+// Initialize the DirectX resources required to run.
+void D2DWrapper::Initialize()
+{
+    CreateDeviceIndependentResources();
+    CreateDeviceResources();
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+// Set bitmap render target. 
+void D2DWrapper::SetBitmapRenderTarget(Streams::IRandomAccessStream^  backgroundImageStream)
+{
+    // Clear the render target.
+    m_d2dContext-&gt;SetTarget(nullptr);
+
+
+    // Convert the RandomAccessStream to an IStream.
+    ComPtr&lt;IStream&gt; stream;
+    DX::ThrowIfFailed(
+        CreateStreamOverRandomAccessStream(backgroundImageStream, IID_PPV_ARGS(&stream))
+        );
+
+
+    // Create the bitmap decoder.
+    ComPtr&lt;IWICBitmapDecoder&gt; decoder;
+    DX::ThrowIfFailed(
+        m_wicFactory-&gt;CreateDecoderFromStream(
+            stream.Get(),
+            nullptr,
+            WICDecodeMetadataCacheOnDemand,
+            &decoder
+            )
+        );
+    
+    // Get the first frame. 
+    ComPtr&lt;IWICBitmapFrameDecode&gt; frame;
+    DX::ThrowIfFailed(
+        decoder-&gt;GetFrame(0, &frame)
+        );
+
+
+    DX::ThrowIfFailed(
+        m_wicFactory-&gt;CreateFormatConverter(&m_backgroundBitmapConverter)
+        );
+
+
+    DX::ThrowIfFailed(
+        m_backgroundBitmapConverter-&gt;Initialize(
+            frame.Get(),
+            GUID_WICPixelFormat32bppPBGRA,
+            WICBitmapDitherTypeNone,
+            nullptr,
+            0.0f,
+            WICBitmapPaletteTypeCustom  // Premultiplied BGRA has no paletting, so this is ignored.
+            )
+        );
+
+
+    double dpiX = 96.0f;
+    double dpiY = 96.0f;
+    DX::ThrowIfFailed(
+        m_backgroundBitmapConverter-&gt;GetResolution(&dpiX, &dpiY)
+        );
+
+
+    DX::ThrowIfFailed(
+        m_d2dContext-&gt;CreateBitmapFromWicBitmap(
+            m_backgroundBitmapConverter.Get(), 
+            D2D1::BitmapProperties1(D2D1_BITMAP_OPTIONS_TARGET,
+            D2D1::PixelFormat(DXGI_FORMAT_B8G8R8A8_UNORM, D2D1_ALPHA_MODE_PREMULTIPLIED),
+            static_cast&lt;float&gt;(dpiX),
+            static_cast&lt;float&gt;(dpiY),0
+            ),
+            &m_targetBitmap
+            )
+        );
+
+
+    m_d2dContext-&gt;SetTarget(m_targetBitmap.Get());
+
+
+    // Retrieve the renderTargetSize in DIPs.
+    m_renderTargetSize = m_d2dContext-&gt;GetSize();
+}
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+// Set bitmap render target. 
+void D2DWrapper::SetBitmapRenderTarget(Streams::IRandomAccessStream^  backgroundImageStream)
+{
+    // Clear the render target.
+    m_d2dContext-&gt;SetTarget(nullptr);
+
+
+    // Convert the RandomAccessStream to an IStream.
+    ComPtr&lt;IStream&gt; stream;
+    DX::ThrowIfFailed(
+        CreateStreamOverRandomAccessStream(backgroundImageStream, IID_PPV_ARGS(&stream))
+        );
+
+
+    // Create the bitmap decoder.
+    ComPtr&lt;IWICBitmapDecoder&gt; decoder;
+    DX::ThrowIfFailed(
+        m_wicFactory-&gt;CreateDecoderFromStream(
+            stream.Get(),
+            nullptr,
+            WICDecodeMetadataCacheOnDemand,
+            &decoder
+            )
+        );
+    
+    // Get the first frame. 
+    ComPtr&lt;IWICBitmapFrameDecode&gt; frame;
+    DX::ThrowIfFailed(
+        decoder-&gt;GetFrame(0, &frame)
+        );
+
+
+    DX::ThrowIfFailed(
+        m_wicFactory-&gt;CreateFormatConverter(&m_backgroundBitmapConverter)
+        );
+
+
+    DX::ThrowIfFailed(
+        m_backgroundBitmapConverter-&gt;Initialize(
+            frame.Get(),
+            GUID_WICPixelFormat32bppPBGRA,
+            WICBitmapDitherTypeNone,
+            nullptr,
+            0.0f,
+            WICBitmapPaletteTypeCustom  // Premultiplied BGRA has no paletting, so this is ignored.
+            )
+        );
+
+
+    double dpiX = 96.0f;
+    double dpiY = 96.0f;
+    DX::ThrowIfFailed(
+        m_backgroundBitmapConverter-&gt;GetResolution(&dpiX, &dpiY)
+        );
+
+
+    DX::ThrowIfFailed(
+        m_d2dContext-&gt;CreateBitmapFromWicBitmap(
+            m_backgroundBitmapConverter.Get(), 
+            D2D1::BitmapProperties1(D2D1_BITMAP_OPTIONS_TARGET,
+            D2D1::PixelFormat(DXGI_FORMAT_B8G8R8A8_UNORM, D2D1_ALPHA_MODE_PREMULTIPLIED),
+            static_cast&lt;float&gt;(dpiX),
+            static_cast&lt;float&gt;(dpiY),0
+            ),
+            &m_targetBitmap
+            )
+        );
+
+
+    m_d2dContext-&gt;SetTarget(m_targetBitmap.Get());
+
+
+    // Retrieve the renderTargetSize in DIPs.
+    m_renderTargetSize = m_d2dContext-&gt;GetSize();
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+
+// Call this function before you draw.
+void D2DWrapper::BeginDraw()
+{
+    m_d2dContext-&gt;BeginDraw();
+    m_d2dContext-&gt;SetTransform(D2D1::Matrix3x2F::Identity());
+}
+
+
+// Call this function when you finish the drawing.
+IRandomAccessStream^ D2DWrapper::EndDraw(bool needPreview)
+{
+    DX::ThrowIfFailed(
+        m_d2dContext-&gt;EndDraw()
+        );
+
+
+    // If needPreview is true, we return a valid IRandomAccessStream reference.
+    if(needPreview)
+    {
+        GUID wicFormat = GUID_ContainerFormatBmp;
+        ComPtr&lt;IStream&gt; stream;
+        ComPtr&lt;ISequentialStream&gt; ss;
+        auto inMemStream =  ref new InMemoryRandomAccessStream();
+        DX::ThrowIfFailed(
+            CreateStreamOverRandomAccessStream(inMemStream ,IID_PPV_ARGS(&stream))
+            );
+
+
+        SaveBitmapToStream(m_targetBitmap, m_wicFactory, m_d2dContext, wicFormat, stream.Get());
+    
+        return inMemStream;
+    }
+
+
+    return nullptr;
+}
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+
+// Call this function before you draw.
+void D2DWrapper::BeginDraw()
+{
+    m_d2dContext-&gt;BeginDraw();
+    m_d2dContext-&gt;SetTransform(D2D1::Matrix3x2F::Identity());
+}
+
+
+// Call this function when you finish the drawing.
+IRandomAccessStream^ D2DWrapper::EndDraw(bool needPreview)
+{
+    DX::ThrowIfFailed(
+        m_d2dContext-&gt;EndDraw()
+        );
+
+
+    // If needPreview is true, we return a valid IRandomAccessStream reference.
+    if(needPreview)
+    {
+        GUID wicFormat = GUID_ContainerFormatBmp;
+        ComPtr&lt;IStream&gt; stream;
+        ComPtr&lt;ISequentialStream&gt; ss;
+        auto inMemStream =  ref new InMemoryRandomAccessStream();
+        DX::ThrowIfFailed(
+            CreateStreamOverRandomAccessStream(inMemStream ,IID_PPV_ARGS(&stream))
+            );
+
+
+        SaveBitmapToStream(m_targetBitmap, m_wicFactory, m_d2dContext, wicFormat, stream.Get());
+    
+        return inMemStream;
+    }
+
+
+    return nullptr;
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">
+
+// Draw text with the specified styles.
+// Please note that startPoint.X and startPoint.Y should be in the range of 0.0f - 1.0f.
+void D2DWrapper::DrawText(Platform::String^ text, Point startPoint, Platform::String^ fontFamilyName, 
+                          Color foregroundColor, float fontSize, FONT_STYLE_ENUM fontStyle, 
+                          FONT_WEIGHT_ENUM fontWeight, Platform::String^ localeName)
+{
+    // In case user input invalid startPoint, we do a simple validation.
+    if(startPoint.X &lt; 0.0f || startPoint.X &gt; 1.0f || startPoint.Y &lt; 0.0f || startPoint.Y &gt; 1.0f)
+    {
+        throw ref new Platform::InvalidArgumentException(&quot;startPoint.X and startPoint.Y should be in the range of 0.0f - 1.0f&quot;);
+    }
+
+
+    // Create a DirectWrite text format object.
+    DX::ThrowIfFailed(
+        m_dwriteFactory-&gt;CreateTextFormat(
+            fontFamilyName-&gt;Data(),                 // font family name
+            nullptr,                             // system font collection
+            (DWRITE_FONT_WEIGHT)fontWeight,         // font weight 
+            (DWRITE_FONT_STYLE)fontStyle,         // font style
+            DWRITE_FONT_STRETCH_NORMAL,             // default font stretch
+            fontSize,                             // font size
+            localeName-&gt;Data(),                     // locale name
+            &m_textFormat
+            )
+        );
+
+
+    // Set text alignment.
+    DX::ThrowIfFailed(
+        m_textFormat-&gt;SetTextAlignment(DWRITE_TEXT_ALIGNMENT_LEADING)
+        );
+
+
+    // Set paragraph alignment.
+    DX::ThrowIfFailed(
+        m_textFormat-&gt;SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_NEAR)
+        );
+
+
+    D2D1_RECT_F layoutRect = {startPoint.X * m_renderTargetSize.width, startPoint.Y * m_renderTargetSize.height,
+        m_renderTargetSize.width, m_renderTargetSize.height};
+
+
+    
+    D2D1_COLOR_F textColor = D2D1::ColorF(foregroundColor.R / 255.0f, foregroundColor.G / 255.0f, 
+        foregroundColor.B /255.0f, foregroundColor.A / 255.0f);
+
+
+     DX::ThrowIfFailed(
+        m_d2dContext-&gt;CreateSolidColorBrush(
+            textColor,
+            &m_textBrush
+            )
+        );
+
+
+    m_d2dContext-&gt;DrawText(text-&gt;Data(),text-&gt;Length(), m_textFormat.Get(), &layoutRect, m_textBrush.Get()); 
+}
+
+
+// Draw image
+void D2DWrapper::DrawImage(Windows::Storage::Streams::IRandomAccessStream^ watermarkImageStream, Point startPoint, 
+                           float opacity)
+{
+    // In case user input the invalid startPoint, we do a simple Validation.
+    if(startPoint.X &lt; 0.0f || startPoint.X &gt; 1.0f || startPoint.Y &lt; 0.0f || startPoint.Y &gt; 1.0f)
+    {
+        throw ref new Platform::InvalidArgumentException(&quot;startPoint.X and startPoint.Y should be in the range of 0.0f - 1.0f&quot;);
+    }
+
+
+    // Convert the RandomAccessStream to an IStream.
+    ComPtr&lt;IStream&gt; stream;
+    DX::ThrowIfFailed(
+        CreateStreamOverRandomAccessStream(watermarkImageStream, IID_PPV_ARGS(&stream))
+        );
+
+
+    // Create the bitmap decoder.
+    ComPtr&lt;IWICBitmapDecoder&gt; decoder;
+    DX::ThrowIfFailed(
+        m_wicFactory-&gt;CreateDecoderFromStream(
+            stream.Get(),
+            nullptr,
+            WICDecodeMetadataCacheOnDemand,
+            &decoder
+            )
+        );
+
+
+    ComPtr&lt;IWICBitmapFrameDecode&gt; frame;
+    DX::ThrowIfFailed(
+        decoder-&gt;GetFrame(0, &frame)
+        );
+
+
+    DX::ThrowIfFailed(
+        m_wicFactory-&gt;CreateFormatConverter(&m_watermarkImageConverter)
+        );
+
+
+    DX::ThrowIfFailed(
+        m_watermarkImageConverter-&gt;Initialize(
+            frame.Get(),
+            GUID_WICPixelFormat32bppPBGRA,
+            WICBitmapDitherTypeNone,
+            nullptr,
+            0.0f,
+            WICBitmapPaletteTypeCustom  // Premultiplied BGRA has no paletting, so this is ignored.
+            )
+        );
+
+
+    double dpiX = 96.0f;
+    double dpiY = 96.0f;
+
+
+    m_watermarkImageConverter-&gt;GetResolution(&dpiX, &dpiY);
+    DX::ThrowIfFailed(
+    m_d2dContext-&gt;CreateBitmapFromWicBitmap(
+        m_watermarkImageConverter.Get(), 
+        D2D1::BitmapProperties1(D2D1_BITMAP_OPTIONS_NONE,
+        D2D1::PixelFormat(DXGI_FORMAT_B8G8R8A8_UNORM, D2D1_ALPHA_MODE_PREMULTIPLIED),
+        static_cast&lt;float&gt;(dpiX),
+        static_cast&lt;float&gt;(dpiY),0
+        ),
+        &m_watermarkBitmap
+        )
+    );
+
+
+    D2D1_SIZE_F watermarkImageSize = m_watermarkBitmap-&gt;GetSize();
+
+
+    float startPointOffsetX = startPoint.X * m_renderTargetSize.width;
+    float startPointOffsetY = startPoint.Y * m_renderTargetSize.height;
+
+
+    D2D1_RECT_F destinationRect = {startPointOffsetX, startPointOffsetY, startPointOffsetX &#43; watermarkImageSize.width,
+        startPointOffsetY &#43; watermarkImageSize.height};
+
+
+    m_d2dContext-&gt;DrawBitmap(m_watermarkBitmap.Get(), &destinationRect, opacity);  
+
+
+}
+
+</pre>
+<pre id="codePreview" class="cplusplus">
+
+// Draw text with the specified styles.
+// Please note that startPoint.X and startPoint.Y should be in the range of 0.0f - 1.0f.
+void D2DWrapper::DrawText(Platform::String^ text, Point startPoint, Platform::String^ fontFamilyName, 
+                          Color foregroundColor, float fontSize, FONT_STYLE_ENUM fontStyle, 
+                          FONT_WEIGHT_ENUM fontWeight, Platform::String^ localeName)
+{
+    // In case user input invalid startPoint, we do a simple validation.
+    if(startPoint.X &lt; 0.0f || startPoint.X &gt; 1.0f || startPoint.Y &lt; 0.0f || startPoint.Y &gt; 1.0f)
+    {
+        throw ref new Platform::InvalidArgumentException(&quot;startPoint.X and startPoint.Y should be in the range of 0.0f - 1.0f&quot;);
+    }
+
+
+    // Create a DirectWrite text format object.
+    DX::ThrowIfFailed(
+        m_dwriteFactory-&gt;CreateTextFormat(
+            fontFamilyName-&gt;Data(),                 // font family name
+            nullptr,                             // system font collection
+            (DWRITE_FONT_WEIGHT)fontWeight,         // font weight 
+            (DWRITE_FONT_STYLE)fontStyle,         // font style
+            DWRITE_FONT_STRETCH_NORMAL,             // default font stretch
+            fontSize,                             // font size
+            localeName-&gt;Data(),                     // locale name
+            &m_textFormat
+            )
+        );
+
+
+    // Set text alignment.
+    DX::ThrowIfFailed(
+        m_textFormat-&gt;SetTextAlignment(DWRITE_TEXT_ALIGNMENT_LEADING)
+        );
+
+
+    // Set paragraph alignment.
+    DX::ThrowIfFailed(
+        m_textFormat-&gt;SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_NEAR)
+        );
+
+
+    D2D1_RECT_F layoutRect = {startPoint.X * m_renderTargetSize.width, startPoint.Y * m_renderTargetSize.height,
+        m_renderTargetSize.width, m_renderTargetSize.height};
+
+
+    
+    D2D1_COLOR_F textColor = D2D1::ColorF(foregroundColor.R / 255.0f, foregroundColor.G / 255.0f, 
+        foregroundColor.B /255.0f, foregroundColor.A / 255.0f);
+
+
+     DX::ThrowIfFailed(
+        m_d2dContext-&gt;CreateSolidColorBrush(
+            textColor,
+            &m_textBrush
+            )
+        );
+
+
+    m_d2dContext-&gt;DrawText(text-&gt;Data(),text-&gt;Length(), m_textFormat.Get(), &layoutRect, m_textBrush.Get()); 
+}
+
+
+// Draw image
+void D2DWrapper::DrawImage(Windows::Storage::Streams::IRandomAccessStream^ watermarkImageStream, Point startPoint, 
+                           float opacity)
+{
+    // In case user input the invalid startPoint, we do a simple Validation.
+    if(startPoint.X &lt; 0.0f || startPoint.X &gt; 1.0f || startPoint.Y &lt; 0.0f || startPoint.Y &gt; 1.0f)
+    {
+        throw ref new Platform::InvalidArgumentException(&quot;startPoint.X and startPoint.Y should be in the range of 0.0f - 1.0f&quot;);
+    }
+
+
+    // Convert the RandomAccessStream to an IStream.
+    ComPtr&lt;IStream&gt; stream;
+    DX::ThrowIfFailed(
+        CreateStreamOverRandomAccessStream(watermarkImageStream, IID_PPV_ARGS(&stream))
+        );
+
+
+    // Create the bitmap decoder.
+    ComPtr&lt;IWICBitmapDecoder&gt; decoder;
+    DX::ThrowIfFailed(
+        m_wicFactory-&gt;CreateDecoderFromStream(
+            stream.Get(),
+            nullptr,
+            WICDecodeMetadataCacheOnDemand,
+            &decoder
+            )
+        );
+
+
+    ComPtr&lt;IWICBitmapFrameDecode&gt; frame;
+    DX::ThrowIfFailed(
+        decoder-&gt;GetFrame(0, &frame)
+        );
+
+
+    DX::ThrowIfFailed(
+        m_wicFactory-&gt;CreateFormatConverter(&m_watermarkImageConverter)
+        );
+
+
+    DX::ThrowIfFailed(
+        m_watermarkImageConverter-&gt;Initialize(
+            frame.Get(),
+            GUID_WICPixelFormat32bppPBGRA,
+            WICBitmapDitherTypeNone,
+            nullptr,
+            0.0f,
+            WICBitmapPaletteTypeCustom  // Premultiplied BGRA has no paletting, so this is ignored.
+            )
+        );
+
+
+    double dpiX = 96.0f;
+    double dpiY = 96.0f;
+
+
+    m_watermarkImageConverter-&gt;GetResolution(&dpiX, &dpiY);
+    DX::ThrowIfFailed(
+    m_d2dContext-&gt;CreateBitmapFromWicBitmap(
+        m_watermarkImageConverter.Get(), 
+        D2D1::BitmapProperties1(D2D1_BITMAP_OPTIONS_NONE,
+        D2D1::PixelFormat(DXGI_FORMAT_B8G8R8A8_UNORM, D2D1_ALPHA_MODE_PREMULTIPLIED),
+        static_cast&lt;float&gt;(dpiX),
+        static_cast&lt;float&gt;(dpiY),0
+        ),
+        &m_watermarkBitmap
+        )
+    );
+
+
+    D2D1_SIZE_F watermarkImageSize = m_watermarkBitmap-&gt;GetSize();
+
+
+    float startPointOffsetX = startPoint.X * m_renderTargetSize.width;
+    float startPointOffsetY = startPoint.Y * m_renderTargetSize.height;
+
+
+    D2D1_RECT_F destinationRect = {startPointOffsetX, startPointOffsetY, startPointOffsetX &#43; watermarkImageSize.width,
+        startPointOffsetY &#43; watermarkImageSize.height};
+
+
+    m_d2dContext-&gt;DrawBitmap(m_watermarkBitmap.Get(), &destinationRect, opacity);  
+
+
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+
+async private void AddTextButton_Click(object sender, RoutedEventArgs e)
+{
+    // Clear status text.
+    this.NotifyUser(&quot;&quot;);
+
+
+    try
+    {
+        if (backgroundImageStream != null)
+        {
+            if (previousImageStream != null)
+            {
+                previousImageStream.Dispose();
+                previousImageStream = null;
+            }
+
+
+            // Cache the stream for Undo purpose.
+            previousImageStream = currentImageStream;
+            this.UndoButton.IsEnabled = true;
+
+
+            Point startPoint = new Point(this.OffsetXSlider.Value, this.OffsetYSlider.Value);
+            Color textColor = Color.FromArgb((byte)(this.FontOpacitySlider.Value * 255), fontColor.R, fontColor.G,
+                fontColor.B);
+            uint fontSize = Convert.ToUInt32(this.FontSizeComBox.SelectedValue);
+
+
+            FONT_STYLE_ENUM fontStyle = (FONT_STYLE_ENUM)Enum.Parse(typeof(FONT_STYLE_ENUM),
+                FontStyleComBox.SelectedValue.ToString());
+
+
+            FONT_WEIGHT_ENUM fontWeight = (FONT_WEIGHT_ENUM)Enum.Parse(typeof(FONT_WEIGHT_ENUM),
+                this.FontWeightComBox.SelectedValue.ToString());
+
+
+            // BeginDraw
+            d2dWrapper.BeginDraw();
+
+
+            // Draw text
+            d2dWrapper.DrawText(this.inputText.Text, startPoint, this.FontFamilyComBox.SelectedValue.ToString(),
+                textColor, fontSize, fontStyle, fontWeight, string.Empty);
+
+
+            // EndDraw
+            currentImageStream = d2dWrapper.EndDraw(true);
+            currentImageStream.Seek(0);
+
+
+            // Update the preview image.
+            BitmapImage bi = new BitmapImage();
+            await bi.SetSourceAsync(currentImageStream);
+            this.PreviewImage.Source = bi;
+
+
+        }
+    }
+    catch (Exception ex)
+    {
+        this.NotifyUser(ex.Message);
+    }
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+
+async private void AddTextButton_Click(object sender, RoutedEventArgs e)
+{
+    // Clear status text.
+    this.NotifyUser(&quot;&quot;);
+
+
+    try
+    {
+        if (backgroundImageStream != null)
+        {
+            if (previousImageStream != null)
+            {
+                previousImageStream.Dispose();
+                previousImageStream = null;
+            }
+
+
+            // Cache the stream for Undo purpose.
+            previousImageStream = currentImageStream;
+            this.UndoButton.IsEnabled = true;
+
+
+            Point startPoint = new Point(this.OffsetXSlider.Value, this.OffsetYSlider.Value);
+            Color textColor = Color.FromArgb((byte)(this.FontOpacitySlider.Value * 255), fontColor.R, fontColor.G,
+                fontColor.B);
+            uint fontSize = Convert.ToUInt32(this.FontSizeComBox.SelectedValue);
+
+
+            FONT_STYLE_ENUM fontStyle = (FONT_STYLE_ENUM)Enum.Parse(typeof(FONT_STYLE_ENUM),
+                FontStyleComBox.SelectedValue.ToString());
+
+
+            FONT_WEIGHT_ENUM fontWeight = (FONT_WEIGHT_ENUM)Enum.Parse(typeof(FONT_WEIGHT_ENUM),
+                this.FontWeightComBox.SelectedValue.ToString());
+
+
+            // BeginDraw
+            d2dWrapper.BeginDraw();
+
+
+            // Draw text
+            d2dWrapper.DrawText(this.inputText.Text, startPoint, this.FontFamilyComBox.SelectedValue.ToString(),
+                textColor, fontSize, fontStyle, fontWeight, string.Empty);
+
+
+            // EndDraw
+            currentImageStream = d2dWrapper.EndDraw(true);
+            currentImageStream.Seek(0);
+
+
+            // Update the preview image.
+            BitmapImage bi = new BitmapImage();
+            await bi.SetSourceAsync(currentImageStream);
+            this.PreviewImage.Source = bi;
+
+
+        }
+    }
+    catch (Exception ex)
+    {
+        this.NotifyUser(ex.Message);
+    }
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+
+async private void AddwatermarkImageButton_Click(object sender, RoutedEventArgs e)
+{
+    // Clear status text.
+    this.NotifyUser(&quot;&quot;);
+
+
+    try
+    {
+        if (backgroundImageStream != null && watermarkImageStream != null)
+        {
+            if (previousImageStream != null)
+            {
+                previousImageStream.Dispose();
+                previousImageStream = null;
+            }
+
+
+            // Cache the stream for Undo purpose.
+            previousImageStream = currentImageStream;
+            this.UndoButton.IsEnabled = true;
+
+
+            Point startPoint = new Point(this.OffsetXSlider.Value, this.OffsetYSlider.Value);
+
+
+            // BeginDraw
+            d2dWrapper.BeginDraw();
+
+
+            // Draw image
+            d2dWrapper.DrawImage(watermarkImageStream, startPoint, (float)this.watermarkImageOpacitySlider.Value);
+
+
+            // EndDraw
+            currentImageStream = d2dWrapper.EndDraw(true);
+            currentImageStream.Seek(0);
+
+
+            BitmapImage bi = new BitmapImage();
+            await bi.SetSourceAsync(currentImageStream);
+            this.PreviewImage.Source = bi;
+        }
+        else
+        {
+            this.NotifyUser(&quot;Can't add watermark image. Please make sure you have loaded background image and watermark image.&quot;);
+        }
+    }
+    catch (Exception ex)
+    {
+        this.NotifyUser(ex.Message);
+    }
+
+
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+
+async private void AddwatermarkImageButton_Click(object sender, RoutedEventArgs e)
+{
+    // Clear status text.
+    this.NotifyUser(&quot;&quot;);
+
+
+    try
+    {
+        if (backgroundImageStream != null && watermarkImageStream != null)
+        {
+            if (previousImageStream != null)
+            {
+                previousImageStream.Dispose();
+                previousImageStream = null;
+            }
+
+
+            // Cache the stream for Undo purpose.
+            previousImageStream = currentImageStream;
+            this.UndoButton.IsEnabled = true;
+
+
+            Point startPoint = new Point(this.OffsetXSlider.Value, this.OffsetYSlider.Value);
+
+
+            // BeginDraw
+            d2dWrapper.BeginDraw();
+
+
+            // Draw image
+            d2dWrapper.DrawImage(watermarkImageStream, startPoint, (float)this.watermarkImageOpacitySlider.Value);
+
+
+            // EndDraw
+            currentImageStream = d2dWrapper.EndDraw(true);
+            currentImageStream.Seek(0);
+
+
+            BitmapImage bi = new BitmapImage();
+            await bi.SetSourceAsync(currentImageStream);
+            this.PreviewImage.Source = bi;
+        }
+        else
+        {
+            this.NotifyUser(&quot;Can't add watermark image. Please make sure you have loaded background image and watermark image.&quot;);
+        }
+    }
+    catch (Exception ex)
+    {
+        this.NotifyUser(ex.Message);
+    }
+
+
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><span lang="EN" style="">Direct2D programming </span>
+</p>
+<p class="MsoNormal" style=""><span lang="EN" style=""><a href="http://msdn.microsoft.com/en-us/library/dd370990(v=vs.85).aspx">http://msdn.microsoft.com/en-us/library/dd370990(v=vs.85).aspx</a>
+</span></p>
+<p class="MsoNormal" style="">XAML data binding sample<span lang="EN" style="">
+</span></p>
+<p class="MsoNormal" style=""><span lang="EN" style=""><a href="http://code.msdn.microsoft.com/windowsapps/Data-Binding-7b1d67b5">http://code.msdn.microsoft.com/windowsapps/Data-Binding-7b1d67b5</a>
+</span></p>
+<p class="MsoNormal" style=""><span class="SpellE">DirectWrite</span> font enumeration sample<span lang="EN" style="">
+</span></p>
+<p class="MsoNormal" style=""><span lang="EN" style=""><a href="http://code.msdn.microsoft.com/windowsapps/DirectWrite-font-60e53e0b">http://code.msdn.microsoft.com/windowsapps/DirectWrite-font-60e53e0b</a>
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

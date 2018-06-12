@@ -1,0 +1,423 @@
+﻿<common:LayoutAwarePage
+    x:Name="pageRoot"
+    x:Class="ClientApp.MainPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClientApp"
+    xmlns:common="using:ClientApp.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid x:Name="contentRoot" Margin="100,20,100,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- page title -->
+            <Grid x:Name="titleGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{StaticResource AppLogo}" Style="{StaticResource AppLogoStyle}"/>
+                <TextBlock Grid.Row="1" Text="{StaticResource AppName}" Style="{StaticResource AppHeaderStyle}"/>
+                <TextBlock Grid.Row="2" Text="{StaticResource AppDescription}" Style="{StaticResource AppDescriptionStyle}" />
+            </Grid>
+
+            <!-- page body -->
+            <Grid Grid.Row="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel x:Name="loadBackgroundImagePanel" Orientation="Horizontal" Grid.Row="0">
+                    <Button x:Name="LoadBackgroundImage" Margin="0,0,20,0"  Click="LoadBackgroundImage_Click">Load background image</Button>
+                    <Button x:Name="UndoButton" Margin="20,0,20,0" Click="UndoButton_Click" IsEnabled="False">Undo the last operation</Button>
+                    <Button x:Name="SaveToFileButton" Margin="20,0,20,0" IsEnabled="False" Click="SaveToFileButton_Click">Save to file</Button>
+                </StackPanel>
+
+                <StackPanel x:Name="radioButtonPanel" Orientation="Horizontal" Grid.Row="1">
+                    <RadioButton x:Name="RadioButtonAddText" Margin="10,5,0,0" GroupName="rbwatermark" IsChecked="True">Add text watermark</RadioButton>
+                    <RadioButton x:Name="RadioButtonAddImage" Margin="50,5,0,0" GroupName="rbwatermark">Add image watermark</RadioButton>
+                </StackPanel>
+                <Grid x:Name="AddTextGrid" Grid.Row="2" Visibility= "{Binding ElementName=RadioButtonAddText, Path=IsChecked, Converter={StaticResource BooleanConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel x:Name="fontPanel1" Grid.Row="0" Orientation="Horizontal" Height="40" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}">Font Family:</TextBlock>
+                            <ComboBox x:Name="FontFamilyComBox" Width="100"  Margin="5,0,10,0" ></ComboBox>
+                            <TextBlock VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}">Foreground color:</TextBlock>
+                            <ComboBox x:Name="FontColorComBox" Width="150" SelectionChanged="FontColorComBox_SelectionChanged" Padding="8,0" Margin="10,0,5,0">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Rectangle Width="35" Height="20" Fill="{Binding Name}" Margin="5,0"/>
+                                            <TextBlock Grid.Column="1" Margin="10,0,0,0" Text="{Binding Name}" Foreground="Black"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel x:Name="fontPanel2" Orientation="Horizontal" >
+                            <TextBlock VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}">Font Size:</TextBlock>
+                            <ComboBox x:Name="FontSizeComBox" Width="80" Margin="5,0,10,0"></ComboBox>
+                            <TextBlock VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}">Font Style:</TextBlock>
+                            <ComboBox x:Name="FontStyleComBox" Width="120" Margin="5,0,10,0"></ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel x:Name="fontPanel3" Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}">Font Weight:</TextBlock>
+                            <ComboBox x:Name="FontWeightComBox" Width="110" Margin="5,0,10,0"></ComboBox>
+                            <TextBlock VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}" Text="Opacity:"/>
+                            <Slider x:Name="FontOpacitySlider" Margin="15,0" VerticalAlignment="Center" Minimum="0" Maximum="1" Orientation="Horizontal" Width="120" StepFrequency="0.01" Value="0.5" Height="40" SmallChange="0.001" TickPlacement="None" LargeChange="0.01"/>
+                        </StackPanel>
+                        <StackPanel x:Name="inputTextPanel" Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}">Input Text:</TextBlock>
+                            <TextBox x:Name="inputText" Margin="5,0,5,0" Width="180" TextChanged="inputText_TextChanged" ></TextBox>
+                            <Button x:Name="AddTextButton" IsEnabled="False" Click="AddTextButton_Click" Margin="5,0,0,0" >Add text watermark</Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <StackPanel x:Name="AddImagePanel" Orientation="Horizontal" Grid.Row="2" Visibility= "{Binding ElementName=RadioButtonAddImage, Path=IsChecked, Converter={StaticResource BooleanConverter}}">
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="LoadwatermarkImageButton"  Click="LoadwatermarkImageButton_Click">Load watermark image</Button>
+                        <Image x:Name="watermarkImage" MaxWidth="80" MaxHeight="80" Grid.Column="1" Margin="20,0,20,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}">Opacity:</TextBlock>
+                        <Slider x:Name="watermarkImageOpacitySlider" Margin="15,0" Minimum="0" Maximum="1.0" Orientation="Horizontal" Width="120" StepFrequency="0.01" Value="0.5" Height="40" SmallChange="0.001" TickPlacement="None" LargeChange="0.01" ></Slider>
+                        <Button x:Name="AddwatermarkImageButton"  IsEnabled="False" Click="AddwatermarkImageButton_Click" >Add image watermark</Button>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:Name="PositionPanel" Orientation="Horizontal" Grid.Row="3" Height="50">
+                    <TextBlock VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}">Insert at X:</TextBlock>
+                    <Slider x:Name ="OffsetXSlider" IsEnabled="False"  Orientation="Horizontal" Width="150" Maximum="1" LargeChange="0.01" SmallChange="0.001" StepFrequency="0.01" Value="{Binding Path=OffsetXInPercent, Mode=TwoWay}" Margin="15,0" TickPlacement="None" />
+                    <TextBlock VerticalAlignment="Center"  Style="{StaticResource BasicTextStyle}">Y:</TextBlock>
+                    <Slider x:Name="OffsetYSlider" IsEnabled="False" Orientation="Horizontal" Width="150" Maximum="1" LargeChange="0.01" SmallChange="0.001" StepFrequency="0.01" Value="{Binding Path=OffsetYInPercent, Mode= TwoWay}" Margin="15,0" TickPlacement="None" />
+                </StackPanel>
+                <Grid Grid.Row="4" Margin="0,5,0,5" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid x:Name="grid" Grid.Column="0" Grid.RowSpan="2" Margin="0,0,20,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource BasicTextStyle}">Background image</TextBlock>
+                        <Grid x:Name="BackGroundGrid" Grid.Row="1" Background="{StaticResource ApplicationSecondaryForegroundThemeBrush}" SizeChanged="BackgroundGrid_SizeChanged" >
+                            <Image x:Name="BackgroundImage" Stretch="Uniform" SizeChanged="BackgroundImage_SizeChanged"/>
+                            <Canvas x:Name="imageCanvas">
+                                <Ellipse x:Name="startPointIndicator" Height="15" Width="15"  Visibility="Collapsed" Fill="{StaticResource ApplicationPageBackgroundThemeBrush}" 
+                              Stroke="{StaticResource ApplicationForegroundThemeBrush}" StrokeThickness="2"  ToolTipService.ToolTip="Insert at this point" 
+                               Canvas.Left="{Binding Path=StartPointOffsetX, Mode=OneWay}" Canvas.Top="{Binding Path=StartPointOffsetY, Mode=OneWay}">
+                                </Ellipse>
+                            </Canvas>
+                        </Grid>
+                    </Grid>
+                    <Grid x:Name="grid1" Grid.Column="1" Grid.RowSpan="2" Margin="20,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource BasicTextStyle}">preview image</TextBlock>
+                        <Grid x:Name="PreviewGrid" Grid.Row="1" Background="{StaticResource ApplicationSecondaryForegroundThemeBrush}">
+                            <Image x:Name="PreviewImage" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!-- Error/Status -->
+            <Grid Grid.Row="2">
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.ThemeDictionaries>
+                            <ResourceDictionary x:Key="Default">
+                                <SolidColorBrush x:Key="statusBrush">Red</SolidColorBrush>
+                            </ResourceDictionary>
+                            <ResourceDictionary x:Key="HighContrast">
+                                <SolidColorBrush x:Key="statusBrush">White</SolidColorBrush>
+                            </ResourceDictionary>
+                        </ResourceDictionary.ThemeDictionaries>
+                    </ResourceDictionary>
+                </Grid.Resources>
+                <TextBlock x:Name="statusText" TextWrapping="Wrap" Foreground="{StaticResource statusBrush}" />
+            </Grid>
+
+            <!-- Footer -->
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="27*"/>
+                    <ColumnDefinition Width="556*"/>
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="Footer" Margin="0,0,0,10" VerticalAlignment="Bottom" Grid.ColumnSpan="2" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"  Source="Assets/microsoft.png" AutomationProperties.Name="Microsoft Logo" Stretch="None" HorizontalAlignment="Left"/>
+                    <TextBlock Style="{StaticResource AppFooterStyle}" Text="© 2013 Microsoft Corporation. All rights reserved." TextWrapping="Wrap" Grid.Row="1" HorizontalAlignment="Left"/>
+                    <StackPanel x:Name="FooterPanel" Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+                        <HyperlinkButton Content="All-In-One Code Framework" Tag="http://blogs.msdn.com/b/onecode" Click="Footer_Click" FontSize="12"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape"/>
+                <VisualState x:Name="Filled"/>
+
+                <!-- portrait view -->
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(StackPanel.Orientation)" Storyboard.TargetName="fontPanel1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Orientation>Vertical</Orientation>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(StackPanel.Orientation)" Storyboard.TargetName="fontPanel3">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Orientation>Vertical</Orientation>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="fontPanel2">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>0,10,0,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.RowSpan)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>1</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.ColumnSpan)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>2</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.RowSpan)" Storyboard.TargetName="grid1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>1</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.ColumnSpan)" Storyboard.TargetName="grid1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>2</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Row)" Storyboard.TargetName="grid1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>1</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Column)" Storyboard.TargetName="grid1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>0</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>0,0,0,20</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="grid1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>0,20,0,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(StackPanel.Orientation)" Storyboard.TargetName="AddImagePanel">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Orientation>Vertical</Orientation>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="inputTextPanel">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>0,10,0,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <!-- snapped view -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="titleGrid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="contentRoot">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>20</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="loadBackgroundImagePanel">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="radioButtonPanel">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AddTextGrid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PositionPanel">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.RowSpan)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>1</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.ColumnSpan)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>2</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Row)" Storyboard.TargetName="grid1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>1</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Column)" Storyboard.TargetName="grid1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>0</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.RowSpan)" Storyboard.TargetName="grid1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>1</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.ColumnSpan)" Storyboard.TargetName="grid1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>2</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>0,0,0,20</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="grid1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>0,20,0,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AddImagePanel">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+
+</common:LayoutAwarePage>
