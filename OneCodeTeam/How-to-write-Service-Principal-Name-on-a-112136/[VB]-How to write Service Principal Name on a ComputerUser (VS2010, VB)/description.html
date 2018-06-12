@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=2C5971170CD50D071D8444DDD87E68CD" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:FooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=01F89A31F1103BC3B9A3B2562E9C41B3" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to write Service Principal Name on a Computer/User (VS2010, VB)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to write Service Principal Name on a Computer/User (VS2010, VB)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Active Directory, Computer Accounts, User Accounts
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Directory Services
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">2/2/2015</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/How-to-write-Service-d0947a05">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>The project illustrates how to write Service Principal Name on a Computer/User object (VBDsWriteAccountSPN2010)</h1>
+<h2>Introduction</h2>
+<p>This sample application demonstrates how to write/add Service Principal Name (SPN) to any user or computer account object in Active Directory. This sample must be run on domain environment and under the Domain Admin privileges.</p>
+<p>Lots of developers ask about this in the MSDN forums, so we created the code sample to address the frequently asked programming scenario.</p>
+<p><strong>Reference</strong></p>
+<p>DsWriteAccountSpn</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms676056%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/ms676056(v=vs.85).aspx</a>&nbsp;</p>
+<p>&nbsp;</p>
+<p>DsGetSpn</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms675993%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/ms675993(v=vs.85).aspx</a>&nbsp;</p>
+<p>&nbsp;</p>
+<p>DsCrackSpn</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms675971%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/ms675971(v=vs.85).aspx</a></p>
+<p>&nbsp;</p>
+<p>DsBind</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms675931%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/ms675931(v=vs.85).aspx</a></p>
+<p>&nbsp;</p>
+<h2>Building the Project</h2>
+<p>&nbsp;</p>
+<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Creating a VB console application (VBDsWriteAccountSPN2010)</strong></p>
+<ol>
+<li>In the Visual Studio 2010, create a console application </li><li>Using the <a class="libraryLink" href="https://code.msdn.microsoft.com/How-to-write-Service-d0947a05/https://msdn.microsoft.com/en-US/library/System.Runtime.InteropServices.aspx"  title="Auto generated link to System.Runtime.InteropServices">System.Runtime.InteropServices</a> encapsulated classes for interop calls
+</li><li>We are using first DsCrackSpn to parse its SPN into its component strings. </li><li>Then we need to bind to the Domain Controller using DsBind. </li><li>Now we would require constructing the SPN using DsGetSpn by specifying its type.
+</li><li>Once we get the pointer to the SPN, we can write it to the object by calling DsWriteAccountSpn.
+</li></ol>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>Visual Basic</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">' Initial call to DsCrackSpn should result in BUFFER_OVERFLOW...
+
+        Dim crackSpnResult As UInteger = DsCrackSpn(spn, serviceClassSize, sTemp, serviceNameSize, sTemp, instanceNameSize, _
+
+         sTemp, port)
+
+ 
+
+        ' Check for buffer overflow
+
+        If crackSpnResult = ERROR_BUFFER_OVERFLOW Then
+
+            ' Resize our SB's
+
+            Dim serviceClass As New StringBuilder(serviceClassSize)
+
+            Dim serviceName As New StringBuilder(serviceNameSize)
+
+            Dim instanceName As New StringBuilder(instanceNameSize)
+
+ 
+
+            ' Crack this spn using DsCrackSpn
+
+            crackSpnResult = DsCrackSpn(spn, serviceClassSize, serviceClass, serviceNameSize, serviceName, instanceNameSize, _
+
+             instanceName, port)
+
+ 
+
+            ' If Success
+
+            If crackSpnResult = NO_ERROR Then
+
+                Dim hostArray As String() = {serviceName.ToString()}
+
+                Dim portArray As UShort() = {port}
+
+                Dim spnCount As UShort = 1
+
+                Dim spnArrayPointer As New IntPtr()
+
+                Dim spnArrayCount As Int32 = 0
+
+ 
+
+                ' Call to DsBind to get handle for Directory
+
+                Dim hDS As <a class="libraryLink" href="https://code.msdn.microsoft.com/How-to-write-Service-d0947a05/https://msdn.microsoft.com/en-US/library/System.IntPtr.aspx"  title="Auto generated link to System.IntPtr">System.IntPtr</a>
+
+                Dim result As UInteger = DsBind(domainControllerName, dnsDomainName, hDS)
+
+ 
+
+                If result &lt;&gt; NO_ERROR Then
+
+                    Console.WriteLine(&quot;DSBind Failed.&quot;)
+
+                    Return
+
+                End If
+
+ 
+
+                ' Call to DsgetSpn to construct an spn
+
+                Dim getSPNResult As UInteger = DsGetSpn(DS_SPN_NAME_TYPE.DS_SPN_DNS_HOST, serviceClass.ToString(), Nothing, port, spnCount, hostArray, _
+
+                 portArray, spnArrayCount, spnArrayPointer)
+
+ 
+
+                If getSPNResult = NO_ERROR Then
+
+                    ' Call the CSDsWriteAccountSPN for writing this spn to the object
+
+                    Dim dsWriteSpnResult As UInteger = DsWriteAccountSpn(hDS, DS_SPN_WRITE_OP.DS_SPN_ADD_SPN_OP, servicePrincipalName, spnArrayCount, spnArrayPointer)
+
+ 
+
+                    If dsWriteSpnResult = NO_ERROR Then
+
+                        Console.WriteLine(&quot;DsWriteAccountSpn Succeed. Please check the user/Computer object for ServicePrincipalName.&quot;)
+
+                        Console.ReadKey()
+
+                    Else
+
+                        Console.WriteLine(&quot;DsWriteAccountSpn Failed.&quot;)
+
+                        Return
+
+                    End If
+
+                Else
+
+                    Console.WriteLine(&quot;DsGetSPN Failed.&quot;)
+
+                    Return
+
+                End If
+
+            Else
+
+                Console.WriteLine(&quot;DsCrackSpn Failed.&quot;)
+
+                Return
+
+            End If
+
+        End If
+
+ </pre>
+<div class="preview">
+<pre class="vb"><span class="visualBasic__com">'&nbsp;Initial&nbsp;call&nbsp;to&nbsp;DsCrackSpn&nbsp;should&nbsp;result&nbsp;in&nbsp;BUFFER_OVERFLOW...</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;crackSpnResult&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">UInteger</span>&nbsp;=&nbsp;DsCrackSpn(spn,&nbsp;serviceClassSize,&nbsp;sTemp,&nbsp;serviceNameSize,&nbsp;sTemp,&nbsp;instanceNameSize,&nbsp;_&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sTemp,&nbsp;port)&nbsp;
+&nbsp;
+&nbsp;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;Check&nbsp;for&nbsp;buffer&nbsp;overflow</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;crackSpnResult&nbsp;=&nbsp;ERROR_BUFFER_OVERFLOW&nbsp;<span class="visualBasic__keyword">Then</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;Resize&nbsp;our&nbsp;SB's</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;serviceClass&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;StringBuilder(serviceClassSize)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;serviceName&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;StringBuilder(serviceNameSize)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;instanceName&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;StringBuilder(instanceNameSize)&nbsp;
+&nbsp;
+&nbsp;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;Crack&nbsp;this&nbsp;spn&nbsp;using&nbsp;DsCrackSpn</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;crackSpnResult&nbsp;=&nbsp;DsCrackSpn(spn,&nbsp;serviceClassSize,&nbsp;serviceClass,&nbsp;serviceNameSize,&nbsp;serviceName,&nbsp;instanceNameSize,&nbsp;_&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instanceName,&nbsp;port)&nbsp;
+&nbsp;
+&nbsp;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;If&nbsp;Success</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;crackSpnResult&nbsp;=&nbsp;NO_ERROR&nbsp;<span class="visualBasic__keyword">Then</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;hostArray&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">String</span>()&nbsp;=&nbsp;{serviceName.ToString()}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;portArray&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">UShort</span>()&nbsp;=&nbsp;{port}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;spnCount&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">UShort</span>&nbsp;=&nbsp;<span class="visualBasic__number">1</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;spnArrayPointer&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;IntPtr()&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;spnArrayCount&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;Int32&nbsp;=&nbsp;<span class="visualBasic__number">0</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;Call&nbsp;to&nbsp;DsBind&nbsp;to&nbsp;get&nbsp;handle&nbsp;for&nbsp;Directory</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;hDS&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;System.IntPtr&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;result&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">UInteger</span>&nbsp;=&nbsp;DsBind(domainControllerName,&nbsp;dnsDomainName,&nbsp;hDS)&nbsp;
+&nbsp;
+&nbsp;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;result&nbsp;&lt;&gt;&nbsp;NO_ERROR&nbsp;<span class="visualBasic__keyword">Then</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="visualBasic__string">&quot;DSBind&nbsp;Failed.&quot;</span>)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Return</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;Call&nbsp;to&nbsp;DsgetSpn&nbsp;to&nbsp;construct&nbsp;an&nbsp;spn</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;getSPNResult&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">UInteger</span>&nbsp;=&nbsp;DsGetSpn(DS_SPN_NAME_TYPE.DS_SPN_DNS_HOST,&nbsp;serviceClass.ToString(),&nbsp;<span class="visualBasic__keyword">Nothing</span>,&nbsp;port,&nbsp;spnCount,&nbsp;hostArray,&nbsp;_&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;portArray,&nbsp;spnArrayCount,&nbsp;spnArrayPointer)&nbsp;
+&nbsp;
+&nbsp;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;getSPNResult&nbsp;=&nbsp;NO_ERROR&nbsp;<span class="visualBasic__keyword">Then</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;Call&nbsp;the&nbsp;CSDsWriteAccountSPN&nbsp;for&nbsp;writing&nbsp;this&nbsp;spn&nbsp;to&nbsp;the&nbsp;object</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;dsWriteSpnResult&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">UInteger</span>&nbsp;=&nbsp;DsWriteAccountSpn(hDS,&nbsp;DS_SPN_WRITE_OP.DS_SPN_ADD_SPN_OP,&nbsp;servicePrincipalName,&nbsp;spnArrayCount,&nbsp;spnArrayPointer)&nbsp;
+&nbsp;
+&nbsp;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;dsWriteSpnResult&nbsp;=&nbsp;NO_ERROR&nbsp;<span class="visualBasic__keyword">Then</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="visualBasic__string">&quot;DsWriteAccountSpn&nbsp;Succeed.&nbsp;Please&nbsp;check&nbsp;the&nbsp;user/Computer&nbsp;object&nbsp;for&nbsp;ServicePrincipalName.&quot;</span>)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.ReadKey()&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Else</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="visualBasic__string">&quot;DsWriteAccountSpn&nbsp;Failed.&quot;</span>)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Return</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Else</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="visualBasic__string">&quot;DsGetSPN&nbsp;Failed.&quot;</span>)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Return</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Else</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="visualBasic__string">&quot;DsCrackSpn&nbsp;Failed.&quot;</span>)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Return</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;
+&nbsp;
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p>&nbsp;</p>
+<h2>Running the Sample</h2>
+<p>You can execute this sample by creating the exe via Visual Studio but it must be running under the domain admin credentials. Also this code must be running either on Domain controller or any one of the member servers.</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>
