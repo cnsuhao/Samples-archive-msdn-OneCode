@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Person>
+    <ID>1</ID>
+    <Name>John Johnson</Name>
+    <Age>12</Age>
+    <Telephone>56778890</Telephone>
+    <Comment>None</Comment>
+  </Person>
+  <Person>
+    <ID>2</ID>
+    <Name>Nancy Wang</Name>
+    <Age>21</Age>
+    <Telephone>82145566</Telephone>
+    <Comment>None</Comment>
+  </Person>
+  <Person>
+    <ID>3</ID>
+    <Name>Lily Smith</Name>
+    <Age>42</Age>
+    <Telephone>4561212</Telephone>
+    <Comment>None</Comment>
+  </Person>
+  <Person>
+    <ID>4</ID>
+    <Name>Lee Levis</Name>
+    <Age>17</Age>
+    <Telephone>13845552155</Telephone>
+    <Comment>None</Comment>
+  </Person>
+</Root>

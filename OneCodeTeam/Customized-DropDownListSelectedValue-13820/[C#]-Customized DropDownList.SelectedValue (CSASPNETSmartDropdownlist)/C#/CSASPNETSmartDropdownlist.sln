@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSASPNETSmartDropdownlist", "CSASPNETSmartDropdownlist\CSASPNETSmartDropdownlist\CSASPNETSmartDropdownlist.csproj", "{CB4C37F7-0AA2-4BED-94EF-43BB6BE5910E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPage", "CSASPNETSmartDropdownlist\TestPage\TestPage.csproj", "{F1607531-96B0-480C-B7D4-2822EEF30F37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB4C37F7-0AA2-4BED-94EF-43BB6BE5910E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB4C37F7-0AA2-4BED-94EF-43BB6BE5910E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB4C37F7-0AA2-4BED-94EF-43BB6BE5910E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB4C37F7-0AA2-4BED-94EF-43BB6BE5910E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1607531-96B0-480C-B7D4-2822EEF30F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1607531-96B0-480C-B7D4-2822EEF30F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1607531-96B0-480C-B7D4-2822EEF30F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1607531-96B0-480C-B7D4-2822EEF30F37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
