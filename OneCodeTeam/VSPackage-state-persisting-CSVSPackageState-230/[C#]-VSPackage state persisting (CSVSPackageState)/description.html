@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>VSPackage state persisting (CSVSPackageState)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>VSPackage state persisting (CSVSPackageState)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            VSX
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Persisting Visual Studio package state
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSVSPackageState-8c3e6cad">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>VSX application : CSVSPackageState Project Overview<br>
+<br>
+Visual Studio Package State Sample<br>
+</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+The Visual Studio package state sample demostrate the state persisting for<br>
+application options and show object states in properties window.<br>
+<br>
+The sample doesn't include the state management for solution and project,<br>
+which will be included in project package sample.<br>
+<br>
+*Tools/Options Page*<br>
+<br>
+1. Open menu [Tools]/[Options]<br>
+2. Select [CSVSPackageState Category]<br>
+3. Change the value of [Option Integer Property]<br>
+4. Open registry editor<br>
+5. Find key: &quot;HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\<br>
+&nbsp; 9.0Exp\UserSettings\DialogPage\<br>
+&nbsp; AllInOne.CSVSPackageState.OptionPageGrid&quot;<br>
+&nbsp; The [OptionInteger] value stores user settings.<br>
+&nbsp; <br>
+*Property Window*<br>
+In this sample, we use ToolWindow to demostrate property window.<br>
+<br>
+1. Open menu [View]/[Other Windows]/[All-In-One Tool Window]<br>
+2. Open menu [View]/[Properties Window]<br>
+3. In the All-In-One Tool Window, change the value of <br>
+&nbsp; PropertyInteger or PropertyString<br>
+4. Change the focus by clicking Properties window<br>
+5. The PropertyInteger or PropertyString will be changed <br>
+&nbsp; according to the value set in the tool window.</p>
+<h3>Prerequisites:</h3>
+<p style="font-family:Courier New"><br>
+VS 2008 SDK must be installed on the machine. You can download it from:<br>
+<a  href="http://www.microsoft.com/downloads/details.aspx?FamilyID=30402623-93ca-479a-867c-04dc45164f5b&amp;displaylang=en">http://www.microsoft.com/downloads/details.aspx?FamilyID=30402623-93ca-479a-867c-04dc45164f5b&amp;displaylang=en</a><br>
+<br>
+Otherwise the project may not be opened by Visual Studio.<br>
+<br>
+If you run this project on a x64 OS, please also config the Debug tab of the project<br>
+Setting. Set the &quot;Start external program&quot; to <br>
+C:\Program Files(x86)\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe<br>
+<br>
+NOTE: The Package Load Failure Dialog occurs because there is no PLK(Package Load Key)<br>
+&nbsp; &nbsp; &nbsp;Specified in this package. To obtain a PLK, please to go to WebSite:<br>
+&nbsp; &nbsp; &nbsp;<a  href="http://msdn.microsoft.com/en-us/vsx/cc655795.aspx">http://msdn.microsoft.com/en-us/vsx/cc655795.aspx</a><br>
+&nbsp; &nbsp; &nbsp;More info<br>
+&nbsp; &nbsp; &nbsp;<a  href="http://msdn.microsoft.com/en-us/library/bb165395.aspx">http://msdn.microsoft.com/en-us/library/bb165395.aspx</a><br>
+</p>
+<h3>Concepts:</h3>
+<p style="font-family:Courier New"><br>
+*Tools/Options Page*<br>
+Selecting Options on the Tools menu opens the Options <br>
+dialog box. The options in this dialog box are collectively <br>
+referred to as Tools/Options pages. The tree control in the <br>
+navigation pane includes option categories, and each category <br>
+has option pages. When you select a page, its options appear <br>
+in the right pane. These pages let you change the values of <br>
+the options that determine the state of a VSPackage.<br>
+<br>
+The DialogPage class implements IProfileManager, which provides <br>
+persistence for both options pages and user settings. The default <br>
+implementations of the LoadSettingsFromStorage and SaveSettingsToStorage<br>
+methods persist property changes into a user's section of the registry <br>
+if the property can be converted to and from a string.<br>
+<br>
+*Property Window*<br>
+When you select an object in Visual Studio, the public properties <br>
+of that object appear in the Properties window. To select an object <br>
+programmatically, you add the object to a list of selectable and <br>
+selected objects in a selection container. You use the STrackSelection <br>
+service to notify Visual Studio of the selection.<br>
+</p>
+<h3>Creation:</h3>
+<p style="font-family:Courier New"><br>
+*Tools/Options Page*<br>
+1. Create a new Visual Studio Integration Package project.<br>
+2. On the Select a Programming Language page, select Visual Basic or Visual C#.<br>
+3. On the Select VSPackage Options page, select Menu Command.<br>
+4. On the Command Options page, change the Command name to Get internal <br>
+option VB or Get internal option CS for Visual Basic or Visual C# respectively, <br>
+and then click Finish.<br>
+5. Declare an OptionPageGrid class and derive it from DialogPage.<br>
+6. Apply a <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.InteropServices.ClassInterfaceAttribute.aspx"  title="Auto generated link to System.Runtime.InteropServices.ClassInterfaceAttribute">System.Runtime.InteropServices.ClassInterfaceAttribute</a> <br>
+to the OptionPageGrid class.<br>
+This creates a COM dual interface that lets Visual Studio Automation use <br>
+GetAutomationObject to access the public members of the class programmatically.<br>
+7. Apply a ProvideOptionPageAttribute to the VSPackage class to assign to the <br>
+class an options category and options page name for the OptionPageGrid.<br>
+8. Add an OptionInteger property to the OptionPageGrid class.<br>
+<br>
+*Property Window*<br>
+1. Create a new Visual Studio Integration Package project.<br>
+2. In the Select a Programming Language page, select Visual C#.<br>
+3. In the Select VSPackage Options page, select Tool Window.<br>
+4. In the Tool Window Options page, change the Window Name to <br>
+&quot;All-In-One Tool Window&quot;, and then click Finish.<br>
+5. The wizard creates the managed project.<br>
+6. Open the file, MyToolWindow.cs, and add the following fields to <br>
+the MyToolWindow class:<br>
+a. ITrackSelection service <br>
+The TrackSelection property uses GetService to obtain an STrackSelection <br>
+service, which provides an ITrackSelection interface. <br>
+b. OnToolWindowCreated event<br>
+c. SelectList method<br>
+The OnToolWindowCreated event handler and SelectList method together create a list
+<br>
+of selected objects that contains only the tool window pane object itself.<br>
+d. UpdateSelection method<br>
+The UpdateSelection method tells the Properties window to display the public <br>
+properties of the tool window pane.</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+VSPackage State<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb165693.aspx">http://msdn.microsoft.com/en-us/library/bb165693.aspx</a><br>
+<br>
+Support for Options Pages<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb166553.aspx">http://msdn.microsoft.com/en-us/library/bb166553.aspx</a><br>
+<br>
+Support for the Property Browser<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb165050.aspx">http://msdn.microsoft.com/en-us/library/bb165050.aspx</a></p>
+<h3></h3>
+<p style="font-family:Courier New"><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
