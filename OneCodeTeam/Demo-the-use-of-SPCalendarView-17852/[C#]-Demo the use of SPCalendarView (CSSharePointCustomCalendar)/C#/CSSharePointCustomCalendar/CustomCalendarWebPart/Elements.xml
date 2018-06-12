@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="CustomCalendarWebPart" List="113" Url="_catalogs/wp">
+    <File Path="CustomCalendarWebPart\CustomCalendarWebPart.webpart" Url="CustomCalendarWebPart.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Custom" />
+    </File>
+  </Module>
+</Elements>

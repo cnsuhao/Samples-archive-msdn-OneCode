@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="ec23ed0d-fb8a-4f33-ad22-ce8cc8882f5a" solutionId="ec23ed0d-fb8a-4f33-ad22-ce8cc8882f5a" resetWebServer="false" name="CSSharePointCustomCalendar" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="37e631d5-8362-4e46-a9f4-2f07d56e4e58" />
+  </features>
+</package>
