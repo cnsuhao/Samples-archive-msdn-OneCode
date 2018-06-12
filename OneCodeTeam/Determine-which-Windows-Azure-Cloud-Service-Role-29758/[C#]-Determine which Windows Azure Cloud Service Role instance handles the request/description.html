@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=EC831D2F780A53CF4C404B53E768954F" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/394dab01-4dae-4137-8b64-9d08a1a91db8Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=DF234F4FF3DA5D35A03D2829D4F99E0D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Determine which Windows Azure Cloud Service Role instance handles the request</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Determine which Windows Azure Cloud Service Role instance handles the request</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Azure, Cloud
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Azure
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">7/10/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-determine-which-70301e15">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<hr>
+<div><a href="http://blogs.msdn.com/b/onecode" style="margin-top:3px"><img src="description/8171.onecodesampletopbanner.png" alt="">
+</a></div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:24pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:14pt"><span style="font-weight:bold; font-size:14pt">How to determine which Windows Azure Cloud Service Role instance handles the request</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Introduction</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Windows Azure cloud service can host many instances in both production deployment and staging deployment.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Sometimes developers want to know which Role Instance handles requests from the client side for several conditions:</span></span></p>
+<p style="margin-left:36pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp;<span style="font-size:11pt">They want to know which deployment slot handles the request.</span></span></p>
+<p style="margin-left:36pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp;<span style="font-size:11pt">They use traffic manager to connect 7 cloud services together, and want to know which cloud service will handle the requests from south Asia.</span></span></p>
+<p style="margin-left:36pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal; text-indent:-18pt">
+<span style="font-size:11pt">&bull;&nbsp;<span style="font-size:11pt">They want to test load balance behavior.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">So they may need to let the role instance connect to Azure management service and get the necessary messages.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">This sample will demonstrate how to determine which windows Azure Cloud Service Role instance handles the request.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Building the Sample</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="color:#333333">&nbsp;</span><span style="font-size:11pt">This sample requires Windows Azure management class libraries. Please run the following command in the
+</span><a href="http://docs.nuget.org/docs/start-here/using-the-package-manager-console" style="text-decoration:none"><span style="color:#0071bc; text-decoration:underline">Package Manager Console</span></a></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="background-color:#202020; color:#e2e2e2; font-size:14pt">&nbsp;</span><span style="background-color:#202020; color:#e2e2e2; font-size:14pt">PM&gt; Install-Package Microsoft.WindowsAzure.Management.Libraries -Pre</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Before running the sample, you need to get some information.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="background-color:#ffffff; color:#222222; font-size:10pt">Download the&nbsp;</span><span style="font-weight:bold">publishsettings file</span><span style="font-size:11pt">&nbsp;from:</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="background-color:#ffffff; color:#222222; font-size:10pt">&nbsp;</span><a href="http://code.msdn.microsoft.com/How-to-determine-which-70301e15/https://manage.windowsazure.com/publishsettings/index?client=vs&amp;schemaversion=2.0&amp;whr=azure.com" style="text-decoration:none"><span style="color:#960bb4; background-color:#ffffff; font-size:10pt; text-decoration:underline">https://manage.windowsazure.com/publishsettings/index?client=vs&amp;schemaversion=2.0&amp;whr=azure.com</span></a><span style="background-color:#ffffff; color:#222222; font-size:10pt">&nbsp;</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:11.25pt; font-size:10.0pt; line-height:24pt; background-color:#ffffff; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="color:#222222; font-size:10pt">And get&nbsp;</span><span style="font-weight:bold; color:#222222; font-size:10pt">SubscriptionID</span><span style="color:#222222; font-size:10pt">&nbsp;and&nbsp;</span><span style="font-weight:bold; color:#222222; font-size:10pt">ManagementCertificate
+ Base64 string</span><span style="color:#222222; font-size:10pt">.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Open the </span><span style="font-weight:bold">Cloud project-&gt;Roles-&gt;DeterminRoleLocation</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/image.png" alt="" width="381" height="54" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><a name="OLE_LINK2"></a><a name="OLE_LINK1"></a><span style="font-size:11pt">Double click DetermineRoleLocation and then click the
+</span><span style="font-weight:bold">Settings</span><span style="font-size:11pt"> tab.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/880354b5-f49f-4127-b7d9-95fcd73ed132image.png" alt="" width="575" height="142" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Fill the </span><span style="font-weight:bold; color:#222222; font-size:10pt">SubscriptionID</span><span style="color:#222222; font-size:10pt">&nbsp;and
+</span><span style="font-weight:bold; color:#222222; font-size:10pt">ManagementCertificate Base64 string
+</span><span style="font-size:11pt">to </span><span style="font-weight:bold; color:#222222; font-size:10pt">subscriptionId
+</span><span style="color:#222222; font-size:10pt">and</span><span style="font-weight:bold; color:#222222; font-size:10pt"> base64EncodedCertificate</span><span style="color:#222222; font-size:10pt">.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><a name="OLE_LINK4"></a><a name="OLE_LINK3"></a><span style="font-size:11pt">Then go to the
+</span><span style="font-weight:bold; color:#222222; font-size:10pt">Default.aspx.cs/Default.aspx.vb
+</span><span style="font-size:11pt">in the web project, change &lsquo;cloudServiceNames&rsquo; in the following code to your cloud service names.</span></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">//You can store your cloudServiceName in Azure Table storage, and get the value dynamically.  
+public static string[] cloudServiceNames = new string[3] { &quot;testcloud&quot;, &quot;testcloud1&quot;, &quot;testcloud2&quot; }; 
+</pre>
+<pre class="hidden">'You can store your cloudServiceName in Azure Table storage, and get the value dynamically.
+Public Shared cloudServiceNames As String() = New String(2) {&quot;testcloud&quot;, &quot;testcloud1&quot;, &quot;testcloud2&quot;}
+</pre>
+<pre id="codePreview" class="csharp">//You can store your cloudServiceName in Azure Table storage, and get the value dynamically.  
+public static string[] cloudServiceNames = new string[3] { &quot;testcloud&quot;, &quot;testcloud1&quot;, &quot;testcloud2&quot; }; 
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">The code snippet above shows that in one subscription there are three cloud services which are connected by the traffic manager.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Running the Sample</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">After the steps above, now you can deploy the cloud service to Windows Azure.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">After completion of the deployment, input your website address:</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">You can get the message like below:</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt"><img src="description/d23720ba-3026-416d-9d4f-aa3761c04d08image.png" alt="" width="575" height="105" align="middle">
+</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">Using the code</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">The following code snippet shows how to achieve the goal.</span><span>
+</span></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">protected void Page_Load(object sender, EventArgs e)
+{
+    var hostedServiceDetails = getCloudServiceDetailsByDeploymentId();
+    if (hostedServiceDetails!=null)
+    {
+        lbRoleName.Text = RoleEnvironment.CurrentRoleInstance.Id;
+        var deployment = hostedServiceDetails.Deployments.Where(dep =&gt; dep.PrivateId == RoleEnvironment.DeploymentId).FirstOrDefault();
+        lbDeploymentName.Text = deployment.Label;
+        lbHostServiceName.Text = hostedServiceDetails.ServiceName;
+        lbRegionOrGroup.Text = 
+            hostedServiceDetails.Properties.AffinityGroup == null ? hostedServiceDetails.Properties.Location : hostedServiceDetails.Properties.AffinityGroup;
+        lbslot.Text = deployment.DeploymentSlot.ToString();
+    }
+    else
+    {
+        Response.Write(&quot;can't find this VM in current subscription&quot;);
+    }
+}
+static HostedServiceGetDetailedResponse getCloudServiceDetailsByDeploymentId()
+{
+    var managementClient = new ComputeManagementClient(getCredentials());
+    var currentDeployment = new HostedServiceGetDetailedResponse.Deployment();
+    foreach (var serviceName in cloudServiceNames)
+    {
+        var hostedServiceDetails = managementClient.HostedServices.GetDetailed(serviceName);
+        foreach (var deployment in hostedServiceDetails.Deployments)
+        {
+            if (deployment.PrivateId == RoleEnvironment.DeploymentId)
+            {
+                return hostedServiceDetails;
+            }
+        }              
+    }
+    return null;
+}
+static SubscriptionCloudCredentials getCredentials()
+{
+    return new CertificateCloudCredentials(subscriptionId, new X509Certificate2(Convert.FromBase64String(base64EncodedCertificate)));
+}
+</pre>
+<pre class="hidden">Protected Sub Page_Load(sender As Object, e As EventArgs)
+    Dim hostedServiceDetails = getCloudServiceDetailsByDeploymentId()
+    If hostedServiceDetails IsNot Nothing Then
+        lbRoleName.Text = RoleEnvironment.CurrentRoleInstance.Id
+        Dim deployment = hostedServiceDetails.Deployments.Where(Function(dep) dep.PrivateId = RoleEnvironment.DeploymentId).FirstOrDefault()
+        lbDeploymentName.Text = deployment.Label
+        lbHostServiceName.Text = hostedServiceDetails.ServiceName
+        lbRegionOrGroup.Text = If(hostedServiceDetails.Properties.AffinityGroup Is Nothing, hostedServiceDetails.Properties.Location, hostedServiceDetails.Properties.AffinityGroup)
+        lbslot.Text = deployment.DeploymentSlot.ToString()
+    Else
+        Response.Write(&quot;can't find this VM in current subscription&quot;)
+    End If
+End Sub
+Private Shared Function getCloudServiceDetailsByDeploymentId() As HostedServiceGetDetailedResponse
+    Dim managementClient = New ComputeManagementClient(getCredentials())
+    Dim currentDeployment = New Deployment()
+    For Each serviceName In cloudServiceNames
+        Dim hostedServiceDetails = managementClient.HostedServices.GetDetailed(serviceName)
+        For Each deployment In hostedServiceDetails.Deployments
+            If deployment.PrivateId = RoleEnvironment.DeploymentId Then
+                Return hostedServiceDetails
+            End If
+        Next
+    Next
+    Return Nothing
+End Function
+Private Shared Function getCredentials() As SubscriptionCloudCredentials
+    Return New CertificateCloudCredentials(subscriptionId, New X509Certificate2(Convert.FromBase64String(base64EncodedCertificate)))
+End Function
+</pre>
+<pre id="codePreview" class="csharp">protected void Page_Load(object sender, EventArgs e)
+{
+    var hostedServiceDetails = getCloudServiceDetailsByDeploymentId();
+    if (hostedServiceDetails!=null)
+    {
+        lbRoleName.Text = RoleEnvironment.CurrentRoleInstance.Id;
+        var deployment = hostedServiceDetails.Deployments.Where(dep =&gt; dep.PrivateId == RoleEnvironment.DeploymentId).FirstOrDefault();
+        lbDeploymentName.Text = deployment.Label;
+        lbHostServiceName.Text = hostedServiceDetails.ServiceName;
+        lbRegionOrGroup.Text = 
+            hostedServiceDetails.Properties.AffinityGroup == null ? hostedServiceDetails.Properties.Location : hostedServiceDetails.Properties.AffinityGroup;
+        lbslot.Text = deployment.DeploymentSlot.ToString();
+    }
+    else
+    {
+        Response.Write(&quot;can't find this VM in current subscription&quot;);
+    }
+}
+static HostedServiceGetDetailedResponse getCloudServiceDetailsByDeploymentId()
+{
+    var managementClient = new ComputeManagementClient(getCredentials());
+    var currentDeployment = new HostedServiceGetDetailedResponse.Deployment();
+    foreach (var serviceName in cloudServiceNames)
+    {
+        var hostedServiceDetails = managementClient.HostedServices.GetDetailed(serviceName);
+        foreach (var deployment in hostedServiceDetails.Deployments)
+        {
+            if (deployment.PrivateId == RoleEnvironment.DeploymentId)
+            {
+                return hostedServiceDetails;
+            }
+        }              
+    }
+    return null;
+}
+static SubscriptionCloudCredentials getCredentials()
+{
+    return new CertificateCloudCredentials(subscriptionId, new X509Certificate2(Convert.FromBase64String(base64EncodedCertificate)));
+}
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:10pt; margin-bottom:0pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-weight:bold; font-size:13pt"><span style="font-weight:bold; font-size:13pt">More Information</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><span style="font-size:11pt">Please refer to the project for more details.</span></span></p>
+<p style="margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:10pt; font-size:10.0pt; line-height:27.6pt; direction:ltr; unicode-bidi:normal">
+<span style="font-size:11pt"><a name="_GoBack"></a></span></p>
+<p style="line-height:0.6pt; color:white">Microsoft All-In-One Code Framework is a free, centralized code sample library driven by developers' real-world pains and needs. The goal is to provide customer-driven code samples for all Microsoft development technologies,
+ and reduce developers' efforts in solving typical programming tasks. Our team listens to developers&rsquo; pains in the MSDN forums, social media and various DEV communities. We write code samples based on developers&rsquo; frequently asked programming tasks,
+ and allow developers to download them with a short sample publishing cycle. Additionally, we offer a free code sample request service. It is a proactive way for our developer community to obtain code samples directly from Microsoft.</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="http://bit.ly/onecodelogo" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

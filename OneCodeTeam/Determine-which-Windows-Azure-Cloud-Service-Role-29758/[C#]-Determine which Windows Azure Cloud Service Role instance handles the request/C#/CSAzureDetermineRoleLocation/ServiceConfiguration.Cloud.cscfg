@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="CSAzureDetermineRoleLocation" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2014-01.2.3">
+  <Role name="DetermineRoleLocation">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=andersonwang;AccountKey=4J7SKfMrV2xkwUALu6DMyC/GXPD7o+q9AMiodTD1UhSsTucW7IU1xL7Y22U7CstYaphgLsq6o25PvOM+eoMovA==" />
+      <Setting name="subscriptionId" value="Dino" />
+      <Setting name="base64EncodedCertificate" value="" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
