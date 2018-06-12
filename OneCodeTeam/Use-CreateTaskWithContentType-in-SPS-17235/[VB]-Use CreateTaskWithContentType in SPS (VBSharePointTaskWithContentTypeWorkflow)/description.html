@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Use CreateTaskWithContentType in SPS (VBSharePointTaskWithContentTypeWorkflow)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Use CreateTaskWithContentType in SPS (VBSharePointTaskWithContentTypeWorkflow)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SharePoint
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            SharePoint, CreateTaskWithC<wbr />ontentType
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/10/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBSharePointTaskWithContent-db5883de">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">Use CreateTaskWithContentType in SharePoint Visual Studio Workflow
+</span>(<span style="">VBSharePointTaskWithContentTypeWorkflow</span>)</h1>
+<h2>Introduction </h2>
+<h2><span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">The project shows how to use CreateTaskWithContentType activity in a SharePoint Visual Studio workflow.&#8203; &#8203;The CreateTaskWithContentType
+ is an import activity in SharePoint visual studio workflow, it will</span> <span style="font-size:11.0pt; line-height:115%; font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight:normal">
+defines a workflow activity that is used to create a task item in a Microsoft SharePoint 2010 task list, using a specified SharePoint 2010 content type. In the sample, I demonstrate a simple leave approval.
+</span></h2>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style="">Please follow these demonstration steps below.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 1: Open the VBSharePointTaskWithContentTypeWorkflow.sln then right click the SharePoint project to edit the ��Site Url�� to your own.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 2: Right-click the &quot;VBSharePointTaskWithContentTypeWorkflow&quot; project and click &quot;Deploy&quot;.<br style="">
+<br style="">
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 3: Add the Content Type to your own Workflow Task list.</span>
+<span style="">It is necessary. </span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 4: Add </span>the workflow ��MyWorkflow�� <span style="">to your own Workflow associated list. Start a workflow.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 5: </span>Open the workflow ��MyWorkflow��. A new workflow item has been established.<br style="">
+<br style="">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 6: Open the workflow item then</span> <span style="">to operate.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style=""></span></p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+<span style="">Step 7: Validation finished. </span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style=""><span style="">Code Logical: <span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></p>
+<p class="MsoNormal" style=""><span style="">Step 1: Create a VB </span>Empty SharePoint Project
+<span style="">in Visual Studio 2010 and name it as ��VBSharePointTaskWithContentTypeWorkflow��.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;Elements xmlns=&quot;http://schemas.microsoft.com/sharepoint/&quot;&gt;
+    &lt;!-- Fields for Task of Workflow CreateTaskWithContentTypeWorkflow--&gt;
+    &lt;Field ID=&quot;{2FE15855-3CAB-44A6-AB29-1600204FCA20}&quot; Name=&quot;ApproveNote&quot;
+           MaxLength=&quot;255&quot; DisplayName=&quot;ApproveNote&quot; Description=&quot;&quot;
+           Direction=&quot;None&quot; Type=&quot;Note&quot;
+           xmlns=&quot;http://schemas.microsoft.com/sharepoint/&quot; /&gt;
+    &lt;Field ID=&quot;{517B22A5-1B89-4C24-82BE-3D4FD99645BC}&quot;
+        Name=&quot;ApproveType&quot;
+        Type=&quot;Choice&quot;
+        DisplayName=&quot;ApproveType&quot;
+        Format=&quot;RadioButtons&quot; &gt;
+        &lt;CHOICES&gt;
+            &lt;CHOICE&gt;Pass&lt;/CHOICE&gt;
+            &lt;CHOICE&gt;Reject&lt;/CHOICE&gt;
+        &lt;/CHOICES&gt;
+        &lt;Default&gt;Pass&lt;/Default&gt;
+    &lt;/Field&gt;
+&lt;/Elements&gt;
+
+</pre>
+<pre id="codePreview" class="xml">
+&lt;Elements xmlns=&quot;http://schemas.microsoft.com/sharepoint/&quot;&gt;
+    &lt;!-- Fields for Task of Workflow CreateTaskWithContentTypeWorkflow--&gt;
+    &lt;Field ID=&quot;{2FE15855-3CAB-44A6-AB29-1600204FCA20}&quot; Name=&quot;ApproveNote&quot;
+           MaxLength=&quot;255&quot; DisplayName=&quot;ApproveNote&quot; Description=&quot;&quot;
+           Direction=&quot;None&quot; Type=&quot;Note&quot;
+           xmlns=&quot;http://schemas.microsoft.com/sharepoint/&quot; /&gt;
+    &lt;Field ID=&quot;{517B22A5-1B89-4C24-82BE-3D4FD99645BC}&quot;
+        Name=&quot;ApproveType&quot;
+        Type=&quot;Choice&quot;
+        DisplayName=&quot;ApproveType&quot;
+        Format=&quot;RadioButtons&quot; &gt;
+        &lt;CHOICES&gt;
+            &lt;CHOICE&gt;Pass&lt;/CHOICE&gt;
+            &lt;CHOICE&gt;Reject&lt;/CHOICE&gt;
+        &lt;/CHOICES&gt;
+        &lt;Default&gt;Pass&lt;/Default&gt;
+    &lt;/Field&gt;
+&lt;/Elements&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">xml</span>
+<pre class="hidden">
+&lt;Elements xmlns=&quot;http://schemas.microsoft.com/sharepoint/&quot;&gt;
+    &lt;!-- Parent ContentType: Task (0x0108)--&gt;
+    &lt;ContentType ID=&quot;0x01080100FFbc98c2529347a5886b8d2576b954e3&quot;
+                     Name=&quot;MyWorkflowTasksContentType&quot;
+                     Group=&quot;Custom Content Types&quot; Inherits=&quot;false&quot;
+                     Description=&quot;Content Type of Tasks of MyWorkflow&quot;
+                   &gt;
+        &lt;FieldRefs&gt;
+            &lt;FieldRef ID=&quot;{2FE15855-3CAB-44A6-AB29-1600204FCA20}&quot; Name=&quot;ApproveNote&quot; DisplayName=&quot;ApproveNote&quot; /&gt;
+            &lt;FieldRef ID=&quot;{517B22A5-1B89-4C24-82BE-3D4FD99645BC}&quot; Name=&quot;ApproveType&quot; DisplayName=&quot;ApproveType&quot; /&gt;
+
+
+
+
+            &lt;FieldRef ID=&quot;{c042a256-787d-4a6f-8a8a-cf6ab767f12d}&quot; Name=&quot;ContentType&quot; /&gt;
+            ��
+        &lt;/FieldRefs&gt;
+        &lt;XmlDocuments&gt;
+            &lt;XmlDocument NamespaceURI=&quot;http://schemas.microsoft.com/sharepoint/v3/contenttype/forms&quot;&gt;
+                &lt;FormTemplates xmlns=&quot;http://schemas.microsoft.com/sharepoint/v3/contenttype/forms&quot;&gt;
+                    &lt;Display&gt;ListForm&lt;/Display&gt;
+                    &lt;Edit&gt;ListForm&lt;/Edit&gt;
+                    &lt;New&gt;ListForm&lt;/New&gt;
+                &lt;/FormTemplates&gt;
+            &lt;/XmlDocument&gt;
+            &lt;!--If you want to use custom Application Page,uncomment the following lines then modify the url.--&gt;
+            &lt;!--&lt;XmlDocument NamespaceURI=&quot;http://schemas.microsoft.com/sharepoint/v3/contenttype/forms/url&quot;&gt;
+                &lt;FormUrls xmlns=&quot;http://schemas.microsoft.com/sharepoint/v3/contenttype/forms/url&quot;&gt;
+                    &lt;Display&gt;_layouts/yourProject/Display.aspx&lt;/Display&gt;
+                    &lt;Edit&gt;_layouts/yourProject/Approve.aspx&lt;/Edit&gt;
+                &lt;/FormUrls&gt;
+            &lt;/XmlDocument&gt;--&gt;
+        &lt;/XmlDocuments&gt;
+    &lt;/ContentType&gt;
+&lt;/Elements&gt;
+
+</pre>
+<pre id="codePreview" class="xml">
+&lt;Elements xmlns=&quot;http://schemas.microsoft.com/sharepoint/&quot;&gt;
+    &lt;!-- Parent ContentType: Task (0x0108)--&gt;
+    &lt;ContentType ID=&quot;0x01080100FFbc98c2529347a5886b8d2576b954e3&quot;
+                     Name=&quot;MyWorkflowTasksContentType&quot;
+                     Group=&quot;Custom Content Types&quot; Inherits=&quot;false&quot;
+                     Description=&quot;Content Type of Tasks of MyWorkflow&quot;
+                   &gt;
+        &lt;FieldRefs&gt;
+            &lt;FieldRef ID=&quot;{2FE15855-3CAB-44A6-AB29-1600204FCA20}&quot; Name=&quot;ApproveNote&quot; DisplayName=&quot;ApproveNote&quot; /&gt;
+            &lt;FieldRef ID=&quot;{517B22A5-1B89-4C24-82BE-3D4FD99645BC}&quot; Name=&quot;ApproveType&quot; DisplayName=&quot;ApproveType&quot; /&gt;
+
+
+
+
+            &lt;FieldRef ID=&quot;{c042a256-787d-4a6f-8a8a-cf6ab767f12d}&quot; Name=&quot;ContentType&quot; /&gt;
+            ��
+        &lt;/FieldRefs&gt;
+        &lt;XmlDocuments&gt;
+            &lt;XmlDocument NamespaceURI=&quot;http://schemas.microsoft.com/sharepoint/v3/contenttype/forms&quot;&gt;
+                &lt;FormTemplates xmlns=&quot;http://schemas.microsoft.com/sharepoint/v3/contenttype/forms&quot;&gt;
+                    &lt;Display&gt;ListForm&lt;/Display&gt;
+                    &lt;Edit&gt;ListForm&lt;/Edit&gt;
+                    &lt;New&gt;ListForm&lt;/New&gt;
+                &lt;/FormTemplates&gt;
+            &lt;/XmlDocument&gt;
+            &lt;!--If you want to use custom Application Page,uncomment the following lines then modify the url.--&gt;
+            &lt;!--&lt;XmlDocument NamespaceURI=&quot;http://schemas.microsoft.com/sharepoint/v3/contenttype/forms/url&quot;&gt;
+                &lt;FormUrls xmlns=&quot;http://schemas.microsoft.com/sharepoint/v3/contenttype/forms/url&quot;&gt;
+                    &lt;Display&gt;_layouts/yourProject/Display.aspx&lt;/Display&gt;
+                    &lt;Edit&gt;_layouts/yourProject/Approve.aspx&lt;/Edit&gt;
+                &lt;/FormUrls&gt;
+            &lt;/XmlDocument&gt;--&gt;
+        &lt;/XmlDocuments&gt;
+    &lt;/ContentType&gt;
+&lt;/Elements&gt;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><span lang="EN" style="">Inside ��FormUrls�� tag we specify our custom form template we created.<br>
+<b style="">[Note]</b> The new content type is derived from the ��Workflow Task�� content type 0��010801. The content type id should begin with 0x01080100. In the ��FieldRefs�� section we add our fields we need inside the workflow.
+</span></p>
+<p class="MsoNormal" style=""><span lang="EN" style="">Step 4: Create a ��Sequential Workflow�� project item named ��MyWorkflow��. Create the workflow as ��List Workflow��. We manually associate the workflow with lists after it is created.
+<br>
+<br>
+Step 5: Add a ��Create Task With Content Type�� workflow activity, it will use the Content Type we have created</span><span style="">.</span>
+<span style="">Open the ��Toolbox�� pane and drag ��CreateTaskWithContentType�� into the Workflow Designer.</span>
+<span style="">Now we need to configure the workflow activity in the ��Properties�� pane.</span>
+<span style="">Set ��correlationToken�� to ��task1�� and the sub element of ��correlationToken�� named ��OwnerActivityName�� to ��MyWorkflow��.</span>
+<span style="">Now we need to create code behind properties for some activity properties. As example I��ll show how to create a code behind property for ��ContentTypeId��.Click on the Button ������ at the activity property edit box:<br>
+<br>
+</span><span style=""><img src="description/image.png" alt="" width="297" height="18" align="middle">
+</span><span style=""></span></p>
+<p class="MsoNormal" style=""><span lang="EN" style="">In the dialog select the tab ��Bind to a new member��. Enter the name ��New member name�� and select the ��Create Property�� radio button. Press ��OK��.
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+��ContentTypeId�� = ��task1ContentTypeId��
+��TaskId�� = ��task1Guid��
+��TaskProperties�� = ��task1Properties��
+
+</pre>
+<pre id="codePreview" class="vb">
+��ContentTypeId�� = ��task1ContentTypeId��
+��TaskId�� = ��task1Guid��
+��TaskProperties�� = ��task1Properties��
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><span lang="EN" style=""><br>
+In ��MethodInvoking�� type ��createTask1Invoke�� and press ENTER. �C You��ll be directed to the code editor. In the method we initialize the task1-Properties we created before. The ��ContentTypeId�� is taken from the ��Schema.xml�� file of our ��</span><span style="">MyWorkflow</span><span lang="EN" style="">
+ Tasks�� list where we created the Content Type ��</span><span style="">MyWorkflow</span><span lang="EN" style=""> Task��. After that your method looks like this:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Sub createTask1Invoke(sender As Object, e As EventArgs)
+        task1Properties = New SPWorkflowTaskProperties()
+        task1Properties.Title = String.Format(&quot;Please approval:&atilde;�&#144;{0}&atilde;���&quot;, workflowProperties.Item.DisplayName)
+        task1Guid = Guid.NewGuid()
+        task1ContentTypeId = &quot;0x01080100FFbc98c2529347a5886b8d2576b954e3&quot;
+        'This is the Content type which is used by the workFlow
+    End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Sub createTask1Invoke(sender As Object, e As EventArgs)
+        task1Properties = New SPWorkflowTaskProperties()
+        task1Properties.Title = String.Format(&quot;Please approval:&atilde;�&#144;{0}&atilde;���&quot;, workflowProperties.Item.DisplayName)
+        task1Guid = Guid.NewGuid()
+        task1ContentTypeId = &quot;0x01080100FFbc98c2529347a5886b8d2576b954e3&quot;
+        'This is the Content type which is used by the workFlow
+    End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><span lang="EN" style=""><br>
+Step 6: Back in the workflow designer. We drag a ��While�� activity from the Toolbox pane into the workflow behind the ��Create Task�� activity. Into the ��While�� activity we drag a ��Sequence�� property from the Toolbox pane. Into the ��Sequence�� activity
+ we drag a ��OnTaskChanged�� activity from the Toolbox pane. Now we edit the properties of the created ��OnTaskChanged�� activity. We have to set the ��CorrelationToken�� as described above. Additionally we specify new property bindings:<br>
+<b style="">��AfterProperties�� = ��task1Changed1_AfterProperties��<br>
+��BeforeProperties�� = ��task1Changed1_BeforeProperties��<br>
+��TaskId�� =&gt; Bind to the existing member ��task1Guid��<br>
+</b>In the ��Invoked�� property add the method name ��task1Changed1Invoke��. �C The code editor will be opened.
+</span></p>
+<p class="MsoNormal" style=""><span lang="EN" style="">Step 7: In the code we add a property at class level:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private isFinished As Boolean = False
+
+</pre>
+<pre id="codePreview" class="vb">
+Private isFinished As Boolean = False
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><span lang="EN" style="">This property we set inside the ��OnWorkflowItemChanged�� activity. It will contain the information whether the Workflow Task Item we created before was ��Completed�� by the assigned user. In the ��task1Changed1Invoke��
+ method we set the ��isFinished�� property. </span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+'Handler of OnTaskChanged
+   Private Sub task1Changed1Invoke(sender As Object, e As ExternalDataEventArgs)
+       'isFinished = task1Changed1_AfterProperties.PercentComplete = 1.0F
+       isFinished = ((task1Changed1_AfterProperties.ExtendedProperties(SPBuiltInFieldId.TaskStatus).ToString()) = &quot;Completed&quot;)
+   End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+'Handler of OnTaskChanged
+   Private Sub task1Changed1Invoke(sender As Object, e As ExternalDataEventArgs)
+       'isFinished = task1Changed1_AfterProperties.PercentComplete = 1.0F
+       isFinished = ((task1Changed1_AfterProperties.ExtendedProperties(SPBuiltInFieldId.TaskStatus).ToString()) = &quot;Completed&quot;)
+   End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><span lang="EN" style="">Step 8: Now we need to specify the condition for the ��While�� activity. In the workflow designer select this activity. In the ��Condition�� property select ��Code Condition�� and expand the property.
+ Enter ��while1Invoke�� in the subproperty with (the same) name ��Condition��. In the code editor enter the code for ��while1Invoke�� like this:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Sub while1Invoke(sender As Object, e As ConditionalEventArgs)
+        e.Result = Not isFinished
+    End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Sub while1Invoke(sender As Object, e As ConditionalEventArgs)
+        e.Result = Not isFinished
+    End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style=""><span lang="EN" style="">The ��e.Result�� property has to be ��TRUE�� as long as the while loop should run. It should not run anymore (��e.Result = false��) if ��isFinished�� is TRUE.
+</span></p>
+<p class="MsoNormal" style=""><span lang="EN" style="">Step 9: In the workflow designer add a ��CompleteTask�� activity behind the ��While�� activity. Drag the ��CompleteTask�� activity from the Toolbar pane into the workflow designer. Select the ��completeTask1��
+ activity and edit its properties in the Property pane.<br>
+Bind ��TaskId�� to the existing member ��task1Guid��<br>
+Create a new member named ��task1Outcome�� for binding to ��TaskOutcome��. Set the ��CorrelationToken�� to ��task1��</span><b style=""><br>
+</b><span lang="EN" style="">Step 10: Deploy and you can debug it.</span><b style="">
+</b></p>
+<a href="http://msdn.microsoft.com/en-us/library/ms196289.aspx">http://msdn.microsoft.com/en-us/library/ms196289.aspx</a>
+<a href="http://msdn.microsoft.com/en-us/library/ms463449.aspx">http://msdn.microsoft.com/en-us/library/ms463449.aspx</a>
+<a href="http://msdn.microsoft.com/en-us/library/ms438856.aspx">http://msdn.microsoft.com/en-us/library/ms438856.aspx</a>
+<p class="MsoNormal" style=""><br style="">
+<br style="">
+</p>
+<p class="MsoNormal" style=""></p>
+<p class="MsoNormal" style=""><br style="">
+<br style="">
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

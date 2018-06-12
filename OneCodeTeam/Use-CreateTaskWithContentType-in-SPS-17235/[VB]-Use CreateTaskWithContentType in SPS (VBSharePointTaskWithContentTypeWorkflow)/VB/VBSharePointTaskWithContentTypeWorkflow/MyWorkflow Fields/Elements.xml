@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <!-- Fields for Task of Workflow CreateTaskWithContentTypeWorkflow-->
+    <Field ID="{2FE15855-3CAB-44A6-AB29-1600204FCA20}" Name="ApproveNote"
+           MaxLength="255" DisplayName="ApproveNote" Description=""
+           Direction="None" Type="Note"
+           xmlns="http://schemas.microsoft.com/sharepoint/" />
+    <Field ID="{517B22A5-1B89-4C24-82BE-3D4FD99645BC}"
+        Name="ApproveType"
+        Type="Choice"
+        DisplayName="ApproveType"
+        Format="RadioButtons" >
+        <CHOICES>
+            <CHOICE>Pass</CHOICE>
+            <CHOICE>Reject</CHOICE>
+        </CHOICES>
+        <Default>Pass</Default>
+    </Field>
+</Elements>
