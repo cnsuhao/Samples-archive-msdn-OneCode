@@ -1,0 +1,118 @@
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{99E453F4-BD20-42E5-A3A4-902F15EF89EC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSASPNETIntelligentTextBox</RootNamespace>
+    <AssemblyName>CSASPNETIntelligentTextBox</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    
+    
+    
+    
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRules>-Microsoft.Design#CA1012;-Microsoft.Design#CA2210;-Microsoft.Design#CA1040;-Microsoft.Design#CA1005;-Microsoft.Design#CA1020;-Microsoft.Design#CA1021;-Microsoft.Design#CA1010;-Microsoft.Design#CA1011;-Microsoft.Design#CA1009;-Microsoft.Design#CA1050;-Microsoft.Design#CA1026;-Microsoft.Design#CA1019;-Microsoft.Design#CA1031;-Microsoft.Design#CA1047;-Microsoft.Design#CA1000;-Microsoft.Design#CA1048;-Microsoft.Design#CA1051;-Microsoft.Design#CA1002;-Microsoft.Design#CA1061;-Microsoft.Design#CA1006;-Microsoft.Design#CA1046;-Microsoft.Design#CA1045;-Microsoft.Design#CA1065;-Microsoft.Design#CA1038;-Microsoft.Design#CA1008;-Microsoft.Design#CA1028;-Microsoft.Design#CA1064;-Microsoft.Design#CA1004;-Microsoft.Design#CA1035;-Microsoft.Design#CA1063;-Microsoft.Design#CA1032;-Microsoft.Design#CA1023;-Microsoft.Design#CA1033;-Microsoft.Design#CA1039;-Microsoft.Design#CA1016;-Microsoft.Design#CA1014;-Microsoft.Design#CA1017;-Microsoft.Design#CA1018;-Microsoft.Design#CA1027;-Microsoft.Design#CA1059;-Microsoft.Design#CA1060;-Microsoft.Design#CA1034;-Microsoft.Design#CA1013;-Microsoft.Design#CA1036;-Microsoft.Design#CA1044;-Microsoft.Design#CA1041;-Microsoft.Design#CA1025;-Microsoft.Design#CA1052;-Microsoft.Design#CA1053;-Microsoft.Design#CA1057;-Microsoft.Design#CA1058;-Microsoft.Design#CA1001;-Microsoft.Design#CA1049;-Microsoft.Design#CA1054;-Microsoft.Design#CA1056;-Microsoft.Design#CA1055;-Microsoft.Design#CA1030;-Microsoft.Design#CA1003;-Microsoft.Design#CA1007;-Microsoft.Design#CA1043;-Microsoft.Design#CA1024;-Microsoft.Globalization#CA1301;-Microsoft.Globalization#CA1302;-Microsoft.Globalization#CA1308;-Microsoft.Globalization#CA1306;-Microsoft.Globalization#CA1304;-Microsoft.Globalization#CA1305;-Microsoft.Globalization#CA2101;-Microsoft.Globalization#CA1300;-Microsoft.Globalization#CA1307;-Microsoft.Globalization#CA1309;-Microsoft.Naming#CA1702;-Microsoft.Naming#CA1700;-Microsoft.Naming#CA1712;-Microsoft.Naming#CA1713;-Microsoft.Naming#CA1714;-Microsoft.Naming#CA1709;-Microsoft.Naming#CA1704;-Microsoft.Naming#CA1708;-Microsoft.Naming#CA1715;-Microsoft.Naming#CA1710;-Microsoft.Naming#CA1720;-Microsoft.Naming#CA1707;-Microsoft.Naming#CA1722;-Microsoft.Naming#CA1711;-Microsoft.Naming#CA1716;-Microsoft.Naming#CA1717;-Microsoft.Naming#CA1725;-Microsoft.Naming#CA1719;-Microsoft.Naming#CA1721;-Microsoft.Naming#CA1701;-Microsoft.Naming#CA1703;-Microsoft.Naming#CA1724;-Microsoft.Naming#CA1726</CodeAnalysisRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Dictionary\WordList.txt" />
+    <Content Include="Documentation\ReadMe.htm" />
+    <Content Include="Documentation\ReadMe_files\colorschememapping.xml" />
+    <Content Include="Documentation\ReadMe_files\filelist.xml" />
+    <Content Include="Documentation\ReadMe_files\image001.jpg" />
+    <Content Include="Documentation\ReadMe_files\image002.jpg" />
+    <Content Include="Documentation\ReadMe_files\image003.jpg" />
+    <Content Include="Documentation\ReadMe_files\image004.jpg" />
+    <Content Include="Documentation\ReadMe_files\image005.jpg" />
+    <Content Include="Documentation\ReadMe_files\image006.jpg" />
+    <Content Include="Web.config" />
+    <Content Include="WordAddPage.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WordAddPage.aspx.cs">
+      <DependentUpon>WordAddPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WordAddPage.aspx.designer.cs">
+      <DependentUpon>WordAddPage.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Documentation\ReadMe_files\themedata.thmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>27175</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
