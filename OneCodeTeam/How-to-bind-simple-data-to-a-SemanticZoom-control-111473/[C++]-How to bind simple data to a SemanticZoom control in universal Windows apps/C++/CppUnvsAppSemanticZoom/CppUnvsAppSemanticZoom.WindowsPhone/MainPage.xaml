@@ -1,0 +1,112 @@
+﻿<Page
+    x:Class="CppUnvsAppSemanticZoom.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CppUnvsAppSemanticZoom"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid x:Name="contentRoot" Margin="10,10,10,10">
+            <Grid.Resources>
+                <CollectionViewSource x:Name="MyCollectionViewSource" IsSourceGrouped="true" ItemsPath="Speakers" />
+                <local:VisibilityConverter x:Key="VisibilityConverter" />
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- page title -->
+            <Grid x:Name="titleGrid" Grid.Row="0">
+                <TextBlock Text="{StaticResource AppLogo}" Style="{StaticResource AppLogoStyle}"
+                           Visibility="{Binding ElementName=MySemanticZoom, Path=IsZoomedInViewActive, Converter={StaticResource VisibilityConverter}}"/>
+            </Grid>
+
+            <!-- page body -->
+            <Grid Name="contentGrid" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <SemanticZoom Grid.Row="1" Name="MySemanticZoom" IsZoomedInViewActive="False" IsZoomOutButtonEnabled="True">
+                    <SemanticZoom.ZoomedInView>
+                        <GridView x:Name="MySZ_ZoomedInGridView" ItemsSource="{Binding Source={StaticResource MyCollectionViewSource}}" 
+                                      ScrollViewer.IsHorizontalScrollChainingEnabled="False" IsSynchronizedWithCurrentItem="False"
+                                      SelectionChanged="MySZ_ZoomedInGridView_SelectionChanged"  VerticalAlignment="Center" 
+                                  Visibility="{Binding ElementName=MySemanticZoom, Path=IsZoomedInViewActive, Converter={StaticResource VisibilityConverter}}">
+                            <GridView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Name}" MinWidth="150" Margin="10"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                            <GridView.GroupStyle>
+                                <GroupStyle>
+                                    <GroupStyle.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border BorderBrush="White" BorderThickness="1" MinWidth="150">
+                                                <TextBlock Text="{Binding Language}"  FontSize="22" Margin="10"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GroupStyle.HeaderTemplate>
+                                </GroupStyle>
+                            </GridView.GroupStyle>
+                        </GridView>
+                    </SemanticZoom.ZoomedInView>
+                    <SemanticZoom.ZoomedOutView>
+                        <GridView x:Name="MySZ_ZoomedOutGridView" SelectionMode="None" 
+                                      IsItemClickEnabled="True" VerticalAlignment="Top"
+                                      ScrollViewer.IsHorizontalScrollChainingEnabled="False">
+                            <GridView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="White" BorderThickness="1">
+                                        <StackPanel Margin="10">
+                                            <TextBlock Text="{Binding Group.Language}"  FontSize="22" />
+                                            <StackPanel Orientation="Horizontal" MinWidth="150">
+                                                <TextBlock Text="No. Available:&#160;"/>
+                                                <TextBlock Text="{Binding Group.Speakers.Count}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                            <GridView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Margin="50" Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </GridView.ItemsPanel>
+                        </GridView>
+                    </SemanticZoom.ZoomedOutView>
+                </SemanticZoom>
+                <Button Grid.Row="0" Content="Click to change view" x:Name="ChangeViewButton" Click="ChangeViewButton_Click"
+                        Visibility="{Binding ElementName=MySemanticZoom, Path=IsZoomedInViewActive, Converter={StaticResource VisibilityConverter}}"/>
+
+            </Grid>
+            <!-- Footer -->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="27*"/>
+                    <ColumnDefinition Width="556*"/>
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="Footer" Margin="0,0,0,10" VerticalAlignment="Bottom" Grid.ColumnSpan="2" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0"  Source="Assets/microsoft.png" AutomationProperties.Name="Microsoft Logo" Stretch="None" HorizontalAlignment="Left"/>
+                    <TextBlock Style="{StaticResource AppFooterStyle}" Grid.Row="0" Text="© 2014 Microsoft Corporation. All rights reserved." TextWrapping="Wrap" HorizontalAlignment="Right"/>
+                    <StackPanel x:Name="FooterPanel" Orientation="Horizontal" Grid.Row="1"  HorizontalAlignment="Right">
+                        <HyperlinkButton Content="All-In-One Code Framework" Tag="http://blogs.msdn.com/b/onecode" Click="Footer_Click" FontSize="12"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>
