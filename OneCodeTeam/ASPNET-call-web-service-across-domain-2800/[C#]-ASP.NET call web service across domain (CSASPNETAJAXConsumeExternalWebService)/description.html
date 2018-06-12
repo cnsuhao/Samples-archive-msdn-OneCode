@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ASP.NET call web service across domain (CSASPNETAJAXConsumeExternalWebService)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>ASP.NET call web service across domain (CSASPNETAJAXConsumeExternalWebService)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            AJAX, Web Services
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETAJAXConsumeExternal-03bf14b4">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>CSASPNETAJAXConsumeExternalWebService Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+The project illustrates how to consume an external Web Service from a<br>
+different domain.<br>
+<br>
+Demo the Sample. <br>
+<br>
+Please follow these demonstration steps below.<br>
+<br>
+Step 1: Open the CSASPNETAJAXConsumeExternalWebService.sln.<br>
+<br>
+Step 2: Expand the ExternalWebSite and right-click the ExternalWebService.asmx <br>
+&nbsp; &nbsp; &nbsp; &nbsp;and click &quot;View in Browser&quot;. This step is very important,
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;it impersonates to open an external web service.<br>
+<br>
+Step 3: Expand the TestWebSite and right-click the default.aspx and click <br>
+&nbsp; &nbsp; &nbsp; &nbsp;&quot;View in Browser&quot;.<br>
+<br>
+Step 4: You will see a black panel and a Button. Click on the button. You will<br>
+&nbsp;&nbsp;&nbsp;&nbsp;see &quot;Please wait a moment...&quot; in the Panel, after about one second or
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;less time, you will see the datetime returned from the server.<br>
+<br>
+Step 5: That's all.<br>
+</p>
+<h3>Code Logical:</h3>
+<p style="font-family:Courier New"><br>
+Step 1. &nbsp;Create an C# &quot;ASP.NET Empty Web Site&quot; in Visual Studio 2010 or<br>
+&nbsp; &nbsp; &nbsp; &nbsp; Visual Web Developer 2010. Change the last folder name to ExternalWebSite.<br>
+<br>
+Step 2. &nbsp;Add a new &quot;Web Service&quot; item. We call it ExternalWebService.asmx.<br>
+<br>
+Step 3. &nbsp;Open the ExternalWebService.asmx.cs in App_Code.<br>
+<br>
+Step 4. &nbsp;Un-comment this line above the class name.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [CODE]<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [System.Web.Script.Services.ScriptService]<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [/CODE]<br>
+<br>
+Step 5. &nbsp;Write a new web method like below and save the file.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [CODE]<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [WebMethod]<br>
+&nbsp; &nbsp; &nbsp; &nbsp; public DateTime GetServerTime() {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return DateTime.Now;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [/CODE]<br>
+<br>
+Step 6. &nbsp;Open the ExternalWebService.asmx to view the page in the browser.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; Copy the URL address in the navigation bar.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+Step 7. &nbsp;Add a new C# &quot;ASP.NET Empty Web Site&quot;. Change the last folder name<br>
+&nbsp; &nbsp; &nbsp; &nbsp; to TestWebSite.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <br>
+Step 8. &nbsp;Click on the new website in the Solution Explorer and look at the menu<br>
+&nbsp; &nbsp; &nbsp; &nbsp; bar. Click the WebSite -&gt; Add Web Reference...<br>
+<br>
+Step 9. &nbsp;Paste the URL address which we get in the step 6 into the &quot;URL&quot; textbox.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; Change the &quot;Web Reference Name&quot; to &quot;ExternalWebService&quot;. Click &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;Add Reference&quot;.<br>
+<br>
+Step 10. Create a new &quot;Web Service&quot; item. Change the name to BridgeWebService.asmx<br>
+<br>
+Step 11. Open the BridgeWebService.asmx.cs in the App_Code. Do the same thing in<br>
+&nbsp; &nbsp; &nbsp; &nbsp; step 4.<br>
+<br>
+Step 12. Write the code below to call the external web service and save the file.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [CODE]<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [WebMethod]<br>
+&nbsp; &nbsp; &nbsp; &nbsp; public DateTime GetServerTime()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Get an instance of the external web service<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ExternalWebService.ExternalWebService ews = new ExternalWebService.ExternalWebService();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Return the result from the web service method.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return ews.GetServerTime();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [/CODE]<br>
+<br>
+Step 13. Create a new &quot;Web Form&quot; item. Chage the name to Default.aspx.<br>
+<br>
+Step 14. Add a ScriptManager control into the page. And a service reference <br>
+&nbsp; &nbsp; &nbsp; &nbsp; which path is the local bridge web service: BridgeWebService.asmx.<br>
+<br>
+Step 15. Create a DIV for showing the result and a Button to call the service.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [CODE]<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;Result&quot; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;style=&quot;width: 100%; height: 100px; background-color: Black; color: White&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;button&quot; <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value=&quot;Get Server Time From External Web Service&quot;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;onclick=&quot;GetServerDateTime()&quot; /&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [/CODE]<br>
+<br>
+Step 16. Create the Javascript functions to call the web service.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [CODE]<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;script type=&quot;text/javascript&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; // This function is used to call the service by Ajax Extension.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; function GetServerDateTime() {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $get(&quot;Result&quot;).innerHTML = &quot;Please wait a moment...&quot;;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; BridgeWebService.GetServerTime(onSuccess, onFailed);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp; // This function will be executed when get a response
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; // from the service.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; function onSuccess(result) {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $get(&quot;Result&quot;).innerHTML = &quot;Server DateTime is : &quot; &#43; result.toLocaleString();<br>
+&nbsp; &nbsp; &nbsp; &nbsp; }<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; // This function will be executed when get an exception<br>
+&nbsp; &nbsp; &nbsp; &nbsp; // from the service.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; function onFailed(args) {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert(&quot;Server Return Error:\n&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;Message:&quot; &#43; args.get_message() &#43; &quot;\n&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;Status Code:&quot; &#43; args.get_statusCode() &#43; &quot;\n&quot; &#43;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;Exception Type:&quot; &#43; args.get_exceptionType());<br>
+&nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/script&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [/CODE]<br>
+&nbsp; &nbsp; &nbsp; &nbsp; When we add the ServiceReference of the ScriptManager, we will see<br>
+&nbsp; &nbsp; &nbsp; &nbsp; IntelliSense effect.<br>
+<br>
+Step 17. Test the Default.aspx and we will get the datetime from the server.<br>
+<br>
+PS<br>
+If we want to use an AJAX-enabled WCF service from a different domain with <br>
+Service Reference of the ScriptManager, the steps are same as we talked above.<br>
+Just create a local AJAX-enabled WCF service to make a bridge to consume the<br>
+remote one.</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MSDN: ServiceReference Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.web.ui.servicereference.aspx">http://msdn.microsoft.com/en-us/library/system.web.ui.servicereference.aspx</a><br>
+<br>
+MSDN: ASP.NET Web Services<br>
+<a  href="http://msdn.microsoft.com/en-us/library/t745kdsh.aspx">http://msdn.microsoft.com/en-us/library/t745kdsh.aspx</a><br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
