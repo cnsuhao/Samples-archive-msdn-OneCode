@@ -1,0 +1,7 @@
+/****************************** Module Header ******************************\
+Module Name:  SampleFileForDownload5
+Project:      VBASPNETCompressFilesIntoSingleZip
+
+Sample file for testing
+
+\***************************************************************************/
