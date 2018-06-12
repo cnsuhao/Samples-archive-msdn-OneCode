@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Federate the authentication to a local STS (CSAzureWebRoleIdentity)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Federate the authentication to a local STS (CSAzureWebRoleIdentity)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            ADFS Authentication, STS
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/16/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSAzureWebRoleIdentity-004bc8dd">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420" ><img id="79969" src="description/120x90_Azure_web_EN_US.jpg" alt="" width="360" height="90"></a></p>
+<h2>APPLICATION : CSAzureWebRoleIdentity Project Overview</h2>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>Summary:</h3>
+<p style="font-family:Courier New"><br>
+CSAzureWebRoleIdentity is a web role hosted in Windows Azure. It federates the <br>
+authentication to a local STS. This breaks the authentication code from the business
+<br>
+logic so that web developer can offload the authentication and authorization to <br>
+the STS with the help of WIF.</p>
+<div align="right">
+<p><a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420"><span style="color:windowtext; text-decoration:none"><span><img src="description/image.png" alt="" width="120" height="90" align="middle">
+</span></span></a><br>
+<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420">Try Windows Azure for free for 90 Days!</a></p>
+</div>
+<h3>Prerequisite:</h3>
+<p style="font-family:Courier New"><br>
+1. Microsoft Windows Vista SP2 (32-bits or 64-bits) , Microsoft Windows Server 2008 SP2
+<br>
+&nbsp; (32-bit or 64-bit), Microsoft Windows Server 2008 R2, &nbsp;Microsoft Windows 7 RTM (32-bits or 64-bits)<br>
+2. Microsoft Internet Information Services (IIS) 7.0 with IIS Metabase and IIS <br>
+&nbsp; 6 configuration compatibility.<br>
+3. Microsoft .NET Framework 4<br>
+4. Microsoft Visual Studio 2010<br>
+5. Microsoft Windows Identity Foundation Runtime<br>
+6. Microsoft Windows Identity Foundation SDK 4.0<br>
+7. Windows Azure Tools for Microsoft Visual Studio 1.4<br>
+<br>
+</p>
+<h3>Setup:</h3>
+<p style="font-family:Courier New"><br>
+1.&nbsp;&nbsp;&nbsp;&nbsp;Create a New Hosted Service on Windows Azure. In this sample, it is csazurewebroleidentity.<br>
+2.&nbsp;&nbsp;&nbsp;&nbsp;Create certificate for the service. The subject name should be the same as the service name.<br>
+3.&nbsp;&nbsp;&nbsp;&nbsp;Import the certificate into Personal and Trusted Root Certification Authorities<br>
+4.&nbsp;&nbsp;&nbsp;&nbsp;Upload the certificate to the hosted service.<br>
+5.&nbsp;&nbsp;&nbsp;&nbsp;Deploy the solution to Windows Azure<br>
+6.&nbsp;&nbsp;&nbsp;&nbsp;Copy csazurewebroleidentity_sts in STS folder to C:\inetpub\wwwroot\ folder and create a
+<br>
+&nbsp; &nbsp;Virtual Directory in Default Web Site for it.<br>
+<br>
+<br>
+Please note:<br>
+<br>
+1. You need to make sure the certificate used for SSL has the same name as your hosted service.
+<br>
+&nbsp; You can use CreateCert script in sample Assert folder to create such folder<br>
+<br>
+&nbsp; &gt;CreateCert yourservicename<br>
+<br>
+2. If you run into exception, &quot;A potentially dangerous Request.Form value was detected from the client<br>
+&nbsp; &quot;after click &quot;Submit&quot; button on STS, you need to add the following in web.config of the
+<br>
+&nbsp; replying party. It will disable the validation in ASP.NET.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;httpRuntime requestValidationMode=&quot;2.0&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;pages validateRequest=&quot;false&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/system.web&gt;<br>
+<br>
+3. Make sure &quot;Copy Local&quot; attribute of <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.IdentityModel.aspx"  title="Auto generated link to Microsoft.IdentityModel">Microsoft.IdentityModel</a> assembly in Web role replying party set as True.<br>
+<br>
+Test:<br>
+When browse to the web role ( please note, you need to use HTTPS instead of HTTP protocol ), which
+<br>
+is now hosted in Windows Azure. You will be redirected to the local STS first. You can observe
+<br>
+this from the browser address bar. After log in, the web role will display your claim in the default page.<br>
+<br>
+</p>
+<h3>Code Logic:</h3>
+<p style="font-family:Courier New"><br>
+Local STS will first validate the incoming request. If it is coming from the local host or Windows Azure
+<br>
+domain, then it will reject the request by throwing an InvalidRequestException. After validation, STS
+<br>
+will issue claims of identity. These claims include: name and role. This is done in ValidateReplyTo()
+<br>
+and GetOutputClaimsIdentity() method in CustomSecurityTokenService.cs<br>
+<br>
+The ASP.NET web role uses default template except it displays login user&rsquo;s claims on default page.<br>
+<br>
+All its authentication and authorization work now is federated to local STS. <br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+Identity Management: Windows Identity Foundation<br>
+<a href="http://msdn.microsoft.com/en-us/security/aa570351" >http://msdn.microsoft.com/en-us/security/aa570351</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
