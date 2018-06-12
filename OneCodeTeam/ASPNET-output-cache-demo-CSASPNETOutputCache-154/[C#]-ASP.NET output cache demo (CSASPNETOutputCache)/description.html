@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ASP.NET output cache demo (CSASPNETOutputCache)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>ASP.NET output cache demo (CSASPNETOutputCache)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Caching
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETOutputCache-37d560a6">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>ASP.NET web application project : CSASPNETOutputCache OverView</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+ASP.NET Page OutputCache is used to cache the response generated by ASP.NET<br>
+page or user control, and it makes web application faster. In this demo, <br>
+we use @OutputCache's Duration, VaryByCustom, VaryByParam, VaryByControl <br>
+attributes to cache output of page.<br>
+<br>
+Note: The Duration attribute is required in every @OutputCache directive.<br>
+<br>
+In this case, we use datetime to determine whether page is cached.<br>
+</p>
+<h3>Project Relation:</h3>
+<p style="font-family:Courier New"><br>
+None<br>
+</p>
+<h3>Code Logic:</h3>
+<p style="font-family:Courier New"><br>
+1. Demonstrate the Duration attribute on OutputCacheWithDuration.aspx page:<br>
+&nbsp; #. Add @OutputCache in .aspx markup and specify the expiration time.<br>
+&nbsp; &nbsp; &nbsp;In this case, we assign 10s for it. For example:<br>
+&nbsp; &nbsp; &nbsp;&lt;%@ OutputCache Duration=&quot;10&quot; VaryByParam=&quot;none&quot; %&gt;<br>
+&nbsp; #. Run ASP.NET web application and launch this page, and we will see that <br>
+&nbsp; &nbsp; &nbsp;the datetime on page won't changed 10s when page is reloading.<br>
+<br>
+2. Demonstrate the VaryByControl attribute on OutputCacheWithControl.aspx:<br>
+&nbsp; #. Drag and drop DropDownList in page and add three items to it.<br>
+&nbsp; #. Add @OutputCache in .aspx markup and specify the expiration time<br>
+&nbsp; &nbsp; &nbsp;and VaryByControl attribute. For example:<br>
+&nbsp; &nbsp; &nbsp;&lt;%@ OutputCache Duration=&quot;1000&quot; VaryByControl=&quot;ddlOption&quot; %&gt;<br>
+&nbsp; #. Run ASP.NET web application and launch this page, we can see that <br>
+&nbsp; different item has corresponding cache.<br>
+&nbsp; &nbsp; &nbsp;<br>
+3. Demonstrate the VaryByCustom attribute on OutputCacheWithCustom.aspx page:<br>
+&nbsp; #. Add @OutputCache in .aspx markup and specify the expiration time<br>
+&nbsp; &nbsp; &nbsp;and VaryByControl attribute with &quot;browser&quot; value. For example:<br>
+&nbsp; &nbsp; &lt;%@OutputCache Duration=&quot;1000&quot;VaryByCustom=&quot;browser&quot;VaryByParam=&quot;none&quot;%&gt;<br>
+&nbsp; #. Run ASP.NET web application and launch this page with IE and FireFox <br>
+&nbsp; &nbsp; (or browser with different name, major version ), and we will see that
+<br>
+&nbsp; &nbsp; &nbsp;there is different cache version for different browser.<br>
+&nbsp; &nbsp; &nbsp;<br>
+4. Demonstrate the VaryByParam attribute on OutputCacheWithParam.aspx page:<br>
+&nbsp; #. Add @OutputCache in .aspx markup and specify the expiration time<br>
+&nbsp; &nbsp; &nbsp;and VaryByParam attribute with &quot;id&quot; value. For example:<br>
+&nbsp; &nbsp; &nbsp;&lt;%@ OutputCache Duration=&quot;1000&quot; VaryByParam=&quot;id&quot; %&gt;<br>
+&nbsp; #. Run ASP.NET web application and launch this page, and we can request it
+<br>
+&nbsp; using QueryString &quot;id&quot; with different value. For example:<br>
+&nbsp; ~/OutputCacheWithParam.aspx?id=1<br>
+&nbsp; ~/OutputCacheWithParam.aspx?id=2<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+@ OutputCache<br>
+<a  href="http://msdn.microsoft.com/en-us/library/hdxfb6cy.aspx">http://msdn.microsoft.com/en-us/library/hdxfb6cy.aspx</a><br>
+<br>
+ASP.NET Caching<br>
+<a  href="http://msdn.microsoft.com/en-us/library/xsbfdd8c.aspx">http://msdn.microsoft.com/en-us/library/xsbfdd8c.aspx</a><br>
+<br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
