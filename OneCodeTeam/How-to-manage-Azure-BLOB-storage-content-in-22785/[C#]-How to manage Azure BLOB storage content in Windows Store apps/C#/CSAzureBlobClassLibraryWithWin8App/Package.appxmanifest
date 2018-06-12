@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="b4986e74-8b3e-4b13-b288-8d6d1d137b9a" Publisher="CN=All-In-One Code Framework" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>CSAzureBlobClassLiabaryWithWin8App</DisplayName>
+    <PublisherDisplayName>All-In-One Code Framework</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="CSAzureBlobClassLiabaryWithWin8App.App">
+      <VisualElements DisplayName="CSAzureBlobClassLiabaryWithWin8App" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="CSAzureBlobClassLiabaryWithWin8App" ForegroundText="light" BackgroundColor="#E6B80B">
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\TileLogo.png" />
+        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#E6B80B" />
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="picturesLibrary" />
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

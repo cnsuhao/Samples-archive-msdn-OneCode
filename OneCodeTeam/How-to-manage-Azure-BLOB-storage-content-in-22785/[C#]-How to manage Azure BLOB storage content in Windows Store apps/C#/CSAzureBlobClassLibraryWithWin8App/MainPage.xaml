@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="CSAzureBlobClassLiabaryWithWin8App.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CSAzureBlobClassLiabaryWithWin8App"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="btnSave" Content="Save to Blob" HorizontalAlignment="Left" Margin="37,94,0,0" VerticalAlignment="Top" Width="131" Click="btnSave_Click"/>
+        <Button x:Name="btnDelete" Content="Delete from blob" HorizontalAlignment="Left" Margin="201,94,0,0" VerticalAlignment="Top" Click="btnDelete_Click"/>
+        <ListView x:Name="lvwBlobs" HorizontalAlignment="Left" Height="349" Margin="37,247,0,0" VerticalAlignment="Top" Width="405" ItemClick="lvwBlobs_ItemClick" SelectionMode="Single" IsItemClickEnabled="True">
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource BasicTextStyle}" >
+                                    <Run Text="Name:" FontWeight="Bold"/>
+                                    <Run Text="{Binding Name}"/>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <TextBox x:Name="lbState" HorizontalAlignment="Left" Margin="37,676,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="507" IsReadOnly="True"/>
+        <Image x:Name="imgBlobItem" HorizontalAlignment="Left" Height="664" Margin="566,94,0,0" VerticalAlignment="Top" Width="790"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,165,0,0" TextWrapping="Wrap" Text="Click the item to show the image" VerticalAlignment="Top" Height="25" Width="369" FontSize="20"/>
+
+
+    </Grid>
+</Page>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>5086cca5-d0c5-4a22-9847-d4accf827217</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>c2450155-b643-4b37-a21e-81b51c4927d6</UniqueIdentifier>
+    </Filter>
+    <Page Include="Common\StandardStyles.xaml">
+      <Filter>Common</Filter>
+    </Page>
+    <Image Include="Assets\Logo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="MainPage.xaml.h" />
+    <ClInclude Include="Constants.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CppAzureBlobClassLiabaryWithWin8App_TemporaryKey.pfx" />
+    <None Include="Microsoft.WindowsAzure.Storage-for-win8\Microsoft.WindowsAzure.Storage.RT.pdb" />
+    <None Include="Microsoft.WindowsAzure.Storage-for-win8\Microsoft.WindowsAzure.Storage.Table.dll" />
+    <None Include="Microsoft.WindowsAzure.Storage-for-win8\Microsoft.WindowsAzure.Storage.Table.pdb" />
+    <None Include="Microsoft.WindowsAzure.Storage-for-win8\Microsoft.WindowsAzure.Storage.winmd" />
+    <None Include="Documentation\ReadMe_files\themedata.thmx" />
+    <None Include="Documentation\ReadMe.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Microsoft.png" />
+    <Image Include="Assets\TileLogo.png" />
+    <Image Include="Documentation\ReadMe_files\image001.png" />
+    <Image Include="Documentation\ReadMe_files\image002.jpg" />
+    <Image Include="Documentation\ReadMe_files\image003.png" />
+    <Image Include="Documentation\ReadMe_files\image004.png" />
+    <Image Include="Documentation\ReadMe_files\image005.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Microsoft.WindowsAzure.Storage-for-win8\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Documentation\ReadMe_files\colorschememapping.xml" />
+    <Xml Include="Documentation\ReadMe_files\filelist.xml" />
+  </ItemGroup>
+</Project>
