@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>LINQ to Entities demo (CSLinqToEntities)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>LINQ to Entities demo (CSLinqToEntities)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ADO.NET, LINQ
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Data Access, EDM, LINQ to Entities
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSLinqToEntities-91997a8e">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>CONSOLE APPLICATION : CSLinqToEntities Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+The CSLinqToEntities example demonstrates the Microsoft Language-Integrated <br>
+Query (LINQ) technology to access ADO.NET Entity Data Model using Visual C#. <br>
+It shows the basic structure of connecting and querying the data source and<br>
+inserting data into the database with LINQ. &nbsp;It especially demonstrates the<br>
+new features of LINQ to Entities comparing with LINQ to SQL, Inheritance<br>
+and Many-to-Many Relationship (without payload).<br>
+<br>
+</p>
+<h3>Project Relation:</h3>
+<p style="font-family:Courier New"><br>
+CSLinqToEntites -&gt; SQLServer2005DB<br>
+CSLinqToEntites accesses the database created by SQLServer2005DB.<br>
+<br>
+</p>
+<h3>Code Logic:</h3>
+<p style="font-family:Courier New"><br>
+1. Generating ADO.NET Entity Data Model in Visual Studio 2008.<br>
+&nbsp; <br>
+&nbsp; Steps:<br>
+&nbsp; (1) Right-click on the project and add a new item. Add an <br>
+&nbsp; &nbsp; &nbsp; &quot;ADO.NET Entity Data Model&quot; and call it &quot;School.edmx&quot; to correspond to
+<br>
+&nbsp; &nbsp; &nbsp; your database.<br>
+&nbsp; <br>
+&nbsp; (2) The Entity Data Model Wizard shows up and you now can use this to query
+<br>
+&nbsp; &nbsp; &nbsp; your database and generate the model diagram, as long as you supply it
+<br>
+&nbsp; &nbsp; &nbsp; with the right credentials. In the Wizard, click &quot;Generate from Database&quot;
+<br>
+&nbsp; &nbsp; &nbsp; and click &quot;Next&quot;.<br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; (3) Supply it with the right server name, authentication, credentials, and
+<br>
+&nbsp; &nbsp; &nbsp; the database name.<br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; (4) Modify &quot;Save entity connections settings in App.Config as&quot; to
+<br>
+&nbsp; &nbsp; &nbsp; &quot;SchoolEntities&quot; to correspond to your database.<br>
+&nbsp; &nbsp; &nbsp;<br>
+&nbsp; (5) In the next dialog box, choose all of the options—tables, views, and <br>
+&nbsp; &nbsp; &nbsp; stored procedures—and the model will be generated for you. &nbsp;Here we
+<br>
+&nbsp; &nbsp; &nbsp; choose the table, Course, CourseGrade, CourseInstructor, Person. &nbsp;<br>
+&nbsp; &nbsp; &nbsp; <br>
+2. Create Table-per-Hierarchy Inheritance. &nbsp;<br>
+&nbsp; <br>
+&nbsp; Steps:<br>
+&nbsp; (1) Right Click on the model diagram. From the context menu select <br>
+&nbsp; &nbsp; &nbsp; &quot;Add&quot; -&gt; &quot;Entity&quot;.<br>
+&nbsp; (2) On Add Entity dialog window, set Entity name to &quot;Student&quot;. Set Base
+<br>
+&nbsp; &nbsp; &nbsp; type to &quot;Person&quot;, this should define the inheritance. Note that once
+<br>
+&nbsp; &nbsp; &nbsp; you define Base type, all other properties on the dialog will be
+<br>
+&nbsp; &nbsp; &nbsp; disabled. Click &quot;Ok&quot;.<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; (3) Delete &quot;EnrollmentDate&quot; property on &quot;Person&quot; Entity as it will be
+<br>
+&nbsp; &nbsp; &nbsp; specific &quot;Student&quot; Entity. Do the same for &quot;HireDate&quot; as it will be
+<br>
+&nbsp; &nbsp; &nbsp; specific for &quot;Instructor&quot; Entity.<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; (4) Right-click on &quot;Student&quot; Entity. Select &quot;Add&quot; -&gt; &quot;Scalar Property&quot;.
+<br>
+&nbsp; &nbsp; &nbsp; Name the property &quot;EnrollmentDate&quot;. Set its data type on the property
+<br>
+&nbsp; &nbsp; &nbsp; window to DateTime. <br>
+<br>
+3. Define data mappings:<br>
+<br>
+&nbsp; Steps:<br>
+&nbsp; (1) Right-click on &quot;Student&quot; Entity and select &quot;Table Mapping&quot;. This
+<br>
+&nbsp; &nbsp; &nbsp; should display Mapping Details Pan for &quot;Student&quot; Entity.<br>
+&nbsp; &nbsp;<br>
+&nbsp; (2) From Mapping Details pan under Tables click on &lt;Add a Table or View&gt;
+<br>
+&nbsp; &nbsp; &nbsp; and select &quot;Person&quot;.<br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; (3) Click on &lt;Add a Condition&gt; and select &quot;PersonCategory&quot;. Leave the
+<br>
+&nbsp; &nbsp; &nbsp; Operator as &quot;=&quot; and set the Value/Property to 1. <br>
+&nbsp; &nbsp; &nbsp; <br>
+&nbsp; (4) Under Column Mappings make sure that &quot;EnrollmentDate&quot; column is mapped
+<br>
+&nbsp; &nbsp; &nbsp; to &quot;EnrollmentDate&quot; property. <br>
+<br>
+&nbsp; Repeat the above steps for Instructor Entity and set the mapping condition
+<br>
+&nbsp; to its proper values. Delete the &quot;PersonCategory&quot; property from &quot;Person&quot;
+<br>
+&nbsp; Entity as it is not needed anymore.<br>
+&nbsp; <br>
+4. Perform the Insert operation and display the query results.<br>
+<br>
+5. Perform the query operation in one data table and display the query <br>
+&nbsp; results.<br>
+<br>
+6. Perform the query operation across multiple data tables and display the <br>
+&nbsp; query results.<br>
+<br>
+7. Perform the query operation across multiple related data tables and <br>
+&nbsp; display the query results.<br>
+<br>
+8. Perform the query operation accross Many-to-Many related data tables and <br>
+&nbsp; display the query results.<br>
+&nbsp; <br>
+&nbsp; </p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+LINQ to Entities<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb386964.aspx">http://msdn.microsoft.com/en-us/library/bb386964.aspx</a><br>
+<br>
+ADO.NET Entity Framework<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb399572.aspx">http://msdn.microsoft.com/en-us/library/bb399572.aspx</a><br>
+<br>
+Introducing LINQ to Relational Data<br>
+<a  href="http://msdn.microsoft.com/en-us/library/cc161164.aspx">http://msdn.microsoft.com/en-us/library/cc161164.aspx</a><br>
+<br>
+Defining Advanced Data Models<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb738640.aspx">http://msdn.microsoft.com/en-us/library/bb738640.aspx</a><br>
+<br>
+How to: Define a Model with Table-per-Type Inheritance (Entity Framework)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb738685.aspx">http://msdn.microsoft.com/en-us/library/bb738685.aspx</a><br>
+<br>
+How to: Define a Model with Table-per-Hierarchy Inheritance (Entity Framework)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb738443.aspx">http://msdn.microsoft.com/en-us/library/bb738443.aspx</a><br>
+<br>
+Entity Data Model 101: Part 1<br>
+<a  href="http://blogs.msdn.com/adonet/archive/2007/01/30/entity-data-model-part-1.aspx">http://blogs.msdn.com/adonet/archive/2007/01/30/entity-data-model-part-1.aspx</a><br>
+<br>
+Entity Data Model 101: Part 2<br>
+<a  href="http://blogs.msdn.com/adonet/archive/2007/02/12/entity-data-model-101-part-2.aspx">http://blogs.msdn.com/adonet/archive/2007/02/12/entity-data-model-101-part-2.aspx</a><br>
+<br>
+Inheritance in the Entity Framework<br>
+<a  href="http://blogs.msdn.com/adonet/archive/2007/03/15/inheritance-in-the-entity-framework.aspx">http://blogs.msdn.com/adonet/archive/2007/03/15/inheritance-in-the-entity-framework.aspx</a><br>
+<br>
+ADO.NET Entity Framework Tutorial and Basics<br>
+<a  href="http://www.codeguru.com/csharp/csharp/cs_linq/article.php/c15489/">http://www.codeguru.com/csharp/csharp/cs_linq/article.php/c15489/</a><br>
+<br>
+Inheritance and Associations with Entity Framework Part 1<br>
+<a  href="http://mosesofegypt.net/post/Inheritance-and-Associations-with-Entity-Framework-Part-1.aspx">http://mosesofegypt.net/post/Inheritance-and-Associations-with-Entity-Framework-Part-1.aspx</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
