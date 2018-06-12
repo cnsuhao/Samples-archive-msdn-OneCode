@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JSWindowsStoreAppCallSOAPWebService</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- JSWindowsStoreAppCallSOAPWebService references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+</head>
+<body>
+    <div id="rootGrid">
+    <div id="title">
+		<p class="AppLogo">Windows Store Code Samples by All-In-One Code Framework</p>
+		<p class="AppName">Consume SOAP Web Service from Windows Store App by using WinJS.xhr</p>
+		<p class="AppDescription">This sample demonstrates how to consume SOAP Web Service by using WinJS.xhr. After the app launched, please enter the ZIP code in textbox, and then click "Go" button to get the weather information.</p>
+	</div>
+
+	<div id="content">
+		<div id="input">
+			<div class="Head">The Weather</div> 
+            <div class="message">Enter the zip code (U.S. only, e.g. 98052)</div>
+			<input id="txbinputZipCode" type="text" /> 
+			<button id="gobtn">Go</button>    
+		 </div> 
+
+		<div id="error">
+				
+		 </div>
+
+		<div id="output">
+			<span id="SpanResult"></span>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div>
+			<img src="/images/microsoft.png"/><br/>
+		</div>		
+		<div id="company">© 2013 Microsoft Corporation. All rights reserved.
+		<a href="http://blogs.msdn.com/b/onecode">All-In-One Code Framework</a>
+		</div>
+	</div>
+	</div>
+</body>
+</html>
