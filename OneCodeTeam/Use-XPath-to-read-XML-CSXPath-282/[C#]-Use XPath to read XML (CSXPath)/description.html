@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Use XPath to read XML (CSXPath)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Use XPath to read XML (CSXPath)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            XML
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Xpath
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">11/27/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSXPath-1e346599">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h2><span style="font-size:14.0pt; line-height:115%">CONSOLE APPLICATION </span><span style="font-size:14.0pt; line-height:115%">(</span><span style="font-size:14.0pt; line-height:115%">CSXPath</span><span style="font-size:14.0pt; line-height:115%">)
+</span></h2>
+<h2>Introduction</h2>
+<p class="MsoNormal" style="margin-bottom:0cm; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+This sample project shows how to use XPathDocument class to load the XML file<span style="">
+</span>and manipulate. It includes two main parts, <span class="SpellE">XPathNavigator</span> usage and
+<span class="SpellE">XPath</span><span style=""> </span>Expression usage. The first part shows how to use
+<span class="SpellE">XPathNavigator</span> to navigate through the whole document, read its content. The second part shows how to use<span style="">
+</span><span class="SpellE">XPath</span> expression to filter information.<span style="">&nbsp;
+</span></p>
+<h2>Running the Sample<span style=""> </span></h2>
+<p class="MsoNormal"><span style=""></span></p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="576" height="546" align="middle">
+</span></p>
+<h2>Using the Code<span style=""> </span></h2>
+<h3><span style="">Initialize XPathDocument and XPathNavigator instances </span></h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+XPathNavigator xPathNavigator;
+XPathDocument xPathDoc;
+
+
+// Navigate through the whole document.
+// Create a new instance of XPathDocument from a XML file.
+xPathDoc = new XPathDocument(&quot;books.xml&quot;);
+
+
+// Call CreateNavigator method to create a navigator instance.
+// And we will use this navigator object to navigate through whole document.
+xPathNavigator = xPathDoc.CreateNavigator();
+
+</pre>
+<pre id="codePreview" class="csharp">
+XPathNavigator xPathNavigator;
+XPathDocument xPathDoc;
+
+
+// Navigate through the whole document.
+// Create a new instance of XPathDocument from a XML file.
+xPathDoc = new XPathDocument(&quot;books.xml&quot;);
+
+
+// Call CreateNavigator method to create a navigator instance.
+// And we will use this navigator object to navigate through whole document.
+xPathNavigator = xPathDoc.CreateNavigator();
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoListParagraph"><span style=""></span></p>
+<h3><span style="">Call <span class="SpellE">MoveToRoot</span> and <span class="SpellE">
+MoveToFirstChild</span> to navigate to the book elements </span></h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+// Move to the root element.
+           xPathNavigator.MoveToRoot();
+           // Catalog element is the first children of the root.
+           // Move to catalog element.
+           xPathNavigator.MoveToFirstChild();
+           // We can know a XML node's type from the NodeType property.
+           // XPathNodeType has Attribute, Element, Namespace and so on.
+           if (xPathNavigator.NodeType == XPathNodeType.Element)
+           {
+               // We can know if a Node has child nodes by checking its
+               // HasChildren property. If it returns true, that node has child nodes.
+               if (xPathNavigator.HasChildren == true)
+               {
+                   // Move to the first child which is our first book nodes.
+                   xPathNavigator.MoveToFirstChild();
+               }
+           }
+
+</pre>
+<pre id="codePreview" class="csharp">
+// Move to the root element.
+           xPathNavigator.MoveToRoot();
+           // Catalog element is the first children of the root.
+           // Move to catalog element.
+           xPathNavigator.MoveToFirstChild();
+           // We can know a XML node's type from the NodeType property.
+           // XPathNodeType has Attribute, Element, Namespace and so on.
+           if (xPathNavigator.NodeType == XPathNodeType.Element)
+           {
+               // We can know if a Node has child nodes by checking its
+               // HasChildren property. If it returns true, that node has child nodes.
+               if (xPathNavigator.HasChildren == true)
+               {
+                   // Move to the first child which is our first book nodes.
+                   xPathNavigator.MoveToFirstChild();
+               }
+           }
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<h3><span style="">Loop through all books and thier children nodes. <span class="GramE">
+Output author, title, genre, price, publish_date, description information for each book.</span>
+</span></h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+do
+{
+    // We can know if a node has any attribute by checking
+    // the HasAttributes property. When this property returns
+    // true, we can get the specified attribute by calling
+    // navigator.GetAttribute() method.
+    if (xPathNavigator.HasAttributes == true)
+    {
+        Console.WriteLine(&quot;Book ID: &quot; &#43; xPathNavigator.GetAttribute(&quot;id&quot;, &quot;&quot;));
+    }
+
+
+    // Iterate through a book node's child nodes
+    // and list all child node information, like 
+    // name, author, price, publish date and so on.
+    if (xPathNavigator.HasChildren)
+    {
+        xPathNavigator.MoveToFirstChild();
+        do
+        {
+            Console.Write(&quot;\t{0}:\t{1}\r\n&quot;, xPathNavigator.Name, xPathNavigator.Value);
+        } while (xPathNavigator.MoveToNext());
+        // When all child nodes are reached. The MoveToNext() method returns
+        // false. Then we need to call MoveToParent to go back to the book level.
+        xPathNavigator.MoveToParent();
+    }
+    // Move to the next book element.
+} while (xPathNavigator.MoveToNext());
+
+</pre>
+<pre id="codePreview" class="csharp">
+do
+{
+    // We can know if a node has any attribute by checking
+    // the HasAttributes property. When this property returns
+    // true, we can get the specified attribute by calling
+    // navigator.GetAttribute() method.
+    if (xPathNavigator.HasAttributes == true)
+    {
+        Console.WriteLine(&quot;Book ID: &quot; &#43; xPathNavigator.GetAttribute(&quot;id&quot;, &quot;&quot;));
+    }
+
+
+    // Iterate through a book node's child nodes
+    // and list all child node information, like 
+    // name, author, price, publish date and so on.
+    if (xPathNavigator.HasChildren)
+    {
+        xPathNavigator.MoveToFirstChild();
+        do
+        {
+            Console.Write(&quot;\t{0}:\t{1}\r\n&quot;, xPathNavigator.Name, xPathNavigator.Value);
+        } while (xPathNavigator.MoveToNext());
+        // When all child nodes are reached. The MoveToNext() method returns
+        // false. Then we need to call MoveToParent to go back to the book level.
+        xPathNavigator.MoveToParent();
+    }
+    // Move to the next book element.
+} while (xPathNavigator.MoveToNext());
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<h3><span style="">Use XPath Expression to select out the book with ID bk103 and output its detailed information.
+</span></h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+// Use XPath Expression to select out book bk103.
+           // The expression should be &quot;/catalog/book[@id='bk103']&quot;
+           // @ means to look id attribute and match bk103.
+           Console.WriteLine(&quot;Use XPath Expression to select out the book with ID bk103:&quot;);
+           XPathExpression expression = xPathNavigator.Compile(&quot;/catalog/book[@id='bk103']&quot;);
+           XPathNodeIterator iterator = xPathNavigator.Select(expression);
+
+
+           // After compile the XPath expression, we can call navigator.Select
+           // to retrieve the XPathNodeIterator. With this interator, we can loop
+           // trough the results filtered by the XPath expression.
+           // The following codes print the book bk103's detailed information.
+           while (iterator.MoveNext())
+           {
+               XPathNavigator nav = iterator.Current.Clone();
+               Console.WriteLine(&quot;Book ID: &quot; &#43; nav.GetAttribute(&quot;id&quot;, &quot;&quot;));
+               if (nav.HasChildren)
+               {
+                   nav.MoveToFirstChild();
+                   do
+                   {
+                       Console.Write(&quot;\t{0}:\t{1}\r\n&quot;, nav.Name, nav.Value);
+                   } while (nav.MoveToNext());
+               }
+           }
+
+
+
+
+
+</pre>
+<pre id="codePreview" class="csharp">
+// Use XPath Expression to select out book bk103.
+           // The expression should be &quot;/catalog/book[@id='bk103']&quot;
+           // @ means to look id attribute and match bk103.
+           Console.WriteLine(&quot;Use XPath Expression to select out the book with ID bk103:&quot;);
+           XPathExpression expression = xPathNavigator.Compile(&quot;/catalog/book[@id='bk103']&quot;);
+           XPathNodeIterator iterator = xPathNavigator.Select(expression);
+
+
+           // After compile the XPath expression, we can call navigator.Select
+           // to retrieve the XPathNodeIterator. With this interator, we can loop
+           // trough the results filtered by the XPath expression.
+           // The following codes print the book bk103's detailed information.
+           while (iterator.MoveNext())
+           {
+               XPathNavigator nav = iterator.Current.Clone();
+               Console.WriteLine(&quot;Book ID: &quot; &#43; nav.GetAttribute(&quot;id&quot;, &quot;&quot;));
+               if (nav.HasChildren)
+               {
+                   nav.MoveToFirstChild();
+                   do
+                   {
+                       Console.Write(&quot;\t{0}:\t{1}\r\n&quot;, nav.Name, nav.Value);
+                   } while (nav.MoveToNext());
+               }
+           }
+
+
+
+
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<h3><span style="">Use <span class="SpellE">XPath</span> Expression to select out all books whose price
+<span class="GramE">are</span> more than 10. </span></h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+// Use XPath to select out all books whose price are more than 10.00
+// '[]' means to look into the child node to match the condition &quot;price &gt; 10&quot;.
+Console.WriteLine(&quot;\r\nUse XPath Expression to select out all books whose price are more than 10:&quot;);
+expression = xPathNavigator.Compile(&quot;/catalog/book[price&gt;10]&quot;);
+iterator = xPathNavigator.Select(expression);
+
+</pre>
+<pre id="codePreview" class="csharp">
+// Use XPath to select out all books whose price are more than 10.00
+// '[]' means to look into the child node to match the condition &quot;price &gt; 10&quot;.
+Console.WriteLine(&quot;\r\nUse XPath Expression to select out all books whose price are more than 10:&quot;);
+expression = xPathNavigator.Compile(&quot;/catalog/book[price&gt;10]&quot;);
+iterator = xPathNavigator.Select(expression);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<h3><span style="">Use <span class="SpellE">XPath</span> Expression to calculate the average price of all books.
+</span></h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+// Use XPath Expression to calculate the average price of all books.
+// Here in XPath, we use the sum, div, and count formula.
+Console.WriteLine(&quot;\r\nUse XPath Expression to calculate the average price of all books:&quot;);
+expression = xPathNavigator.Compile(&quot;sum(/catalog/book/price) div count(/catalog/book/price)&quot;);
+string averagePrice = xPathNavigator.Evaluate(expression).ToString();
+Console.WriteLine(&quot;The average price of the books are {0}&quot;, averagePrice);
+
+</pre>
+<pre id="codePreview" class="csharp">
+// Use XPath Expression to calculate the average price of all books.
+// Here in XPath, we use the sum, div, and count formula.
+Console.WriteLine(&quot;\r\nUse XPath Expression to calculate the average price of all books:&quot;);
+expression = xPathNavigator.Compile(&quot;sum(/catalog/book/price) div count(/catalog/book/price)&quot;);
+string averagePrice = xPathNavigator.Evaluate(expression).ToString();
+Console.WriteLine(&quot;The average price of the books are {0}&quot;, averagePrice);
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style=""></span></p>
+<h2>More Information</h2>
+<p class="MsoListParagraphCxSpFirst" style="margin-bottom:0cm; margin-bottom:.0001pt; text-autospace:none">
+<span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-family:新宋体"><a href="http://support.microsoft.com/kb/308343">How to navigate XML with the XPathNavigator class by using C#</a>
+</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-bottom:0cm; margin-bottom:.0001pt; text-autospace:none">
+<span style="font-family:Symbol"><span style="">&bull;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span style="font-family:新宋体"><a href="http://support.microsoft.com/kb/308333">How to query XML with an XPath expression by using C#</a>
+</span></p>
+<p class="MsoListParagraphCxSpLast"></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
