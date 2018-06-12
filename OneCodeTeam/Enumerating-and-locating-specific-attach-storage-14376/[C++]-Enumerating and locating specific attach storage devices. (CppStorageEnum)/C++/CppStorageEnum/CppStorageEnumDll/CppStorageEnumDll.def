@@ -1,0 +1,6 @@
+LIBRARY  CppStorageEnumDll
+EXPORTS   
+
+    FindFirstStorageDevice 
+    FindNextStorageDevice 
+

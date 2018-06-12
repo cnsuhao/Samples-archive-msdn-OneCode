@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppStorageEnum", "CppStorageEnum\CppStorageEnum\CppStorageEnum.vcxproj", "{F1E2B9B2-D1D1-457C-B3B7-8011D3CBE5CD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{12CFA8FC-D76F-4871-A8E7-2F1528E3B7C5} = {12CFA8FC-D76F-4871-A8E7-2F1528E3B7C5}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppStorageEnumDll", "CppStorageEnum\CppStorageEnumDll\CppStorageEnumDll.vcxproj", "{12CFA8FC-D76F-4871-A8E7-2F1528E3B7C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{5272D775-C354-42CA-A0E9-B012A53AC785}"
+	ProjectSection(SolutionItems) = preProject
+		CppStorageEnum\Documentation\ReadMe.htm = CppStorageEnum\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1E2B9B2-D1D1-457C-B3B7-8011D3CBE5CD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F1E2B9B2-D1D1-457C-B3B7-8011D3CBE5CD}.Debug|Win32.Build.0 = Debug|Win32
+		{F1E2B9B2-D1D1-457C-B3B7-8011D3CBE5CD}.Debug|x64.ActiveCfg = Debug|x64
+		{F1E2B9B2-D1D1-457C-B3B7-8011D3CBE5CD}.Debug|x64.Build.0 = Debug|x64
+		{F1E2B9B2-D1D1-457C-B3B7-8011D3CBE5CD}.Release|Win32.ActiveCfg = Release|Win32
+		{F1E2B9B2-D1D1-457C-B3B7-8011D3CBE5CD}.Release|Win32.Build.0 = Release|Win32
+		{F1E2B9B2-D1D1-457C-B3B7-8011D3CBE5CD}.Release|x64.ActiveCfg = Release|x64
+		{F1E2B9B2-D1D1-457C-B3B7-8011D3CBE5CD}.Release|x64.Build.0 = Release|x64
+		{12CFA8FC-D76F-4871-A8E7-2F1528E3B7C5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{12CFA8FC-D76F-4871-A8E7-2F1528E3B7C5}.Debug|Win32.Build.0 = Debug|Win32
+		{12CFA8FC-D76F-4871-A8E7-2F1528E3B7C5}.Debug|x64.ActiveCfg = Debug|x64
+		{12CFA8FC-D76F-4871-A8E7-2F1528E3B7C5}.Debug|x64.Build.0 = Debug|x64
+		{12CFA8FC-D76F-4871-A8E7-2F1528E3B7C5}.Release|Win32.ActiveCfg = Release|Win32
+		{12CFA8FC-D76F-4871-A8E7-2F1528E3B7C5}.Release|Win32.Build.0 = Release|Win32
+		{12CFA8FC-D76F-4871-A8E7-2F1528E3B7C5}.Release|x64.ActiveCfg = Release|x64
+		{12CFA8FC-D76F-4871-A8E7-2F1528E3B7C5}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
