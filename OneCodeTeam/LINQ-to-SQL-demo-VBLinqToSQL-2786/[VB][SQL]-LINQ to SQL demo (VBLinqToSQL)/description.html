@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>LINQ to SQL demo (VBLinqToSQL)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>LINQ to SQL demo (VBLinqToSQL)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ADO.NET, LINQ
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            LINQ to SQL, Data Access
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBLinqToSQL-85868e4a">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>CONSOLE APPLICATION : VBLinqToSQL Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+The VBLinqToSQL sample demonstrates the Microsoft Language-Integrated Query <br>
+(LINQ) technology to access databases using VB.NET. It shows the basic <br>
+structure of connecting to a data source with LINQ, and how to query and <br>
+manipulate data in database with LINQ. This example contains manually-created <br>
+entities and designer-generated entities.<br>
+<br>
+</p>
+<h3>Project Relation:</h3>
+<p style="font-family:Courier New"><br>
+VBLinqToSQL -&gt; SQLServer2005DB<br>
+VBLinqToSQL accesses the database created by SQLServer2005DB.<br>
+<br>
+</p>
+<h3>Creation:</h3>
+<p style="font-family:Courier New"><br>
+Please refer to the MSDN article <br>
+<a target="_blank" href="&lt;a http://msdn.microsoft.com/en-us/library/bb387007.aspx">http://msdn.microsoft.com/en-us/library/bb387007.aspx</a>'&gt;<a  href="http://msdn.microsoft.com/en-us/library/bb387007.aspx">http://msdn.microsoft.com/en-us/library/bb387007.aspx</a><br>
+for the typical steps of using LINQ to SQL.<br>
+<br>
+A. Creating the Object Model (LINQ to SQL)<br>
+<br>
+Step1. Select a tool to create the model.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;* The Object Relational Designer <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1. Right-click the project in the Solution Explorer and select Add New
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Item on the shortcut menu.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2. Select the LINQ to SQL Classes template, and type School.dbml as the
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name. Click Add.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3. In the Server Explorer window, select the SQLServer2005DB database and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;toss the tables (Person, Course, CourseGrade) onto the O/R designer to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;generate the entities and the DataContext.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;* A code editor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1. Add a class named SchoolDB into the project.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2. In the class, define all the entities as well as their relationship.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3. Define the DataContext class: SchoolDataContext.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Step2. Select the kind of code you want to generate.<br>
+<br>
+Step3. Refine the code file to reflect the needs of your application.<br>
+<br>
+B. Using the Object Model <br>
+<br>
+Step1. Perform the Insert operation<br>
+<br>
+Step2. Perform the Query operations<br>
+<br>
+</p>
+<h3>Usage of designer:</h3>
+<p style="font-family:Courier New"><br>
+1. From within a VB.NET application, on the Project menu, click Add New Item.<br>
+<br>
+2. Select the LINQ to SQL Classes template.<br>
+<br>
+3. Type Scholl.dbml as the name and click Add.<br>
+<br>
+4. In the Server Explorer windows, select the School Database and drop the <br>
+&nbsp; tables(Person, Course, CourseGrade) onto the O/R designer to create data <br>
+&nbsp; classes and DataContext methods.<br>
+&nbsp; <br>
+5. Rename the Context Namespace and Entity Namespace to VBLinqToSQL.Designer<br>
+<br>
+6. Build and run the project.<br>
+<br>
+</p>
+<h3>Handle the column that has a default value in the database:</h3>
+<p style="font-family:Courier New"><br>
+&quot;When you insert an entity using LINQ to SQL you first create an instance of
+<br>
+that entity. &nbsp;At this point the DataContext has no means by which to <br>
+determine that you would like certain fields to be assigned their default on <br>
+the server during SubmitChanges. &nbsp;For example, you give a default value of 10
+<br>
+for an integer column in the database. When you create the entity that field <br>
+in the object is defaulted to zero. The DataContext cannot distinguish between <br>
+a field with an assigned value of zero and one that is merely unassigned. &nbsp;So,
+<br>
+the DataContext must assume that the zero was assigned and send it as part of <br>
+the generated insert statement.&quot; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+<br>
+Possible workaround we use in this example is to set the property to the <br>
+default value in the entity's constructor manually. &nbsp;<br>
+<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+Getting Started (LINQ to SQL)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb399398.aspx">http://msdn.microsoft.com/en-us/library/bb399398.aspx</a><br>
+<br>
+Typical Steps for Using LINQ to SQL<br>
+<a target="_blank" href="&lt;a http://msdn.microsoft.com/en-us/library/bb387007.aspx">http://msdn.microsoft.com/en-us/library/bb387007.aspx</a>'&gt;<a  href="http://msdn.microsoft.com/en-us/library/bb387007.aspx">http://msdn.microsoft.com/en-us/library/bb387007.aspx</a><br>
+<br>
+How to: Insert Rows Into the Database (LINQ to SQL)<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb386941.aspx">http://msdn.microsoft.com/en-us/library/bb386941.aspx</a><br>
+<br>
+LINQ to SQL: .NET Language-Integrated Query for Relational Data<br>
+<a  href="http://msdn.microsoft.com/en-us/library/bb425822.aspx">http://msdn.microsoft.com/en-us/library/bb425822.aspx</a><br>
+<br>
+101 LINQ Samples<br>
+<a  href="http://msdn.microsoft.com/en-us/vbasic/bb688088.aspx">http://msdn.microsoft.com/en-us/vbasic/bb688088.aspx</a><br>
+<br>
+Linq to SQL: Columns with NOT NULL and DEFAULT<br>
+<a  href="http://social.msdn.microsoft.com/forums/en-US/linqprojectgeneral/thread/f5753fc9-89bd-4f9a-94d9-be616a8d9a14/">http://social.msdn.microsoft.com/forums/en-US/linqprojectgeneral/thread/f5753fc9-89bd-4f9a-94d9-be616a8d9a14/</a><br>
+<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
