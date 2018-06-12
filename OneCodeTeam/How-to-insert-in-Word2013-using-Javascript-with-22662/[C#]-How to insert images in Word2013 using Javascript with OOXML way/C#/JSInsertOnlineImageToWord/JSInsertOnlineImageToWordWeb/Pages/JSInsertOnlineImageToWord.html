@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>JSInsertOnlineImageToWord</title>
+
+    <link rel="stylesheet" type="text/css" href="../Content/Office.css" />
+
+    <!-- Add your CSS styles to the following file -->
+    <link rel="stylesheet" type="text/css" href="../Content/App.css" />
+
+    <script src="../Scripts/jquery-1.7.1.js"></script>
+
+    <!-- Use the CDN reference to Office.js when deploying your app -->
+    <!--<script src="https://appsforoffice.microsoft.com/lib/1.0/hosted/office.js"></script>-->
+
+    <!-- Use the local script references for Office.js to enable offline debugging -->
+    <script src="../Scripts/Office/1.0/MicrosoftAjax.js"></script>
+    <script src="../Scripts/Office/1.0/office.js"></script>
+
+    <!-- Add your JavaScript to the following file -->
+    <script src="../Scripts/JSInsertOnlineImageToWord.js"></script>
+</head>
+<body>
+    <label>Online Picture Address: </label>
+    <input id="imgTxt" type="text"/>
+    <input type="button" id="preViewBtn" value="Preview Picture"/>
+     <br />
+        <img id="prePic" src="" style=" width: 100%; height:100%"/>  
+    <input type="button" value="Insert Image" id="insertImageBtn" style="margin-top: 10px; padding: 0px; width: 100px;"/>
+     <br />
+        <span>Results: </span><div id="results"></div>
+</body>
+</html>

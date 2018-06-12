@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<?mso-application progid="Word.Document"?>
+<pkg:package xmlns:pkg="http://schemas.microsoft.com/office/2006/xmlPackage">
+  <pkg:part pkg:name="/_rels/.rels" pkg:contentType="application/vnd.openxmlformats-package.relationships+xml" pkg:padding="512">
+    <pkg:xmlData>
+      <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+        <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>
+      </Relationships>
+    </pkg:xmlData>
+  </pkg:part>
+  <pkg:part pkg:name="/word/_rels/document.xml.rels" 
+            pkg:contentType="application/vnd.openxmlformats-package.relationships+xml" pkg:padding="256">
+    <pkg:xmlData>
+      <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+        <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" 
+                 Target="http://i.msdn.microsoft.com/fp123580.AppHome2(en-us,MSDN.10).png" TargetMode="External"/>
+      </Relationships>
+    </pkg:xmlData>
+  </pkg:part>
+  <pkg:part pkg:name="/word/document.xml" pkg:contentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml">
+    <pkg:xmlData>
+      <w:document mc:Ignorable="w14 w15 wp14" 
+                  xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                  xmlns:o="urn:schemas-microsoft-com:office:office" 
+                  xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" 
+                  xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" 
+                  xmlns:v="urn:schemas-microsoft-com:vml" 
+                  xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing"
+                  xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" 
+                  xmlns:w10="urn:schemas-microsoft-com:office:word" 
+                  xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" 
+                  xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" 
+                  xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" 
+                  xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" 
+                  xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" 
+                  xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" 
+                  xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+        <w:body>
+          <w:p w:rsidR="00000000" w:rsidRDefault="0010050F" w:rsidP="0010050F">
+            <w:r>
+              <w:rPr>
+                <w:noProof/>
+                <w:lang w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:drawing>
+                <wp:inline distT="0" distB="0" distL="0" distR="0">
+                  <wp:extent cx="4591050" cy="2009775"/>
+                  <wp:effectExtent l="0" t="0" r="0" b="9525"/>
+                  <wp:docPr id="2" name="Picture 2"/>
+                  <wp:cNvGraphicFramePr>
+                    <a:graphicFrameLocks noChangeAspect="1" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"/>
+                  </wp:cNvGraphicFramePr>
+                  <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+                    <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                      <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                        <pic:nvPicPr>
+                          <pic:cNvPr id="2" name="fp123580.AppHome2(en-us,MSDN.10)[1].png"/>
+                          <pic:cNvPicPr/>
+                        </pic:nvPicPr>
+                        <pic:blipFill>
+                          <a:blip r:link="rId4">
+                            <a:extLst>
+                              <a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">
+                                <a14:useLocalDpi val="0" xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main"/>
+                              </a:ext>
+                            </a:extLst>
+                          </a:blip>
+                          <a:stretch>
+                            <a:fillRect/>
+                          </a:stretch>
+                        </pic:blipFill>
+                        <pic:spPr>
+                          <a:xfrm>
+                            <a:off x="0" y="0"/>
+                            <a:ext cx="4591050" cy="2009775"/>
+                          </a:xfrm>
+                          <a:prstGeom prst="rect">
+                            <a:avLst/>
+                          </a:prstGeom>
+                        </pic:spPr>
+                      </pic:pic>
+                    </a:graphicData>
+                  </a:graphic>
+                </wp:inline>
+              </w:drawing>
+            </w:r>
+          </w:p>
+          <w:sectPr w:rsidR="00000000">
+            <w:pgSz w:w="12240" w:h="15840"/>
+            <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1800" w:header="720" w:footer="720" w:gutter="0"/>
+            <w:cols w:space="720"/>
+          </w:sectPr>
+        </w:body>
+      </w:document>
+    </pkg:xmlData>
+  </pkg:part>
+</pkg:package>

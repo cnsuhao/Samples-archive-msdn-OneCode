@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="f1823cb7-8475-4591-ab05-61737ffc3782" solutionId="f1823cb7-8475-4591-ab05-61737ffc3782" resetWebServer="false" name="JSInsertOnlineImageToWord" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <projectItems>
+    <projectItemReference itemId="ecd19119-e825-451e-bcfa-b4ebe4a869c4" />
+  </projectItems>
+</package>
