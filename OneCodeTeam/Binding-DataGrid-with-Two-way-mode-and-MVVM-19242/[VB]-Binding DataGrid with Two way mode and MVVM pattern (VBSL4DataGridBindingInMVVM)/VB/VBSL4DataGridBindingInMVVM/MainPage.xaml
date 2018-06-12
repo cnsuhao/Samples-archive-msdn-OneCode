@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="VBSL4DataGridBindingInMVVM.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:yw="clr-namespace:VBSL4DataGridBindingInMVVM"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+<UserControl.Resources>
+        <yw:PersonViewModel x:Key="viewModel" />
+</UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White"
+          DataContext="{Binding Source={StaticResource viewModel}}" >
+        <Grid Name="personGrid" DataContext="{Binding Path=person, Mode=TwoWay}"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock VerticalAlignment="Center" Name="lbName" Grid.Row="0" Grid.Column="0" Text="Name:" />
+            <TextBox Name="tbName" Text="{Binding Path=Name, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                     BindingValidationError="tbValidate" Grid.Column="1" Height="30" VerticalAlignment="Top"></TextBox>
+            <TextBlock VerticalAlignment="Center" Name="lbAge" Grid.Row="1" Grid.Column="0" Text="Age:" />
+            <TextBox Name="tbAge" Text="{Binding Path=Age, Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnExceptions=True}"
+                     BindingValidationError="tbValidate"  Grid.Column="1" Grid.Row="1"></TextBox>
+            <TextBlock VerticalAlignment="Center" Name="lbTelephone" Grid.Row="2" Grid.Column="0" Text="Telephone:" />
+            <TextBox Name="tbTelephone" Text="{Binding Path=Telephone, Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnExceptions=True}"
+                     BindingValidationError="tbValidate" Grid.Column="1" Grid.Row="2"></TextBox>
+            <TextBlock VerticalAlignment="Center" Name="lbComment" Grid.Row="3" Grid.Column="0" Text="Comment:" />
+            <TextBox Name="tbComment" Text="{Binding Path=Comment, Mode=TwoWay,NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                     BindingValidationError="tbValidate" Grid.Column="1" Grid.Row="3"></TextBox>
+            <Button Content="Change Model by code" Grid.Column="2" Grid.Row="4" Height="24" HorizontalAlignment="Left"
+                    Name="btnChangeModel" VerticalAlignment="Top" Width="146" Margin="0,20,0,0" 
+                    Command="{Binding Path=DataContext.SetInformation, ElementName=LayoutRoot}"
+                    CommandParameter="{Binding Path=Name}" />
+            <Button Content="Display" Grid.Column="1" Grid.Row="4" Height="23" HorizontalAlignment="Left"
+                    Margin="0,21,0,0" Name="btnDisplay" VerticalAlignment="Top" Width="75" 
+                    Command="{Binding Path=DataContext.GetInformation, ElementName=LayoutRoot}" 
+                    CommandParameter="{Binding Path=Age}" />
+
+            <Grid Name="DisplayGrid" DataContext="">
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
