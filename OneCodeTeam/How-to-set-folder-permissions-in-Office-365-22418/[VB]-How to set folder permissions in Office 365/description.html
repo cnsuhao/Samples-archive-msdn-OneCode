@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=E26C1359372FE948C3C39B3F0FB94413" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/350194ec-44b8-46e8-979f-58aa96c11c95Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=76DF6246C5394201214B48DD1A8F406B" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to set folder permissions in Office 365</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to set folder permissions in Office 365</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Exchange Online, Office 365
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Office 365, folder permissions
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/5/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-set-folder-183da227">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>How to Set Folder Permissions in Office 365 Exchange Online (CSOffice365SetPermissions)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">In this sample, we will demonstrate how to set the permissions in the folder of Office 365 Exchange online so that the customers can share their folders with the other customers.
+</p>
+<p class="MsoNormal">We will finish the following the steps in the sample: </p>
+<p class="MsoNormal">1. Add two permissions into the Calendar folder; </p>
+<p class="MsoNormal">2. Update the permission in the Calendar; </p>
+<p class="MsoNormal">3. Remove two permissions from the Calendar. </p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal">Press F5 to run the sample, the following is the result.</p>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="530" height="281" align="middle">
+</span></p>
+<p class="MsoNormal">Before any operations, we can find there're two permissions.</p>
+<p class="MsoNormal">Then we need to input two email addresses to set the permissions later. So if we want to run the sample, we need one account and the according password to connect the Exchange, and need two email addresses to set the folder permissions.</p>
+<p class="MsoNormal"><span style=""><img src="description/efcc1096-c458-4a15-a90b-5a36606b5e96image.png" alt="" width="532" height="129" align="middle">
+</span><span style="">&nbsp;</span></p>
+<p class="MsoNormal">After add two permissions, we can find two new permissions in the last two lines.</p>
+<p class="MsoNormal"><span style=""><img src="description/abea6dc6-a0e9-4fcd-a377-26a38c722418image.png" alt="" width="540" height="124" align="middle">
+</span></p>
+<p class="MsoNormal">After update the firs user's permission, we can find the third permission has changed.</p>
+<p class="MsoNormal"><span style=""><img src="description/8aee3b23-7930-4963-9db3-e2f051db8c63image.png" alt="" width="642" height="127" align="middle">
+</span></p>
+<p class="MsoNormal">After remove two permissions, we can find there're only two permissions left.</p>
+<h2>Using the Code</h2>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+1. Add permissions</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+First, we create the new permissions.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+FolderPermission[] newPermissions =
+{
+&nbsp;&nbsp;&nbsp; new FolderPermission(users[0] , FolderPermissionLevel.None),
+&nbsp;&nbsp;&nbsp; new FolderPermission(users[1] ,FolderPermissionLevel.Editor)
+};
+
+</pre>
+<pre id="codePreview" class="csharp">
+FolderPermission[] newPermissions =
+{
+&nbsp;&nbsp;&nbsp; new FolderPermission(users[0] , FolderPermissionLevel.None),
+&nbsp;&nbsp;&nbsp; new FolderPermission(users[1] ,FolderPermissionLevel.Editor)
+};
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+We can't add duplicate permissions. So if we want to add some permission and there's permission belong to the same user, we should first remove it.
+</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+FolderPermission permission = 
+&nbsp;&nbsp;&nbsp;&nbsp;(from op in folder.Permissions
+&nbsp;&nbsp;&nbsp;&nbsp; join np in newPermissions on 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String.IsNullOrEmpty(op.UserId.PrimarySmtpAddress) ? null : op.UserId.PrimarySmtpAddress.ToUpper() 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;equals np.UserId.PrimarySmtpAddress.ToUpper()
+&nbsp;&nbsp;&nbsp;&nbsp; select op).FirstOrDefault();
+
+
+if (permission != null)
+{
+&nbsp;&nbsp;&nbsp; RemoveFolderPermission(folder);
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+FolderPermission permission = 
+&nbsp;&nbsp;&nbsp;&nbsp;(from op in folder.Permissions
+&nbsp;&nbsp;&nbsp;&nbsp; join np in newPermissions on 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String.IsNullOrEmpty(op.UserId.PrimarySmtpAddress) ? null : op.UserId.PrimarySmtpAddress.ToUpper() 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;equals np.UserId.PrimarySmtpAddress.ToUpper()
+&nbsp;&nbsp;&nbsp;&nbsp; select op).FirstOrDefault();
+
+
+if (permission != null)
+{
+&nbsp;&nbsp;&nbsp; RemoveFolderPermission(folder);
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+At last, we add the permissions.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+folder.Permissions.AddRange(newPermissions);
+folder.Update();
+
+</pre>
+<pre id="codePreview" class="csharp">
+folder.Permissions.AddRange(newPermissions);
+folder.Update();
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+2. Update permission</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+First, we get the permission that we want to update.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+FolderPermission permission = (from op in folder.Permissions
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where String.Compare(op.UserId.PrimarySmtpAddress,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.PrimarySmtpAddress,true)==0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;select op).FirstOrDefault();
+
+</pre>
+<pre id="codePreview" class="csharp">
+FolderPermission permission = (from op in folder.Permissions
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where String.Compare(op.UserId.PrimarySmtpAddress,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.PrimarySmtpAddress,true)==0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;select op).FirstOrDefault();
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+Then we change the properties of the permission and save the changes.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+permission.PermissionLevel = FolderPermissionLevel.Reviewer;
+permission.ReadItems = FolderPermissionReadAccess.FullDetails;
+permission.IsFolderVisible = true;
+permission.EditItems = PermissionScope.None;
+
+
+folder.Update();
+
+</pre>
+<pre id="codePreview" class="csharp">
+permission.PermissionLevel = FolderPermissionLevel.Reviewer;
+permission.ReadItems = FolderPermissionReadAccess.FullDetails;
+permission.IsFolderVisible = true;
+permission.EditItems = PermissionScope.None;
+
+
+folder.Update();
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+3. Remove Permissions</p>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+First we get the permissions list that we want to remove.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+IList&lt;FolderPermission&gt; permissions = 
+&nbsp;&nbsp;&nbsp;&nbsp;(from op in folder.Permissions
+&nbsp;&nbsp;&nbsp;&nbsp; join u in users on 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String.IsNullOrEmpty(op.UserId.PrimarySmtpAddress) ? null : op.UserId.PrimarySmtpAddress.ToUpper() 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;equals u.PrimarySmtpAddress.ToUpper()
+&nbsp;&nbsp;&nbsp;&nbsp; select op).ToList();
+
+</pre>
+<pre id="codePreview" class="csharp">
+IList&lt;FolderPermission&gt; permissions = 
+&nbsp;&nbsp;&nbsp;&nbsp;(from op in folder.Permissions
+&nbsp;&nbsp;&nbsp;&nbsp; join u in users on 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String.IsNullOrEmpty(op.UserId.PrimarySmtpAddress) ? null : op.UserId.PrimarySmtpAddress.ToUpper() 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;equals u.PrimarySmtpAddress.ToUpper()
+&nbsp;&nbsp;&nbsp;&nbsp; select op).ToList();
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal" style="margin-bottom:0in; margin-bottom:.0001pt; line-height:normal; text-autospace:none">
+Then we remove all the permissions.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">
+if (folder.Permissions.Remove(permission))
+{
+&nbsp;&nbsp;&nbsp; folder.Update();
+&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;It's success to remove the permission of {0}.&quot;, 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;permission.UserId.PrimarySmtpAddress);
+}
+
+</pre>
+<pre id="codePreview" class="csharp">
+if (folder.Permissions.Remove(permission))
+{
+&nbsp;&nbsp;&nbsp; folder.Update();
+&nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;It's success to remove the permission of {0}.&quot;, 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;permission.UserId.PrimarySmtpAddress);
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<h2>More Information</h2>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/microsoft.exchange.webservices.data.folder.permissions(v=exchg.80).aspx"><span class="SpellE">Folder.Permissions</span> Property</a></p>
+<p class="MsoNormal"><a href="http://msdn.microsoft.com/en-us/library/dd633709(v=exchg.80).aspx">EWS Managed API 2.0</a>
+<span class="MsoHyperlink"><span style="color:windowtext; text-decoration:none"></span></span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/d896d321-5f28-42ae-861e-e372855d59fdimage.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
