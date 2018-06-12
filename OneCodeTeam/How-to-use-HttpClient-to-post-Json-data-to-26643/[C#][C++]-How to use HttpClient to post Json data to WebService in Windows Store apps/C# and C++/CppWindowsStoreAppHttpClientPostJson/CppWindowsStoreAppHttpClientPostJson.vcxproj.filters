@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>9ed8a6e0-4efc-45d9-a33a-27336669939f</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>346063ac-e209-4fab-9685-74dbb340013e</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{bf9bdf28-2d59-4174-9481-919833c6f84e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation\ReadMe_files">
+      <UniqueIdentifier>{679f61b1-9e6f-4abc-9e28-ebc0aaf775a8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Common\NavigationHelper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\RelayCommand.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\SuspensionManager.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="MainPage.xaml.h" />
+    <ClInclude Include="Common\NavigationHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\RelayCommand.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\SuspensionManager.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Person.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CppWindowsStoreAppHttpClientPostJson_TemporaryKey.pfx" />
+    <None Include="Documentation\ReadMe_files\themedata.thmx">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </None>
+    <None Include="Documentation\ReadMe.htm">
+      <Filter>Documentation</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml" />
+    <Page Include="Common\StandardStyles.xaml">
+      <Filter>Common</Filter>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Common\ReadMe.txt">
+      <Filter>Common</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\TileLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Microsoft.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Logo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image001.png">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image002.jpg">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image003.png">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+    <Image Include="Documentation\ReadMe_files\image004.jpg">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Documentation\ReadMe_files\colorschememapping.xml">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Xml>
+    <Xml Include="Documentation\ReadMe_files\filelist.xml">
+      <Filter>Documentation\ReadMe_files</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>
