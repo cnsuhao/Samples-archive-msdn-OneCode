@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Create RSS feed in ASP.NET (CSASPNETRssFeeds)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Create RSS feed in ASP.NET (CSASPNETRssFeeds)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            RSS
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">5/5/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETRssFeeds-7f3a69e0">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New"></p>
+<h2>CSASPNETRssFeeds Project Overview</h2>
+<p style="font-family:Courier New"></p>
+<h3>Note Before Start:</h3>
+<p style="font-family:Courier New"><br>
+&nbsp;When you go on through this sample, we assume that you are familiar with <br>
+&nbsp;Rss, including its usage, &nbsp;format, and so forth. If not, please refer to this link<br>
+&nbsp;first. It tells what is rss, the format of a standard rss file.<br>
+<br>
+&nbsp;<a target="_blank" href="&lt;a http://www.mnot.net/rss/tutorial/">http://www.mnot.net/rss/tutorial/</a>'&gt;<a  href="http://www.mnot.net/rss/tutorial/">http://www.mnot.net/rss/tutorial/</a><br>
+</p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+&nbsp;The project shows how to create a rss feed using ASP.NET. The AddArticle<br>
+&nbsp;page in the sample is used to update the database. We can add, edit, update<br>
+&nbsp;and delete a record, an article it is in this sample, and then turn to Rss page
+<br>
+&nbsp;to find the change. Using classes within XML namespace, Rss page create a<br>
+&nbsp;rss feed that can be subscribed by users so that users can be noticed as soon<br>
+&nbsp;as there is any change happened in the website. &nbsp;<br>
+</p>
+<h3>Code Logical:</h3>
+<p style="font-family:Courier New"><br>
+Step1: Create a C# ASP.NET Web Application in Visual Studio 2008 / Visual <br>
+Web Developer and name it as CSASPNETRssFeeds.<br>
+<br>
+Step2: Add a database file into the application folder App_Data. In this sample,<br>
+the database is the same name as the project name.<br>
+<br>
+Step3: Create a table named Article in the database and add these columns into<br>
+the table: ArticleID, Title, Author, Link, Description, PubDate.<br>
+<br>
+Step4: Insert a new record into this table as a test. We will use this test record
+<br>
+later.<br>
+<br>
+Step5: Add a new ASP.NET page called AddArticle.aspx to the project, which is<br>
+used to update the database table.<br>
+<br>
+Step6: Add a DataSource and a FormView control into this page. In short, set <br>
+the DataSource connect to the Article table and bind this DataSource to the <br>
+FormView. Enable the paging of the FormView and run the page to find that the <br>
+datatable is totally under the control, which means records can be inserted, <br>
+edited, updated and deleted from the FormView.<br>
+<br>
+Step7: &nbsp;Add a new ASP.NET page called Rss.aspx to the project. This is the star<br>
+of this project.<br>
+<br>
+Step8: Write a function to get the data from the Article table in the codebehind of
+<br>
+the rss page. It could be look like this.<br>
+<br>
+&nbsp; &nbsp;private DataTable GetDateSet()<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp;DataTable ArticlesRssTable = new DataTable();<br>
+&nbsp; &nbsp; &nbsp; &nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;string strconn = ConfigurationManager.ConnectionStrings[&quot;ConnStr4Articles&quot;].ConnectionString;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;SqlConnection conn = new SqlConnection(strconn);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;string strsqlquery = &quot;SELECT * FROM [Articles]&quot;;<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;SqlDataAdapter da = new SqlDataAdapter(strsqlquery, conn);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;da.Fill(ArticlesRssTable);<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp;return ArticlesRssTable;<br>
+&nbsp; &nbsp;}<br>
+<br>
+[NOTE] This function returns a DataTable containing the records selected from <br>
+the Article table via the SQL query string above. As a test, it returns all records<br>
+from the table. However, usually we only selecte 20 records of the latest article<br>
+from the table so that the process will not be too long and the rss page will not<br>
+be too big. Anyway, it depends on the requirement of the rss feed.<br>
+<br>
+Step9: Write code to create the rss xml file. As it is only the code work, please
+<br>
+refer to ths Rss.aspx.vb file in this sample.<br>
+<br>
+[NOTE] Because a rss feed is an XML format file instead of a normal web<br>
+page, we need to modify the Response.ContentType property. Also, unicode<br>
+might be contained in the rss feed, we need to change the ContentEncoding <br>
+property of current response as well.<br>
+<br>
+&nbsp; &nbsp;Response.ContentType = &quot;application/rss&#43;xml&quot;;<br>
+&nbsp; &nbsp;Response.ContentEncoding = Encoding.UTF8;<br>
+<br>
+As the rss feed content contains three parts: the opening, the body and the <br>
+ending. We separate them into three methods: WriteRssOpening, WriteRssBody<br>
+and WriteRssEnding. When writing the body, we use For Each to loop through<br>
+the records in the DataTable and write them in an item node and write the title,<br>
+author, link, description and pubDate fileds as the attributes under the item node.<br>
+<br>
+&nbsp; &nbsp;foreach (DataRow rssitem in data.Rows)<br>
+&nbsp; &nbsp;{<br>
+&nbsp; &nbsp; &nbsp; &nbsp;rsswriter.WriteStartElement(&quot;item&quot;);<br>
+&nbsp; &nbsp; &nbsp; &nbsp;rsswriter.WriteElementString(&quot;title&quot;, rssitem[1].ToString());<br>
+&nbsp; &nbsp; &nbsp; &nbsp;rsswriter.WriteElementString(&quot;author&quot;, rssitem[2].ToString());<br>
+&nbsp; &nbsp; &nbsp; &nbsp;rsswriter.WriteElementString(&quot;link&quot;, rssitem[3].ToString());<br>
+&nbsp; &nbsp; &nbsp; &nbsp;rsswriter.WriteElementString(&quot;description&quot;, rssitem[4].ToString());<br>
+&nbsp; &nbsp; &nbsp; &nbsp;rsswriter.WriteElementString(&quot;pubDate&quot;, rssitem[5].ToString());<br>
+&nbsp; &nbsp; &nbsp; &nbsp;rsswriter.WriteEndElement();<br>
+&nbsp; &nbsp;}<br>
+<br>
+Finally, when all work has been doen, we need to end the response. Otherwise,<br>
+some error will occur to destory all things we did before and only return an error
+<br>
+message &quot;Internet Explorer cannot display this feed&quot; on the page. So, do NOT<br>
+forget to add the code at the end of Page_Load event handler.<br>
+<br>
+&nbsp; &nbsp;Response.End();<br>
+</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MSDN: XmlTextWriter Class<br>
+<a  href="http://msdn.microsoft.com/en-us/library/system.xml.xmltextwriter.aspx">http://msdn.microsoft.com/en-us/library/system.xml.xmltextwriter.aspx</a><br>
+<br>
+MSDN: RSS Tutorial<br>
+<a target="_blank" href="&lt;a http://www.mnot.net/rss/tutorial/">http://www.mnot.net/rss/tutorial/</a>'&gt;<a  href="http://www.mnot.net/rss/tutorial/">http://www.mnot.net/rss/tutorial/</a><br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/3384444c-0fce-4538-886c-126c04fccfb7image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
