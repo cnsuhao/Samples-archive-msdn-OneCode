@@ -1,0 +1,32 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C758A5A3-AC2D-4C67-97DD-7A32D0125D70}"
+	ProjectSection(SolutionItems) = preProject
+		CSMailslotcommunication\Documentation\ReadMe.htm = CSMailslotcommunication\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSMailslotServer", "CSMailslotcommunication\CSMailslotServer\CSMailslotServer.csproj", "{1CF6DC01-50B2-43DC-9DCB-9F856ED26F20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSMailslotClient", "CSMailslotcommunication\CSMailslotClient\CSMailslotClient.csproj", "{635E07A0-6FBD-4611-88F2-995071C6A477}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CF6DC01-50B2-43DC-9DCB-9F856ED26F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF6DC01-50B2-43DC-9DCB-9F856ED26F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF6DC01-50B2-43DC-9DCB-9F856ED26F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF6DC01-50B2-43DC-9DCB-9F856ED26F20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{635E07A0-6FBD-4611-88F2-995071C6A477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{635E07A0-6FBD-4611-88F2-995071C6A477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{635E07A0-6FBD-4611-88F2-995071C6A477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{635E07A0-6FBD-4611-88F2-995071C6A477}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
