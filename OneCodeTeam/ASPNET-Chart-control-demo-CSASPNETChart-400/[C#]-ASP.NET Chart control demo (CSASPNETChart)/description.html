@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ASP.NET Chart control demo (CSASPNETChart)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>ASP.NET Chart control demo (CSASPNETChart)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Chart Controls
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">2/3/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSASPNETChart-9e45b8d1">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;</p>
+<h2>ASP.NET APPLICATION : CSASPNETChart Project Overview</h2>
+<p style="font-family:Courier New">&nbsp;</p>
+<h3>Use:</h3>
+<p style="font-family:Courier New"><br>
+&nbsp;The project illustrates how to use the new Chart control to create an chart<br>
+&nbsp;in the web page.</p>
+<h3>Code Logical:</h3>
+<p style="font-family:Courier New"><br>
+Step1. Create a C# ASP.NET Web Application in Visual Studio 2010 RC /<br>
+Visual Web Developer 2010 and name it as CSASPNETChart.<br>
+<br>
+[NOTE] As Visual Studio 2010 has not been realsed, you can download its<br>
+express version from <a href="http://www.microsoft.com/express/Web/" >
+http://www.microsoft.com/express/Web/</a><br>
+<br>
+Step2. Delete the following default folders and files created automatically <br>
+by Visual Studio.<br>
+<br>
+Account folder<br>
+Script folder<br>
+Style folder<br>
+About.aspx file<br>
+Default.aspx file<br>
+Global.asax file<br>
+Site.Master file<br>
+<br>
+Step3. Add a new web form page to the website and name it as Default.aspx.<br>
+<br>
+Step4. Add a Chart control into the page. You can find it in the Data <br>
+category of the Toolbox.<br>
+<br>
+[NOTE] When a Chart control is added into the page, such a Register Info will<br>
+be added to the same page automatically.<br>
+<br>
+&lt;%@ Register Assembly=&quot;System.Web.DataVisualization, Version=4.0.0.0, <br>
+&nbsp; &nbsp;Culture=neutral, PublicKeyToken=31bf3856ad364e35&quot;<br>
+&nbsp; &nbsp;Namespace=&quot;System.Web.UI.DataVisualization.Charting&quot; TagPrefix=&quot;asp&quot; %&gt;<br>
+<br>
+Also, a new reference /System.Web.DataVisualization/ will be added to the web<br>
+application as well.<br>
+<br>
+Step5: Add two Series into the Chart tag as the sample below.<br>
+<br>
+&nbsp; &nbsp;&lt;Series&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:Series Name=&quot;Series1&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;/asp:Series&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:Series Name=&quot;Series2&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;/asp:Series&gt;<br>
+&nbsp; &nbsp;&lt;/Series&gt;<br>
+<br>
+[NOTE] The Series collection property stores Series objects, which are used to <br>
+store data that is to be displayed, along with attributes of that data.<br>
+<br>
+Step6: Edit the two Series to add ChartType property which equals to Column and<br>
+ChartArea property with the value as ChartArea1.<br>
+<br>
+[NOTE] The Series ChartType value that indicates the chart type that will be <br>
+used to represent the series. For all items in this collectin, please refer <br>
+to this link: <a href="http://msdn.microsoft.com/en-us/library/system.web.ui.datavisualization.charting.seriescharttype(VS.100).aspx" >
+http://msdn.microsoft.com/en-us/library/system.web.ui.datavisualization.charting.seriescharttype(VS.100).aspx</a><br>
+The ChartAreas collection property stores ChartArea objects, which are primarily <br>
+used to draw one or more charts using one set of axes. You will finally find the <br>
+HTML code looks like this.<br>
+<br>
+&lt;asp:Chart ID=&quot;Chart1&quot; runat=&quot;server&quot; Height=&quot;400px&quot; Width=&quot;500px&quot;&gt;<br>
+&nbsp; &nbsp;&lt;Series&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:Series Name=&quot;Series1&quot; ChartType=&quot;Column&quot; ChartArea=&quot;ChartArea1&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;/asp:Series&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:Series Name=&quot;Series2&quot; ChartType=&quot;Column&quot; ChartArea=&quot;ChartArea1&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;/asp:Series&gt;<br>
+&nbsp; &nbsp;&lt;/Series&gt;<br>
+&nbsp; &nbsp;&lt;ChartAreas&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;asp:ChartArea Name=&quot;ChartArea1&quot;&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;/asp:ChartArea&gt;<br>
+&nbsp; &nbsp;&lt;/ChartAreas&gt;<br>
+&lt;/asp:Chart&gt;<br>
+<br>
+Step7: Create data source for the Chart control via DataTable in the behind<br>
+code. In this step, please directly follow the method CreateDataTable in <br>
+Default.aspx.cs, as this is not what we are talking about in this project.<br>
+<br>
+Step8: Bind the data source to the Chart control.<br>
+<br>
+&nbsp; &nbsp;Chart1.Series[0].YValueMembers = &quot;Volume1&quot;;<br>
+&nbsp; &nbsp;Chart1.Series[1].YValueMembers = &quot;Volume2&quot;;<br>
+&nbsp; &nbsp;Chart1.Series[0].XValueMember = &quot;Date&quot;;<br>
+<br>
+[NOTE] Series.YValueMembers property is used to get or set member columns of <br>
+the chart data source used to bind data to the Y-values of the series. Alike,<br>
+Series.XValueMember property is for getting or setting the member column of <br>
+the chart data source used to data bind to the X-value of the series.<br>
+<br>
+Step9: Now, you can run the page to see the achievement we did before :-)</p>
+<h3>References:</h3>
+<p style="font-family:Courier New"><br>
+MSDN: Chart Class<br>
+<a href="http://msdn.microsoft.com/en-us/library/system.web.ui.datavisualization.charting.chart(VS.100).aspx" >http://msdn.microsoft.com/en-us/library/system.web.ui.datavisualization.charting.chart(VS.100).aspx</a><br>
+<br>
+MSDN: Chart Controls Tutorial<br>
+<a href="http://msdn.microsoft.com/en-us/library/dd489231(VS.100).aspx" >http://msdn.microsoft.com/en-us/library/dd489231(VS.100).aspx</a><br>
+<br>
+ASP.NET: Chart Control<br>
+<a href="http://www.asp.net/learn/aspnet-4-quick-hit-videos/video-8770.aspx" >http://www.asp.net/learn/aspnet-4-quick-hit-videos/video-8770.aspx</a> (Quick Hit Videl)<br>
+<br>
+</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
