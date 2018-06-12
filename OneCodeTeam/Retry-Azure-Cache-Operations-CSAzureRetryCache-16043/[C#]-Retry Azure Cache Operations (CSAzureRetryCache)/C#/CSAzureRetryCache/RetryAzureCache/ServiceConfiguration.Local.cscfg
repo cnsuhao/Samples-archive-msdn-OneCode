@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="RetryAzureCache" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="1" osVersion="*">
+  <Role name="RetryCacheRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Connect.ActivationToken" value="86bb07ab-3166-41a5-9551-0b7826dd89c3" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Connect.Refresh" value="" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Connect.WaitForConnectivity" value="" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Connect.Upgrade" value="" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Connect.EnableDomainJoin" value="" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Connect.DomainFQDN" value="" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Connect.DomainControllerFQDN" value="" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Connect.DomainAccountName" value="" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Connect.DomainPassword" value="" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Connect.DomainOU" value="" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Connect.Administrators" value="" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Connect.DomainSiteName" value="" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="hari" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEGWJOJpoVCiZRCPeB+H1yo0wDQYJKoZIhvcNAQEBBQAEggEAKDIOvv+y0AC38lvvXGoOa0cEZQp/7OHFiehzZq3SQSSPvXbY0KPOgdca1cJwA93i21MfWQGF2dXqr1llI1dN1d7emmi4ETXuOKJAjeDzNL0I59BnsTsD9ZBkYwvSMweownWstWeqyrQYpd01LrsWtuFCCTnLdmSwp/T8cychXLK/DIiDMzj8KfIhizTLnhnLeutWDhSJYDeEhFbrYghgBS93lw2lu33y9yuDEBqwRTsID1PKXfUYXRh1JHLQyR4AoH1pttJNN+kobLMvShc19DpUCKqe5TvQt8O3EUiUPwHA7Q3lLIYwwkMBp4FTxRFvRWgLCi8Gf7vBj8B2gL1y1TAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECHHJ5kO6X8JxgBB8waMlLhrvQxs4/YVyHerr" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2013-01-04T23:59:59.0000000+05:30" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="45BA67F0EAFE41E6B460C5F397320860E2925F10" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>
