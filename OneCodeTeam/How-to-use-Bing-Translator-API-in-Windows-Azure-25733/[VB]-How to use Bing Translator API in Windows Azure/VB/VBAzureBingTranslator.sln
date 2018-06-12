@@ -1,0 +1,31 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "VBAzureBingTranslator", "VBAzureBingTranslator\VBAzureBingTranslator.ccproj", "{7BDD20AC-9BE5-4588-80D9-F959AA3871D9}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WebRole1", "VBAzureBingTranslator\WebRole1\WebRole1.vbproj", "{67615050-3BD3-43B4-90B7-7A0BB97BFA97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{EB954C21-E04A-433D-8924-E51E717B6C58}"
+	ProjectSection(SolutionItems) = preProject
+		VBAzureBingTranslator\WebRole1\Documentation\Readme.htm = VBAzureBingTranslator\WebRole1\Documentation\Readme.htm
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BDD20AC-9BE5-4588-80D9-F959AA3871D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BDD20AC-9BE5-4588-80D9-F959AA3871D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BDD20AC-9BE5-4588-80D9-F959AA3871D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BDD20AC-9BE5-4588-80D9-F959AA3871D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67615050-3BD3-43B4-90B7-7A0BB97BFA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67615050-3BD3-43B4-90B7-7A0BB97BFA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67615050-3BD3-43B4-90B7-7A0BB97BFA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67615050-3BD3-43B4-90B7-7A0BB97BFA97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
