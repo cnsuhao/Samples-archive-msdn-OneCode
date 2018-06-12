@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Customize the text in square brackets. 
+Remove brackets when filling in, e.g.
+Name="[NAME]" ==> Name="MyWorkflow" -->
+
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Workflow
+     Name="ReplicatorTask"
+     Description="My SharePoint Workflow"
+     Id="843f522d-6878-4aba-a6d9-01b5d07993c8"
+     CodeBesideClass="VBSharePointReplicatorActivity.ReplicatorTask"
+        AssociationUrl="_Layouts/VBSharePointReplicatorActivity/ReplicatorTask/WorkflowAssociationForm.aspx"
+     CodeBesideAssembly="$assemblyname$">
+    <Categories/>
+    <MetaData>
+      <AssociationCategories>List</AssociationCategories>     
+      <StatusPageUrl>_layouts/WrkStat.aspx</StatusPageUrl>
+    </MetaData>
+  </Workflow>
+</Elements>
