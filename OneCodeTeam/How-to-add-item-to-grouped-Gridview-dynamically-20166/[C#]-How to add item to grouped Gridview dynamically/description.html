@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to add item to grouped Gridview dynamically</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to add item to grouped Gridview dynamically</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows 8
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Data Binding, Windows 8
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/16/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSWindowsStoreAppAddItem-a5d7fbcc">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span><a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144425" ><img id="79968" src="description/DPE_W8_728x90_1022_V2.jpg" alt="" width="728" height="90" style="width:100%"></a></span></h1>
+<h1><span>&nbsp;</span></h1>
+<h1><span>Add an item dynamically to a grouped GridView in a Windows Store app (CSWindowsStoreAppAddItem)
+</span></h1>
+<h2>Introduction</h2>
+<p class="MsoNormal" style="margin-bottom:.75pt"><span style="color:black">This sample demonstrates how to add an item dynamically to a grouped GridView.
+</span></p>
+<p class="MsoNormal" style="margin-bottom:.75pt"><span style="color:black">From the GridView control we get the collections view source. In the source we search for the group with the key of the item we want to add, or we add a new group to the source, if
+ the key doesn't exist. Then we add the item to the list of items in that group. </span>
+</p>
+<p class="MsoNormal"><span style="color:black">Because the source is a dependency property and it is bound to the GridView control with an OneWay binding, the change in the source is dynamically propagated to the control.</span></p>
+<h2>Running the Sample</h2>
+<p class="MsoListParagraphCxSpFirst"><span><span>1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Open this sample in Visual Studio 2012 on Windows 8 machine, and press F5 to run it.</p>
+<p class="MsoListParagraphCxSpMiddle"><span><span>2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>After the app is launched, you will see following screen.</p>
+<p class="MsoListParagraphCxSpMiddle"><span style="font-size:12.0pt; line-height:115%; font-family:&quot;Times New Roman&quot;,&quot;serif&quot;; color:black"><img src="description/image.png" alt="" width="866" height="491" align="middle">
+</span></p>
+<p class="MsoListParagraphCxSpMiddle"><span style="font-size:9.5pt; line-height:115%; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;; color:black"><span>3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span>Select the name of a picture and a category from the combo boxes and name the item you want to add. After clicking the &quot;Add Item&quot; button you will see the item appearing in the list<span style="font-size:9.5pt; line-height:115%; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;; color:black">.
+</span></p>
+<p class="MsoListParagraphCxSpLast"><span style="font-size:9.5pt; line-height:115%; font-family:&quot;Segoe UI&quot;,&quot;sans-serif&quot;; color:black"><img src="description/9075856f-50b0-4ab9-ac71-4e70a5dc27bfimage.png" alt="" width="865" height="492" align="middle">
+</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<h2>Using the Code</h2>
+<p class="MsoNormal"><span>In MainPage.xaml the GridView named ItemsByCategory is declared. Note that the ItemsSource is bound to the resource collectionViewSource declared earlier in the same file. The important part is the binding mode. By default data
+ bindings are OneTime, which means no changes of the data source are propagated to the control. The modes OneWay and TwoWay make use of the notification event in the dependency property to update the control.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xaml</span>
+<pre class="hidden">&lt;GridView x:Name=&quot;ItemsByCategory&quot; 
+                  ItemsSource=&quot;{Binding Source={StaticResource collectionViewSource}, Mode=TwoWay}&quot;
+
+</pre>
+<pre id="codePreview" class="xaml">&lt;GridView x:Name=&quot;ItemsByCategory&quot; 
+                  ItemsSource=&quot;{Binding Source={StaticResource collectionViewSource}, Mode=TwoWay}&quot;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span>In <span class="SpellE">MainPage.xaml.cs</span> you see the source of the collection view source, which is declared in the XAML, set to an observable collection. Each item in this collection represents a group. The control is
+ subscribed to changes in this collection, so whenever a group is added or removed, it will automatically be updated.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public sealed partial class MainPage
+{
+    /// &lt;summary&gt;
+    /// The data source for the grouped grid view.
+    /// &lt;/summary&gt;
+    private static ObservableCollection&lt;GroupInfoCollection&lt;Item&gt;&gt; _source;
+
+
+    /// &lt;summary&gt;
+    /// Initializes a new instance of the &lt;see cref=&quot;MainPage&quot;/&gt; class.
+    /// &lt;/summary&gt;
+    public MainPage()
+    {
+        InitializeComponent();
+
+
+        _source = (new StoreData()).GetGroupsByCategory();
+
+
+        collectionViewSource.Source = _source;
+
+</pre>
+<pre id="codePreview" class="csharp">public sealed partial class MainPage
+{
+    /// &lt;summary&gt;
+    /// The data source for the grouped grid view.
+    /// &lt;/summary&gt;
+    private static ObservableCollection&lt;GroupInfoCollection&lt;Item&gt;&gt; _source;
+
+
+    /// &lt;summary&gt;
+    /// Initializes a new instance of the &lt;see cref=&quot;MainPage&quot;/&gt; class.
+    /// &lt;/summary&gt;
+    public MainPage()
+    {
+        InitializeComponent();
+
+
+        _source = (new StoreData()).GetGroupsByCategory();
+
+
+        collectionViewSource.Source = _source;
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span>The GroupInfoCollection&lt;T&gt; objects in the observable collection are again observable collections. The items in this collection represent the items in each group. Through the data binding the control will be subscribed to the
+ notification event of those collections as well and automatically update, when an item is added or removed.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public class GroupInfoCollection&lt;T&gt; : ObservableCollection&lt;T&gt;
+{
+
+</pre>
+<pre id="codePreview" class="csharp">public class GroupInfoCollection&lt;T&gt; : ObservableCollection&lt;T&gt;
+{
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span>Changing the key of a GroupInfoCollection&lt;T&gt; object, however, doesn't rise a notification event. Hence the control doesn't update after the key changed.
+</span></p>
+<p class="MsoNormal"><span>The items implement the interface </span><span style="font-size:9.5pt; line-height:115%; font-family:Consolas; color:#2b91af; background:white">INotifyPropertyChanged</span><span>. Changing any property of an object of type Item
+ that rises the PropertyChanged event will also result in the control updating. </span>
+</p>
+<p class="MsoNormal"><span>When the &quot;Add Item&quot; button is clicked, the </span><span class="SpellE">btnAddItemClick</span><span> event handler will be invoked. After gathering the information from the combo boxes and the text box, the source is queried for
+ the group that represents the selected category. The new item will be added to the list of items in that group. Now, transparent for the developer, the event will notify the control and the GridView will be updated.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">private void btnAddItemClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+{
+    string path = string.Format(CultureInfo.InvariantCulture, &quot;SampleData/Images/60{0}.png&quot;, pictureComboBox.SelectedItem);
+
+
+    Item item = new Item
+                    {
+                        Title = titleTextBox.Text,
+                        Category = (string)groupComboBox.SelectedItem
+                    };
+    item.SetImage(StoreData.BaseUri, path);
+
+
+    GroupInfoCollection&lt;Item&gt; group =
+        _source.Single(groupInfoList =&gt; groupInfoList.Key == item.Category);
+
+
+    group.Add(item);
+}
+
+</pre>
+<pre id="codePreview" class="csharp">private void btnAddItemClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+{
+    string path = string.Format(CultureInfo.InvariantCulture, &quot;SampleData/Images/60{0}.png&quot;, pictureComboBox.SelectedItem);
+
+
+    Item item = new Item
+                    {
+                        Title = titleTextBox.Text,
+                        Category = (string)groupComboBox.SelectedItem
+                    };
+    item.SetImage(StoreData.BaseUri, path);
+
+
+    GroupInfoCollection&lt;Item&gt; group =
+        _source.Single(groupInfoList =&gt; groupInfoList.Key == item.Category);
+
+
+    group.Add(item);
+}
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal">&nbsp;</p>
+<h2>More Information</h2>
+<p class="MsoNormal"><span><a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.groupstyle">GroupStyle Class</a></span></p>
+<p class="MsoNormal">&nbsp;</p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/b54ac75c-991a-4c3a-a697-d8e8f7fa5c86image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
