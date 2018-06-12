@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Increase ASP.NET temp folder size in Azure (CSAzureIncreaseTempFolderSize)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Increase ASP.NET temp folder size in Azure (CSAzureIncreaseTempFolderSize)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Temp Folder Size
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/16/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/CSAzureIncreaseTempFolderSi-d58c604d">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p style="font-family:Courier New">&nbsp;<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420" ><img id="79969" src="description/120x90_Azure_web_EN_US.jpg" alt="" width="360" height="90"></a></p>
+<h1>Increase the size of Asp.net Temporary folder in Azure (CSAzureIncreaseTempFolderSize)</h1>
+<h2>Introduction</h2>
+<p>By default the ASP.NET temporary folder size in a Windows Azure web role is limited to 100 MB. This is sufficient for the vast majority of applications, but some applications may require more storage space for temporary files. In particular this will happen
+ for very large applications which generate a lot of dynamically generated code, or applications which use controls that make use of the temporary folder such as the standard FileUpload control. If you are encountering the problem of running out of temporary
+ folder space you will get error messages such as OutOfMemoryException or &lsquo;There is not enough space on the disk.&rsquo;.</p>
+<div align="right">
+<p><a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420"><span style="color:windowtext; text-decoration:none"><span><img src="description/image.png" alt="" width="120" height="90" align="middle">
+</span></span></a><br>
+<a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200144420">Try Windows Azure for free for 90 Days!</a></p>
+</div>
+<h2>Building the Sample</h2>
+<p>This sample can be run as-is without making any changes to it.</p>
+<h2>Running the Sample</h2>
+<ol>
+<li>Open the sample on the machine where VS 2010, Windows Azure SDK 1.6 are installed.
+</li><li>Right click on the cloud service project i.e. CSAzureIncreaseTempFolderSize and choose Publish.
+</li><li>Follow the steps in publish Wizard and choose subscription details, deployment slots, etc. and enable remote desktop for all roles.
+</li><li>After successful publish, login to Windows Azure VM via RDP and verify that IIS is using newly created AspNetTemp1GB for storing temporary files instead of default temporary ASP.net folder.
+</li></ol>
+<h2>Using the Code</h2>
+<p>1) In the ServiceDefinition.csdef create one LocalStorage resource in the Web Role, and set the Runtime&nbsp;executionContext to elevated.&nbsp; The elevated executionContext allows us to use the ServerManager class to modify the IIS configuration during
+ role startup.&nbsp;&nbsp;&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xml</span>
+<pre class="hidden">&lt;WebRole name=&quot;IncreaseAspnetTempFolderSize&quot; vmsize=&quot;Small&quot;&gt;
+  &lt;Runtime executionContext=&quot;elevated&quot; /&gt;
+  &lt;Sites&gt;
+    &lt;Site name=&quot;Web&quot;&gt;
+      &lt;Bindings&gt;
+        &lt;Binding name=&quot;Endpoint1&quot; endpointName=&quot;Endpoint1&quot; /&gt;
+      &lt;/Bindings&gt;
+    &lt;/Site&gt;
+  &lt;/Sites&gt;
+  &lt;Endpoints&gt;
+    &lt;InputEndpoint name=&quot;Endpoint1&quot; protocol=&quot;http&quot; port=&quot;80&quot; /&gt;
+  &lt;/Endpoints&gt;
+  &lt;LocalResources&gt;
+    &lt;LocalStorage name=&quot;AspNetTemp1GB&quot; sizeInMB=&quot;1000&quot; /&gt;
+  &lt;/LocalResources&gt;
+ 
+  &lt;Imports&gt;
+    &lt;Import moduleName=&quot;Diagnostics&quot; /&gt;
+  &lt;/Imports&gt;
+&lt;/WebRole&gt;
+</pre>
+<div class="preview">
+<pre class="xml"><span class="xml__tag_start">&lt;WebRole</span>&nbsp;<span class="xml__attr_name">name</span>=<span class="xml__attr_value">&quot;IncreaseAspnetTempFolderSize&quot;</span>&nbsp;<span class="xml__attr_name">vmsize</span>=<span class="xml__attr_value">&quot;Small&quot;</span><span class="xml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;<span class="xml__tag_start">&lt;Runtime</span>&nbsp;<span class="xml__attr_name">executionContext</span>=<span class="xml__attr_value">&quot;elevated&quot;</span>&nbsp;<span class="xml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="xml__tag_start">&lt;Sites</span><span class="xml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="xml__tag_start">&lt;Site</span>&nbsp;<span class="xml__attr_name">name</span>=<span class="xml__attr_value">&quot;Web&quot;</span><span class="xml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xml__tag_start">&lt;Bindings</span><span class="xml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xml__tag_start">&lt;Binding</span>&nbsp;<span class="xml__attr_name">name</span>=<span class="xml__attr_value">&quot;Endpoint1&quot;</span>&nbsp;<span class="xml__attr_name">endpointName</span>=<span class="xml__attr_value">&quot;Endpoint1&quot;</span>&nbsp;<span class="xml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xml__tag_end">&lt;/Bindings&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="xml__tag_end">&lt;/Site&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="xml__tag_end">&lt;/Sites&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="xml__tag_start">&lt;Endpoints</span><span class="xml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="xml__tag_start">&lt;InputEndpoint</span>&nbsp;<span class="xml__attr_name">name</span>=<span class="xml__attr_value">&quot;Endpoint1&quot;</span>&nbsp;<span class="xml__attr_name">protocol</span>=<span class="xml__attr_value">&quot;http&quot;</span>&nbsp;<span class="xml__attr_name">port</span>=<span class="xml__attr_value">&quot;80&quot;</span>&nbsp;<span class="xml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="xml__tag_end">&lt;/Endpoints&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="xml__tag_start">&lt;LocalResources</span><span class="xml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="xml__tag_start">&lt;LocalStorage</span>&nbsp;<span class="xml__attr_name">name</span>=<span class="xml__attr_value">&quot;AspNetTemp1GB&quot;</span>&nbsp;<span class="xml__attr_name">sizeInMB</span>=<span class="xml__attr_value">&quot;1000&quot;</span>&nbsp;<span class="xml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="xml__tag_end">&lt;/LocalResources&gt;</span>&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="xml__tag_start">&lt;Imports</span><span class="xml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="xml__tag_start">&lt;Import</span>&nbsp;<span class="xml__attr_name">moduleName</span>=<span class="xml__attr_value">&quot;Diagnostics&quot;</span>&nbsp;<span class="xml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;<span class="xml__tag_end">&lt;/Imports&gt;</span>&nbsp;
+<span class="xml__tag_end">&lt;/WebRole&gt;</span>&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p>2) Add reference to <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Web.Administration.aspx"  title="Auto generated link to Microsoft.Web.Administration">Microsoft.Web.Administration</a> (location: &lt;systemdrive&gt;\system32\inetsrv) assembly and add below using statement to your project</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">using <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Web.Administration.aspx"  title="Auto generated link to Microsoft.Web.Administration">Microsoft.Web.Administration</a>;</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">using</span>&nbsp;<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Web.Administration.aspx"  title="Auto generated link to Microsoft.Web.Administration">Microsoft.Web.Administration</a>;</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;3) Add the following code to the OnStart routine in WebRole.cs.&nbsp; This code configures the Website to point to the AspNetTemp1GB LocalStorage resource.</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public override bool OnStart()
+{
+    // For information on handling configuration changes
+    // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+    
+    // Get the location of the AspNetTemp1GB resource     
+    <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.WindowsAzure.ServiceRuntime.LocalResource.aspx"  title="Auto generated link to Microsoft.WindowsAzure.ServiceRuntime.LocalResource">Microsoft.WindowsAzure.ServiceRuntime.LocalResource</a> aspNetTempFolder = 
+        <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource.aspx"  title="Auto generated link to Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource">Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource</a>(&quot;AspNetTemp1GB&quot;);   
+    
+    //Instantiate the IIS ServerManager     
+    ServerManager iisManager = new ServerManager();     
+ 
+    // Get the website.  Note that &quot;_Web&quot; is the name of the site in the ServiceDefinition.csdef, 
+    // so make sure you change this code if you change the site name in the .csdef     
+    Application app = iisManager.Sites[RoleEnvironment.CurrentRoleInstance.Id &#43; &quot;_Web&quot;].Applications[0];    
+ 
+    // Get the web.config for the site     
+    Configuration webHostConfig = app.GetWebConfiguration();     
+ 
+    // Get a reference to the system.web/compilation element     
+    ConfigurationSection compilationConfiguration = webHostConfig.GetSection(&quot;system.web/compilation&quot;);  
+   
+    // Set the tempDirectory property to the AspNetTemp1GB folder     
+    compilationConfiguration.Attributes[&quot;tempDirectory&quot;].Value = aspNetTempFolder.RootPath;   
+  
+    // Commit the changes     
+    iisManager.CommitChanges();
+ 
+    return base.OnStart();
+}
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">bool</span>&nbsp;OnStart()&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;For&nbsp;information&nbsp;on&nbsp;handling&nbsp;configuration&nbsp;changes</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;see&nbsp;the&nbsp;MSDN&nbsp;topic&nbsp;at&nbsp;http://go.microsoft.com/fwlink/?LinkId=166357.</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Get&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;AspNetTemp1GB&nbsp;resource&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Microsoft.WindowsAzure.ServiceRuntime.LocalResource&nbsp;aspNetTempFolder&nbsp;=&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource.aspx"  title="Auto generated link to Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource">Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource</a>(<span class="cs__string">&quot;AspNetTemp1GB&quot;</span>);&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//Instantiate&nbsp;the&nbsp;IIS&nbsp;ServerManager&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;ServerManager&nbsp;iisManager&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;ServerManager();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Get&nbsp;the&nbsp;website.&nbsp;&nbsp;Note&nbsp;that&nbsp;&quot;_Web&quot;&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;site&nbsp;in&nbsp;the&nbsp;ServiceDefinition.csdef,&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;so&nbsp;make&nbsp;sure&nbsp;you&nbsp;change&nbsp;this&nbsp;code&nbsp;if&nbsp;you&nbsp;change&nbsp;the&nbsp;site&nbsp;name&nbsp;in&nbsp;the&nbsp;.csdef&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Application&nbsp;app&nbsp;=&nbsp;iisManager.Sites[RoleEnvironment.CurrentRoleInstance.Id&nbsp;&#43;&nbsp;<span class="cs__string">&quot;_Web&quot;</span>].Applications[<span class="cs__number">0</span>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Get&nbsp;the&nbsp;web.config&nbsp;for&nbsp;the&nbsp;site&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Configuration&nbsp;webHostConfig&nbsp;=&nbsp;app.GetWebConfiguration();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Get&nbsp;a&nbsp;reference&nbsp;to&nbsp;the&nbsp;system.web/compilation&nbsp;element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;ConfigurationSection&nbsp;compilationConfiguration&nbsp;=&nbsp;webHostConfig.GetSection(<span class="cs__string">&quot;system.web/compilation&quot;</span>);&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Set&nbsp;the&nbsp;tempDirectory&nbsp;property&nbsp;to&nbsp;the&nbsp;AspNetTemp1GB&nbsp;folder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;compilationConfiguration.Attributes[<span class="cs__string">&quot;tempDirectory&quot;</span>].Value&nbsp;=&nbsp;aspNetTempFolder.RootPath;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Commit&nbsp;the&nbsp;changes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;iisManager.CommitChanges();&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;<span class="cs__keyword">base</span>.OnStart();&nbsp;
+}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">
+<h2>More Information</h2>
+<p>For more information about the ASP.NET Temporary Folder see <a href="http://msdn.microsoft.com/en-us/magazine/cc163496.aspx">
+http://msdn.microsoft.com/en-us/magazine/cc163496.aspx</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img src="description/95e3bc78-76ea-4f7c-8b0e-445ca740f249image.png" alt="">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
