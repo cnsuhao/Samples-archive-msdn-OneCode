@@ -1,0 +1,32 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A585BD28-B8A9-44CC-B492-7206EE47224F}"
+	ProjectSection(SolutionItems) = preProject
+		CSNamedPipeCommunication\Documentation\ReadMe.htm = CSNamedPipeCommunication\Documentation\ReadMe.htm
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSNamedPipeClient", "CSNamedPipeCommunication\CSNamedPipeClient\CSNamedPipeClient.csproj", "{053DA278-4C17-4454-B9A3-E23EDD0C874B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSNamedPipeServer", "CSNamedPipeCommunication\CSNamedPipeServer\CSNamedPipeServer.csproj", "{CEAE2752-3BDF-44EB-AC50-6D387C2E8160}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{053DA278-4C17-4454-B9A3-E23EDD0C874B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{053DA278-4C17-4454-B9A3-E23EDD0C874B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{053DA278-4C17-4454-B9A3-E23EDD0C874B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{053DA278-4C17-4454-B9A3-E23EDD0C874B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEAE2752-3BDF-44EB-AC50-6D387C2E8160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEAE2752-3BDF-44EB-AC50-6D387C2E8160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEAE2752-3BDF-44EB-AC50-6D387C2E8160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEAE2752-3BDF-44EB-AC50-6D387C2E8160}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
