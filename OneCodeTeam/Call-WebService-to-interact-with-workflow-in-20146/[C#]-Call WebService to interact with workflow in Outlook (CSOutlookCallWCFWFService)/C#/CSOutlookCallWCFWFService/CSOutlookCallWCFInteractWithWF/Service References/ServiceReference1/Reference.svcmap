@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b21bee10-cfaa-48f2-871e-b1e658a5825b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:15099/LeaveService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LeaveService.xsd" MetadataType="Schema" ID="6f270e09-74f1-4c73-9a56-8929c6b9ddcb" SourceId="1" SourceUrl="http://localhost:15099/LeaveService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LeaveService1.xsd" MetadataType="Schema" ID="b6690f0b-3436-49c9-8342-a19cec29548f" SourceId="1" SourceUrl="http://localhost:15099/LeaveService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LeaveService.disco" MetadataType="Disco" ID="0c6d33f5-8549-4b2a-a3d6-be6a7ad2e811" SourceId="1" SourceUrl="http://localhost:15099/LeaveService.svc?disco" />
+    <MetadataFile FileName="LeaveService2.xsd" MetadataType="Schema" ID="21d67d3d-3add-4f65-b8e2-c23e0bf5cf1e" SourceId="1" SourceUrl="http://localhost:15099/LeaveService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LeaveService.wsdl" MetadataType="Wsdl" ID="d83f1db8-e2a3-407d-88b2-cc329945b16a" SourceId="1" SourceUrl="http://localhost:15099/LeaveService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

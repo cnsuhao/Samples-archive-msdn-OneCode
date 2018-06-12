@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DBOperate" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DBOperate" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:15099/LeaveService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfLeave">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Leave" nillable="true" type="tns:Leave" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLeave" nillable="true" type="tns:ArrayOfLeave" />
+  <xs:complexType name="Leave">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeaveDay" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LeaveID" type="ser:guid" />
+      <xs:element minOccurs="0" name="LeaveName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Leave" nillable="true" type="tns:Leave" />
+</xs:schema>

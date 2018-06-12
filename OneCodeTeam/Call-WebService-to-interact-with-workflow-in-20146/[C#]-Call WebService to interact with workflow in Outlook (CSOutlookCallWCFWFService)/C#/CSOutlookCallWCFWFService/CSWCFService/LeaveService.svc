@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="CSWCFService.LeaveService" CodeBehind="CSWCFService.LeaveService.svc.cs"%>
