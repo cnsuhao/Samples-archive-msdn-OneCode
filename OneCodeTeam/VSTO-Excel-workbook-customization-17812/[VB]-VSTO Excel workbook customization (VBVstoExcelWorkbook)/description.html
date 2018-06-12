@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>VSTO Excel workbook customization (VBVstoExcelWorkbook)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>VSTO Excel workbook customization (VBVstoExcelWorkbook)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Office
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Excel, VSTO
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">7/22/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBVstoExcelWorkbook-c5ecb0ea">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="">EXCEL WORKBOOK</span> (<span style="">VB</span>VstoExcelWorkbook)</h1>
+<h2>Introduction</h2>
+<p class="MsoNormal">The <span style="">VB</span>VstoExcelWorkbook provides the examples on how to customize Excel Workbooks by using the ListObject and the document Actions Pane.<span style="">&nbsp;
+</span><span style=""></span></p>
+<p class="MsoNormal"><span style="">The <span class="SpellE"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Office.Interop.Excel.Workbook.aspx"  title="Auto generated link to Microsoft.Office.Interop.Excel.Workbook">Microsoft.Office.Interop.Excel.Workbook</a></span> class represents a single workbook within the Excel application. Visual Studio Tools for Office extends the
+<span class="SpellE"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Office.Interop.Excel.Workbook.aspx"  title="Auto generated link to Microsoft.Office.Interop.Excel.Workbook">Microsoft.Office.Interop.Excel.Workbook</a></span> class by providing the
+<span class="SpellE"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Office.Tools.Excel.Workbook.aspx"  title="Auto generated link to Microsoft.Office.Tools.Excel.Workbook">Microsoft.Office.Tools.Excel.Workbook</a></span> class (<a href="http://msdn.microsoft.com/en-us/library/microsoft.office.tools.excel.workbook(v=vs.80).aspx">http://msdn.microsoft.com/en-us/library/microsoft.office.tools.excel.workbook(v=vs.80).aspx</a>),
+ which gives you access to all members of the Workbooks collection (<a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.excel.workbooks.aspx">http://msdn.microsoft.com/en-us/library/microsoft.office.interop.excel.workbooks.aspx</a>), as
+ well as data binding capabilities and additional events. </span></p>
+<p class="MsoNormal"><span style="">Every document-level customization for Excel or Word exposes an
+<span class="SpellE"><b>ActionsPane</b></span> object. You can use this object to customize the user interface of the
+<b>Document Actions</b> task pane in a document-level project. To get the <span class="SpellE">
+<b>ActionsPane</b></span> object, use the <span class="SpellE">ActionsPane</span> field of the
+<span class="SpellE">ThisDocument</span> class (for Word) or the <span class="SpellE">
+ThisWorkbook</span> class (for Excel) in your project. For more information, see <a href="http://msdn.microsoft.com/en-us/library/7we49he1.aspx">
+<span style="color:windowtext; text-decoration:none">Actions Pane Overview</span></a>(<a href="http://msdn.microsoft.com/en-us/library/7we49he1.aspx">http://msdn.microsoft.com/en-us/library/7we49he1.aspx</a>).
+</span></p>
+<h2><span style="">Building the Sample </span></h2>
+<p class="MsoNormal"><span style="">The code sample requires Microsoft Excel 2010.
+</span></p>
+<h2>Running the Sample</h2>
+<p class="MsoNormal"><span style=""><img src="description/image.png" alt="" width="719" height="239" align="middle">
+</span><span style="">&nbsp;</span><span style=""> </span></p>
+<h2>Using the Code</h2>
+<p class="MsoNormal">1. Create a User Control named CourseQueryPane.<span style="">
+</span></p>
+<p class="MsoNormal"><span style="">2. Set the DataSource property of the comboBox and add the following code to CourseQueryPane.cs:
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Private Sub CourseQueryPane_Load(sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.EventArgs.aspx"  title="Auto generated link to System.EventArgs">System.EventArgs</a>) Handles MyBase.Load
+       ' Fill the student names list.
+       Me.StudentListTableAdapter.Fill(Me.SchoolDataSet.StudentList)
+   End Sub
+
+
+   Private Sub cmdQuery_Click(sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.EventArgs.aspx"  title="Auto generated link to System.EventArgs">System.EventArgs</a>) Handles cmdQuery.Click
+       ' Update course list for selected student.
+       Globals.Sheet1.UpdateCourseList(cboName.Text.Trim())
+   End Sub
+
+</pre>
+<pre id="codePreview" class="vb">
+Private Sub CourseQueryPane_Load(sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.EventArgs.aspx"  title="Auto generated link to System.EventArgs">System.EventArgs</a>) Handles MyBase.Load
+       ' Fill the student names list.
+       Me.StudentListTableAdapter.Fill(Me.SchoolDataSet.StudentList)
+   End Sub
+
+
+   Private Sub cmdQuery_Click(sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.EventArgs.aspx"  title="Auto generated link to System.EventArgs">System.EventArgs</a>) Handles cmdQuery.Click
+       ' Update course list for selected student.
+       Globals.Sheet1.UpdateCourseList(cboName.Text.Trim())
+   End Sub
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">3</span>. In ThisWorkbook class, add the User Control to the Actions Pane using the following code:<span style="">&nbsp;&nbsp;
+</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>VB</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span>
+</div>
+<span class="hidden">vb</span>
+<pre class="hidden">
+Me.ActionsPane.Controls.Add(New CourseQueryPane())
+
+</pre>
+<pre id="codePreview" class="vb">
+Me.ActionsPane.Controls.Add(New CourseQueryPane())
+
+</pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p class="MsoNormal"><span style="">4</span>. Drag &amp; drop a ListObject from the Toolbox onto Sheet1.</p>
+<p class="MsoNormal"><span style="">5</span>. Set the DataSource property of the ListObject.</p>
+<p class="MsoNormal"><span style="">6</span>. At runtime, update related tables and the ListObject will reflect the data.</p>
+<h2>More Information<span style=""> </span></h2>
+<p class="MsoNormal" style="margin-left:18.0pt"><span class="SpellE">ListObject</span> Class</p>
+<p class="MsoNormal" style="margin-left:18.0pt"><a href="http://msdn.microsoft.com/en-us/library/microsoft.office.tools.excel.listobject.aspx">http://msdn.microsoft.com/en-us/library/microsoft.office.tools.excel.listobject.aspx</a><span style="">
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span class="SpellE"><span style="">ListObject</span></span><span style=""> Control
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span style=""><a href="http://msdn.microsoft.com/en-us/library/2ttzcbhb.aspx">http://msdn.microsoft.com/en-us/library/2ttzcbhb.aspx</a>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span class="SpellE">ActionsPane</span> Class<span style="">
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span style=""><a href="http://msdn.microsoft.com/en-us/library/microsoft.office.tools.actionspane.aspx">http://msdn.microsoft.com/en-us/library/microsoft.office.tools.actionspane.aspx</a>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span style="">Excel Object Model Overview
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span style=""><a href="http://msdn.microsoft.com/en-us/library/wss56bz7(v=vs.80).aspx">http://msdn.microsoft.com/en-us/library/wss56bz7(v=vs.80).aspx</a>
+</span></p>
+<hr>
+<div><a href="http://go.microsoft.com/?linkid=9759640" style="margin-top:3px"><img alt="" src="description/f0ce43d4-e8ea-415f-bfdd-f6bb39d3f968image.png">
+</a></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
