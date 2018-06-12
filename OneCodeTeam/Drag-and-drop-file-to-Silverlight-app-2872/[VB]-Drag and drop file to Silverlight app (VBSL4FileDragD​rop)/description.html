@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Drag and drop file to Silverlight app (VBSL4FileDragD​rop)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Drag and drop file to Silverlight app (VBSL4FileDragD​rop)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Silverlight
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Drag and Drop
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/20/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/VBSL4FileDragDrop-6b3a2f23">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    ======================================================================== SILVERLIGHT APPLICATION : VBSL4FileDragDrop Project Overview ======================================================================== /////////////////////////////////////////////////////////////////////////////
+ Use: Drag&Drop is the new supported feature in Silverlight4. In this sample, we demonstrate how to implement visual element's drag&drop function and how to access local files by using file drag&drop feature. /////////////////////////////////////////////////////////////////////////////
+ Demo: To test this sample: 1. Open VBSL4FileDragDrop solution and rebuild. (Due to an known issue, the drag&drop function are not allowed when running Silverlight app in Admin mode IE browser. Therefore, user need avoid running this Sample in VisualStudio
+ or IE with Admin account) 2. Press Ctrl&#43;F5 to open the test page. 3. In opened page, you may find a Silverlight application. a. Try drag any image files from your windows explorer to Silverlight application blue region. You may find that the image files will
+ be loaded and displayed in Silverlight application. (Note that: Silverlight only support .jpg,.png image format) b. Try drag and drop the image icon. ///////////////////////////////////////////////////////////////////////////// Prerequisites: Silverlight 4
+ Tools for Visual Studio 2010 http://www.silverlight.net/getstarted/ Silverilght 4 runtime http://www.silverlight.net/getstarted/ ///////////////////////////////////////////////////////////////////////////// Code Logic: 1. How to drag local files to Silverlight
+ application? First, enable the file drop function on elements by setting UIElement.AllowDrop to true. Then, handle UIElement.Drop event. To access the draged files, we may use the code below: Private Sub LayoutRoot_Drop(ByVal sender As Object, ByVal e As DragEventArgs)
+ If e.Data IsNot Nothing Then ' get fileinfos. Dim files = TryCast(e.Data.GetData(DataFormats.FileDrop), FileInfo()) For Each file In files 'access file here. Next End If End Sub 2. How to implement UI element drag and drop function? First, register UIElement.MouseLeftButtonDown
+ event, in eventhandler, set &quot;isdrag&quot; flag to true, and store the mouse position relative to the drag target element, and then capture mouse by UIElement.CaptureMouse() method. AddHandler element.MouseLeftButtonDown, Function(s, e) isdrag = True element.CaptureMouse()
+ relativepos = e.GetPosition(element) End Function Second, register UIElement.MouseMove event, in eventhandler, check &quot;isdrag&quot; flag value, if is true, set element's postion to [mouse current position relative to element's container] - [stored mouse position
+ relative to element] AddHandler element.MouseMove, Function(s, e) If isdrag Then Dim pos = e.GetPosition(LayoutRoot) Canvas.SetLeft(element, pos.X - relativepos.X) Canvas.SetTop(element, pos.Y - relativepos.Y) End If End Function Third, register UIElement.MouseLeftButtonUp
+ event, in eventhandler, set &quot;isdrag&quot; to false, and release mouse capture. AddHandler element.MouseLeftButtonUp, Function(s, e) element.ReleaseMouseCapture() isdrag = False End Function /////////////////////////////////////////////////////////////////////////////
+ References: UIElement.Drop Event http://msdn.microsoft.com/en-us/library/system.windows.uielement.drop(VS.95).aspx /////////////////////////////////////////////////////////////////////////////
+
+</div>
+
+
+    </div>
+</body>
+</html>
